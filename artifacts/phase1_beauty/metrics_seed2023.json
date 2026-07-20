@@ -1,0 +1,44 @@
+{
+  "dataset": "Beauty",
+  "seed": 2023,
+  "checkpoint_epoch": 25,
+  "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+  "checkpoint_sha256": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+  "selection_metric": "validation_NDCG@10",
+  "selection_metric_value": 0.06497370269327131,
+  "evaluation": "full-ranking",
+  "candidate_items": 12101,
+  "test_users": 22363,
+  "beam_size": 50,
+  "recall@5": 0.06327415820775388,
+  "ndcg@5": 0.04422346785603054,
+  "recall@10": 0.0888968385279256,
+  "ndcg@10": 0.052460810287925146,
+  "peak_gpu_memory_gb": 35.6,
+  "best_checkpoint_test_peak_gpu_memory_gb": 31.99,
+  "training_time_hours": 40.47,
+  "best_checkpoint_test_time_hours": 1.76,
+  "alignment_grade": "A",
+  "paper_comparison": {
+    "recall@5": {
+      "paper": 0.0641,
+      "absolute_error": -0.00082584179224612,
+      "relative_error_percent": 1.2884
+    },
+    "ndcg@5": {
+      "paper": 0.0451,
+      "absolute_error": -0.00087653214396946,
+      "relative_error_percent": 1.9435
+    },
+    "recall@10": {
+      "paper": 0.089,
+      "absolute_error": -0.0001031614720744,
+      "relative_error_percent": 0.1159
+    },
+    "ndcg@10": {
+      "paper": 0.0531,
+      "absolute_error": -0.000639189712074854,
+      "relative_error_percent": 1.2037
+    }
+  }
+}

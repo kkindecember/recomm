@@ -1,0 +1,12 @@
+PHASE_A_2026-07-20
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb         17T   16T  428G  98% /home
+/dev/sda1        17T  6.9T  8.6T  45% /mnt/18T
+
+POLICY
+- >= 100 GiB free on /home: normal launch.
+- 50-100 GiB: launch only with risk noted and enhanced monitoring.
+- < 50 GiB: do not launch formal training.
+
+The phase-A snapshot satisfies the normal-launch threshold. Space is shared and
+must be checked again immediately before every GPU job.

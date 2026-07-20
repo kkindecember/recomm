@@ -1,0 +1,17 @@
+GRAM_COMMIT
+7ac4d9272a57beed9df35c27ea34221f6e4a8fb1
+
+GRAM_STATUS
+## main...origin/main
+ M src/main_generative_gram.py
+?? command/smoke_test_gram_beauty_single.sh
+?? command/test_gram_beauty_best_single.sh
+?? command/train_gram_beauty_single.sh
+
+CLONE_MODE
+shallow clone (--depth 1)
+
+STATUS_NOTE
+The tracked source change preserves the explicitly requested debug_test_100 value.
+It affects smoke-test scope only because formal train/test commands use debug_test_100=0.
+The three command scripts are the single-GPU training, smoke-test, and selected-checkpoint test entry points.

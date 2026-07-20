@@ -1,0 +1,28 @@
+.cache/
+
+# The local GRAM checkout keeps its upstream Git metadata, datasets and assets.
+GRAM/.git/
+GRAM/rec_datasets/
+GRAM/assets/
+
+# Runtime model outputs and predictions can be hundreds of MiB.
+GRAM/log/
+GRAM/preds/
+*.pt
+*.pth
+*.ckpt
+
+# Python/editor caches.
+**/__pycache__/
+*.py[cod]
+.idea/
+.vscode/
+
+# Experiment runtime state and high-frequency telemetry.
+experiment/**/*.pid
+experiment/**/*_status.json
+experiment/**/*_gpu*.csv
+experiment/**/*_disk.csv
+
+# Full logs stay on the experiment machine; reports contain the durable summary.
+artifacts/**/logs/

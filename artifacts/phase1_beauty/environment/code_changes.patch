@@ -1,0 +1,149 @@
+diff --git a/src/main_generative_gram.py b/src/main_generative_gram.py
+index d73953d..af91e07 100755
+--- a/src/main_generative_gram.py
++++ b/src/main_generative_gram.py
+@@ -205,7 +205,6 @@ def single_main(args):
+         runner.train_generator()
+ 
+         logging.info(f"Train done ... Load model from {runner.cur_model_path}")
+-        runner.args.debug_test_100 = 0
+         runner.test(runner.cur_model_path)
+     else:
+         if args.test_by_valid:
+diff --git a/command/train_gram_beauty_single.sh b/command/train_gram_beauty_single.sh
+new file mode 100644
+--- /dev/null
++++ b/command/train_gram_beauty_single.sh
+@@ -0,0 +1,38 @@
++#!/usr/bin/env bash
++
++# GRAM Beauty single-GPU reproduction (seed 2023).
++# Run from this directory: bash train_gram_beauty_single.sh
++
++SEED=2023
++PHYSICAL_GPU=${PHYSICAL_GPU:-0}
++
++ITEM_ID_TYPE=split
++ID_LEN=7
++NUM_CF=10
++NUM_CLUSTER=128
++
++ITEM_ID=hierarchy_v1_c${NUM_CLUSTER}_l${ID_LEN}_len32768_split
++echo ">>>>>>>>>>>>>>>>>>>>> Beauty single GPU SEED: ${SEED} ITEM_ID: ${ITEM_ID}"
++
++CUDA_VISIBLE_DEVICES="${PHYSICAL_GPU}" exec "${PYTHON_BIN:-python}" ../src/main_generative_gram.py --datasets Beauty \
++  --distributed 0 \
++  --master_port 2341 \
++  --gpu 0 \
++  --seed ${SEED} \
++  --train 1 \
++  --item_prompt_max_len 128 \
++  --item_prompt all_text \
++  --cf_model sasrec \
++  --id_linking 1 \
++  --max_his 20 \
++  --rec_batch_size 16 \
++  --gradient_accumulation_steps 8 \
++  --rec_lr 1e-3 \
++  --rec_epochs 30 \
++  --test_epoch_rec 5 \
++  --save_rec_epochs 5 \
++  --save_predictions 1 \
++  --top_k_similar_item ${NUM_CF} \
++  --item_id_type ${ITEM_ID_TYPE} \
++  --hierarchical_id_type ${ITEM_ID} \
++  --lexical_id_type_user idgenrec
+diff --git a/command/smoke_test_gram_beauty_single.sh b/command/smoke_test_gram_beauty_single.sh
+new file mode 100644
+--- /dev/null
++++ b/command/smoke_test_gram_beauty_single.sh
+@@ -0,0 +1,41 @@
++#!/usr/bin/env bash
++
++# One-epoch, 100-train/100-evaluation-sample smoke test.
++# Its metrics are diagnostic only and must not be reported as reproduction results.
++# Run from this directory: bash smoke_test_gram_beauty_single.sh
++
++SEED=2023
++PHYSICAL_GPU=${PHYSICAL_GPU:-0}
++
++ITEM_ID_TYPE=split
++ID_LEN=7
++NUM_CF=10
++NUM_CLUSTER=128
++
++ITEM_ID=hierarchy_v1_c${NUM_CLUSTER}_l${ID_LEN}_len32768_split
++echo ">>>>>>>>>>>>>>>>>>>>> Beauty smoke test single GPU SEED: ${SEED} ITEM_ID: ${ITEM_ID}"
++
++CUDA_VISIBLE_DEVICES="${PHYSICAL_GPU}" exec "${PYTHON_BIN:-python}" ../src/main_generative_gram.py --datasets Beauty \
++  --distributed 0 \
++  --master_port 2341 \
++  --gpu 0 \
++  --seed ${SEED} \
++  --train 1 \
++  --item_prompt_max_len 128 \
++  --item_prompt all_text \
++  --cf_model sasrec \
++  --id_linking 1 \
++  --max_his 20 \
++  --rec_batch_size 4 \
++  --gradient_accumulation_steps 1 \
++  --rec_lr 1e-3 \
++  --rec_epochs 1 \
++  --test_epoch_rec 1 \
++  --save_rec_epochs 1 \
++  --save_predictions 1 \
++  --debug_train_100 1 \
++  --debug_test_100 1 \
++  --top_k_similar_item ${NUM_CF} \
++  --item_id_type ${ITEM_ID_TYPE} \
++  --hierarchical_id_type ${ITEM_ID} \
++  --lexical_id_type_user idgenrec
+diff --git a/command/test_gram_beauty_best_single.sh b/command/test_gram_beauty_best_single.sh
+new file mode 100755
+--- /dev/null
++++ b/command/test_gram_beauty_best_single.sh
+@@ -0,0 +1,43 @@
++#!/usr/bin/env bash
++
++# GRAM Beauty phase-D test of the checkpoint selected by validation NDCG@10.
++# Run from this directory: bash test_gram_beauty_best_single.sh
++set -euo pipefail
++
++SEED=2023
++PHYSICAL_GPU=${PHYSICAL_GPU:-0}
++
++ITEM_ID_TYPE=split
++ID_LEN=7
++NUM_CF=10
++NUM_CLUSTER=128
++
++ITEM_ID=hierarchy_v1_c${NUM_CLUSTER}_l${ID_LEN}_len32768_split
++BEST_CHECKPOINT=${BEST_CHECKPOINT:-../log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt}
++
++if [[ ! -s "$BEST_CHECKPOINT" ]]; then
++  echo "best checkpoint is missing or empty: $BEST_CHECKPOINT" >&2
++  exit 1
++fi
++
++echo ">>>>>>>>>>>>>>>>>>>>> Beauty best-checkpoint test SEED: ${SEED} ITEM_ID: ${ITEM_ID}"
++echo "checkpoint: ${BEST_CHECKPOINT}"
++
++CUDA_VISIBLE_DEVICES="${PHYSICAL_GPU}" exec "${PYTHON_BIN:-python}" ../src/main_generative_gram.py --datasets Beauty \
++  --distributed 0 \
++  --master_port 2341 \
++  --gpu 0 \
++  --seed ${SEED} \
++  --train 0 \
++  --rec_model_path "${BEST_CHECKPOINT}" \
++  --item_prompt_max_len 128 \
++  --item_prompt all_text \
++  --cf_model sasrec \
++  --id_linking 1 \
++  --max_his 20 \
++  --save_predictions 1 \
++  --beam_size 50 \
++  --top_k_similar_item ${NUM_CF} \
++  --item_id_type ${ITEM_ID_TYPE} \
++  --hierarchical_id_type ${ITEM_ID} \
++  --lexical_id_type_user idgenrec

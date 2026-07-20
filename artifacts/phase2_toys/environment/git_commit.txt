@@ -1,0 +1,25 @@
+GRAM_COMMIT
+7ac4d9272a57beed9df35c27ea34221f6e4a8fb1
+
+GRAM_STATUS_AT_PHASE_A
+ M src/arguments.py
+ M src/main_generative_gram.py
+?? command/smoke_test_gram_beauty_single.sh
+?? command/smoke_test_gram_toys_single.sh
+?? command/test_gram_beauty_best_single.sh
+?? command/test_gram_toys_best_single.sh
+?? command/train_gram_beauty_single.sh
+?? command/train_gram_toys_single.sh
+
+PHASE2_TRACKED_CHANGES
+- src/arguments.py: optional resource_metrics flag, default 0.
+- src/main_generative_gram.py: opt-in synchronized wall-time and process-local CUDA peak metrics.
+
+PHASE2_NEW_GRAM_SCRIPTS
+- command/train_gram_toys_single.sh
+- command/smoke_test_gram_toys_single.sh
+- command/test_gram_toys_best_single.sh
+
+NOTE
+The Beauty files and the debug_test_100 source correction predate phase 2 and are
+documented in artifacts/phase1_beauty/environment/code_changes.patch.
