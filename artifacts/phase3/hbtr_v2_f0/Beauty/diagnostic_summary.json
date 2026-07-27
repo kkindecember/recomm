@@ -1,0 +1,72 @@
+{
+  "metrics": {
+    "item_count": 12068,
+    "head_item_count": 2414,
+    "tail_item_count": 9654,
+    "cache_rows": 2368,
+    "cache_pairs": 9472,
+    "tail_nontrivial_rows": 374,
+    "tail_nontrivial_row_rate": 0.1579391891891892,
+    "joint_nontrivial_rows": 211,
+    "joint_nontrivial_row_rate": 0.08910472972972973,
+    "C4_v2_vs_C2_pair_margin_exact_equality_rate": 0.8420608108108109,
+    "head_weight_exactly_one": true,
+    "tail_weight_strictly_above_one": true,
+    "tail_weight_monotonic": true,
+    "rarest_item_tail_weight": 2.0,
+    "maximum_observed_margin": 0.33219390926041015,
+    "cache_frequency_mismatches": 0
+  },
+  "margin_distributions": {
+    "C1": {
+      "mean": 0.1,
+      "std_population": 0.0,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.1,
+      "max": 0.1
+    },
+    "C2": {
+      "mean": 0.10614442567567568,
+      "std_population": 0.01569580422766972,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.1,
+      "max": 0.2
+    },
+    "C3_v2": {
+      "mean": 0.10431994737512529,
+      "std_population": 0.014017141196482683,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.1,
+      "max": 0.1993163455562461
+    },
+    "C4_v2": {
+      "mean": 0.11107537433720234,
+      "std_population": 0.025242017212819514,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.10267246737103791,
+      "max": 0.33219390926041015
+    }
+  },
+  "gates": {
+    "tail_nontrivial_row_rate": false,
+    "joint_nontrivial_row_rate": false,
+    "C4_v2_vs_C2_pair_margin_exact_equality_rate": false,
+    "head_tail_alignment": true,
+    "tail_weight_monotonic": true,
+    "tail_weight_cap": true,
+    "rarest_item_reaches_cap": true,
+    "margin_cap": true,
+    "cache_frequency_lineage": true,
+    "passed": false
+  },
+  "validation_effect_data_read": false,
+  "test_data_read": false
+}

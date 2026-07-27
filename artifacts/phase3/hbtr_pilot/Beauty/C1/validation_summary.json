@@ -1,0 +1,71 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-23",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_pilot_result_v1",
+    "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+  },
+  "dataset": "Beauty",
+  "control": "C1",
+  "status": "VALIDATED",
+  "execution_mode": "post_training",
+  "groups": {
+    "overall": {
+      "Recall@5": 0.0791015625,
+      "NDCG@5": 0.055917452432571485,
+      "Recall@10": 0.1142578125,
+      "NDCG@10": 0.06717432056678614,
+      "n": 2048
+    },
+    "head": {
+      "Recall@5": 0.10893032384690873,
+      "NDCG@5": 0.07678627168100288,
+      "Recall@10": 0.1717369970559372,
+      "NDCG@10": 0.0968695582431856,
+      "n": 1019
+    },
+    "tail": {
+      "Recall@5": 0.04956268221574344,
+      "NDCG@5": 0.03525143997955738,
+      "Recall@10": 0.057337220602526724,
+      "NDCG@10": 0.03776766634691155,
+      "n": 1029
+    },
+    "history_1-5": {
+      "Recall@5": 0.07433489827856025,
+      "NDCG@5": 0.052905900051301594,
+      "Recall@10": 0.10641627543035993,
+      "NDCG@10": 0.06327519119312665,
+      "n": 1278
+    },
+    "history_6-10": {
+      "Recall@5": 0.08739837398373984,
+      "NDCG@5": 0.059189900958027945,
+      "Recall@10": 0.13211382113821138,
+      "NDCG@10": 0.07319195599496513,
+      "n": 492
+    },
+    "history_11-20": {
+      "Recall@5": 0.0582010582010582,
+      "NDCG@5": 0.04302079234693893,
+      "Recall@10": 0.08994708994708994,
+      "NDCG@10": 0.05336382728350044,
+      "n": 189
+    },
+    "history_21+": {
+      "Recall@5": 0.14606741573033707,
+      "NDCG@5": 0.10845889091485246,
+      "Recall@10": 0.1797752808988764,
+      "NDCG@10": 0.11922593786357137,
+      "n": 89
+    }
+  },
+  "users": 2048,
+  "per_user_sha256": "be820efbaa4f2f9d2164ce4aa5bba07f2285457006e641338aed3ff59875d24a",
+  "validation_wall_time_seconds": 412.52947878837585,
+  "per_user_latency_seconds": 0.2014304099138826,
+  "test_data_read": false,
+  "effect_claim_allowed": false
+}

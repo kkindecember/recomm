@@ -1,0 +1,71 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-23",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_pilot_result_v1",
+    "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+  },
+  "dataset": "Toys",
+  "control": "C2",
+  "status": "VALIDATED",
+  "execution_mode": "post_training",
+  "groups": {
+    "overall": {
+      "Recall@5": 0.0908203125,
+      "NDCG@5": 0.06904582470137104,
+      "Recall@10": 0.12451171875,
+      "NDCG@10": 0.07987090078210152,
+      "n": 2048
+    },
+    "head": {
+      "Recall@5": 0.10091743119266056,
+      "NDCG@5": 0.07615752074887726,
+      "Recall@10": 0.13646788990825687,
+      "NDCG@10": 0.08730381748518126,
+      "n": 872
+    },
+    "tail": {
+      "Recall@5": 0.08333333333333333,
+      "NDCG@5": 0.06377252627158764,
+      "Recall@10": 0.11564625850340136,
+      "NDCG@10": 0.07435941832879751,
+      "n": 1176
+    },
+    "history_1-5": {
+      "Recall@5": 0.0943952802359882,
+      "NDCG@5": 0.07467603149172004,
+      "Recall@10": 0.1290560471976401,
+      "NDCG@10": 0.08594501728461303,
+      "n": 1356
+    },
+    "history_6-10": {
+      "Recall@5": 0.07390300230946882,
+      "NDCG@5": 0.05262800651656174,
+      "Recall@10": 0.10623556581986143,
+      "NDCG@10": 0.06264689650727671,
+      "n": 433
+    },
+    "history_11-20": {
+      "Recall@5": 0.0989010989010989,
+      "NDCG@5": 0.0667738532495707,
+      "Recall@10": 0.12637362637362637,
+      "NDCG@10": 0.07571563103461634,
+      "n": 182
+    },
+    "history_21+": {
+      "Recall@5": 0.1038961038961039,
+      "NDCG@5": 0.067589378864188,
+      "Recall@10": 0.14285714285714285,
+      "NDCG@10": 0.07958195230983997,
+      "n": 77
+    }
+  },
+  "users": 2048,
+  "per_user_sha256": "39e2769dd069b3d5810614b60048b020f9ea92b27051c68793c92beb7603ba97",
+  "validation_wall_time_seconds": 320.96665358543396,
+  "per_user_latency_seconds": 0.15672199940308928,
+  "test_data_read": false,
+  "effect_claim_allowed": false
+}

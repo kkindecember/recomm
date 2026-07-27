@@ -1,0 +1,114 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-22",
+    "verification_status": "ANALYZED",
+    "version_label": "s0_offline_v1"
+  },
+  "dataset": "Toys",
+  "mode": "validation",
+  "baseline": {
+    "n": 19412,
+    "recall@5": 0.0909231403255718,
+    "recall@10": 0.11941067381001443,
+    "recall@50": 0.21193076447558212,
+    "ndcg@5": 0.06713487106644757,
+    "ndcg@10": 0.07627451426000033,
+    "ndcg@50": 0.09653217535352887
+  },
+  "beam_oracle": {
+    "n": 19412,
+    "beam50_target_recall": 0.21193076447558212,
+    "oracle_recall@5": 0.21193076447558212,
+    "oracle_recall@10": 0.21193076447558212
+  },
+  "selected_config": {
+    "config_id": "k20_c0.25_w0.2",
+    "dataset": "Toys",
+    "mode": "validation",
+    "k": 20,
+    "recency_decay": 0.9,
+    "consensus_weight": 0.25,
+    "fusion_weight": 0.2,
+    "n": 19412,
+    "recall@5": 0.09118071296105502,
+    "recall@10": 0.12265608901710283,
+    "recall@50": 0.21193076447558212,
+    "ndcg@5": 0.0674516388535421,
+    "ndcg@10": 0.07758459203735767,
+    "ndcg@50": 0.0971798194285618,
+    "ndcg@10_relative_delta": 0.017175825897646657,
+    "recall@10_absolute_delta": 0.0032454152070884035,
+    "selection_eligible": true
+  },
+  "hard_group_gains": {
+    "popularity/tail": {
+      "recall@10_relative_delta": 0.07502131287297531,
+      "ndcg@10_relative_delta": 0.06574783519803828
+    },
+    "coverage/uncovered": {
+      "recall@10_relative_delta": -0.10507246376811585,
+      "ndcg@10_relative_delta": -0.17271293805297971
+    }
+  },
+  "promotion_gate": {
+    "primary_gate": true,
+    "subgroup_gate": true,
+    "decision": "GO"
+  },
+  "audit": {
+    "rows": 19412,
+    "footer": {
+      "hit@1": 0.04167525242118277,
+      "hit@3": 0.07361425922110035,
+      "hit@5": 0.0909231403255718,
+      "hit@10": 0.11941067381001443,
+      "hit@20": 0.15444055223573047,
+      "hit@50": 0.21193076447558212,
+      "ndcg@1": 0.04167525242118277,
+      "ndcg@3": 0.06000543033948122,
+      "ndcg@5": 0.06713487106644757,
+      "ndcg@10": 0.07627451426000033,
+      "ndcg@20": 0.08510430222346706,
+      "ndcg@50": 0.09653217535352887
+    },
+    "unknown_gold_count": 0,
+    "unknown_gold_unique": 0,
+    "unknown_prediction_count": 0,
+    "unknown_prediction_unique": 0,
+    "unknown_prediction_examples": [],
+    "missing_users": 0,
+    "target_mismatches": 0,
+    "item_count": 11924,
+    "neighbor_anchor_count": 11924,
+    "input_sha256": {
+      "predictions": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a",
+      "user_sequence": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "neighbors": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1",
+      "item_index": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    },
+    "python": "3.9.25 (main, Nov  3 2025, 22:33:05) \n[GCC 11.2.0]",
+    "platform": "Linux-5.4.0-216-generic-x86_64-with-glibc2.31",
+    "wall_time_seconds": 110.14103436470032
+  },
+  "preregistered_grid": {
+    "rerank_k": [
+      5,
+      10,
+      20
+    ],
+    "consensus_weights": [
+      0.0,
+      0.25
+    ],
+    "fusion_weights": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "recency_decay": 0.9,
+    "max_history": 20,
+    "selection": "max validation NDCG@10 subject to Recall@10 >= baseline - 0.005"
+  }
+}

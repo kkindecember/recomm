@@ -1,0 +1,51 @@
+{
+  "experiment_id": "GRAM_PHASE4_CPGV_V0",
+  "registered_at": "2026-07-27T13:30:00+08:00",
+  "decision_status_before_run": "CPGV_V0_PREREGISTERED",
+  "seed": 2023,
+  "source_rpcd_config": "artifacts/phase4/configs/rpcd_t0_preregistered.json",
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "teacher_top50": "artifacts/phase4/rpcd_t0/teacher_top50_Toys.jsonl"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "teacher_top50": "artifacts/phase4/rpcd_t0/teacher_top50_Beauty.jsonl"
+    }
+  },
+  "cohort": {
+    "split": "RPCD hybrid hash audit 80%",
+    "calibration_salt": "rpcd-t0-hybrid-weight-v1",
+    "calibration_fraction": 0.2,
+    "eligibility": "gold not in matched GRAM top50 and gold in SASRec top50",
+    "minimum_users_per_dataset": 300,
+    "target_selected_diagnostic_only": true
+  },
+  "scoring": {
+    "candidate_set": "SASRec top50, fixed order and unique items",
+    "model_input": "original GRAM validation history sequence[:-2], reverse chronological, max 20",
+    "score": "mean Trie-local teacher-forced log probability over non-EOS lexical path tokens",
+    "encoder_cache": "one frozen GRAM encoder pass per user; decoder batch contains all 50 fixed candidates",
+    "candidate_batch_size": 50,
+    "model_optimizer_steps": 0
+  },
+  "gates": {
+    "eligible_users_min": 300,
+    "exact_rescore_recall10_min": 0.25,
+    "exact_minus_sasrec_recall10_absolute_min": 0.05,
+    "mapping_rate": 1.0,
+    "finite_rate": 1.0,
+    "target_input_inclusion_rate": 0.0,
+    "trie_membership_rate": 1.0,
+    "model_optimizer_steps": 0
+  },
+  "decision_rule": {
+    "pass": "Both datasets pass every gate => CPGV_V1_DESIGN_ALLOWED",
+    "stop": "Either dataset fails => STOP_CPGV_GRAM_CANNOT_VERIFY_PROPOSALS",
+    "no_threshold_revision_after_scores": true,
+    "no_test": true
+  }
+}

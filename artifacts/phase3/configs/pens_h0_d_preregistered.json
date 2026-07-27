@@ -1,0 +1,91 @@
+{
+  "version": "pens_h0_d_preregistered_v1",
+  "preregistered_at": "2026-07-24",
+  "preregistered_after": "NOVELTY_SCOPE_PASS_WITH_STRONG_MECHANISTIC_NARROWING",
+  "preregistered_before_new_counterfactual_scores": true,
+  "seed": 20260724,
+  "bootstrap_iterations": 10000,
+  "batch_size": 8,
+  "max_per_stratum": 256,
+  "min_history": 2,
+  "max_history": 20,
+  "scored_strata": [
+    "tail_miss",
+    "tail_hit"
+  ],
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Toys/validation/summary.json",
+      "cgi_cohort": "artifacts/phase3/cgi_e0/Toys/cohort.csv"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Beauty/validation/summary.json",
+      "cgi_cohort": "artifacts/phase3/cgi_e0/Beauty/cohort.csv"
+    }
+  },
+  "conditions": [
+    "current",
+    "equal_fine_norm",
+    "zero_all_position"
+  ],
+  "intervention": {
+    "fine_positions": "1..20",
+    "equal_norm_target": "conventional checkpoint sample median L2 norm across positions 1..20; with 20 values this is the arithmetic mean of the 10th and 11th ordered norms",
+    "direction": "preserve each nonzero fine-position unit direction",
+    "coarse_position": "position 0 is unchanged under equal_fine_norm",
+    "zero_control": "set positions 0..20 to zero; descriptive only"
+  },
+  "estimands": {
+    "primary": "lp_equal_fine_norm - lp_current",
+    "zero_descriptive": "lp_zero_all_position - lp_current",
+    "lp": "mean gold lexical-token log probability excluding EOS and padding"
+  },
+  "integrity_gates": {
+    "tail_miss_n": 256,
+    "tail_hit_n": 256,
+    "cohort_identity_rate": 1.0,
+    "current_repeat_max_abs_error": 1e-7,
+    "restored_current_max_abs_error": 1e-7,
+    "equal_norm_max_abs_error": 1e-6,
+    "direction_cosine_min": 0.999999,
+    "coarse_unchanged_max_abs_error": 0.0,
+    "finite_metric_rate": 1.0
+  },
+  "mechanism_gates_per_dataset": {
+    "exposure_norm_pearson_max": -0.9,
+    "position20_to_position1_norm_ratio_min": 3.0,
+    "tail_miss_gain_mean": 0.02,
+    "tail_miss_gain_positive_rate": 0.55,
+    "strict_bootstrap_lower_bound": 0.0,
+    "tail_hit_gain_mean_min": -0.01
+  },
+  "decision_rule": {
+    "execution_invalid": "Any lineage, cohort, checkpoint, intervention, repeat, restoration, finite, no-training/no-test, or resource-restoration check fails.",
+    "stop_no_structural_replication": "Either dataset fails the locked exposure-norm correlation or position-20/position-1 norm-ratio gate.",
+    "stop_no_causal_benefit": "Either dataset fails tail-miss mean, strict lower CI, or positive-rate gate.",
+    "stop_broad_harm": "Either dataset has tail-hit mean below -0.01.",
+    "h1_design_allowed": "All preceding gates pass on both datasets.",
+    "single_shot": true,
+    "no_norm_or_position_scan": true
+  },
+  "secondary_descriptive_only": [
+    "zero_all_position",
+    "history-length strata",
+    "position cosine and PCA geometry",
+    "per-user effect distributions"
+  ],
+  "forbidden": [
+    "test targets or test predictions",
+    "sequence[-1]",
+    "training or parameter updates",
+    "beam generation",
+    "mean-norm, clipping, partial-position, scale, threshold, cohort, or dataset scans after reading scores",
+    "using zero-position or one dataset to rescue a failed primary gate"
+  ]
+}

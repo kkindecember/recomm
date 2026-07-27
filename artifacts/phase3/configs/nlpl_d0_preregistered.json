@@ -1,0 +1,29 @@
+{
+  "version": "nlpl_d0_preregistered_v1",
+  "seed": 20260724,
+  "bootstrap_iterations": 10000,
+  "permutation_iterations": 10000,
+  "smoothing": 0.5,
+  "max_training_frequency_ratio": 2.0,
+  "minimum_pairs": 200,
+  "minimum_concordance": 0.55,
+  "minimum_ci_lower": 0.5,
+  "maximum_permutation_p": 0.01,
+  "minimum_tail_miss_odds_ratio": 1.1,
+  "batch_size": 128,
+  "model_snapshot": ".cache/huggingface/models--t5-small/snapshots/df1b051c49625cf57a3d0d8d3863ed4d13564fe4",
+  "datasets": {
+    "Toys": {
+      "predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+      "sequences": "GRAM/rec_datasets/Toys/user_sequence.txt",
+      "index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "s0_summary": "artifacts/phase3/s0/Toys/validation/summary.json"
+    },
+    "Beauty": {
+      "predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "sequences": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+      "index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "s0_summary": "artifacts/phase3/s0/Beauty/validation/summary.json"
+    }
+  }
+}

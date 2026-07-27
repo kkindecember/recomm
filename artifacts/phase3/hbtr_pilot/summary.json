@@ -1,0 +1,951 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-23",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_pilot_analysis_v1",
+    "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+  },
+  "decision": "STOP",
+  "decision_reason": "8 preregistered gates failed",
+  "metrics": {
+    "Toys": {
+      "C0": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Toys",
+        "control": "C0",
+        "status": "VALIDATED",
+        "execution_mode": "resumed_checkpoint_validation",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.091796875,
+            "NDCG@5": 0.06931661906673962,
+            "Recall@10": 0.123046875,
+            "NDCG@10": 0.07937159466456696,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.09977064220183486,
+            "NDCG@5": 0.07548361306346706,
+            "Recall@10": 0.1341743119266055,
+            "NDCG@10": 0.08632181268472651,
+            "n": 872
+          },
+          "tail": {
+            "Recall@5": 0.0858843537414966,
+            "NDCG@5": 0.06474381399433637,
+            "Recall@10": 0.11479591836734694,
+            "NDCG@10": 0.0742180316428161,
+            "n": 1176
+          },
+          "history_1-5": {
+            "Recall@5": 0.09587020648967552,
+            "NDCG@5": 0.07508501885180476,
+            "Recall@10": 0.1275811209439528,
+            "NDCG@10": 0.08539785424991853,
+            "n": 1356
+          },
+          "history_6-10": {
+            "Recall@5": 0.07390300230946882,
+            "NDCG@5": 0.05246790618878667,
+            "Recall@10": 0.10392609699769054,
+            "NDCG@10": 0.061838699519767365,
+            "n": 433
+          },
+          "history_11-20": {
+            "Recall@5": 0.0989010989010989,
+            "NDCG@5": 0.0667738532495707,
+            "Recall@10": 0.12637362637362637,
+            "NDCG@10": 0.07571563103461634,
+            "n": 182
+          },
+          "history_21+": {
+            "Recall@5": 0.1038961038961039,
+            "NDCG@5": 0.06848968330479328,
+            "Recall@10": 0.14285714285714285,
+            "NDCG@10": 0.08048225675044526,
+            "n": 77
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "aa5496de84ead3369448cf7571cafa1a97b398d4e0608dc490d99d4af061aba9",
+        "validation_wall_time_seconds": 321.0772440433502,
+        "per_user_latency_seconds": 0.1567759985337034,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C1": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Toys",
+        "control": "C1",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0908203125,
+            "NDCG@5": 0.06904582470137104,
+            "Recall@10": 0.12451171875,
+            "NDCG@10": 0.07987090078210152,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10091743119266056,
+            "NDCG@5": 0.07615752074887726,
+            "Recall@10": 0.13646788990825687,
+            "NDCG@10": 0.08730381748518126,
+            "n": 872
+          },
+          "tail": {
+            "Recall@5": 0.08333333333333333,
+            "NDCG@5": 0.06377252627158764,
+            "Recall@10": 0.11564625850340136,
+            "NDCG@10": 0.07435941832879751,
+            "n": 1176
+          },
+          "history_1-5": {
+            "Recall@5": 0.0943952802359882,
+            "NDCG@5": 0.07467603149172004,
+            "Recall@10": 0.1290560471976401,
+            "NDCG@10": 0.08594501728461303,
+            "n": 1356
+          },
+          "history_6-10": {
+            "Recall@5": 0.07390300230946882,
+            "NDCG@5": 0.05262800651656174,
+            "Recall@10": 0.10623556581986143,
+            "NDCG@10": 0.06264689650727671,
+            "n": 433
+          },
+          "history_11-20": {
+            "Recall@5": 0.0989010989010989,
+            "NDCG@5": 0.0667738532495707,
+            "Recall@10": 0.12637362637362637,
+            "NDCG@10": 0.07571563103461634,
+            "n": 182
+          },
+          "history_21+": {
+            "Recall@5": 0.1038961038961039,
+            "NDCG@5": 0.067589378864188,
+            "Recall@10": 0.14285714285714285,
+            "NDCG@10": 0.07958195230983997,
+            "n": 77
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "8a05c2837e7be1fd2413cb5b200e2628dcd89cd1faaeaf737ddcea6371cc7e67",
+        "validation_wall_time_seconds": 320.7372307777405,
+        "per_user_latency_seconds": 0.15660997643135488,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C2": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Toys",
+        "control": "C2",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0908203125,
+            "NDCG@5": 0.06904582470137104,
+            "Recall@10": 0.12451171875,
+            "NDCG@10": 0.07987090078210152,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10091743119266056,
+            "NDCG@5": 0.07615752074887726,
+            "Recall@10": 0.13646788990825687,
+            "NDCG@10": 0.08730381748518126,
+            "n": 872
+          },
+          "tail": {
+            "Recall@5": 0.08333333333333333,
+            "NDCG@5": 0.06377252627158764,
+            "Recall@10": 0.11564625850340136,
+            "NDCG@10": 0.07435941832879751,
+            "n": 1176
+          },
+          "history_1-5": {
+            "Recall@5": 0.0943952802359882,
+            "NDCG@5": 0.07467603149172004,
+            "Recall@10": 0.1290560471976401,
+            "NDCG@10": 0.08594501728461303,
+            "n": 1356
+          },
+          "history_6-10": {
+            "Recall@5": 0.07390300230946882,
+            "NDCG@5": 0.05262800651656174,
+            "Recall@10": 0.10623556581986143,
+            "NDCG@10": 0.06264689650727671,
+            "n": 433
+          },
+          "history_11-20": {
+            "Recall@5": 0.0989010989010989,
+            "NDCG@5": 0.0667738532495707,
+            "Recall@10": 0.12637362637362637,
+            "NDCG@10": 0.07571563103461634,
+            "n": 182
+          },
+          "history_21+": {
+            "Recall@5": 0.1038961038961039,
+            "NDCG@5": 0.067589378864188,
+            "Recall@10": 0.14285714285714285,
+            "NDCG@10": 0.07958195230983997,
+            "n": 77
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "39e2769dd069b3d5810614b60048b020f9ea92b27051c68793c92beb7603ba97",
+        "validation_wall_time_seconds": 320.96665358543396,
+        "per_user_latency_seconds": 0.15672199940308928,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C3": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Toys",
+        "control": "C3",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0908203125,
+            "NDCG@5": 0.06904582470137104,
+            "Recall@10": 0.12451171875,
+            "NDCG@10": 0.07988206965601494,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10091743119266056,
+            "NDCG@5": 0.07615752074887726,
+            "Recall@10": 0.13646788990825687,
+            "NDCG@10": 0.08730381748518126,
+            "n": 872
+          },
+          "tail": {
+            "Recall@5": 0.08333333333333333,
+            "NDCG@5": 0.06377252627158764,
+            "Recall@10": 0.11564625850340136,
+            "NDCG@10": 0.07437886888472837,
+            "n": 1176
+          },
+          "history_1-5": {
+            "Recall@5": 0.0943952802359882,
+            "NDCG@5": 0.07467603149172004,
+            "Recall@10": 0.1290560471976401,
+            "NDCG@10": 0.08596188590834068,
+            "n": 1356
+          },
+          "history_6-10": {
+            "Recall@5": 0.07390300230946882,
+            "NDCG@5": 0.05262800651656174,
+            "Recall@10": 0.10623556581986143,
+            "NDCG@10": 0.06264689650727671,
+            "n": 433
+          },
+          "history_11-20": {
+            "Recall@5": 0.0989010989010989,
+            "NDCG@5": 0.0667738532495707,
+            "Recall@10": 0.12637362637362637,
+            "NDCG@10": 0.07571563103461634,
+            "n": 182
+          },
+          "history_21+": {
+            "Recall@5": 0.1038961038961039,
+            "NDCG@5": 0.067589378864188,
+            "Recall@10": 0.14285714285714285,
+            "NDCG@10": 0.07958195230983997,
+            "n": 77
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "2b26da169f4b00c34f36286e9b3270fe6ee0491f1216f19e871e708794dac1b0",
+        "validation_wall_time_seconds": 324.6290843486786,
+        "per_user_latency_seconds": 0.15851029567420483,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C4": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Toys",
+        "control": "C4",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0908203125,
+            "NDCG@5": 0.06904582470137104,
+            "Recall@10": 0.12451171875,
+            "NDCG@10": 0.07988206965601494,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10091743119266056,
+            "NDCG@5": 0.07615752074887726,
+            "Recall@10": 0.13646788990825687,
+            "NDCG@10": 0.08730381748518126,
+            "n": 872
+          },
+          "tail": {
+            "Recall@5": 0.08333333333333333,
+            "NDCG@5": 0.06377252627158764,
+            "Recall@10": 0.11564625850340136,
+            "NDCG@10": 0.07437886888472837,
+            "n": 1176
+          },
+          "history_1-5": {
+            "Recall@5": 0.0943952802359882,
+            "NDCG@5": 0.07467603149172004,
+            "Recall@10": 0.1290560471976401,
+            "NDCG@10": 0.08596188590834068,
+            "n": 1356
+          },
+          "history_6-10": {
+            "Recall@5": 0.07390300230946882,
+            "NDCG@5": 0.05262800651656174,
+            "Recall@10": 0.10623556581986143,
+            "NDCG@10": 0.06264689650727671,
+            "n": 433
+          },
+          "history_11-20": {
+            "Recall@5": 0.0989010989010989,
+            "NDCG@5": 0.0667738532495707,
+            "Recall@10": 0.12637362637362637,
+            "NDCG@10": 0.07571563103461634,
+            "n": 182
+          },
+          "history_21+": {
+            "Recall@5": 0.1038961038961039,
+            "NDCG@5": 0.067589378864188,
+            "Recall@10": 0.14285714285714285,
+            "NDCG@10": 0.07958195230983997,
+            "n": 77
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "952212e6ef55da3529bd08fa22d0b235a64cc8124b78b9e374d8d0df38ceaddd",
+        "validation_wall_time_seconds": 321.98070192337036,
+        "per_user_latency_seconds": 0.15721714007668197,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      }
+    },
+    "Beauty": {
+      "C0": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Beauty",
+        "control": "C0",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.07861328125,
+            "NDCG@5": 0.055728559460289,
+            "Recall@10": 0.11474609375,
+            "NDCG@10": 0.06721529103122585,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10794896957801767,
+            "NDCG@5": 0.07621011269892969,
+            "Recall@10": 0.1717369970559372,
+            "NDCG@10": 0.0964892421940239,
+            "n": 1019
+          },
+          "tail": {
+            "Recall@5": 0.04956268221574344,
+            "NDCG@5": 0.03544604949899185,
+            "Recall@10": 0.05830903790087463,
+            "NDCG@10": 0.03822582918973794,
+            "n": 1029
+          },
+          "history_1-5": {
+            "Recall@5": 0.07433489827856025,
+            "NDCG@5": 0.05280345110484506,
+            "Recall@10": 0.1056338028169014,
+            "NDCG@10": 0.06288114411146081,
+            "n": 1278
+          },
+          "history_6-10": {
+            "Recall@5": 0.08536585365853659,
+            "NDCG@5": 0.05791958937247586,
+            "Recall@10": 0.13211382113821138,
+            "NDCG@10": 0.07246085799186988,
+            "n": 492
+          },
+          "history_11-20": {
+            "Recall@5": 0.0582010582010582,
+            "NDCG@5": 0.04497354497354497,
+            "Recall@10": 0.09523809523809523,
+            "NDCG@10": 0.05684602343559796,
+            "n": 189
+          },
+          "history_21+": {
+            "Recall@5": 0.14606741573033707,
+            "NDCG@5": 0.10845889091485246,
+            "Recall@10": 0.19101123595505617,
+            "NDCG@10": 0.12247385726040158,
+            "n": 89
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "73c4a0f76c75b0c72fed3e393d7be2d968e095644017c8e2926f22be5095fa48",
+        "validation_wall_time_seconds": 406.23251080513,
+        "per_user_latency_seconds": 0.19835571863222867,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C1": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Beauty",
+        "control": "C1",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0791015625,
+            "NDCG@5": 0.055917452432571485,
+            "Recall@10": 0.1142578125,
+            "NDCG@10": 0.06717432056678614,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10893032384690873,
+            "NDCG@5": 0.07678627168100288,
+            "Recall@10": 0.1717369970559372,
+            "NDCG@10": 0.0968695582431856,
+            "n": 1019
+          },
+          "tail": {
+            "Recall@5": 0.04956268221574344,
+            "NDCG@5": 0.03525143997955738,
+            "Recall@10": 0.057337220602526724,
+            "NDCG@10": 0.03776766634691155,
+            "n": 1029
+          },
+          "history_1-5": {
+            "Recall@5": 0.07433489827856025,
+            "NDCG@5": 0.052905900051301594,
+            "Recall@10": 0.10641627543035993,
+            "NDCG@10": 0.06327519119312665,
+            "n": 1278
+          },
+          "history_6-10": {
+            "Recall@5": 0.08739837398373984,
+            "NDCG@5": 0.059189900958027945,
+            "Recall@10": 0.13211382113821138,
+            "NDCG@10": 0.07319195599496513,
+            "n": 492
+          },
+          "history_11-20": {
+            "Recall@5": 0.0582010582010582,
+            "NDCG@5": 0.04302079234693893,
+            "Recall@10": 0.08994708994708994,
+            "NDCG@10": 0.05336382728350044,
+            "n": 189
+          },
+          "history_21+": {
+            "Recall@5": 0.14606741573033707,
+            "NDCG@5": 0.10845889091485246,
+            "Recall@10": 0.1797752808988764,
+            "NDCG@10": 0.11922593786357137,
+            "n": 89
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "be820efbaa4f2f9d2164ce4aa5bba07f2285457006e641338aed3ff59875d24a",
+        "validation_wall_time_seconds": 412.52947878837585,
+        "per_user_latency_seconds": 0.2014304099138826,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C2": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Beauty",
+        "control": "C2",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0791015625,
+            "NDCG@5": 0.05594753363942932,
+            "Recall@10": 0.1142578125,
+            "NDCG@10": 0.06719323289973055,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10893032384690873,
+            "NDCG@5": 0.07671824082533399,
+            "Recall@10": 0.1717369970559372,
+            "NDCG@10": 0.09677908003346893,
+            "n": 1019
+          },
+          "tail": {
+            "Recall@5": 0.04956268221574344,
+            "NDCG@5": 0.035378679778946556,
+            "Recall@10": 0.057337220602526724,
+            "NDCG@10": 0.03789490614630073,
+            "n": 1029
+          },
+          "history_1-5": {
+            "Recall@5": 0.07433489827856025,
+            "NDCG@5": 0.052905900051301594,
+            "Recall@10": 0.10641627543035993,
+            "NDCG@10": 0.06327519119312665,
+            "n": 1278
+          },
+          "history_6-10": {
+            "Recall@5": 0.08739837398373984,
+            "NDCG@5": 0.05931511703860691,
+            "Recall@10": 0.13211382113821138,
+            "NDCG@10": 0.07327068050283131,
+            "n": 492
+          },
+          "history_11-20": {
+            "Recall@5": 0.0582010582010582,
+            "NDCG@5": 0.04302079234693893,
+            "Recall@10": 0.08994708994708994,
+            "NDCG@10": 0.05336382728350044,
+            "n": 189
+          },
+          "history_21+": {
+            "Recall@5": 0.14606741573033707,
+            "NDCG@5": 0.10845889091485246,
+            "Recall@10": 0.1797752808988764,
+            "NDCG@10": 0.11922593786357137,
+            "n": 89
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "8d6bda30a0b479597699a7b24aabd903f6af6ad3a51ee0d96033ba9b9a797df4",
+        "validation_wall_time_seconds": 410.82089042663574,
+        "per_user_latency_seconds": 0.20059613860212266,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C3": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Beauty",
+        "control": "C3",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0791015625,
+            "NDCG@5": 0.05588360309569326,
+            "Recall@10": 0.1142578125,
+            "NDCG@10": 0.06712930235599447,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10893032384690873,
+            "NDCG@5": 0.07671824082533399,
+            "Recall@10": 0.1717369970559372,
+            "NDCG@10": 0.09677908003346893,
+            "n": 1019
+          },
+          "tail": {
+            "Recall@5": 0.04956268221574344,
+            "NDCG@5": 0.03525143997955738,
+            "Recall@10": 0.057337220602526724,
+            "NDCG@10": 0.03776766634691155,
+            "n": 1029
+          },
+          "history_1-5": {
+            "Recall@5": 0.07433489827856025,
+            "NDCG@5": 0.052905900051301594,
+            "Recall@10": 0.10641627543035993,
+            "NDCG@10": 0.06327519119312665,
+            "n": 1278
+          },
+          "history_6-10": {
+            "Recall@5": 0.08739837398373984,
+            "NDCG@5": 0.05904899965329907,
+            "Recall@10": 0.13211382113821138,
+            "NDCG@10": 0.07300456311752344,
+            "n": 492
+          },
+          "history_11-20": {
+            "Recall@5": 0.0582010582010582,
+            "NDCG@5": 0.04302079234693893,
+            "Recall@10": 0.08994708994708994,
+            "NDCG@10": 0.05336382728350044,
+            "n": 189
+          },
+          "history_21+": {
+            "Recall@5": 0.14606741573033707,
+            "NDCG@5": 0.10845889091485246,
+            "Recall@10": 0.1797752808988764,
+            "NDCG@10": 0.11922593786357137,
+            "n": 89
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "a4e2674de59a9335728c62df69800e154d036473510d69a58ba667fcfab60277",
+        "validation_wall_time_seconds": 407.236279964447,
+        "per_user_latency_seconds": 0.1988458406412974,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      },
+      "C4": {
+        "material_passport": {
+          "origin_skill": "academic-research-suite/experiment-agent",
+          "origin_mode": "run",
+          "origin_date": "2026-07-23",
+          "verification_status": "ANALYZED",
+          "version_label": "hbtr_pilot_result_v1",
+          "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+        },
+        "dataset": "Beauty",
+        "control": "C4",
+        "status": "VALIDATED",
+        "execution_mode": "post_training",
+        "groups": {
+          "overall": {
+            "Recall@5": 0.0791015625,
+            "NDCG@5": 0.055917452432571485,
+            "Recall@10": 0.1142578125,
+            "NDCG@10": 0.06717432056678614,
+            "n": 2048
+          },
+          "head": {
+            "Recall@5": 0.10893032384690873,
+            "NDCG@5": 0.07678627168100288,
+            "Recall@10": 0.1717369970559372,
+            "NDCG@10": 0.0968695582431856,
+            "n": 1019
+          },
+          "tail": {
+            "Recall@5": 0.04956268221574344,
+            "NDCG@5": 0.03525143997955738,
+            "Recall@10": 0.057337220602526724,
+            "NDCG@10": 0.03776766634691155,
+            "n": 1029
+          },
+          "history_1-5": {
+            "Recall@5": 0.07433489827856025,
+            "NDCG@5": 0.052905900051301594,
+            "Recall@10": 0.10641627543035993,
+            "NDCG@10": 0.06327519119312665,
+            "n": 1278
+          },
+          "history_6-10": {
+            "Recall@5": 0.08739837398373984,
+            "NDCG@5": 0.059189900958027945,
+            "Recall@10": 0.13211382113821138,
+            "NDCG@10": 0.07319195599496513,
+            "n": 492
+          },
+          "history_11-20": {
+            "Recall@5": 0.0582010582010582,
+            "NDCG@5": 0.04302079234693893,
+            "Recall@10": 0.08994708994708994,
+            "NDCG@10": 0.05336382728350044,
+            "n": 189
+          },
+          "history_21+": {
+            "Recall@5": 0.14606741573033707,
+            "NDCG@5": 0.10845889091485246,
+            "Recall@10": 0.1797752808988764,
+            "NDCG@10": 0.11922593786357137,
+            "n": 89
+          }
+        },
+        "users": 2048,
+        "per_user_sha256": "99804a3153bb068afd9a679ef4c69d99fb67db23e0d6689b5bce82012fac2ee1",
+        "validation_wall_time_seconds": 410.24449634552,
+        "per_user_latency_seconds": 0.20031469606328756,
+        "test_data_read": false,
+        "effect_claim_allowed": false
+      }
+    }
+  },
+  "macro_ndcg10": {
+    "C0": 0.0732934428478964,
+    "C1": 0.07352261067444382,
+    "C2": 0.07353206684091604,
+    "C3": 0.07350568600600471,
+    "C4": 0.07352819511140055
+  },
+  "paired_bootstrap_ndcg10": {
+    "Toys": {
+      "C4_vs_C0": {
+        "mean_difference": 0.0005104749914479667,
+        "ci95_low": 3.947071320417706e-05,
+        "ci95_high": 0.0010964207109935816,
+        "probability_positive": 0.9848,
+        "resamples": 10000,
+        "users": 2048
+      },
+      "C4_vs_C1": {
+        "mean_difference": 1.1168873913422299e-05,
+        "ci95_low": 0.0,
+        "ci95_high": 3.35066217402669e-05,
+        "probability_positive": 0.6363,
+        "resamples": 10000,
+        "users": 2048
+      },
+      "C4_vs_C2": {
+        "mean_difference": 1.1168873913422299e-05,
+        "ci95_low": 0.0,
+        "ci95_high": 3.35066217402669e-05,
+        "probability_positive": 0.6405,
+        "resamples": 10000,
+        "users": 2048
+      },
+      "C4_vs_C3": {
+        "mean_difference": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "probability_positive": 0.0,
+        "resamples": 10000,
+        "users": 2048
+      }
+    },
+    "Beauty": {
+      "C4_vs_C0": {
+        "mean_difference": -4.097046443971483e-05,
+        "ci95_low": -0.0009671998488154698,
+        "ci95_high": 0.000870872081913768,
+        "probability_positive": 0.4635,
+        "resamples": 10000,
+        "users": 2048
+      },
+      "C4_vs_C1": {
+        "mean_difference": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0,
+        "probability_positive": 0.0,
+        "resamples": 10000,
+        "users": 2048
+      },
+      "C4_vs_C2": {
+        "mean_difference": -1.89123329444149e-05,
+        "ci95_low": -0.00018062275729476744,
+        "ci95_high": 0.00011237416941014129,
+        "probability_positive": 0.4295,
+        "resamples": 10000,
+        "users": 2048
+      },
+      "C4_vs_C3": {
+        "mean_difference": 4.5018210791648346e-05,
+        "ci95_low": 0.0,
+        "ci95_high": 0.00012388575846152274,
+        "probability_positive": 0.8635,
+        "resamples": 10000,
+        "users": 2048
+      }
+    }
+  },
+  "resource_ratios": {
+    "Toys": {
+      "peak_reserved_increase": 0.8560072677719737,
+      "training_wall_time_increase": 0.09894665742922461,
+      "validation_latency_increase": 0.0028138334126683877
+    },
+    "Beauty": {
+      "peak_reserved_increase": 0.6130859808931348,
+      "training_wall_time_increase": 0.11319744416958534,
+      "validation_latency_increase": 0.009876082447065837
+    }
+  },
+  "gates": [
+    {
+      "name": "protocol_integrity",
+      "passed": true,
+      "observed": [],
+      "threshold": []
+    },
+    {
+      "name": "Toys_C4_vs_C0_ndcg10_positive",
+      "passed": true,
+      "observed": 0.0005104749914479761,
+      "threshold": "> 0"
+    },
+    {
+      "name": "Toys_C4_vs_C0_recall10_no_decline",
+      "passed": true,
+      "observed": 0.00146484375,
+      "threshold": ">= 0"
+    },
+    {
+      "name": "Toys_tail_Recall@10_relative_decline",
+      "passed": true,
+      "observed": 0.0074074074074074155,
+      "threshold": ">= -0.01"
+    },
+    {
+      "name": "Toys_tail_NDCG@10_relative_decline",
+      "passed": true,
+      "observed": 0.0021670911819155884,
+      "threshold": ">= -0.01"
+    },
+    {
+      "name": "Beauty_C4_vs_C0_ndcg10_positive",
+      "passed": false,
+      "observed": -4.09704644397102e-05,
+      "threshold": "> 0"
+    },
+    {
+      "name": "Beauty_C4_vs_C0_recall10_no_decline",
+      "passed": false,
+      "observed": -0.00048828125,
+      "threshold": ">= 0"
+    },
+    {
+      "name": "Beauty_tail_Recall@10_relative_decline",
+      "passed": false,
+      "observed": -0.016666666666666635,
+      "threshold": ">= -0.01"
+    },
+    {
+      "name": "Beauty_tail_NDCG@10_relative_decline",
+      "passed": false,
+      "observed": -0.011985687492931638,
+      "threshold": ">= -0.01"
+    },
+    {
+      "name": "at_least_one_dataset_C4_ndcg10_relative_gain_2pct",
+      "passed": false,
+      "observed": {
+        "Toys": 0.006431456916108329,
+        "Beauty": -0.0006095408323185979
+      },
+      "threshold": ">= 0.02 for at least one dataset"
+    },
+    {
+      "name": "C4_macro_ndcg10_exceeds_C1",
+      "passed": true,
+      "observed": 5.584436956723726e-06,
+      "threshold": "> 0"
+    },
+    {
+      "name": "C4_macro_ndcg10_exceeds_C2",
+      "passed": false,
+      "observed": -3.871729515492195e-06,
+      "threshold": "> 0"
+    },
+    {
+      "name": "C4_macro_ndcg10_exceeds_C3",
+      "passed": true,
+      "observed": 2.250910539583484e-05,
+      "threshold": "> 0"
+    },
+    {
+      "name": "Toys_C4_within_0.5pct_best_component",
+      "passed": true,
+      "observed": 0.0,
+      "threshold": ">= -0.005"
+    },
+    {
+      "name": "Beauty_C4_within_0.5pct_best_component",
+      "passed": true,
+      "observed": -0.0002814618694210787,
+      "threshold": ">= -0.005"
+    },
+    {
+      "name": "Toys_peak_reserved_increase",
+      "passed": false,
+      "observed": 0.8560072677719737,
+      "threshold": "<= 0.25"
+    },
+    {
+      "name": "Toys_training_wall_time_increase",
+      "passed": true,
+      "observed": 0.09894665742922461,
+      "threshold": "<= 1.0"
+    },
+    {
+      "name": "Toys_validation_latency_increase",
+      "passed": true,
+      "observed": 0.0028138334126683877,
+      "threshold": "<= 0.05"
+    },
+    {
+      "name": "Beauty_peak_reserved_increase",
+      "passed": false,
+      "observed": 0.6130859808931348,
+      "threshold": "<= 0.25"
+    },
+    {
+      "name": "Beauty_training_wall_time_increase",
+      "passed": true,
+      "observed": 0.11319744416958534,
+      "threshold": "<= 1.0"
+    },
+    {
+      "name": "Beauty_validation_latency_increase",
+      "passed": true,
+      "observed": 0.009876082447065837,
+      "threshold": "<= 0.05"
+    }
+  ],
+  "failed_gate_count": 8,
+  "effect_claim_allowed": false,
+  "test_data_read": false
+}

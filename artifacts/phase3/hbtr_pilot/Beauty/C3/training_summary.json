@@ -1,0 +1,56 @@
+{
+  "dataset": "Beauty",
+  "control": "C3",
+  "status": "TRAINED",
+  "samples": 13076,
+  "epochs": 5,
+  "optimizer_updates": 515,
+  "epoch_records": [
+    {
+      "epoch": 1,
+      "mean_total_loss": 1.0286781286552076,
+      "mean_token_ce": 0.9410111149977938,
+      "mean_ranking_loss": 0.8766701259356547,
+      "eligible_sample_occurrences": 2368,
+      "optimizer_updates_cumulative": 103
+    },
+    {
+      "epoch": 2,
+      "mean_total_loss": 1.0261161650888495,
+      "mean_token_ce": 0.9393480117717408,
+      "mean_ranking_loss": 0.8676815319323598,
+      "eligible_sample_occurrences": 2368,
+      "optimizer_updates_cumulative": 206
+    },
+    {
+      "epoch": 3,
+      "mean_total_loss": 1.0260445681789976,
+      "mean_token_ce": 0.937352468776528,
+      "mean_ranking_loss": 0.8869209858636693,
+      "eligible_sample_occurrences": 2368,
+      "optimizer_updates_cumulative": 309
+    },
+    {
+      "epoch": 4,
+      "mean_total_loss": 1.0219749414104704,
+      "mean_token_ce": 0.9340543106453343,
+      "mean_ranking_loss": 0.8792063012391256,
+      "eligible_sample_occurrences": 2368,
+      "optimizer_updates_cumulative": 412
+    },
+    {
+      "epoch": 5,
+      "mean_total_loss": 1.0237211398507098,
+      "mean_token_ce": 0.9368464202781761,
+      "mean_ranking_loss": 0.8687471968183308,
+      "eligible_sample_occurrences": 2368,
+      "optimizer_updates_cumulative": 515
+    }
+  ],
+  "checkpoint": "artifacts/phase3/hbtr_pilot/Beauty/C3/model.pt",
+  "checkpoint_sha256": "186bc5c136624987ce2f198480b878e95e99db27444b7a120c1bae462ea39b48",
+  "wall_time_seconds": 1919.4053871631622,
+  "peak_allocated_mib": 20927.78515625,
+  "peak_reserved_mib": 29042.0,
+  "test_data_read": false
+}

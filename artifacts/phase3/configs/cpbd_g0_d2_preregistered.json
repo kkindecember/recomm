@@ -1,0 +1,100 @@
+{
+  "version": "cpbd_g0_d2_preregistered_v1",
+  "preregistered_at": "2026-07-24",
+  "preregistered_after": "G0_D2_DESIGN_ALLOWED",
+  "preregistered_before_new_checkpoint_scores": true,
+  "seed": 20260724,
+  "bootstrap_iterations": 10000,
+  "batch_size": 8,
+  "max_per_stratum": 256,
+  "scored_strata": [
+    "tail_miss",
+    "tail_hit"
+  ],
+  "matched_slice_tokens_per_passage": 8,
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Toys/validation/summary.json",
+      "cgi_cohort": "artifacts/phase3/cgi_e0/Toys/cohort.csv",
+      "d1_census": "artifacts/phase3/cpbd_g0/Toys/item_truncation_census.csv"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Beauty/validation/summary.json",
+      "cgi_cohort": "artifacts/phase3/cgi_e0/Beauty/cohort.csv",
+      "d1_census": "artifacts/phase3/cpbd_g0/Beauty/item_truncation_census.csv"
+    }
+  },
+  "conditions": [
+    "current",
+    "metadata_first_full",
+    "metadata_first_minus_all_recovered",
+    "metadata_first_minus_recovered_slice8",
+    "metadata_first_minus_matched_visible_slice8"
+  ],
+  "construction": {
+    "current": "Exact locked GRAM serialization and Collator path.",
+    "metadata_first_full": "For every fine history passage, move the unchanged metadata string before the unchanged ordered collaborative field; keep link, CF identities, raw components, passage count and 128-token budget fixed.",
+    "all_recovered_mask": "Within metadata_first, mask metadata token ranks that are visible there but exceed the number of metadata token ranks visible in the current serialization of the same passage.",
+    "recovered_slice8": "For every fine passage with at least eight newly recovered metadata tokens, mask the first eight recovered ranks; passages below that locked eligibility threshold contribute no slice mask in either slice condition.",
+    "matched_visible_slice8": "For each slice-eligible passage, mask the eight canonical metadata token ranks immediately before the current-visibility cutoff in metadata_first; token count and eligible-passage set exactly match recovered_slice8.",
+    "target_independence": "Serialization and masks use only item text, fixed CF identities, tokenizer offsets, and current visibility counts; no target token, rank, validation success, or test field is used."
+  },
+  "estimands": {
+    "net_reallocation": "lp_metadata_first_full - lp_current",
+    "recovered_all_contribution": "lp_metadata_first_full - lp_metadata_first_minus_all_recovered",
+    "residual_layout_effect": "lp_metadata_first_minus_all_recovered - lp_current",
+    "recovered_slice8_contribution": "lp_metadata_first_full - lp_metadata_first_minus_recovered_slice8",
+    "matched_visible_slice8_contribution": "lp_metadata_first_full - lp_metadata_first_minus_matched_visible_slice8",
+    "failure_association": "mean_tail_miss(net_reallocation) - mean_tail_hit(net_reallocation)"
+  },
+  "integrity_gates": {
+    "tail_miss_n": 256,
+    "tail_hit_n": 256,
+    "cohort_identity_rate": 1.0,
+    "current_score_repeat_max_abs_error": 1e-7,
+    "coarse_prompt_identity_rate": 1.0,
+    "raw_component_identity_rate": 1.0,
+    "fixed_budget_rate": 1.0,
+    "recovered_mask_localization_rate": 1.0,
+    "matched_slice_eligibility_rate": 1.0,
+    "finite_metric_rate": 1.0
+  },
+  "mechanism_gates_per_dataset": {
+    "tail_miss_net_reallocation_mean": 0.02,
+    "tail_miss_net_reallocation_positive_rate": 0.55,
+    "tail_miss_recovered_all_contribution_mean": 0.02,
+    "tail_miss_recovered_all_positive_rate": 0.55,
+    "tail_miss_recovered_slice8_mean": 0.005,
+    "recovered_contribution_fraction_of_net": 0.5,
+    "tail_hit_net_reallocation_mean_min": -0.01,
+    "strict_bootstrap_lower_bound": 0.0
+  },
+  "decision_rule": {
+    "execution_invalid": "Any integrity, lineage, cohort, exact-repeat, localization, eligibility, finite-value, or resource-restoration check fails.",
+    "stop_no_net_value": "Either dataset fails tail-miss net mean, strict lower CI, or positive-rate gate.",
+    "stop_no_recovered_value": "Either dataset fails all-recovered mean/CI/positive-rate, recovered-slice8 mean/CI, or recovered contribution is less than half of net gain.",
+    "stop_broad_harm": "Either dataset has tail-hit mean net reallocation below -0.01.",
+    "g1_design_allowed": "All preceding gates pass on both datasets.",
+    "single_shot": true,
+    "no_serialization_or_threshold_scan": true
+  },
+  "secondary_descriptive_only": [
+    "matched_visible_slice8_contribution",
+    "residual_layout_effect",
+    "failure_association",
+    "per-dataset and per-stratum effect distributions"
+  ],
+  "forbidden": [
+    "test targets or test predictions",
+    "sequence[-1]",
+    "training or parameter updates",
+    "changing top-k, context length, passage count, CF identity, metadata text, cohort, mask size, or thresholds after reading scores",
+    "using the matched control or one dataset to rescue a failed primary gate"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "plan",
+    "origin_date": "2026-07-22",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_pilot_split_v1",
+    "design_status": "LOCKED_ONCE"
+  },
+  "dataset": "Toys",
+  "seed": 2023,
+  "population_users": 19412,
+  "train_users": 1941,
+  "validation_users": 2048,
+  "overlap_users": 0,
+  "training_fraction_realized": 0.09998969709458067,
+  "stratification": "training-only target head/tail x training-anchor history length",
+  "history_bins": [
+    "1-5",
+    "6-10",
+    "11-20",
+    "21+"
+  ],
+  "training_anchor": "target=sequence[-3], history=sequence[:-3]",
+  "popularity_source": "sequence[:-2]",
+  "validation_target_read_for_split": false,
+  "test_target_read": false,
+  "input_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+  "train_users_sha256": "c0127298c99cb3f38685e8aeb5b447fd1c142613ed3f4ee59be6159dad92030f",
+  "validation_users_sha256": "24bbc8496a40288339c789236111812eb41116017ed830d23f2c2b6a24406a9a",
+  "strata_sha256": "c383a444f5216ccbafa7e9426992ce776b5949583e8b553aa29af44141814bac",
+  "strata": {
+    "head__1-5": {
+      "population": 6684,
+      "train": 668,
+      "validation": 705
+    },
+    "head__11-20": {
+      "population": 733,
+      "train": 73,
+      "validation": 77
+    },
+    "head__21+": {
+      "population": 327,
+      "train": 33,
+      "validation": 35
+    },
+    "head__6-10": {
+      "population": 1499,
+      "train": 150,
+      "validation": 158
+    },
+    "tail__1-5": {
+      "population": 7505,
+      "train": 751,
+      "validation": 792
+    },
+    "tail__11-20": {
+      "population": 674,
+      "train": 67,
+      "validation": 71
+    },
+    "tail__21+": {
+      "population": 363,
+      "train": 36,
+      "validation": 38
+    },
+    "tail__6-10": {
+      "population": 1627,
+      "train": 163,
+      "validation": 172
+    }
+  }
+}

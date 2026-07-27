@@ -1,0 +1,75 @@
+{
+  "dataset": "Beauty",
+  "selected_model": "C2_hist_gradient_boosting",
+  "train_n": 18001,
+  "calibration_n": 4362,
+  "validation_n": 22363,
+  "train_prevalence": 0.23204266429642798,
+  "validation_metrics": {
+    "n": 22363,
+    "prevalence": 0.08836023789294817,
+    "auroc": 0.7064000358250049,
+    "auprc": 0.26907487552476517,
+    "auprc_lift": 3.04520315858316,
+    "brier": 0.08805025411833094,
+    "ece": 0.12345909040440245
+  },
+  "constant_brier": 0.10119734590964119,
+  "brier_relative_improvement": 0.12991538140782122,
+  "calibration_threshold_selection": {
+    "threshold": 0.25977653631284914,
+    "active_rate": 0.2223750573131591,
+    "precision": 0.37216494845360826,
+    "precision_lift": 1.654825183643873,
+    "positive_recall": 0.36799184505606525,
+    "target_active_rate": 0.2
+  },
+  "threshold_candidates": [
+    {
+      "threshold": 0.34579439252336447,
+      "active_rate": 0.11095827602017423,
+      "precision": 0.4628099173553719,
+      "precision_lift": 2.057876513255996,
+      "positive_recall": 0.22833843017329256,
+      "target_active_rate": 0.1
+    },
+    {
+      "threshold": 0.25977653631284914,
+      "active_rate": 0.2223750573131591,
+      "precision": 0.37216494845360826,
+      "precision_lift": 1.654825183643873,
+      "positive_recall": 0.36799184505606525,
+      "target_active_rate": 0.2
+    },
+    {
+      "threshold": 0.21005917159763313,
+      "active_rate": 0.3736817973406694,
+      "precision": 0.3116564417177914,
+      "precision_lift": 1.3857751261702407,
+      "positive_recall": 0.5178389398572885,
+      "target_active_rate": 0.3
+    },
+    {
+      "threshold": 0.2029520295202952,
+      "active_rate": 0.5600641907381935,
+      "precision": 0.27548096602537864,
+      "precision_lift": 1.2249214819599406,
+      "positive_recall": 0.6860346585117227,
+      "target_active_rate": 0.4
+    }
+  ],
+  "validation_threshold_metrics": {
+    "threshold": 0.25977653631284914,
+    "active_rate": 0.16844788266332783,
+    "precision": 0.234669498274489,
+    "precision_lift": 2.655826917971861,
+    "positive_recall": 0.4473684210526316
+  },
+  "passed": false,
+  "input_sha256": {
+    "sequence": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "neighbors": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c",
+    "train_users": "06f5aa16bbff574ddc5fc05a40d8177afacde6ae2e05aeb18675e9bbabe3e24b",
+    "calibration_users": "1e5298644082ec7a9dd6f9396e20511f7b44afa3cd314a102b1604d3a6d1f4ec"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "experiment_id": "GRAM_PHASE4_CCRR_R0",
+  "registered_at": "2026-07-27T15:30:00+08:00",
+  "decision_status_before_run": "CCRR_R0_PREREGISTERED",
+  "seed": 2023,
+  "source_rpcd_config": "artifacts/phase4/configs/rpcd_t0_preregistered.json",
+  "source_rpcd_summary": "artifacts/phase4/rpcd_t0/summary.json",
+  "datasets": {
+    "Toys": {
+      "teacher_top50": "artifacts/phase4/rpcd_t0/teacher_top50_Toys.jsonl"
+    },
+    "Beauty": {
+      "teacher_top50": "artifacts/phase4/rpcd_t0/teacher_top50_Beauty.jsonl"
+    }
+  },
+  "selection": {
+    "calibration_fraction": 0.2,
+    "calibration_salt": "rpcd-t0-hybrid-weight-v1",
+    "audit_fraction": 0.8,
+    "fit_scope": "calibration user-candidate rows only",
+    "audit_labels_forbidden_during_fit": true
+  },
+  "candidates": {
+    "definition": "deduplicated GRAM beam-50 followed by raw SASRec top-50",
+    "top_k_per_source": 50,
+    "seen_history_feature_only": true
+  },
+  "model": {
+    "class": "sklearn.linear_model.LogisticRegression",
+    "solver": "lbfgs",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 500,
+    "tol": 0.0001,
+    "random_state": 2023,
+    "scaler": "StandardScaler fit on calibration rows only",
+    "shared_recipe_across_datasets": true,
+    "dataset_specific_hyperparameter_search": false
+  },
+  "baselines": {
+    "B0": "original GRAM beam rank",
+    "B1": "RPCD reciprocal-log-rank fusion with weight=0.2"
+  },
+  "gates": {
+    "ndcg10_relative_gain_min": 0.01,
+    "recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.0,
+    "must_exceed_B1_ndcg": true,
+    "both_datasets_required": true
+  },
+  "bootstrap": {
+    "iterations": 5000,
+    "unit": "audit user",
+    "paired": true,
+    "confidence": 0.95
+  },
+  "data_policy": {
+    "history": "sequence[:-2]",
+    "validation_target": "sequence[-2]",
+    "test_target": "sequence[-1] is never indexed or evaluated",
+    "test_predictions_forbidden": true,
+    "model_optimizer_steps": 0
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "by_popularity": {
+    "nonzero_bottom50": {
+      "mean_recoverable_metadata_tokens": 23.247433092072043,
+      "n": 5941,
+      "rate_recoverable_metadata_ge_8": 0.7724288840262582
+    },
+    "top50": {
+      "mean_recoverable_metadata_tokens": 23.023588879528223,
+      "n": 5935,
+      "rate_recoverable_metadata_ge_8": 0.7556866048862679
+    },
+    "zero": {
+      "mean_recoverable_metadata_tokens": 23.708333333333332,
+      "n": 48,
+      "rate_recoverable_metadata_ge_8": 0.7916666666666666
+    }
+  },
+  "dataset": "Toys",
+  "field_totals": {
+    "brand": {
+      "current_raw": 59620,
+      "current_visible": 59533,
+      "metadata_first_visible": 59592
+    },
+    "categories": {
+      "current_raw": 153348,
+      "current_visible": 153153,
+      "metadata_first_visible": 153326
+    },
+    "description": {
+      "current_raw": 1067203,
+      "current_visible": 499122,
+      "metadata_first_visible": 709810
+    },
+    "price": {
+      "current_raw": 51215,
+      "current_visible": 13427,
+      "metadata_first_visible": 25326
+    },
+    "salesrank": {
+      "current_raw": 100841,
+      "current_visible": 21198,
+      "metadata_first_visible": 45384
+    },
+    "title": {
+      "current_raw": 151880,
+      "current_visible": 151862,
+      "metadata_first_visible": 151880
+    }
+  },
+  "integrity": {
+    "catalog_intersection_coverage": 1.0,
+    "exact_collator_replay_rate": 1.0,
+    "finite_metric_rate": 1.0,
+    "fixed_component_identity_rate": 1.0,
+    "parse_success_rate": 1.0
+  },
+  "mechanism_gates": {
+    "median_current_metadata_retention": true,
+    "median_recoverable_metadata_tokens": true,
+    "rate_recoverable_metadata_ge_8": true
+  },
+  "mechanism_pass": true,
+  "metrics": {
+    "catalog_items": 11924,
+    "mean_current_metadata_retention": 0.6640431668204444,
+    "mean_recoverable_metadata_tokens": 23.137873196913787,
+    "median_current_metadata_retention": 0.65625,
+    "median_displaced_cf_tokens": 29.0,
+    "median_recoverable_metadata_tokens": 33.0,
+    "rate_recoverable_metadata_ge_8": 0.7641730962764173
+  }
+}

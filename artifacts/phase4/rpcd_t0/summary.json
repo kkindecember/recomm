@@ -1,0 +1,1048 @@
+{
+  "experiment_id": "GRAM_PHASE4_RPCD_T0",
+  "decision": "STOP_RPCD_NO_TEACHER_COMPLEMENTARITY",
+  "selected_shared_epoch": 8,
+  "selected_shared_weight": 0.2,
+  "epoch_grid": [
+    {
+      "epoch": 1,
+      "macro_ndcg@10": 0.008653967816582172
+    },
+    {
+      "epoch": 2,
+      "macro_ndcg@10": 0.009461327948426678
+    },
+    {
+      "epoch": 3,
+      "macro_ndcg@10": 0.00978570237290638
+    },
+    {
+      "epoch": 4,
+      "macro_ndcg@10": 0.011496111652675702
+    },
+    {
+      "epoch": 5,
+      "macro_ndcg@10": 0.012821642484726014
+    },
+    {
+      "epoch": 6,
+      "macro_ndcg@10": 0.013147847715872539
+    },
+    {
+      "epoch": 7,
+      "macro_ndcg@10": 0.01542582660370375
+    },
+    {
+      "epoch": 8,
+      "macro_ndcg@10": 0.017055950865058657
+    },
+    {
+      "epoch": 9,
+      "macro_ndcg@10": 0.016608209202459062
+    },
+    {
+      "epoch": 10,
+      "macro_ndcg@10": 0.016835907875771328
+    }
+  ],
+  "teacher_epoch_metrics": {
+    "Toys": [
+      {
+        "dataset": "Toys",
+        "epoch": 1,
+        "training_loss": 1.3193538547890185,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.015535991714137753,
+        "internal_calibration_ndcg@10": 0.007191489161619252
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 2,
+        "training_loss": 1.2096245249681152,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.010875194199896427,
+        "internal_calibration_ndcg@10": 0.005849513141996002
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 3,
+        "training_loss": 1.142937275152647,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.00983946141895391,
+        "internal_calibration_ndcg@10": 0.004842031055948027
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 4,
+        "training_loss": 1.0880799458423416,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.016571724495080268,
+        "internal_calibration_ndcg@10": 0.00828933496113342
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 5,
+        "training_loss": 1.031265856156097,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.019161056447436563,
+        "internal_calibration_ndcg@10": 0.01127284129705397
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 6,
+        "training_loss": 0.9777348208091218,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.02019678922837908,
+        "internal_calibration_ndcg@10": 0.010213539439693494
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 7,
+        "training_loss": 0.9235071732164017,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.024339720352149145,
+        "internal_calibration_ndcg@10": 0.012568722481910178
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 8,
+        "training_loss": 0.8800584152503186,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.02589331952356292,
+        "internal_calibration_ndcg@10": 0.014246665337183226
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 9,
+        "training_loss": 0.8323918967578072,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.02641118591403418,
+        "internal_calibration_ndcg@10": 0.014447446914360581
+      },
+      {
+        "dataset": "Toys",
+        "epoch": 10,
+        "training_loss": 0.7928173193220388,
+        "internal_calibration_n": 1931,
+        "internal_calibration_recall@10": 0.02641118591403418,
+        "internal_calibration_ndcg@10": 0.014752710556439752
+      }
+    ],
+    "Beauty": [
+      {
+        "dataset": "Beauty",
+        "epoch": 1,
+        "training_loss": 1.275279619683485,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.020179372197309416,
+        "internal_calibration_ndcg@10": 0.01011644647154509
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 2,
+        "training_loss": 1.1502038434920536,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.026905829596412557,
+        "internal_calibration_ndcg@10": 0.013073142754857353
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 3,
+        "training_loss": 1.0791366016446353,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.028251121076233184,
+        "internal_calibration_ndcg@10": 0.014729373689864734
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 4,
+        "training_loss": 1.0315692250568023,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.029596412556053813,
+        "internal_calibration_ndcg@10": 0.014702888344217985
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 5,
+        "training_loss": 0.9850359244653312,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.028699551569506727,
+        "internal_calibration_ndcg@10": 0.01437044367239806
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 6,
+        "training_loss": 0.9401106294093516,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.030044843049327353,
+        "internal_calibration_ndcg@10": 0.016082155992051584
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 7,
+        "training_loss": 0.8940652311776804,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.03632286995515695,
+        "internal_calibration_ndcg@10": 0.01828293072549732
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 8,
+        "training_loss": 0.8460843132375492,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.04170403587443946,
+        "internal_calibration_ndcg@10": 0.019865236392934086
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 9,
+        "training_loss": 0.8043121792752917,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.037219730941704034,
+        "internal_calibration_ndcg@10": 0.01876897149055754
+      },
+      {
+        "dataset": "Beauty",
+        "epoch": 10,
+        "training_loss": 0.7655611175655147,
+        "internal_calibration_n": 2230,
+        "internal_calibration_recall@10": 0.039461883408071746,
+        "internal_calibration_ndcg@10": 0.018919105195102905
+      }
+    ]
+  },
+  "weight_grid": [
+    {
+      "weight": 0.0,
+      "eligible": true,
+      "macro_relative_ndcg@10": 0.0,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": 0.0,
+          "hybrid_recall10_absolute_gain": 0.0,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.06781575712024333,
+          "tail_ndcg10_relative_gain": 0.0
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": 0.0,
+          "hybrid_recall10_absolute_gain": 0.0,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.03479473038115137,
+          "tail_ndcg10_relative_gain": 0.0
+        }
+      }
+    },
+    {
+      "weight": 0.1,
+      "eligible": true,
+      "macro_relative_ndcg@10": 0.010822423485153498,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.12093023255813953,
+            "ndcg@10": 0.07703417502460083
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": 0.0058115689734230536,
+          "hybrid_recall10_absolute_gain": 0.0015503875968992248,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.06758782018044146,
+          "tail_ndcg10_relative_gain": -0.003361120622714875
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.10556057866184448,
+            "ndcg@10": 0.06197329788795109
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": 0.015833277996883943,
+          "hybrid_recall10_absolute_gain": 0.002486437613019893,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.03448061542698996,
+          "tail_ndcg10_relative_gain": -0.009027658806965988
+        }
+      }
+    },
+    {
+      "weight": 0.2,
+      "eligible": true,
+      "macro_relative_ndcg@10": 0.013502939919250334,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.12093023255813953,
+            "ndcg@10": 0.07692381462429043
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": 0.00437062711413394,
+          "hybrid_recall10_absolute_gain": 0.0015503875968992248,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.06606428169578153,
+          "tail_ndcg10_relative_gain": -0.025826968522319693
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.10669077757685352,
+            "ndcg@10": 0.062388268351257666
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": 0.022635252724366728,
+          "hybrid_recall10_absolute_gain": 0.0036166365280289325,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.033783462227887466,
+          "tail_ndcg10_relative_gain": -0.029063830706149596
+        }
+      }
+    },
+    {
+      "weight": 0.3,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.0004812373866255881,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.11834625322997416,
+            "ndcg@10": 0.07588414117734661
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.009204069837661977,
+          "hybrid_recall10_absolute_gain": -0.0010335917312661452,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.06311410488110267,
+          "tail_ndcg10_relative_gain": -0.06932979057955835
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.10397830018083183,
+            "ndcg@10": 0.061510149418575515
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": 0.0082415950644108,
+          "hybrid_recall10_absolute_gain": 0.0009041591320072401,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.03186344030149686,
+          "tail_ndcg10_relative_gain": -0.08424523045715038
+        }
+      }
+    },
+    {
+      "weight": 0.4,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.06736554007535217,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.11085271317829458,
+            "ndcg@10": 0.07037750955205002
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.08110246808791222,
+          "hybrid_recall10_absolute_gain": -0.00852713178294573,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.05622278066302087,
+          "tail_ndcg10_relative_gain": -0.1709481239981896
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.0981012658227848,
+            "ndcg@10": 0.057735611943051754
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.053628612062792125,
+          "hybrid_recall10_absolute_gain": -0.004972875226039786,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.02897405985525332,
+          "tail_ndcg10_relative_gain": -0.16728597871392514
+        }
+      }
+    },
+    {
+      "weight": 0.5,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.14083669775738705,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.10568475452196383,
+            "ndcg@10": 0.06445362671918428
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.15844878723310507,
+          "hybrid_recall10_absolute_gain": -0.013695090439276483,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.04864011328141643,
+          "tail_ndcg10_relative_gain": -0.28276088999237725
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.09245027124773961,
+            "ndcg@10": 0.05348974453655554
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.12322460828166903,
+          "hybrid_recall10_absolute_gain": -0.010623869801084984,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.02539285094747309,
+          "tail_ndcg10_relative_gain": -0.2702098659965868
+        }
+      }
+    },
+    {
+      "weight": 0.6,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.3692011988073528,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.08914728682170543,
+            "ndcg@10": 0.04597227933944429
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.3997540650377006,
+          "hybrid_recall10_absolute_gain": -0.030232558139534876,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.029282561458710013,
+          "tail_ndcg10_relative_gain": -0.5682041651943892
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.08024412296564196,
+            "ndcg@10": 0.04034731366028762
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.338648332577005,
+          "hybrid_recall10_absolute_gain": -0.022830018083182635,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.014396076573781662,
+          "tail_ndcg10_relative_gain": -0.5862569873057516
+        }
+      }
+    },
+    {
+      "weight": 0.7,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.5381407324186596,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.07131782945736434,
+            "ndcg@10": 0.0320726378062962
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.5812374164743739,
+          "hybrid_recall10_absolute_gain": -0.04806201550387597,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.0161054708507358,
+          "tail_ndcg10_relative_gain": -0.7625113759007456
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.06690777576853527,
+            "ndcg@10": 0.03080602524934512
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.49504404836294513,
+          "hybrid_recall10_absolute_gain": -0.036166365280289325,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.008113899919498171,
+          "tail_ndcg10_relative_gain": -0.7668066448391407
+        }
+      }
+    },
+    {
+      "weight": 0.8,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.7029341778689958,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.03565891472868217,
+            "ndcg@10": 0.01786373164581867
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.7667587411864522,
+          "hybrid_recall10_absolute_gain": -0.08372093023255814,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.003512275622664077,
+          "tail_ndcg10_relative_gain": -0.9482085613755443
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.0461121157323689,
+            "ndcg@10": 0.022016966609321436
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.6391096145515395,
+          "hybrid_recall10_absolute_gain": -0.056962025316455694,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.0014527164392477635,
+          "tail_ndcg10_relative_gain": -0.9582489525472883
+        }
+      }
+    },
+    {
+      "weight": 0.9,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.745889006948917,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.03178294573643411,
+            "ndcg@10": 0.01578720802824194
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.7938712724381756,
+          "hybrid_recall10_absolute_gain": -0.08759689922480621,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.002656907548396438,
+          "tail_ndcg10_relative_gain": -0.9608216783057438
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.03774864376130199,
+            "ndcg@10": 0.01842990961900722
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.6979067414596586,
+          "hybrid_recall10_absolute_gain": -0.0653254972875226,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.0010505349278784588,
+          "tail_ndcg10_relative_gain": -0.9698076428134202
+        }
+      }
+    },
+    {
+      "weight": 1.0,
+      "eligible": false,
+      "macro_relative_ndcg@10": -0.7729812382545852,
+      "datasets": {
+        "Toys": {
+          "n": 3870,
+          "gram": {
+            "n": 3870,
+            "recall@10": 0.11937984496124031,
+            "ndcg@10": 0.07658907234803972,
+            "recall@50": 0.21291989664082686
+          },
+          "sasrec": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929,
+            "recall@50": 0.07700258397932816
+          },
+          "hybrid": {
+            "n": 3870,
+            "recall@10": 0.026614987080103358,
+            "ndcg@10": 0.013826121751529929
+          },
+          "union_recall@50": 0.24651162790697675,
+          "union_recall50_absolute_gain": 0.03359173126614989,
+          "gram_miss10_n": 3408,
+          "gram_miss10_sasrec_hit50_rate": 0.05927230046948357,
+          "hybrid_ndcg10_relative_gain": -0.8194765737767314,
+          "hybrid_recall10_absolute_gain": -0.09276485788113695,
+          "tail_n": 2166,
+          "tail_gram_ndcg@10": 0.06781575712024333,
+          "tail_hybrid_ndcg@10": 0.0019840341196810823,
+          "tail_ndcg10_relative_gain": -0.9707437592097775
+        },
+        "Beauty": {
+          "n": 4424,
+          "gram": {
+            "n": 4424,
+            "recall@10": 0.10307414104882459,
+            "ndcg@10": 0.06100735153130236,
+            "recall@50": 0.20750452079566004
+          },
+          "sasrec": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923,
+            "recall@50": 0.09719710669077758
+          },
+          "hybrid": {
+            "n": 4424,
+            "recall@10": 0.03322784810126582,
+            "ndcg@10": 0.016686370680768923
+          },
+          "union_recall@50": 0.23801989150090416,
+          "union_recall50_absolute_gain": 0.030515370705244127,
+          "gram_miss10_n": 3968,
+          "gram_miss10_sasrec_hit50_rate": 0.06628024193548387,
+          "hybrid_ndcg10_relative_gain": -0.726485902732439,
+          "hybrid_recall10_absolute_gain": -0.06984629294755877,
+          "tail_n": 2204,
+          "tail_gram_ndcg@10": 0.03479473038115137,
+          "tail_hybrid_ndcg@10": 0.0007156644210202558,
+          "tail_ndcg10_relative_gain": -0.9794318158761208
+        }
+      }
+    }
+  ],
+  "audit": {
+    "Toys": {
+      "n": 15542,
+      "gram": {
+        "n": 15542,
+        "recall@10": 0.11941835027666967,
+        "ndcg@10": 0.07619618844603056,
+        "recall@50": 0.21168446789345
+      },
+      "sasrec": {
+        "n": 15542,
+        "recall@10": 0.02547934628747909,
+        "ndcg@10": 0.013178790124240157,
+        "recall@50": 0.0755372538926779
+      },
+      "hybrid": {
+        "n": 15542,
+        "recall@10": 0.12025479346287479,
+        "ndcg@10": 0.07645413905526442
+      },
+      "union_recall@50": 0.24340496718569038,
+      "union_recall50_absolute_gain": 0.031720499292240384,
+      "gram_miss10_n": 13686,
+      "gram_miss10_sasrec_hit50_rate": 0.056992547128452434,
+      "hybrid_ndcg10_relative_gain": 0.003385347935304761,
+      "hybrid_recall10_absolute_gain": 0.0008364431862051269,
+      "tail_n": 8857,
+      "tail_gram_ndcg@10": 0.06981881699022133,
+      "tail_hybrid_ndcg@10": 0.06808430448660975,
+      "tail_ndcg10_relative_gain": -0.024843052036451874
+    },
+    "Beauty": {
+      "n": 17939,
+      "gram": {
+        "n": 17939,
+        "recall@10": 0.11015106750654997,
+        "ndcg@10": 0.06595185852918967,
+        "recall@50": 0.20826133006299125
+      },
+      "sasrec": {
+        "n": 17939,
+        "recall@10": 0.034673058698924134,
+        "ndcg@10": 0.01632908317695897,
+        "recall@50": 0.09537878365572217
+      },
+      "hybrid": {
+        "n": 17939,
+        "recall@10": 0.11054127877808127,
+        "ndcg@10": 0.06608563140358997
+      },
+      "union_recall@50": 0.23858632030770946,
+      "union_recall50_absolute_gain": 0.030324990244718214,
+      "gram_miss10_n": 15963,
+      "gram_miss10_sasrec_hit50_rate": 0.0629580905844766,
+      "hybrid_ndcg10_relative_gain": 0.002028341238345943,
+      "hybrid_recall10_absolute_gain": 0.00039021127153129886,
+      "tail_n": 9034,
+      "tail_gram_ndcg@10": 0.03372852187689576,
+      "tail_hybrid_ndcg@10": 0.03258868123758905,
+      "tail_ndcg10_relative_gain": -0.033794562461615385
+    }
+  },
+  "gate_rows": [
+    {
+      "dataset": "Toys",
+      "checks": {
+        "union_recall50_absolute_gain": true,
+        "gram_miss10_sasrec_hit50_rate": false,
+        "hybrid_ndcg10_relative_gain": false,
+        "hybrid_recall10_absolute_gain": true,
+        "tail_ndcg10_relative_gain": false
+      },
+      "pass": false
+    },
+    {
+      "dataset": "Beauty",
+      "checks": {
+        "union_recall50_absolute_gain": true,
+        "gram_miss10_sasrec_hit50_rate": false,
+        "hybrid_ndcg10_relative_gain": false,
+        "hybrid_recall10_absolute_gain": true,
+        "tail_ndcg10_relative_gain": false
+      },
+      "pass": false
+    }
+  ],
+  "integrity": {
+    "preflight_passed": true,
+    "test_predictions_read": false,
+    "sequence_test_target_indexed": false,
+    "target_match_rate": 1.0,
+    "shared_epoch": true,
+    "shared_weight": true
+  },
+  "elapsed_seconds": 21.329912662506104
+}

@@ -1,0 +1,54 @@
+{
+  "experiment_id": "GRAM_PHASE4_FCRD_F0",
+  "registered_at": "2026-07-27T13:45:00+08:00",
+  "decision_status_before_run": "FCRD_F0_PREREGISTERED",
+  "seed": 2023,
+  "source_rpcd_config": "artifacts/phase4/configs/rpcd_t0_preregistered.json",
+  "datasets": {
+    "Toys": {
+      "sasrec_checkpoint": "artifacts/phase4/rpcd_t0/sasrec_Toys_epoch8.pt",
+      "teacher_top50": "artifacts/phase4/rpcd_t0/teacher_top50_Toys.jsonl"
+    },
+    "Beauty": {
+      "sasrec_checkpoint": "artifacts/phase4/rpcd_t0/sasrec_Beauty_epoch8.pt",
+      "teacher_top50": "artifacts/phase4/rpcd_t0/teacher_top50_Beauty.jsonl"
+    }
+  },
+  "residual": {
+    "popularity": "p(i)=(training_count(sequence[:-2])+1)/sum_j(training_count_j+1)",
+    "formula": "residual_logit(i|h)=sasrec_logit(i|h)-gamma*log(p(i))",
+    "gammas": [0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 1.0],
+    "top_k": 50,
+    "seen_history_masked": true
+  },
+  "hybrid": {
+    "weights": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    "score_normalization": "reciprocal_log_rank",
+    "calibration_fraction": 0.2,
+    "calibration_salt": "rpcd-t0-hybrid-weight-v1",
+    "selection_eligibility": "per dataset: overall union Recall@50 gain >=3pp, tail union Recall@50 gain >=1pp, Recall@10 nondecrease, tail NDCG@10 nondecrease",
+    "selection_objective": "maximize macro relative NDCG@10; ties choose smaller gamma then smaller weight",
+    "no_eligible_fallback": "gamma=0, weight=0 and calibration_qualified=false; final decision forced STOP"
+  },
+  "audit_gates": {
+    "overall_union_recall50_absolute_gain_min": 0.03,
+    "tail_union_recall50_absolute_gain_min": 0.01,
+    "hybrid_ndcg10_relative_gain_min": 0.01,
+    "hybrid_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.0
+  },
+  "integrity": {
+    "gamma0_teacher_top50_identity_rate": 1.0,
+    "shared_config": true,
+    "target_match_rate": 1.0,
+    "test_predictions_forbidden": true,
+    "sequence_test_target_indexed": false,
+    "model_optimizer_steps": 0
+  },
+  "bootstrap": {
+    "iterations": 5000,
+    "unit": "audit user",
+    "paired": true,
+    "confidence": 0.95
+  }
+}

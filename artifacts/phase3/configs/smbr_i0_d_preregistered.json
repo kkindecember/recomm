@@ -1,0 +1,135 @@
+{
+  "version": "smbr_i0_d_preregistered_v1",
+  "preregistered_at": "2026-07-24",
+  "preregistered_after": "TRANSFER_INNOVATION_ALLOWED_I0_D_DESIGN_UNLOCKED",
+  "preregistered_before_new_training_prefix_scores": true,
+  "seed": 20260724,
+  "bootstrap_iterations": 10000,
+  "batch_size": 16,
+  "max_history": 20,
+  "min_history": 2,
+  "target_offset_from_end": 3,
+  "split_hash_modulus": 100,
+  "splits": {
+    "fit": {
+      "hash_buckets": [0, 60],
+      "max_users": 1200
+    },
+    "calibration": {
+      "hash_buckets": [60, 80],
+      "max_users": 400
+    },
+    "audit": {
+      "hash_buckets": [80, 100],
+      "max_users": 400
+    }
+  },
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "census": "artifacts/phase3/cpbd_g0/Toys/item_truncation_census.csv"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "census": "artifacts/phase3/cpbd_g0/Beauty/item_truncation_census.csv"
+    }
+  },
+  "sample_definition": {
+    "target": "sequence[-3], which is inside sequence[:-2]",
+    "history": "sequence[:-3][-20:]",
+    "user_split": "sha256(seed|dataset|user) modulo 100; fit/calibration/audit users are disjoint",
+    "selection": "Within each split, retain valid users in ascending sha256(seed|dataset|split|user) order up to the fixed cap. Selection never uses a score, target identity, validation outcome, or test field.",
+    "eligibility": "History length 2-20; target and all history items exist in locked GRAM indices; all history items exist in the frozen CPBD census."
+  },
+  "conditions": {
+    "current": "Exact locked GRAM serialization.",
+    "recover_with_fixed_budget": "For every fine history passage, move unchanged metadata before unchanged collaborative IDs using CPBD metadata_first_passage; Collator width remains 128 and passage count/CF identities/raw text remain fixed.",
+    "benefit": "lp_recover_with_fixed_budget - lp_current",
+    "positive_label": "benefit > 0.02"
+  },
+  "features": [
+    "history_length",
+    "recoverable_sum",
+    "recoverable_mean",
+    "recoverable_max",
+    "recoverable_positive_fraction",
+    "recoverable_ge8_fraction",
+    "displaced_cf_sum",
+    "displaced_cf_mean",
+    "metadata_lost_sum",
+    "metadata_lost_mean",
+    "metadata_retention_mean",
+    "metadata_retention_min",
+    "current_metadata_visible_sum",
+    "current_cf_visible_sum",
+    "log1p_popularity_mean",
+    "log1p_popularity_min",
+    "tail_item_fraction",
+    "top_k_similar_item_mean"
+  ],
+  "feature_boundary": "Every feature is computed only from history items and the frozen item census. The training-prefix target is removed before feature construction. sequence[-2], sequence[-1], validation predictions, validation hit/miss, beam rank and target text are forbidden.",
+  "primary_model": {
+    "pipeline": "StandardScaler then sklearn LogisticRegression",
+    "C": 1.0,
+    "penalty": "l2",
+    "class_weight": null,
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "random_state": 20260724
+  },
+  "calibration_threshold_rule": {
+    "candidate_probability_thresholds": [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9],
+    "eligible_active_rate": [0.1, 0.4],
+    "minimum_calibration_precision": 0.6,
+    "selection": "Among eligible thresholds, maximize calibration mean benefit; ties choose the higher precision, then the higher threshold. If none is eligible, stop for that dataset."
+  },
+  "locked_baselines": {
+    "recoverable_threshold": "At the model policy's audit active count, activate samples with the largest recoverable_sum; ties by sample_hash.",
+    "displacement_ratio": "At the same count, activate by recoverable_sum/(1+displaced_cf_sum); ties by sample_hash.",
+    "matched_random": "Expected mean over 1000 deterministic random subsets at the same count.",
+    "always_recover": "Activate every audit sample.",
+    "oracle": "Activate positive-benefit samples; diagnostic upper bound only."
+  },
+  "integrity_gates": {
+    "exact_split_caps_required": true,
+    "user_overlap_across_splits": 0,
+    "heldout_sequence_fields_read": false,
+    "target_feature_inclusion_rate": 0.0,
+    "current_repeat_max_abs_error": 1e-7,
+    "fixed_budget_rate": 1.0,
+    "raw_component_identity_rate": 1.0,
+    "finite_score_rate": 1.0
+  },
+  "learnability_gates_per_dataset": {
+    "audit_auroc_point_min": 0.6,
+    "audit_auroc_ci95_lower_strictly_greater_than": 0.5,
+    "audit_brier_strictly_below_constant_prevalence": true,
+    "audit_ece_max": 0.1,
+    "audit_active_rate_min": 0.1,
+    "audit_active_rate_max": 0.4,
+    "audit_precision_wilson_ci95_lower_strictly_greater_than": 0.5,
+    "audit_active_mean_benefit_min": 0.02,
+    "audit_active_mean_benefit_ci95_lower_strictly_greater_than": 0.0,
+    "audit_policy_mean_gain_ci95_lower_strictly_greater_than": 0.0,
+    "audit_auroc_margin_over_recoverable_threshold_min": 0.02,
+    "audit_policy_gain_point_greater_than_each_non_oracle_baseline": true
+  },
+  "decision_rule": {
+    "execution_invalid": "Any split, leakage, identity, repeat, finite or fixed-budget integrity gate fails.",
+    "stop_no_calibrated_subset": "Either dataset has no calibration threshold meeting the frozen active-rate and precision requirements.",
+    "stop_no_benefit_learnability": "Either dataset fails any frozen audit learnability, calibration, utility or simple-baseline gate.",
+    "i1_design_allowed": "All integrity and learnability gates pass on both datasets.",
+    "single_shot": true,
+    "no_model_feature_threshold_or_sample_size_revision_after_scoring": true
+  },
+  "forbidden": [
+    "sequence[-2] or sequence[-1]",
+    "validation/test targets, predictions, hit/miss labels or beam ranks",
+    "using the training-prefix target as a feature",
+    "changing features, model, split, thresholds, sample caps or gates after scores are read",
+    "using one dataset to rescue failure on the other",
+    "training or updating GRAM"
+  ]
+}

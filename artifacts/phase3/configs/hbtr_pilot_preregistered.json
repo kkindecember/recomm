@@ -1,0 +1,109 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "plan",
+    "origin_date": "2026-07-22",
+    "verification_status": "UNVERIFIED",
+    "version_label": "hbtr_pilot_v1",
+    "design_status": "LOCKED_BEFORE_SPLIT_AND_GPU"
+  },
+  "scope": "exploratory mechanism screening by continued training from the locked full-data baseline checkpoint",
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt"
+    }
+  },
+  "split": {
+    "seed": 2023,
+    "training_user_fraction": 0.1,
+    "validation_users": 2048,
+    "user_overlap_allowed": false,
+    "stratification": "training-only anchor target popularity (head top 20% items versus tail) by training-anchor history length",
+    "history_bins": ["1-5", "6-10", "11-20", "21+"],
+    "training_anchor": "target=sequence[-3], history=sequence[:-3]",
+    "popularity_source": "all users sequence[:-2]",
+    "test_target_read": false,
+    "validation_target_read_for_split": false
+  },
+  "initialization": "same locked full-data baseline checkpoint for C0-C4",
+  "training": {
+    "epochs": 5,
+    "validation_epochs": [5],
+    "seed": 2023,
+    "learning_rate": 1e-5,
+    "optimizer": "AdamW",
+    "scheduler": "linear_with_5_percent_warmup",
+    "weight_decay": 0.01,
+    "batch_size": 16,
+    "gradient_accumulation_steps": 8,
+    "effective_batch_size": 128,
+    "beam_size": 50,
+    "full_item_trie": true,
+    "test_allowed": false
+  },
+  "negative_cache": {
+    "source": "locked dataset baseline checkpoint",
+    "scope": "all augmented training samples belonging to locked pilot training users",
+    "negative_count": 4,
+    "eligibility": "positive rank 11 through 50 inclusive",
+    "selection": "highest-scored wrong top-10 excluding target, history, duplicates and Trie-external items",
+    "refresh": "static_once_and_shared_by_C1_C4"
+  },
+  "controls": {
+    "C0": "token CE only",
+    "C1": "token CE + unweighted beam pairwise margin",
+    "C2": "token CE + prefix-only beam pairwise margin",
+    "C3": "token CE + popularity-only beam pairwise margin",
+    "C4": "token CE + joint prefix-by-popularity beam pairwise margin"
+  },
+  "shared_objective": {
+    "base_margin": 0.1,
+    "ranking_lambda": 0.1,
+    "prefix_depth_cap": 3,
+    "tail_weight_cap": 2.0
+  },
+  "endpoints": {
+    "primary": "validation NDCG@10",
+    "secondary": ["Recall@5", "NDCG@5", "Recall@10"],
+    "subgroups": ["head", "tail", "history_length"],
+    "uncertainty": "paired user-level bootstrap with 10000 resamples",
+    "effect_claim_allowed": false
+  },
+  "promotion_gate": {
+    "data_and_protocol_integrity_required": true,
+    "C4_vs_C0": {
+      "both_dataset_ndcg_direction": "positive",
+      "at_least_one_dataset_ndcg_relative_gain": 0.02,
+      "recall10_absolute_decline_max": 0.0,
+      "tail_recall10_relative_decline_max": 0.01,
+      "tail_ndcg10_relative_decline_max": 0.01
+    },
+    "component_evidence": {
+      "C4_macro_ndcg10_must_exceed_each_of": ["C1", "C2", "C3"],
+      "per_dataset_tolerance_below_best_component_relative": 0.005
+    },
+    "resource_limits_relative_to_C0": {
+      "peak_reserved_increase_max": 0.25,
+      "training_wall_time_increase_max": 1.0,
+      "validation_latency_increase_max": 0.05
+    },
+    "decision": "GO only if every required condition passes; MODIFY for integrity-clean near miss with a single predeclared repairable failure; otherwise STOP"
+  },
+  "execution_order": [
+    "Toys_cache",
+    "Toys_C0",
+    "Toys_C1",
+    "Toys_C2",
+    "Toys_C3",
+    "Toys_C4",
+    "Beauty_cache",
+    "Beauty_C0",
+    "Beauty_C1",
+    "Beauty_C2",
+    "Beauty_C3",
+    "Beauty_C4"
+  ]
+}

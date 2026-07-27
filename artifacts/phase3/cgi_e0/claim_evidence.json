@@ -1,0 +1,89 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "cgi_e0_novelty_audit_v1",
+    "design_status": "PREREGISTERED_E0_N_EXECUTED_BEFORE_E0_D"
+  },
+  "scope": {
+    "question": "Is harmful fine-item passage contribution inside GRAM multi-granular FiD distinct enough to justify the preregistered E0-D?",
+    "search_cutoff": "2026-07-24",
+    "evidence_policy": "Official proceedings and primary author preprints; discovery summaries were not final evidence.",
+    "e0_d_started_before_decision": false,
+    "checkpoint_loaded": false,
+    "test_data_read": false,
+    "gpu_used": false
+  },
+  "claim_boundary": {
+    "allowed": "A GRAM-specific mechanism claim about negative contribution from correct per-history-item fine-text passages relative to the coarse lexical-history passage, structured by oldest/newest position and tail miss/hit.",
+    "forbidden": [
+      "first counterfactual attribution",
+      "first history masking",
+      "first discovery that extra semantic knowledge can harm recommendation",
+      "first adaptive fusion or FiD passage pruning",
+      "first causal modeling of behavior sequences"
+    ]
+  },
+  "closest_prior_work": [
+    {
+      "key": "lwgr",
+      "source": "https://arxiv.org/abs/2605.18771",
+      "overlap": "States that uncontrolled LLM world-knowledge fusion can conflict with behavioral signals and selectively incorporates beneficial knowledge with bounded degradation.",
+      "remaining_difference": "It transfers external personalized world knowledge; it does not audit native GRAM coarse/fine history passages or decompose oldest/newest contribution by candidate-failure stratum."
+    },
+    {
+      "key": "cft",
+      "source": "https://arxiv.org/abs/2410.22809",
+      "overlap": "Uses counterfactual reasoning to emphasize the causal effect of the behavior sequence on LLM recommendation.",
+      "remaining_difference": "It contrasts behavior-sequence effects at the task level, not contributions of separately encoded coarse and fine FiD passages."
+    },
+    {
+      "key": "mhl",
+      "source": "https://arxiv.org/abs/2509.23649",
+      "overlap": "Masks historical items and reconstructs them to improve generative recommendation history understanding.",
+      "remaining_difference": "The mask is an auxiliary training objective, not a frozen-model counterfactual contribution audit of correct item text."
+    },
+    {
+      "key": "ragonite_rfid_mgfid",
+      "sources": [
+        "https://arxiv.org/abs/2412.10571",
+        "https://aclanthology.org/2023.findings-acl.155/",
+        "https://aclanthology.org/2024.findings-naacl.142/"
+      ],
+      "overlap": "Establish counterfactual evidence deletion, spurious FiD passage use, multi-granular evidence supervision, and passage pruning in QA.",
+      "remaining_difference": "These are QA evidence systems, not sequential recommendation with a coarse user-history prompt and aligned per-item text passages."
+    },
+    {
+      "key": "mgr_lf_plus_plus",
+      "source": "https://arxiv.org/abs/2503.23333",
+      "overlap": "Shows generative recommendation sensitivity to modality choice and develops enhanced late fusion.",
+      "remaining_difference": "It studies modality fusion rather than within-text coarse/fine history contribution or tail miss association."
+    }
+  ],
+  "preregistered_gates": {
+    "mechanism_specificity": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited recommendation work compares frozen GRAM full versus coarse-only target-path scores to test whether correct per-item text is harmful."
+    },
+    "structured_attribution": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited work combines cumulative fine contribution, oldest/newest deletion, and tail miss/hit strata in multi-passage generative recommendation."
+    },
+    "intervention_room": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited work trains a target-free gate from training-only per-history-passage contribution in this structure.",
+      "caveat": "LWGR already claims harmful semantic-behavior conflict and beneficial-only fusion; RFiD/MGFiD already guide/prune FiD evidence. Any later method must be GRAM-specific and cannot claim generic selective fusion novelty."
+    }
+  },
+  "decision": {
+    "value": "NOVELTY_SCOPE_PASS_WITH_TRANSFER_AND_NARROWING",
+    "reason": "The exact structured mechanism audit remains uncovered, while every broad component—counterfactual attribution, history masking, harmful knowledge fusion, and FiD pruning—is prior art.",
+    "e0_d_unlocked": true,
+    "allowed_next_action": "Run only the preregistered frozen-checkpoint E0-D."
+  }
+}

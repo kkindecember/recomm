@@ -1,0 +1,70 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite / deep-research",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "lei_f0_novelty_audit_v1",
+    "design_status": "PREREGISTERED_F0_N_EXECUTED_BEFORE_F0_D"
+  },
+  "search_scope": {
+    "cutoff_date": "2026-07-24",
+    "query_families": [
+      "GRAM information linking semantic-to-lexical translation ablation",
+      "lexical identifiers generative retrieval copy ambiguity collision",
+      "generative recommendation contextual token representations role embeddings",
+      "semantic-ID token weighting popularity bias",
+      "history masking repeat explore generative recommendation",
+      "input-output copying and lexical-overlap bias"
+    ],
+    "source_policy": "Primary paper pages/PDFs were preferred. arXiv-only works are labeled preprints; publication status was not inferred when not verified.",
+    "search_limit": "A bounded novelty audit cannot prove global absence. The conclusion means no substantive coverage was located in the preregistered neighbor clusters by the cutoff date."
+  },
+  "decision": "NOVELTY_SCOPE_PASS_WITH_TRANSFER_AND_GRAM_NARROWING",
+  "gates": {
+    "GRAM_role_specificity": {
+      "result": "PASS",
+      "reason": "No located work defines the same native lexical token's GRAM-specific link-anchor, collaborative-attribute, and decoder-symbol roles as one falsifiable echo mechanism."
+    },
+    "span_factorized_attribution": {
+      "result": "PASS",
+      "reason": "GRAM reports only aggregate removal of information linking; no located work preserves the multi-passage layout while separately attributing item-anchor IDs, similar-item IDs, and metadata to the gold lexical path."
+    },
+    "intervention_room": {
+      "result": "PASS_WITH_STRONG_NARROWING",
+      "reason": "Copy mechanisms, role/segment embeddings, contextual token composition, token weighting, and identifier redesign are prior art. Remaining room is only a target-free GRAM-specific intervention justified by confirmed role-level harm."
+    }
+  },
+  "allowed_claims": [
+    "Search-bounded evidence that GRAM-native lexical linking roles have not been jointly audited with position-preserving span counterfactuals.",
+    "If F0-D passes, a mechanism claim that harmful identifier-span contribution can coexist with helpful fine metadata on frozen GRAM checkpoints.",
+    "If later interventions pass, a recommendation-specific target-free role-disambiguation mechanism evaluated against matched controls."
+  ],
+  "forbidden_claims": [
+    "First discovery of copy bias, lexical-overlap bias, repetition bias, popularity bias, token imbalance, or history bias.",
+    "First use of role embeddings, segment embeddings, counterfactual masking, contextual token embeddings, token weighting, or identifier redesign.",
+    "Fine passages or information linking are generally harmful.",
+    "A pathological echo exists merely because a recommended item resembles or repeats history.",
+    "Absolute novelty beyond the bounded search scope."
+  ],
+  "strongest_counterargument": {
+    "claim": "The repeated lexical IDs may be the intended semantic alignment/copy pathway that makes GRAM work, not an interference mechanism.",
+    "required_rebuttal": "F0-D must show raw harm from removing identifier spans on tail misses, superiority to deterministic token-count-matched metadata masks, positive residual metadata contribution, and a larger adjusted effect on tail misses than tail hits on both datasets. Otherwise LEI stops."
+  },
+  "sources": [
+    {"id":"GRAM","url":"https://aclanthology.org/2025.acl-long.1596/","status":"peer-reviewed","evidence":"Defines semantic-to-lexical translation, information linking, collaborative verbalization, and aggregate w/o-linking ablation."},
+    {"id":"GLEN","url":"https://aclanthology.org/2023.emnlp-main.477/","status":"peer-reviewed","evidence":"Dynamic lexical identifier learning and collision-free inference."},
+    {"id":"PAG","url":"https://arxiv.org/abs/2404.14600","status":"preprint","evidence":"Set-based lexical identifiers combined with sequential identifiers and simultaneous decoding."},
+    {"id":"DECOR","url":"https://arxiv.org/abs/2509.10468","status":"SIGIR 2026 program / preprint record","evidence":"Decomposed pretrained/collaborative token embeddings and contextual token composition."},
+    {"id":"ActionPiece","url":"https://arxiv.org/abs/2502.13581","status":"preprint","evidence":"Context-aware action tokenization and set permutation regularization."},
+    {"id":"DIGER","url":"https://arxiv.org/abs/2601.19711","status":"SIGIR 2026 program / preprint record","evidence":"Differentiable semantic indexing aligned with recommendation loss."},
+    {"id":"TWM","url":"https://arxiv.org/abs/2601.17787","status":"preprint","evidence":"Information-gain and frequency weighting for output Semantic-ID tokens."},
+    {"id":"Ghost","url":"https://arxiv.org/abs/2605.16825","status":"preprint","evidence":"Token-level optimization diagnosis and popularity debiasing."},
+    {"id":"MHL","url":"https://aclanthology.org/2026.acl-long.475/","status":"peer-reviewed","evidence":"Masked history reconstruction with entropy policy and curriculum."},
+    {"id":"OneRecThink","url":"https://aclanthology.org/2026.acl-long.123/","status":"peer-reviewed","evidence":"In-text reasoning and context pruning for generative recommendation."},
+    {"id":"RepeatNet","url":"https://ojs.aaai.org/index.php/AAAI/article/view/4408","status":"peer-reviewed","evidence":"Explicit repeat/explore modeling in sequential recommendation."},
+    {"id":"CopyNet","url":"https://aclanthology.org/P16-1154/","status":"peer-reviewed","evidence":"Generic neural copying from source to output."},
+    {"id":"OverlapNLI","url":"https://aclanthology.org/2022.emnlp-main.725/","status":"peer-reviewed","evidence":"Generic lexical-overlap bias outside recommendation."},
+    {"id":"TermID","url":"https://aclanthology.org/2026.findings-acl.984/","status":"peer-reviewed","evidence":"Native-vocabulary structured Term IDs and identifier grounding."}
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "experiment_id": "GRAM_PHASE4_RPCD_T0",
+  "registered_at": "2026-07-27T00:00:00+08:00",
+  "decision_status_before_run": "RPCD_T0_PREREGISTERED",
+  "seed": 2023,
+  "datasets": {
+    "Toys": {
+      "prediction_path": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+      "index_glob": "item_generative_indexing_hierarchy_*.txt"
+    },
+    "Beauty": {
+      "prediction_path": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "index_glob": "item_generative_indexing_hierarchy_*.txt"
+    }
+  },
+  "teacher": {
+    "hidden_size": 64,
+    "num_blocks": 2,
+    "num_heads": 2,
+    "max_length": 50,
+    "dropout": 0.2,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "epochs": 10,
+    "top_k": 50,
+    "internal_calibration_fraction": 0.1,
+    "internal_calibration_salt": "rpcd-t0-teacher-epoch-v1",
+    "checkpoint_rule": "one shared epoch maximizing macro internal-calibration NDCG@10; ties choose earlier epoch",
+    "training_protocol": "sampled-BCE SASRec; validation and test targets excluded; internal-calibration users additionally hold out their final training-prefix item"
+  },
+  "hybrid": {
+    "calibration_fraction": 0.2,
+    "calibration_salt": "rpcd-t0-hybrid-weight-v1",
+    "weights": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    "score_normalization": "reciprocal_log_rank: 1/log2(rank+1), missing=0",
+    "selection_rule": "one shared weight maximizing macro relative NDCG@10 on both calibration splits, subject to per-dataset Recall@10 nondecrease; ties choose smaller weight"
+  },
+  "gates": {
+    "union_recall50_absolute_gain_min": 0.03,
+    "gram_miss10_sasrec_hit50_min": 0.10,
+    "hybrid_ndcg10_relative_gain_min": 0.01,
+    "hybrid_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": -0.005
+  },
+  "data_policy": {
+    "teacher_history": "sequence[:-2]",
+    "validation_target": "sequence[-2]",
+    "test_target": "sequence[-1] is never indexed or evaluated",
+    "validation_only": true,
+    "test_predictions_forbidden": true
+  }
+}

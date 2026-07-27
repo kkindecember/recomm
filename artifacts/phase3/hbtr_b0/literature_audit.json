@@ -1,0 +1,32 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite",
+    "origin_mode": "deep-research-within-experiment",
+    "origin_date": "2026-07-22",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_b0_lit_v1",
+    "search_boundary": "search-bounded through 2026-07-22; not an absolute novelty proof"
+  },
+  "decision": "GO_WITH_NOVELTY_NARROWING",
+  "prohibited_claims": [
+    "first to use hierarchy in generative recommendation",
+    "first to add a ranking loss to generative recommendation",
+    "first to mine beam-search hard negatives",
+    "first popularity-aware objective for semantic-ID recommendation",
+    "first to rerank generative beam candidates"
+  ],
+  "surviving_candidate_claim": "A lightweight supervised objective for lexical-hierarchical generative recommendation that mines the current student's miss@10/hit@50 beam errors and jointly conditions positive-negative sequence-likelihood margins on semantic-prefix confusion depth and training-only target popularity.",
+  "required_strong_controls": [
+    "GRAM matched baseline",
+    "unweighted beam-negative pairwise loss",
+    "prefix-only margin",
+    "popularity-only margin",
+    "LOHRec-style ordered-prior ranking control where feasible",
+    "item-score reranking control or explicit comparison to Gryphon/RecoChain"
+  ],
+  "evidence_limits": [
+    "Several 2026 works are arXiv preprints rather than peer-reviewed publications.",
+    "The audit is search-bounded and cannot establish absolute novelty.",
+    "A combination-level distinction is not sufficient by itself; B1/S2 must show mechanism-specific gains over component controls."
+  ]
+}

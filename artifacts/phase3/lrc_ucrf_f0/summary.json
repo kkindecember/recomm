@@ -1,0 +1,165 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-22",
+    "verification_status": "ANALYZED",
+    "version_label": "lrc_ucrf_f0_v1",
+    "design_status": "NEW_PREREGISTERED_CYCLE"
+  },
+  "decision": "STOP",
+  "datasets": {
+    "Toys": {
+      "dataset": "Toys",
+      "selected_model": "C2_hist_gradient_boosting",
+      "train_n": 15623,
+      "calibration_n": 3789,
+      "validation_n": 19412,
+      "train_prevalence": 0.13652947577289892,
+      "validation_metrics": {
+        "n": 19412,
+        "prevalence": 0.10426540284360189,
+        "auroc": 0.6133495335704693,
+        "auprc": 0.17983869623225407,
+        "auprc_lift": 1.7248165865911642,
+        "brier": 0.09275810003205395,
+        "ece": 0.0465723776895296
+      },
+      "constant_brier": 0.09443509901545027,
+      "brier_relative_improvement": 0.017758217028204237,
+      "calibration_threshold_selection": {
+        "threshold": 0.18324607329842932,
+        "active_rate": 0.24623911322248615,
+        "precision": 0.2379421221864952,
+        "precision_lift": 1.58725827634618,
+        "positive_recall": 0.3908450704225352,
+        "target_active_rate": 0.2
+      },
+      "threshold_candidates": [
+        {
+          "threshold": 0.2579185520361991,
+          "active_rate": 0.10319345473739773,
+          "precision": 0.309462915601023,
+          "precision_lift": 2.064357371852599,
+          "positive_recall": 0.2130281690140845,
+          "target_active_rate": 0.1
+        },
+        {
+          "threshold": 0.18324607329842932,
+          "active_rate": 0.24623911322248615,
+          "precision": 0.2379421221864952,
+          "precision_lift": 1.58725827634618,
+          "positive_recall": 0.3908450704225352,
+          "target_active_rate": 0.2
+        },
+        {
+          "threshold": 0.15331010452961671,
+          "active_rate": 0.35233570863024544,
+          "precision": 0.21348314606741572,
+          "precision_lift": 1.4240979585377433,
+          "positive_recall": 0.5017605633802817,
+          "target_active_rate": 0.3
+        },
+        {
+          "threshold": 0.12800769971126078,
+          "active_rate": 0.6566376352599631,
+          "precision": 0.17443729903536978,
+          "precision_lift": 1.1636319120510847,
+          "positive_recall": 0.7640845070422535,
+          "target_active_rate": 0.4
+        }
+      ],
+      "validation_threshold_metrics": {
+        "threshold": 0.18324607329842932,
+        "active_rate": 0.2617968267051308,
+        "precision": 0.16391184573002754,
+        "precision_lift": 1.5720636113198097,
+        "positive_recall": 0.4115612648221344
+      },
+      "passed": false,
+      "input_sha256": {
+        "sequence": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+        "neighbors": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1",
+        "train_users": "ceebd08a9a4bef97b479a15a14ae51348bb2a486d1531a849c1ff99b1f618809",
+        "calibration_users": "142b156b11a128dd71336ace99715b49d8c5e65d0a6aec8a5d73249153f1d06d"
+      }
+    },
+    "Beauty": {
+      "dataset": "Beauty",
+      "selected_model": "C2_hist_gradient_boosting",
+      "train_n": 18001,
+      "calibration_n": 4362,
+      "validation_n": 22363,
+      "train_prevalence": 0.23204266429642798,
+      "validation_metrics": {
+        "n": 22363,
+        "prevalence": 0.08836023789294817,
+        "auroc": 0.7064000358250049,
+        "auprc": 0.26907487552476517,
+        "auprc_lift": 3.04520315858316,
+        "brier": 0.08805025411833094,
+        "ece": 0.12345909040440245
+      },
+      "constant_brier": 0.10119734590964119,
+      "brier_relative_improvement": 0.12991538140782122,
+      "calibration_threshold_selection": {
+        "threshold": 0.25977653631284914,
+        "active_rate": 0.2223750573131591,
+        "precision": 0.37216494845360826,
+        "precision_lift": 1.654825183643873,
+        "positive_recall": 0.36799184505606525,
+        "target_active_rate": 0.2
+      },
+      "threshold_candidates": [
+        {
+          "threshold": 0.34579439252336447,
+          "active_rate": 0.11095827602017423,
+          "precision": 0.4628099173553719,
+          "precision_lift": 2.057876513255996,
+          "positive_recall": 0.22833843017329256,
+          "target_active_rate": 0.1
+        },
+        {
+          "threshold": 0.25977653631284914,
+          "active_rate": 0.2223750573131591,
+          "precision": 0.37216494845360826,
+          "precision_lift": 1.654825183643873,
+          "positive_recall": 0.36799184505606525,
+          "target_active_rate": 0.2
+        },
+        {
+          "threshold": 0.21005917159763313,
+          "active_rate": 0.3736817973406694,
+          "precision": 0.3116564417177914,
+          "precision_lift": 1.3857751261702407,
+          "positive_recall": 0.5178389398572885,
+          "target_active_rate": 0.3
+        },
+        {
+          "threshold": 0.2029520295202952,
+          "active_rate": 0.5600641907381935,
+          "precision": 0.27548096602537864,
+          "precision_lift": 1.2249214819599406,
+          "positive_recall": 0.6860346585117227,
+          "target_active_rate": 0.4
+        }
+      ],
+      "validation_threshold_metrics": {
+        "threshold": 0.25977653631284914,
+        "active_rate": 0.16844788266332783,
+        "precision": 0.234669498274489,
+        "precision_lift": 2.655826917971861,
+        "positive_recall": 0.4473684210526316
+      },
+      "passed": false,
+      "input_sha256": {
+        "sequence": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+        "neighbors": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c",
+        "train_users": "06f5aa16bbff574ddc5fc05a40d8177afacde6ae2e05aeb18675e9bbabe3e24b",
+        "calibration_users": "1e5298644082ec7a9dd6f9396e20511f7b44afa3cd314a102b1604d3a6d1f4ec"
+      }
+    }
+  },
+  "wall_time_seconds": 17.817925691604614,
+  "feature_schema_sha256": "6e67a512dd850f4d53086b6e9a842b5d3f870b2dbde3f3850d6af9a46cf13f22"
+}

@@ -1,0 +1,41 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite / deep-research",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "ffnf_j0_novelty_audit_v1"
+  },
+  "decision": "TRANSFER_INNOVATION_ALLOWED_WITH_STRONG_NARROWING",
+  "borrowed_components": [
+    "two-stream or multi-source encoding",
+    "unimodal/source auxiliary losses",
+    "modality/source dropout",
+    "negative-transfer or gradient-conflict control",
+    "Fusion-in-Decoder"
+  ],
+  "remaining_delta": [
+    "The problem is motivated by measured collaborative-prefix displacement inside GRAM fine item passages.",
+    "Each item is represented by a 64-token CF tensor and a 64-token metadata tensor whose total decoder capacity remains 128.",
+    "Both streams share the same historical item-position identity and use distinct field-source identities.",
+    "One textual-ID decoder is trained with paired full/CF-only/META-only gold-path non-degradation constraints."
+  ],
+  "strongest_counterargument": "The method may still be an application of EAGER-style two-stream recommendation and established multimodal auxiliary-loss techniques; if factorization alone explains the effect or the non-degradation term adds no value, the method contribution is too thin.",
+  "required_rebuttal": [
+    "J0-S must show that 64+64 simultaneously preserves collaborative identity coverage and improves important metadata coverage without increasing capacity.",
+    "Later experiments must include factorization-only and objective-only ablations.",
+    "The non-degradation objective must improve both recommendation metrics and paired source-interference metrics on a fresh dataset.",
+    "Compute, parameter and decoder-visible-capacity matching must be explicit."
+  ],
+  "sources": [
+    {"id":"GRAM","url":"https://aclanthology.org/2025.acl-long.1596/"},
+    {"id":"EAGER","url":"https://arxiv.org/abs/2406.14017"},
+    {"id":"RRCM","url":"https://arxiv.org/abs/2605.07129"},
+    {"id":"MGFiD","url":"https://aclanthology.org/2024.findings-naacl.142/"},
+    {"id":"CEMG","url":"https://arxiv.org/abs/2512.21543"},
+    {"id":"UMT","url":"https://openreview.net/forum?id=HNbwCYFOZM"},
+    {"id":"MMPareto","url":"https://openreview.net/forum?id=Hh8pUBfxXh"},
+    {"id":"MRO","url":"https://aclanthology.org/2022.findings-emnlp.344/"},
+    {"id":"MultiViewDropout","url":"https://proceedings.mlr.press/v121/wu20a.html"}
+  ],
+  "search_limit": "Bounded neighbor-cluster audit as of 2026-07-24; not proof of absolute novelty."
+}

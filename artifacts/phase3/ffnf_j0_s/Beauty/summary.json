@@ -1,0 +1,72 @@
+{
+  "metrics": {
+    "catalog_items": 12101,
+    "aggregate_cf_visible_ratio_vs_current": 0.6319732249901485,
+    "aggregate_metadata_visible_gain": 345311,
+    "aggregate_metadata_visible_ratio_vs_current": 1.8416738367940877,
+    "item_fraction_metadata_visible_gain_positive": 1.0,
+    "median_metadata_visible_gain": 29,
+    "mean_metadata_visible_gain": 28.535740847863813,
+    "mean_active_token_delta": -0.5606974630195851,
+    "rate_active_token_increase": 0.0
+  },
+  "field_totals": {
+    "title": {
+      "current_visible": 222051,
+      "ffnf_visible": 226409,
+      "ratio": 1.0196261219269447
+    },
+    "brand": {
+      "current_visible": 62538,
+      "ffnf_visible": 68602,
+      "ratio": 1.0969650452524864
+    },
+    "categories": {
+      "current_visible": 81599,
+      "ffnf_visible": 154370,
+      "ratio": 1.8918123996617606
+    },
+    "description": {
+      "current_visible": 6936,
+      "ffnf_visible": 226089,
+      "ratio": 32.596453287197235
+    },
+    "price": {
+      "current_visible": 95,
+      "ffnf_visible": 8545,
+      "ratio": 89.94736842105263
+    },
+    "salesrank": {
+      "current_visible": 2,
+      "ffnf_visible": 11110,
+      "ratio": 5555.0
+    },
+    "other_metadata": {
+      "current_visible": 11597,
+      "ffnf_visible": 19259,
+      "ratio": 1.6606881089937053
+    }
+  },
+  "feasibility_gates": {
+    "cf_coverage": false,
+    "title_coverage": true,
+    "brand_coverage": true,
+    "categories_coverage": true,
+    "metadata_gain": true,
+    "metadata_gain_breadth": true
+  },
+  "feasibility_pass": false,
+  "dataset": "Beauty",
+  "integrity": {
+    "catalog_intersection_coverage": 1.0,
+    "parse_success_rate": 1.0,
+    "finite_metric_rate": 1.0,
+    "raw_component_identity_rate": 1.0,
+    "tensor_width_sum": 128,
+    "no_link_duplication_rate": 1.0,
+    "current_exact_replay_rate": 1.0,
+    "checkpoint_loaded": false,
+    "gpu_used": false,
+    "validation_or_test_effect_read": false
+  }
+}

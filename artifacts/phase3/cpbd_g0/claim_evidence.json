@@ -1,0 +1,106 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite / deep-research",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "cpbd_g0_novelty_audit_v1",
+    "design_status": "PREREGISTERED_G0_N_EXECUTED_BEFORE_G0_D1"
+  },
+  "search_scope": {
+    "cutoff_date": "2026-07-24",
+    "query_families": [
+      "GRAM collaborative verbalization field order truncation top-k",
+      "LLM recommendation input length bias metadata truncation",
+      "generative recommendation token budget item representation",
+      "prompt compression budget controller field-aware compression",
+      "FiD and RAG evidence allocation passage pruning dynamic retrieval budget",
+      "fixed-budget reserialization collaborative metadata recommendation"
+    ],
+    "included_neighbor_clusters": [
+      "GRAM and lexical-ID generative recommendation",
+      "recommendation length bias and token-efficient item representation",
+      "prompt/context compression and rate-distortion",
+      "FiD/RAG evidence allocation",
+      "behavior retrieval and dynamic retrieval budgets",
+      "output-token weighting and variable-length Semantic IDs"
+    ],
+    "source_policy": "Primary official paper pages and PDFs were preferred. arXiv-only works are explicitly labeled preprints. Local GRAM source and locked run commands are treated as implementation evidence, not external novelty evidence.",
+    "search_limit": "This is a bounded, search-dated novelty audit, not proof of global absence. PASS means no substantive coverage was located in the preregistered neighbor clusters by the cutoff date."
+  },
+  "local_implementation_evidence": [
+    {
+      "file": "GRAM/src/utils/indexing.py",
+      "evidence": "get_dict_with_similar_items serializes 'similar items: ...; metadata', and gram_indexing prepends 'item: lexical_id;'."
+    },
+    {
+      "file": "GRAM/src/processor/Collator.py",
+      "evidence": "CollatorGRAM.encode_texts_split removes hard-coded pipe token IDs and retains the leftmost item_prompt_max_len tokens, forcing EOS when needed."
+    },
+    {
+      "file": "GRAM/command/test_gram_toys_best_single.sh",
+      "evidence": "The locked Toys evaluation uses item_prompt_max_len=128 and top_k_similar_item=5."
+    },
+    {
+      "file": "GRAM/command/validate_gram_beauty_best_single.sh",
+      "evidence": "The locked Beauty validation uses item_prompt_max_len=128 and top_k_similar_item=10."
+    }
+  ],
+  "decision": "NOVELTY_SCOPE_PASS_WITH_TRANSFER_AND_GRAM_NARROWING",
+  "gates": {
+    "GRAM_structural_specificity": {
+      "result": "PASS",
+      "reason": "No located work defines a front collaborative lexical field displacing later metadata under the hard per-passage budget of a GRAM-like fine passage as a falsifiable recommendation mechanism."
+    },
+    "displacement_identifiability": {
+      "result": "PASS",
+      "reason": "No located work fixes passage budget and CF identity while using paired field reserialization/budget recovery to separate direct CF noise from metadata displacement."
+    },
+    "intervention_room": {
+      "result": "PASS_WITH_STRONG_NARROWING",
+      "reason": "Generic prompt compression, length calibration, token-efficient representation, retrieval-budget allocation, and dataset-level top-k selection are prior art. Remaining room is only a GRAM-specific, target-free collaborative/metadata field allocator justified by confirmed displacement."
+    }
+  },
+  "allowed_claims": [
+    "Search-bounded evidence that GRAM-native collaborative-prefix metadata displacement has not been isolated with fixed-budget, fixed-CF paired reserialization.",
+    "If G0-D passes, a cross-dataset mechanism claim that the current serialization hides metadata which can be mechanically recovered without changing raw content, CF identity, passage count, or token budget.",
+    "Only after a matched outcome diagnosis passes, a recommendation-specific target-free field-budget allocator driven by training-only item statistics."
+  ],
+  "forbidden_claims": [
+    "First prompt compression, context compression, dynamic token budget, field selection, reordering, or rate-distortion method.",
+    "First discovery of LLM recommendation length bias or token inefficiency.",
+    "First dynamic top-k, retrieval-budget allocation, or token-importance method.",
+    "Similar-item IDs are generally noise or GRAM information linking is generally harmful.",
+    "Moving metadata first is itself a publishable algorithm or proves better recommendation.",
+    "Absolute novelty beyond the bounded search scope."
+  ],
+  "strongest_counterargument": {
+    "claim": "CPBD may be only a local serialization/configuration defect: right truncation of long descriptions is mechanically obvious, the lost suffix may be low-value prose, and moving metadata earlier merely trades CF evidence for positional advantage.",
+    "severity": "MAJOR",
+    "required_rebuttal": [
+      "G0-D1 must show substantial recoverable metadata loss on both locked datasets using the exact production tokenizer/filter/truncation path.",
+      "A later frozen diagnosis must keep 128 tokens, passage count, raw fields, and CF identities fixed and include a within-metadata position control.",
+      "Outcome evidence must show that recovered metadata improves the gold path across both datasets and is not explained by generic position change or deletion of collaborative evidence.",
+      "A later allocator must use target-free training-only signals and outperform a simple fixed reordering; otherwise the paper-level contribution is too thin."
+    ]
+  },
+  "sources": [
+    {"id":"GRAM","url":"https://aclanthology.org/2025.acl-long.1596/","status":"peer-reviewed","evidence":"Defines GRAM, information linking, collaborative verbalization, detailed item information gains, and top-k sensitivity."},
+    {"id":"LBR","url":"https://arxiv.org/abs/2607.04270","status":"preprint","evidence":"Studies input/output length bias in LLM recommendation and length-aware calibration, not ordered within-item fields."},
+    {"id":"LLMLingua","url":"https://aclanthology.org/2023.emnlp-main.825/","status":"peer-reviewed","evidence":"Generic coarse-to-fine prompt compression with a budget controller."},
+    {"id":"LongLLMLingua","url":"https://aclanthology.org/2024.acl-long.91/","status":"peer-reviewed","evidence":"Question-aware compression, document reordering, and dynamic compression ratios."},
+    {"id":"LLMLingua2","url":"https://aclanthology.org/2024.findings-acl.57/","status":"peer-reviewed","evidence":"Task-agnostic prompt compression formulated as bidirectional token classification."},
+    {"id":"PromptRD","url":"https://proceedings.neurips.cc/paper_files/paper/2024/hash/ac8fbba029dadca99d6b8c3f913d3ed6-Abstract-Conference.html","status":"peer-reviewed","evidence":"Rate-distortion framework and query-aware variable-rate prompt compression."},
+    {"id":"RECOMP","url":"https://arxiv.org/abs/2310.04408","status":"preprint","evidence":"Compression and selective augmentation of retrieved documents."},
+    {"id":"RFiD","url":"https://aclanthology.org/2023.findings-acl.155/","status":"peer-reviewed","evidence":"Retrieval guidance and robust FiD fusion at passage level."},
+    {"id":"MGFiD","url":"https://aclanthology.org/2024.findings-naacl.142/","status":"peer-reviewed","evidence":"Multi-granularity guidance and passage pruning for FiD."},
+    {"id":"FiDO","url":"https://aclanthology.org/2023.findings-acl.732/","status":"peer-reviewed","evidence":"Architectural optimization of Fusion-in-Decoder."},
+    {"id":"ReLLa","url":"https://arxiv.org/abs/2308.11131","status":"preprint","evidence":"Retrieves relevant user behaviors for long sequential recommendation contexts."},
+    {"id":"ReLLaX","url":"https://arxiv.org/abs/2501.13344","status":"preprint","evidence":"Behavior retrieval, soft prompts, and collaborative fine-tuning."},
+    {"id":"MSL","url":"https://doi.org/10.1145/3726302.3730041","status":"peer-reviewed SIGIR 2025","evidence":"Masks invalid output tokens in the recommendation training loss; does not allocate input fields."},
+    {"id":"ILLMRec","url":"https://openreview.net/forum?id=vizM7B7vuW","status":"peer-reviewed ICLR 2026 poster","evidence":"Token-efficient item representation using images instead of lengthy descriptions."},
+    {"id":"VarLenRec","url":"https://arxiv.org/abs/2605.17779","status":"preprint","evidence":"Popularity-aware variable-length output Semantic IDs."},
+    {"id":"TWM","url":"https://arxiv.org/abs/2601.17787","status":"preprint","evidence":"Information/frequency weighting of output Semantic-ID tokens."},
+    {"id":"DynamicRetrieval","url":"https://arxiv.org/abs/2606.29959","status":"preprint","evidence":"Query-dependent retrieval-budget allocation in RAG."}
+  ]
+}

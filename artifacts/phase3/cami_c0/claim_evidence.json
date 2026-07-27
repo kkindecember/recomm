@@ -1,0 +1,114 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "cami_c0_novelty_audit_v1",
+    "design_status": "PREREGISTERED_C0_N_EXECUTED_BEFORE_C0_D"
+  },
+  "scope": {
+    "question": "Do all three preregistered CAMI novelty distinctions remain unsupported by prior work?",
+    "search_cutoff": "2026-07-24",
+    "evidence_policy": "Paper full text, official proceedings, DOI landing page, or author primary preprint; discovery summaries were not used as final evidence.",
+    "data_experiment_started": false,
+    "test_data_read": false,
+    "gpu_used": false
+  },
+  "closest_prior_work": [
+    {
+      "key": "pctx",
+      "title": "Pctx: Tokenizing Personalized Context for Generative Recommendation",
+      "status": "arXiv preprint; submitted as an ICLR 2026 paper",
+      "source": "https://arxiv.org/pdf/2510.21276",
+      "verified_claims": [
+        "The same item is assigned multiple Semantic IDs conditioned on full user history.",
+        "Training augments sequences by replacing an item SID with another valid SID of the same item.",
+        "A single autoregressive encoder-decoder generates alternative SID paths.",
+        "At inference, probabilities of distinct SIDs mapping to the same item are aggregated into next-item probabilities."
+      ],
+      "overlap_with_cami": [
+        "context-dependent multiple identifiers",
+        "multiple valid training paths",
+        "single generative decoder",
+        "many identifier paths aggregated to one item"
+      ],
+      "remaining_difference": "Pctx does not allocate aliases using baseline candidate starvation or evaluate fixed-50 tail candidate recovery."
+    },
+    {
+      "key": "pit",
+      "title": "PIT: A Dynamic Personalized Item Tokenizer for End-to-End Generative Recommendation",
+      "status": "arXiv preprint with placeholder venue metadata",
+      "source": "https://arxiv.org/pdf/2602.08530",
+      "verified_claims": [
+        "A dynamic beam index maintains multiple valid SIDs per item.",
+        "The User-to-Token generator selects a candidate SID using minimum recommendation loss.",
+        "The index implements an inverse mapping from multiple SIDs to one item."
+      ],
+      "overlap_with_cami": [
+        "multiple valid identifiers per item",
+        "user/behavior-conditioned identifier optimization",
+        "single recommendation generator",
+        "many-SID-to-one-item grounding"
+      ],
+      "remaining_difference": "PIT uses minimum-loss selection and targets streaming index stability; it does not use log-sum path marginalization or a fixed-budget tail-recovery claim."
+    },
+    {
+      "key": "mtgrec",
+      "title": "Pre-training Generative Recommender with Multi-Identifier Item Tokenization",
+      "status": "SIGIR 2025",
+      "source": "https://arxiv.org/pdf/2504.04400",
+      "verified_claims": [
+        "Each item receives multiple identifiers from adjacent RQ-VAE checkpoints.",
+        "The identifiers augment pre-training sequences under a curriculum.",
+        "Fine-tuning and deployment return to a single tokenizer."
+      ],
+      "overlap_with_cami": [
+        "multiple identifiers per item",
+        "long-tail motivation",
+        "single generative recommender"
+      ],
+      "remaining_difference": "Multiple identifiers are a pre-training augmentation and are not retained or aggregated at inference."
+    },
+    {
+      "key": "minder",
+      "title": "Multiview Identifiers Enhanced Generative Retrieval",
+      "status": "ACL 2023",
+      "source": "https://aclanthology.org/2023.acl-long.366/",
+      "verified_claims": [
+        "Passages use synthetic identifiers, titles, and substrings as complementary views.",
+        "The views are combined for holistic passage ranking."
+      ],
+      "overlap_with_cami": [
+        "multi-view identifiers",
+        "entity-level combination"
+      ],
+      "remaining_difference": "It is document retrieval, not sequential recommendation, and does not use behavior-conditioned or starvation-adaptive alias allocation."
+    }
+  ],
+  "preregistered_gates": {
+    "adaptive_allocation": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited work was found that specifically allocates additional valid identifiers only to items selected by candidate-starvation or prefix-congestion evidence.",
+      "caveat": "Pctx uses a variable number of IDs proportional to context frequency and PIT maintains a dynamic beam index, so this distinction is narrow."
+    },
+    "single_decoder_item_marginalization": {
+      "required": true,
+      "passed": false,
+      "assessment": "Pctx already trains a single autoregressive recommender with multiple valid same-item Semantic IDs and aggregates the probabilities of generated SID paths back to next-item probabilities.",
+      "decisive_source": "https://arxiv.org/pdf/2510.21276"
+    },
+    "fixed_budget_tail_recovery": {
+      "required": true,
+      "passed": true,
+      "assessment": "The audited closest works do not frame or gate their contribution as tail candidate recovery under a fixed total decoding budget."
+    }
+  },
+  "decision": {
+    "value": "STOP_CAMI_NOVELTY",
+    "reason": "All three gates were necessary. The single-decoder multi-path item aggregation gate is substantively covered by Pctx, and MTGRec/PIT further crowd the multi-identifier design space.",
+    "c0_d_unlocked": false,
+    "allowed_next_action": "Reframe the research question under a new cycle before any data diagnostic or model implementation."
+  }
+}

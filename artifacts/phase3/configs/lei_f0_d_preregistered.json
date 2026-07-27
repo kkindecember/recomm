@@ -1,0 +1,98 @@
+{
+  "version": "lei_f0_d_preregistered_v1",
+  "preregistered_at": "2026-07-24",
+  "preregistered_after": "NOVELTY_SCOPE_PASS_WITH_TRANSFER_AND_GRAM_NARROWING",
+  "preregistered_before_new_checkpoint_scores": true,
+  "seed": 20260724,
+  "bootstrap_iterations": 10000,
+  "max_per_stratum": 256,
+  "scored_strata": [
+    "tail_miss",
+    "tail_hit"
+  ],
+  "min_history": 2,
+  "max_history": 20,
+  "batch_size": 8,
+  "matched_control_replicates": 8,
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Toys/validation/summary.json",
+      "cgi_cohort": "artifacts/phase3/cgi_e0/Toys/cohort.csv"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Beauty/validation/summary.json",
+      "cgi_cohort": "artifacts/phase3/cgi_e0/Beauty/cohort.csv"
+    }
+  },
+  "conditions": [
+    "full",
+    "coarse_only",
+    "minus_link_ids",
+    "minus_cf_ids",
+    "minus_all_fine_ids",
+    "matched_link_metadata_0",
+    "matched_link_metadata_1",
+    "matched_link_metadata_2",
+    "matched_link_metadata_3",
+    "matched_link_metadata_4",
+    "matched_link_metadata_5",
+    "matched_link_metadata_6",
+    "matched_link_metadata_7"
+  ],
+  "primary_estimands": {
+    "raw_link_harm": "lp_minus_link_ids - lp_full",
+    "matched_control_effect": "mean_r(lp_matched_link_metadata_r) - lp_full",
+    "adjusted_link_echo": "raw_link_harm - matched_control_effect",
+    "metadata_benefit": "lp_minus_all_fine_ids - lp_coarse_only",
+    "failure_association": "mean_tail_miss(adjusted_link_echo) - mean_tail_hit(adjusted_link_echo)"
+  },
+  "secondary_estimands": {
+    "raw_cf_harm": "lp_minus_cf_ids - lp_full",
+    "raw_all_id_harm": "lp_minus_all_fine_ids - lp_full"
+  },
+  "gates": {
+    "tail_miss_n": 256,
+    "tail_hit_n": 256,
+    "repeat_max_abs_error": 1e-7,
+    "role_localization_rate": 1.0,
+    "matched_control_eligibility_rate": 1.0,
+    "raw_link_harm_mean": 0.01,
+    "raw_link_harm_positive_rate": 0.55,
+    "adjusted_link_echo_mean": 0.02,
+    "metadata_benefit_mean": 0.05,
+    "failure_association_mean": 0.02,
+    "strict_bootstrap_lower_bound": 0.0
+  },
+  "mask_protocol": {
+    "layout": "Keep all input IDs, passage count, token positions, and non-target attention entries fixed; interventions only set selected attention-mask entries to false.",
+    "link_span": "For every fine passage, locate exactly the filtered lexical-token sequence after the leading 'item:' label. Delimiter tokens removed by CollatorGRAM are not counted.",
+    "cf_span": "Locate in order every filtered lexical-token sequence between 'similar items:' and the following metadata separator.",
+    "metadata_control": "For each passage and replicate, choose without replacement the same number of active alphanumeric metadata-token positions as the link span, after the CF list and before EOS, ordered by SHA256(seed|dataset|user|passage|replicate|position).",
+    "primary_role": "link_span",
+    "cf_role": "secondary_descriptive_only",
+    "target_independence": "No target token, target ID, target popularity, target rank, or test field may enter role localization or control selection."
+  },
+  "decision_rule": {
+    "execution_invalid": "Any integrity, lineage, exact role localization, matched-control eligibility, finite-value, or repeatability check fails.",
+    "stop_no_raw_echo": "Either dataset fails raw_link_harm mean, strict lower CI, or positive-rate gate.",
+    "stop_no_role_specificity": "Either dataset fails adjusted_link_echo mean or strict lower CI.",
+    "stop_metadata_not_separable": "Either dataset fails metadata_benefit mean or strict lower CI.",
+    "stop_no_failure_link": "Either dataset fails failure_association mean or strict lower CI.",
+    "mechanism_allowed": "All preceding gates pass on both datasets.",
+    "single_shot": true,
+    "no_alternative_span_or_cohort_scan": true
+  },
+  "forbidden_inputs": [
+    "sequence[-1]",
+    "test predictions",
+    "test targets",
+    "gold target in mask construction",
+    "validation score in mask construction"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "dataset": "Toys",
+  "seed": 2023,
+  "checkpoint_epoch": 30,
+  "checkpoint_path": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+  "checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+  "selection_metric": "validation_ndcg_at_10",
+  "selection_metric_value": 0.07627451426000033,
+  "evaluation_users": 19412,
+  "full_ranking_candidates": 11924,
+  "beam_size": 50,
+  "metrics": {
+    "recall_at_5": {
+      "paper": 0.0718,
+      "local": 0.0711930764475582,
+      "absolute_error_local_minus_paper": -0.0006069235524418,
+      "relative_error_percent": 0.845297427
+    },
+    "ndcg_at_5": {
+      "paper": 0.0516,
+      "local": 0.05140086824226598,
+      "absolute_error_local_minus_paper": -0.00019913175773402,
+      "relative_error_percent": 0.385914259
+    },
+    "recall_at_10": {
+      "paper": 0.0987,
+      "local": 0.09530187512878632,
+      "absolute_error_local_minus_paper": -0.00339812487121368,
+      "relative_error_percent": 3.442882342
+    },
+    "ndcg_at_10": {
+      "paper": 0.0603,
+      "local": 0.05919269186919403,
+      "absolute_error_local_minus_paper": -0.00110730813080597,
+      "relative_error_percent": 1.836331892
+    }
+  },
+  "alignment_grade": "A",
+  "alignment_conclusion": "All four metrics are within 5% relative error of the paper values."
+}

@@ -1,0 +1,166 @@
+diff --git a/src/arguments.py b/src/arguments.py
+--- a/src/arguments.py
++++ b/src/arguments.py
+@@
+     parser.add_argument(
+         "--logging_level",
+         type=int,
+         default=logging.INFO,
+         help="Logging Level, 0, 10, ..., 50",
+     )
++    parser.add_argument(
++        "--resource_metrics",
++        type=int,
++        default=0,
++        help="Log process-local CUDA peak memory and synchronized wall time if 1",
++    )
+ 
+     parser.add_argument(
+         "--rec_epochs", type=int, default=30, help="Number of epochs to train the model"
+diff --git a/src/main_generative_gram.py b/src/main_generative_gram.py
+--- a/src/main_generative_gram.py
++++ b/src/main_generative_gram.py
+@@
+ import logging
+ import datetime
+ import warnings
++from time import perf_counter
+ import torch.distributed as dist
+ import torch.multiprocessing as mp
+@@
+ warnings.filterwarnings(action="ignore")
+ 
++def run_with_resource_metrics(label, operation, device, enabled):
++    """Run one phase and optionally log process-local CUDA/time metrics."""
++    if not enabled:
++        return operation()
++
++    torch.cuda.synchronize(device)
++    torch.cuda.reset_peak_memory_stats(device)
++    started_at = perf_counter()
++    result = operation()
++    torch.cuda.synchronize(device)
++    elapsed_seconds = perf_counter() - started_at
++    mib = 1024**2
++    logging.info(
++        "RESOURCE_METRIC "
++        f"phase={label} "
++        f"wall_time_seconds={elapsed_seconds:.6f} "
++        f"peak_allocated_mib={torch.cuda.max_memory_allocated(device) / mib:.3f} "
++        f"peak_reserved_mib={torch.cuda.max_memory_reserved(device) / mib:.3f} "
++        f"end_allocated_mib={torch.cuda.memory_allocated(device) / mib:.3f} "
++        f"end_reserved_mib={torch.cuda.memory_reserved(device) / mib:.3f}"
++    )
++    return result
+@@
+     if args.train:
+         logging.info("Start training")
+-        runner.train_generator()
++        run_with_resource_metrics(
++            "training", runner.train_generator, device, args.resource_metrics
++        )
+ 
+         logging.info(f"Train done ... Load model from {runner.cur_model_path}")
+-        runner.test(runner.cur_model_path)
++        run_with_resource_metrics(
++            "automatic_last_checkpoint_test",
++            lambda: runner.test(runner.cur_model_path),
++            device,
++            args.resource_metrics,
++        )
+     else:
+         if args.test_by_valid:
+             logging.info(
+                 f"[VALID] Test model from {args.rec_model_path}, {args.id_model_path}"
+             )
+-            runner.validate_from_model(args.rec_model_path, args.id_model_path)
++            run_with_resource_metrics(
++                "selected_checkpoint_validation",
++                lambda: runner.validate_from_model(
++                    args.rec_model_path, args.id_model_path
++                ),
++                device,
++                args.resource_metrics,
++            )
+         else:
+             logging.info(f"Test model from {args.rec_model_path}, {args.id_model_path}")
+-            runner.test_from_model(args.rec_model_path, args.id_model_path)
++            run_with_resource_metrics(
++                "selected_checkpoint_test",
++                lambda: runner.test_from_model(args.rec_model_path, args.id_model_path),
++                device,
++                args.resource_metrics,
++            )
+diff --git a/command/train_gram_toys_single.sh b/command/train_gram_toys_single.sh
+new file mode 100755
+--- /dev/null
++++ b/command/train_gram_toys_single.sh
+@@
++#!/usr/bin/env bash
++set -euo pipefail
++SEED=2023
++PHYSICAL_GPU=${PHYSICAL_GPU:-0}
++ITEM_ID_TYPE=split
++ID_LEN=5
++NUM_CF=5
++NUM_CLUSTER=32
++ITEM_ID=hierarchy_v1_c${NUM_CLUSTER}_l${ID_LEN}_len32768_split
++CUDA_VISIBLE_DEVICES="${PHYSICAL_GPU}" exec "${PYTHON_BIN:-python}" ../src/main_generative_gram.py --datasets Toys \
++  --distributed 0 --master_port 2443 --gpu 0 --seed ${SEED} --train 1 \
++  --resource_metrics 1 --item_prompt_max_len 128 --item_prompt all_text \
++  --cf_model sasrec --id_linking 1 --max_his 20 --rec_batch_size 16 \
++  --gradient_accumulation_steps 8 --rec_lr 1e-3 --rec_epochs 30 \
++  --test_epoch_rec 5 --save_rec_epochs 5 --save_predictions 1 --beam_size 50 \
++  --top_k_similar_item ${NUM_CF} --item_id_type ${ITEM_ID_TYPE} \
++  --hierarchical_id_type ${ITEM_ID}
+diff --git a/command/smoke_test_gram_toys_single.sh b/command/smoke_test_gram_toys_single.sh
+new file mode 100755
+--- /dev/null
++++ b/command/smoke_test_gram_toys_single.sh
+@@
++#!/usr/bin/env bash
++set -euo pipefail
++SEED=2023
++PHYSICAL_GPU=${PHYSICAL_GPU:-0}
++ITEM_ID_TYPE=split
++ID_LEN=5
++NUM_CF=5
++NUM_CLUSTER=32
++ITEM_ID=hierarchy_v1_c${NUM_CLUSTER}_l${ID_LEN}_len32768_split
++CUDA_VISIBLE_DEVICES="${PHYSICAL_GPU}" exec "${PYTHON_BIN:-python}" ../src/main_generative_gram.py --datasets Toys \
++  --distributed 0 --master_port 2443 --gpu 0 --seed ${SEED} --train 1 \
++  --resource_metrics 1 --item_prompt_max_len 128 --item_prompt all_text \
++  --cf_model sasrec --id_linking 1 --max_his 20 --rec_batch_size 4 \
++  --gradient_accumulation_steps 1 --rec_lr 1e-3 --rec_epochs 1 \
++  --test_epoch_rec 1 --save_rec_epochs 1 --save_predictions 1 \
++  --debug_train_100 1 --debug_test_100 1 --beam_size 50 \
++  --top_k_similar_item ${NUM_CF} --item_id_type ${ITEM_ID_TYPE} \
++  --hierarchical_id_type ${ITEM_ID}
+diff --git a/command/test_gram_toys_best_single.sh b/command/test_gram_toys_best_single.sh
+new file mode 100755
+--- /dev/null
++++ b/command/test_gram_toys_best_single.sh
+@@
++#!/usr/bin/env bash
++set -euo pipefail
++SEED=2023
++PHYSICAL_GPU=${PHYSICAL_GPU:-0}
++BEST_CHECKPOINT=${BEST_CHECKPOINT:?set BEST_CHECKPOINT to the selected Toys model}
++ITEM_ID_TYPE=split
++ID_LEN=5
++NUM_CF=5
++NUM_CLUSTER=32
++ITEM_ID=hierarchy_v1_c${NUM_CLUSTER}_l${ID_LEN}_len32768_split
++[[ -s "$BEST_CHECKPOINT" ]]
++CUDA_VISIBLE_DEVICES="${PHYSICAL_GPU}" exec "${PYTHON_BIN:-python}" ../src/main_generative_gram.py --datasets Toys \
++  --distributed 0 --master_port 2443 --gpu 0 --seed ${SEED} --train 0 \
++  --resource_metrics 1 --rec_model_path "${BEST_CHECKPOINT}" \
++  --item_prompt_max_len 128 --item_prompt all_text --cf_model sasrec \
++  --id_linking 1 --max_his 20 --save_predictions 1 --beam_size 50 \
++  --top_k_similar_item ${NUM_CF} --item_id_type ${ITEM_ID_TYPE} \
++  --hierarchical_id_type ${ITEM_ID}
+
+# The exact observability runners live outside the official GRAM tree under
+# experiment/phase2_toys/. They are archived as executable source files rather
+# than duplicated here. The phase-1 debug_test_100 correction predates phase 2
+# and remains documented in artifacts/phase1_beauty/environment/code_changes.patch.

@@ -1,0 +1,75 @@
+{
+  "version": "ffnf_j0_s_preregistered_v1",
+  "preregistered_at": "2026-07-24",
+  "preregistered_after": "TRANSFER_INNOVATION_ALLOWED_WITH_STRONG_NARROWING",
+  "preregistered_before_new_static_census": true,
+  "datasets": {
+    "Toys": {
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "item_text": "GRAM/rec_datasets/Toys/item_plain_text.txt",
+      "similar_items": "GRAM/rec_datasets/Toys/similar_item_sasrec.txt",
+      "top_k_similar_item": 5
+    },
+    "Beauty": {
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "item_text": "GRAM/rec_datasets/Beauty/item_plain_text.txt",
+      "similar_items": "GRAM/rec_datasets/Beauty/similar_item_sasrec.txt",
+      "top_k_similar_item": 10
+    }
+  },
+  "tokenizer": {
+    "name": "t5-small",
+    "local_files_only": true,
+    "pre_filter_max_length": 999,
+    "current_width": 128,
+    "cf_width": 64,
+    "metadata_width": 64,
+    "delimiter_token_ids_removed": [1820, 9175],
+    "forced_eos_rule": "Apply the exact CPBD/Collator left-truncation and forced-EOS rule independently to each 64-token branch."
+  },
+  "serializations": {
+    "current": "item: <link>; similar items: <fixed CF identities>; <metadata>",
+    "cf_stream": "item: <link>; similar items: <same fixed CF identities>",
+    "metadata_stream": "<same metadata>",
+    "no_link_duplication": true,
+    "future_grouping": "Concatenate the two encoded 64-token hidden-state tensors inside one item group; both inherit the same item position and receive different source embeddings."
+  },
+  "budget_definition": {
+    "primary": "Padded tensor width and decoder cross-attention capacity: 64 + 64 = 128 per historical item.",
+    "not_required": "Short inputs are not required to contain 128 active non-padding tokens.",
+    "descriptive_confound": "Active-token difference and the second EOS token are reported descriptively and must be controlled in J1."
+  },
+  "integrity_gates": {
+    "catalog_intersection_coverage": 1.0,
+    "parse_success_rate": 1.0,
+    "finite_metric_rate": 1.0,
+    "raw_component_identity_rate": 1.0,
+    "tensor_width_sum": 128,
+    "no_link_duplication_rate": 1.0,
+    "current_exact_replay_rate": 1.0
+  },
+  "feasibility_gates_per_dataset": {
+    "aggregate_cf_visible_ratio_vs_current_min": 0.95,
+    "aggregate_title_visible_ratio_vs_current_min": 1.0,
+    "aggregate_brand_visible_ratio_vs_current_min": 1.0,
+    "aggregate_categories_visible_ratio_vs_current_min": 1.0,
+    "aggregate_metadata_visible_gain_strictly_greater_than": 0,
+    "item_fraction_metadata_visible_gain_positive_min": 0.5
+  },
+  "decision_rule": {
+    "execution_invalid": "Any catalog, parsing, finite, component, width, link-duplication or exact-current-replay integrity gate fails.",
+    "stop_budget_infeasible": "Either dataset fails any CF/key-metadata/metadata-gain feasibility gate.",
+    "j1_design_allowed": "All integrity and feasibility gates pass on both datasets.",
+    "single_shot": true,
+    "no_quota_or_serialization_scan": true
+  },
+  "forbidden": [
+    "checkpoint loading, model scoring, training or GPU",
+    "validation/test targets, predictions, hit/miss or beam ranks",
+    "dataset-specific quota changes",
+    "alternative 32/96, 48/80, 80/48 or dynamic budgets after census",
+    "using one dataset to rescue failure on the other"
+  ]
+}

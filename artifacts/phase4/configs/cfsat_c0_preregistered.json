@@ -1,0 +1,78 @@
+{
+  "version": "cfsat_c0_preregistered_v1",
+  "preregistered_at": "2026-07-27",
+  "preregistered_before_new_scores": true,
+  "seed": 20260727,
+  "bootstrap_iterations": 10000,
+  "batch_size": 8,
+  "max_history": 20,
+  "min_history": 2,
+  "target_offset_from_end": 3,
+  "split_hash_modulus": 100,
+  "splits": {
+    "fit": {"hash_buckets": [0, 60], "max_users": 307},
+    "calibration": {"hash_buckets": [60, 80], "max_users": 103},
+    "audit": {"hash_buckets": [80, 100], "max_users": 102}
+  },
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "baseline_neighbor_budget": 5
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "baseline_neighbor_budget": 10
+    }
+  },
+  "corruption": {
+    "maximum_neighbor_jaccard": 0.2,
+    "require_equal_visible_cf_tokens": true,
+    "require_equal_metadata_start": true,
+    "require_equal_attention_length": true,
+    "exclude_target_from_donor_neighbors": true
+  },
+  "scientific_gates_per_dataset": {
+    "mean_margin_ci95_lower_strictly_greater_than": 0.0,
+    "positive_user_mean_margin_rate_min": 0.55,
+    "helpful_node_rate_min": 0.6,
+    "sensitivity_deficit_margin": 0.1,
+    "sensitivity_deficit_rate_among_helpful_min": 0.2,
+    "deficit_user_coverage_min": 0.3,
+    "minimum_nontrivial_depths_with_support": 2,
+    "minimum_helpful_nodes_per_supported_depth": 50
+  },
+  "integrity_gates": {
+    "exact_split_caps_required": true,
+    "user_overlap_across_splits": 0,
+    "heldout_sequence_fields_read": false,
+    "validation_or_test_read": false,
+    "clean_serialization_replay_rate": 1.0,
+    "donor_target_exclusion_rate": 1.0,
+    "neighbor_budget_identity_rate": 1.0,
+    "donor_overlap_gate_rate": 1.0,
+    "attention_length_identity_rate": 1.0,
+    "metadata_start_identity_rate": 1.0,
+    "trie_child_membership_rate": 1.0,
+    "finite_rate": 1.0,
+    "optimizer_steps": 0,
+    "parameter_sha_identity": true
+  },
+  "decision_rule": {
+    "single_shot": true,
+    "no_cohort_corruption_threshold_or_gate_revision_after_scoring": true,
+    "execution_invalid": "Any integrity gate fails on either dataset.",
+    "stop_no_clean_corrupt_signal": "Either dataset fails margin CI, positive-user rate, or helpful-node rate.",
+    "stop_no_trainable_deficit": "Signal gates pass but either dataset fails deficit rate, deficit user coverage, or depth support.",
+    "c1_design_allowed": "All integrity and scientific gates pass on both datasets."
+  },
+  "forbidden": [
+    "sequence[-2] or sequence[-1]",
+    "validation/test targets, predictions, hit/miss labels or beam ranks",
+    "changing K, prompt fields, metadata, history order or Trie",
+    "relaxing donor length, overlap or target-exclusion rules after scoring",
+    "training or updating GRAM",
+    "using one dataset to rescue failure on the other"
+  ]
+}

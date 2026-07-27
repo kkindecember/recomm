@@ -1,0 +1,74 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "plan",
+    "origin_date": "2026-07-22",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_pilot_split_v1",
+    "design_status": "LOCKED_ONCE"
+  },
+  "dataset": "Beauty",
+  "seed": 2023,
+  "population_users": 22363,
+  "train_users": 2236,
+  "validation_users": 2048,
+  "overlap_users": 0,
+  "training_fraction_realized": 0.09998658498412556,
+  "stratification": "training-only target head/tail x training-anchor history length",
+  "history_bins": [
+    "1-5",
+    "6-10",
+    "11-20",
+    "21+"
+  ],
+  "training_anchor": "target=sequence[-3], history=sequence[:-3]",
+  "popularity_source": "sequence[:-2]",
+  "validation_target_read_for_split": false,
+  "test_target_read": false,
+  "input_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+  "train_users_sha256": "a9b0e2df22d419213390cf8baebe016dc48870d0233ccfb942003c18e79fd6f8",
+  "validation_users_sha256": "a9e19d397cccee35f1de81b05bad56ae840318da37696af883791fdfdc23b51a",
+  "strata_sha256": "3f890b8424918ac9036773a51db322d1da4550ad954858c66f24b075a69be545",
+  "strata": {
+    "head__1-5": {
+      "population": 8403,
+      "train": 840,
+      "validation": 769
+    },
+    "head__11-20": {
+      "population": 1018,
+      "train": 102,
+      "validation": 93
+    },
+    "head__21+": {
+      "population": 490,
+      "train": 49,
+      "validation": 45
+    },
+    "head__6-10": {
+      "population": 2169,
+      "train": 217,
+      "validation": 199
+    },
+    "tail__1-5": {
+      "population": 7471,
+      "train": 747,
+      "validation": 684
+    },
+    "tail__11-20": {
+      "population": 663,
+      "train": 66,
+      "validation": 61
+    },
+    "tail__21+": {
+      "population": 379,
+      "train": 38,
+      "validation": 35
+    },
+    "tail__6-10": {
+      "population": 1770,
+      "train": 177,
+      "validation": 162
+    }
+  }
+}

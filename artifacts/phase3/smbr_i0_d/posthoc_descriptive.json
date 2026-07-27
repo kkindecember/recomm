@@ -1,0 +1,46 @@
+{
+  "status": "SECONDARY_DESCRIPTIVE_ONLY",
+  "primary_decision_unchanged": "STOP_SMBR_NO_CALIBRATED_SUBSET",
+  "reason_for_posthoc": "The preregistered absolute probability grid selected no samples because all calibration probabilities were below 0.50. This file checks whether ranking evidence would nevertheless have supported learnability; it cannot rescue the primary decision.",
+  "Toys": {
+    "fit_positive_prevalence": 0.14083333333333334,
+    "calibration_positive_prevalence": 0.1725,
+    "audit_positive_prevalence": 0.125,
+    "calibration_probability_range": [0.03485558298059002, 0.34655720381726984],
+    "audit_probability_range": [0.04289656736806858, 0.2934634533103563],
+    "calibration_auroc": 0.539340601602522,
+    "audit_auroc": 0.5172,
+    "audit_auroc_bootstrap_ci95": [0.4285622938396662, 0.603657324700372],
+    "audit_recoverable_sum_auroc": 0.44117142857142866,
+    "audit_always_recover_mean_benefit": -0.29483102113939824,
+    "audit_benefit_positive_rate_zero_margin": 0.185,
+    "audit_oracle_policy_gain": 0.013742072153836488,
+    "top_probability_slices": {
+      "0.10": {"precision": 0.175, "active_mean_benefit": -0.1492, "policy_gain": -0.0149},
+      "0.20": {"precision": 0.1375, "active_mean_benefit": -0.1975, "policy_gain": -0.0395},
+      "0.30": {"precision": 0.125, "active_mean_benefit": -0.2031, "policy_gain": -0.0609},
+      "0.40": {"precision": 0.1375, "active_mean_benefit": -0.1944, "policy_gain": -0.0778}
+    }
+  },
+  "Beauty": {
+    "fit_positive_prevalence": 0.17416666666666666,
+    "calibration_positive_prevalence": 0.165,
+    "audit_positive_prevalence": 0.16,
+    "calibration_probability_range": [0.09310943994632731, 0.34340156987676684],
+    "audit_probability_range": [0.0914614397243749, 0.35778819242207127],
+    "calibration_auroc": 0.5085737615677736,
+    "audit_auroc": 0.5613839285714286,
+    "audit_auroc_bootstrap_ci95": [0.485803612851504, 0.6354589390708792],
+    "audit_recoverable_sum_auroc": 0.5808221726190477,
+    "audit_always_recover_mean_benefit": -0.70236232412979,
+    "audit_benefit_positive_rate_zero_margin": 0.205,
+    "audit_oracle_policy_gain": 0.014537520464509726,
+    "top_probability_slices": {
+      "0.10": {"precision": 0.2, "active_mean_benefit": -0.2453, "policy_gain": -0.0245},
+      "0.20": {"precision": 0.1625, "active_mean_benefit": -0.364, "policy_gain": -0.0728},
+      "0.30": {"precision": 0.1667, "active_mean_benefit": -0.5033, "policy_gain": -0.151},
+      "0.40": {"precision": 0.1812, "active_mean_benefit": -0.5456, "policy_gain": -0.2182}
+    }
+  },
+  "interpretation": "The absolute threshold grid was poorly matched to the low base rate, but this does not change the scientific conclusion: both audit AUROCs fail the preregistered point/lower-CI gates, and every rank-based top 10%-40% slice has negative mean benefit on both datasets."
+}

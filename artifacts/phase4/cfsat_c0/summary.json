@@ -1,0 +1,177 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite / experiment-agent",
+    "origin_mode": "run + validate",
+    "origin_date": "2026-07-27",
+    "verification_status": "ANALYZED",
+    "version_label": "cfsat_c0_v1"
+  },
+  "decision": "STOP_CFSAT_NO_CLEAN_CORRUPT_SIGNAL",
+  "datasets": {
+    "Toys": {
+      "availability": {
+        "candidate_counts": {
+          "fit": 11632,
+          "calibration": 3883,
+          "audit": 3897
+        },
+        "rejected": {}
+      },
+      "integrity": {
+        "catalog_size": 11924,
+        "exact_split_caps": true,
+        "counts": {
+          "fit": 307,
+          "calibration": 103,
+          "audit": 102
+        },
+        "user_overlap_across_splits": 0,
+        "heldout_sequence_fields_read": false,
+        "validation_or_test_read": false,
+        "clean_serialization_replay_rate": 1.0,
+        "donor_target_exclusion_rate": 1.0,
+        "neighbor_budget_identity_rate": 1.0,
+        "donor_overlap_gate_rate": 1.0,
+        "attention_length_identity_rate": 1.0,
+        "collator_attention_mask_identity_rate": 1.0,
+        "metadata_start_identity_rate": 1.0,
+        "optimizer_steps": 0,
+        "trie_child_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "parameter_sha_identity": true
+      },
+      "input_sha256": {
+        "checkpoint": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+        "run_config": "7cf5857fd8f383fc591b66ac7e1421fc34d9b7a989fa839f77c74900260e02a4",
+        "user_sequence": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+        "item_index": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+        "item_text": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+        "neighbors": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1"
+      },
+      "metrics": {
+        "audit_users": 102,
+        "audit_nodes": 513,
+        "user_cluster_mean_cf_margin": {
+          "mean": 0.462004388655044,
+          "median": 0.33915729373693465,
+          "positive_rate": 0.8725490196078431,
+          "ci95": [
+            0.3430821022446526,
+            0.5969471491310776
+          ]
+        },
+        "positive_user_mean_margin_rate": 0.8725490196078431,
+        "helpful_node_rate": 0.48148148148148145,
+        "sensitivity_deficit_margin": 0.1,
+        "sensitivity_deficit_rate_among_helpful": 0.242914979757085,
+        "deficit_user_coverage": 0.46078431372549017,
+        "helpful_nodes_by_nontrivial_depth": {
+          "1": 68,
+          "2": 86,
+          "3": 22,
+          "4": 7,
+          "5": 2
+        },
+        "supported_nontrivial_depths": 2,
+        "signal_gates": {
+          "mean_margin_ci": true,
+          "positive_user_rate": true,
+          "helpful_node_rate": false
+        },
+        "deficit_gates": {
+          "deficit_rate": true,
+          "deficit_user_coverage": true,
+          "depth_support": true
+        }
+      },
+      "node_count": 2594,
+      "parameter_sha256": "ee83796e10fcc18442987ce93bace2add35dc47025414b90044e0874fa2236c0",
+      "integrity_pass": true
+    },
+    "Beauty": {
+      "availability": {
+        "candidate_counts": {
+          "fit": 13457,
+          "calibration": 4383,
+          "audit": 4523
+        },
+        "rejected": {}
+      },
+      "integrity": {
+        "catalog_size": 12101,
+        "exact_split_caps": true,
+        "counts": {
+          "fit": 307,
+          "calibration": 103,
+          "audit": 102
+        },
+        "user_overlap_across_splits": 0,
+        "heldout_sequence_fields_read": false,
+        "validation_or_test_read": false,
+        "clean_serialization_replay_rate": 1.0,
+        "donor_target_exclusion_rate": 1.0,
+        "neighbor_budget_identity_rate": 1.0,
+        "donor_overlap_gate_rate": 1.0,
+        "attention_length_identity_rate": 1.0,
+        "collator_attention_mask_identity_rate": 1.0,
+        "metadata_start_identity_rate": 1.0,
+        "optimizer_steps": 0,
+        "trie_child_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "parameter_sha_identity": true
+      },
+      "input_sha256": {
+        "checkpoint": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+        "run_config": "4a08f5f326dbc2ea842ced9fc9f41402d937cb09ea6a1e338866e75d0c57059d",
+        "user_sequence": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+        "item_index": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+        "item_text": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc",
+        "neighbors": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c"
+      },
+      "metrics": {
+        "audit_users": 102,
+        "audit_nodes": 724,
+        "user_cluster_mean_cf_margin": {
+          "mean": 0.815419997688911,
+          "median": 0.41321843952339676,
+          "positive_rate": 0.9509803921568627,
+          "ci95": [
+            0.6130175547519572,
+            1.0399911908648474
+          ]
+        },
+        "positive_user_mean_margin_rate": 0.9509803921568627,
+        "helpful_node_rate": 0.319060773480663,
+        "sensitivity_deficit_margin": 0.1,
+        "sensitivity_deficit_rate_among_helpful": 0.16017316017316016,
+        "deficit_user_coverage": 0.3235294117647059,
+        "helpful_nodes_by_nontrivial_depth": {
+          "1": 85,
+          "2": 52,
+          "3": 15,
+          "4": 1,
+          "5": 1,
+          "6": 3,
+          "7": 7
+        },
+        "supported_nontrivial_depths": 2,
+        "signal_gates": {
+          "mean_margin_ci": true,
+          "positive_user_rate": true,
+          "helpful_node_rate": false
+        },
+        "deficit_gates": {
+          "deficit_rate": false,
+          "deficit_user_coverage": true,
+          "depth_support": true
+        }
+      },
+      "node_count": 3616,
+      "parameter_sha256": "96bb7f943e97e15afe92bdd8baec0b84b77fb9bbc73445ca7c9fd38079ffef4c",
+      "integrity_pass": true
+    }
+  },
+  "config_sha256": "4433a7fe1c2dea34e15e38d7c1c3e84189aa96cab97b9220361d052f6f19bcba",
+  "code_sha256": "7dfc99e23c7c18f3c10e5446eb37f917a365c3b6256662bb9d2786de93204a96",
+  "wall_time_seconds": 290.2283134460449
+}

@@ -1,0 +1,38 @@
+{
+  "version": "cgi_e0_preregistered_v1",
+  "seed": 20260724,
+  "bootstrap_iterations": 10000,
+  "max_per_stratum": 256,
+  "min_history": 2,
+  "max_history": 20,
+  "batch_size": 8,
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Toys/validation/summary.json"
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "s0_summary": "artifacts/phase3/s0/Beauty/validation/summary.json"
+    }
+  },
+  "gates": {
+    "tail_miss_n": 256,
+    "tail_hit_n": 256,
+    "repeat_max_abs_error": 1e-7,
+    "cumulative_mean": 0.03,
+    "cumulative_positive_rate": 0.55,
+    "old_mean": 0.01,
+    "temporal_difference_mean": 0.01,
+    "failure_association_mean": 0.02
+  },
+  "forbidden_inputs": [
+    "sequence[-1]",
+    "test predictions",
+    "test targets"
+  ]
+}

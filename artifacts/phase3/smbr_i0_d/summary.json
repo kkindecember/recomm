@@ -1,0 +1,69 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite / experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "smbr_i0_d_v1"
+  },
+  "decision": "STOP_SMBR_NO_CALIBRATED_SUBSET",
+  "datasets": {
+    "Toys": {
+      "status": "ANALYZED",
+      "counts": {
+        "audit": 400,
+        "calibration": 400,
+        "fit": 1200
+      },
+      "integrity": {
+        "exact_split_caps": true,
+        "user_overlap_across_splits": 0,
+        "heldout_sequence_fields_read": false,
+        "target_feature_inclusion_rate": 0.0,
+        "feature_names_match_preregistration": true,
+        "finite_feature_rate": 1.0,
+        "current_repeat_max_abs_error": 0.0,
+        "fixed_budget_rate": 1.0,
+        "raw_component_identity_rate": 1.0,
+        "finite_score_rate": 1.0
+      },
+      "analysis": {
+        "status": "NO_CALIBRATED_SUBSET",
+        "threshold": null,
+        "gates": {
+          "calibrated_subset": false
+        }
+      }
+    },
+    "Beauty": {
+      "status": "ANALYZED",
+      "counts": {
+        "audit": 400,
+        "calibration": 400,
+        "fit": 1200
+      },
+      "integrity": {
+        "exact_split_caps": true,
+        "user_overlap_across_splits": 0,
+        "heldout_sequence_fields_read": false,
+        "target_feature_inclusion_rate": 0.0,
+        "feature_names_match_preregistration": true,
+        "finite_feature_rate": 1.0,
+        "current_repeat_max_abs_error": 0.0,
+        "fixed_budget_rate": 1.0,
+        "raw_component_identity_rate": 1.0,
+        "finite_score_rate": 1.0
+      },
+      "analysis": {
+        "status": "NO_CALIBRATED_SUBSET",
+        "threshold": null,
+        "gates": {
+          "calibrated_subset": false
+        }
+      }
+    }
+  },
+  "config_sha256": "a3db8bbbff237202617f4d066c0e95b37e2409a4af3502053f98770db3b5f8a7",
+  "code_sha256": "ee14bc95808f4294df09aefbb222cd495ae7f853cb26fa6216a803efdba02090",
+  "wall_time_seconds": 120.86193108558655
+}

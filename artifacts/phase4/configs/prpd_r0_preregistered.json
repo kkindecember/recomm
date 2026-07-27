@@ -1,0 +1,46 @@
+{
+  "experiment_id": "GRAM_PHASE4_PRPD_R0",
+  "registered_at": "2026-07-27T13:00:00+08:00",
+  "decision_status_before_run": "PRPD_R0_PREREGISTERED",
+  "seed": 2023,
+  "source_config": "artifacts/phase4/configs/rpcd_t0_preregistered.json",
+  "source_summary": "artifacts/phase4/rpcd_t0/summary.json",
+  "teacher_outputs": {
+    "Toys": "artifacts/phase4/rpcd_t0/teacher_top50_Toys.jsonl",
+    "Beauty": "artifacts/phase4/rpcd_t0/teacher_top50_Beauty.jsonl"
+  },
+  "residual": {
+    "rank_score": "1/log2(rank+1)",
+    "popularity_source": "sequence[:-2]",
+    "popularity_percentile": "catalog empirical midrank percentile by training interaction count; unseen count=0",
+    "formula": "sas_residual(item)=sas_rank_score(item)-gamma*popularity_percentile(item)",
+    "gammas": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "weights": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    "fusion": "(1-weight)*gram_rank_score + weight*sas_residual; missing branch score=0",
+    "tie_break": "original stable union order: deduplicated GRAM top50 followed by unseen SASRec top50"
+  },
+  "selection": {
+    "calibration_fraction": 0.2,
+    "calibration_salt": "rpcd-t0-hybrid-weight-v1",
+    "rule": "one shared (gamma,weight) maximizing macro relative NDCG@10 subject to per-dataset Recall@10 and tail NDCG@10 nondecrease on calibration; ties choose smaller gamma then smaller weight",
+    "audit_rule": "locked configuration is evaluated once on hash audit 80%"
+  },
+  "gates": {
+    "hybrid_ndcg10_relative_gain_min": 0.01,
+    "hybrid_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.0
+  },
+  "bootstrap": {
+    "iterations": 5000,
+    "confidence": 0.95,
+    "unit": "audit user",
+    "paired": true
+  },
+  "integrity": {
+    "gamma0_identity_required": true,
+    "shared_config_required": true,
+    "test_predictions_forbidden": true,
+    "sequence_test_target_indexed": false,
+    "target_match_rate_required": 1.0
+  }
+}

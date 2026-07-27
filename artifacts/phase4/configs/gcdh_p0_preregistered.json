@@ -1,0 +1,76 @@
+{
+  "experiment_id": "GRAM_PHASE4_GCDH_P0",
+  "registered_at": "2026-07-27T15:00:00+08:00",
+  "decision_status_before_run": "GCDH_P0_PREREGISTERED",
+  "seed": 2023,
+  "datasets": {
+    "Toys": {
+      "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "hierarchical_id_type": "hierarchy_v1_c32_l5_len32768_split",
+      "top_k_similar_item": 5
+    },
+    "Beauty": {
+      "checkpoint": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "hierarchical_id_type": "hierarchy_v1_c128_l7_len32768_split",
+      "top_k_similar_item": 10
+    }
+  },
+  "split": {
+    "salt": "gcdh-p0-medium-pilot-v1",
+    "training_user_fraction": 0.25,
+    "validation_users": 4096,
+    "user_disjoint": true,
+    "stratification": "training-anchor target head/tail x pre-anchor raw history length",
+    "training_anchor": "sequence[-3]",
+    "validation_target_for_split_forbidden": true,
+    "test_target_forbidden": true
+  },
+  "training": {
+    "controls": ["C0", "C1"],
+    "epochs": 5,
+    "batch_size": 16,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.05,
+    "gradient_clip_norm": 1.0,
+    "lambda_item": 0.2,
+    "balanced_softmax_smoothing": 1.0,
+    "C0": "matched lexical-CE continuation; catalog head initialized but loss disabled",
+    "C1": "lexical CE plus lambda_item times full-catalog Balanced Softmax"
+  },
+  "architecture": {
+    "pooling": "attention-mask mean over first coarse-history passage only",
+    "catalog_head": "linear d_model-to-full-catalog with bias",
+    "initialization": "mean native T5 embeddings of each lexical identifier, bias zero",
+    "catalog_top_k": 50,
+    "generator_top_k": 50,
+    "final_ranking": "catalog raw logit over deduplicated generator-50 union catalog-50; generator score stable tie-break",
+    "seen_history_masked_for_catalog": true
+  },
+  "gates": {
+    "overall_ndcg10_relative_gain_min": 0.02,
+    "overall_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.02,
+    "union_recall50_absolute_gain_min": 0.02,
+    "peak_reserved_relative_increase_max": 0.35,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "finite_loss_logits_gradients": true,
+    "catalog_head_nonzero_gradient": true,
+    "target_alignment_rate": 1.0,
+    "candidate_mapping_rate": 1.0,
+    "matched_users_batches_steps": true,
+    "test_predictions_forbidden": true
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 43200,
+    "resource_sample_seconds": 5,
+    "disk_sample_seconds": 300,
+    "no_automatic_retry": true
+  }
+}

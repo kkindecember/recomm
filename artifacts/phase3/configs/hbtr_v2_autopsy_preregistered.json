@@ -1,0 +1,68 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "plan",
+    "origin_date": "2026-07-24",
+    "verification_status": "UNVERIFIED",
+    "version_label": "hbtr_v2_autopsy_preregistered_v1",
+    "design_status": "RESULT_INFORMED_POST_HOC_LOCKED_BEFORE_EXECUTION"
+  },
+  "objective": "Determine whether HBTR-v1 joint-margin distinguishability was limited by low nontrivial activation while preserving enough generic beam-hard-negative support to justify design-only work for a new cycle.",
+  "scope": "CPU-only deterministic analysis of existing training-only caches, validation per-user outputs, training summaries, locked pilot summary and training-only popularity.",
+  "datasets": [
+    "Toys",
+    "Beauty"
+  ],
+  "inputs": {
+    "negative_cache": "artifacts/phase3/hbtr_pilot/{dataset}/cache/negative_cache.json",
+    "validation_per_user": "artifacts/phase3/hbtr_pilot/{dataset}/{control}/validation_per_user.csv",
+    "training_summary": "artifacts/phase3/hbtr_pilot/{dataset}/{control}/training_summary.json",
+    "pilot_summary": "artifacts/phase3/hbtr_pilot/summary.json",
+    "pilot_preregistration": "artifacts/phase3/configs/hbtr_pilot_preregistered.json",
+    "training_popularity": "GRAM/rec_datasets/{dataset}/user_sequence.txt using sequence[:-2] only"
+  },
+  "prohibitions": [
+    "no test predictions or targets",
+    "no model checkpoint loading",
+    "no training or beam regeneration",
+    "no margin, lambda or threshold scan",
+    "no mutation of HBTR-v1 artifacts or decision"
+  ],
+  "fixed_controls": [
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "activation_thresholds": {
+    "eligible_all_rate_min_each_dataset": 0.15,
+    "prefix_nontrivial_row_rate_min_each_dataset": 0.25,
+    "tail_nontrivial_row_rate_min_each_dataset": 0.20,
+    "joint_nontrivial_row_rate_min_each_dataset": 0.10
+  },
+  "generic_signal": {
+    "at_least_one_dataset_positive_ndcg_for_C1_or_C4_vs_C0": true,
+    "same_dataset_top10_net_promotions_positive": true
+  },
+  "decision_rule": {
+    "V2_DESIGN_ALLOWED": "Both datasets pass eligible and prefix support; at least one dataset fails current tail or joint distinguishability; generic signal passes.",
+    "STOP_HBTR": "Eligible or prefix support fails in either dataset, generic signal fails, or tail and joint distinguishability already pass while HBTR-v1 effect gates remain failed.",
+    "gpu_unlocked": false
+  },
+  "execution": {
+    "command": "python3 experiment/phase3/hbtr_v2_failure_autopsy.py",
+    "working_directory": "/home/jiangtangyunzhi/projects/recomm",
+    "timeout_seconds": 600,
+    "gpu_required": false,
+    "test_data_read": false
+  },
+  "expected_outputs": [
+    "artifacts/phase3/hbtr_v2_autopsy/Toys/diagnostic_summary.json",
+    "artifacts/phase3/hbtr_v2_autopsy/Beauty/diagnostic_summary.json",
+    "artifacts/phase3/hbtr_v2_autopsy/activation_metrics.csv",
+    "artifacts/phase3/hbtr_v2_autopsy/rank_transitions.csv",
+    "artifacts/phase3/hbtr_v2_autopsy/summary.json",
+    "report/第三阶段/GRAM_第三阶段_HBTR_v2失效解剖报告.md"
+  ]
+}

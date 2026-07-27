@@ -1,0 +1,63 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-22",
+    "verification_status": "ANALYZED",
+    "version_label": "s0b_posthoc_v1",
+    "design_status": "POST_HOC_EXPLORATORY_AMENDMENT"
+  },
+  "decision": "STOP",
+  "passing_config_count": 0,
+  "selected_or_diagnostic_config": {
+    "config_id": "b0_l0.2_t0.75_s2",
+    "beta": 0.0,
+    "lambda": 0.2,
+    "tau": 0.75,
+    "min_support": 2,
+    "macro_ndcg@10_relative_delta": 0.005043974033856147,
+    "toys_pass": false,
+    "beauty_pass": false,
+    "joint_pass": false
+  },
+  "locked_grid_size": 16,
+  "constraints": {
+    "both_ndcg@10_relative_delta_min": 0.01,
+    "both_recall@10_absolute_delta_min": -0.005,
+    "both_uncovered_relative_delta_min": -0.01,
+    "both_tail_ndcg@10_relative_delta_min": 0.0,
+    "active_rate_range": [
+      0.05,
+      0.6
+    ]
+  },
+  "input_sha256": {
+    "Toys": {
+      "prediction": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a",
+      "sequence": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "neighbors": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1",
+      "item_index": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+      "s0_summary": "415f80248ebf34f2e35bfc3f0c39041ccbb7365a38d393ded0b4649be0c64a76"
+    },
+    "Beauty": {
+      "prediction": "2f5a0ed694ec9b3e07cc93fe86cf7569f62d5fd95853dfd1e869c72a1c1a1892",
+      "sequence": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+      "neighbors": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c",
+      "item_index": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+      "s0_summary": "64451bae879d2c2b8f7ea256c027a4cc775495edd941f0e8822d08454d25dd8e"
+    }
+  },
+  "audit": {
+    "Toys": {
+      "rows": 19412,
+      "unknown_gold_count": 0,
+      "unknown_prediction_count": 0
+    },
+    "Beauty": {
+      "rows": 22363,
+      "unknown_gold_count": 0,
+      "unknown_prediction_count": 0
+    }
+  },
+  "wall_time_seconds": 252.22730231285095
+}

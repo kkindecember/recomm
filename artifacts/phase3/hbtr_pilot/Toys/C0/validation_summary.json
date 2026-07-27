@@ -1,0 +1,71 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-23",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_pilot_result_v1",
+    "design_status": "EXPLORATORY_NO_EFFECT_CLAIM"
+  },
+  "dataset": "Toys",
+  "control": "C0",
+  "status": "VALIDATED",
+  "execution_mode": "resumed_checkpoint_validation",
+  "groups": {
+    "overall": {
+      "Recall@5": 0.091796875,
+      "NDCG@5": 0.06931661906673962,
+      "Recall@10": 0.123046875,
+      "NDCG@10": 0.07937159466456696,
+      "n": 2048
+    },
+    "head": {
+      "Recall@5": 0.09977064220183486,
+      "NDCG@5": 0.07548361306346706,
+      "Recall@10": 0.1341743119266055,
+      "NDCG@10": 0.08632181268472651,
+      "n": 872
+    },
+    "tail": {
+      "Recall@5": 0.0858843537414966,
+      "NDCG@5": 0.06474381399433637,
+      "Recall@10": 0.11479591836734694,
+      "NDCG@10": 0.0742180316428161,
+      "n": 1176
+    },
+    "history_1-5": {
+      "Recall@5": 0.09587020648967552,
+      "NDCG@5": 0.07508501885180476,
+      "Recall@10": 0.1275811209439528,
+      "NDCG@10": 0.08539785424991853,
+      "n": 1356
+    },
+    "history_6-10": {
+      "Recall@5": 0.07390300230946882,
+      "NDCG@5": 0.05246790618878667,
+      "Recall@10": 0.10392609699769054,
+      "NDCG@10": 0.061838699519767365,
+      "n": 433
+    },
+    "history_11-20": {
+      "Recall@5": 0.0989010989010989,
+      "NDCG@5": 0.0667738532495707,
+      "Recall@10": 0.12637362637362637,
+      "NDCG@10": 0.07571563103461634,
+      "n": 182
+    },
+    "history_21+": {
+      "Recall@5": 0.1038961038961039,
+      "NDCG@5": 0.06848968330479328,
+      "Recall@10": 0.14285714285714285,
+      "NDCG@10": 0.08048225675044526,
+      "n": 77
+    }
+  },
+  "users": 2048,
+  "per_user_sha256": "aa5496de84ead3369448cf7571cafa1a97b398d4e0608dc490d99d4af061aba9",
+  "validation_wall_time_seconds": 321.0772440433502,
+  "per_user_latency_seconds": 0.1567759985337034,
+  "test_data_read": false,
+  "effect_claim_allowed": false
+}

@@ -1,0 +1,340 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "hbtr_v2_autopsy_v1",
+    "design_status": "RESULT_INFORMED_POST_HOC_EXPLORATORY"
+  },
+  "decision": "V2_DESIGN_ALLOWED",
+  "gpu_unlocked": false,
+  "hbtr_v1_decision_unchanged": "STOP",
+  "gates": {
+    "eligible_support_both": true,
+    "prefix_support_both": true,
+    "tail_distinguishability_both": false,
+    "joint_distinguishability_both": false,
+    "underactivated": true,
+    "generic_signal_by_dataset": {
+      "Toys": true,
+      "Beauty": false
+    },
+    "generic_signal": true
+  },
+  "datasets": {
+    "Toys": {
+      "activation": {
+        "training_samples": 10840,
+        "eligible_rows": 2361,
+        "eligible_all_rate": 0.21780442804428043,
+        "pair_count": 9444,
+        "prefix_nontrivial_pairs": 2648,
+        "prefix_nontrivial_pair_rate": 0.2803896653960186,
+        "prefix_nontrivial_rows": 1039,
+        "prefix_nontrivial_row_rate": 0.44006776789495977,
+        "prefix_nontrivial_all_rate": 0.09584870848708488,
+        "tail_nontrivial_rows": 207,
+        "tail_nontrivial_row_rate": 0.08767471410419314,
+        "tail_nontrivial_all_rate": 0.019095940959409596,
+        "joint_nontrivial_rows": 129,
+        "joint_nontrivial_row_rate": 0.054637865311308764,
+        "joint_nontrivial_all_rate": 0.011900369003690037,
+        "training_popularity_median": 6.0
+      },
+      "margin_distributions": {
+        "C1": {
+          "mean": 0.1,
+          "std_population": 0.0,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "max": 0.1
+        },
+        "C2": {
+          "mean": 0.1122229281377947,
+          "std_population": 0.021729212809542375,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.13333333333333333,
+          "max": 0.2
+        },
+        "C3": {
+          "mean": 0.10284027511247923,
+          "std_population": 0.010801530585823383,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "max": 0.2
+        },
+        "C4": {
+          "mean": 0.11564883280902115,
+          "std_population": 0.027270032324900658,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.13333333333333333,
+          "max": 0.3333333333333333
+        },
+        "C1_vs_C2": {
+          "equal_rate": 0.7196103346039814,
+          "mean_absolute_difference": 0.012222928137794718,
+          "max_absolute_difference": 0.1
+        },
+        "C1_vs_C3": {
+          "equal_rate": 0.9123252858958069,
+          "mean_absolute_difference": 0.002840275112479225,
+          "max_absolute_difference": 0.1
+        },
+        "C1_vs_C4": {
+          "equal_rate": 0.6721728081321474,
+          "mean_absolute_difference": 0.01564883280902114,
+          "max_absolute_difference": 0.2333333333333333
+        },
+        "C2_vs_C4": {
+          "equal_rate": 0.9123252858958069,
+          "mean_absolute_difference": 0.003425904671226421,
+          "max_absolute_difference": 0.16666666666666666
+        },
+        "C3_vs_C4": {
+          "equal_rate": 0.7196103346039814,
+          "mean_absolute_difference": 0.012808557696541913,
+          "max_absolute_difference": 0.15596157879354228
+        }
+      },
+      "lineage": {
+        "users": 2048,
+        "mismatches": 0
+      },
+      "pilot_effects": {
+        "C1_vs_C0_ndcg10_absolute": 0.0004993061175345564,
+        "C1_vs_C0_ndcg10_relative": 0.006290740656587301,
+        "C4_vs_C0_ndcg10_absolute": 0.0005104749914479761,
+        "C4_vs_C0_ndcg10_relative": 0.006431456916108358
+      },
+      "transitions": {
+        "C0_to_C1": {
+          "dataset": "Toys",
+          "baseline": "C0",
+          "candidate": "C1",
+          "group": "overall",
+          "n": 2048,
+          "rank_changed": 148,
+          "rank_improved": 70,
+          "rank_worsened": 78,
+          "promoted_to_top10": 3,
+          "demoted_from_top10": 0,
+          "net_top10_promotions": 3,
+          "mean_ndcg10_difference": 0.0004993061175345443,
+          "mean_recall10_difference": 0.00146484375
+        },
+        "C0_to_C4": {
+          "dataset": "Toys",
+          "baseline": "C0",
+          "candidate": "C4",
+          "group": "overall",
+          "n": 2048,
+          "rank_changed": 143,
+          "rank_improved": 68,
+          "rank_worsened": 75,
+          "promoted_to_top10": 3,
+          "demoted_from_top10": 0,
+          "net_top10_promotions": 3,
+          "mean_ndcg10_difference": 0.0005104749914479666,
+          "mean_recall10_difference": 0.00146484375
+        },
+        "C1_to_C4": {
+          "dataset": "Toys",
+          "baseline": "C1",
+          "candidate": "C4",
+          "group": "overall",
+          "n": 2048,
+          "rank_changed": 8,
+          "rank_improved": 4,
+          "rank_worsened": 4,
+          "promoted_to_top10": 0,
+          "demoted_from_top10": 0,
+          "net_top10_promotions": 0,
+          "mean_ndcg10_difference": 1.1168873913422299e-05,
+          "mean_recall10_difference": 0.0
+        }
+      },
+      "test_data_read": false
+    },
+    "Beauty": {
+      "activation": {
+        "training_samples": 13076,
+        "eligible_rows": 2368,
+        "eligible_all_rate": 0.18109513612725603,
+        "pair_count": 9472,
+        "prefix_nontrivial_pairs": 1466,
+        "prefix_nontrivial_pair_rate": 0.15477195945945946,
+        "prefix_nontrivial_rows": 781,
+        "prefix_nontrivial_row_rate": 0.3298141891891892,
+        "prefix_nontrivial_all_rate": 0.059727745487916796,
+        "tail_nontrivial_rows": 91,
+        "tail_nontrivial_row_rate": 0.03842905405405406,
+        "tail_nontrivial_all_rate": 0.006959314775160599,
+        "joint_nontrivial_rows": 57,
+        "joint_nontrivial_row_rate": 0.024070945945945946,
+        "joint_nontrivial_all_rate": 0.004359131232792903,
+        "training_popularity_median": 7.0
+      },
+      "margin_distributions": {
+        "C1": {
+          "mean": 0.1,
+          "std_population": 0.0,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "max": 0.1
+        },
+        "C2": {
+          "mean": 0.10614442567567568,
+          "std_population": 0.01569580422766972,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "max": 0.2
+        },
+        "C3": {
+          "mean": 0.10131381440214723,
+          "std_population": 0.0077799583821095185,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "max": 0.2
+        },
+        "C4": {
+          "mean": 0.10764778475753044,
+          "std_population": 0.01911622740111239,
+          "min": 0.1,
+          "p25": 0.1,
+          "median": 0.1,
+          "p75": 0.1,
+          "max": 0.3333333333333333
+        },
+        "C1_vs_C2": {
+          "equal_rate": 0.8452280405405406,
+          "mean_absolute_difference": 0.0061444256756756745,
+          "max_absolute_difference": 0.1
+        },
+        "C1_vs_C3": {
+          "equal_rate": 0.9615709459459459,
+          "mean_absolute_difference": 0.0013138144021472313,
+          "max_absolute_difference": 0.1
+        },
+        "C1_vs_C4": {
+          "equal_rate": 0.8198902027027027,
+          "mean_absolute_difference": 0.007647784757530433,
+          "max_absolute_difference": 0.2333333333333333
+        },
+        "C2_vs_C4": {
+          "equal_rate": 0.9615709459459459,
+          "mean_absolute_difference": 0.0015033590818547583,
+          "max_absolute_difference": 0.16666666666666666
+        },
+        "C3_vs_C4": {
+          "equal_rate": 0.8452280405405406,
+          "mean_absolute_difference": 0.0063339703553832016,
+          "max_absolute_difference": 0.1333333333333333
+        }
+      },
+      "lineage": {
+        "users": 2048,
+        "mismatches": 0
+      },
+      "pilot_effects": {
+        "C1_vs_C0_ndcg10_absolute": -4.09704644397102e-05,
+        "C1_vs_C0_ndcg10_relative": -0.0006095408323185669,
+        "C4_vs_C0_ndcg10_absolute": -4.09704644397102e-05,
+        "C4_vs_C0_ndcg10_relative": -0.0006095408323185669
+      },
+      "transitions": {
+        "C0_to_C1": {
+          "dataset": "Beauty",
+          "baseline": "C0",
+          "candidate": "C1",
+          "group": "overall",
+          "n": 2048,
+          "rank_changed": 134,
+          "rank_improved": 84,
+          "rank_worsened": 50,
+          "promoted_to_top10": 3,
+          "demoted_from_top10": 4,
+          "net_top10_promotions": -1,
+          "mean_ndcg10_difference": -4.097046443971483e-05,
+          "mean_recall10_difference": -0.00048828125
+        },
+        "C0_to_C4": {
+          "dataset": "Beauty",
+          "baseline": "C0",
+          "candidate": "C4",
+          "group": "overall",
+          "n": 2048,
+          "rank_changed": 134,
+          "rank_improved": 84,
+          "rank_worsened": 50,
+          "promoted_to_top10": 3,
+          "demoted_from_top10": 4,
+          "net_top10_promotions": -1,
+          "mean_ndcg10_difference": -4.097046443971483e-05,
+          "mean_recall10_difference": -0.00048828125
+        },
+        "C1_to_C4": {
+          "dataset": "Beauty",
+          "baseline": "C1",
+          "candidate": "C4",
+          "group": "overall",
+          "n": 2048,
+          "rank_changed": 6,
+          "rank_improved": 3,
+          "rank_worsened": 3,
+          "promoted_to_top10": 0,
+          "demoted_from_top10": 0,
+          "net_top10_promotions": 0,
+          "mean_ndcg10_difference": 0.0,
+          "mean_recall10_difference": 0.0
+        }
+      },
+      "test_data_read": false
+    }
+  },
+  "input_sha256": {
+    "Beauty_C0_training_summary": "441112129f271b2de410dfc36ef0feab307744680650f72034954bd6108ad63b",
+    "Beauty_C0_validation_per_user": "73c4a0f76c75b0c72fed3e393d7be2d968e095644017c8e2926f22be5095fa48",
+    "Beauty_C1_training_summary": "21ff551d82408dd87ab4b06609cee58481363a0a89f3e7d458c3d6c101048728",
+    "Beauty_C1_validation_per_user": "be820efbaa4f2f9d2164ce4aa5bba07f2285457006e641338aed3ff59875d24a",
+    "Beauty_C2_training_summary": "5aefc9f2bebbacfb286b45e1830d48b94d19a9c929f00d83c00760910fab424e",
+    "Beauty_C2_validation_per_user": "8d6bda30a0b479597699a7b24aabd903f6af6ad3a51ee0d96033ba9b9a797df4",
+    "Beauty_C3_training_summary": "8f569f38ececbb51109bdc425001f26a6ff9ea7dcc83b17e0abeb6a9994fc8f4",
+    "Beauty_C3_validation_per_user": "a4e2674de59a9335728c62df69800e154d036473510d69a58ba667fcfab60277",
+    "Beauty_C4_training_summary": "5395947d452e209ef73725edfc71a705563ffb4cf9679b1d267fa2f4a6b517b8",
+    "Beauty_C4_validation_per_user": "99804a3153bb068afd9a679ef4c69d99fb67db23e0d6689b5bce82012fac2ee1",
+    "Beauty_negative_cache": "c5a88ba58a37d91583562692656f0f8af198ff3a3ea76138fa08d22375d3d856",
+    "Beauty_user_sequence": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "Toys_C0_training_summary": "374bc929ccdcc3967ee1548932f04e0776f53d080a44e62fe819b9b5e61ba2c2",
+    "Toys_C0_validation_per_user": "aa5496de84ead3369448cf7571cafa1a97b398d4e0608dc490d99d4af061aba9",
+    "Toys_C1_training_summary": "165f488f784bedf301915135b27251d401f3259d4b41630102080c5f3a3575c9",
+    "Toys_C1_validation_per_user": "8a05c2837e7be1fd2413cb5b200e2628dcd89cd1faaeaf737ddcea6371cc7e67",
+    "Toys_C2_training_summary": "25738957d2c14312c3784bc54604203cb1113b04eaa869433b43ceec7412673b",
+    "Toys_C2_validation_per_user": "39e2769dd069b3d5810614b60048b020f9ea92b27051c68793c92beb7603ba97",
+    "Toys_C3_training_summary": "d808a11f7fee1c75c7a7cd5c5848125c6659c54ef25dfe7a38705658f50c1914",
+    "Toys_C3_validation_per_user": "2b26da169f4b00c34f36286e9b3270fe6ee0491f1216f19e871e708794dac1b0",
+    "Toys_C4_training_summary": "6b02b4bc00bc7ccdd83308bd333c32f6c8ce76d1ffd0fa8c26f9dcbc89d0e511",
+    "Toys_C4_validation_per_user": "952212e6ef55da3529bd08fa22d0b235a64cc8124b78b9e374d8d0df38ceaddd",
+    "Toys_negative_cache": "1b46a16ae44a9f195ff9313b608ec5bc6d867fd7ba3482391a5bd7262a680b46",
+    "Toys_user_sequence": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "autopsy_preregistration": "ebac2ff107605ef3d4aef166fbd8f0cf1088d976ca08ce1ea60c6da4646f1fb5",
+    "pilot_preregistration": "dc865790ef239d61c42bce592d86e75f07dbb0191d0545493c84fab314be90c7",
+    "pilot_summary": "f4752d7b795d9e6b65b8bbecec5c46a3fe51a3e027f7df6ba06e4a0eff832301"
+  },
+  "pilot_config_version": "hbtr_pilot_v1",
+  "test_data_read": false
+}

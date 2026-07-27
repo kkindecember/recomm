@@ -1,0 +1,161 @@
+{
+  "dataset": "Toys",
+  "counts": {
+    "tail_hit": 256,
+    "tail_miss": 256
+  },
+  "available_counts": {
+    "tail_miss": 9267,
+    "tail_hit": 1856,
+    "head_miss": 6031,
+    "head_hit": 2258
+  },
+  "structural": {
+    "exposure_norm_pearson": -0.9739536667929196,
+    "position20_to_position1_norm_ratio": 5.042280673980713,
+    "position1_norm": 0.45391497015953064,
+    "position20_norm": 2.288766622543335,
+    "fine_norm_median": 1.7623943090438843
+  },
+  "intervention_audit": {
+    "target_norm": 1.7623944282531738,
+    "equal_norm_max_abs_error": 1.1920928955078125e-07,
+    "direction_cosine_min": 0.9999998807907104,
+    "coarse_unchanged_max_abs_error": 0.0,
+    "current_repeat_max_abs_error": 0.0,
+    "restored_current_max_abs_error": 0.0,
+    "shared_position_storage": true
+  },
+  "statistics": {
+    "tail_hit": {
+      "norm_only_gain": {
+        "mean": -0.3401172448129728,
+        "median": -0.13992560654878616,
+        "positive_rate": 0.2890625,
+        "ci95": [
+          -0.42884088171283563,
+          -0.25874232220694465
+        ]
+      },
+      "zero_position_delta": {
+        "mean": -0.13450125962026505,
+        "median": -0.09169798716902733,
+        "positive_rate": 0.30078125,
+        "ci95": [
+          -0.1739349460417543,
+          -0.09710298535540007
+        ]
+      }
+    },
+    "tail_miss": {
+      "norm_only_gain": {
+        "mean": 0.0045519303530454636,
+        "median": -0.04174351692199707,
+        "positive_rate": 0.44921875,
+        "ci95": [
+          -0.06709471483482048,
+          0.07967562718549742
+        ]
+      },
+      "zero_position_delta": {
+        "mean": 0.0978108593262732,
+        "median": 0.06500041484832764,
+        "positive_rate": 0.6171875,
+        "ci95": [
+          0.05037402241723612,
+          0.14810142875649032
+        ]
+      }
+    },
+    "history_2_4": {
+      "mean": -0.20036455630174027,
+      "median": -0.11850839853286743,
+      "positive_rate": 0.3345323741007194,
+      "ci95": [
+        -0.2725160753967495,
+        -0.13079313170665244
+      ]
+    },
+    "history_5_9": {
+      "mean": -0.10462563214366513,
+      "median": -0.044233500957489014,
+      "positive_rate": 0.4049079754601227,
+      "ci95": [
+        -0.2207650828790177,
+        0.009791907135031506
+      ]
+    },
+    "history_10_14": {
+      "mean": -0.2527247275176801,
+      "median": -0.10158193111419678,
+      "positive_rate": 0.39473684210526316,
+      "ci95": [
+        -0.49465175241624054,
+        -0.031164809826173284
+      ]
+    },
+    "history_15_19": {
+      "mean": -0.3480949884449894,
+      "median": -0.010248661041259766,
+      "positive_rate": 0.45454545454545453,
+      "ci95": [
+        -0.8262633258349855,
+        -0.02114971929907128
+      ]
+    },
+    "history_20": {
+      "mean": 0.012872214005752043,
+      "median": -0.08862772583961487,
+      "positive_rate": 0.45454545454545453,
+      "ci95": [
+        -0.2274481874467297,
+        0.30685751300135794
+      ]
+    }
+  },
+  "gates": {
+    "integrity": true,
+    "structural_replication": true,
+    "causal_benefit": false,
+    "no_broad_harm": false
+  },
+  "integrity": {
+    "cohort_matches_cgi_e0": true,
+    "finite_metric_rate": 1.0,
+    "prediction_audit": {
+      "rows": 19412,
+      "footer": {
+        "hit@1": 0.04167525242118277,
+        "hit@3": 0.07361425922110035,
+        "hit@5": 0.0909231403255718,
+        "hit@10": 0.11941067381001443,
+        "hit@20": 0.15444055223573047,
+        "hit@50": 0.21193076447558212,
+        "ndcg@1": 0.04167525242118277,
+        "ndcg@3": 0.06000543033948122,
+        "ndcg@5": 0.06713487106644757,
+        "ndcg@10": 0.07627451426000033,
+        "ndcg@20": 0.08510430222346706,
+        "ndcg@50": 0.09653217535352887
+      },
+      "unknown_gold_count": 0,
+      "unknown_gold_unique": 0,
+      "unknown_prediction_count": 0,
+      "unknown_prediction_unique": 0,
+      "unknown_prediction_examples": []
+    },
+    "training_updates": false,
+    "beam_generation": false,
+    "sequence_final_two_excluded_from_exposure": true,
+    "test_data_used": false
+  },
+  "input_sha256": {
+    "checkpoint": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "run_config": "7cf5857fd8f383fc591b66ac7e1421fc34d9b7a989fa839f77c74900260e02a4",
+    "predictions": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a",
+    "s0_summary": "415f80248ebf34f2e35bfc3f0c39041ccbb7365a38d393ded0b4649be0c64a76",
+    "cgi_cohort": "51da858f53c7b6259a59aba8023292bf420addbb488407c45caab8668f4ea854",
+    "user_sequence": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "item_index": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  }
+}

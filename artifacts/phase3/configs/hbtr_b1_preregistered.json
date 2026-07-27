@@ -1,0 +1,58 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "plan",
+    "origin_date": "2026-07-22",
+    "verification_status": "UNVERIFIED",
+    "version_label": "hbtr_b1_preregistered_v1",
+    "design_status": "LOCKED_BEFORE_GPU_SMOKE"
+  },
+  "hypothesis": "A lightweight supervised objective over lexical-hierarchical IDs can improve the ordering of student-beam miss@10/hit@50 errors when its pairwise sequence-likelihood margin jointly depends on semantic-prefix confusion and training-only target popularity.",
+  "score": {
+    "definition": "mean teacher-forced log probability over non-padding target tokens including EOS",
+    "length_normalized": true
+  },
+  "negative_cache": {
+    "source": "matched baseline checkpoint constrained beam-50",
+    "eligibility": "positive rank is 11 through 50 inclusive",
+    "negative_count": 4,
+    "selection": "highest-scored wrong top-10 items",
+    "exclude": [
+      "positive target",
+      "duplicate items",
+      "known history interactions",
+      "items outside the locked Trie"
+    ],
+    "refresh": "static_once_before_training",
+    "test_data_allowed": false
+  },
+  "margin": {
+    "base": 0.1,
+    "prefix_depth_cap": 3,
+    "prefix_weight": "1 + min(prefix_depth, 3) / 3",
+    "tail_weight": "1 + min(1, max(0, log((median_positive_frequency + 1) / (positive_frequency + 1))))",
+    "joint": "base_margin * prefix_weight * tail_weight",
+    "maximum": 0.4
+  },
+  "loss": {
+    "ranking": "mean softplus(margin + negative_score - positive_score)",
+    "lambda": 0.1,
+    "total": "token_cross_entropy + lambda * ranking_loss"
+  },
+  "component_controls": [
+    "C0_token_ce",
+    "C1_unweighted_beam_pairwise",
+    "C2_prefix_only",
+    "C3_popularity_only",
+    "C4_joint_margin"
+  ],
+  "smoke": {
+    "datasets": ["Toys", "Beauty"],
+    "physical_gpu": 3,
+    "maximum_samples_per_dataset": 100,
+    "maximum_minutes_per_dataset": 15,
+    "purpose": "correctness_only",
+    "weights_reusable_for_pilot": false,
+    "metrics_may_support_effect_claims": false
+  }
+}

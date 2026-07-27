@@ -1,0 +1,68 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "plan",
+    "origin_date": "2026-07-24",
+    "verification_status": "UNVERIFIED",
+    "version_label": "hbtr_v2_f0_preregistered_v1",
+    "design_status": "RESULT_INFORMED_NEW_CYCLE_LOCKED_BEFORE_F0_EXECUTION"
+  },
+  "objective": "Test whether one locked training-only popularity-rank quantile weight makes HBTR-v2 tail and joint margins sufficiently active and distinguishable before any resource repair or GPU work.",
+  "datasets": [
+    "Toys",
+    "Beauty"
+  ],
+  "inputs": {
+    "negative_cache": "artifacts/phase3/hbtr_pilot/{dataset}/cache/negative_cache.json",
+    "training_popularity": "GRAM/rec_datasets/{dataset}/user_sequence.txt using sequence[:-2] only",
+    "upstream_decision": "artifacts/phase3/hbtr_v2_autopsy/summary.json"
+  },
+  "formula": {
+    "popularity_order": "ascending tuple (-training_frequency, item_id), 1-based rank",
+    "head_count": "ceil(0.20 * item_count)",
+    "tail_quantile": "0 if rank <= head_count else (rank - head_count) / (item_count - head_count)",
+    "tail_weight": "1 + tail_quantile",
+    "prefix_weight": "1 + min(prefix_depth, 3) / 3",
+    "base_margin": 0.1,
+    "C1": "base_margin",
+    "C2": "base_margin * prefix_weight",
+    "C3_v2": "base_margin * tail_weight",
+    "C4_v2": "base_margin * prefix_weight * tail_weight"
+  },
+  "gates": {
+    "tail_nontrivial_row_rate_min_each_dataset": 0.20,
+    "joint_nontrivial_row_rate_min_each_dataset": 0.10,
+    "C4_v2_vs_C2_pair_margin_exact_equality_rate_max_each_dataset": 0.80,
+    "head_tail_alignment_required": true,
+    "tail_weight_monotonic_required": true,
+    "tail_weight_max": 2.0,
+    "margin_max": 0.4
+  },
+  "decision_rule": {
+    "PASS_FOR_RESOURCE_REPAIR_DESIGN": "Every gate passes in both datasets; unlocks only preregistration and implementation of numerically equivalent negative-decoder micro-batching.",
+    "STOP_HBTR": "Any gate fails; no second quantile formula and no GPU.",
+    "modify_allowed": false,
+    "gpu_unlocked": false
+  },
+  "prohibitions": [
+    "no validation per-user or effect summary input",
+    "no test predictions or targets",
+    "no checkpoint loading, training or beam generation",
+    "no second formula, parameter scan or threshold change",
+    "no mutation of HBTR-v1 or autopsy artifacts"
+  ],
+  "execution": {
+    "command": "python3 experiment/phase3/hbtr_v2_f0.py",
+    "working_directory": "/home/jiangtangyunzhi/projects/recomm",
+    "timeout_seconds": 600,
+    "gpu_required": false
+  },
+  "expected_outputs": [
+    "artifacts/phase3/hbtr_v2_f0/Toys/diagnostic_summary.json",
+    "artifacts/phase3/hbtr_v2_f0/Beauty/diagnostic_summary.json",
+    "artifacts/phase3/hbtr_v2_f0/activation_metrics.csv",
+    "artifacts/phase3/hbtr_v2_f0/margin_distributions.csv",
+    "artifacts/phase3/hbtr_v2_f0/summary.json",
+    "report/第三阶段/GRAM_第三阶段_HBTR_v2_F0可辨识性报告.md"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "activation": {
+    "training_samples": 10840,
+    "eligible_rows": 2361,
+    "eligible_all_rate": 0.21780442804428043,
+    "pair_count": 9444,
+    "prefix_nontrivial_pairs": 2648,
+    "prefix_nontrivial_pair_rate": 0.2803896653960186,
+    "prefix_nontrivial_rows": 1039,
+    "prefix_nontrivial_row_rate": 0.44006776789495977,
+    "prefix_nontrivial_all_rate": 0.09584870848708488,
+    "tail_nontrivial_rows": 207,
+    "tail_nontrivial_row_rate": 0.08767471410419314,
+    "tail_nontrivial_all_rate": 0.019095940959409596,
+    "joint_nontrivial_rows": 129,
+    "joint_nontrivial_row_rate": 0.054637865311308764,
+    "joint_nontrivial_all_rate": 0.011900369003690037,
+    "training_popularity_median": 6.0
+  },
+  "margin_distributions": {
+    "C1": {
+      "mean": 0.1,
+      "std_population": 0.0,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.1,
+      "max": 0.1
+    },
+    "C2": {
+      "mean": 0.1122229281377947,
+      "std_population": 0.021729212809542375,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.13333333333333333,
+      "max": 0.2
+    },
+    "C3": {
+      "mean": 0.10284027511247923,
+      "std_population": 0.010801530585823383,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.1,
+      "max": 0.2
+    },
+    "C4": {
+      "mean": 0.11564883280902115,
+      "std_population": 0.027270032324900658,
+      "min": 0.1,
+      "p25": 0.1,
+      "median": 0.1,
+      "p75": 0.13333333333333333,
+      "max": 0.3333333333333333
+    },
+    "C1_vs_C2": {
+      "equal_rate": 0.7196103346039814,
+      "mean_absolute_difference": 0.012222928137794718,
+      "max_absolute_difference": 0.1
+    },
+    "C1_vs_C3": {
+      "equal_rate": 0.9123252858958069,
+      "mean_absolute_difference": 0.002840275112479225,
+      "max_absolute_difference": 0.1
+    },
+    "C1_vs_C4": {
+      "equal_rate": 0.6721728081321474,
+      "mean_absolute_difference": 0.01564883280902114,
+      "max_absolute_difference": 0.2333333333333333
+    },
+    "C2_vs_C4": {
+      "equal_rate": 0.9123252858958069,
+      "mean_absolute_difference": 0.003425904671226421,
+      "max_absolute_difference": 0.16666666666666666
+    },
+    "C3_vs_C4": {
+      "equal_rate": 0.7196103346039814,
+      "mean_absolute_difference": 0.012808557696541913,
+      "max_absolute_difference": 0.15596157879354228
+    }
+  },
+  "lineage": {
+    "users": 2048,
+    "mismatches": 0
+  },
+  "pilot_effects": {
+    "C1_vs_C0_ndcg10_absolute": 0.0004993061175345564,
+    "C1_vs_C0_ndcg10_relative": 0.006290740656587301,
+    "C4_vs_C0_ndcg10_absolute": 0.0005104749914479761,
+    "C4_vs_C0_ndcg10_relative": 0.006431456916108358
+  },
+  "transitions": {
+    "C0_to_C1": {
+      "dataset": "Toys",
+      "baseline": "C0",
+      "candidate": "C1",
+      "group": "overall",
+      "n": 2048,
+      "rank_changed": 148,
+      "rank_improved": 70,
+      "rank_worsened": 78,
+      "promoted_to_top10": 3,
+      "demoted_from_top10": 0,
+      "net_top10_promotions": 3,
+      "mean_ndcg10_difference": 0.0004993061175345443,
+      "mean_recall10_difference": 0.00146484375
+    },
+    "C0_to_C4": {
+      "dataset": "Toys",
+      "baseline": "C0",
+      "candidate": "C4",
+      "group": "overall",
+      "n": 2048,
+      "rank_changed": 143,
+      "rank_improved": 68,
+      "rank_worsened": 75,
+      "promoted_to_top10": 3,
+      "demoted_from_top10": 0,
+      "net_top10_promotions": 3,
+      "mean_ndcg10_difference": 0.0005104749914479666,
+      "mean_recall10_difference": 0.00146484375
+    },
+    "C1_to_C4": {
+      "dataset": "Toys",
+      "baseline": "C1",
+      "candidate": "C4",
+      "group": "overall",
+      "n": 2048,
+      "rank_changed": 8,
+      "rank_improved": 4,
+      "rank_worsened": 4,
+      "promoted_to_top10": 0,
+      "demoted_from_top10": 0,
+      "net_top10_promotions": 0,
+      "mean_ndcg10_difference": 1.1168873913422299e-05,
+      "mean_recall10_difference": 0.0
+    }
+  },
+  "test_data_read": false
+}

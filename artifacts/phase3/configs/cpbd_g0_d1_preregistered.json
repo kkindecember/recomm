@@ -1,0 +1,109 @@
+{
+  "version": "cpbd_g0_d1_preregistered_v1",
+  "preregistered_at": "2026-07-24",
+  "preregistered_after": "NOVELTY_SCOPE_PASS_WITH_TRANSFER_AND_GRAM_NARROWING",
+  "preregistered_before_new_truncation_census": true,
+  "datasets": {
+    "Toys": {
+      "run_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+      "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "item_text": "GRAM/rec_datasets/Toys/item_plain_text.txt",
+      "similar_items": "GRAM/rec_datasets/Toys/similar_item_sasrec.txt",
+      "user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt",
+      "top_k_similar_item": 5
+    },
+    "Beauty": {
+      "run_config": "GRAM/log/Beauty/4_20260718_2153/config.json",
+      "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "item_text": "GRAM/rec_datasets/Beauty/item_plain_text.txt",
+      "similar_items": "GRAM/rec_datasets/Beauty/similar_item_sasrec.txt",
+      "user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+      "top_k_similar_item": 10
+    }
+  },
+  "tokenizer": {
+    "name": "t5-small",
+    "local_files_only": true,
+    "pre_filter_max_length": 999,
+    "item_prompt_max_len": 128,
+    "delimiter_token_ids_removed": [
+      1820,
+      9175
+    ],
+    "forced_eos_rule": "If EOS is absent after left truncation, replace the last retained token with EOS exactly as CollatorGRAM.encode_texts_split."
+  },
+  "population": {
+    "unit": "Every catalog item present in item_plain_text, item index, and similar-item file for each locked dataset.",
+    "popularity": "Training-only occurrence count from sequence[:-2] for every user; validation sequence[-2] and test sequence[-1] are excluded.",
+    "strata": "Dataset-specific zero, nonzero-bottom-50%, and top-50% popularity groups; descriptive only."
+  },
+  "paired_serializations": {
+    "current": "item: <link>; similar items: <fixed CF identities>; <metadata>",
+    "metadata_first": "item: <link>; <metadata>; similar items: <same fixed CF identities>",
+    "invariants": [
+      "Same item/link lexical ID",
+      "Same ordered CF identities and CF lexical strings",
+      "Same metadata string",
+      "Same passage count",
+      "Same 128-token post-filter budget",
+      "Only the order of collaborative field and metadata field changes"
+    ]
+  },
+  "field_accounting": {
+    "method": "Fast-tokenizer offset mappings over the full serialized passage, followed by the exact delimiter filter, left truncation, forced-EOS and padding rules.",
+    "roles": [
+      "link",
+      "collaborative",
+      "metadata_total",
+      "title",
+      "brand",
+      "categories",
+      "description",
+      "price",
+      "salesrank",
+      "other_metadata"
+    ],
+    "raw_definition": "Non-padding, non-EOS field-overlapping tokens after the Collator's 999-token tokenizer ceiling and delimiter filter but before the 128-token left truncation.",
+    "visible_definition": "Non-padding, non-EOS field-overlapping tokens after the exact 128-token Collator rule.",
+    "lost_definition": "raw minus visible for the same serialization and field.",
+    "recoverable_metadata_tokens": "visible metadata tokens in metadata_first minus visible metadata tokens in current.",
+    "displaced_cf_tokens": "visible collaborative tokens in current minus visible collaborative tokens in metadata_first."
+  },
+  "integrity_gates": {
+    "catalog_intersection_coverage": 1.0,
+    "parse_success_rate": 1.0,
+    "finite_metric_rate": 1.0,
+    "fixed_component_identity_rate": 1.0,
+    "exact_collator_replay_rate": 1.0,
+    "locked_item_prompt_max_len": 128,
+    "locked_id_linking": 1,
+    "locked_item_prompt": "all_text",
+    "locked_cf_model": "sasrec"
+  },
+  "mechanism_gates_per_dataset": {
+    "rate_recoverable_metadata_ge_8": 0.5,
+    "median_recoverable_metadata_tokens": 8.0,
+    "median_current_metadata_retention_max": 0.9
+  },
+  "decision_rule": {
+    "execution_invalid": "Any integrity, lineage, parsing, component-identity, exact-replay, or finite-value gate fails.",
+    "stop_no_structural_displacement": "Either dataset fails any preregistered mechanism gate.",
+    "g0_d2_design_allowed": "All integrity and mechanism gates pass on both datasets.",
+    "single_shot": true,
+    "no_threshold_or_field_scan": true
+  },
+  "interpretation_limits": [
+    "Passing proves structural displacement and diagnostic room only; it does not prove lost metadata is useful.",
+    "The metadata-first construction is a paired census instrument, not the proposed final method.",
+    "No model checkpoint, prediction score, target, validation effect, test field, training, or GPU is used.",
+    "Popularity strata and individual metadata fields are descriptive and cannot rescue a failed primary gate."
+  ],
+  "expected_outputs": [
+    "artifacts/phase3/cpbd_g0/Toys/item_truncation_census.csv",
+    "artifacts/phase3/cpbd_g0/Toys/summary.json",
+    "artifacts/phase3/cpbd_g0/Beauty/item_truncation_census.csv",
+    "artifacts/phase3/cpbd_g0/Beauty/summary.json",
+    "artifacts/phase3/cpbd_g0/summary.json",
+    "report/第三阶段/GRAM_第三阶段_CPBD_G0_D1诊断报告.md"
+  ]
+}

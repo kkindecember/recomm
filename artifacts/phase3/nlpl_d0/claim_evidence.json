@@ -1,0 +1,121 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "origin_mode": "run",
+    "origin_date": "2026-07-24",
+    "verification_status": "ANALYZED",
+    "version_label": "nlpl_d0_novelty_audit_v1",
+    "design_status": "PREREGISTERED_D0_N_EXECUTED_BEFORE_D0_D"
+  },
+  "scope": {
+    "question": "Is native lexical conditional-prior leakage into constrained generative-recommendation exposure distinct enough to justify D0-D?",
+    "search_cutoff": "2026-07-24",
+    "evidence_policy": "Official proceedings or primary author preprints were used for final evidence; search snippets were discovery aids only.",
+    "data_diagnostic_started_before_decision": false,
+    "gram_checkpoint_loaded": false,
+    "test_data_read": false,
+    "gpu_used": false
+  },
+  "claim_boundary": {
+    "allowed": "A GRAM-class mechanism claim: frozen pretrained native lexical conditional priors leak through semantic-to-lexical item paths into constrained beam exposure, demonstrated with parent- and popularity-matched controls, followed by a recommendation-specific structured intervention if later supported.",
+    "forbidden": [
+      "first discovery that language models have token or answer priors",
+      "first probability calibration method",
+      "first decoding-bias analysis for generative recommendation",
+      "first popularity debiasing method for generative recommendation",
+      "simple frozen-prior subtraction as a standalone algorithmic novelty claim"
+    ]
+  },
+  "closest_prior_work": [
+    {
+      "key": "decoding_matters",
+      "source": "https://aclanthology.org/2024.emnlp-main.589/",
+      "verified_claims": [
+        "Standard length normalization amplifies items containing ghost tokens whose generation probabilities are close to one.",
+        "D3 disables length normalization for ghost tokens and uses a text-free assistant model to encourage less frequently generated tokens."
+      ],
+      "remaining_difference": "Its identified cause is length normalization/ghost tokens and homogeneity, not frozen-base native lexical prior measured on structured lexical item paths under sibling/popularity controls."
+    },
+    {
+      "key": "calibrate_before_use",
+      "source": "https://proceedings.mlr.press/v139/zhao21c.html",
+      "verified_claims": [
+        "Language models can prefer answers common in pretraining data.",
+        "A content-free input can estimate answer bias and calibration can make that distribution uniform."
+      ],
+      "remaining_difference": "This establishes the general prior-estimation/calibration concept, but not Trie-constrained generative recommendation, structured item paths, candidate exposure, or tail miss."
+    },
+    {
+      "key": "gram",
+      "source": "https://aclanthology.org/2025.acl-long.1596/",
+      "verified_claims": [
+        "GRAM translates semantic identifiers into the native lexical vocabulary.",
+        "The translation is intended to preserve hierarchical and collaborative item relationships."
+      ],
+      "remaining_difference": "GRAM does not report a frozen-base native-prior audit or neutralization."
+    },
+    {
+      "key": "grlm",
+      "source": "https://aclanthology.org/2026.findings-acl.984/",
+      "verified_claims": [
+        "Structured Term IDs use standardized textual keywords from the native vocabulary.",
+        "The framework addresses semantic gap, hallucination, and item grounding."
+      ],
+      "remaining_difference": "It does not isolate native-token conditional prior as a source of unequal item exposure."
+    },
+    {
+      "key": "apao",
+      "source": "https://arxiv.org/abs/2603.02730",
+      "verified_claims": [
+        "APAO attributes premature pruning to teacher-forced training versus beam-search inference inconsistency.",
+        "It applies prefix-level and worst-prefix optimization."
+      ],
+      "remaining_difference": "The mechanism is learned prefix vulnerability, not a frozen pretrained lexical prior."
+    },
+    {
+      "key": "latte",
+      "source": "https://arxiv.org/abs/2605.06331",
+      "verified_claims": [
+        "Semantic-ID tree proximity induces correlated item probabilities.",
+        "Latte adds latent tokens to form multiple conditioned trees."
+      ],
+      "remaining_difference": "The mechanism is tree-induced probability coupling; NLPL matches the parent tree before comparing native final-token prior."
+    },
+    {
+      "key": "frequency_and_popularity_work",
+      "sources": [
+        "https://arxiv.org/abs/2601.17787",
+        "https://arxiv.org/abs/2605.16825"
+      ],
+      "verified_claims": [
+        "Token-Weighted Multi-Target Learning upweights rare tokens under long-tailed item/token distributions.",
+        "Ghost attributes popularity bias to token-level optimization and undifferentiated tokenization."
+      ],
+      "remaining_difference": "Both concern recommendation-data frequency/optimization; NLPL holds training frequency approximately fixed and measures an original pretrained model."
+    }
+  ],
+  "preregistered_gates": {
+    "mechanism_isolation": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited generative-recommendation work isolates frozen pretrained native lexical conditional prior from learned popularity, tree coupling, and length-normalization effects."
+    },
+    "gram_specific_audit": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited work performs a parent-matched and popularity-matched lexical-item beam-exposure analysis for semantic-to-lexical recommendation."
+    },
+    "intervention_space": {
+      "required": true,
+      "passed": true,
+      "assessment": "No audited work neutralizes a frozen-base conditional prior at structured lexical-ID path level under Trie-constrained recommendation.",
+      "caveat": "General content-free prior calibration and recommendation decoding debiasing already exist, so a later method must be recommendation-specific and supported by the proposed mechanism; subtraction alone is not novel."
+    }
+  },
+  "decision": {
+    "value": "NOVELTY_SCOPE_PASS_WITH_NARROWING",
+    "reason": "All three preregistered distinctions survive, but Calibrate Before Use and Decoding Matters rule out broad claims about token priors, content-free calibration, or decoding bias.",
+    "d0_d_unlocked": true,
+    "allowed_next_action": "Implement and run only the preregistered dual-dataset CPU D0-D diagnostic."
+  }
+}

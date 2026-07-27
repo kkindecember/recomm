@@ -232,7 +232,7 @@ CUDA_VISIBLE_DEVICES=<用户选定的物理 GPU>
 1. 执行 `tools/run_codellama.sh stop`；
 2. 等待 CodeLlama CUDA context 退出；
 3. 记录目标 GPU 上的全部进程和剩余显存；
-4. batch 16 配置只在剩余显存至少 40 GiB 时启动；
+4. 默认只在剩余显存至少 30 GiB（30,720 MiB）时启动；该门槛高于本次训练 26.55 GiB 和独立 test 25.71 GiB 的 PID NVML 实测峰值，并保留约 3 GiB 安全余量；
 5. 如剩余显存不足或其他进程在高频波动，不抢占、不盲目启动，报告用户后重新选卡或等待。
 
 其他用户后续加入同一 GPU 不会污染 PyTorch 进程内的 allocated/reserved 指标，但可能降低速度或导致 OOM。如遥测中出现新的外部进程，报告必须标记时间区间，训练时间不得冒充为独占 GPU 性能。
@@ -479,18 +479,18 @@ report/第二阶段/
 - [x] 复用的独立环境已重新验证；
 - [x] Toys 数据未修改且统计与论文一致；
 - [x] Toys smoke test 通过；
-- [ ] 30 epoch seed 2023 单卡训练完成；
-- [ ] 6 个周期 checkpoint 与 validation 结果已归档；
-- [ ] 最佳 checkpoint 按 validation NDCG@10 选出并重新加载；
-- [ ] 11,924 商品 full-ranking test 完成；
-- [ ] Recall@5、NDCG@5、Recall@10、NDCG@10 已输出；
-- [ ] 与论文 Table 2 的误差和 A/B/C 等级已给出；
-- [ ] 训练阶段墙钟时间、平均 epoch 时间与独立 test 时间已给出；
-- [ ] PyTorch 进程内 allocated/reserved 峰值已给出；
-- [ ] PID 级遥测与共享 GPU 背景已归档；
-- [ ] 实验退出后 CodeLlama 已立即重新占用用户指定 GPU；
-- [ ] 所有日志、状态、代码修改和环境差异已归档；
-- [ ] 从空终端可按报告命令重新启动。
+- [x] 30 epoch seed 2023 单卡训练完成；
+- [x] 6 个周期 checkpoint 与 validation 结果已归档；
+- [x] 最佳 checkpoint 按 validation NDCG@10 选出并重新加载；
+- [x] 11,924 商品 full-ranking test 完成；
+- [x] Recall@5、NDCG@5、Recall@10、NDCG@10 已输出；
+- [x] 与论文 Table 2 的误差和 A/B/C 等级已给出；
+- [x] 训练阶段墙钟时间、平均 epoch 时间与独立 test 时间已给出；
+- [x] PyTorch 进程内 allocated/reserved 峰值已给出；
+- [x] PID 级遥测与共享 GPU 背景已归档；
+- [x] 实验退出后 CodeLlama 已立即重新占用用户指定 GPU；
+- [x] 所有日志、状态、代码修改和环境差异已归档；
+- [x] 从空终端可按报告命令重新启动。
 
 ## 17. 给 Coding AI 的最终汇报格式
 

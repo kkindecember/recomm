@@ -1,0 +1,127 @@
+{
+  "experiment_id": "GRAM_PHASE4_CPGV_V0",
+  "decision": "STOP_CPGV_GRAM_CANNOT_VERIFY_PROPOSALS",
+  "datasets": {
+    "Toys": {
+      "overall": {
+        "n": 493,
+        "sasrec_recall@10": 0.25963488843813387,
+        "exact_rescore_recall@10": 0.2210953346855984,
+        "exact_minus_sasrec_recall10_absolute": -0.03853955375253548,
+        "sasrec_mrr": 0.10646441549263963,
+        "exact_rescore_mrr": 0.0727886823534083,
+        "mean_rank_improvement": 1.513184584178499,
+        "median_rank_improvement": 2.0,
+        "pairwise_concordance": 0.579707745167032
+      },
+      "groups": {
+        "head": {
+          "n": 472,
+          "sasrec_recall@10": 0.2648305084745763,
+          "exact_rescore_recall@10": 0.22033898305084745,
+          "exact_minus_sasrec_recall10_absolute": -0.044491525423728834,
+          "sasrec_mrr": 0.10875433411404935,
+          "exact_rescore_mrr": 0.07308371093978161,
+          "mean_rank_improvement": 1.2605932203389831,
+          "median_rank_improvement": 1.0,
+          "pairwise_concordance": 0.5788222068488408
+        },
+        "tail": {
+          "n": 21,
+          "sasrec_recall@10": 0.14285714285714285,
+          "exact_rescore_recall@10": 0.23809523809523808,
+          "exact_minus_sasrec_recall10_absolute": 0.09523809523809523,
+          "sasrec_mrr": 0.05499576838285882,
+          "exact_rescore_mrr": 0.06615756365016023,
+          "mean_rank_improvement": 7.190476190476191,
+          "median_rank_improvement": 5.0,
+          "pairwise_concordance": 0.5996112730806609
+        }
+      },
+      "integrity": {
+        "eligible_users": 493,
+        "mapping_rate": 1.0,
+        "finite_rate": 1.0,
+        "target_input_inclusion_rate": 0.0,
+        "trie_membership_rate": 1.0,
+        "model_optimizer_steps": 0
+      },
+      "gates": {
+        "eligible_users": true,
+        "exact_rescore_recall10": false,
+        "exact_minus_sasrec_recall10": false,
+        "mapping_rate": true,
+        "finite_rate": true,
+        "target_input_inclusion_rate": true,
+        "trie_membership_rate": true,
+        "model_optimizer_steps": true
+      },
+      "pass": false
+    },
+    "Beauty": {
+      "overall": {
+        "n": 544,
+        "sasrec_recall@10": 0.20772058823529413,
+        "exact_rescore_recall@10": 0.09926470588235294,
+        "exact_minus_sasrec_recall10_absolute": -0.1084558823529412,
+        "sasrec_mrr": 0.09055016146958249,
+        "exact_rescore_mrr": 0.054332953871478205,
+        "mean_rank_improvement": -0.3860294117647059,
+        "median_rank_improvement": 0.0,
+        "pairwise_concordance": 0.5063775510204078
+      },
+      "groups": {
+        "head": {
+          "n": 536,
+          "sasrec_recall@10": 0.208955223880597,
+          "exact_rescore_recall@10": 0.09701492537313433,
+          "exact_minus_sasrec_recall10_absolute": -0.11194029850746268,
+          "sasrec_mrr": 0.08956638150883998,
+          "exact_rescore_mrr": 0.054112932866308916,
+          "mean_rank_improvement": -0.39738805970149255,
+          "median_rank_improvement": 0.0,
+          "pairwise_concordance": 0.508109960402071
+        },
+        "tail": {
+          "n": 8,
+          "sasrec_recall@10": 0.125,
+          "exact_rescore_recall@10": 0.25,
+          "exact_minus_sasrec_recall10_absolute": 0.125,
+          "sasrec_mrr": 0.15646341883932746,
+          "exact_rescore_mrr": 0.06907436121781929,
+          "mean_rank_improvement": 0.375,
+          "median_rank_improvement": 1.0,
+          "pairwise_concordance": 0.3903061224489796
+        }
+      },
+      "integrity": {
+        "eligible_users": 544,
+        "mapping_rate": 1.0,
+        "finite_rate": 1.0,
+        "target_input_inclusion_rate": 0.0,
+        "trie_membership_rate": 1.0,
+        "model_optimizer_steps": 0
+      },
+      "gates": {
+        "eligible_users": true,
+        "exact_rescore_recall10": false,
+        "exact_minus_sasrec_recall10": false,
+        "mapping_rate": true,
+        "finite_rate": true,
+        "target_input_inclusion_rate": true,
+        "trie_membership_rate": true,
+        "model_optimizer_steps": true
+      },
+      "pass": false
+    }
+  },
+  "integrity": {
+    "preflight_passed": true,
+    "test_predictions_read": false,
+    "sequence_test_target_indexed": false,
+    "model_optimizer_steps": 0
+  },
+  "config_sha256": "d426eca6290af256116c3c531a6c7dc05fd849e88c9c4862cab7ecd567808baf",
+  "code_sha256": "1ec599a2c67297c3afe790e85044c9b7dcf6bf5ddff095a9ca6682af33b08454",
+  "elapsed_seconds": 171.1984419822693
+}

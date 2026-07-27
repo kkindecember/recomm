@@ -1,0 +1,133 @@
+{
+  "counts": {
+    "audit": 102,
+    "calibration": 103,
+    "fit": 307
+  },
+  "availability": {
+    "available": {
+      "fit": 13357,
+      "calibration": 4532,
+      "audit": 4474
+    },
+    "rejected": {}
+  },
+  "integrity": {
+    "catalog_size": 12101,
+    "current_serialization_identity_rate": 1.0,
+    "raw_component_identity_rate": 1.0,
+    "exact_total_users": 512,
+    "exact_split_caps": true,
+    "user_overlap_across_splits": 0,
+    "heldout_sequence_fields_read": false,
+    "target_feature_inclusion_rate": 0.0,
+    "model_optimizer_steps": 0,
+    "trie_child_membership_rate": 1.0,
+    "finite_rate": 1.0
+  },
+  "input_sha256": {
+    "checkpoint": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+    "run_config": "4a08f5f326dbc2ea842ced9fc9f41402d937cb09ea6a1e338866e75d0c57059d",
+    "user_sequence": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "item_index": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+    "item_text": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc",
+    "neighbors": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c"
+  },
+  "l0a": {
+    "sample_source_utility": {
+      "semantic": {
+        "positive_rate": 0.0,
+        "negative_rate": 0.0,
+        "mean": 0.0
+      },
+      "collaborative": {
+        "positive_rate": 0.76171875,
+        "negative_rate": 0.23828125,
+        "mean": 0.49303625438861765
+      }
+    },
+    "oracle": {
+      "fixed_k20_ce": 0.8435000580775842,
+      "oracle_ce": 0.7210396733863802,
+      "relative_ce_reduction": 0.1451812403786939,
+      "k20_dominance_rate": 0.1362375138734739,
+      "depth_action_chi2_p": 0.0,
+      "depth_modal_actions": {
+        "0": 3,
+        "1": 2,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0
+      }
+    },
+    "gates": {
+      "source_heterogeneity": false,
+      "oracle_headroom": true,
+      "depth_action_heterogeneity": true,
+      "k20_not_dominant": true
+    }
+  },
+  "l0b": {
+    "sources": {
+      "semantic": {
+        "status": "ONE_CLASS",
+        "gate": false
+      },
+      "collaborative": {
+        "status": "ANALYZED",
+        "auroc": {
+          "value": 0.9198976426799007,
+          "ci95": [
+            0.8986606602054124,
+            0.940120822964285
+          ]
+        },
+        "brier": 0.1310538880173458,
+        "ece10": 0.01910860486783083,
+        "spearman": {
+          "rho": 0.30928039428038456,
+          "p": 2.335061873144376e-17
+        },
+        "active_count": 211,
+        "active_coverage": 0.29428172942817293,
+        "active_actual_utility": {
+          "mean": 1.2221469480727967,
+          "median": 0.5216982364654541,
+          "positive_rate": 0.7440758293838863,
+          "ci95": [
+            0.9290231885509068,
+            1.5529684782426982
+          ]
+        }
+      }
+    },
+    "budget": {
+      "learned_regret": 0.09586971731038484,
+      "fixed_k20_regret": 0.10125262164704639,
+      "regret_ratio": 0.9468368892666733
+    },
+    "corruption": {
+      "semantic": {
+        "status": "NO_SOURCE_MODEL",
+        "predicted_utility_drop": NaN
+      },
+      "collaborative": {
+        "status": "ANALYZED",
+        "predicted_utility_drop": 0.3974834762536876,
+        "positive_drop_rate": 0.21617852161785217
+      }
+    },
+    "gates": {
+      "semantic_predictability": false,
+      "collaborative_predictability": false,
+      "budget_regret": false,
+      "semantic_corruption_direction": false,
+      "collaborative_corruption_direction": true
+    }
+  },
+  "node_count": 3604,
+  "integrity_pass": true
+}
