@@ -1,0 +1,85 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C1",
+  "version": "cet_c1_preregistered_v1",
+  "created": "2026-07-29",
+  "purpose": "correctness_smoke_only",
+  "datasets": [
+    "Toys",
+    "Beauty"
+  ],
+  "data_boundary": {
+    "sample_source": "training_prefix_only",
+    "target": "sequence[-3]",
+    "history": "sequence[:-3]",
+    "users_per_dataset": 32,
+    "minimum_history_items": 2,
+    "selection_salt": "cet-c1-v1",
+    "selection": "eligible users ordered by sha256('cet-c1-v1|dataset|user_id') ascending; one latest training-prefix sample per user",
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "views": {
+    "clean": "current_GRAM_input_exact_replay",
+    "perturbed": {
+      "coarse_passage_keep": true,
+      "newest_fine_passage_keep": true,
+      "other_fine_passage_mask_probability": 0.25,
+      "mask_seed": 2023,
+      "mask_operation": "decoder_cross_attention_mask_only",
+      "target_dependent": false
+    }
+  },
+  "loss": {
+    "clean_ce_weight": 1.0,
+    "perturbed_ce_weight_alpha": 1.0,
+    "legal_child_kl_weight_beta": 0.1,
+    "temperature_tau": 1.0,
+    "clean_distribution_stop_gradient": true,
+    "include_eos": false,
+    "support": "current_gold_prefix_legal_trie_children"
+  },
+  "optimization": {
+    "initial_checkpoint": "matched_best_baseline",
+    "trainable_parameters": "decoder_last_layer_only",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "steps": 5,
+    "seed": 2023,
+    "hyperparameter_search": false
+  },
+  "required_integrity_gates": [
+    "clean_view_exact_input_replay",
+    "coarse_passage_never_masked",
+    "newest_fine_passage_never_masked",
+    "target_not_used_by_mask_policy",
+    "alpha_beta_zero_exact_matched_ce",
+    "legal_child_membership_100_percent",
+    "finite_logits_loss_gradients_100_percent",
+    "nonzero_gradient",
+    "source_checkpoint_sha_unchanged",
+    "checkpoint_reload_identity",
+    "validation_test_sports_not_read"
+  ],
+  "integrity": {
+    "code_sha256": "eb23d27408568787f6cbdd7690155b94a50e90ab3ba0c60df2dff87f1e4d744a"
+  },
+  "required_optimization_gates": {
+    "legal_child_kl_relative_decrease_min": 0.01,
+    "clean_lexical_ce_relative_increase_max": 0.1,
+    "parameter_change_required": true
+  },
+  "decision_space": [
+    "CET_C1_CORRECTNESS_PASS",
+    "CET_C1_BLOCKED_REPAIR",
+    "STOP_CET_NOT_OPTIMIZABLE",
+    "EXECUTION_INVALID"
+  ],
+  "gpu": {
+    "physical_gpu": 3,
+    "cuda_visible_devices": "3",
+    "soft_timeout_minutes": 20,
+    "codellama_reservation_protocol_required": true,
+    "tmux_required": true
+  }
+}

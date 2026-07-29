@@ -27,3 +27,7 @@ experiment/**/*_disk.csv
 
 # Full logs stay on the experiment machine; reports contain the durable summary.
 artifacts/**/logs/
+
+# Phase-5 long-running CET session state; durable summaries are committed separately.
+artifacts/phase5/cet_c2*/run.log
+artifacts/phase5/cet_c2*/status.json

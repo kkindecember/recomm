@@ -1,0 +1,75 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2",
+  "dataset": "Toys",
+  "control": "C0",
+  "status": "TRAINED",
+  "train_users": 4853,
+  "train_user_sha256": "5dba6b47ad4dc7395f33d28bf14b719f3ba3854b4f4c028b8e7dbb10e0dc1dae",
+  "samples": 27173,
+  "epochs": 5,
+  "batches_per_epoch": 1699,
+  "optimizer_updates": 1065,
+  "alpha": 0.0,
+  "beta": 0.0,
+  "mask_signature_sha256": null,
+  "epoch_records": [
+    {
+      "epoch": 1,
+      "mean_total_loss": 1.1545269979737378,
+      "mean_clean_ce": 1.1545269979737378,
+      "mean_perturbed_ce": 0.0,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 0,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 213
+    },
+    {
+      "epoch": 2,
+      "mean_total_loss": 1.151814312918036,
+      "mean_clean_ce": 1.151814312918036,
+      "mean_perturbed_ce": 0.0,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 0,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 426
+    },
+    {
+      "epoch": 3,
+      "mean_total_loss": 1.1483207759680363,
+      "mean_clean_ce": 1.1483207759680363,
+      "mean_perturbed_ce": 0.0,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 0,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 639
+    },
+    {
+      "epoch": 4,
+      "mean_total_loss": 1.1473663654869062,
+      "mean_clean_ce": 1.1473663654869062,
+      "mean_perturbed_ce": 0.0,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 0,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 852
+    },
+    {
+      "epoch": 5,
+      "mean_total_loss": 1.1480189243297565,
+      "mean_clean_ce": 1.1480189243297565,
+      "mean_perturbed_ce": 0.0,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 0,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 1065
+    }
+  ],
+  "checkpoint": "artifacts/phase5/cet_c2/Toys/C0/model.pt",
+  "checkpoint_sha256": "393cae55b5fdb03f41bbb9adb7f36dd89534c27fcf7dfdd97479380c365f4153",
+  "wall_time_seconds": 3404.469511985779,
+  "peak_allocated_mib": 16663.92529296875,
+  "peak_reserved_mib": 25474.0,
+  "validation_read": false,
+  "test_read": false,
+  "sports_read": false
+}

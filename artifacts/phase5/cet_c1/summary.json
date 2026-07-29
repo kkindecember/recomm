@@ -1,0 +1,110 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C1",
+  "decision": "CET_C1_CORRECTNESS_PASS",
+  "code_sha256": "eb23d27408568787f6cbdd7690155b94a50e90ab3ba0c60df2dff87f1e4d744a",
+  "results": {
+    "Toys": {
+      "dataset": "Toys",
+      "metrics": {
+        "users": 32,
+        "minimum_history_items": 2,
+        "masked_passages": 50,
+        "samples_with_mask": 19,
+        "competitive_legal_child_steps": 109,
+        "clean_replay_max_abs_difference": 0.0,
+        "zero_weight_loss_difference": 0.0,
+        "initial_legal_child_kl": 0.03049134835600853,
+        "final_legal_child_kl": 0.028724990785121918,
+        "relative_legal_child_kl_decrease": 0.05792979537221873,
+        "initial_clean_ce": 0.856357991695404,
+        "final_clean_ce": 0.7825824618339539,
+        "clean_ce_relative_change": -0.08615033733192652,
+        "initial_perturbed_ce": 0.8498139381408691,
+        "final_perturbed_ce": 0.7788342833518982,
+        "gradient_norm_min": 0.6283296433720297,
+        "gradient_norm_max": 0.6560747586263493,
+        "parameter_max_abs_change": 0.0005025863647460938,
+        "optimizer_steps": 5,
+        "reload_max_abs_difference": 0.0
+      },
+      "integrity_checks": {
+        "clean_view_exact_input_replay": true,
+        "coarse_passage_never_masked": true,
+        "newest_fine_passage_never_masked": true,
+        "target_not_used_by_mask_policy": true,
+        "alpha_beta_zero_exact_matched_ce": true,
+        "legal_child_membership_100_percent": true,
+        "finite_logits_loss_gradients_100_percent": true,
+        "nonzero_gradient": true,
+        "source_checkpoint_sha_unchanged": true,
+        "checkpoint_reload_identity": true,
+        "validation_test_sports_not_read": true
+      },
+      "optimization_checks": {
+        "legal_child_kl_decrease": true,
+        "clean_ce_safety": true,
+        "parameter_change": true
+      },
+      "integrity_pass": true,
+      "optimization_pass": true,
+      "source_checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+      "validation_read": false,
+      "test_read": false,
+      "sports_read": false
+    },
+    "Beauty": {
+      "dataset": "Beauty",
+      "metrics": {
+        "users": 32,
+        "minimum_history_items": 2,
+        "masked_passages": 25,
+        "samples_with_mask": 16,
+        "competitive_legal_child_steps": 93,
+        "clean_replay_max_abs_difference": 0.0,
+        "zero_weight_loss_difference": 0.0,
+        "initial_legal_child_kl": 0.055208656936883926,
+        "final_legal_child_kl": 0.047721751034259796,
+        "relative_legal_child_kl_decrease": 0.1356110856162172,
+        "initial_clean_ce": 0.6769816279411316,
+        "final_clean_ce": 0.619036853313446,
+        "clean_ce_relative_change": -0.08559283182308791,
+        "initial_perturbed_ce": 0.6964386105537415,
+        "final_perturbed_ce": 0.6374505162239075,
+        "gradient_norm_min": 1.2865270797318118,
+        "gradient_norm_max": 1.3742586400940806,
+        "parameter_max_abs_change": 0.0005025863647460938,
+        "optimizer_steps": 5,
+        "reload_max_abs_difference": 0.0
+      },
+      "integrity_checks": {
+        "clean_view_exact_input_replay": true,
+        "coarse_passage_never_masked": true,
+        "newest_fine_passage_never_masked": true,
+        "target_not_used_by_mask_policy": true,
+        "alpha_beta_zero_exact_matched_ce": true,
+        "legal_child_membership_100_percent": true,
+        "finite_logits_loss_gradients_100_percent": true,
+        "nonzero_gradient": true,
+        "source_checkpoint_sha_unchanged": true,
+        "checkpoint_reload_identity": true,
+        "validation_test_sports_not_read": true
+      },
+      "optimization_checks": {
+        "legal_child_kl_decrease": true,
+        "clean_ce_safety": true,
+        "parameter_change": true
+      },
+      "integrity_pass": true,
+      "optimization_pass": true,
+      "source_checkpoint_sha256": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+      "validation_read": false,
+      "test_read": false,
+      "sports_read": false
+    }
+  },
+  "integrity_pass": true,
+  "optimization_pass": true,
+  "validation_read": false,
+  "test_read": false,
+  "sports_read": false
+}

@@ -1,0 +1,63 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C1",
+  "status": "GPU_START_BLOCKED_BY_SANDBOX",
+  "code_sha256": "eb23d27408568787f6cbdd7690155b94a50e90ab3ba0c60df2dff87f1e4d744a",
+  "unit_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "static_checks": {
+    "python_compile": true,
+    "config_json": true,
+    "shell_syntax": true,
+    "diff_check": true
+  },
+  "real_data_preflight": {
+    "Toys": {
+      "users": 32,
+      "unique_users": 32,
+      "input_shape": [32, 21, 128],
+      "target_shape": [32, 6],
+      "masked_passages": 50,
+      "samples_with_mask": 19,
+      "coarse_identity": true,
+      "newest_identity": true,
+      "minimum_history_items": 2
+    },
+    "Beauty": {
+      "users": 32,
+      "unique_users": 32,
+      "input_shape": [32, 15, 128],
+      "target_shape": [32, 9],
+      "masked_passages": 25,
+      "samples_with_mask": 16,
+      "coarse_identity": true,
+      "newest_identity": true,
+      "minimum_history_items": 2
+    }
+  },
+  "real_model_cpu_micro_smoke": {
+    "dataset": "Toys",
+    "users": 2,
+    "masked_passages": 6,
+    "competitive_legal_child_steps": 7,
+    "clean_ce": 0.939608633518219,
+    "perturbed_ce": 1.1876050233840942,
+    "legal_child_kl": 0.20040729641914368,
+    "total_loss": 2.147254467010498,
+    "gradient_norm": 3.093644936976978,
+    "finite": true
+  },
+  "data_boundary": {
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "gpu_start": {
+    "attempted_command": "bash experiment/phase5/run_phase5_cet_c1.sh start",
+    "sandbox_result": "tmux socket operation not permitted",
+    "escalation_result": "approval request failed",
+    "scientific_interpretation": "NONE"
+  },
+  "next_action": "Run the frozen tmux entry after host permission is granted; do not alter config or code."
+}

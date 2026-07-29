@@ -1,0 +1,100 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2",
+  "registered_at": "2026-07-29T16:30:00+08:00",
+  "decision_status_before_run": "CET_C2_RERUN_AFTER_SMOKE_INTEGRITY_FIX",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "data": {
+    "source_training_split": "artifacts/phase4/gcdh_p0_splits/{dataset}/train_users.txt",
+    "training_user_fraction": 0.25,
+    "training_examples": "all prefixes ending before sequence[-2], inherited from GCDH-P0",
+    "validation_users": 2048,
+    "validation_salt": "cet-c2-development-cohort-v1",
+    "split_root": "artifacts/phase5/cet_c2_splits",
+    "validation_user_sha256": {
+      "Toys": "f940246e875c2f381630becfbd22fed407320cc4a7922ae7805df350b4b2a665",
+      "Beauty": "7a0bd39e961b9559fa7ba18ece86bedf9419df5b23fe486137cf9ac49777216a"
+    },
+    "validation_file_sha256": {
+      "Toys": "1b4654e007ed0dd2ef34c883bc7d6021e261afb02e77b4df9636a0f99a415dfb",
+      "Beauty": "fd14cffc1d5af6ebc3eab838c5753d071f166c1f1d3589d5394ceda840fd83b3"
+    },
+    "train_validation_user_disjoint": true,
+    "validation_target_for_selection_forbidden": true,
+    "test_forbidden": true,
+    "sports_forbidden": true
+  },
+  "training": {
+    "controls": ["C0", "C1", "C2"],
+    "C0": "clean lexical CE continuation",
+    "C1": "clean lexical CE plus perturbed lexical CE",
+    "C2": "C1 plus clean-anchored Trie-local legal-child KL",
+    "epochs": 5,
+    "checkpoint_rule": "fixed final epoch 5; no validation-based selection",
+    "batch_size": 16,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "warmup_fraction": 0.05,
+    "gradient_clip_norm": 1.0,
+    "mask_probability": 0.25,
+    "mask_seed": 20230729,
+    "mask_resampling": "deterministic by sample and epoch; identical C1/C2",
+    "coarse_passage_kept": true,
+    "newest_fine_passage_kept": true,
+    "alpha": 1.0,
+    "beta": 0.1,
+    "temperature": 1.0,
+    "clean_anchor_stop_gradient": true,
+    "trainable_parameters": "full GRAM backbone",
+    "sequential_backward": "clean CE backward, then perturbed CE plus KL backward",
+    "no_hyperparameter_search": true
+  },
+  "evaluation": {
+    "paired_across_controls": true,
+    "full_catalog_trie_constrained_beam": 50,
+    "primary_metric": "NDCG@10",
+    "secondary_metrics": ["Recall@10", "Recall@50"],
+    "groups": ["overall", "head", "tail", "history bins"],
+    "history_bin_edges": [0, 5, 10, 20, 1000000],
+    "bootstrap_unit": "user",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20230730,
+    "confidence_intervals_are_gates": false,
+    "broad_harm_definition": "C0 hit@10 and candidate miss@10"
+  },
+  "development_gates": {
+    "macro_ndcg_relative_gain_min": 0.01,
+    "one_domain_ndcg_relative_gain_min": 0.01,
+    "other_domain_ndcg_relative_floor": -0.005,
+    "recall10_absolute_floor": -0.002,
+    "pooled_tail_ndcg_relative_floor": -0.005,
+    "broad_harm_rate_max": 0.005,
+    "consistency_value": "C2 macro NDCG@10 point estimate must exceed C1"
+  },
+  "decisions": {
+    "pass": "CET_FREEZE_FOR_CONFIRMATION",
+    "augmentation_pass_but_C2_not_above_C1": "STOP_CET_NO_CONSISTENCY_VALUE",
+    "effect_gate_fail": "STOP_CET_NO_REGULARIZATION_EFFECT",
+    "integrity_fail": "INVALID_RUN_FIX_AND_EXACT_RERUN"
+  },
+  "integrity": {
+    "code_sha256": "40eb6dee9150db3bdfbe3e3c2aac42e06c73e4367a3d2614fdf5eee541d0f1d5",
+    "initial_invalid_run": "artifacts/phase5/cet_c2/invalid_run.md",
+    "source_checkpoint_sha_verified": true,
+    "matched_users_order_updates": true,
+    "C1_C2_mask_signature_equal": true,
+    "candidate_mapping_rate": 1.0,
+    "no_automatic_retry": true
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "per_stage_timeout_seconds": 28800,
+    "resource_sample_seconds": 5,
+    "disk_sample_seconds": 300,
+    "stop_codellama_before_run": true,
+    "restore_codellama_on_exit": true
+  }
+}
