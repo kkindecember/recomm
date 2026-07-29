@@ -1,0 +1,52 @@
+{
+  "experiment_id": "GRAM_PHASE4_GCDH_D0",
+  "registered_at": "2026-07-28T00:00:00+08:00",
+  "decision_status_before_run": "GCDH_D0_PREREGISTERED",
+  "parent_experiment": "GRAM_PHASE4_GCDH_P0",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "controls": ["C0", "C1"],
+  "validation_users": 4096,
+  "batch_size": 8,
+  "state_sample_users": 512,
+  "catalog_top_k": 50,
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "p0_summary": "artifacts/phase4/gcdh_p0/summary.json"
+  },
+  "integrity": {
+    "paired_users_required": true,
+    "finite_rate_required": 1.0,
+    "target_mapping_rate_required": 1.0,
+    "repeat_max_abs_difference_required": 0.0,
+    "checkpoint_sha_unchanged_required": true,
+    "test_predictions_forbidden": true,
+    "optimizer_steps": 0
+  },
+  "representation_noncollapse_gates": {
+    "pooled_rms_feature_std_min": 0.001,
+    "median_pairwise_cosine_distance_min": 0.0001,
+    "effective_rank_min": 2.0,
+    "all_datasets_and_controls_required": true
+  },
+  "incremental_catalog_signal": {
+    "c1_mrr_strictly_greater_than_c0": true,
+    "c1_recall50_not_lower_than_c0": true,
+    "both_datasets_required": true
+  },
+  "fixed_decisions": [
+    "GCDH_D0_USER_STATE_COLLAPSE",
+    "GCDH_D0_READOUT_RANKING_MISMATCH",
+    "GCDH_D0_NO_CROSS_DOMAIN_INCREMENTAL_CATALOG_SIGNAL",
+    "EXECUTION_INVALID"
+  ],
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 14400,
+    "no_automatic_retry": true
+  }
+}

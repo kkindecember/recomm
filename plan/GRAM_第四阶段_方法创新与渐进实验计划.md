@@ -5,13 +5,67 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: experiment plan
 - Origin Date: 2026-07-27
-- Verification Status: ANALYZED（既有实验与代码）；PREREGISTERED（C0）
-- Version Label: `code_plan_v4_rpcd_t0_proposed`
+- Verification Status: ANALYZED（Phase-4 evidence matrix、CHPR-A0 与全部既有结果）
+- Version Label: `code_plan_v4_tb_validation_firewall`
 - Archived Direction: PCSA（未执行；因缺少 span/coalition 前提证据而降为备选）
 - Upstream Evidence: `artifacts/phase3/marc_l0/summary.json`
 
+> **归档说明（2026-07-28）**：本文保留为第四阶段完整实验账本，不再继续追加新的
+> 方法方向。后续工作转入
+> `plan/GRAM_第四阶段_续篇_Toys_Beauty非自适应方法创新计划.md`。
+
 ### Amendment Record
 
+- 2026-07-28：用户决定继续在 Toys/Beauty 上做方法创新，但不允许新方法被两域
+  validation 结果自适应驱动。建立 `toys_beauty_validation_firewall.md`：方法必须
+  来自文献/理论、training-prefix-only diagnostics、correctness 或外部开发证据；
+  结构、超参数、门槛与结论空间在 validation 前冻结；每方向只允许一次 locked
+  validation read，失败后关闭而不做同证据 rescue。Toys/Beauty test 与 Sports
+  继续封存。
+- 2026-07-28：CHPR-A0 完成，完整性全通过。Toys/Beauty deficit sample rate 为
+  86.33%/90.23%，tail 为 83.59%/90.63%，且 beam-miss users 几乎全部有 deficit；
+  但 Beauty 只有一个 non-trivial depth 达到 ≥50 pairs（depth 1=222，depth 2=34），
+  未过冻结的双 depth 门。另有 89% Beauty、77% Toys deficits 集中于 depth 0，
+  top-8 hard negatives 中 catalog-only source 为 0，信号实质上来自 generator
+  self-competition。固定决定为 **`STOP_CHPR_NO_PREFIX_RANKING_DEFICIT`**，不强制
+  catalog quota、不降低 depth 门、不把 self-hard-negative 事后包装为 collaborative
+  方法。
+- 2026-07-28：完成 Phase-4 evidence matrix。跨 CFSAT、RPCD、PRPD、CPGV、FCRD、
+  CCRR、GCDH、GACR 的稳定结论是“候选互补存在，但冻结 generator 后的验证、融合和
+  residual 无法稳定跨域兑现 overall/tail”。识别出的未检验缺口是：从未直接训练
+  原 generator 在 gold 与 target-free hard negative 的最早 lexical-prefix 分叉处
+  保住 gold child。提出 CHPR 作为待验证候选，第一步仅允许 0-training A0 premise
+  audit；新颖性尚未全文复核。
+- 2026-07-28：GACR-P0 effect pilot 完成。两域 training-prefix fit/calibration
+  user-disjoint，共享 checkpoint step=30 在读取全新 validation cohort 前锁定；
+  validation 与既有 GCDH train/validation overlap=0，parent SHA、finite、
+  zero-residual identity、target-free、backbone no-update 与 test exclusion 均通过。
+  Beauty 的 overall/tail NDCG 分别提升 2.30%/1.62%，全门槛通过；Toys 仅提升
+  0.79%/0.70%，未达到冻结的双 +1% 门槛。固定决定为
+  **`STOP_GACR_NO_RESIDUAL_RANK_EFFECT`**，不以 Beauty 单域通过或 Toys 接近门槛
+  解锁 joint training。
+- 2026-07-28：GACR-S0 correctness smoke 完成。首次运行在首个 optimizer step 前因
+  generator-only 历史商品的 masked catalog logit=`-inf` 进入 residual 特征而触发
+  finite gate，无科学结果；固定映射为 -10 sentinel、其余 z-score clip 到
+  `[-10,10]` 并通过回归测试后，经用户确认重启。有效运行中两域
+  zero-residual identity、finite、非零梯度、loss decrease、residual bound、
+  head/tail pair coverage、reload、parent SHA、target-free 与 test exclusion
+  全部通过。固定决定为 **`GACR_S0_CORRECTNESS_PASS`**；只解锁 effect-pilot 设计，
+  不构成 Recall/NDCG 改善证据。
+- 2026-07-28：GCDH-D0 只读失效归因完成。两域 C0/C1 的 4,096 validation users、
+  finite、target mapping、重复前向、checkpoint SHA、optimizer steps=0 与 test
+  exclusion 全部通过。四个 user-state 分支均明显高于预注册 non-collapse 门槛；
+  C1 catalog MRR 与 Recall@50 又在两域均高于 C0，因此固定判定为
+  **`GCDH_D0_READOUT_RANKING_MISMATCH`**。这支持保留 generator 作为主排序锚点，
+  只把 catalog head 作为 residual correction；不支持恢复 P1 或继续使用
+  catalog-primary ranking。
+- 2026-07-27：GCDH-P0 已完成。两域 smoke、训练、验证、配对 cohort、finite、
+  catalog-head 非零梯度、checkpoint reload、candidate mapping、test exclusion、
+  matched users/steps 与资源恢复均通过；但固定 catalog-logit 主排序相对 matched C0
+  使 Toys/Beauty NDCG@10 分别下降 82.95%/86.41%，Recall@10 分别下降
+  9.62pp/8.98pp，tail NDCG@10 也分别下降 73.86%/65.64%。只有 Toys 的 union
+  Recall@50 增益达到 2pp，Beauty 为 1.68pp。固定决定为
+  **`STOP_GCDH_NO_DUAL_HEAD_EFFECT`**，P1/P2/P3 不解锁。
 - 2026-07-27：CF-SAT C0 已完成。Toys/Beauty 的全部 cohort、serialization、
   donor/target exclusion、K/overlap、真实 Collator mask、metadata start、Trie、
   finite、no-update 与 parameter-SHA integrity gate 均通过。clean 相对等预算错误
@@ -680,4 +734,316 @@ training-prefix item frequency，推理时用未加频率项的 raw catalog logi
 - P2：独立数据集确认、效率和 calibration 分析；
 - P3：新颖性边界与论文表述收窄。
 
-当前状态：**`GCDH_P0_PROPOSED_AWAITING_CONFIRMATION`**。
+P0 运行前状态：**`GCDH_P0_PROPOSED_AWAITING_CONFIRMATION`**。
+
+### 11.3 P0 正式结果
+
+2026-07-27 按预注册配置完成 Toys/Beauty 的 C0/C1 各 5 epochs 训练和各 4,096
+validation users 的一次性评测。运行状态为 `succeeded`，GPU3 资源已恢复；该状态只
+表示工程流程完成，科学决定由预注册门槛给出。
+
+完整性与训练门：
+
+- Toys/Beauty 的 C0/C1 分别使用相同 training-user SHA，训练用户数为
+  4,853/5,591，optimizer updates 为 1,065/1,295；
+- 两域 smoke 均通过，catalog-head gradient norm 分别为 0.3031/0.2008，
+  checkpoint reload max-abs difference=0；
+- 全部已记录 loss/logit/gradient 检查为 finite，candidate mapping=100%，
+  validation cohort 配对一致，test 未读取；
+- C1 相对 C0 的 peak reserved memory 增幅为 0%，低于 35% 门槛。
+
+主效果结果：
+
+| 数据集 | C0 GRAM NDCG@10 | C1 final NDCG@10 | NDCG 相对增益 | Recall@10 绝对增益 | tail NDCG 相对增益 | C1 union R@50 增益 |
+|---|---:|---:|---:|---:|---:|---:|
+| Toys | 0.07669 | 0.01307 | -82.95% | -9.62pp | -73.86% | +2.54pp |
+| Beauty | 0.06282 | 0.00853 | -86.41% | -8.98pp | -65.64% | +1.68pp |
+
+三项排序效果门在两域均失败；union coverage 门只有 Toys 通过。NDCG、Recall 与 tail
+NDCG 的 paired-bootstrap 95% CI 在两域均完全落在负区间，因此不是边界性失败。
+
+训练信号本身存在：C1 的 Balanced-Softmax CE 在 Toys 从 34.77 降至 23.37，在
+Beauty 从 24.40 降至 15.40；但 catalog head 的绝对 top-10 排序能力仍远弱于生成
+头。且按本轮固定规则，union 内以 catalog raw logit 主排序，故 final top-10 实际与
+catalog-head top-10 相同；新增 union coverage 没有被转化为 top-10 效果。该结果只
+否定当前的 coarse mean-pooling + flat catalog head + catalog-primary ranking
+实例，不足以否定所有双空间联合建模。
+
+当前状态：**`STOP_GCDH_NO_DUAL_HEAD_EFFECT`**。按预注册不进入 P1，不扩大到
+full-user/3-seed，不扫描 `lambda_item`，也不以 Toys 的 union coverage 单项通过
+救援。
+
+### 11.4 下一步：GCDH-D0 只读失效归因
+
+下一步不应继续训练，而应先对现有 C0/C1 checkpoint 做一次预注册、无参数更新的
+失效归因，区分“用户表示失效”和“读出/排序失配”：
+
+1. 保存 catalog full-logit 的 target rank、entropy、top-50 overlap、item-popularity
+   相关性，并按 head/tail 分层；
+2. 检查 coarse pooled user state 的跨用户方差、同一用户重复前向一致性，以及
+   catalog target logit 对 history/target 的对齐；不得读取 test；
+3. 分别报告 C1 generator 相对 C0、C1 catalog 相对 matched C0、union oracle 和
+   source-attributed hit，禁止再用 catalog-primary final 指标掩盖各头；
+4. 若表示近似塌缩，下一轮才更换 user-state extractor；若表示有区分度但 catalog
+   target rank/校准失配，下一轮才设计 end-to-end joint/residual rank objective；
+   若两者均无增量证据，则终止 flat catalog-head 家族。
+
+D0 只负责确定下一项架构假设，不是效果救援，也不解锁 GCDH-P1。
+
+### 11.5 D0 正式结果与下一步
+
+2026-07-28 完成 D0。首次启动因仓库根目录未加入 Python import path，在 checkpoint
+读取前工程退出，没有产生科学结果；修复经 7/7 测试后由用户明确确认重启。有效运行
+状态为 `succeeded`，GPU3 与 CodeLlama 资源已恢复。
+
+完整性门全部通过：每个 dataset/control 均为 4,096 users，finite rate、target
+mapping rate 均为 100%，重复前向 max-abs difference=0，checkpoint SHA 前后不变，
+optimizer steps=0，test 未读取。
+
+用户表示没有近似塌缩：
+
+| 数据集/control | pooled RMS feature std | median cosine distance | effective rank |
+|---|---:|---:|---:|
+| Toys C0 | 0.02525 | 0.20448 | 29.51 |
+| Toys C1 | 0.01811 | 0.14330 | 30.82 |
+| Beauty C0 | 0.01795 | 0.11044 | 12.71 |
+| Beauty C1 | 0.01166 | 0.07438 | 22.51 |
+
+所有值均明显高于冻结的 `0.001 / 0.0001 / 2.0` non-collapse 门槛。故 P0 失败不能归因
+为所有用户得到近似相同的 coarse pooled state。
+
+catalog head 存在跨域增量，但绝对排序仍弱：
+
+| 数据集 | C0→C1 MRR | C0→C1 Recall@50 | median target rank | C0/C1 top-50 overlap |
+|---|---:|---:|---:|---:|
+| Toys | 0.01172→0.01216 | 6.08%→6.59% | 3422.5→3317.0 | 48.07% |
+| Beauty | 0.00685→0.00816 | 2.88%→3.56% | 4442.0→4075.5 | 34.11% |
+
+C1 catalog-only 的额外 Recall@50 为 Toys 2.54pp、Beauty 1.68pp；但 generator-only
+coverage 更大，分别为 16.99%/18.38%。因此以 catalog raw logit 主排会丢弃远多于
+它新增的 generator 命中。两域的平均 catalog-logit/popularity correlation 均接近
+0，也不支持把当前失败简单解释为 popularity collapse。
+
+固定决定：**`GCDH_D0_READOUT_RANKING_MISMATCH`**。
+
+下一步应新立一个 **generator-anchored catalog residual ranking correctness smoke**，
+而不是恢复 GCDH-P1：
+
+1. generator score 保持主排序与 identity anchor，catalog 只能学习有界 residual；
+2. 训练目标直接作用于固定 union 内的 target-vs-negative rank margin，并对
+   head/tail 分层配对，不能再用 full-catalog CE 下降替代最终排序对齐；
+3. 首先只验证 zero-residual identity、有限梯度、target-free inference、tail pair
+   coverage、checkpoint reload 和 residual bound；correctness smoke 通过后才允许
+   预注册小比例 effect pilot；
+4. effect pilot 必须继续以 matched lexical-CE continuation 为 C0，并要求双域
+   overall/tail NDCG 同时改善；不得只凭 union oracle 或单域结果晋级。
+
+## 12. GACR：Generator-Anchored Catalog Residual Ranking
+
+GACR 保留 GRAM generator ranking 为 base，只允许 catalog 分支通过有界 residual
+调整 union 内候选：
+
+```text
+score(i | h)
+  = reciprocal_rank_gram(i | h)
+  + 0.2 * tanh(r_phi(features(h, i)))
+```
+
+不在 generator top-50 的候选 base score 为 0。`r_phi` 使用 target-free 的 catalog
+logit/rank、generator rank、source membership 与 pooled-user/item-weight cosine；
+最后一层零初始化，保证 residual=0 时逐候选排序与 generator identity 完全一致。
+目标不存在于 target-free union 时不得人工插入，只记录为 coverage ceiling。
+
+### 12.1 S0 correctness smoke 正式结果
+
+S0 使用每域 256 个 training-prefix samples，head/tail 各 128；只训练独立 residual
+小头 20 steps，GRAM backbone 与 GCDH catalog head 均不更新。
+
+| 数据集 | union-covered pairs | head / tail | loss（first→last） | 初始梯度 norm | max \|residual\| |
+|---|---:|---:|---:|---:|---:|
+| Toys | 142/256 | 89 / 53 | 0.6994→0.5600 | 0.1138 | 0.1679 |
+| Beauty | 136/256 | 85 / 51 | 0.7145→0.6060 | 0.1284 | 0.1985 |
+
+两域 zero-residual identity=100%，finite rate=100%，checkpoint reload
+max-abs difference=0，parent checkpoint SHA 前后不变，backbone optimizer steps=0，
+target-free candidate construction 与 test exclusion 均通过；residual 严格处于冻结的
+±0.2 bound 内。
+
+固定决定：**`GACR_S0_CORRECTNESS_PASS`**。这只证明机制可实现、可优化且不会在零
+residual 时破坏 generator；尚未证明 validation 排序收益。
+
+### 12.2 下一步：GACR-P0 effect pilot
+
+下一步应预注册一次小比例 effect pilot，而不是继续扩大 smoke：
+
+1. 冻结 GCDH-P0 C1 的 generator/catalog checkpoint，只训练 residual ranker；
+2. training candidates 必须 target-free 生成，未覆盖 target 的样本不得人工补入；
+   两域使用相同 feature schema、bound、optimizer 与训练步数；
+3. 主比较为 `B0=generator reciprocal-rank identity` 与 `R1=generator+residual`；
+   同时报告 catalog-primary、union oracle、covered/uncovered 和 head/tail；
+4. 使用与 D0/P0 validation 分离的新 hash cohort；参数选择只使用 training-prefix
+   calibration，validation cohort 一次性读取，test 禁止；
+5. 双域必要门槛建议冻结为：NDCG@10 相对 B0 ≥+1%，Recall@10 不下降，tail
+   NDCG@10 ≥+1%，且 broad-harm users 不增加超过 1pp；
+6. 任一域失败即 `STOP_GACR_NO_RESIDUAL_RANK_EFFECT`；全部通过才允许讨论把 residual
+   objective 与 backbone 联合训练。S0 的训练损失下降不得用于替代该效果门。
+
+P0 运行前状态：**`GACR_P0_PROPOSED_AWAITING_PREREGISTRATION`**。
+
+### 12.3 P0 正式结果
+
+2026-07-28 完成 P0。每域从 GCDH training users 中构造 1,024 fit 与 256 calibration
+training-prefix samples；fit/calibration user overlap=0。两域共享 calibration
+checkpoint step=30，其平均相对 NDCG@10 增益为 +2.329%，并在读取新 validation
+cohort 前锁定。
+
+每域使用 1,024 个新 hash validation users，均与 GCDH-P0 training/validation cohort
+零重合。完整性检查全部通过：zero-residual identity=100%，parent checkpoint SHA
+前后不变，backbone optimizer steps=0，finite=100%，candidate construction
+target-free，test 未读取，GPU3 与 CodeLlama 资源已恢复。
+
+| 数据集 | overall NDCG 相对增益 | Recall@10 绝对增益 | tail NDCG 相对增益 | broad-harm rate | 决定 |
+|---|---:|---:|---:|---:|---|
+| Toys | +0.786% | +0.195pp | +0.702% | 0.098% | fail |
+| Beauty | +2.298% | +0.098pp | +1.623% | 0.098% | pass |
+
+Toys 的 overall NDCG 95% CI 为 `[-0.803%, +2.499%]`，tail 为
+`[-1.598%, +3.302%]`，均跨 0；Beauty overall NDCG CI 为
+`[+0.138%, +4.787%]`，但 tail CI `[-7.176%, +9.243%]` 仍较宽。两域 Recall
+差异 CI 均跨 0。
+
+该结果说明 generator-anchored residual 能避免 GCDH catalog-primary 的灾难性下降，
+并在 Beauty 上兑现稳定 overall 排序收益；但收益没有达到预注册的跨域一致性。
+Toys 的点估计接近门槛不改变 fixed conjunctive decision，也不得事后增加 step、
+修改 bound/features 或降低 +1% 门槛。
+
+固定决定：**`STOP_GACR_NO_RESIDUAL_RANK_EFFECT`**。不进入 joint backbone
+training，不在已读 validation cohort 上继续调 GACR。
+
+### 12.4 下一步建议：第四阶段证据综合与方向重置
+
+当前不建议立刻启动另一个 reranker 变体。第四阶段已反复得到同一结构性结论：
+
+1. collaborative/catalog 分支能增加候选覆盖或在单域改善排序；
+2. 冻结 generator 后的 corruption、global fusion、popularity residual、exact
+   verification、candidate-level logistic、catalog-primary 和 bounded residual
+   都未同时兑现双域 overall/tail 收益；
+3. 因而下一项方法若仍只是固定候选上的新权重、更多 features、GBDT/MLP 或放宽门槛，
+   缺少独立机制依据，也会继续消耗 Beauty/Toys validation。
+
+下一步应先制作 Phase-4 evidence matrix，按“前提—完整性—双域效果—失败机制—是否
+可救援”汇总 CFSAT、RPCD、PRPD、CPGV、FCRD、CCRR、GCDH 与 GACR。只有从该矩阵提出
+一个不依赖已读 validation 调参、并允许 generator-native candidate coverage 与
+ranking 联合学习的新假设后，才预注册新实验；Sports 继续保留为配置冻结后的确认集，
+不得提前用于方向选择。
+
+## 13. Phase-4 Evidence Matrix 与 CHPR
+
+完整矩阵已写入 `artifacts/phase4/phase4_evidence_matrix.md`。矩阵区分了直接证据、
+跨实验推断与建议，没有把单域通过或接近门槛改写成正结论。
+
+### 13.1 稳定结论
+
+1. catalog/collaborative proposal 的候选互补在两域重复出现；
+2. frozen generator 后的 global fusion、popularity correction、exact verification、
+   catalog-primary 与 candidate residual 均未稳定跨域兑现；
+3. pooled user state 未塌缩，瓶颈更接近 generator path ranking objective；
+4. 尚未有实验在训练期直接约束 gold 与 hard-negative lexical IDs 的最早 Trie
+   分叉 logits。
+
+### 13.2 新候选：CHPR
+
+**Collaborative Hard-negative Prefix Ranking** 只在训练期用 target-free
+collaborative/catalog proposal 产生 negatives，并在 gold/negative lexical IDs 的
+最早分叉前缀上约束 gold child logit 高于 negative child。正式推理仍使用原 GRAM
+input、decoder、Trie 与 beam，不保留 proposer、catalog head 或 reranker。
+
+该方向不是把 GACR 换成更大 MLP：它把排序约束移入 generator 的合法-child logits。
+Hard-negative、margin、prefix supervision 与 Trie 各自均不是新贡献；组合差异仍须
+全文 novelty review。
+
+### 13.3 唯一建议步骤：CHPR-A0
+
+A0 是 0-training、training-only premise audit。每域固定 512 samples（head/tail
+各 256），使用 target-free proposal，检查 gold-vs-hard-negative 的最早分叉 margin
+deficit 是否在双域、tail 与多个 non-trivial depths 上充分存在。不得读取
+validation/test，不得更新参数。
+
+建议固定结论：
+
+- `CHPR_S0_DESIGN_ALLOWED`；
+- `STOP_CHPR_NO_PREFIX_RANKING_DEFICIT`；
+- `EXECUTION_INVALID`。
+
+详细 proposal、指标和冻结门槛见 evidence matrix 与
+`artifacts/phase4/configs/chpr_a0_preregistered.json`。A0 运行前状态：
+**`CHPR_A0_PREREGISTERED`**。
+
+### 13.4 A0 正式结果
+
+A0 工程状态为 `succeeded`，GPU3/CodeLlama 已恢复。两域各 512 个 unique
+training-prefix users，所有 mapping、Trie、finite、history/gold exclusion、
+optimizer steps=0、C0/C1 parameter SHA 与 validation/test exclusion 门均通过。
+
+| 数据集 | deficit sample rate | tail deficit rate | mean minimum margin | beam-hit / miss deficit | ≥50 的 non-trivial depths |
+|---|---:|---:|---:|---:|---|
+| Toys | 86.33% | 83.59% | -1.600 | 77.10% / 99.07% | depth 1=401，depth 2=172 |
+| Beauty | 90.23% | 90.63% | -2.082 | 82.01% / 100% | depth 1=222 |
+
+Beauty depth 2 只有 34 个 deficit pairs，低于冻结的 50，故科学门失败。更重要的是，
+deficit pairs 在 Toys/Beauty 分别有 77.02%/89.24% 位于 depth 0；top-8 exact hard
+negatives 中 catalog-only source 在两域均为 0，几乎全部来自当前 GRAM beam 或
+beam/catalog overlap。故强 signal 表明的是 generator self-competition，而不是
+collaborative-only proposal 提供了新的训练信号。
+
+固定决定：**`STOP_CHPR_NO_PREFIX_RANKING_DEFICIT`**。不进入 CHPR-S0，不事后强制
+catalog-only quota，不降低 Beauty depth 门槛，也不把本次 self-beam signal 改名包装
+为 collaborative 方法。
+
+### 13.5 当前研究决策
+
+第四阶段截至此处没有一项方法通过预注册的双域 overall/tail effect chain。继续在
+Toys/Beauty 上生成 reranker、weight、negative quota 或 margin 变体会进一步消耗已读
+development evidence，且缺乏独立机制依据。
+
+原建议是结束本轮方法搜索并冻结 negative-results ledger。用户现明确选择继续使用
+Toys/Beauty，但要求新方向不由其 validation 结果驱动；该用户决策由下一节的
+validation firewall 接替执行。Yelp 不再是继续研究的强制前置条件，Sports 仍保持
+封存。
+
+## 14. Toys/Beauty 非自适应 Validation Firewall
+
+治理协议已写入 `artifacts/phase4/toys_beauty_validation_firewall.md`。
+
+### 14.1 允许
+
+- 用 Toys/Beauty training prefixes 做 premise audit、拟合和 shared calibration；
+- 在代码、配置、门槛、split salt 与结论空间全部冻结后，对两域 validation 做一次
+  effect gate；
+- 方法冻结后用 Toys/Beauty 做重复验证、消融和最终报告。
+
+### 14.2 禁止
+
+- 根据新 validation 结果增加 feature、改 loss/bound/weight/negative quota、换 seed、
+  改 cohort 或降低门槛；
+- 把单域通过、接近门槛或 post-hoc subgroup 当作 rescue；
+- 用 Toys/Beauty test 或 Sports 选择方向。
+
+### 14.3 新方法的独立来源
+
+下一方向必须在读取其 validation 结果前，明确追溯到以下至少一种独立来源：
+
+1. 文献与理论缺口；
+2. training-prefix-only 机制诊断；
+3. correctness/implementation 必要条件；
+4. 外部 development evidence。
+
+既有 Phase-4 evidence matrix 继续作为 negative-results ledger，可以界定已排除的
+机制，但不能单独作为“针对上一项 validation failure 打补丁”的依据。
+
+### 14.4 当前状态
+
+当前状态：**`TOYS_BEAUTY_CONTINUE_UNDER_VALIDATION_FIREWALL`**。
+
+下一步先做与 Toys/Beauty validation 隔离的 novelty/mechanism review，产出一个完整
+冻结的新方法假设和预注册计划；通过该纸面门后才运行新的 training-prefix audit。

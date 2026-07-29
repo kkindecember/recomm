@@ -1,0 +1,105 @@
+{
+  "experiment_id": "GRAM_PHASE4_FPUG_N1",
+  "decision": "FPUG_S0_DESIGN_ALLOWED",
+  "results": {
+    "Toys": {
+      "metrics": {
+        "samples": 512,
+        "unique_users": 512,
+        "passages": 5148,
+        "competitive_sample_coverage": 1.0,
+        "harmful_passages": 611,
+        "harmful_passage_sample_rate": 0.69140625,
+        "tail_harmful_passage_sample_rate": 0.70703125,
+        "mean_best_removal_improvement": 0.10427034524972581,
+        "mean_oldest_removal_improvement": -0.041829356830662565,
+        "mean_oracle_advantage_over_oldest": 0.1460997020803884,
+        "harmful_passages_by_recency_quartile": {
+          "0": 214,
+          "1": 128,
+          "2": 110,
+          "3": 159
+        },
+        "harmful_recency_entropy": 0.9766371216787834
+      },
+      "checks": {
+        "samples": true,
+        "competitive_sample_coverage": true,
+        "harmful_passage_sample_rate": true,
+        "tail_harmful_passage_sample_rate": true,
+        "mean_best_removal_improvement": true,
+        "mean_oracle_advantage_over_oldest": true,
+        "supported_recency_quartiles": true,
+        "harmful_recency_entropy": true
+      },
+      "scientific_pass": true,
+      "integrity": {
+        "mapping_rate": 1.0,
+        "trie_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "unique_user_rate": 1.0,
+        "coarse_prompt_unchanged_rate": 1.0,
+        "exactly_one_detail_masked_rate": 1.0,
+        "optimizer_steps": 0,
+        "parameter_sha_unchanged": true,
+        "validation_test_predictions_read": false,
+        "sports_read": false,
+        "checkpoint_sha256": "68b08a80782ab010da403f2ff059d5009b5301fdd1da62bb903f65ddb2830fd6",
+        "passage_file_sha256": "2292a96dce0bd12a4141bc9c4237c87113df311141b77d2f36b447a10842490d",
+        "sample_file_sha256": "4d393f8c2e5a7ccddb3851607082a8c730fc0eec5949ea4cf8db0a7443c133b9"
+      },
+      "integrity_valid": true
+    },
+    "Beauty": {
+      "metrics": {
+        "samples": 512,
+        "unique_users": 512,
+        "passages": 5319,
+        "competitive_sample_coverage": 1.0,
+        "harmful_passages": 680,
+        "harmful_passage_sample_rate": 0.677734375,
+        "tail_harmful_passage_sample_rate": 0.6875,
+        "mean_best_removal_improvement": 0.12175366100180213,
+        "mean_oldest_removal_improvement": -0.01978885986786832,
+        "mean_oracle_advantage_over_oldest": 0.14154252086967045,
+        "harmful_passages_by_recency_quartile": {
+          "0": 258,
+          "1": 136,
+          "2": 134,
+          "3": 152
+        },
+        "harmful_recency_entropy": 0.9698921505144301
+      },
+      "checks": {
+        "samples": true,
+        "competitive_sample_coverage": true,
+        "harmful_passage_sample_rate": true,
+        "tail_harmful_passage_sample_rate": true,
+        "mean_best_removal_improvement": true,
+        "mean_oracle_advantage_over_oldest": true,
+        "supported_recency_quartiles": true,
+        "harmful_recency_entropy": true
+      },
+      "scientific_pass": true,
+      "integrity": {
+        "mapping_rate": 1.0,
+        "trie_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "unique_user_rate": 1.0,
+        "coarse_prompt_unchanged_rate": 1.0,
+        "exactly_one_detail_masked_rate": 1.0,
+        "optimizer_steps": 0,
+        "parameter_sha_unchanged": true,
+        "validation_test_predictions_read": false,
+        "sports_read": false,
+        "checkpoint_sha256": "d0b58ca1ef7cc12e672c4e48d0349af74f96cac0427c5b9c544e767e8e4613e4",
+        "passage_file_sha256": "cc0d4f093c5a0827522ba2aee671f6b58e7d9947282fb3aa7c5c72cb46c04073",
+        "sample_file_sha256": "bb1dcd53a87c0cd5596da8c0a548847048872baea4ff04598881a593f037124b"
+      },
+      "integrity_valid": true
+    }
+  },
+  "integrity_valid": true,
+  "validation_test_predictions_read": false,
+  "sports_read": false
+}

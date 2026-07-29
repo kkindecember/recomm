@@ -1,0 +1,54 @@
+{
+  "experiment_id": "GRAM_PHASE4_GCDH_P0",
+  "dataset": "Beauty",
+  "control": "C1",
+  "status": "VALIDATED",
+  "users": 4096,
+  "validation_user_sha256": "20c460b65d8bc41e72e3971ad9b083704c15de8a95cc82c1ae0ccbba88b7b3c7",
+  "groups": {
+    "overall": {
+      "n": 4096,
+      "gram_Recall@10": 0.1064453125,
+      "gram_NDCG@10": 0.06329016195389614,
+      "gram_Recall@50": 0.20263671875,
+      "catalog_Recall@10": 0.015625,
+      "catalog_NDCG@10": 0.008534967303042533,
+      "catalog_Recall@50": 0.03564453125,
+      "final_Recall@10": 0.015625,
+      "final_NDCG@10": 0.008534967303042533,
+      "final_Recall@50": 0.03564453125,
+      "union_hit50": 0.219482421875
+    },
+    "head": {
+      "n": 2042,
+      "gram_Recall@10": 0.16307541625857003,
+      "gram_NDCG@10": 0.09369558330783391,
+      "gram_Recall@50": 0.32908912830558273,
+      "catalog_Recall@10": 0.011753183153770812,
+      "catalog_NDCG@10": 0.005995707893658057,
+      "catalog_Recall@50": 0.030362389813907934,
+      "final_Recall@10": 0.011753183153770812,
+      "final_NDCG@10": 0.005995707893658057,
+      "final_Recall@50": 0.030362389813907934,
+      "union_hit50": 0.33692458374143
+    },
+    "tail": {
+      "n": 2054,
+      "gram_Recall@10": 0.0501460564751704,
+      "gram_NDCG@10": 0.03306237694671946,
+      "gram_Recall@50": 0.07692307692307693,
+      "catalog_Recall@10": 0.019474196689386564,
+      "catalog_NDCG@10": 0.011059391701271895,
+      "catalog_Recall@50": 0.04089581304771178,
+      "final_Recall@10": 0.019474196689386564,
+      "final_NDCG@10": 0.011059391701271895,
+      "final_Recall@50": 0.04089581304771178,
+      "union_hit50": 0.10272638753651411
+    }
+  },
+  "per_user_sha256": "918dd246223280db25de95d460dca1c4b191d9137327fb82d6788dc5b5c8b910",
+  "validation_wall_time_seconds": 997.4075448513031,
+  "per_user_latency_seconds": 0.24350770161254331,
+  "candidate_mapping_rate": 1.0,
+  "test_data_read": false
+}

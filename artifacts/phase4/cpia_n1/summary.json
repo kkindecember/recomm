@@ -1,0 +1,105 @@
+{
+  "experiment_id": "GRAM_PHASE4_CPIA_N1",
+  "decision": "STOP_CPIA_NO_ACTIONABLE_LINK_DEFICIT",
+  "code_sha256": "05e99d3611d883d8c38ce3cdd5a038632eeb644bdb936b02304fdccd5883fda4",
+  "config_sha256": "d1e1b99ad85fddab83610270100a8269ded6f2e93f3b667846b7f30872c514b0",
+  "checkpoint_sha256": {
+    "Toys": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "Beauty": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89"
+  },
+  "datasets": {
+    "Toys": {
+      "dataset": "Toys",
+      "metrics": {
+        "top1_accuracy": {
+          "point": 0.9890625,
+          "ci_low": 0.98125,
+          "ci_high": 0.996875,
+          "chance": 0.2
+        },
+        "matched_minus_mean_mismatch": {
+          "point": 0.3320507284719497,
+          "ci_low": 0.3228825260367012,
+          "ci_high": 0.3415896338905441
+        },
+        "signal_excess": 0.7890625,
+        "median_hard_margin": 0.25759078562259674,
+        "mismatch_rate": 0.0109375
+      },
+      "scientific_gates": {
+        "top1_min": true,
+        "top1_ci_above_chance": true,
+        "top1_max": false,
+        "median_hard_margin": false,
+        "mismatch_rate": false,
+        "mean_delta_ci_positive": true
+      },
+      "scientific_pass": false,
+      "integrity": {
+        "unique_users": 128,
+        "item_spans": 640,
+        "coarse_span_mapping_rate": 1.0,
+        "fine_span_mapping_rate": 1.0,
+        "attention_mask_valid_rate": 1.0,
+        "finite_rate": 1.0,
+        "checkpoint_sha_before": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+        "checkpoint_sha_after": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+        "checkpoint_sha_unchanged": true,
+        "optimizer_steps": 0,
+        "validation_read": false,
+        "test_read": false,
+        "sports_read": false
+      },
+      "integrity_pass": true
+    },
+    "Beauty": {
+      "dataset": "Beauty",
+      "metrics": {
+        "top1_accuracy": {
+          "point": 0.7953125,
+          "ci_low": 0.765625,
+          "ci_high": 0.8265625,
+          "chance": 0.2
+        },
+        "matched_minus_mean_mismatch": {
+          "point": 0.13858769736252724,
+          "ci_low": 0.13419210787047633,
+          "ci_high": 0.14297978868300562
+        },
+        "signal_excess": 0.5953124999999999,
+        "median_hard_margin": 0.07911667227745056,
+        "mismatch_rate": 0.2046875
+      },
+      "scientific_gates": {
+        "top1_min": true,
+        "top1_ci_above_chance": true,
+        "top1_max": false,
+        "median_hard_margin": false,
+        "mismatch_rate": false,
+        "mean_delta_ci_positive": true
+      },
+      "scientific_pass": false,
+      "integrity": {
+        "unique_users": 128,
+        "item_spans": 640,
+        "coarse_span_mapping_rate": 1.0,
+        "fine_span_mapping_rate": 1.0,
+        "attention_mask_valid_rate": 1.0,
+        "finite_rate": 1.0,
+        "checkpoint_sha_before": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+        "checkpoint_sha_after": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+        "checkpoint_sha_unchanged": true,
+        "optimizer_steps": 0,
+        "validation_read": false,
+        "test_read": false,
+        "sports_read": false
+      },
+      "integrity_pass": true
+    }
+  },
+  "integrity_pass": true,
+  "scientific_pass": false,
+  "validation_read": false,
+  "test_read": false,
+  "sports_read": false
+}

@@ -1,0 +1,56 @@
+{
+  "experiment_id": "GRAM_PHASE4_TCDR_S0",
+  "registered_at": "2026-07-29T03:40:00+08:00",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "users_per_dataset": 8,
+  "pairs_per_dataset": 8,
+  "minimum_history_items": 5,
+  "training": {
+    "steps": 5,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "gradient_clip_norm": 1.0,
+    "correlation_epsilon": 1e-8,
+    "trainable_module": "decoder.block[-1]",
+    "encoder_detached": true
+  },
+  "correctness_gates": {
+    "zero_lambda_identity_tolerance": 1e-7,
+    "initial_tcdr_loss_strictly_positive": true,
+    "gradient_norm_strictly_positive": true,
+    "finite_rate": 1.0,
+    "tcdr_relative_decrease_min": 0.01,
+    "lexical_ce_relative_increase_max": 0.1,
+    "parameter_delta_strictly_positive": true,
+    "checkpoint_sha_unchanged": true,
+    "exact_users": 8,
+    "exact_pairs": 8,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "validation_test_forbidden": true,
+    "sports_forbidden": true,
+    "no_new_inference_parameters": true,
+    "code_sha256": "c14f0624dee03cb28327f97d083006a893c4bc9c76982faf951c13d84968d744"
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "n1_config": "artifacts/phase4/configs/tcdr_n1_preregistered.json",
+    "n1_output": "artifacts/phase4/tcdr_n1",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 4,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 43200,
+    "no_automatic_retry": true
+  },
+  "fixed_decisions": [
+    "TCDR_S0_CORRECTNESS_PASS",
+    "STOP_TCDR_S0_CORRECTNESS_FAILED",
+    "EXECUTION_INVALID"
+  ]
+}

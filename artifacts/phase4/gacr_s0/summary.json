@@ -1,0 +1,87 @@
+{
+  "experiment_id": "GRAM_PHASE4_GACR_S0",
+  "decision": "GACR_S0_CORRECTNESS_PASS",
+  "results": {
+    "Toys": {
+      "dataset": "Toys",
+      "samples": 256,
+      "covered_pairs": 142,
+      "covered_head_pairs": 89,
+      "covered_tail_pairs": 53,
+      "zero_residual_identity_rate": 1.0,
+      "first_loss": 0.6994096040725708,
+      "last_loss": 0.5599809885025024,
+      "loss_decreased": true,
+      "initial_gradient_norm": 0.11384083330631256,
+      "residual_abs_max": 0.16793054342269897,
+      "checkpoint_reload_max_abs_difference": 0.0,
+      "parent_checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha_unchanged": true,
+      "target_free_candidate_construction": true,
+      "optimizer_steps": 20,
+      "backbone_optimizer_steps": 0,
+      "finite_rate": 1.0,
+      "test_data_read": false
+    },
+    "Beauty": {
+      "dataset": "Beauty",
+      "samples": 256,
+      "covered_pairs": 136,
+      "covered_head_pairs": 85,
+      "covered_tail_pairs": 51,
+      "zero_residual_identity_rate": 1.0,
+      "first_loss": 0.7144526243209839,
+      "last_loss": 0.6059999465942383,
+      "loss_decreased": true,
+      "initial_gradient_norm": 0.12840454280376434,
+      "residual_abs_max": 0.19849400222301483,
+      "checkpoint_reload_max_abs_difference": 0.0,
+      "parent_checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha_unchanged": true,
+      "target_free_candidate_construction": true,
+      "optimizer_steps": 20,
+      "backbone_optimizer_steps": 0,
+      "finite_rate": 1.0,
+      "test_data_read": false
+    }
+  },
+  "gate_rows": [
+    {
+      "dataset": "Toys",
+      "checks": {
+        "zero_residual_identity": true,
+        "finite": true,
+        "nonzero_gradient": true,
+        "loss_decreased": true,
+        "residual_bound": true,
+        "head_pair_coverage": true,
+        "tail_pair_coverage": true,
+        "checkpoint_reload": true,
+        "parent_sha": true,
+        "target_free": true,
+        "test_exclusion": true
+      },
+      "pass": true
+    },
+    {
+      "dataset": "Beauty",
+      "checks": {
+        "zero_residual_identity": true,
+        "finite": true,
+        "nonzero_gradient": true,
+        "loss_decreased": true,
+        "residual_bound": true,
+        "head_pair_coverage": true,
+        "tail_pair_coverage": true,
+        "checkpoint_reload": true,
+        "parent_sha": true,
+        "target_free": true,
+        "test_exclusion": true
+      },
+      "pass": true
+    }
+  ],
+  "test_data_read": false
+}

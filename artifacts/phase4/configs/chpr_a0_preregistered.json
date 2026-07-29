@@ -1,0 +1,70 @@
+{
+  "experiment_id": "GRAM_PHASE4_CHPR_A0",
+  "registered_at": "2026-07-28T16:05:00+08:00",
+  "decision_status_before_run": "CHPR_A0_PREREGISTERED",
+  "parent_evidence": "artifacts/phase4/phase4_evidence_matrix.md",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "samples_per_dataset": 512,
+  "head_samples": 256,
+  "tail_samples": 256,
+  "unique_users": true,
+  "data_scope": "training-prefix only",
+  "scorer_checkpoint": "GCDH-P0 C0 matched lexical continuation",
+  "proposal_sources": [
+    "scorer GRAM beam-50",
+    "GCDH-P0 C1 catalog-head top-50"
+  ],
+  "proposal_construction": {
+    "target_free": true,
+    "generator_top_k": 50,
+    "catalog_top_k": 50,
+    "exclude_history_after_construction": true,
+    "exclude_gold_after_construction": true,
+    "deduplicate": true,
+    "hard_negatives_per_sample": 8,
+    "hardness": "highest length-normalized scorer exact path log-probability"
+  },
+  "prefix_metric": {
+    "location": "earliest gold-negative lexical-ID divergence",
+    "margin": "legal-child log p(gold child)-log p(negative child)",
+    "deficit_threshold": 0.1
+  },
+  "scientific_gates": {
+    "valid_proposal_sample_rate_min": 0.9,
+    "deficit_sample_rate_min": 0.3,
+    "tail_deficit_sample_rate_min": 0.25,
+    "deficit_user_coverage_min": 0.3,
+    "minimum_supported_nontrivial_depths": 2,
+    "minimum_deficit_pairs_per_supported_depth": 50,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "mapping_rate": 1.0,
+    "trie_membership_rate": 1.0,
+    "finite_rate": 1.0,
+    "history_gold_exclusion_rate": 1.0,
+    "unique_user_rate": 1.0,
+    "optimizer_steps": 0,
+    "parameter_sha_unchanged": true,
+    "validation_test_predictions_forbidden": true
+  },
+  "fixed_decisions": [
+    "CHPR_S0_DESIGN_ALLOWED",
+    "STOP_CHPR_NO_PREFIX_RANKING_DEFICIT",
+    "EXECUTION_INVALID"
+  ],
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 3,
+    "candidate_score_batch_size": 16,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 21600,
+    "no_automatic_retry": true
+  }
+}

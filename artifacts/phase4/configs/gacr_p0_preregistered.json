@@ -1,0 +1,73 @@
+{
+  "experiment_id": "GRAM_PHASE4_GACR_P0",
+  "registered_at": "2026-07-28T15:15:00+08:00",
+  "decision_status_before_run": "GACR_P0_PREREGISTERED",
+  "parent_decision": "GACR_S0_CORRECTNESS_PASS",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "training_prefix_samples_per_dataset": 1280,
+  "training_head_samples": 640,
+  "training_tail_samples": 640,
+  "fit_samples_per_group": 512,
+  "calibration_samples_per_group": 128,
+  "fit_calibration_user_disjoint": true,
+  "validation_users_per_dataset": 1024,
+  "validation_salt": "gacr-p0-fresh-validation-v1",
+  "validation_exclusions": [
+    "gcdh_p0_training_users",
+    "gcdh_p0_validation_users"
+  ],
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "residual": {
+    "feature_schema": "identical_to_gacr_s0",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "margin": 0.1,
+    "learning_rate": 0.01,
+    "weight_decay": 0.01,
+    "training_steps": 50,
+    "checkpoint_steps": [5, 10, 20, 30, 40, 50],
+    "loss": "equal-weight mean of head and tail target-vs-highest-negative hinge losses",
+    "parameters": "residual ranker only"
+  },
+  "shared_checkpoint_selection": {
+    "eligible": "Recall@10 nondecrease and tail NDCG@10 nondecrease on training-prefix calibration in both datasets",
+    "objective": "maximum mean relative NDCG@10 gain across Toys and Beauty calibration",
+    "tie_break": "smallest checkpoint step",
+    "fallback": "maximum objective over all steps if no eligible step; still evaluate locked validation once"
+  },
+  "validation_gates": {
+    "overall_ndcg10_relative_gain_min": 0.01,
+    "overall_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.01,
+    "broad_harm_rate_max": 0.01,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "zero_residual_identity_rate": 1.0,
+    "finite_rate": 1.0,
+    "parent_checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "target_free_candidate_construction": true,
+    "validation_disjoint_from_prior_cohorts": true,
+    "test_predictions_forbidden": true
+  },
+  "fixed_decisions": [
+    "GACR_P1_JOINT_TRAINING_DESIGN_ALLOWED",
+    "STOP_GACR_NO_RESIDUAL_RANK_EFFECT",
+    "EXECUTION_INVALID"
+  ],
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 21600,
+    "no_automatic_retry": true
+  }
+}

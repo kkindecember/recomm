@@ -1,0 +1,60 @@
+{
+  "experiment_id": "GRAM_PHASE4_FPUG_N1",
+  "registered_at": "2026-07-28T23:00:00+08:00",
+  "decision_status_before_run": "FPUG_N1_PREREGISTERED",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "samples_per_dataset": 512,
+  "head_samples": 256,
+  "tail_samples": 256,
+  "minimum_history_items": 5,
+  "audit": {
+    "batch_size": 8,
+    "harmful_improvement_threshold": 0.05,
+    "recency_quartiles": 4,
+    "exclude_eos": true,
+    "competitive_legal_child_count_min": 2
+  },
+  "scientific_gates": {
+    "samples_min": 512,
+    "competitive_sample_coverage_min": 0.95,
+    "harmful_passage_sample_rate_min": 0.3,
+    "tail_harmful_passage_sample_rate_min": 0.25,
+    "mean_best_removal_improvement_min": 0.08,
+    "mean_oracle_advantage_over_oldest_min": 0.04,
+    "supported_recency_quartiles_min": 3,
+    "harmful_passages_per_supported_quartile_min": 30,
+    "harmful_recency_entropy_min": 0.75,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "mapping_rate": 1.0,
+    "trie_membership_rate": 1.0,
+    "finite_rate": 1.0,
+    "unique_user_rate": 1.0,
+    "coarse_prompt_unchanged_rate": 1.0,
+    "exactly_one_detail_masked_rate": 1.0,
+    "optimizer_steps": 0,
+    "parameter_sha_unchanged": true,
+    "validation_test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "f2b6234ae09ba55bb14aa3fc8780427baba95486e31c02f57e51d9b0b99cc4b1"
+  },
+  "fixed_decisions": [
+    "FPUG_S0_DESIGN_ALLOWED",
+    "STOP_FPUG_NO_DYNAMIC_PASSAGE_UTILITY_DEFICIT",
+    "EXECUTION_INVALID"
+  ],
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 4,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 14400,
+    "no_automatic_retry": true
+  }
+}

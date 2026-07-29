@@ -1,0 +1,71 @@
+{
+  "initial_lexical_ce": 0.982008695602417,
+  "final_lexical_ce": 0.9844673275947571,
+  "lexical_ce_relative_increase": 0.00250367633998394,
+  "initial_tcdr_loss": 0.612781286239624,
+  "final_tcdr_loss": 0.295727014541626,
+  "tcdr_relative_decrease": 0.5174019932746887,
+  "zero_lambda_identity_difference": 0.0,
+  "gradient_norm_min": 1.9268333911895752,
+  "gradient_norm_max": 2.390258312225342,
+  "initial_gradient_norm": 2.390258312225342,
+  "parameter_delta_max_abs": 0.0005022883415222168,
+  "steps": [
+    {
+      "step": 1,
+      "lexical_ce_before_step": 0.982008695602417,
+      "tcdr_loss_before_step": 0.612781286239624,
+      "gradient_norm": 2.390258312225342
+    },
+    {
+      "step": 2,
+      "lexical_ce_before_step": 0.9824842810630798,
+      "tcdr_loss_before_step": 0.5340800285339355,
+      "gradient_norm": 2.2542366981506348
+    },
+    {
+      "step": 3,
+      "lexical_ce_before_step": 0.9830215573310852,
+      "tcdr_loss_before_step": 0.45888569951057434,
+      "gradient_norm": 2.105203866958618
+    },
+    {
+      "step": 4,
+      "lexical_ce_before_step": 0.9834978580474854,
+      "tcdr_loss_before_step": 0.397402286529541,
+      "gradient_norm": 2.0230233669281006
+    },
+    {
+      "step": 5,
+      "lexical_ce_before_step": 0.9839789867401123,
+      "tcdr_loss_before_step": 0.34385478496551514,
+      "gradient_norm": 1.9268333911895752
+    }
+  ],
+  "checks": {
+    "zero_lambda_identity": true,
+    "initial_tcdr_loss_positive": true,
+    "initial_gradient_norm_positive": true,
+    "finite_rate": true,
+    "tcdr_relative_decrease": true,
+    "lexical_ce_relative_increase": true,
+    "parameter_delta_positive": true,
+    "checkpoint_sha_unchanged": true,
+    "exact_users": true,
+    "exact_pairs": true,
+    "no_new_inference_parameters": true
+  },
+  "correctness_pass": true,
+  "integrity": {
+    "users": 8,
+    "pairs": 8,
+    "unique_items": 32,
+    "finite_rate": 1.0,
+    "checkpoint_sha_unchanged": true,
+    "parameter_count_before": 60517376,
+    "parameter_count_after": 60517376,
+    "validation_test_read": false,
+    "sports_read": false,
+    "tuned_block_sha256": "ea74827b9bdbd27945b235dad5f585149b7499c4fa7f0efb74eac10138d9eb53"
+  }
+}

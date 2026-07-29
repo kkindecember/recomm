@@ -1,0 +1,71 @@
+{
+  "experiment_id": "GRAM_PHASE4_GACR_S0",
+  "registered_at": "2026-07-28T14:10:00+08:00",
+  "decision_status_before_run": "GACR_S0_PREREGISTERED",
+  "engineering_amendments": [
+    {
+      "time": "2026-07-28T14:20:00+08:00",
+      "reason": "First run stopped before optimization because generator-only seen-history candidates carried masked catalog logits (-inf) into residual features.",
+      "change": "Map non-finite masked catalog z-scores to a fixed -10 sentinel and clip all finite catalog z-scores to [-10,10]; scientific gates, samples, model, bound, loss and optimizer remain unchanged.",
+      "first_run_scientific_status": "EXECUTION_INVALID_NO_SUMMARY"
+    }
+  ],
+  "parent_decision": "GCDH_D0_READOUT_RANKING_MISMATCH",
+  "method": "Generator-Anchored Catalog Residual ranking",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "samples_per_dataset": 256,
+  "head_samples": 128,
+  "tail_samples": 128,
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "base_score": "generator reciprocal rank; catalog-only candidates receive zero",
+  "residual": {
+    "features": [
+      "catalog_logit_user_zscore_clipped_10_with_seen_sentinel_minus10",
+      "generator_reciprocal_rank",
+      "catalog_reciprocal_rank",
+      "generator_membership",
+      "catalog_membership",
+      "pooled_user_catalog_weight_cosine"
+    ],
+    "network": "Linear(6,16)-Tanh-Linear(16,1), final layer initialized to zero",
+    "bound": 0.2,
+    "loss": "target-vs-highest-negative hinge margin inside target-free union",
+    "margin": 0.1,
+    "optimizer": "AdamW residual parameters only",
+    "learning_rate": 0.01,
+    "optimizer_steps": 20
+  },
+  "gates": {
+    "zero_residual_identity_rate": 1.0,
+    "finite_rate": 1.0,
+    "nonzero_residual_gradient": true,
+    "loss_last_strictly_less_than_first": true,
+    "residual_abs_max": 0.2,
+    "minimum_covered_head_pairs": 8,
+    "minimum_covered_tail_pairs": 8,
+    "checkpoint_reload_max_abs_difference": 0.0,
+    "parent_checkpoint_sha_unchanged": true,
+    "target_free_candidate_construction": true,
+    "test_predictions_forbidden": true,
+    "both_datasets_required": true
+  },
+  "fixed_decisions": [
+    "GACR_S0_CORRECTNESS_PASS",
+    "STOP_GACR_S0_CORRECTNESS_FAILED",
+    "EXECUTION_INVALID"
+  ],
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 14400,
+    "no_automatic_retry": true
+  }
+}

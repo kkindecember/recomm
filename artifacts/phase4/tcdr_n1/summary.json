@@ -1,0 +1,86 @@
+{
+  "experiment_id": "GRAM_PHASE4_TCDR_N1",
+  "decision": "TCDR_S0_DESIGN_ALLOWED",
+  "datasets": {
+    "Toys": {
+      "metrics": {
+        "users": 128,
+        "matched_pairs": 64,
+        "unique_scored_items": 243,
+        "median_close_score_correlation": 0.5366303219814378,
+        "median_far_score_correlation": 0.38398308415966437,
+        "median_paired_correlation_excess": 0.21883305965365032,
+        "positive_excess_rate": 0.65625,
+        "mean_excess_bootstrap": {
+          "point": 0.15115889614298952,
+          "ci_low": 0.04494351381938175,
+          "ci_high": 0.24769857269335285
+        }
+      },
+      "checks": {
+        "matched_pairs": true,
+        "median_close_score_correlation": true,
+        "median_paired_correlation_excess": true,
+        "positive_excess_rate": true,
+        "mean_excess_bootstrap_ci_lower": true
+      },
+      "scientific_pass": true,
+      "integrity": {
+        "mapping_rate": 1.0,
+        "trie_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "pair_metric_finite_rate": 1.0,
+        "frequency_bin_match_rate": 1.0,
+        "unique_user_rate": 1.0,
+        "optimizer_steps": 0,
+        "checkpoint_sha_unchanged": true,
+        "validation_test_read": false,
+        "sports_read": false,
+        "pair_metrics_sha256": "2ecfce2487b8f899d947f60775f1dc27d28df05ec978d4a76198af6b27ad7f15"
+      },
+      "integrity_valid": true
+    },
+    "Beauty": {
+      "metrics": {
+        "users": 128,
+        "matched_pairs": 64,
+        "unique_scored_items": 242,
+        "median_close_score_correlation": 0.9354781873816966,
+        "median_far_score_correlation": 0.38476934473509605,
+        "median_paired_correlation_excess": 0.4951194822710421,
+        "positive_excess_rate": 0.953125,
+        "mean_excess_bootstrap": {
+          "point": 0.5060863982970539,
+          "ci_low": 0.4166324473432169,
+          "ci_high": 0.5896510047834239
+        }
+      },
+      "checks": {
+        "matched_pairs": true,
+        "median_close_score_correlation": true,
+        "median_paired_correlation_excess": true,
+        "positive_excess_rate": true,
+        "mean_excess_bootstrap_ci_lower": true
+      },
+      "scientific_pass": true,
+      "integrity": {
+        "mapping_rate": 1.0,
+        "trie_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "pair_metric_finite_rate": 1.0,
+        "frequency_bin_match_rate": 1.0,
+        "unique_user_rate": 1.0,
+        "optimizer_steps": 0,
+        "checkpoint_sha_unchanged": true,
+        "validation_test_read": false,
+        "sports_read": false,
+        "pair_metrics_sha256": "5de1c1634297c9824b3efc3e50da845a2eb08ebc037377ee4849268c37df2765"
+      },
+      "integrity_valid": true
+    }
+  },
+  "integrity_valid": true,
+  "optimizer_steps": 0,
+  "validation_test_read": false,
+  "sports_read": false
+}

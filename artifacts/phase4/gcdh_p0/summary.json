@@ -1,0 +1,86 @@
+{
+  "experiment_id": "GRAM_PHASE4_GCDH_P0",
+  "decision": "STOP_GCDH_NO_DUAL_HEAD_EFFECT",
+  "results": {
+    "Toys": {
+      "users": 4096,
+      "tail_users": 2371,
+      "C0_gram_ndcg@10": 0.0766860190394528,
+      "C1_final_ndcg@10": 0.013071556665738723,
+      "overall_ndcg10_relative_gain": -0.829544461565885,
+      "overall_recall10_absolute_gain": -0.09619140625,
+      "tail_ndcg10_relative_gain": -0.7385780588428732,
+      "union_recall50_absolute_gain": 0.025390625,
+      "peak_reserved_relative_increase": 0.0,
+      "bootstrap": {
+        "overall_ndcg10_relative_gain_ci95": [
+          -0.8641916878766966,
+          -0.7913645949445407
+        ],
+        "overall_recall10_absolute_gain_ci95": [
+          -0.1064453125,
+          -0.0859375
+        ],
+        "tail_ndcg10_relative_gain_ci95": [
+          -0.8006461349923049,
+          -0.6687419908880754
+        ]
+      }
+    },
+    "Beauty": {
+      "users": 4096,
+      "tail_users": 2054,
+      "C0_gram_ndcg@10": 0.06281782762172343,
+      "C1_final_ndcg@10": 0.008534967303042535,
+      "overall_ndcg10_relative_gain": -0.8641314476132727,
+      "overall_recall10_absolute_gain": -0.08984375,
+      "tail_ndcg10_relative_gain": -0.65644936746609,
+      "union_recall50_absolute_gain": 0.016845703125,
+      "peak_reserved_relative_increase": 0.0,
+      "bootstrap": {
+        "overall_ndcg10_relative_gain_ci95": [
+          -0.8994483095510666,
+          -0.8278499874308552
+        ],
+        "overall_recall10_absolute_gain_ci95": [
+          -0.099609375,
+          -0.080322265625
+        ],
+        "tail_ndcg10_relative_gain_ci95": [
+          -0.7656398670331347,
+          -0.5155493676892666
+        ]
+      }
+    }
+  },
+  "gate_rows": [
+    {
+      "dataset": "Toys",
+      "checks": {
+        "overall_ndcg10_relative_gain": false,
+        "overall_recall10_absolute_gain": false,
+        "tail_ndcg10_relative_gain": false,
+        "union_recall50_absolute_gain": true,
+        "peak_reserved_relative_increase": true
+      },
+      "pass": false
+    },
+    {
+      "dataset": "Beauty",
+      "checks": {
+        "overall_ndcg10_relative_gain": false,
+        "overall_recall10_absolute_gain": false,
+        "tail_ndcg10_relative_gain": false,
+        "union_recall50_absolute_gain": false,
+        "peak_reserved_relative_increase": true
+      },
+      "pass": false
+    }
+  ],
+  "integrity": {
+    "matched_training": true,
+    "paired_validation_users": true,
+    "test_data_read": false,
+    "both_datasets_required": true
+  }
+}

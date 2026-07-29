@@ -1,0 +1,106 @@
+{
+  "experiment_id": "GRAM_PHASE4_CHPR_A0",
+  "decision": "STOP_CHPR_NO_PREFIX_RANKING_DEFICIT",
+  "results": {
+    "Toys": {
+      "metrics": {
+        "samples": 512,
+        "unique_users": 512,
+        "valid_proposal_sample_rate": 1.0,
+        "deficit_sample_rate": 0.86328125,
+        "tail_samples": 256,
+        "tail_deficit_sample_rate": 0.8359375,
+        "deficit_user_coverage": 0.86328125,
+        "mean_minimum_margin": -1.5995953255296627,
+        "beam_hit50_deficit_rate": 0.7710437710437711,
+        "beam_miss50_deficit_rate": 0.9906976744186047,
+        "deficit_pairs": 2580,
+        "deficit_pairs_by_depth": {
+          "0": 1987,
+          "1": 401,
+          "2": 172,
+          "3": 11,
+          "4": 2,
+          "5": 7
+        },
+        "supported_nontrivial_depths": {
+          "1": 401,
+          "2": 172
+        }
+      },
+      "checks": {
+        "valid_proposal_sample_rate": true,
+        "deficit_sample_rate": true,
+        "tail_deficit_sample_rate": true,
+        "deficit_user_coverage": true,
+        "supported_nontrivial_depths": true
+      },
+      "scientific_pass": true,
+      "integrity": {
+        "mapping_rate": 1.0,
+        "trie_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "history_gold_exclusion_rate": 1.0,
+        "unique_user_rate": 1.0,
+        "optimizer_steps": 0,
+        "scorer_parameter_sha_unchanged": true,
+        "proposer_parameter_sha_unchanged": true,
+        "validation_test_read": false,
+        "pair_file_sha256": "6de17c140378b754021c65ff0612af58b872973210ed9e617e595dc87afaf41b",
+        "sample_file_sha256": "928f90c9a9684ff2905c9ce9b057f31a18f1508bf160ddd94798d571106a31d6"
+      },
+      "integrity_valid": true
+    },
+    "Beauty": {
+      "metrics": {
+        "samples": 512,
+        "unique_users": 512,
+        "valid_proposal_sample_rate": 1.0,
+        "deficit_sample_rate": 0.90234375,
+        "tail_samples": 256,
+        "tail_deficit_sample_rate": 0.90625,
+        "deficit_user_coverage": 0.90234375,
+        "mean_minimum_margin": -2.0824252091451854,
+        "beam_hit50_deficit_rate": 0.8201438848920863,
+        "beam_miss50_deficit_rate": 1.0,
+        "deficit_pairs": 2648,
+        "deficit_pairs_by_depth": {
+          "0": 2363,
+          "1": 222,
+          "2": 34,
+          "3": 18,
+          "4": 6,
+          "6": 2,
+          "7": 3
+        },
+        "supported_nontrivial_depths": {
+          "1": 222
+        }
+      },
+      "checks": {
+        "valid_proposal_sample_rate": true,
+        "deficit_sample_rate": true,
+        "tail_deficit_sample_rate": true,
+        "deficit_user_coverage": true,
+        "supported_nontrivial_depths": false
+      },
+      "scientific_pass": false,
+      "integrity": {
+        "mapping_rate": 1.0,
+        "trie_membership_rate": 1.0,
+        "finite_rate": 1.0,
+        "history_gold_exclusion_rate": 1.0,
+        "unique_user_rate": 1.0,
+        "optimizer_steps": 0,
+        "scorer_parameter_sha_unchanged": true,
+        "proposer_parameter_sha_unchanged": true,
+        "validation_test_read": false,
+        "pair_file_sha256": "8250f836e84874eb0f0b531c5a68556e1535a5b34c38bfdecbb22036bac79ec7",
+        "sample_file_sha256": "a49ab8f641dc74c72b19c5a2e23992660f3b1fab0365b7787b40c80b6cffac51"
+      },
+      "integrity_valid": true
+    }
+  },
+  "integrity_valid": true,
+  "test_data_read": false
+}

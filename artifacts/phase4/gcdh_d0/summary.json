@@ -1,0 +1,172 @@
+{
+  "experiment_id": "GRAM_PHASE4_GCDH_D0",
+  "decision": "GCDH_D0_READOUT_RANKING_MISMATCH",
+  "integrity_valid": true,
+  "representation_healthy": true,
+  "cross_domain_incremental_catalog_signal": true,
+  "results": {
+    "Toys": {
+      "C0": {
+        "dataset": "Toys",
+        "control": "C0",
+        "users": 4096,
+        "validation_user_sha256": "22f0bc316a277293f329d4f75497d2c13d10e5b40aa98d6f1de0a812cb6b0b9a",
+        "checkpoint_sha256_before": "68b08a80782ab010da403f2ff059d5009b5301fdd1da62bb903f65ddb2830fd6",
+        "checkpoint_sha256_after": "68b08a80782ab010da403f2ff059d5009b5301fdd1da62bb903f65ddb2830fd6",
+        "checkpoint_sha_unchanged": true,
+        "optimizer_steps": 0,
+        "finite_rate": 1.0,
+        "target_mapping_rate": 1.0,
+        "repeat_max_abs_difference": 0.0,
+        "catalog": {
+          "mean_target_rank": 4233.97607421875,
+          "median_target_rank": 3422.5,
+          "mrr": 0.011724144943928538,
+          "recall10": 0.02490234375,
+          "recall50": 0.060791015625,
+          "mean_normalized_entropy": 0.09314926535768885,
+          "mean_popularity_logit_pearson": -0.01468017354355756
+        },
+        "state": {
+          "sample_users": 512,
+          "pooled_rms_feature_std": 0.025245202690583828,
+          "median_pairwise_cosine_distance": 0.20448373287608357,
+          "effective_rank": 29.50684312391107,
+          "mean_state_norm": 1.239916273665255,
+          "state_norm_cv": 0.044355328991993244
+        },
+        "test_data_read": false
+      },
+      "C1": {
+        "dataset": "Toys",
+        "control": "C1",
+        "users": 4096,
+        "validation_user_sha256": "22f0bc316a277293f329d4f75497d2c13d10e5b40aa98d6f1de0a812cb6b0b9a",
+        "checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+        "checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+        "checkpoint_sha_unchanged": true,
+        "optimizer_steps": 0,
+        "finite_rate": 1.0,
+        "target_mapping_rate": 1.0,
+        "repeat_max_abs_difference": 0.0,
+        "catalog": {
+          "mean_target_rank": 4191.682373046875,
+          "median_target_rank": 3317.0,
+          "mrr": 0.01215976386256415,
+          "recall10": 0.02587890625,
+          "recall50": 0.06591796875,
+          "mean_normalized_entropy": 0.19918992345916176,
+          "mean_popularity_logit_pearson": 0.004076345148421706
+        },
+        "state": {
+          "sample_users": 512,
+          "pooled_rms_feature_std": 0.01811253604591724,
+          "median_pairwise_cosine_distance": 0.14330327330971593,
+          "effective_rank": 30.82304430988994,
+          "mean_state_norm": 1.048219873758375,
+          "state_norm_cv": 0.03286093501446179
+        },
+        "test_data_read": false
+      },
+      "c0_c1_catalog_top50_overlap_mean": 0.4807373046875,
+      "source_attribution_c1": {
+        "users": 4096,
+        "counts": {
+          "generator_only": 696,
+          "catalog_only": 104,
+          "both": 166,
+          "neither": 3130
+        },
+        "rates": {
+          "generator_only": 0.169921875,
+          "catalog_only": 0.025390625,
+          "both": 0.04052734375,
+          "neither": 0.76416015625
+        },
+        "union_oracle_recall50": 0.23583984375
+      }
+    },
+    "Beauty": {
+      "C0": {
+        "dataset": "Beauty",
+        "control": "C0",
+        "users": 4096,
+        "validation_user_sha256": "20c460b65d8bc41e72e3971ad9b083704c15de8a95cc82c1ae0ccbba88b7b3c7",
+        "checkpoint_sha256_before": "d0b58ca1ef7cc12e672c4e48d0349af74f96cac0427c5b9c544e767e8e4613e4",
+        "checkpoint_sha256_after": "d0b58ca1ef7cc12e672c4e48d0349af74f96cac0427c5b9c544e767e8e4613e4",
+        "checkpoint_sha_unchanged": true,
+        "optimizer_steps": 0,
+        "finite_rate": 1.0,
+        "target_mapping_rate": 1.0,
+        "repeat_max_abs_difference": 0.0,
+        "catalog": {
+          "mean_target_rank": 4916.167236328125,
+          "median_target_rank": 4442.0,
+          "mrr": 0.006850269759214045,
+          "recall10": 0.012939453125,
+          "recall50": 0.02880859375,
+          "mean_normalized_entropy": 0.12550309961168338,
+          "mean_popularity_logit_pearson": -0.01845624442160156
+        },
+        "state": {
+          "sample_users": 512,
+          "pooled_rms_feature_std": 0.017945614391927597,
+          "median_pairwise_cosine_distance": 0.11043642251143215,
+          "effective_rank": 12.711204384502546,
+          "mean_state_norm": 1.1738547555968903,
+          "state_norm_cv": 0.05586698926958706
+        },
+        "test_data_read": false
+      },
+      "C1": {
+        "dataset": "Beauty",
+        "control": "C1",
+        "users": 4096,
+        "validation_user_sha256": "20c460b65d8bc41e72e3971ad9b083704c15de8a95cc82c1ae0ccbba88b7b3c7",
+        "checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+        "checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+        "checkpoint_sha_unchanged": true,
+        "optimizer_steps": 0,
+        "finite_rate": 1.0,
+        "target_mapping_rate": 1.0,
+        "repeat_max_abs_difference": 0.0,
+        "catalog": {
+          "mean_target_rank": 4635.3408203125,
+          "median_target_rank": 4075.5,
+          "mrr": 0.008156166835532915,
+          "recall10": 0.015625,
+          "recall50": 0.03564453125,
+          "mean_normalized_entropy": 0.4190739937683962,
+          "mean_popularity_logit_pearson": 0.01883688638599374
+        },
+        "state": {
+          "sample_users": 512,
+          "pooled_rms_feature_std": 0.011655338487586162,
+          "median_pairwise_cosine_distance": 0.07437719921768804,
+          "effective_rank": 22.509755659779028,
+          "mean_state_norm": 0.9275173391853676,
+          "state_norm_cv": 0.030197299429941333
+        },
+        "test_data_read": false
+      },
+      "c0_c1_catalog_top50_overlap_mean": 0.34109375000000003,
+      "source_attribution_c1": {
+        "users": 4096,
+        "counts": {
+          "generator_only": 753,
+          "catalog_only": 69,
+          "both": 77,
+          "neither": 3197
+        },
+        "rates": {
+          "generator_only": 0.183837890625,
+          "catalog_only": 0.016845703125,
+          "both": 0.018798828125,
+          "neither": 0.780517578125
+        },
+        "union_oracle_recall50": 0.219482421875
+      }
+    }
+  },
+  "test_data_read": false
+}

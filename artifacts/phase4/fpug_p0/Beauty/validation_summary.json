@@ -1,0 +1,45 @@
+{
+  "metrics": {
+    "users": 512,
+    "tail_users": 248,
+    "baseline_ndcg10": 0.047534302861057594,
+    "gated_ndcg10": 0.044742807652512456,
+    "overall_ndcg10_relative": {
+      "point": -0.05872591035372199,
+      "ci_low": -0.1135628707854291,
+      "ci_high": -0.012462224129898657
+    },
+    "baseline_recall10": 0.08984375,
+    "gated_recall10": 0.08203125,
+    "overall_recall10_absolute_gain": -0.0078125,
+    "baseline_tail_ndcg10": 0.024462143987386838,
+    "gated_tail_ndcg10": 0.02453419421540137,
+    "tail_ndcg10_relative": {
+      "point": 0.002945376662474075,
+      "ci_low": 0.0,
+      "ci_high": 0.011965908472810047
+    },
+    "baseline_hit_gated_miss_rate": 0.0078125
+  },
+  "checks": {
+    "overall_ndcg10_relative_gain": false,
+    "overall_ndcg10_ci_lower": false,
+    "overall_recall10_absolute_gain": false,
+    "tail_ndcg10_relative_gain": false,
+    "tail_ndcg10_ci_lower": true,
+    "baseline_hit_gated_miss_rate": false
+  },
+  "effect_pass": false,
+  "integrity": {
+    "training_prefix_generation_smoke_mapping_rate": 1.0,
+    "candidate_mapping_rate": 1.0,
+    "finite_rate": 1.0,
+    "validation_selection_target_independent": true,
+    "validation_user_sha256": "943d2ca855002968240ddbc6730693b799334484d3e24a9bdf0e106954735200",
+    "parameter_sha_unchanged": true,
+    "test_predictions_read": false,
+    "sports_read": false,
+    "validation_file_sha256": "0b5460575f73b0b15d55f78b022a85be208a1b9003912a9601b7f680c345728d"
+  },
+  "integrity_valid": true
+}

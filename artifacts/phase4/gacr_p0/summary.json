@@ -1,0 +1,651 @@
+{
+  "experiment_id": "GRAM_PHASE4_GACR_P0",
+  "decision": "STOP_GACR_NO_RESIDUAL_RANK_EFFECT",
+  "selected_shared_step": 30,
+  "selection_rows": [
+    {
+      "step": 5,
+      "eligible": false,
+      "mean_relative_ndcg10_gain": 0.0029076596628391793
+    },
+    {
+      "step": 10,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.013632147444527787
+    },
+    {
+      "step": 20,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.023254666364586396
+    },
+    {
+      "step": 30,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.023293918245230194
+    },
+    {
+      "step": 40,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.019755660155691523
+    },
+    {
+      "step": 50,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.01821753455143804
+    }
+  ],
+  "training": {
+    "Toys": {
+      "fit_samples": 1024,
+      "fit_covered": 591,
+      "calibration_samples": 256,
+      "calibration_covered": 147,
+      "fit_user_sha256": "318a56fc9f4963edee1ca00c11873bef21e5839b35348a033168dcbabc7732d8",
+      "calibration_user_sha256": "d48e3ed6bfddaddff6ff3876e9a64f29006b8b2fee79950470723194c57e073d",
+      "fit_calibration_user_overlap": 0,
+      "zero_residual_identity_rate": 1.0,
+      "parent_checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "calibration": {
+        "5": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.3828125,
+            "baseline_NDCG@10": 0.24209625521940012,
+            "baseline_Recall@50": 0.5625,
+            "residual_Recall@10": 0.37890625,
+            "residual_NDCG@10": 0.24201327640305445,
+            "residual_Recall@50": 0.50390625,
+            "union_coverage": 0.57421875,
+            "broad_harm_rate": 0.0078125
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.3984375,
+            "baseline_NDCG@10": 0.24043289842305865,
+            "baseline_Recall@50": 0.671875,
+            "residual_Recall@10": 0.390625,
+            "residual_NDCG@10": 0.2389578426916088,
+            "residual_Recall@50": 0.5703125,
+            "union_coverage": 0.6796875,
+            "broad_harm_rate": 0.015625
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.3671875,
+            "baseline_NDCG@10": 0.24375961201574156,
+            "baseline_Recall@50": 0.453125,
+            "residual_Recall@10": 0.3671875,
+            "residual_NDCG@10": 0.2450687101145001,
+            "residual_Recall@50": 0.4375,
+            "union_coverage": 0.46875,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "10": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.3828125,
+            "baseline_NDCG@10": 0.24209625521940012,
+            "baseline_Recall@50": 0.5625,
+            "residual_Recall@10": 0.38671875,
+            "residual_NDCG@10": 0.2469891540455897,
+            "residual_Recall@50": 0.45703125,
+            "union_coverage": 0.57421875,
+            "broad_harm_rate": 0.0078125
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.3984375,
+            "baseline_NDCG@10": 0.24043289842305865,
+            "baseline_Recall@50": 0.671875,
+            "residual_Recall@10": 0.40625,
+            "residual_NDCG@10": 0.24771748355496115,
+            "residual_Recall@50": 0.4921875,
+            "union_coverage": 0.6796875,
+            "broad_harm_rate": 0.0078125
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.3671875,
+            "baseline_NDCG@10": 0.24375961201574156,
+            "baseline_Recall@50": 0.453125,
+            "residual_Recall@10": 0.3671875,
+            "residual_NDCG@10": 0.24626082453621814,
+            "residual_Recall@50": 0.421875,
+            "union_coverage": 0.46875,
+            "broad_harm_rate": 0.0078125
+          }
+        },
+        "20": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.3828125,
+            "baseline_NDCG@10": 0.24209625521940012,
+            "baseline_Recall@50": 0.5625,
+            "residual_Recall@10": 0.390625,
+            "residual_NDCG@10": 0.24804261791689808,
+            "residual_Recall@50": 0.51171875,
+            "union_coverage": 0.57421875,
+            "broad_harm_rate": 0.0078125
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.3984375,
+            "baseline_NDCG@10": 0.24043289842305865,
+            "baseline_Recall@50": 0.671875,
+            "residual_Recall@10": 0.4140625,
+            "residual_NDCG@10": 0.24995105769605275,
+            "residual_Recall@50": 0.5859375,
+            "union_coverage": 0.6796875,
+            "broad_harm_rate": 0.0078125
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.3671875,
+            "baseline_NDCG@10": 0.24375961201574156,
+            "baseline_Recall@50": 0.453125,
+            "residual_Recall@10": 0.3671875,
+            "residual_NDCG@10": 0.24613417813774335,
+            "residual_Recall@50": 0.4375,
+            "union_coverage": 0.46875,
+            "broad_harm_rate": 0.0078125
+          }
+        },
+        "30": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.3828125,
+            "baseline_NDCG@10": 0.24209625521940012,
+            "baseline_Recall@50": 0.5625,
+            "residual_Recall@10": 0.390625,
+            "residual_NDCG@10": 0.2475833421734261,
+            "residual_Recall@50": 0.5625,
+            "union_coverage": 0.57421875,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.3984375,
+            "baseline_NDCG@10": 0.24043289842305865,
+            "baseline_Recall@50": 0.671875,
+            "residual_Recall@10": 0.40625,
+            "residual_NDCG@10": 0.24663641801929326,
+            "residual_Recall@50": 0.671875,
+            "union_coverage": 0.6796875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.3671875,
+            "baseline_NDCG@10": 0.24375961201574156,
+            "baseline_Recall@50": 0.453125,
+            "residual_Recall@10": 0.375,
+            "residual_NDCG@10": 0.24853026632755887,
+            "residual_Recall@50": 0.453125,
+            "union_coverage": 0.46875,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "40": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.3828125,
+            "baseline_NDCG@10": 0.24209625521940012,
+            "baseline_Recall@50": 0.5625,
+            "residual_Recall@10": 0.38671875,
+            "residual_NDCG@10": 0.24605299123860433,
+            "residual_Recall@50": 0.5625,
+            "union_coverage": 0.57421875,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.3984375,
+            "baseline_NDCG@10": 0.24043289842305865,
+            "baseline_Recall@50": 0.671875,
+            "residual_Recall@10": 0.3984375,
+            "residual_NDCG@10": 0.24428940030895674,
+            "residual_Recall@50": 0.671875,
+            "union_coverage": 0.6796875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.3671875,
+            "baseline_NDCG@10": 0.24375961201574156,
+            "baseline_Recall@50": 0.453125,
+            "residual_Recall@10": 0.375,
+            "residual_NDCG@10": 0.24781658216825195,
+            "residual_Recall@50": 0.453125,
+            "union_coverage": 0.46875,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "50": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.3828125,
+            "baseline_NDCG@10": 0.24209625521940012,
+            "baseline_Recall@50": 0.5625,
+            "residual_Recall@10": 0.390625,
+            "residual_NDCG@10": 0.2471821507164086,
+            "residual_Recall@50": 0.5625,
+            "union_coverage": 0.57421875,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.3984375,
+            "baseline_NDCG@10": 0.24043289842305865,
+            "baseline_Recall@50": 0.671875,
+            "residual_Recall@10": 0.40625,
+            "residual_NDCG@10": 0.24654771926456523,
+            "residual_Recall@50": 0.671875,
+            "union_coverage": 0.6796875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.3671875,
+            "baseline_NDCG@10": 0.24375961201574156,
+            "baseline_Recall@50": 0.453125,
+            "residual_Recall@10": 0.375,
+            "residual_NDCG@10": 0.24781658216825195,
+            "residual_Recall@50": 0.453125,
+            "union_coverage": 0.46875,
+            "broad_harm_rate": 0.0
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "fit_samples": 1024,
+      "fit_covered": 510,
+      "calibration_samples": 256,
+      "calibration_covered": 111,
+      "fit_user_sha256": "e8844b911d1612ce5fac6a7b5f1063ae3c1acdaa9a60209c49d68b00fd18cb22",
+      "calibration_user_sha256": "dc2d9c9f82e11d4f755100899dcb74f9b3b3f5c697951e6dddbc99572edc6818",
+      "fit_calibration_user_overlap": 0,
+      "zero_residual_identity_rate": 1.0,
+      "parent_checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "calibration": {
+        "5": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.30078125,
+            "baseline_NDCG@10": 0.20032493503877308,
+            "baseline_Recall@50": 0.43359375,
+            "residual_Recall@10": 0.3046875,
+            "residual_NDCG@10": 0.2015585501452201,
+            "residual_Recall@50": 0.3984375,
+            "union_coverage": 0.43359375,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.328125,
+            "baseline_NDCG@10": 0.19281443183337843,
+            "baseline_Recall@50": 0.546875,
+            "residual_Recall@10": 0.3359375,
+            "residual_NDCG@10": 0.1947605870102292,
+            "residual_Recall@50": 0.5,
+            "union_coverage": 0.546875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.2734375,
+            "baseline_NDCG@10": 0.20783543824416773,
+            "baseline_Recall@50": 0.3203125,
+            "residual_Recall@10": 0.2734375,
+            "residual_NDCG@10": 0.20835651328021101,
+            "residual_Recall@50": 0.296875,
+            "union_coverage": 0.3203125,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "10": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.30078125,
+            "baseline_NDCG@10": 0.20032493503877308,
+            "baseline_Recall@50": 0.43359375,
+            "residual_Recall@10": 0.30078125,
+            "residual_NDCG@10": 0.2017379757314856,
+            "residual_Recall@50": 0.37109375,
+            "union_coverage": 0.43359375,
+            "broad_harm_rate": 0.015625
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.328125,
+            "baseline_NDCG@10": 0.19281443183337843,
+            "baseline_Recall@50": 0.546875,
+            "residual_Recall@10": 0.328125,
+            "residual_NDCG@10": 0.19399359533679306,
+            "residual_Recall@50": 0.453125,
+            "union_coverage": 0.546875,
+            "broad_harm_rate": 0.03125
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.2734375,
+            "baseline_NDCG@10": 0.20783543824416773,
+            "baseline_Recall@50": 0.3203125,
+            "residual_Recall@10": 0.2734375,
+            "residual_NDCG@10": 0.2094823561261781,
+            "residual_Recall@50": 0.2890625,
+            "union_coverage": 0.3203125,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "20": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.30078125,
+            "baseline_NDCG@10": 0.20032493503877308,
+            "baseline_Recall@50": 0.43359375,
+            "residual_Recall@10": 0.30859375,
+            "residual_NDCG@10": 0.20472153761224607,
+            "residual_Recall@50": 0.41796875,
+            "union_coverage": 0.43359375,
+            "broad_harm_rate": 0.01171875
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.328125,
+            "baseline_NDCG@10": 0.19281443183337843,
+            "baseline_Recall@50": 0.546875,
+            "residual_Recall@10": 0.34375,
+            "residual_NDCG@10": 0.19893783039853702,
+            "residual_Recall@50": 0.53125,
+            "union_coverage": 0.546875,
+            "broad_harm_rate": 0.0234375
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.2734375,
+            "baseline_NDCG@10": 0.20783543824416773,
+            "baseline_Recall@50": 0.3203125,
+            "residual_Recall@10": 0.2734375,
+            "residual_NDCG@10": 0.21050524482595512,
+            "residual_Recall@50": 0.3046875,
+            "union_coverage": 0.3203125,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "30": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.30078125,
+            "baseline_NDCG@10": 0.20032493503877308,
+            "baseline_Recall@50": 0.43359375,
+            "residual_Recall@10": 0.30859375,
+            "residual_NDCG@10": 0.20511729611853438,
+            "residual_Recall@50": 0.43359375,
+            "union_coverage": 0.43359375,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.328125,
+            "baseline_NDCG@10": 0.19281443183337843,
+            "baseline_Recall@50": 0.546875,
+            "residual_Recall@10": 0.34375,
+            "residual_NDCG@10": 0.20015060085669661,
+            "residual_Recall@50": 0.546875,
+            "union_coverage": 0.546875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.2734375,
+            "baseline_NDCG@10": 0.20783543824416773,
+            "baseline_Recall@50": 0.3203125,
+            "residual_Recall@10": 0.2734375,
+            "residual_NDCG@10": 0.21008399138037212,
+            "residual_Recall@50": 0.3203125,
+            "union_coverage": 0.3203125,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "40": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.30078125,
+            "baseline_NDCG@10": 0.20032493503877308,
+            "baseline_Recall@50": 0.43359375,
+            "residual_Recall@10": 0.30859375,
+            "residual_NDCG@10": 0.20496599745497907,
+            "residual_Recall@50": 0.43359375,
+            "union_coverage": 0.43359375,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.328125,
+            "baseline_NDCG@10": 0.19281443183337843,
+            "baseline_Recall@50": 0.546875,
+            "residual_Recall@10": 0.34375,
+            "residual_NDCG@10": 0.19952970423019306,
+            "residual_Recall@50": 0.546875,
+            "union_coverage": 0.546875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.2734375,
+            "baseline_NDCG@10": 0.20783543824416773,
+            "baseline_Recall@50": 0.3203125,
+            "residual_Recall@10": 0.2734375,
+            "residual_NDCG@10": 0.21040229067976504,
+            "residual_Recall@50": 0.3203125,
+            "union_coverage": 0.3203125,
+            "broad_harm_rate": 0.0
+          }
+        },
+        "50": {
+          "overall": {
+            "n": 256,
+            "baseline_Recall@10": 0.30078125,
+            "baseline_NDCG@10": 0.20032493503877308,
+            "baseline_Recall@50": 0.43359375,
+            "residual_Recall@10": 0.3046875,
+            "residual_NDCG@10": 0.20341541348064188,
+            "residual_Recall@50": 0.43359375,
+            "union_coverage": 0.43359375,
+            "broad_harm_rate": 0.0
+          },
+          "head": {
+            "n": 128,
+            "baseline_Recall@10": 0.328125,
+            "baseline_NDCG@10": 0.19281443183337843,
+            "baseline_Recall@50": 0.546875,
+            "residual_Recall@10": 0.3359375,
+            "residual_NDCG@10": 0.19660723826413348,
+            "residual_Recall@50": 0.546875,
+            "union_coverage": 0.546875,
+            "broad_harm_rate": 0.0
+          },
+          "tail": {
+            "n": 128,
+            "baseline_Recall@10": 0.2734375,
+            "baseline_NDCG@10": 0.20783543824416773,
+            "baseline_Recall@50": 0.3203125,
+            "residual_Recall@10": 0.2734375,
+            "residual_NDCG@10": 0.2102235886971503,
+            "residual_Recall@50": 0.3203125,
+            "union_coverage": 0.3203125,
+            "broad_harm_rate": 0.0
+          }
+        }
+      }
+    }
+  },
+  "validation": {
+    "Toys": {
+      "users": 1024,
+      "validation_user_sha256": "28c0bc8a4145f8d4d4b93e2de75b2772b10399cebaa4fba5270a33fced090569",
+      "prior_cohort_overlap": 0,
+      "groups": {
+        "overall": {
+          "n": 1024,
+          "baseline_Recall@10": 0.1298828125,
+          "baseline_NDCG@10": 0.08671379381173575,
+          "baseline_Recall@50": 0.21875,
+          "residual_Recall@10": 0.1318359375,
+          "residual_NDCG@10": 0.08739501321879997,
+          "residual_Recall@50": 0.2158203125,
+          "union_coverage": 0.2392578125,
+          "broad_harm_rate": 0.0009765625
+        },
+        "head": {
+          "n": 449,
+          "baseline_Recall@10": 0.1492204899777283,
+          "baseline_NDCG@10": 0.09456971312269134,
+          "baseline_Recall@50": 0.28507795100222716,
+          "residual_Recall@10": 0.1514476614699332,
+          "residual_NDCG@10": 0.09539907989666509,
+          "residual_Recall@50": 0.2806236080178174,
+          "union_coverage": 0.2962138084632517,
+          "broad_harm_rate": 0.0
+        },
+        "tail": {
+          "n": 575,
+          "baseline_Recall@10": 0.11478260869565217,
+          "baseline_NDCG@10": 0.08057934551500691,
+          "baseline_Recall@50": 0.16695652173913045,
+          "residual_Recall@10": 0.11652173913043479,
+          "residual_NDCG@10": 0.08114488115208443,
+          "residual_Recall@50": 0.16521739130434782,
+          "union_coverage": 0.19478260869565217,
+          "broad_harm_rate": 0.0017391304347826088
+        }
+      },
+      "per_user_sha256": "52d466841bd1398bea39172e7306172dc6d5a22a72a1009a34a91d51d4bcfc5b",
+      "residual_checkpoint_sha256": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+      "parent_checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha_unchanged": true,
+      "target_free_candidate_construction": true,
+      "backbone_optimizer_steps": 0,
+      "finite_rate": 1.0,
+      "test_data_read": false,
+      "bootstrap": {
+        "overall_ndcg10_relative_gain_ci95": [
+          -0.008030971002277135,
+          0.024992392033587038
+        ],
+        "overall_recall10_absolute_gain_ci95": [
+          -0.001953125,
+          0.005859375
+        ],
+        "tail_ndcg10_relative_gain_ci95": [
+          -0.015981406589336312,
+          0.033021007488454386
+        ]
+      }
+    },
+    "Beauty": {
+      "users": 1024,
+      "validation_user_sha256": "2eb9c2fafc2993139c2f166e0923294b9b1ed7476b91ef2dc4b8d841bfc83cc7",
+      "prior_cohort_overlap": 0,
+      "groups": {
+        "overall": {
+          "n": 1024,
+          "baseline_Recall@10": 0.083984375,
+          "baseline_NDCG@10": 0.050554629429573186,
+          "baseline_Recall@50": 0.1904296875,
+          "residual_Recall@10": 0.0849609375,
+          "residual_NDCG@10": 0.05171638054452304,
+          "residual_Recall@50": 0.19140625,
+          "union_coverage": 0.2109375,
+          "broad_harm_rate": 0.0009765625
+        },
+        "head": {
+          "n": 493,
+          "baseline_Recall@10": 0.13995943204868155,
+          "baseline_NDCG@10": 0.08497028897128338,
+          "baseline_Recall@50": 0.3225152129817444,
+          "residual_Recall@10": 0.1440162271805274,
+          "residual_NDCG@10": 0.08705807098593425,
+          "residual_Recall@50": 0.3225152129817444,
+          "union_coverage": 0.3306288032454361,
+          "broad_harm_rate": 0.0
+        },
+        "tail": {
+          "n": 531,
+          "baseline_Recall@10": 0.032015065913371,
+          "baseline_NDCG@10": 0.018601860777853547,
+          "baseline_Recall@50": 0.06779661016949153,
+          "residual_Recall@10": 0.030131826741996232,
+          "residual_NDCG@10": 0.01890385062434278,
+          "residual_Recall@50": 0.0696798493408663,
+          "union_coverage": 0.09981167608286252,
+          "broad_harm_rate": 0.0018832391713747645
+        }
+      },
+      "per_user_sha256": "6f93dc6550cb22fe33967bfafde5120af5b7b8d44f470548e167850e3d61c54a",
+      "residual_checkpoint_sha256": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+      "parent_checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha_unchanged": true,
+      "target_free_candidate_construction": true,
+      "backbone_optimizer_steps": 0,
+      "finite_rate": 1.0,
+      "test_data_read": false,
+      "bootstrap": {
+        "overall_ndcg10_relative_gain_ci95": [
+          0.001383296418607072,
+          0.04787258787810009
+        ],
+        "overall_recall10_absolute_gain_ci95": [
+          -0.001953125,
+          0.0048828125
+        ],
+        "tail_ndcg10_relative_gain_ci95": [
+          -0.07175944155448291,
+          0.09242951083179848
+        ]
+      }
+    }
+  },
+  "gate_rows": [
+    {
+      "dataset": "Toys",
+      "gains": {
+        "overall_ndcg10_relative_gain": 0.007855952059290905,
+        "overall_recall10_absolute_gain": 0.001953125,
+        "tail_ndcg10_relative_gain": 0.00701836970085834,
+        "broad_harm_rate": 0.0009765625
+      },
+      "checks": {
+        "overall_ndcg10": false,
+        "overall_recall10": true,
+        "tail_ndcg10": false,
+        "broad_harm": true
+      },
+      "pass": false
+    },
+    {
+      "dataset": "Beauty",
+      "gains": {
+        "overall_ndcg10_relative_gain": 0.022980113355756338,
+        "overall_recall10_absolute_gain": 0.0009765625,
+        "tail_ndcg10_relative_gain": 0.01623438913427222,
+        "broad_harm_rate": 0.0009765625
+      },
+      "checks": {
+        "overall_ndcg10": true,
+        "overall_recall10": true,
+        "tail_ndcg10": true,
+        "broad_harm": true
+      },
+      "pass": true
+    }
+  ],
+  "integrity_valid": true,
+  "test_data_read": false
+}

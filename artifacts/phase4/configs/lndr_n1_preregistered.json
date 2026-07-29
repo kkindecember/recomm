@@ -1,0 +1,80 @@
+{
+  "experiment_id": "GRAM_PHASE4_LNDR_N1",
+  "registered_at": "2026-07-28T21:00:00+08:00",
+  "decision_status_before_run": "LNDR_N1_PREREGISTERED",
+  "parent_brief": "artifacts/phase4/lndr_n0/mechanism_brief.md",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "samples_per_dataset": 1024,
+  "head_samples": 512,
+  "tail_samples": 512,
+  "unique_users": true,
+  "data_scope": "catalog metadata and training-prefix only",
+  "checkpoint_variant": "GCDH-P0 C0 matched lexical continuation",
+  "audit": {
+    "batch_size": 8,
+    "exclude_eos": true,
+    "competitive_legal_child_count_min": 2
+  },
+  "semantic_audit": {
+    "representation": "mean frozen native T5 input embeddings of item metadata",
+    "metadata_max_tokens": 64,
+    "metadata_batch_size": 128,
+    "minimum_descendant_items": 3,
+    "same_token_same_depth_only": true,
+    "high_polysemy_distance_min": 0.1,
+    "low_polysemy_distance_max": 0.05
+  },
+  "state_audit": {
+    "metric": "cosine-distance same-node versus different-node AUC within token-depth",
+    "samples_per_node_cap": 20,
+    "pair_cap": 50000
+  },
+  "readout_audit": {
+    "deficit": "gold lexical logit <= maximum legal nongold sibling logit",
+    "matching": "exact depth x target_group x branch_bin",
+    "branch_bins": ["2", "3-4", "5-8", "9+"]
+  },
+  "scientific_gates": {
+    "semantic_node_occurrences_min": 1000,
+    "semantic_distance_median_min": 0.1,
+    "high_polysemy_steps_min": 500,
+    "supported_depths_min": 2,
+    "high_polysemy_steps_per_depth_min": 100,
+    "state_token_depth_groups_min": 10,
+    "state_pairs_each_min": 500,
+    "state_separation_auc_min": 0.65,
+    "matched_steps_per_cohort_min": 100,
+    "high_polysemy_deficit_rate_min": 0.25,
+    "deficit_rate_difference_min": 0.05,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "mapping_rate": 1.0,
+    "trie_membership_rate": 1.0,
+    "finite_rate": 1.0,
+    "unique_user_rate": 1.0,
+    "optimizer_steps": 0,
+    "parameter_sha_unchanged": true,
+    "validation_test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "1b1f69d0b6d7b3681cf617824f5f231d7e0ccfdf21d39bf06f96bbc4bc15ab27"
+  },
+  "fixed_decisions": [
+    "LNDR_S0_DESIGN_ALLOWED",
+    "STOP_LNDR_NO_NODE_POLYSEMY_DEFICIT",
+    "EXECUTION_INVALID"
+  ],
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 4,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 14400,
+    "no_automatic_retry": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "metrics": {
+    "samples": 8,
+    "head_samples": 4,
+    "tail_samples": 4,
+    "zero_identity_max_abs_difference": 0.0,
+    "coarse_identity_max_abs_difference": 0.0,
+    "zero_gate_min": 1.0,
+    "zero_gate_max": 1.0,
+    "initial_loss": 0.4433613419532776,
+    "final_loss": 0.38006526231765747,
+    "relative_loss_decrease": 0.14276409250468752,
+    "gradient_norm_min": 0.036744675731929445,
+    "gradient_norm_max": 2.653938364683019,
+    "trained_gate_min": 0.5889829397201538,
+    "trained_gate_max": 1.308882474899292,
+    "trained_gate_max_deviation": 0.4110170602798462,
+    "reload_max_abs_difference": 0.0,
+    "optimizer_steps": 20
+  },
+  "checks": {
+    "zero_identity": true,
+    "coarse_identity": true,
+    "gate_bounds": true,
+    "nonzero_finite_gradient": true,
+    "loss_decrease": true,
+    "trained_gate_nonidentity": true,
+    "reload_identity": true,
+    "head_tail_presence": true,
+    "trie_membership": true,
+    "backbone_gradients_absent": true
+  },
+  "correctness_pass": true,
+  "integrity": {
+    "finite_rate": 1.0,
+    "optimizer_steps": 20,
+    "backbone_frozen": true,
+    "parameter_sha_unchanged": true,
+    "validation_test_predictions_read": false,
+    "sports_read": false,
+    "checkpoint_sha256": "d0b58ca1ef7cc12e672c4e48d0349af74f96cac0427c5b9c544e767e8e4613e4"
+  },
+  "integrity_valid": true
+}

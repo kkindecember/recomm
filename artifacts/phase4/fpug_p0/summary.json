@@ -1,0 +1,230 @@
+{
+  "experiment_id": "GRAM_PHASE4_FPUG_P0",
+  "selected_epoch": 2,
+  "decision": "STOP_FPUG_EFFECT_GATE_FAILED",
+  "training": {
+    "Toys": {
+      "fit_samples": 1024,
+      "calibration_samples": 256,
+      "fit_users": 1024,
+      "calibration_users": 256,
+      "fit_calibration_user_overlap": 0,
+      "zero_identity_max_abs_difference": 0.0,
+      "baseline_calibration_ce": 0.8832563608884811,
+      "epochs": [
+        {
+          "epoch": 1,
+          "fit_mean_loss": 0.8318690340965986,
+          "calibration_ce": 0.8795176558196545,
+          "calibration_relative_decrease": 0.004232865150346446,
+          "gradient_norm_max": 0.3977029323577881,
+          "gate_min": 0.9722092151641846,
+          "gate_max": 1.1333301067352295,
+          "gate_sha256": "ce3c0f57359fa857bd38c578f52a41db09e03d4bf6c3555e658c8da0d645d252"
+        },
+        {
+          "epoch": 2,
+          "fit_mean_loss": 0.8291037613525987,
+          "calibration_ce": 0.8796509951353073,
+          "calibration_relative_decrease": 0.004081901826947654,
+          "gradient_norm_max": 0.40227702260017395,
+          "gate_min": 0.9578573107719421,
+          "gate_max": 1.1647535562515259,
+          "gate_sha256": "4a53db5039234cf37e96b3b8a8e0de30a2d1842a4eea59855270eacf677dd42d"
+        },
+        {
+          "epoch": 3,
+          "fit_mean_loss": 0.8283567735925317,
+          "calibration_ce": 0.880564521998167,
+          "calibration_relative_decrease": 0.0030476303477807282,
+          "gradient_norm_max": 0.42703932523727417,
+          "gate_min": 0.9366570115089417,
+          "gate_max": 1.1957621574401855,
+          "gate_sha256": "5fbb56c5c0282225eb56376c02aee1ed9321155c142ba1b0a546d10acaeacc13"
+        },
+        {
+          "epoch": 4,
+          "fit_mean_loss": 0.8275470258668065,
+          "calibration_ce": 0.8797600083053112,
+          "calibration_relative_decrease": 0.003958479936281356,
+          "gradient_norm_max": 0.3967047929763794,
+          "gate_min": 0.9428606629371643,
+          "gate_max": 1.2190988063812256,
+          "gate_sha256": "435eefa18f76850dd8ca0090da3d4fc8952d9e4fb4e915754f6bae952e8c68f4"
+        },
+        {
+          "epoch": 5,
+          "fit_mean_loss": 0.8268584199249744,
+          "calibration_ce": 0.8810825161635876,
+          "calibration_relative_decrease": 0.002461170755347707,
+          "gradient_norm_max": 0.38166555762290955,
+          "gate_min": 0.9413536787033081,
+          "gate_max": 1.223905324935913,
+          "gate_sha256": "7ee4df03911732a63db8a0b160963007eca6ba2020dfda1872028909989e2fa6"
+        }
+      ],
+      "checkpoint_sha256": "68b08a80782ab010da403f2ff059d5009b5301fdd1da62bb903f65ddb2830fd6",
+      "parameter_sha_unchanged": true,
+      "backbone_gradients_absent": true
+    },
+    "Beauty": {
+      "fit_samples": 1024,
+      "calibration_samples": 256,
+      "fit_users": 1024,
+      "calibration_users": 256,
+      "fit_calibration_user_overlap": 0,
+      "zero_identity_max_abs_difference": 0.0,
+      "baseline_calibration_ce": 0.7553528472781181,
+      "epochs": [
+        {
+          "epoch": 1,
+          "fit_mean_loss": 0.7551272241398692,
+          "calibration_ce": 0.7553523406386375,
+          "calibration_relative_decrease": 6.707322047126374e-07,
+          "gradient_norm_max": 0.2525501251220703,
+          "gate_min": 0.9653857350349426,
+          "gate_max": 1.128794550895691,
+          "gate_sha256": "496b867a55b670132600e2c8ad8e4fdc402da070571a3396f3a0e764941e956c"
+        },
+        {
+          "epoch": 2,
+          "fit_mean_loss": 0.7540895617567003,
+          "calibration_ce": 0.7551565654575825,
+          "calibration_relative_decrease": 0.0002598544789272364,
+          "gradient_norm_max": 0.3540106415748596,
+          "gate_min": 0.9254569411277771,
+          "gate_max": 1.1507264375686646,
+          "gate_sha256": "cf1dd3bb252c6f87d408b16189e1f60e8869cee25d4574911a95b03348b172d4"
+        },
+        {
+          "epoch": 3,
+          "fit_mean_loss": 0.7531436812132597,
+          "calibration_ce": 0.7555680461227894,
+          "calibration_relative_decrease": -0.0002848984358061392,
+          "gradient_norm_max": 0.3820376396179199,
+          "gate_min": 0.9117576479911804,
+          "gate_max": 1.1764966249465942,
+          "gate_sha256": "658b2d0fc2c3085f7e92538b485ad78b6caa3794a8d110c732dc8c13c8769d79"
+        },
+        {
+          "epoch": 4,
+          "fit_mean_loss": 0.7529832916334271,
+          "calibration_ce": 0.7557756491005421,
+          "calibration_relative_decrease": -0.0005597408203960353,
+          "gradient_norm_max": 0.3527166247367859,
+          "gate_min": 0.897175669670105,
+          "gate_max": 1.160577416419983,
+          "gate_sha256": "3320af9bb36ac94b9dac235d482a572c1b54d7436fc953b04e73f5273a9fae27"
+        },
+        {
+          "epoch": 5,
+          "fit_mean_loss": 0.7529892511665821,
+          "calibration_ce": 0.7553746774792671,
+          "calibration_relative_decrease": -2.8900667056000407e-05,
+          "gradient_norm_max": 0.4268381893634796,
+          "gate_min": 0.8577900528907776,
+          "gate_max": 1.152522325515747,
+          "gate_sha256": "ecd3c32f74789232b40693cd186730021b6a23516fe4f54d4736ce193f421bf0"
+        }
+      ],
+      "checkpoint_sha256": "d0b58ca1ef7cc12e672c4e48d0349af74f96cac0427c5b9c544e767e8e4613e4",
+      "parameter_sha_unchanged": true,
+      "backbone_gradients_absent": true
+    }
+  },
+  "validation": {
+    "Toys": {
+      "metrics": {
+        "users": 512,
+        "tail_users": 303,
+        "baseline_ndcg10": 0.07332441672449488,
+        "gated_ndcg10": 0.07506342736243128,
+        "overall_ndcg10_relative": {
+          "point": 0.023716665138578064,
+          "ci_low": -0.013341023322893587,
+          "ci_high": 0.06321123691738129
+        },
+        "baseline_recall10": 0.12109375,
+        "gated_recall10": 0.125,
+        "overall_recall10_absolute_gain": 0.00390625,
+        "baseline_tail_ndcg10": 0.06588164510975439,
+        "gated_tail_ndcg10": 0.06963184206414161,
+        "tail_ndcg10_relative": {
+          "point": 0.056923243919298594,
+          "ci_low": 0.013816656501806635,
+          "ci_high": 0.12643867885559024
+        },
+        "baseline_hit_gated_miss_rate": 0.0
+      },
+      "checks": {
+        "overall_ndcg10_relative_gain": true,
+        "overall_ndcg10_ci_lower": false,
+        "overall_recall10_absolute_gain": true,
+        "tail_ndcg10_relative_gain": true,
+        "tail_ndcg10_ci_lower": true,
+        "baseline_hit_gated_miss_rate": true
+      },
+      "effect_pass": false,
+      "integrity": {
+        "training_prefix_generation_smoke_mapping_rate": 1.0,
+        "candidate_mapping_rate": 1.0,
+        "finite_rate": 1.0,
+        "validation_selection_target_independent": true,
+        "validation_user_sha256": "910e34fc054270ca8d44682394f605a3ce2b0ce5464922f6bd75d34a8bec87f3",
+        "parameter_sha_unchanged": true,
+        "test_predictions_read": false,
+        "sports_read": false,
+        "validation_file_sha256": "21c4dfcfb3ca704c7483f8cc2c00ec80e67c06cbf7b0790a5243250a5d00d55b"
+      },
+      "integrity_valid": true
+    },
+    "Beauty": {
+      "metrics": {
+        "users": 512,
+        "tail_users": 248,
+        "baseline_ndcg10": 0.047534302861057594,
+        "gated_ndcg10": 0.044742807652512456,
+        "overall_ndcg10_relative": {
+          "point": -0.05872591035372199,
+          "ci_low": -0.1135628707854291,
+          "ci_high": -0.012462224129898657
+        },
+        "baseline_recall10": 0.08984375,
+        "gated_recall10": 0.08203125,
+        "overall_recall10_absolute_gain": -0.0078125,
+        "baseline_tail_ndcg10": 0.024462143987386838,
+        "gated_tail_ndcg10": 0.02453419421540137,
+        "tail_ndcg10_relative": {
+          "point": 0.002945376662474075,
+          "ci_low": 0.0,
+          "ci_high": 0.011965908472810047
+        },
+        "baseline_hit_gated_miss_rate": 0.0078125
+      },
+      "checks": {
+        "overall_ndcg10_relative_gain": false,
+        "overall_ndcg10_ci_lower": false,
+        "overall_recall10_absolute_gain": false,
+        "tail_ndcg10_relative_gain": false,
+        "tail_ndcg10_ci_lower": true,
+        "baseline_hit_gated_miss_rate": false
+      },
+      "effect_pass": false,
+      "integrity": {
+        "training_prefix_generation_smoke_mapping_rate": 1.0,
+        "candidate_mapping_rate": 1.0,
+        "finite_rate": 1.0,
+        "validation_selection_target_independent": true,
+        "validation_user_sha256": "943d2ca855002968240ddbc6730693b799334484d3e24a9bdf0e106954735200",
+        "parameter_sha_unchanged": true,
+        "test_predictions_read": false,
+        "sports_read": false,
+        "validation_file_sha256": "0b5460575f73b0b15d55f78b022a85be208a1b9003912a9601b7f680c345728d"
+      },
+      "integrity_valid": true
+    }
+  },
+  "integrity_valid": true,
+  "test_predictions_read": false,
+  "sports_read": false
+}

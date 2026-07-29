@@ -1,0 +1,89 @@
+{
+  "experiment_id": "GRAM_PHASE4_TCDR_P0",
+  "registered_at": "2026-07-29T04:10:00+08:00",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "minimum_history_items": 5,
+  "fit": {
+    "samples": 256,
+    "head_samples": 128,
+    "tail_samples": 128
+  },
+  "calibration": {
+    "samples": 128,
+    "head_samples": 64,
+    "tail_samples": 64,
+    "pair_indices": 16
+  },
+  "training": {
+    "controls": ["C0", "C1"],
+    "epochs": 2,
+    "batch_size": 16,
+    "learning_rate": 0.00002,
+    "weight_decay": 0.0,
+    "gradient_clip_norm": 1.0,
+    "tcdr_weight": 0.1,
+    "pairs_per_batch": 4,
+    "correlation_epsilon": 1e-8,
+    "trainable_module": "decoder.block[-1]",
+    "fixed_epoch": 2
+  },
+  "mechanism_gates": {
+    "mean_paired_excess_relative_decrease_min": 0.1,
+    "lexical_ce_relative_increase_max": 0.01,
+    "mapping_rate": 1.0,
+    "trie_membership_rate": 1.0,
+    "finite_rate": 1.0,
+    "both_datasets_required": true
+  },
+  "validation": {
+    "users_per_dataset": 512,
+    "selection_salt": "tcdr-p0-validation-v1",
+    "target_independent_selection": true,
+    "beam_size": 50,
+    "length_penalty": 1.0,
+    "bootstrap_replicates": 1000,
+    "bootstrap_seed": 2023
+  },
+  "effect_gates": {
+    "overall_ndcg10_relative_gain_min": 0.01,
+    "overall_ndcg10_relative_gain_ci_lower_min": 0.0,
+    "overall_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.01,
+    "tail_ndcg10_relative_gain_ci_lower_min": 0.0,
+    "control_hit_tcdr_miss_rate_max": 0.005,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "fit_calibration_user_overlap": 0,
+    "unique_user_rate": 1.0,
+    "matched_controls": true,
+    "source_checkpoint_sha_unchanged": true,
+    "candidate_mapping_rate": 1.0,
+    "finite_rate": 1.0,
+    "validation_selection_target_independent": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "9bcb578c6d52afbd4100e3ee70cef97f8835928d409997aca1802e96e1a0fa15"
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "n1_config": "artifacts/phase4/configs/tcdr_n1_preregistered.json",
+    "n1_output": "artifacts/phase4/tcdr_n1",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 4,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 43200,
+    "no_automatic_retry": true
+  },
+  "fixed_decisions": [
+    "TCDR_FREEZE_FOR_CONFIRMATION",
+    "STOP_TCDR_MECHANISM_GATE_FAILED",
+    "STOP_TCDR_EFFECT_GATE_FAILED",
+    "EXECUTION_INVALID"
+  ]
+}

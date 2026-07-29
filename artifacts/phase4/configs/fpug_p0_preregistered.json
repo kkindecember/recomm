@@ -1,0 +1,75 @@
+{
+  "experiment_id": "GRAM_PHASE4_FPUG_P0",
+  "registered_at": "2026-07-29T00:10:00+08:00",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "fit": {
+    "samples": 1024,
+    "head_samples": 512,
+    "tail_samples": 512
+  },
+  "calibration": {
+    "samples": 256,
+    "head_samples": 128,
+    "tail_samples": 128,
+    "shared_epoch_selection": "maximum mean relative lexical-CE decrease; earlier tie"
+  },
+  "minimum_history_items": 5,
+  "training": {
+    "epochs": 5,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "gate_bound": 0.5,
+    "gradient_clip_norm": 1.0,
+    "backbone_frozen": true
+  },
+  "validation": {
+    "users_per_dataset": 512,
+    "selection_salt": "fpug-p0-validation-v1",
+    "target_independent_selection": true,
+    "beam_size": 50,
+    "length_penalty": 1.0,
+    "bootstrap_replicates": 1000,
+    "bootstrap_seed": 2023
+  },
+  "effect_gates": {
+    "overall_ndcg10_relative_gain_min": 0.01,
+    "overall_ndcg10_relative_gain_ci_lower_min": 0.0,
+    "overall_recall10_absolute_gain_min": 0.0,
+    "tail_ndcg10_relative_gain_min": 0.01,
+    "tail_ndcg10_relative_gain_ci_lower_min": 0.0,
+    "baseline_hit_gated_miss_rate_max": 0.005,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "fit_calibration_user_overlap": 0,
+    "unique_user_rate": 1.0,
+    "zero_gate_identity_tolerance": 1e-6,
+    "backbone_frozen": true,
+    "parameter_sha_unchanged": true,
+    "candidate_mapping_rate": 1.0,
+    "finite_rate": 1.0,
+    "validation_selection_target_independent": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "4c8c141a3794d1b84c250e36c12a982d4aca6996fc74039c663c14d01d4394ad"
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 4,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 43200,
+    "no_automatic_retry": true
+  },
+  "fixed_decisions": [
+    "FPUG_FREEZE_FOR_CONFIRMATION",
+    "STOP_FPUG_EFFECT_GATE_FAILED",
+    "EXECUTION_INVALID"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "experiment_id": "GRAM_PHASE4_TCDR_S0",
+  "decision": "TCDR_S0_CORRECTNESS_PASS",
+  "datasets": {
+    "Toys": {
+      "initial_lexical_ce": 0.7538345456123352,
+      "final_lexical_ce": 0.7515719532966614,
+      "lexical_ce_relative_increase": -0.003001444274559617,
+      "initial_tcdr_loss": 0.2716096043586731,
+      "final_tcdr_loss": 0.050167232751846313,
+      "tcdr_relative_decrease": 0.8152965307235718,
+      "zero_lambda_identity_difference": 0.0,
+      "gradient_norm_min": 0.7833064794540405,
+      "gradient_norm_max": 1.2925450801849365,
+      "initial_gradient_norm": 1.2925450801849365,
+      "parameter_delta_max_abs": 0.0005025863647460938,
+      "steps": [
+        {
+          "step": 1,
+          "lexical_ce_before_step": 0.7538345456123352,
+          "tcdr_loss_before_step": 0.2716096043586731,
+          "gradient_norm": 1.2925450801849365
+        },
+        {
+          "step": 2,
+          "lexical_ce_before_step": 0.753325879573822,
+          "tcdr_loss_before_step": 0.20654675364494324,
+          "gradient_norm": 1.2851399183273315
+        },
+        {
+          "step": 3,
+          "lexical_ce_before_step": 0.7526126503944397,
+          "tcdr_loss_before_step": 0.14256048202514648,
+          "gradient_norm": 1.2801222801208496
+        },
+        {
+          "step": 4,
+          "lexical_ce_before_step": 0.7520670294761658,
+          "tcdr_loss_before_step": 0.08643145114183426,
+          "gradient_norm": 0.8014044761657715
+        },
+        {
+          "step": 5,
+          "lexical_ce_before_step": 0.7517322897911072,
+          "tcdr_loss_before_step": 0.06644713133573532,
+          "gradient_norm": 0.7833064794540405
+        }
+      ],
+      "checks": {
+        "zero_lambda_identity": true,
+        "initial_tcdr_loss_positive": true,
+        "initial_gradient_norm_positive": true,
+        "finite_rate": true,
+        "tcdr_relative_decrease": true,
+        "lexical_ce_relative_increase": true,
+        "parameter_delta_positive": true,
+        "checkpoint_sha_unchanged": true,
+        "exact_users": true,
+        "exact_pairs": true,
+        "no_new_inference_parameters": true
+      },
+      "correctness_pass": true,
+      "integrity": {
+        "users": 8,
+        "pairs": 8,
+        "unique_items": 30,
+        "finite_rate": 1.0,
+        "checkpoint_sha_unchanged": true,
+        "parameter_count_before": 60517376,
+        "parameter_count_after": 60517376,
+        "validation_test_read": false,
+        "sports_read": false,
+        "tuned_block_sha256": "9fa90d659fc3f07bf2bf07d70c3e73ffe85ac8549678660d461db117a2198d8a"
+      }
+    },
+    "Beauty": {
+      "initial_lexical_ce": 0.982008695602417,
+      "final_lexical_ce": 0.9844673275947571,
+      "lexical_ce_relative_increase": 0.00250367633998394,
+      "initial_tcdr_loss": 0.612781286239624,
+      "final_tcdr_loss": 0.295727014541626,
+      "tcdr_relative_decrease": 0.5174019932746887,
+      "zero_lambda_identity_difference": 0.0,
+      "gradient_norm_min": 1.9268333911895752,
+      "gradient_norm_max": 2.390258312225342,
+      "initial_gradient_norm": 2.390258312225342,
+      "parameter_delta_max_abs": 0.0005022883415222168,
+      "steps": [
+        {
+          "step": 1,
+          "lexical_ce_before_step": 0.982008695602417,
+          "tcdr_loss_before_step": 0.612781286239624,
+          "gradient_norm": 2.390258312225342
+        },
+        {
+          "step": 2,
+          "lexical_ce_before_step": 0.9824842810630798,
+          "tcdr_loss_before_step": 0.5340800285339355,
+          "gradient_norm": 2.2542366981506348
+        },
+        {
+          "step": 3,
+          "lexical_ce_before_step": 0.9830215573310852,
+          "tcdr_loss_before_step": 0.45888569951057434,
+          "gradient_norm": 2.105203866958618
+        },
+        {
+          "step": 4,
+          "lexical_ce_before_step": 0.9834978580474854,
+          "tcdr_loss_before_step": 0.397402286529541,
+          "gradient_norm": 2.0230233669281006
+        },
+        {
+          "step": 5,
+          "lexical_ce_before_step": 0.9839789867401123,
+          "tcdr_loss_before_step": 0.34385478496551514,
+          "gradient_norm": 1.9268333911895752
+        }
+      ],
+      "checks": {
+        "zero_lambda_identity": true,
+        "initial_tcdr_loss_positive": true,
+        "initial_gradient_norm_positive": true,
+        "finite_rate": true,
+        "tcdr_relative_decrease": true,
+        "lexical_ce_relative_increase": true,
+        "parameter_delta_positive": true,
+        "checkpoint_sha_unchanged": true,
+        "exact_users": true,
+        "exact_pairs": true,
+        "no_new_inference_parameters": true
+      },
+      "correctness_pass": true,
+      "integrity": {
+        "users": 8,
+        "pairs": 8,
+        "unique_items": 32,
+        "finite_rate": 1.0,
+        "checkpoint_sha_unchanged": true,
+        "parameter_count_before": 60517376,
+        "parameter_count_after": 60517376,
+        "validation_test_read": false,
+        "sports_read": false,
+        "tuned_block_sha256": "ea74827b9bdbd27945b235dad5f585149b7499c4fa7f0efb74eac10138d9eb53"
+      }
+    }
+  },
+  "integrity_valid": true,
+  "validation_test_read": false,
+  "sports_read": false
+}

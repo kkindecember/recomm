@@ -1,0 +1,50 @@
+{
+  "experiment_id": "GRAM_PHASE4_FPUG_S0",
+  "registered_at": "2026-07-28T23:40:00+08:00",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "samples_per_dataset": 8,
+  "head_samples": 4,
+  "tail_samples": 4,
+  "minimum_history_items": 5,
+  "gate": {
+    "bound": 0.5,
+    "training_steps": 20,
+    "learning_rate": 0.01,
+    "weight_decay": 0.0
+  },
+  "correctness_gates": {
+    "zero_identity_tolerance": 1e-6,
+    "coarse_identity_tolerance": 0.0,
+    "reload_tolerance": 1e-6,
+    "minimum_relative_loss_decrease": 0.01,
+    "minimum_trained_gate_max_deviation": 1e-4,
+    "minimum_gradient_norm": 1e-8,
+    "gate_min": 0.5,
+    "gate_max": 1.5
+  },
+  "integrity": {
+    "optimizer_steps": 20,
+    "backbone_frozen": true,
+    "validation_test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "80944ecff84095a51062edef47ff9e69978fe37fd7ede7f5a5c7dbec29f91658"
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0"
+  },
+  "execution": {
+    "gpu": 4,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 52428800,
+    "stage_timeout_seconds": 7200,
+    "no_automatic_retry": true
+  },
+  "fixed_decisions": [
+    "FPUG_S0_CORRECTNESS_PASS",
+    "STOP_FPUG_S0_CORRECTNESS_FAILED",
+    "EXECUTION_INVALID"
+  ]
+}

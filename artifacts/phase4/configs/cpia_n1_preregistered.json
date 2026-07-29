@@ -1,0 +1,42 @@
+{
+  "experiment_id": "GRAM_PHASE4_CPIA_N1",
+  "registered_at": "2026-07-29T15:10:00+08:00",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "users_per_dataset": 128,
+  "minimum_history_items": 5,
+  "items_per_user": 5,
+  "bootstrap_replicates": 1000,
+  "batch_size": 8,
+  "scientific_gates": {
+    "top1_accuracy_min": 0.30,
+    "top1_bootstrap_ci_low_strictly_above_chance": true,
+    "top1_accuracy_max": 0.60,
+    "median_hard_margin_max": 0.05,
+    "mismatch_rate_min": 0.30,
+    "mean_matched_minus_mismatch_ci_low_strictly_positive": true,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "unique_users": 128,
+    "item_spans": 640,
+    "coarse_span_mapping_rate": 1.0,
+    "fine_span_mapping_rate": 1.0,
+    "attention_mask_valid_rate": 1.0,
+    "finite_rate": 1.0,
+    "optimizer_steps": 0,
+    "checkpoint_sha_unchanged": true,
+    "validation_test_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "05e99d3611d883d8c38ce3cdd5a038632eeb644bdb936b02304fdccd5883fda4"
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits"
+  },
+  "fixed_decisions": [
+    "CPIA_S0_DESIGN_ALLOWED",
+    "STOP_CPIA_NO_ACTIONABLE_LINK_DEFICIT",
+    "EXECUTION_INVALID"
+  ]
+}

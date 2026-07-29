@@ -1,0 +1,54 @@
+{
+  "experiment_id": "GRAM_PHASE4_SCDL_N1",
+  "registered_at": "2026-07-28T22:00:00+08:00",
+  "decision_status_before_run": "SCDL_N1_PREREGISTERED",
+  "seed": 2023,
+  "datasets": {
+    "Toys": {
+      "hierarchical_id_type": "hierarchy_v1_c32_l5_len32768_split"
+    },
+    "Beauty": {
+      "hierarchical_id_type": "hierarchy_v1_c128_l7_len32768_split"
+    }
+  },
+  "tfidf": {
+    "metadata_max_tokens": 128,
+    "smooth_idf": true,
+    "norm": "l2"
+  },
+  "assignment": {
+    "minimum_descendant_items": 1,
+    "candidate_tokens_per_child": 32,
+    "representativeness_weight": 1.0,
+    "contrast_weight": 1.0,
+    "exclude_special_token_ids": [0, 1, 1820, 9175]
+  },
+  "scientific_gates": {
+    "eligible_sibling_sets_min": 100,
+    "supported_depths_min": 2,
+    "eligible_sets_per_supported_depth_min": 30,
+    "current_nonpositive_margin_child_rate_min": 0.25,
+    "assignment_feasible_set_rate_min": 0.95,
+    "improved_set_rate_min": 0.6,
+    "mean_child_margin_gain_min": 0.01,
+    "mean_representativeness_retention_min": 0.9,
+    "positive_margin_child_rate_gain_min": 0.2,
+    "both_datasets_required": true
+  },
+  "integrity": {
+    "catalog_mapping_rate": 1.0,
+    "unique_identifier_rate": 1.0,
+    "finite_rate": 1.0,
+    "optimizer_steps": 0,
+    "checkpoint_read_forbidden": true,
+    "interaction_targets_forbidden": true,
+    "validation_test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "code_sha256": "304cabc82ba027f118c8da27bf981fa6ae1106f4bba5c2fb2b8e211692aa57e5"
+  },
+  "fixed_decisions": [
+    "SCDL_S0_DESIGN_ALLOWED",
+    "STOP_SCDL_NO_SIBLING_LEXICALIZATION_DEFICIT",
+    "EXECUTION_INVALID"
+  ]
+}
