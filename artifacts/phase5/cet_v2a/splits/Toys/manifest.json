@@ -1,0 +1,31 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_V2A",
+  "dataset": "Toys",
+  "selection_salt": "cet-v2a-calibration-b-v1",
+  "selection": "SHA256(salt|dataset|user), ascending",
+  "target": "sequence[-3]",
+  "history": "sequence[:-3][-20:]",
+  "excluded_users": 10611,
+  "excluded_file_sha256": {
+    "artifacts/phase4/gcdh_p0_splits/{dataset}/train_users.txt": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+    "artifacts/phase4/gcdh_p0_splits/{dataset}/validation_users.txt": "9742ce65c18cc9daf2b4876d26f698b2a9d32c56f4adde39ef99420f6c867dbb",
+    "artifacts/phase5/cet_c2_splits/{dataset}/validation_users.txt": "1b4654e007ed0dd2ef34c883bc7d6021e261afb02e77b4df9636a0f99a415dfb",
+    "artifacts/phase5/cet_c2o/splits/{dataset}/calibration_users.txt": "1d0a793d54b7b649f341c314330978451ab6e5d317144568852cbdb32061ce4c"
+  },
+  "subsets": {
+    "fit": {
+      "users": 128,
+      "user_sha256": "4f3a51136b7ed360649fc5fea5e8b7c04d6371d5230d36797a00856570ac2647",
+      "file_sha256": "6131c73fde2666eef1b305013fe18d4c6a23c42113597c00584da0089bee6eb5"
+    },
+    "evaluation": {
+      "users": 128,
+      "user_sha256": "a9dea3e1ee3ea5687c20a047d3600070fd101208daa31d46a732e09671de80ce",
+      "file_sha256": "a742971a5cc660df9c743d24658f85258c7ee2af97287aca11bfa0af2c4e935f"
+    }
+  },
+  "fit_evaluation_disjoint": true,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

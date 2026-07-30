@@ -1,0 +1,75 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2",
+  "dataset": "Beauty",
+  "control": "C1",
+  "status": "TRAINED",
+  "train_users": 5591,
+  "train_user_sha256": "48731ee37e1e1246a4236fa1a67d7efd3228065d5ad4da7e83c1837a8936a522",
+  "samples": 33115,
+  "epochs": 5,
+  "batches_per_epoch": 2070,
+  "optimizer_updates": 1295,
+  "alpha": 1.0,
+  "beta": 0.0,
+  "mask_signature_sha256": "7d0880bcbd8e57bc80dd4072109235b64b9b535e6ea7429cdb5c7a418c42f958",
+  "epoch_records": [
+    {
+      "epoch": 1,
+      "mean_total_loss": 1.8631543535253277,
+      "mean_clean_ce": 0.9255425266021692,
+      "mean_perturbed_ce": 0.9376118269231585,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 47663,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 259
+    },
+    {
+      "epoch": 2,
+      "mean_total_loss": 1.8578910108637694,
+      "mean_clean_ce": 0.9219646496185357,
+      "mean_perturbed_ce": 0.9359263612452337,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 48088,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 518
+    },
+    {
+      "epoch": 3,
+      "mean_total_loss": 1.8565394375059339,
+      "mean_clean_ce": 0.923360726453256,
+      "mean_perturbed_ce": 0.933178711052678,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 47598,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 777
+    },
+    {
+      "epoch": 4,
+      "mean_total_loss": 1.8485844452599973,
+      "mean_clean_ce": 0.9196099258275424,
+      "mean_perturbed_ce": 0.9289745194324549,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 47811,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 1036
+    },
+    {
+      "epoch": 5,
+      "mean_total_loss": 1.849815112453152,
+      "mean_clean_ce": 0.9188333694485651,
+      "mean_perturbed_ce": 0.9309817430045869,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 47579,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 1295
+    }
+  ],
+  "checkpoint": "artifacts/phase5/cet_c2_run2/Beauty/C1/model.pt",
+  "checkpoint_sha256": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3",
+  "wall_time_seconds": 7376.321175813675,
+  "peak_allocated_mib": 17841.8154296875,
+  "peak_reserved_mib": 20600.0,
+  "validation_read": false,
+  "test_read": false,
+  "sports_read": false
+}

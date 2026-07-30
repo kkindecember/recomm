@@ -1,0 +1,83 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2O",
+  "registered_at": "2026-07-29T23:57:31+08:00",
+  "decision_status_before_run": "CET_C2O_PREREGISTERED",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "controls": ["C0", "C1", "C2"],
+  "data": {
+    "source": "fit-disjoint training-prefix calibration",
+    "target": "sequence[-3]",
+    "history": "sequence[:-3][-20:]",
+    "users_per_dataset": 256,
+    "minimum_history_items": 2,
+    "selection_salt": "cet-c2o-fit-disjoint-v1",
+    "selection": "eligible users ordered by SHA256(salt|dataset|user), ascending",
+    "exclude_c2_train_users": true,
+    "exclude_all_4096_gcdh_validation_users": true,
+    "split_root": "artifacts/phase5/cet_c2o/splits",
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "views": {
+    "mask_probability": 0.25,
+    "mask_seed": 20230729,
+    "temperature": 1.0,
+    "coarse_passage_kept": true,
+    "newest_fine_passage_kept": true,
+    "target_independent": true
+  },
+  "checkpoints": {
+    "root": "artifacts/phase5/cet_c2_run2",
+    "sha256": {
+      "Toys": {
+        "C0": "393cae55b5fdb03f41bbb9adb7f36dd89534c27fcf7dfdd97479380c365f4153",
+        "C1": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+        "C2": "d9467e848e1119c6a9eb1901e2efd04982978845a6dbe63584c184875fe5de98"
+      },
+      "Beauty": {
+        "C0": "7766cfb98ea170fc83faf614eb0b7e8ba6ce0053f7a6377d31320c61b82afd9d",
+        "C1": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3",
+        "C2": "b1f140f750bfab3e809f63f78df1e14746b1272943f3bae483db91cf26d37283"
+      }
+    }
+  },
+  "evaluation": {
+    "batch_size": 8,
+    "primary": "clean/perturbed legal-child symmetric KL",
+    "clean_safety": "clean lexical CE",
+    "coverage": [
+      "competitive legal-child step coverage",
+      "masked-passage coverage"
+    ],
+    "no_model_updates": true
+  },
+  "gates": {
+    "c2_symmetric_kl_below_c1_each_domain": true,
+    "macro_symmetric_kl_relative_reduction_min": 0.05,
+    "clean_ce_relative_increase_max": 0.01
+  },
+  "decisions": {
+    "pass": "CET_C2O_OPTIMIZATION_PASS",
+    "weak_signal": "STOP_CET_WEAK_OPTIMIZATION_SIGNAL",
+    "invalid": "INVALID_C2O_FIX_AND_EXACT_RERUN"
+  },
+  "integrity": {
+    "code_sha256": "7291ba6c5a352a7f21b8097abe61edf4c3959ad6b28474a2387ab72cce95d4b9",
+    "checkpoint_sha_required": true,
+    "calibration_user_hash_required": true,
+    "target_free_mask_required": true,
+    "finite_required": true,
+    "no_automatic_retry": true
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "per_stage_timeout_seconds": 14400,
+    "resource_sample_seconds": 5,
+    "stop_codellama_before_run": true,
+    "restore_codellama_on_exit": true
+  }
+}

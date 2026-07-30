@@ -1,0 +1,90 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_V2A",
+  "registered_at": "2026-07-30T00:14:52+08:00",
+  "decision_status_before_run": "CET_V2A_PREREGISTERED",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "data": {
+    "source": "fresh fit/evaluation-disjoint training-prefix calibration-B",
+    "target": "sequence[-3]",
+    "history": "sequence[:-3][-20:]",
+    "fit_users": 128,
+    "evaluation_users": 128,
+    "minimum_history_items": 2,
+    "selection_salt": "cet-v2a-calibration-b-v1",
+    "split_root": "artifacts/phase5/cet_v2a/splits",
+    "excluded_user_files": [
+      "artifacts/phase4/gcdh_p0_splits/{dataset}/train_users.txt",
+      "artifacts/phase4/gcdh_p0_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2o/splits/{dataset}/calibration_users.txt"
+    ],
+    "selection_uses_candidate_target": false,
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "arms": {
+    "V1": {"beta": 0.1},
+    "V2": {"beta": 0.3}
+  },
+  "views": {
+    "alpha": 1.0,
+    "mask_probability": 0.25,
+    "fit_mask_seed": 20230731,
+    "evaluation_mask_seed": 20230801,
+    "temperature": 1.0,
+    "coarse_passage_kept": true,
+    "newest_fine_passage_kept": true,
+    "clean_anchor_stop_gradient": true,
+    "legal_child_support": "gold-prefix Trie-local competitive children"
+  },
+  "optimization": {
+    "trainable_parameters": "decoder last layer only",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "batch_size": 16,
+    "steps": 50,
+    "gradient_clip_norm": 1.0,
+    "matched_fit_users_order_masks_updates": true,
+    "no_hyperparameter_search": true
+  },
+  "evaluation": {
+    "batch_size": 8,
+    "primary": "evaluation-user clean/perturbed legal-child symmetric KL",
+    "clean_safety": "evaluation-user clean lexical CE"
+  },
+  "gates": {
+    "v2_kl_below_v1_each_domain": true,
+    "macro_kl_relative_reduction_min": 0.05,
+    "clean_ce_relative_increase_max": 0.01
+  },
+  "decisions": {
+    "pass": "CET_V2A_OPTIMIZATION_PASS",
+    "weak_or_unsafe": "STOP_CET_V2_STRENGTHENING_FAILED",
+    "invalid": "INVALID_V2A_FIX_AND_EXACT_RERUN"
+  },
+  "source_checkpoint_sha256": {
+    "Toys": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "Beauty": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89"
+  },
+  "integrity": {
+    "code_sha256": "69bba1c0d3d5f5c06b2ab55c8b69688a40fc1dafca5cb642701741a7dd7079cc",
+    "fit_evaluation_disjoint": true,
+    "checkpoint_reload_required": true,
+    "source_checkpoint_sha_required": true,
+    "target_free_mask_required": true,
+    "finite_nonzero_gradient_required": true,
+    "no_automatic_retry": true
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "per_stage_timeout_seconds": 7200,
+    "resource_sample_seconds": 5,
+    "stop_codellama_before_run": true,
+    "restore_codellama_on_exit": true
+  }
+}

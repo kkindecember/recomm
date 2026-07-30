@@ -1,0 +1,94 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0",
+  "registered_at": "2026-07-30T00:30:00+08:00",
+  "decision_status_before_run": "CET_RANK_R0_PREREGISTERED",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "controls": ["C0", "C1", "C2"],
+  "data": {
+    "source": "fresh training-prefix users only",
+    "target": "sequence[-3]",
+    "history": "sequence[:-3][-20:]",
+    "users_per_dataset": 128,
+    "minimum_history_items": 2,
+    "selection_salt": "cet-rank-r0-surrogate-alignment-v1",
+    "split_root": "artifacts/phase5/cet_rank_r0/splits",
+    "excluded_user_files": [
+      "artifacts/phase4/gcdh_p0_splits/{dataset}/train_users.txt",
+      "artifacts/phase4/gcdh_p0_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2o/splits/{dataset}/calibration_users.txt",
+      "artifacts/phase5/cet_v2a/splits/{dataset}/fit_users.txt",
+      "artifacts/phase5/cet_v2a/splits/{dataset}/evaluation_users.txt"
+    ],
+    "selection_uses_candidate_target": false,
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "views": {
+    "mask_probability": 0.25,
+    "mask_seed": 20230803,
+    "temperature": 1.0,
+    "coarse_passage_kept": true,
+    "newest_fine_passage_kept": true,
+    "target_independent": true
+  },
+  "evaluation": {
+    "beam_size": 20,
+    "top_k": 10,
+    "gold_surrogate": "gold-prefix legal-child symmetric KL",
+    "rank_surrogates": [
+      "top10 overlap",
+      "top10 ordered-list instability",
+      "union rank displacement",
+      "absolute target rank shift"
+    ],
+    "analysis_subset": "users with at least one actually masked old fine passage"
+  },
+  "routing": {
+    "control": "C1",
+    "instability_prevalence_min": 0.1,
+    "absolute_spearman_max": 0.2,
+    "low_instability_max": 0.05
+  },
+  "checkpoints": {
+    "root": "artifacts/phase5/cet_c2_run2",
+    "sha256": {
+      "Toys": {
+        "C0": "393cae55b5fdb03f41bbb9adb7f36dd89534c27fcf7dfdd97479380c365f4153",
+        "C1": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+        "C2": "d9467e848e1119c6a9eb1901e2efd04982978845a6dbe63584c184875fe5de98"
+      },
+      "Beauty": {
+        "C0": "7766cfb98ea170fc83faf614eb0b7e8ba6ce0053f7a6377d31320c61b82afd9d",
+        "C1": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3",
+        "C2": "b1f140f750bfab3e809f63f78df1e14746b1272943f3bae483db91cf26d37283"
+      }
+    }
+  },
+  "decisions": [
+    "CET_R0_RANK_SURROGATE_MISMATCH",
+    "STOP_CET_NO_MEANINGFUL_RANK_INSTABILITY",
+    "CET_R0_MIXED_ALIGNMENT_REVIEW_REQUIRED",
+    "INVALID_R0_FIX_AND_EXACT_RERUN"
+  ],
+  "integrity": {
+    "code_sha256": "5f4c4880618095f37c26bb533906b1333297346e58995f57a08136f5fd0071f4",
+    "checkpoint_sha_required": true,
+    "same_users_inputs_masks_across_controls": true,
+    "no_mask_ranking_identity_required": true,
+    "candidate_mapping_rate_required": 1.0,
+    "target_free_mask_required": true,
+    "no_automatic_retry": true
+  },
+  "execution": {
+    "gpu": 3,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "per_stage_timeout_seconds": 7200,
+    "resource_sample_seconds": 5,
+    "stop_codellama_before_run": true,
+    "restore_codellama_on_exit": true
+  }
+}

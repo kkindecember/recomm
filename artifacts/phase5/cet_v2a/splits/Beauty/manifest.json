@@ -1,0 +1,31 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_V2A",
+  "dataset": "Beauty",
+  "selection_salt": "cet-v2a-calibration-b-v1",
+  "selection": "SHA256(salt|dataset|user), ascending",
+  "target": "sequence[-3]",
+  "history": "sequence[:-3][-20:]",
+  "excluded_users": 11458,
+  "excluded_file_sha256": {
+    "artifacts/phase4/gcdh_p0_splits/{dataset}/train_users.txt": "8ceb8c6c336b31a64e83e3742dbbd59e7e4b2bfe935ce7a38a9a09bdb7c974a3",
+    "artifacts/phase4/gcdh_p0_splits/{dataset}/validation_users.txt": "f5413e36ca55c96d40a507253b3bd71abfca1f80b07aacde1490a5f5c7859e60",
+    "artifacts/phase5/cet_c2_splits/{dataset}/validation_users.txt": "fd14cffc1d5af6ebc3eab838c5753d071f166c1f1d3589d5394ceda840fd83b3",
+    "artifacts/phase5/cet_c2o/splits/{dataset}/calibration_users.txt": "a7614349915b5d3be16fd689c022958514ba804e8540e31574b9eb689fab7290"
+  },
+  "subsets": {
+    "fit": {
+      "users": 128,
+      "user_sha256": "f5b2acde38bd6e22377745bdc0b3b43ab03bd4e1ed4933cf2522d46c36247e84",
+      "file_sha256": "31ba0352dfcde413ffa58cecd22125bc17d633166f60f34b189bac8942b31bbe"
+    },
+    "evaluation": {
+      "users": 128,
+      "user_sha256": "b16aaa1698ad289dc7dee4b25b068bc688d9bf6aeebb1a1caae8ab5f9b350cf6",
+      "file_sha256": "a80f83d904114196f45d0a975e46547999333a15d2ee421a5053fe28b1d3b798"
+    }
+  },
+  "fit_evaluation_disjoint": true,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

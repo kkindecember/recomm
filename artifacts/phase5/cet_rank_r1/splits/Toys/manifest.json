@@ -1,0 +1,36 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R1",
+  "dataset": "Toys",
+  "selection_salt": "cet-rank-r1-correctness-v1",
+  "selection": "SHA256(salt|dataset|user), ascending then fixed 64/64 split",
+  "target": "sequence[-3]",
+  "history": "sequence[:-3][-20:]",
+  "excluded_users": 11059,
+  "excluded_file_sha256": {
+    "artifacts/phase4/gcdh_p0_splits/Toys/train_users.txt": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+    "artifacts/phase4/gcdh_p0_splits/Toys/validation_users.txt": "9742ce65c18cc9daf2b4876d26f698b2a9d32c56f4adde39ef99420f6c867dbb",
+    "artifacts/phase5/cet_c2_splits/Toys/validation_users.txt": "1b4654e007ed0dd2ef34c883bc7d6021e261afb02e77b4df9636a0f99a415dfb",
+    "artifacts/phase5/cet_c2o/splits/Toys/calibration_users.txt": "1d0a793d54b7b649f341c314330978451ab6e5d317144568852cbdb32061ce4c",
+    "artifacts/phase5/cet_v2a/splits/Toys/fit_users.txt": "6131c73fde2666eef1b305013fe18d4c6a23c42113597c00584da0089bee6eb5",
+    "artifacts/phase5/cet_v2a/splits/Toys/evaluation_users.txt": "a742971a5cc660df9c743d24658f85258c7ee2af97287aca11bfa0af2c4e935f",
+    "artifacts/phase5/cet_rank_r0/splits/Toys/audit_users.txt": "426cbbc245af7b0d5980cad4b06f502521268939ac17d6c316206d65b7585d98",
+    "artifacts/phase5/cet_rank_r0g/splits/Toys/audit_users.txt": "02b3b37e0301d9312d1727be29a6a2bbf67c8b5077f4833e5384efc8761c6bd0"
+  },
+  "subsets": {
+    "fit": {
+      "users": 64,
+      "user_sha256": "22f32c4334f0f5cf7696cc843398a67545ae2657e46565ae83e383515924b8b7",
+      "file_sha256": "5c78950675acada7af6800b8ef5eaacf1bc5a9a1ef6ddd7855f638babb5309c1"
+    },
+    "evaluation": {
+      "users": 64,
+      "user_sha256": "99275ea984fee042312246f138272ec0ff7cbf84c5629dd5dabe72e55f425e46",
+      "file_sha256": "ac36559d3c5b781c9425532c2fdd15409276a858257479172fba6d9fe7b88291"
+    }
+  },
+  "fit_evaluation_disjoint": true,
+  "selection_uses_candidate_target": false,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

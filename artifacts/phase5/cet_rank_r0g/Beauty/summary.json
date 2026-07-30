@@ -1,0 +1,40 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+  "dataset": "Beauty",
+  "control": "C1",
+  "status": "AUDITED",
+  "checkpoint_sha256": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3",
+  "audit_user_sha256": "c14dfb4ff1eeadb88acdaab4ca438238c333f45567ca3955a9de2c40879ed54d",
+  "metrics": {
+    "median_gradient_cosine": 0.16136975586414337,
+    "mean_gradient_cosine": 0.15324449217454952,
+    "negative_cosine_prevalence": 0.30303030303030304,
+    "median_gradient_norm_ratio_rank_over_local": 0.013794965390331216,
+    "users": 64,
+    "masked_users": 33,
+    "rank_loss_signal_coverage": 1.0,
+    "rank_nonzero_gradient_coverage": 1.0,
+    "local_nonzero_gradient_coverage": 1.0,
+    "mean_local_loss": 0.06233686437322335,
+    "mean_rank_loss": 0.001404177991031302,
+    "mean_cosine_bootstrap_95ci": [
+      0.029856552283815816,
+      0.2740677056749436
+    ]
+  },
+  "integrity_checks": {
+    "candidate_mapping_100_percent": true,
+    "candidate_union_size_valid": true,
+    "no_mask_identity": true,
+    "same_views_for_losses": true,
+    "target_independent_mask": true,
+    "finite": true,
+    "checkpoint_sha_unchanged": true,
+    "targets_sealed": true
+  },
+  "per_user_sha256": "797a38d09bcf0e90c31a2106045a0210df3e6e96ca7454a562e46e9f0b914c0b",
+  "wall_time_seconds": 94.28528213500977,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

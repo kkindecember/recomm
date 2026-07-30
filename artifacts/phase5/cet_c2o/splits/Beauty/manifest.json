@@ -1,0 +1,18 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2O",
+  "dataset": "Beauty",
+  "users": 256,
+  "selection": "SHA256(salt|dataset|user), ascending",
+  "selection_salt": "cet-c2o-fit-disjoint-v1",
+  "target": "sequence[-3]",
+  "history": "sequence[:-3][-20:]",
+  "calibration_user_sha256": "bedfbcda95729d698b2f9d2d5e79ee7d8e4f606d350ec74b6cf6b488753f985a",
+  "calibration_file_sha256": "a7614349915b5d3be16fd689c022958514ba804e8540e31574b9eb689fab7290",
+  "source_train_user_sha256": "48731ee37e1e1246a4236fa1a67d7efd3228065d5ad4da7e83c1837a8936a522",
+  "source_validation_user_sha256": "20c460b65d8bc41e72e3971ad9b083704c15de8a95cc82c1ae0ccbba88b7b3c7",
+  "train_disjoint": true,
+  "all_frozen_validation_disjoint": true,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

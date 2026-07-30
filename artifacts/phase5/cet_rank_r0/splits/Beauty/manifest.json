@@ -1,0 +1,24 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0",
+  "dataset": "Beauty",
+  "users": 128,
+  "selection_salt": "cet-rank-r0-surrogate-alignment-v1",
+  "selection": "SHA256(salt|dataset|user), ascending",
+  "target": "sequence[-3]",
+  "history": "sequence[:-3][-20:]",
+  "user_sha256": "b252b968415fc51ffd09d016ed6afbb42611dbf62695b3c6b2e8232c17d48ee7",
+  "file_sha256": "68b0b40333acbe6e3199c95f607acbd872172708f40afd1609bf6070c5b5cd17",
+  "excluded_users": 11714,
+  "excluded_file_sha256": {
+    "artifacts/phase4/gcdh_p0_splits/Beauty/train_users.txt": "8ceb8c6c336b31a64e83e3742dbbd59e7e4b2bfe935ce7a38a9a09bdb7c974a3",
+    "artifacts/phase4/gcdh_p0_splits/Beauty/validation_users.txt": "f5413e36ca55c96d40a507253b3bd71abfca1f80b07aacde1490a5f5c7859e60",
+    "artifacts/phase5/cet_c2_splits/Beauty/validation_users.txt": "fd14cffc1d5af6ebc3eab838c5753d071f166c1f1d3589d5394ceda840fd83b3",
+    "artifacts/phase5/cet_c2o/splits/Beauty/calibration_users.txt": "a7614349915b5d3be16fd689c022958514ba804e8540e31574b9eb689fab7290",
+    "artifacts/phase5/cet_v2a/splits/Beauty/fit_users.txt": "31ba0352dfcde413ffa58cecd22125bc17d633166f60f34b189bac8942b31bbe",
+    "artifacts/phase5/cet_v2a/splits/Beauty/evaluation_users.txt": "a80f83d904114196f45d0a975e46547999333a15d2ee421a5053fe28b1d3b798"
+  },
+  "selection_uses_candidate_target": false,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

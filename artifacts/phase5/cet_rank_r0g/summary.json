@@ -1,0 +1,105 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+  "decision": "CET_R0G_DIRECT_RANK_GRADIENT_DISTINCT",
+  "results": {
+    "Toys": {
+      "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+      "dataset": "Toys",
+      "control": "C1",
+      "status": "AUDITED",
+      "checkpoint_sha256": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+      "audit_user_sha256": "39bbb3fe36e7369b28d6518f67fcbf7143b23ed7b93831075a6c9285977e775a",
+      "metrics": {
+        "median_gradient_cosine": 0.08822330087423325,
+        "mean_gradient_cosine": 0.13305925432702198,
+        "negative_cosine_prevalence": 0.3235294117647059,
+        "median_gradient_norm_ratio_rank_over_local": 0.038249947477932325,
+        "users": 64,
+        "masked_users": 34,
+        "rank_loss_signal_coverage": 1.0,
+        "rank_nonzero_gradient_coverage": 1.0,
+        "local_nonzero_gradient_coverage": 1.0,
+        "mean_local_loss": 0.04386079503798529,
+        "mean_rank_loss": 0.005833806599719751,
+        "mean_cosine_bootstrap_95ci": [
+          0.05154467910144697,
+          0.2186026251840624
+        ]
+      },
+      "integrity_checks": {
+        "candidate_mapping_100_percent": true,
+        "candidate_union_size_valid": true,
+        "no_mask_identity": true,
+        "same_views_for_losses": true,
+        "target_independent_mask": true,
+        "finite": true,
+        "checkpoint_sha_unchanged": true,
+        "targets_sealed": true
+      },
+      "per_user_sha256": "ccf9e605b9a0d99a96c7f25254c0ee8924bf5657d878ee4f594b24df4b4c86a4",
+      "wall_time_seconds": 75.05386304855347,
+      "validation_target_read": false,
+      "test_read": false,
+      "sports_read": false
+    },
+    "Beauty": {
+      "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+      "dataset": "Beauty",
+      "control": "C1",
+      "status": "AUDITED",
+      "checkpoint_sha256": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3",
+      "audit_user_sha256": "c14dfb4ff1eeadb88acdaab4ca438238c333f45567ca3955a9de2c40879ed54d",
+      "metrics": {
+        "median_gradient_cosine": 0.16136975586414337,
+        "mean_gradient_cosine": 0.15324449217454952,
+        "negative_cosine_prevalence": 0.30303030303030304,
+        "median_gradient_norm_ratio_rank_over_local": 0.013794965390331216,
+        "users": 64,
+        "masked_users": 33,
+        "rank_loss_signal_coverage": 1.0,
+        "rank_nonzero_gradient_coverage": 1.0,
+        "local_nonzero_gradient_coverage": 1.0,
+        "mean_local_loss": 0.06233686437322335,
+        "mean_rank_loss": 0.001404177991031302,
+        "mean_cosine_bootstrap_95ci": [
+          0.029856552283815816,
+          0.2740677056749436
+        ]
+      },
+      "integrity_checks": {
+        "candidate_mapping_100_percent": true,
+        "candidate_union_size_valid": true,
+        "no_mask_identity": true,
+        "same_views_for_losses": true,
+        "target_independent_mask": true,
+        "finite": true,
+        "checkpoint_sha_unchanged": true,
+        "targets_sealed": true
+      },
+      "per_user_sha256": "797a38d09bcf0e90c31a2106045a0210df3e6e96ca7454a562e46e9f0b914c0b",
+      "wall_time_seconds": 94.28528213500977,
+      "validation_target_read": false,
+      "test_read": false,
+      "sports_read": false
+    }
+  },
+  "integrity_pass": true,
+  "routing_thresholds": {
+    "analysis_subset": "users with at least one actually masked old fine passage",
+    "minimum_masked_users_per_dataset": 24,
+    "rank_loss_signal_threshold": 1e-06,
+    "gradient_nonzero_norm_threshold": 1e-12,
+    "minimum_rank_loss_signal_coverage": 0.9,
+    "minimum_rank_gradient_nonzero_coverage": 0.9,
+    "bootstrap_resamples": 5000,
+    "bootstrap_seed": 20230814,
+    "identity_absolute_tolerance": 1e-08,
+    "distinct_median_cosine_max": 0.2,
+    "distinct_bootstrap_ci_upper_max": 0.3,
+    "redundant_median_cosine_min": 0.5,
+    "redundant_negative_cosine_prevalence_max": 0.1
+  },
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

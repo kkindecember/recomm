@@ -1,0 +1,173 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R1",
+  "decision": "STOP_CET_RANK_NOT_OPTIMIZABLE",
+  "results": {
+    "Toys": {
+      "experiment_id": "GRAM_PHASE5_CET_RANK_R1",
+      "dataset": "Toys",
+      "status": "COMPLETED",
+      "gamma": {
+        "formula": "target_ratio * median(masked-user CE gradient norm / rank-JS gradient norm)",
+        "masked_fit_users": 38,
+        "median_ce_gradient_norm": 3.5461899042129517,
+        "median_rank_gradient_norm": 0.011258671060204506,
+        "median_ce_to_rank_gradient_norm_ratio": 330.4647549298734,
+        "target_weighted_rank_to_ce_gradient_ratio": 0.1,
+        "gamma": 33.04647549298734
+      },
+      "candidate_bank_sha256": "4ba31ffd9c92bf0b8bc0d8a48c34a3a3f3288adf89d1e3b4e7ac3086000eb38e",
+      "candidate_bank_users": 128,
+      "initial_evaluation": {
+        "users": 64,
+        "masked_users": 28,
+        "mean_rank_js_all_users": 0.0038132968052195793,
+        "mean_rank_js_masked_users": 0.008716106983359038,
+        "clean_lexical_ce": 0.8809776070667672,
+        "mean_top10_overlap_all_users": 0.8500000000000001,
+        "mean_top10_overlap_masked_users": 0.6571428571428571,
+        "no_mask_identity": true
+      },
+      "training": {
+        "optimizer_steps": 32,
+        "batch_size": 2,
+        "fit_users_seen_once": 64,
+        "masked_fit_users_seen": 38,
+        "mean_training_loss": 2.777390781790018,
+        "mean_training_ce": 2.301047520712018,
+        "mean_training_rank_js": 0.014414344210308627,
+        "gradient_norm_min": 1.8783559799194336,
+        "gradient_norm_max": 9.459866523742676,
+        "wall_time_seconds": 10.484736680984497
+      },
+      "final_evaluation": {
+        "users": 64,
+        "masked_users": 28,
+        "mean_rank_js_all_users": 0.0038059076055105834,
+        "mean_rank_js_masked_users": 0.008699217384024191,
+        "clean_lexical_ce": 0.8816876121907654,
+        "mean_top10_overlap_all_users": 0.8500000000000001,
+        "mean_top10_overlap_masked_users": 0.6571428571428571,
+        "no_mask_identity": true
+      },
+      "rank_js_relative_decrease": 0.0019377457581799338,
+      "clean_ce_relative_change": 0.0008059286845691693,
+      "top10_overlap_absolute_change": 0.0,
+      "parameter_max_abs_change": 0.0025452282279729843,
+      "decoder_checkpoint": "artifacts/phase5/cet_rank_r1/Toys/decoder_last_layer.pt",
+      "decoder_checkpoint_sha256": "06e81806c5412675fa3bd295f69ddbf3f3151a68021397bdcdd4f5750e6e9d3f",
+      "checkpoint_reload_max_abs_difference": 0.0,
+      "source_checkpoint_sha256": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+      "integrity_checks": {
+        "fit_evaluation_disjoint": true,
+        "candidate_mapping_100_percent": true,
+        "candidate_union_size_valid": true,
+        "candidate_bank_frozen": true,
+        "gamma_frozen_before_updates": true,
+        "no_mask_identity": true,
+        "finite_nonzero_gradient": true,
+        "parameter_change": true,
+        "checkpoint_reload": true,
+        "source_checkpoint_sha_unchanged": true,
+        "targets_sealed": true
+      },
+      "optimization_checks": {
+        "minimum_masked_fit_users": true,
+        "minimum_masked_evaluation_users": true,
+        "evaluation_rank_js_relative_decrease": false,
+        "clean_ce_safety": true,
+        "top10_overlap_strict_improvement": false
+      },
+      "integrity_pass": true,
+      "optimization_pass": false,
+      "validation_target_read": false,
+      "test_read": false,
+      "sports_read": false
+    },
+    "Beauty": {
+      "experiment_id": "GRAM_PHASE5_CET_RANK_R1",
+      "dataset": "Beauty",
+      "status": "COMPLETED",
+      "gamma": {
+        "formula": "target_ratio * median(masked-user CE gradient norm / rank-JS gradient norm)",
+        "masked_fit_users": 39,
+        "median_ce_gradient_norm": 3.4050326347351074,
+        "median_rank_gradient_norm": 0.002960611367598176,
+        "median_ce_to_rank_gradient_norm_ratio": 1372.2667606488185,
+        "target_weighted_rank_to_ce_gradient_ratio": 0.1,
+        "gamma": 137.22667606488184
+      },
+      "candidate_bank_sha256": "f6ca3ed9325718685c619d5a7350384cf076b2b2b4645af96c963bd23367cb86",
+      "candidate_bank_users": 128,
+      "initial_evaluation": {
+        "users": 64,
+        "masked_users": 33,
+        "mean_rank_js_all_users": 0.0011811944704618327,
+        "mean_rank_js_masked_users": 0.0022908013972593117,
+        "clean_lexical_ce": 0.7694597739313189,
+        "mean_top10_overlap_all_users": 0.8875000000000001,
+        "mean_top10_overlap_masked_users": 0.7818181818181817,
+        "no_mask_identity": true
+      },
+      "training": {
+        "optimizer_steps": 32,
+        "batch_size": 2,
+        "fit_users_seen_once": 64,
+        "masked_fit_users_seen": 39,
+        "mean_training_loss": 2.602101743221283,
+        "mean_training_ce": 1.7049420205876231,
+        "mean_training_rank_js": 0.006537794208270498,
+        "gradient_norm_min": 2.6984400749206543,
+        "gradient_norm_max": 20.260475158691406,
+        "wall_time_seconds": 11.80774474143982
+      },
+      "final_evaluation": {
+        "users": 64,
+        "masked_users": 33,
+        "mean_rank_js_all_users": 0.0011583895636704256,
+        "mean_rank_js_masked_users": 0.0022465736992396132,
+        "clean_lexical_ce": 0.7696377785390801,
+        "mean_top10_overlap_all_users": 0.8796875,
+        "mean_top10_overlap_masked_users": 0.7666666666666666,
+        "no_mask_identity": true
+      },
+      "rank_js_relative_decrease": 0.019306648787892285,
+      "clean_ce_relative_change": 0.0002313371196153947,
+      "top10_overlap_absolute_change": -0.015151515151515138,
+      "parameter_max_abs_change": 0.0026068687438964844,
+      "decoder_checkpoint": "artifacts/phase5/cet_rank_r1/Beauty/decoder_last_layer.pt",
+      "decoder_checkpoint_sha256": "fefa6d1e1a1a623eb40a88f9bbaad0bbfe8883a3f687348c99b5f1e305bd1d87",
+      "checkpoint_reload_max_abs_difference": 0.0,
+      "source_checkpoint_sha256": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3",
+      "integrity_checks": {
+        "fit_evaluation_disjoint": true,
+        "candidate_mapping_100_percent": true,
+        "candidate_union_size_valid": true,
+        "candidate_bank_frozen": true,
+        "gamma_frozen_before_updates": true,
+        "no_mask_identity": true,
+        "finite_nonzero_gradient": true,
+        "parameter_change": true,
+        "checkpoint_reload": true,
+        "source_checkpoint_sha_unchanged": true,
+        "targets_sealed": true
+      },
+      "optimization_checks": {
+        "minimum_masked_fit_users": true,
+        "minimum_masked_evaluation_users": true,
+        "evaluation_rank_js_relative_decrease": false,
+        "clean_ce_safety": true,
+        "top10_overlap_strict_improvement": false
+      },
+      "integrity_pass": true,
+      "optimization_pass": false,
+      "validation_target_read": false,
+      "test_read": false,
+      "sports_read": false
+    }
+  },
+  "integrity_pass": true,
+  "optimization_pass": false,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

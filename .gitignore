@@ -27,6 +27,17 @@ experiment/**/*_disk.csv
 
 # Full logs stay on the experiment machine; reports contain the durable summary.
 artifacts/**/logs/
+artifacts/**/run.log
+
+# High-frequency or user-level experiment outputs stay local. Commit aggregate
+# summaries, frozen configs and split manifests instead.
+artifacts/**/gpu_telemetry.csv
+artifacts/**/status.json
+artifacts/**/per_user.csv
+artifacts/**/validation_per_user.csv
+artifacts/**/candidate_bank.json
+artifacts/**/gamma.json
+artifacts/**/splits/**/*.txt
 
 # Phase-5 long-running CET session state; durable summaries are committed separately.
 artifacts/phase5/cet_c2*/run.log

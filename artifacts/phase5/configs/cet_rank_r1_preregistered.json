@@ -1,0 +1,115 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R1",
+  "registered_at": "2026-07-30T21:20:00+08:00",
+  "decision_status_before_run": "CET_R0G_DIRECT_RANK_GRADIENT_DISTINCT",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "data": {
+    "source": "fresh fit/evaluation-disjoint training-prefix users only",
+    "target": "sequence[-3]",
+    "history": "sequence[:-3][-20:]",
+    "fit_users": 64,
+    "evaluation_users": 64,
+    "minimum_history_items": 2,
+    "selection_salt": "cet-rank-r1-correctness-v1",
+    "split_root": "artifacts/phase5/cet_rank_r1/splits",
+    "excluded_user_files": [
+      "artifacts/phase4/gcdh_p0_splits/{dataset}/train_users.txt",
+      "artifacts/phase4/gcdh_p0_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2o/splits/{dataset}/calibration_users.txt",
+      "artifacts/phase5/cet_v2a/splits/{dataset}/fit_users.txt",
+      "artifacts/phase5/cet_v2a/splits/{dataset}/evaluation_users.txt",
+      "artifacts/phase5/cet_rank_r0/splits/{dataset}/audit_users.txt",
+      "artifacts/phase5/cet_rank_r0g/splits/{dataset}/audit_users.txt"
+    ],
+    "selection_uses_candidate_target": false,
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "views": {
+    "mask_probability": 0.25,
+    "mask_seed": 20230821,
+    "coarse_passage_kept": true,
+    "newest_fine_passage_kept": true,
+    "target_independent": true
+  },
+  "surrogate": {
+    "name": "symmetric Jensen-Shannon divergence over detached clean/perturbed top-4 union",
+    "beam_size": 4,
+    "maximum_union_candidates": 8,
+    "rank_temperature": 1.0,
+    "sequence_score": "sum identifier-token-through-EOS log probability divided by predicted-token count",
+    "positive_target_injection": false
+  },
+  "gamma": {
+    "formula": "0.1 * median masked-fit-user (CEclean+CEpert gradient norm / rank-JS gradient norm)",
+    "target_weighted_rank_to_ce_gradient_ratio": 0.1,
+    "aggregation": "median over all actually masked fit users",
+    "nonzero_gradient_norm_threshold": 1e-12,
+    "frozen_before_optimizer_update": true,
+    "no_clipping": true
+  },
+  "optimization": {
+    "trainable_parameters": "decoder.block[-1] only",
+    "objective": "CEclean + CEperturbed + gamma * rank-JS",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0,
+    "batch_size": 2,
+    "steps": 32,
+    "fit_user_coverage": "all 64 fit users exactly once in seed-2023 shuffled order",
+    "gradient_clip_norm": 1.0,
+    "no_hyperparameter_search": true
+  },
+  "evaluation": {
+    "subset": "64 fit-disjoint training-prefix evaluation users",
+    "overlap_beam_size": 10,
+    "primary": "masked-user mean direct rank-JS relative decrease",
+    "clean_safety": "all-user label-token-weighted clean lexical CE",
+    "ranking_transfer": "masked-user mean clean/perturbed top-10 set overlap"
+  },
+  "gates": {
+    "minimum_masked_users_per_subset": 24,
+    "rank_js_relative_decrease_min": 0.10,
+    "clean_ce_relative_increase_max": 0.01,
+    "top10_overlap_absolute_change_min": 0.0,
+    "all_gates_required_in_each_domain": true
+  },
+  "checkpoint": {
+    "root": "artifacts/phase5/cet_c2_run2",
+    "control": "C1",
+    "sha256": {
+      "Toys": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+      "Beauty": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3"
+    }
+  },
+  "decisions": {
+    "pass": "CET_R1_RANK_CONSISTENCY_PASS",
+    "optimization_or_safety_fail": "STOP_CET_RANK_NOT_OPTIMIZABLE",
+    "invalid": "INVALID_R1_FIX_AND_EXACT_RERUN"
+  },
+  "integrity": {
+    "code_sha256": "7ea46d35eeb36e51310672fc0d759d804523379fbebcbc7bc5d39cf66b3d4f95",
+    "candidate_union_size_min": 2,
+    "candidate_union_size_max": 8,
+    "candidate_bank_frozen_before_gamma_and_updates": true,
+    "candidate_mapping_rate_required": 1.0,
+    "checkpoint_reload_required": true,
+    "source_checkpoint_sha_required": true,
+    "target_free_mask_required": true,
+    "finite_nonzero_gradient_required": true,
+    "identity_absolute_tolerance": 1e-8,
+    "no_automatic_retry": true
+  },
+  "execution": {
+    "gpu": 6,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "per_dataset_timeout_seconds": 7200,
+    "resource_sample_seconds": 5,
+    "stop_codellama_before_run": true,
+    "restore_codellama_on_exit": true
+  }
+}

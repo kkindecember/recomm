@@ -1,0 +1,75 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2",
+  "dataset": "Toys",
+  "control": "C2",
+  "status": "TRAINED",
+  "train_users": 4853,
+  "train_user_sha256": "5dba6b47ad4dc7395f33d28bf14b719f3ba3854b4f4c028b8e7dbb10e0dc1dae",
+  "samples": 27173,
+  "epochs": 5,
+  "batches_per_epoch": 1699,
+  "optimizer_updates": 1065,
+  "alpha": 1.0,
+  "beta": 0.1,
+  "mask_signature_sha256": "adbdedfdba9536958c9bab2697da486eee0bcdc4d0c69704d955951889094968",
+  "epoch_records": [
+    {
+      "epoch": 1,
+      "mean_total_loss": 2.403643702043373,
+      "mean_clean_ce": 1.1521025410534846,
+      "mean_perturbed_ce": 1.1909136950022476,
+      "mean_legal_child_kl": 0.6062746553508024,
+      "masked_passages": 37260,
+      "competitive_legal_child_steps": 95567,
+      "optimizer_updates_cumulative": 213
+    },
+    {
+      "epoch": 2,
+      "mean_total_loss": 2.3984803332869906,
+      "mean_clean_ce": 1.1488936804826995,
+      "mean_perturbed_ce": 1.1895222744568437,
+      "mean_legal_child_kl": 0.6006437724235831,
+      "masked_passages": 37334,
+      "competitive_legal_child_steps": 95567,
+      "optimizer_updates_cumulative": 426
+    },
+    {
+      "epoch": 3,
+      "mean_total_loss": 2.3922270655702182,
+      "mean_clean_ce": 1.1497887030919205,
+      "mean_perturbed_ce": 1.1828403370811211,
+      "mean_legal_child_kl": 0.5959802591113079,
+      "masked_passages": 37262,
+      "competitive_legal_child_steps": 95567,
+      "optimizer_updates_cumulative": 639
+    },
+    {
+      "epoch": 4,
+      "mean_total_loss": 2.396477334284656,
+      "mean_clean_ce": 1.1501117160981231,
+      "mean_perturbed_ce": 1.1863943833403898,
+      "mean_legal_child_kl": 0.5997123391646508,
+      "masked_passages": 37095,
+      "competitive_legal_child_steps": 95567,
+      "optimizer_updates_cumulative": 852
+    },
+    {
+      "epoch": 5,
+      "mean_total_loss": 2.386549618329772,
+      "mean_clean_ce": 1.1459175585086658,
+      "mean_perturbed_ce": 1.1809330215658982,
+      "mean_legal_child_kl": 0.5969903675895217,
+      "masked_passages": 37376,
+      "competitive_legal_child_steps": 95567,
+      "optimizer_updates_cumulative": 1065
+    }
+  ],
+  "checkpoint": "artifacts/phase5/cet_c2_run2/Toys/C2/model.pt",
+  "checkpoint_sha256": "d9467e848e1119c6a9eb1901e2efd04982978845a6dbe63584c184875fe5de98",
+  "wall_time_seconds": 6003.409081220627,
+  "peak_allocated_mib": 17773.81982421875,
+  "peak_reserved_mib": 26844.0,
+  "validation_read": false,
+  "test_read": false,
+  "sports_read": false
+}

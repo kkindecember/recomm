@@ -1,0 +1,29 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0",
+  "dataset": "Toys",
+  "control": "C2",
+  "status": "AUDITED",
+  "checkpoint_sha256": "d9467e848e1119c6a9eb1901e2efd04982978845a6dbe63584c184875fe5de98",
+  "audit_user_sha256": "856122e53dac872be82ad409c221d9c1dfc7ecdeaba911bfa12eca697e152d50",
+  "metrics": {
+    "users": 128,
+    "masked_users": 70,
+    "sample_mask_coverage": 0.546875,
+    "mean_masked_passages": 1.0,
+    "mean_gold_prefix_symmetric_kl_masked": 0.11573936629408438,
+    "rank_instability_prevalence_masked": 1.0,
+    "mean_top10_overlap_masked": 0.6828571428571429,
+    "mean_union_rank_displacement_masked": 5.300539516505902,
+    "gold_kl_rank_displacement_spearman_masked": 0.5045755992131462,
+    "mean_absolute_target_rank_shift_masked": 1.7571428571428571,
+    "unmasked_users": 58,
+    "unmasked_ranking_identity": true
+  },
+  "candidate_mapping_rate": 1.0,
+  "target_independent_mask": true,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false,
+  "wall_time_seconds": 116.46811842918396,
+  "per_user_sha256": "4ab0765728e1e44ba97f072e3833ba2758eb20cdaa12596a65deaefb7f48354a"
+}

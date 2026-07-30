@@ -1,0 +1,18 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2O",
+  "dataset": "Toys",
+  "users": 256,
+  "selection": "SHA256(salt|dataset|user), ascending",
+  "selection_salt": "cet-c2o-fit-disjoint-v1",
+  "target": "sequence[-3]",
+  "history": "sequence[:-3][-20:]",
+  "calibration_user_sha256": "f55352fb43fa9639c10ebf0fdf9ef7748d28d0ee032b8c95a26f0493c76a82e7",
+  "calibration_file_sha256": "1d0a793d54b7b649f341c314330978451ab6e5d317144568852cbdb32061ce4c",
+  "source_train_user_sha256": "5dba6b47ad4dc7395f33d28bf14b719f3ba3854b4f4c028b8e7dbb10e0dc1dae",
+  "source_validation_user_sha256": "22f0bc316a277293f329d4f75497d2c13d10e5b40aa98d6f1de0a812cb6b0b9a",
+  "train_disjoint": true,
+  "all_frozen_validation_disjoint": true,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

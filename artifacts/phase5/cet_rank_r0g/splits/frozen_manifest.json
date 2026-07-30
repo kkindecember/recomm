@@ -1,0 +1,64 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+  "code_sha256": "80056fa8327bf811e67fd8bde670c8219b834fbe9acb0dea20643e4580bf8616",
+  "config_sha256": "fc57f260df8d29d1d31481ea08cad4c6e68a77718ab4285bbb6f3564388b4c26",
+  "checkpoint_sha256": {
+    "Toys": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+    "Beauty": "75dba35dd176f9a4ad4fd602f70629baed65844e28e9227546aa556d7f4e9db3"
+  },
+  "datasets": {
+    "Toys": {
+      "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+      "dataset": "Toys",
+      "users": 64,
+      "selection_salt": "cet-rank-r0g-gradient-alignment-v1",
+      "selection": "SHA256(salt|dataset|user), ascending",
+      "target": "sequence[-3]",
+      "history": "sequence[:-3][-20:]",
+      "user_sha256": "39bbb3fe36e7369b28d6518f67fcbf7143b23ed7b93831075a6c9285977e775a",
+      "file_sha256": "02b3b37e0301d9312d1727be29a6a2bbf67c8b5077f4833e5384efc8761c6bd0",
+      "excluded_users": 10995,
+      "excluded_file_sha256": {
+        "artifacts/phase4/gcdh_p0_splits/Toys/train_users.txt": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+        "artifacts/phase4/gcdh_p0_splits/Toys/validation_users.txt": "9742ce65c18cc9daf2b4876d26f698b2a9d32c56f4adde39ef99420f6c867dbb",
+        "artifacts/phase5/cet_c2_splits/Toys/validation_users.txt": "1b4654e007ed0dd2ef34c883bc7d6021e261afb02e77b4df9636a0f99a415dfb",
+        "artifacts/phase5/cet_c2o/splits/Toys/calibration_users.txt": "1d0a793d54b7b649f341c314330978451ab6e5d317144568852cbdb32061ce4c",
+        "artifacts/phase5/cet_v2a/splits/Toys/fit_users.txt": "6131c73fde2666eef1b305013fe18d4c6a23c42113597c00584da0089bee6eb5",
+        "artifacts/phase5/cet_v2a/splits/Toys/evaluation_users.txt": "a742971a5cc660df9c743d24658f85258c7ee2af97287aca11bfa0af2c4e935f",
+        "artifacts/phase5/cet_rank_r0/splits/Toys/audit_users.txt": "426cbbc245af7b0d5980cad4b06f502521268939ac17d6c316206d65b7585d98"
+      },
+      "all_prior_development_users_disjoint": true,
+      "selection_uses_candidate_target": false,
+      "validation_target_read": false,
+      "test_read": false,
+      "sports_read": false
+    },
+    "Beauty": {
+      "experiment_id": "GRAM_PHASE5_CET_RANK_R0G",
+      "dataset": "Beauty",
+      "users": 64,
+      "selection_salt": "cet-rank-r0g-gradient-alignment-v1",
+      "selection": "SHA256(salt|dataset|user), ascending",
+      "target": "sequence[-3]",
+      "history": "sequence[:-3][-20:]",
+      "user_sha256": "c14dfb4ff1eeadb88acdaab4ca438238c333f45567ca3955a9de2c40879ed54d",
+      "file_sha256": "7b8e12310dc56ab8a23391c53c4567f4b6414186c32f4bece5a8b4a3b2fb313e",
+      "excluded_users": 11842,
+      "excluded_file_sha256": {
+        "artifacts/phase4/gcdh_p0_splits/Beauty/train_users.txt": "8ceb8c6c336b31a64e83e3742dbbd59e7e4b2bfe935ce7a38a9a09bdb7c974a3",
+        "artifacts/phase4/gcdh_p0_splits/Beauty/validation_users.txt": "f5413e36ca55c96d40a507253b3bd71abfca1f80b07aacde1490a5f5c7859e60",
+        "artifacts/phase5/cet_c2_splits/Beauty/validation_users.txt": "fd14cffc1d5af6ebc3eab838c5753d071f166c1f1d3589d5394ceda840fd83b3",
+        "artifacts/phase5/cet_c2o/splits/Beauty/calibration_users.txt": "a7614349915b5d3be16fd689c022958514ba804e8540e31574b9eb689fab7290",
+        "artifacts/phase5/cet_v2a/splits/Beauty/fit_users.txt": "31ba0352dfcde413ffa58cecd22125bc17d633166f60f34b189bac8942b31bbe",
+        "artifacts/phase5/cet_v2a/splits/Beauty/evaluation_users.txt": "a80f83d904114196f45d0a975e46547999333a15d2ee421a5053fe28b1d3b798",
+        "artifacts/phase5/cet_rank_r0/splits/Beauty/audit_users.txt": "68b0b40333acbe6e3199c95f607acbd872172708f40afd1609bf6070c5b5cd17"
+      },
+      "all_prior_development_users_disjoint": true,
+      "selection_uses_candidate_target": false,
+      "validation_target_read": false,
+      "test_read": false,
+      "sports_read": false
+    }
+  },
+  "frozen_before_gpu_audit": true
+}

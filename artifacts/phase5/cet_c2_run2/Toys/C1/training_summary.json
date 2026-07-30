@@ -1,0 +1,75 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_C2",
+  "dataset": "Toys",
+  "control": "C1",
+  "status": "TRAINED",
+  "train_users": 4853,
+  "train_user_sha256": "5dba6b47ad4dc7395f33d28bf14b719f3ba3854b4f4c028b8e7dbb10e0dc1dae",
+  "samples": 27173,
+  "epochs": 5,
+  "batches_per_epoch": 1699,
+  "optimizer_updates": 1065,
+  "alpha": 1.0,
+  "beta": 0.0,
+  "mask_signature_sha256": "adbdedfdba9536958c9bab2697da486eee0bcdc4d0c69704d955951889094968",
+  "epoch_records": [
+    {
+      "epoch": 1,
+      "mean_total_loss": 2.343076671762562,
+      "mean_clean_ce": 1.1520475222476445,
+      "mean_perturbed_ce": 1.1910291495149175,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 37260,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 213
+    },
+    {
+      "epoch": 2,
+      "mean_total_loss": 2.3381992919154557,
+      "mean_clean_ce": 1.1485824985950397,
+      "mean_perturbed_ce": 1.189616793320416,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 37334,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 426
+    },
+    {
+      "epoch": 3,
+      "mean_total_loss": 2.332367419845711,
+      "mean_clean_ce": 1.149459397357797,
+      "mean_perturbed_ce": 1.1829080224879143,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 37262,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 639
+    },
+    {
+      "epoch": 4,
+      "mean_total_loss": 2.336155640966686,
+      "mean_clean_ce": 1.1496975224392774,
+      "mean_perturbed_ce": 1.1864581185274086,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 37095,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 852
+    },
+    {
+      "epoch": 5,
+      "mean_total_loss": 2.3263640310428926,
+      "mean_clean_ce": 1.14544408145268,
+      "mean_perturbed_ce": 1.1809199495902125,
+      "mean_legal_child_kl": 0.0,
+      "masked_passages": 37376,
+      "competitive_legal_child_steps": 0,
+      "optimizer_updates_cumulative": 1065
+    }
+  ],
+  "checkpoint": "artifacts/phase5/cet_c2_run2/Toys/C1/model.pt",
+  "checkpoint_sha256": "5661d9fbdeb25f49d0b36a18b7df6d9ffcc72e18a34736d5c41e0c7f6deb68ff",
+  "wall_time_seconds": 5847.119766712189,
+  "peak_allocated_mib": 17773.3271484375,
+  "peak_reserved_mib": 27082.0,
+  "validation_read": false,
+  "test_read": false,
+  "sports_read": false
+}

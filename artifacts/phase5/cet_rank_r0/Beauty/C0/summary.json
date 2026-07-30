@@ -1,0 +1,29 @@
+{
+  "experiment_id": "GRAM_PHASE5_CET_RANK_R0",
+  "dataset": "Beauty",
+  "control": "C0",
+  "status": "AUDITED",
+  "checkpoint_sha256": "7766cfb98ea170fc83faf614eb0b7e8ba6ce0053f7a6377d31320c61b82afd9d",
+  "audit_user_sha256": "b252b968415fc51ffd09d016ed6afbb42611dbf62695b3c6b2e8232c17d48ee7",
+  "metrics": {
+    "users": 128,
+    "masked_users": 68,
+    "sample_mask_coverage": 0.53125,
+    "mean_masked_passages": 0.9375,
+    "mean_gold_prefix_symmetric_kl_masked": 0.08463242349663393,
+    "rank_instability_prevalence_masked": 1.0,
+    "mean_top10_overlap_masked": 0.7941176470588234,
+    "mean_union_rank_displacement_masked": 3.4120684354572766,
+    "gold_kl_rank_displacement_spearman_masked": 0.5171133631716237,
+    "mean_absolute_target_rank_shift_masked": 0.4852941176470588,
+    "unmasked_users": 60,
+    "unmasked_ranking_identity": true
+  },
+  "candidate_mapping_rate": 1.0,
+  "target_independent_mask": true,
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false,
+  "wall_time_seconds": 152.4685537815094,
+  "per_user_sha256": "ce1145d8df23fd66b6451c6192e68df9f8d2a78cb6701f14891783a8b6a1e3fb"
+}
