@@ -1,0 +1,84 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V2",
+  "registered_at": "2026-07-30T00:00:00+08:00",
+  "decision_status_before_run": "GACR_V2_PREREGISTERED",
+  "engineering_amendments": [
+    {
+      "time": "2026-07-30T22:24:34+08:00",
+      "reason": "The first start exited before candidate generation because both ignored GCDH-P0 C1 checkpoint files were absent although their training summaries remained.",
+      "scientific_status": "EXECUTION_INVALID_NO_SCIENTIFIC_RESULT",
+      "change": "Add a preflight lineage/SHA gate and, with researcher approval, deterministically reconstruct only the missing C1 checkpoints from the locked GCDH-P0 config on physical GPU6. Continue GACR-v2 only if both reconstructed SHA256 values exactly match the historical training summaries. The cohort, model, loss, seeds, scale grid, selection rule, and reporting remain unchanged."
+    }
+  ],
+  "parent_evidence": "GRAM_PHASE4_GACR_P0",
+  "objective": "Test one bounded change: calibration-selected residual deployment strength, while reproducing alpha=1.0 as a matched P0 baseline.",
+  "datasets": ["Toys", "Beauty"],
+  "cohort_seed": 2023,
+  "training_seeds": [2023, 2024, 2025],
+  "fit_samples_per_group": 512,
+  "calibration_samples_per_group": 128,
+  "validation_users_per_dataset": 1024,
+  "prior_gacr_p0_validation_salt": "gacr-p0-fresh-validation-v1",
+  "validation_salt": "phase6-gacr-v2-development-v1",
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "matched_p0_scale": 1.0,
+  "deployment_scale_candidates": [0.75, 1.0, 1.25, 1.5],
+  "residual": {
+    "feature_schema": "identical_to_gacr_p0",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "effective_bound_max": 0.3,
+    "margin": 0.1,
+    "learning_rate": 0.01,
+    "weight_decay": 0.01,
+    "fixed_training_step": 30,
+    "loss": "identical equal-weight head/tail target-vs-highest-negative hinge loss from GACR-P0",
+    "parameters": "residual ranker only"
+  },
+  "scale_selection": {
+    "scope": "shared across Toys, Beauty, and all training seeds",
+    "eligible": "Recall@10 nondecrease, tail NDCG@10 nondecrease, and broad harm <=1% in every domain-seed calibration cell",
+    "objective": "maximum mean relative overall NDCG@10 gain",
+    "tie_break": "higher changed-user coverage, then scale closest to 1.0",
+    "fallback": "maximum objective over all scales if none is eligible"
+  },
+  "development_reporting": [
+    "overall/head/tail NDCG@10 and Recall@10",
+    "overall/head/tail changed-user coverage",
+    "changed coverage among union-covered users",
+    "broad-harm rate",
+    "paired bootstrap 95% confidence intervals",
+    "three-seed stability"
+  ],
+  "calibration_safety": {
+    "broad_harm_max": 0.01
+  },
+  "integrity": {
+    "fit_calibration_user_disjoint": true,
+    "validation_excludes_gcdh_training_and_validation": true,
+    "validation_excludes_prior_gacr_p0_validation": true,
+    "parent_checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "target_free_candidate_construction": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "post_run_policy": "Write results only. Do not make a scientific decision or start another experiment until the researcher explicitly requests analysis.",
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    }
+  },
+  "execution": {
+    "physical_gpu": 6,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "hard_timeout_seconds": 21600,
+    "no_automatic_retry": true
+  }
+}

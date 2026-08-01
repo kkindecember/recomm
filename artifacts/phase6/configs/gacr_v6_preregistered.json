@@ -1,0 +1,85 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V6_FULL_FIT",
+  "registered_at": "2026-08-01T00:00:00+08:00",
+  "decision_status_before_run": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "single_changed_factor": "Use every record from the existing deterministic fit-user split instead of sampling 512 head and 512 tail records.",
+  "datasets": ["Toys", "Beauty"],
+  "cohort_seed": 2023,
+  "training_seeds": [2023, 2024, 2025],
+  "calibration_samples_per_group": 128,
+  "validation_users_per_dataset": 1024,
+  "validation_salt": "phase6-gacr-v6-full-fit-development-v1",
+  "prior_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1",
+    "phase6-gacr-v3-development-v1",
+    "phase6-gacr-v4-development-v1",
+    "phase6-gacr-v5-development-v1"
+  ],
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "deployment_scale_candidates": [1.0],
+  "deployment_scale": 1.0,
+  "residual": {
+    "feature_schema": "identical_to_gacr_v2_v3",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "margin": 0.1,
+    "learning_rate": 0.01,
+    "weight_decay": 0.01,
+    "fixed_training_step": 30,
+    "loss": "equal-weight head/tail target-vs-highest-negative hinge loss",
+    "parameters": "residual ranker only"
+  },
+  "retention_gate": {
+    "all_four_standard_metrics_each_domain_not_below_gram": true,
+    "each_domain_ndcg10_relative_gain_min": 0.01,
+    "macro_ndcg10_relative_gain_vs_gram_min": 0.02,
+    "macro_ndcg10_relative_increment_vs_v3_min": 0.005,
+    "positive_v6_vs_v3_cells_min": 5,
+    "broad_harm_max": 0.01
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "v3_residual_root": "artifacts/phase6/gacr_v2",
+    "expected_v3_residual_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    },
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    }
+  },
+  "integrity": {
+    "fit_calibration_user_disjoint": true,
+    "parent_checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "minimum_free_mib": 30720,
+    "hard_timeout_seconds": 129600,
+    "no_automatic_retry": true,
+    "restore_codellama_gpu": 0
+  },
+  "post_run_policy": "Write results only. Do not analyze, read Sports/test, retry, or start another experiment without researcher request.",
+  "implementation_lock": {
+    "implementation_sha256": "bbbe1f5102452d88a6ad51cb20f8090e6a371dd8fec6cf8b344ab49a9d3ad14e",
+    "test_sha256": "0b36b33715010ee1b62df1dfdd2ef9b3cb113bdb4666e1406352dba803e68166",
+    "runner_sha256": "ba6e0dac5757510e3d638e01eb31368437f563d56cf26bbcd87406fad20d533a",
+    "combined_phase6_tests": "22 passed"
+  }
+}

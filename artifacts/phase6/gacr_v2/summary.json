@@ -1,0 +1,1919 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V2",
+  "result_status": "RESULTS_READY_FOR_RESEARCHER_ANALYSIS",
+  "matched_p0_scale": 1.0,
+  "selected_v2_scale": 1.0,
+  "scale_selection": [
+    {
+      "scale": 0.75,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.016193205258508387,
+      "mean_changed_user_coverage": 0.17252604166666666
+    },
+    {
+      "scale": 1.0,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.020814144807949003,
+      "mean_changed_user_coverage": 0.193359375
+    },
+    {
+      "scale": 1.25,
+      "eligible": true,
+      "mean_relative_ndcg10_gain": 0.020661136386183238,
+      "mean_changed_user_coverage": 0.20833333333333334
+    },
+    {
+      "scale": 1.5,
+      "eligible": false,
+      "mean_relative_ndcg10_gain": 0.023714345332289777,
+      "mean_changed_user_coverage": 0.21614583333333334
+    }
+  ],
+  "training": {
+    "Toys": {
+      "fit_samples": 1024,
+      "fit_covered": 591,
+      "calibration_samples": 256,
+      "calibration_covered": 147,
+      "fit_user_sha256": "318a56fc9f4963edee1ca00c11873bef21e5839b35348a033168dcbabc7732d8",
+      "calibration_user_sha256": "d48e3ed6bfddaddff6ff3876e9a64f29006b8b2fee79950470723194c57e073d",
+      "fit_calibration_user_overlap": 0,
+      "parent_checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "seeds": {
+        "2023": {
+          "zero_residual_identity_rate": 1.0,
+          "first_loss": 0.7289572954177856,
+          "last_loss": 0.5114169120788574,
+          "calibration": {
+            "0.75": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.2464407702916146,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.1953125,
+                "changed_covered_user_coverage": 0.3401360544217687,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.24423850174690662,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.265625,
+                "changed_covered_user_coverage": 0.39080459770114945,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.24864303883632252,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.125,
+                "changed_covered_user_coverage": 0.26666666666666666,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.0": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.390625,
+                "candidate_NDCG@10": 0.2475833421734261,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.22265625,
+                "changed_covered_user_coverage": 0.3877551020408163,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.40625,
+                "candidate_NDCG@10": 0.24663641801929326,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.3125,
+                "changed_covered_user_coverage": 0.45977011494252873,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.24853026632755887,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.1328125,
+                "changed_covered_user_coverage": 0.2833333333333333,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.25": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.2459129288358109,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.23046875,
+                "changed_covered_user_coverage": 0.4013605442176871,
+                "broad_harm_rate": 0.00390625
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.40625,
+                "candidate_NDCG@10": 0.24753650927935317,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.3203125,
+                "changed_covered_user_coverage": 0.47126436781609193,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.3671875,
+                "candidate_NDCG@10": 0.24428934839226857,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.140625,
+                "changed_covered_user_coverage": 0.3,
+                "broad_harm_rate": 0.0078125
+              }
+            },
+            "1.5": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.24529835928878235,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.234375,
+                "changed_covered_user_coverage": 0.40816326530612246,
+                "broad_harm_rate": 0.0078125
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.40625,
+                "candidate_NDCG@10": 0.24767610659613132,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.3203125,
+                "changed_covered_user_coverage": 0.47126436781609193,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.3671875,
+                "candidate_NDCG@10": 0.24292061198143336,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.1484375,
+                "changed_covered_user_coverage": 0.31666666666666665,
+                "broad_harm_rate": 0.015625
+              }
+            }
+          }
+        },
+        "2024": {
+          "zero_residual_identity_rate": 1.0,
+          "first_loss": 0.7289572954177856,
+          "last_loss": 0.5463748574256897,
+          "calibration": {
+            "0.75": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.24639085949638442,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.2265625,
+                "changed_covered_user_coverage": 0.3945578231292517,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.24413868015644632,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.34375,
+                "changed_covered_user_coverage": 0.5057471264367817,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.24864303883632252,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.109375,
+                "changed_covered_user_coverage": 0.23333333333333334,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.0": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.2468426424552292,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.265625,
+                "changed_covered_user_coverage": 0.46258503401360546,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.2449026487573577,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.375,
+                "changed_covered_user_coverage": 0.5517241379310345,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.2487826361531007,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.15625,
+                "changed_covered_user_coverage": 0.3333333333333333,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.25": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.24701594421219775,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.2890625,
+                "changed_covered_user_coverage": 0.5034013605442177,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.2459297679176433,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.4140625,
+                "changed_covered_user_coverage": 0.6091954022988506,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.2481021205067522,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.1640625,
+                "changed_covered_user_coverage": 0.35,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.5": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.390625,
+                "candidate_NDCG@10": 0.24789436790908506,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.29296875,
+                "changed_covered_user_coverage": 0.5102040816326531,
+                "broad_harm_rate": 0.00390625
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.40625,
+                "candidate_NDCG@10": 0.2492375938126634,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.4140625,
+                "changed_covered_user_coverage": 0.6091954022988506,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.2465511420055067,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.171875,
+                "changed_covered_user_coverage": 0.36666666666666664,
+                "broad_harm_rate": 0.0078125
+              }
+            }
+          }
+        },
+        "2025": {
+          "zero_residual_identity_rate": 1.0,
+          "first_loss": 0.7289572954177856,
+          "last_loss": 0.5196938514709473,
+          "calibration": {
+            "0.75": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.24642121795869626,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.2109375,
+                "changed_covered_user_coverage": 0.3673469387755102,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.24419939708107002,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.2890625,
+                "changed_covered_user_coverage": 0.42528735632183906,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.24864303883632252,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.1328125,
+                "changed_covered_user_coverage": 0.2833333333333333,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.0": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.24652398135401093,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.23046875,
+                "changed_covered_user_coverage": 0.4013605442176871,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.24451769638046295,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.3203125,
+                "changed_covered_user_coverage": 0.47126436781609193,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.24853026632755887,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.140625,
+                "changed_covered_user_coverage": 0.3,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.25": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.3828125,
+                "candidate_NDCG@10": 0.24572014558714061,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.25,
+                "changed_covered_user_coverage": 0.43537414965986393,
+                "broad_harm_rate": 0.00390625
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.2458488594486794,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.3671875,
+                "changed_covered_user_coverage": 0.5402298850574713,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.3671875,
+                "candidate_NDCG@10": 0.24559143172560188,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.1328125,
+                "changed_covered_user_coverage": 0.2833333333333333,
+                "broad_harm_rate": 0.0078125
+              }
+            },
+            "1.5": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.3828125,
+                "baseline_NDCG@10": 0.24209625521940012,
+                "baseline_Recall@50": 0.5625,
+                "candidate_Recall@10": 0.38671875,
+                "candidate_NDCG@10": 0.24649667483451218,
+                "candidate_Recall@50": 0.5625,
+                "union_coverage": 0.57421875,
+                "changed_user_coverage": 0.2734375,
+                "changed_covered_user_coverage": 0.47619047619047616,
+                "broad_harm_rate": 0.00390625
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.3984375,
+                "baseline_NDCG@10": 0.24043289842305865,
+                "baseline_Recall@50": 0.671875,
+                "candidate_Recall@10": 0.3984375,
+                "candidate_NDCG@10": 0.2462669803385326,
+                "candidate_Recall@50": 0.671875,
+                "union_coverage": 0.6796875,
+                "changed_user_coverage": 0.390625,
+                "changed_covered_user_coverage": 0.5747126436781609,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.3671875,
+                "baseline_NDCG@10": 0.24375961201574156,
+                "baseline_Recall@50": 0.453125,
+                "candidate_Recall@10": 0.375,
+                "candidate_NDCG@10": 0.2467263693304918,
+                "candidate_Recall@50": 0.453125,
+                "union_coverage": 0.46875,
+                "changed_user_coverage": 0.15625,
+                "changed_covered_user_coverage": 0.3333333333333333,
+                "broad_harm_rate": 0.0078125
+              }
+            }
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "fit_samples": 1024,
+      "fit_covered": 510,
+      "calibration_samples": 256,
+      "calibration_covered": 111,
+      "fit_user_sha256": "e8844b911d1612ce5fac6a7b5f1063ae3c1acdaa9a60209c49d68b00fd18cb22",
+      "calibration_user_sha256": "dc2d9c9f82e11d4f755100899dcb74f9b3b3f5c697951e6dddbc99572edc6818",
+      "fit_calibration_user_overlap": 0,
+      "parent_checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "seeds": {
+        "2023": {
+          "zero_residual_identity_rate": 1.0,
+          "first_loss": 0.614644467830658,
+          "last_loss": 0.43067634105682373,
+          "calibration": {
+            "0.75": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.3046875,
+                "candidate_NDCG@10": 0.20379739778109757,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.13671875,
+                "changed_covered_user_coverage": 0.3153153153153153,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.3359375,
+                "candidate_NDCG@10": 0.19737120686504483,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.21875,
+                "changed_covered_user_coverage": 0.4,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.2102235886971503,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0546875,
+                "changed_covered_user_coverage": 0.17073170731707318,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.0": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.30859375,
+                "candidate_NDCG@10": 0.20511729611853438,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.1484375,
+                "changed_covered_user_coverage": 0.34234234234234234,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.34375,
+                "candidate_NDCG@10": 0.20015060085669661,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.234375,
+                "changed_covered_user_coverage": 0.42857142857142855,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.21008399138037212,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0625,
+                "changed_covered_user_coverage": 0.1951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.25": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.30859375,
+                "candidate_NDCG@10": 0.20525689343531253,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.1484375,
+                "changed_covered_user_coverage": 0.34234234234234234,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.34375,
+                "candidate_NDCG@10": 0.2002901981734748,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2421875,
+                "changed_covered_user_coverage": 0.44285714285714284,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.2102235886971503,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0546875,
+                "changed_covered_user_coverage": 0.17073170731707318,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.5": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.3125,
+                "candidate_NDCG@10": 0.20643279185587496,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.15234375,
+                "changed_covered_user_coverage": 0.35135135135135137,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.3515625,
+                "candidate_NDCG@10": 0.20264199501459965,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2421875,
+                "changed_covered_user_coverage": 0.44285714285714284,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.2102235886971503,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0625,
+                "changed_covered_user_coverage": 0.1951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            }
+          }
+        },
+        "2024": {
+          "zero_residual_identity_rate": 1.0,
+          "first_loss": 0.614644467830658,
+          "last_loss": 0.4484184682369232,
+          "calibration": {
+            "0.75": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.3046875,
+                "candidate_NDCG@10": 0.20202681767666558,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.1171875,
+                "changed_covered_user_coverage": 0.2702702702702703,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.3359375,
+                "candidate_NDCG@10": 0.19587582405573487,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.1953125,
+                "changed_covered_user_coverage": 0.35714285714285715,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.20817781129759627,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0390625,
+                "changed_covered_user_coverage": 0.12195121951219512,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.0": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.3046875,
+                "candidate_NDCG@10": 0.20372759912270846,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.140625,
+                "changed_covered_user_coverage": 0.32432432432432434,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.3359375,
+                "candidate_NDCG@10": 0.19737120686504483,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2109375,
+                "changed_covered_user_coverage": 0.38571428571428573,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.21008399138037212,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0703125,
+                "changed_covered_user_coverage": 0.21951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.25": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.30859375,
+                "candidate_NDCG@10": 0.20511729611853438,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.15625,
+                "changed_covered_user_coverage": 0.36036036036036034,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.34375,
+                "candidate_NDCG@10": 0.20015060085669661,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2421875,
+                "changed_covered_user_coverage": 0.44285714285714284,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.21008399138037212,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0703125,
+                "changed_covered_user_coverage": 0.21951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.5": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.30859375,
+                "candidate_NDCG@10": 0.20525689343531253,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.16015625,
+                "changed_covered_user_coverage": 0.36936936936936937,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.34375,
+                "candidate_NDCG@10": 0.2002901981734748,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2578125,
+                "changed_covered_user_coverage": 0.4714285714285714,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.2102235886971503,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0625,
+                "changed_covered_user_coverage": 0.1951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            }
+          }
+        },
+        "2025": {
+          "zero_residual_identity_rate": 1.0,
+          "first_loss": 0.614644467830658,
+          "last_loss": 0.42051178216934204,
+          "calibration": {
+            "0.75": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.3046875,
+                "candidate_NDCG@10": 0.20388674877240492,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.1484375,
+                "changed_covered_user_coverage": 0.34234234234234234,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.3359375,
+                "candidate_NDCG@10": 0.1975499088476596,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.234375,
+                "changed_covered_user_coverage": 0.42857142857142855,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.2102235886971503,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0625,
+                "changed_covered_user_coverage": 0.1951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.0": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.30859375,
+                "candidate_NDCG@10": 0.2050159082502092,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.15234375,
+                "changed_covered_user_coverage": 0.35135135135135137,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.34375,
+                "candidate_NDCG@10": 0.1998082278032681,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2421875,
+                "changed_covered_user_coverage": 0.44285714285714284,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.2102235886971503,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0625,
+                "changed_covered_user_coverage": 0.1951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.25": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.30859375,
+                "candidate_NDCG@10": 0.20520664710984177,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.17578125,
+                "changed_covered_user_coverage": 0.40540540540540543,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.34375,
+                "candidate_NDCG@10": 0.20001100353991846,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.28125,
+                "changed_covered_user_coverage": 0.5142857142857142,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.21040229067976504,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.0703125,
+                "changed_covered_user_coverage": 0.21951219512195122,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "1.5": {
+              "overall": {
+                "n": 256,
+                "baseline_Recall@10": 0.30078125,
+                "baseline_NDCG@10": 0.20032493503877308,
+                "baseline_Recall@50": 0.43359375,
+                "candidate_Recall@10": 0.3125,
+                "candidate_NDCG@10": 0.20670007916818817,
+                "candidate_Recall@50": 0.43359375,
+                "union_coverage": 0.43359375,
+                "changed_user_coverage": 0.18359375,
+                "changed_covered_user_coverage": 0.42342342342342343,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 128,
+                "baseline_Recall@10": 0.328125,
+                "baseline_NDCG@10": 0.19281443183337843,
+                "baseline_Recall@50": 0.546875,
+                "candidate_Recall@10": 0.3515625,
+                "candidate_NDCG@10": 0.2029978676566113,
+                "candidate_Recall@50": 0.546875,
+                "union_coverage": 0.546875,
+                "changed_user_coverage": 0.2890625,
+                "changed_covered_user_coverage": 0.5285714285714286,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 128,
+                "baseline_Recall@10": 0.2734375,
+                "baseline_NDCG@10": 0.20783543824416773,
+                "baseline_Recall@50": 0.3203125,
+                "candidate_Recall@10": 0.2734375,
+                "candidate_NDCG@10": 0.21040229067976504,
+                "candidate_Recall@50": 0.3203125,
+                "union_coverage": 0.3203125,
+                "changed_user_coverage": 0.078125,
+                "changed_covered_user_coverage": 0.24390243902439024,
+                "broad_harm_rate": 0.0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "validation": {
+    "Toys": {
+      "users": 1024,
+      "validation_user_sha256": "e74e47ba636a4ed869f74155a075fec6010060783b25d41824842ecbae98e02e",
+      "gcdh_or_training_overlap": 0,
+      "prior_gacr_p0_overlap": 0,
+      "parent_checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "parent_checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "seeds": {
+        "2023": {
+          "matched_p0": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1240234375,
+                "baseline_NDCG@10": 0.07352326957345291,
+                "baseline_Recall@50": 0.2001953125,
+                "candidate_Recall@10": 0.1201171875,
+                "candidate_NDCG@10": 0.07286283110361907,
+                "candidate_Recall@50": 0.1982421875,
+                "union_coverage": 0.2275390625,
+                "changed_user_coverage": 0.1259765625,
+                "changed_covered_user_coverage": 0.5536480686695279,
+                "broad_harm_rate": 0.005859375
+              },
+              "head": {
+                "n": 387,
+                "baseline_Recall@10": 0.13695090439276486,
+                "baseline_NDCG@10": 0.0783471009962217,
+                "baseline_Recall@50": 0.2558139534883721,
+                "candidate_Recall@10": 0.1343669250645995,
+                "candidate_NDCG@10": 0.07859982979221149,
+                "candidate_Recall@50": 0.2532299741602067,
+                "union_coverage": 0.26098191214470284,
+                "changed_user_coverage": 0.13695090439276486,
+                "changed_covered_user_coverage": 0.5247524752475248,
+                "broad_harm_rate": 0.00516795865633075
+              },
+              "tail": {
+                "n": 637,
+                "baseline_Recall@10": 0.11616954474097331,
+                "baseline_NDCG@10": 0.07059262159761065,
+                "baseline_Recall@50": 0.1664050235478807,
+                "candidate_Recall@10": 0.11145996860282574,
+                "candidate_NDCG@10": 0.0693774017590582,
+                "candidate_Recall@50": 0.16483516483516483,
+                "union_coverage": 0.20722135007849293,
+                "changed_user_coverage": 0.11930926216640503,
+                "changed_covered_user_coverage": 0.5757575757575758,
+                "broad_harm_rate": 0.006279434850863423
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": -0.00898271354994673,
+              "overall_recall10_absolute_gain": -0.00390625,
+              "tail_ndcg10_relative_gain": -0.017214544679745702
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                -0.03636701063055707,
+                0.01583773824941585
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.009765625,
+                0.0009765625
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                -0.05512087271358886,
+                0.01614966374029072
+              ]
+            },
+            "per_user_sha256": "58bfb27743d404bde99a2281b5ef13ea61a1fe697e841472c136cfa3688be3cd"
+          },
+          "gacr_v2": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1240234375,
+                "baseline_NDCG@10": 0.07352326957345291,
+                "baseline_Recall@50": 0.2001953125,
+                "candidate_Recall@10": 0.1201171875,
+                "candidate_NDCG@10": 0.07286283110361907,
+                "candidate_Recall@50": 0.1982421875,
+                "union_coverage": 0.2275390625,
+                "changed_user_coverage": 0.1259765625,
+                "changed_covered_user_coverage": 0.5536480686695279,
+                "broad_harm_rate": 0.005859375
+              },
+              "head": {
+                "n": 387,
+                "baseline_Recall@10": 0.13695090439276486,
+                "baseline_NDCG@10": 0.0783471009962217,
+                "baseline_Recall@50": 0.2558139534883721,
+                "candidate_Recall@10": 0.1343669250645995,
+                "candidate_NDCG@10": 0.07859982979221149,
+                "candidate_Recall@50": 0.2532299741602067,
+                "union_coverage": 0.26098191214470284,
+                "changed_user_coverage": 0.13695090439276486,
+                "changed_covered_user_coverage": 0.5247524752475248,
+                "broad_harm_rate": 0.00516795865633075
+              },
+              "tail": {
+                "n": 637,
+                "baseline_Recall@10": 0.11616954474097331,
+                "baseline_NDCG@10": 0.07059262159761065,
+                "baseline_Recall@50": 0.1664050235478807,
+                "candidate_Recall@10": 0.11145996860282574,
+                "candidate_NDCG@10": 0.0693774017590582,
+                "candidate_Recall@50": 0.16483516483516483,
+                "union_coverage": 0.20722135007849293,
+                "changed_user_coverage": 0.11930926216640503,
+                "changed_covered_user_coverage": 0.5757575757575758,
+                "broad_harm_rate": 0.006279434850863423
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": -0.00898271354994673,
+              "overall_recall10_absolute_gain": -0.00390625,
+              "tail_ndcg10_relative_gain": -0.017214544679745702
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                -0.03713669575313583,
+                0.016658996857198283
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.009765625,
+                0.0009765625
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                -0.05680477953109218,
+                0.01580060611077624
+              ]
+            },
+            "per_user_sha256": "58bfb27743d404bde99a2281b5ef13ea61a1fe697e841472c136cfa3688be3cd"
+          },
+          "residual_checkpoint_sha256": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c"
+        },
+        "2024": {
+          "matched_p0": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1240234375,
+                "baseline_NDCG@10": 0.07352326957345291,
+                "baseline_Recall@50": 0.2001953125,
+                "candidate_Recall@10": 0.123046875,
+                "candidate_NDCG@10": 0.07387702478526353,
+                "candidate_Recall@50": 0.2021484375,
+                "union_coverage": 0.2275390625,
+                "changed_user_coverage": 0.1337890625,
+                "changed_covered_user_coverage": 0.5879828326180258,
+                "broad_harm_rate": 0.0048828125
+              },
+              "head": {
+                "n": 387,
+                "baseline_Recall@10": 0.13695090439276486,
+                "baseline_NDCG@10": 0.0783471009962217,
+                "baseline_Recall@50": 0.2558139534883721,
+                "candidate_Recall@10": 0.1343669250645995,
+                "candidate_NDCG@10": 0.07856559630252638,
+                "candidate_Recall@50": 0.2532299741602067,
+                "union_coverage": 0.26098191214470284,
+                "changed_user_coverage": 0.1421188630490956,
+                "changed_covered_user_coverage": 0.5445544554455446,
+                "broad_harm_rate": 0.00516795865633075
+              },
+              "tail": {
+                "n": 637,
+                "baseline_Recall@10": 0.11616954474097331,
+                "baseline_NDCG@10": 0.07059262159761065,
+                "baseline_Recall@50": 0.1664050235478807,
+                "candidate_Recall@10": 0.11616954474097331,
+                "candidate_NDCG@10": 0.07102855197964232,
+                "candidate_Recall@50": 0.17111459968602827,
+                "union_coverage": 0.20722135007849293,
+                "changed_user_coverage": 0.12872841444270017,
+                "changed_covered_user_coverage": 0.6212121212121212,
+                "broad_harm_rate": 0.004709576138147566
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.004811472801236061,
+              "overall_recall10_absolute_gain": -0.0009765625,
+              "tail_ndcg10_relative_gain": 0.00617529668350536
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                -0.02093562130959609,
+                0.030539628109720156
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.0068359375,
+                0.0048828125
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                -0.028889678204584646,
+                0.04159575801293774
+              ]
+            },
+            "per_user_sha256": "de6e5bd9b670b43b65bb8c1c5e00d723f9ea3a75352ea248cc0eda1ea0c49809"
+          },
+          "gacr_v2": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1240234375,
+                "baseline_NDCG@10": 0.07352326957345291,
+                "baseline_Recall@50": 0.2001953125,
+                "candidate_Recall@10": 0.123046875,
+                "candidate_NDCG@10": 0.07387702478526353,
+                "candidate_Recall@50": 0.2021484375,
+                "union_coverage": 0.2275390625,
+                "changed_user_coverage": 0.1337890625,
+                "changed_covered_user_coverage": 0.5879828326180258,
+                "broad_harm_rate": 0.0048828125
+              },
+              "head": {
+                "n": 387,
+                "baseline_Recall@10": 0.13695090439276486,
+                "baseline_NDCG@10": 0.0783471009962217,
+                "baseline_Recall@50": 0.2558139534883721,
+                "candidate_Recall@10": 0.1343669250645995,
+                "candidate_NDCG@10": 0.07856559630252638,
+                "candidate_Recall@50": 0.2532299741602067,
+                "union_coverage": 0.26098191214470284,
+                "changed_user_coverage": 0.1421188630490956,
+                "changed_covered_user_coverage": 0.5445544554455446,
+                "broad_harm_rate": 0.00516795865633075
+              },
+              "tail": {
+                "n": 637,
+                "baseline_Recall@10": 0.11616954474097331,
+                "baseline_NDCG@10": 0.07059262159761065,
+                "baseline_Recall@50": 0.1664050235478807,
+                "candidate_Recall@10": 0.11616954474097331,
+                "candidate_NDCG@10": 0.07102855197964232,
+                "candidate_Recall@50": 0.17111459968602827,
+                "union_coverage": 0.20722135007849293,
+                "changed_user_coverage": 0.12872841444270017,
+                "changed_covered_user_coverage": 0.6212121212121212,
+                "broad_harm_rate": 0.004709576138147566
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.004811472801236061,
+              "overall_recall10_absolute_gain": -0.0009765625,
+              "tail_ndcg10_relative_gain": 0.00617529668350536
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                -0.020588114017014162,
+                0.0304528041675012
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.0068359375,
+                0.0048828125
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                -0.029177769602217168,
+                0.04180051428889666
+              ]
+            },
+            "per_user_sha256": "de6e5bd9b670b43b65bb8c1c5e00d723f9ea3a75352ea248cc0eda1ea0c49809"
+          },
+          "residual_checkpoint_sha256": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5"
+        },
+        "2025": {
+          "matched_p0": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1240234375,
+                "baseline_NDCG@10": 0.07352326957345291,
+                "baseline_Recall@50": 0.2001953125,
+                "candidate_Recall@10": 0.12109375,
+                "candidate_NDCG@10": 0.07286907805244935,
+                "candidate_Recall@50": 0.2001953125,
+                "union_coverage": 0.2275390625,
+                "changed_user_coverage": 0.1318359375,
+                "changed_covered_user_coverage": 0.5793991416309013,
+                "broad_harm_rate": 0.0048828125
+              },
+              "head": {
+                "n": 387,
+                "baseline_Recall@10": 0.13695090439276486,
+                "baseline_NDCG@10": 0.0783471009962217,
+                "baseline_Recall@50": 0.2558139534883721,
+                "candidate_Recall@10": 0.1343669250645995,
+                "candidate_NDCG@10": 0.07849883601241961,
+                "candidate_Recall@50": 0.2558139534883721,
+                "union_coverage": 0.26098191214470284,
+                "changed_user_coverage": 0.13953488372093023,
+                "changed_covered_user_coverage": 0.5346534653465347,
+                "broad_harm_rate": 0.00516795865633075
+              },
+              "tail": {
+                "n": 637,
+                "baseline_Recall@10": 0.11616954474097331,
+                "baseline_NDCG@10": 0.07059262159761065,
+                "baseline_Recall@50": 0.1664050235478807,
+                "candidate_Recall@10": 0.1130298273155416,
+                "candidate_NDCG@10": 0.0694488012384643,
+                "candidate_Recall@50": 0.1664050235478807,
+                "union_coverage": 0.20722135007849293,
+                "changed_user_coverage": 0.1271585557299843,
+                "changed_covered_user_coverage": 0.6136363636363636,
+                "broad_harm_rate": 0.004709576138147566
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": -0.008897747948355184,
+              "overall_recall10_absolute_gain": -0.0029296875,
+              "tail_ndcg10_relative_gain": -0.01620311490436377
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                -0.032835239067076964,
+                0.013836443432405351
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.0078125,
+                0.001953125
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                -0.0472198043998044,
+                0.011640658920960384
+              ]
+            },
+            "per_user_sha256": "edd412742095bc5c864893d70400f44b0c823d7492d6cb7126f627fbf2d40e90"
+          },
+          "gacr_v2": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1240234375,
+                "baseline_NDCG@10": 0.07352326957345291,
+                "baseline_Recall@50": 0.2001953125,
+                "candidate_Recall@10": 0.12109375,
+                "candidate_NDCG@10": 0.07286907805244935,
+                "candidate_Recall@50": 0.2001953125,
+                "union_coverage": 0.2275390625,
+                "changed_user_coverage": 0.1318359375,
+                "changed_covered_user_coverage": 0.5793991416309013,
+                "broad_harm_rate": 0.0048828125
+              },
+              "head": {
+                "n": 387,
+                "baseline_Recall@10": 0.13695090439276486,
+                "baseline_NDCG@10": 0.0783471009962217,
+                "baseline_Recall@50": 0.2558139534883721,
+                "candidate_Recall@10": 0.1343669250645995,
+                "candidate_NDCG@10": 0.07849883601241961,
+                "candidate_Recall@50": 0.2558139534883721,
+                "union_coverage": 0.26098191214470284,
+                "changed_user_coverage": 0.13953488372093023,
+                "changed_covered_user_coverage": 0.5346534653465347,
+                "broad_harm_rate": 0.00516795865633075
+              },
+              "tail": {
+                "n": 637,
+                "baseline_Recall@10": 0.11616954474097331,
+                "baseline_NDCG@10": 0.07059262159761065,
+                "baseline_Recall@50": 0.1664050235478807,
+                "candidate_Recall@10": 0.1130298273155416,
+                "candidate_NDCG@10": 0.0694488012384643,
+                "candidate_Recall@50": 0.1664050235478807,
+                "union_coverage": 0.20722135007849293,
+                "changed_user_coverage": 0.1271585557299843,
+                "changed_covered_user_coverage": 0.6136363636363636,
+                "broad_harm_rate": 0.004709576138147566
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": -0.008897747948355184,
+              "overall_recall10_absolute_gain": -0.0029296875,
+              "tail_ndcg10_relative_gain": -0.01620311490436377
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                -0.033517122861978485,
+                0.0135435326742495
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.0078125,
+                0.001953125
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                -0.047852814128174964,
+                0.012245517795131791
+              ]
+            },
+            "per_user_sha256": "edd412742095bc5c864893d70400f44b0c823d7492d6cb7126f627fbf2d40e90"
+          },
+          "residual_checkpoint_sha256": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+        }
+      }
+    },
+    "Beauty": {
+      "users": 1024,
+      "validation_user_sha256": "690116f749bcad603eb62dc4420341a681846c94b99d068c9273fb48becf5e9d",
+      "gcdh_or_training_overlap": 0,
+      "prior_gacr_p0_overlap": 0,
+      "parent_checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "parent_checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "seeds": {
+        "2023": {
+          "matched_p0": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1103515625,
+                "baseline_NDCG@10": 0.06418843613690822,
+                "baseline_Recall@50": 0.205078125,
+                "candidate_Recall@10": 0.1123046875,
+                "candidate_NDCG@10": 0.06579967987443426,
+                "candidate_Recall@50": 0.2080078125,
+                "union_coverage": 0.2177734375,
+                "changed_user_coverage": 0.107421875,
+                "changed_covered_user_coverage": 0.49327354260089684,
+                "broad_harm_rate": 0.0009765625
+              },
+              "head": {
+                "n": 513,
+                "baseline_Recall@10": 0.1793372319688109,
+                "baseline_NDCG@10": 0.1004117433219453,
+                "baseline_Recall@50": 0.3333333333333333,
+                "candidate_Recall@10": 0.18128654970760233,
+                "candidate_NDCG@10": 0.10262925049509218,
+                "candidate_Recall@50": 0.3333333333333333,
+                "union_coverage": 0.3391812865497076,
+                "changed_user_coverage": 0.15984405458089668,
+                "changed_covered_user_coverage": 0.47126436781609193,
+                "broad_harm_rate": 0.001949317738791423
+              },
+              "tail": {
+                "n": 511,
+                "baseline_Recall@10": 0.0410958904109589,
+                "baseline_NDCG@10": 0.027823354755452192,
+                "baseline_Recall@50": 0.07632093933463796,
+                "candidate_Recall@10": 0.043052837573385516,
+                "candidate_NDCG@10": 0.02882596220633736,
+                "candidate_Recall@50": 0.0821917808219178,
+                "union_coverage": 0.0958904109589041,
+                "changed_user_coverage": 0.0547945205479452,
+                "changed_covered_user_coverage": 0.5714285714285714,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.025101775872672816,
+              "overall_recall10_absolute_gain": 0.001953125,
+              "tail_ndcg10_relative_gain": 0.03603474346272706
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                0.00531285252493502,
+                0.04800506273343206
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.001953125,
+                0.005859375
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                0.0013877151219991724,
+                0.10076407780958828
+              ]
+            },
+            "per_user_sha256": "68ad6a6253e524a751b7e65adfeffd1b654e0d31b17d183369deb0b090f7a321"
+          },
+          "gacr_v2": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1103515625,
+                "baseline_NDCG@10": 0.06418843613690822,
+                "baseline_Recall@50": 0.205078125,
+                "candidate_Recall@10": 0.1123046875,
+                "candidate_NDCG@10": 0.06579967987443426,
+                "candidate_Recall@50": 0.2080078125,
+                "union_coverage": 0.2177734375,
+                "changed_user_coverage": 0.107421875,
+                "changed_covered_user_coverage": 0.49327354260089684,
+                "broad_harm_rate": 0.0009765625
+              },
+              "head": {
+                "n": 513,
+                "baseline_Recall@10": 0.1793372319688109,
+                "baseline_NDCG@10": 0.1004117433219453,
+                "baseline_Recall@50": 0.3333333333333333,
+                "candidate_Recall@10": 0.18128654970760233,
+                "candidate_NDCG@10": 0.10262925049509218,
+                "candidate_Recall@50": 0.3333333333333333,
+                "union_coverage": 0.3391812865497076,
+                "changed_user_coverage": 0.15984405458089668,
+                "changed_covered_user_coverage": 0.47126436781609193,
+                "broad_harm_rate": 0.001949317738791423
+              },
+              "tail": {
+                "n": 511,
+                "baseline_Recall@10": 0.0410958904109589,
+                "baseline_NDCG@10": 0.027823354755452192,
+                "baseline_Recall@50": 0.07632093933463796,
+                "candidate_Recall@10": 0.043052837573385516,
+                "candidate_NDCG@10": 0.02882596220633736,
+                "candidate_Recall@50": 0.0821917808219178,
+                "union_coverage": 0.0958904109589041,
+                "changed_user_coverage": 0.0547945205479452,
+                "changed_covered_user_coverage": 0.5714285714285714,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.025101775872672816,
+              "overall_recall10_absolute_gain": 0.001953125,
+              "tail_ndcg10_relative_gain": 0.03603474346272706
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                0.005444142585453038,
+                0.04800803223542388
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.001953125,
+                0.005859375
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                0.0012416641203235935,
+                0.10063319130738058
+              ]
+            },
+            "per_user_sha256": "68ad6a6253e524a751b7e65adfeffd1b654e0d31b17d183369deb0b090f7a321"
+          },
+          "residual_checkpoint_sha256": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370"
+        },
+        "2024": {
+          "matched_p0": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1103515625,
+                "baseline_NDCG@10": 0.06418843613690822,
+                "baseline_Recall@50": 0.205078125,
+                "candidate_Recall@10": 0.1123046875,
+                "candidate_NDCG@10": 0.06572612582131374,
+                "candidate_Recall@50": 0.2080078125,
+                "union_coverage": 0.2177734375,
+                "changed_user_coverage": 0.1123046875,
+                "changed_covered_user_coverage": 0.515695067264574,
+                "broad_harm_rate": 0.0009765625
+              },
+              "head": {
+                "n": 513,
+                "baseline_Recall@10": 0.1793372319688109,
+                "baseline_NDCG@10": 0.1004117433219453,
+                "baseline_Recall@50": 0.3333333333333333,
+                "candidate_Recall@10": 0.18128654970760233,
+                "candidate_NDCG@10": 0.10248242914929218,
+                "candidate_Recall@50": 0.3333333333333333,
+                "union_coverage": 0.3391812865497076,
+                "changed_user_coverage": 0.16569200779727095,
+                "changed_covered_user_coverage": 0.4885057471264368,
+                "broad_harm_rate": 0.001949317738791423
+              },
+              "tail": {
+                "n": 511,
+                "baseline_Recall@10": 0.0410958904109589,
+                "baseline_NDCG@10": 0.027823354755452192,
+                "baseline_Recall@50": 0.07632093933463796,
+                "candidate_Recall@10": 0.043052837573385516,
+                "candidate_NDCG@10": 0.02882596220633736,
+                "candidate_Recall@50": 0.0821917808219178,
+                "union_coverage": 0.0958904109589041,
+                "changed_user_coverage": 0.05870841487279843,
+                "changed_covered_user_coverage": 0.6122448979591837,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.02395586770685232,
+              "overall_recall10_absolute_gain": 0.001953125,
+              "tail_ndcg10_relative_gain": 0.03603474346272706
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                0.004660595121718264,
+                0.04676660866380178
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.001953125,
+                0.005859375
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                0.001213005034084441,
+                0.10102084445192956
+              ]
+            },
+            "per_user_sha256": "54eda56f17bd7844000ce15c6e578839385acfa7d176068524edacc8b5154e35"
+          },
+          "gacr_v2": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1103515625,
+                "baseline_NDCG@10": 0.06418843613690822,
+                "baseline_Recall@50": 0.205078125,
+                "candidate_Recall@10": 0.1123046875,
+                "candidate_NDCG@10": 0.06572612582131374,
+                "candidate_Recall@50": 0.2080078125,
+                "union_coverage": 0.2177734375,
+                "changed_user_coverage": 0.1123046875,
+                "changed_covered_user_coverage": 0.515695067264574,
+                "broad_harm_rate": 0.0009765625
+              },
+              "head": {
+                "n": 513,
+                "baseline_Recall@10": 0.1793372319688109,
+                "baseline_NDCG@10": 0.1004117433219453,
+                "baseline_Recall@50": 0.3333333333333333,
+                "candidate_Recall@10": 0.18128654970760233,
+                "candidate_NDCG@10": 0.10248242914929218,
+                "candidate_Recall@50": 0.3333333333333333,
+                "union_coverage": 0.3391812865497076,
+                "changed_user_coverage": 0.16569200779727095,
+                "changed_covered_user_coverage": 0.4885057471264368,
+                "broad_harm_rate": 0.001949317738791423
+              },
+              "tail": {
+                "n": 511,
+                "baseline_Recall@10": 0.0410958904109589,
+                "baseline_NDCG@10": 0.027823354755452192,
+                "baseline_Recall@50": 0.07632093933463796,
+                "candidate_Recall@10": 0.043052837573385516,
+                "candidate_NDCG@10": 0.02882596220633736,
+                "candidate_Recall@50": 0.0821917808219178,
+                "union_coverage": 0.0958904109589041,
+                "changed_user_coverage": 0.05870841487279843,
+                "changed_covered_user_coverage": 0.6122448979591837,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.02395586770685232,
+              "overall_recall10_absolute_gain": 0.001953125,
+              "tail_ndcg10_relative_gain": 0.03603474346272706
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                0.004451536955910223,
+                0.04611273393349591
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                -0.001953125,
+                0.005859375
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                0.0012368660061508109,
+                0.10063162963799115
+              ]
+            },
+            "per_user_sha256": "54eda56f17bd7844000ce15c6e578839385acfa7d176068524edacc8b5154e35"
+          },
+          "residual_checkpoint_sha256": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e"
+        },
+        "2025": {
+          "matched_p0": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1103515625,
+                "baseline_NDCG@10": 0.06418843613690822,
+                "baseline_Recall@50": 0.205078125,
+                "candidate_Recall@10": 0.115234375,
+                "candidate_NDCG@10": 0.06661076674001856,
+                "candidate_Recall@50": 0.208984375,
+                "union_coverage": 0.2177734375,
+                "changed_user_coverage": 0.11328125,
+                "changed_covered_user_coverage": 0.5201793721973094,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 513,
+                "baseline_Recall@10": 0.1793372319688109,
+                "baseline_NDCG@10": 0.1004117433219453,
+                "baseline_Recall@50": 0.3333333333333333,
+                "candidate_Recall@10": 0.18518518518518517,
+                "candidate_NDCG@10": 0.10368478290062912,
+                "candidate_Recall@50": 0.3333333333333333,
+                "union_coverage": 0.3391812865497076,
+                "changed_user_coverage": 0.16764132553606237,
+                "changed_covered_user_coverage": 0.4942528735632184,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 511,
+                "baseline_Recall@10": 0.0410958904109589,
+                "baseline_NDCG@10": 0.027823354755452192,
+                "baseline_Recall@50": 0.07632093933463796,
+                "candidate_Recall@10": 0.04500978473581213,
+                "candidate_NDCG@10": 0.029391646797957496,
+                "candidate_Recall@50": 0.08414872798434442,
+                "union_coverage": 0.0958904109589041,
+                "changed_user_coverage": 0.05870841487279843,
+                "changed_covered_user_coverage": 0.6122448979591837,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.03773780370569746,
+              "overall_recall10_absolute_gain": 0.0048828125,
+              "tail_ndcg10_relative_gain": 0.05636602977209226
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                0.017987883225979655,
+                0.06397536843709643
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                0.0009765625,
+                0.009765625
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                0.006609831641060099,
+                0.14478501659412293
+              ]
+            },
+            "per_user_sha256": "41864c56f420b635a5d577d8dd858b2923ed6eef38d294a340ba8e5f69b1d17a"
+          },
+          "gacr_v2": {
+            "scale": 1.0,
+            "groups": {
+              "overall": {
+                "n": 1024,
+                "baseline_Recall@10": 0.1103515625,
+                "baseline_NDCG@10": 0.06418843613690822,
+                "baseline_Recall@50": 0.205078125,
+                "candidate_Recall@10": 0.115234375,
+                "candidate_NDCG@10": 0.06661076674001856,
+                "candidate_Recall@50": 0.208984375,
+                "union_coverage": 0.2177734375,
+                "changed_user_coverage": 0.11328125,
+                "changed_covered_user_coverage": 0.5201793721973094,
+                "broad_harm_rate": 0.0
+              },
+              "head": {
+                "n": 513,
+                "baseline_Recall@10": 0.1793372319688109,
+                "baseline_NDCG@10": 0.1004117433219453,
+                "baseline_Recall@50": 0.3333333333333333,
+                "candidate_Recall@10": 0.18518518518518517,
+                "candidate_NDCG@10": 0.10368478290062912,
+                "candidate_Recall@50": 0.3333333333333333,
+                "union_coverage": 0.3391812865497076,
+                "changed_user_coverage": 0.16764132553606237,
+                "changed_covered_user_coverage": 0.4942528735632184,
+                "broad_harm_rate": 0.0
+              },
+              "tail": {
+                "n": 511,
+                "baseline_Recall@10": 0.0410958904109589,
+                "baseline_NDCG@10": 0.027823354755452192,
+                "baseline_Recall@50": 0.07632093933463796,
+                "candidate_Recall@10": 0.04500978473581213,
+                "candidate_NDCG@10": 0.029391646797957496,
+                "candidate_Recall@50": 0.08414872798434442,
+                "union_coverage": 0.0958904109589041,
+                "changed_user_coverage": 0.05870841487279843,
+                "changed_covered_user_coverage": 0.6122448979591837,
+                "broad_harm_rate": 0.0
+              }
+            },
+            "gains": {
+              "overall_ndcg10_relative_gain": 0.03773780370569746,
+              "overall_recall10_absolute_gain": 0.0048828125,
+              "tail_ndcg10_relative_gain": 0.05636602977209226
+            },
+            "bootstrap": {
+              "overall_ndcg10_relative_gain_ci95": [
+                0.01774556112309606,
+                0.06354966346788045
+              ],
+              "overall_recall10_absolute_gain_ci95": [
+                0.0009765625,
+                0.009765625
+              ],
+              "tail_ndcg10_relative_gain_ci95": [
+                0.006481030197539051,
+                0.1454680665934261
+              ]
+            },
+            "per_user_sha256": "41864c56f420b635a5d577d8dd858b2923ed6eef38d294a340ba8e5f69b1d17a"
+          },
+          "residual_checkpoint_sha256": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+        }
+      }
+    }
+  },
+  "seed_stability": {
+    "matched_p0": {
+      "domain_seed_cells": 6,
+      "mean_overall_ndcg10_relative_gain": 0.012287743098026124,
+      "minimum_overall_ndcg10_relative_gain": -0.00898271354994673,
+      "maximum_overall_ndcg10_relative_gain": 0.03773780370569746,
+      "positive_cell_fraction": 0.6666666666666666
+    },
+    "gacr_v2": {
+      "domain_seed_cells": 6,
+      "mean_overall_ndcg10_relative_gain": 0.012287743098026124,
+      "minimum_overall_ndcg10_relative_gain": -0.00898271354994673,
+      "maximum_overall_ndcg10_relative_gain": 0.03773780370569746,
+      "positive_cell_fraction": 0.6666666666666666
+    }
+  },
+  "integrity": {
+    "fit_calibration_user_disjoint": true,
+    "parent_checkpoint_sha_unchanged": true,
+    "zero_residual_identity": true,
+    "fresh_validation_zero_overlap": true,
+    "backbone_optimizer_steps": 0,
+    "test_data_read": false,
+    "sports_data_read": false
+  }
+}

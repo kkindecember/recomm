@@ -1,0 +1,116 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V5",
+  "registered_at": "2026-08-01T16:28:41+08:00",
+  "decision_status_before_run": "GACR_V5_PREREGISTERED",
+  "parent_evidence": [
+    "GRAM_PHASE6_GACR_V3",
+    "GRAM_PHASE6_GACR_V4"
+  ],
+  "objective": "Test one bounded change: replace GACR-v4 hard residual application with a target-free continuous multiplier while freezing both the v3 residual and v4 gate.",
+  "datasets": ["Toys", "Beauty"],
+  "cohort_seed": 2023,
+  "training_seeds": [2023, 2024, 2025],
+  "fit_samples_per_group": 512,
+  "calibration_samples_per_group": 128,
+  "validation_users_per_dataset": 1024,
+  "prior_gacr_p0_validation_salt": "gacr-p0-fresh-validation-v1",
+  "prior_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1",
+    "phase6-gacr-v3-development-v1",
+    "phase6-cet-v1-gacr-v3-combination-development-v1",
+    "phase6-gacr-v4-development-v1"
+  ],
+  "validation_salt": "phase6-gacr-v5-development-v1",
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "v3_identity_budget": 0.4,
+  "single_changed_factor": {
+    "name": "target_free_continuous_residual_multiplier",
+    "definition": "For gate probability p and domain-shared alpha, apply multiplier alpha + (1-alpha)*p to every candidate residual instead of a hard apply/skip action.",
+    "selection_scope": "One alpha per development domain, shared across the three frozen residual/gate seeds.",
+    "identity_control": "Alpha 1 produces multiplier 1 for every user and must exactly reproduce frozen GACR-v3.",
+    "frozen_components": "GRAM checkpoints, candidate construction, six residual features, all v3 residual checkpoints, eight gate features, all v4 gate checkpoints, fit/calibration split and all model parameters."
+  },
+  "residual": {
+    "feature_schema": "identical_to_gacr_v3",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "parameters": "frozen GACR-v3 residual rankers only"
+  },
+  "soft_weight": {
+    "formula": "alpha + (1-alpha)*gate_probability",
+    "alpha_candidates": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "target_free_at_deployment": true,
+    "gate_optimizer_steps": 0
+  },
+  "alpha_selection": {
+    "eligible": "In every seed calibration cell: overall Recall@10, overall Recall@50, tail NDCG@10 and tail Recall@50 do not decrease versus GRAM, and broad harm is <=1%.",
+    "objective": "A non-identity alpha must be eligible and strictly exceed alpha 1 mean overall NDCG@10 within its domain.",
+    "tie_break": "Higher mean tail NDCG@10, higher mean overall Recall@50, lower maximum broad harm, then larger alpha.",
+    "fail_closed": "Select alpha 1 whenever no safe non-identity candidate strictly exceeds it."
+  },
+  "calibration_safety": {"broad_harm_max": 0.01},
+  "decision_rule": {
+    "keep_v5": "V5 strictly exceeds v3 mean NDCG@10 in Toys and the six-cell macro average; Beauty is not below v3; Toys tail NDCG@10, overall Recall@50 and tail Recall@50 are not below v3; Toys mean overall Recall@50 is not below GRAM; every cell has Recall@10 nondecrease versus GRAM and broad harm <=1%; all integrity gates pass.",
+    "return_to_v3": "Otherwise retain frozen GACR-v3 and stop the gate/soft-weighting factor."
+  },
+  "integrity": {
+    "code_sha256": "47b28ca3acf7a36ddbaad67c7c7113dd537379adbb74e8c984409935e6d0b76d",
+    "fit_calibration_user_disjoint": true,
+    "validation_excludes_all_prior_development_cohorts": true,
+    "alpha1_exact_v3_identity": true,
+    "parent_checkpoint_sha_unchanged": true,
+    "residual_optimizer_steps": 0,
+    "gate_optimizer_steps": 0,
+    "backbone_optimizer_steps": 0,
+    "target_free_soft_weight": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "v3_residual_root": "artifacts/phase6/gacr_v2",
+    "v4_gate_root": "artifacts/phase6/gacr_v4",
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    },
+    "expected_residual_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    },
+    "expected_gate_sha256": {
+      "Toys": {
+        "2023": "1407ee6a1aa375962df4de98a9f8023f8a62416734aa303ab3829fdde6f13d63",
+        "2024": "02bc8be759a9b21a9d6ee99526094ca7acad125112a57da0160f78a23597eb3f",
+        "2025": "31401404c83db509a97cc44fb657a06c31e19b19de17649c699f21f8f75b5727"
+      },
+      "Beauty": {
+        "2023": "04c38394e9a01e7e386d2d011006b5d8502a5184e6611ac0c44a298e7c0980e6",
+        "2024": "a9186cf99dea94e4269bb83789a113b618899a6a285f9715200e27c43658966a",
+        "2025": "ca61ee3ba72f9cdc672bca741c031060e90e05be2fe3849c82081e6663ee392b"
+      }
+    }
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "minimum_free_mib": 30720,
+    "gpu_gate_timeout_seconds": 43200,
+    "hard_timeout_seconds": 28800,
+    "restore_codellama_gpu": 0,
+    "no_automatic_retry": true
+  },
+  "post_run_policy": "Write results only. Do not analyze, retry, read Sports/test, or start another experiment until explicitly requested by the researcher."
+}
+

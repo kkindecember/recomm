@@ -1,0 +1,101 @@
+{
+  "experiment_id": "GRAM_PHASE6_CET_GACR_V1",
+  "registered_at": "2026-07-31T23:55:00+08:00",
+  "decision_status_before_run": "CET_V1_X_FROZEN_GACR_V3_PREREGISTERED",
+  "objective": "Test whether frozen CET-v1 and frozen GACR-v3 are complementary on a new paired development cohort.",
+  "datasets": ["Toys", "Beauty"],
+  "methods": ["GRAM", "CET_v1", "GACR_v3", "CET_v1_GACR_v3"],
+  "residual_seeds": [2023, 2024, 2025],
+  "validation_users_per_dataset": 1024,
+  "prior_gacr_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1",
+    "phase6-gacr-v3-development-v1"
+  ],
+  "validation_salt": "phase6-cet-v1-gacr-v3-combination-development-v1",
+  "expected_validation_user_sha256": {
+    "Toys": "848c387a184ca2a446e1b0d52138a1135436f7b4690657b83173552ce2c4bf63",
+    "Beauty": "fc6fdd21b6f4f3e420161abb18473c4714a6ca66c220f8b11f3256227e6f4ef2"
+  },
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "frozen_gacr_v3_budget": {"Toys": 0.4, "Beauty": 0.4},
+  "residual": {"hidden_dim": 16, "bound": 0.2},
+  "single_changed_factor": "Replace the frozen GRAM/GCDH parent backbone with frozen CET-v1 while applying the identical frozen GACR-v3 residual states.",
+  "frozen_components": [
+    "CET-v1 final-epoch checkpoints",
+    "GACR-v3 residual checkpoints and budget",
+    "candidate construction and six-feature schema",
+    "three residual seeds",
+    "paired validation users",
+    "all checkpoint and residual parameters"
+  ],
+  "evaluation": {
+    "primary_metric": "NDCG@10",
+    "secondary_metrics": ["Recall@10", "Recall@50", "tail NDCG@10"],
+    "groups": ["overall", "head", "tail"],
+    "bootstrap_resamples": 10000,
+    "bootstrap_unit": "user",
+    "confidence_intervals_are_descriptive_not_gates": true
+  },
+  "decision_rule": {
+    "keep_combination": "Combination macro NDCG@10 and each-domain mean NDCG@10 must strictly exceed both CET-v1 and GACR-v3, while all seed-domain safety cells pass.",
+    "otherwise": "Return to the stronger frozen single method.",
+    "recall10_absolute_floor": -0.002,
+    "broad_harm_rate_max": 0.01
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "gram_checkpoint": "artifacts/phase4/gcdh_p0/{dataset}/C1/model.pt",
+    "cet_v1_checkpoint": "artifacts/phase5/cet_c2_run2/{dataset}/C2/model.pt",
+    "gacr_residual_root": "artifacts/phase6/gacr_v2",
+    "prior_cet_validation_files": [
+      "artifacts/phase5/cet_c2_splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_c2o/splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_v2a/splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_rank_r0/splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_rank_r0g/splits/{dataset}/validation_users.txt",
+      "artifacts/phase5/cet_rank_r1/splits/{dataset}/validation_users.txt"
+    ],
+    "expected_checkpoint_sha256": {
+      "gram_checkpoint": {
+        "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+        "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+      },
+      "cet_v1_checkpoint": {
+        "Toys": "d9467e848e1119c6a9eb1901e2efd04982978845a6dbe63584c184875fe5de98",
+        "Beauty": "b1f140f750bfab3e809f63f78df1e14746b1272943f3bae483db91cf26d37283"
+      }
+    },
+    "expected_residual_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    }
+  },
+  "integrity": {
+    "code_sha256": "4bb97a52dc73cbe4f86b4191fbc425821db00c36f540258dfd3c3f31116f6313",
+    "paired_four_arm_users": true,
+    "validation_excludes_all_prior_gacr_and_available_cet_development_cohorts": true,
+    "checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "execution": {
+    "physical_gpu": 6,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "hard_timeout_seconds": 21600,
+    "no_automatic_retry": true
+  },
+  "post_run_policy": "Write results only; do not analyze, retry, read Sports/test, or start another experiment until requested by the researcher."
+}

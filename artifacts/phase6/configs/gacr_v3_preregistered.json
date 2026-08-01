@@ -1,0 +1,94 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V3",
+  "registered_at": "2026-07-31T20:15:00+08:00",
+  "decision_status_before_run": "GACR_V3_PREREGISTERED",
+  "parent_evidence": "GRAM_PHASE6_GACR_V2",
+  "objective": "Test one bounded change: target-free per-user residual-spread attenuation to remove systematic Toys harm while preserving Beauty growth.",
+  "datasets": ["Toys", "Beauty"],
+  "cohort_seed": 2023,
+  "training_seeds": [2023, 2024, 2025],
+  "fit_samples_per_group": 512,
+  "calibration_samples_per_group": 128,
+  "validation_users_per_dataset": 1024,
+  "prior_gacr_p0_validation_salt": "gacr-p0-fresh-validation-v1",
+  "prior_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1"
+  ],
+  "validation_salt": "phase6-gacr-v3-development-v1",
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "matched_p0_scale": 1.0,
+  "deployment_scale_candidates": [1.0],
+  "safety_budget_candidates": [0.0, 0.005, 0.01, 0.02, 0.04, 0.08, 0.16, 0.4],
+  "single_changed_factor": {
+    "name": "target_free_per_user_residual_spread_budget",
+    "definition": "Multiply every candidate residual for one user by min(1, budget / (max_residual - min_residual)); budget=0 is exact identity.",
+    "target_free": true,
+    "selection_scope": "one budget per development domain, shared across all three seeds",
+    "frozen_components": "candidate construction, six features, residual architecture, fit/calibration split, loss, optimizer, steps, seeds, parent checkpoints"
+  },
+  "residual": {
+    "feature_schema": "identical_to_gacr_v2",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "effective_bound_max": 0.2,
+    "margin": 0.1,
+    "learning_rate": 0.01,
+    "weight_decay": 0.01,
+    "fixed_training_step": 30,
+    "loss": "identical equal-weight head/tail target-vs-highest-negative hinge loss from GACR-v2",
+    "parameters": "residual ranker only"
+  },
+  "budget_selection": {
+    "eligible": "Recall@10 nondecrease, tail NDCG@10 nondecrease, and broad harm <=1% in every seed calibration cell of the domain",
+    "objective": "maximum mean relative overall NDCG@10 gain within each development domain",
+    "tie_break": "lower maximum broad harm, then higher changed-user coverage, then smaller budget",
+    "fail_closed": "budget 0 exact identity"
+  },
+  "calibration_safety": {
+    "broad_harm_max": 0.01
+  },
+  "development_reporting": [
+    "matched P0, unclipped GACR-v2, and GACR-v3",
+    "overall/head/tail NDCG@10 and Recall@10",
+    "changed-user, attenuation, and union coverage",
+    "broad-harm rate",
+    "paired bootstrap 95% confidence intervals",
+    "three-seed stability and incremental delta versus v2"
+  ],
+  "integrity": {
+    "fit_calibration_user_disjoint": true,
+    "validation_excludes_gcdh_training_and_validation": true,
+    "validation_excludes_prior_gacr_p0_and_v2_validation": true,
+    "residual_states_must_match_v2": true,
+    "parent_checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "target_free_safety_gate": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "decision_rule": {
+    "continue_to_cet_combination": "GACR-v3 improves mean Toys NDCG@10 versus unclipped v2 without mean Recall@10 loss and preserves positive mean Beauty NDCG@10.",
+    "continue_gacr_only": "A predeclared subgroup or coverage mechanism improves with no catastrophic domain loss and directly supports one further bounded fix.",
+    "stop_current_configuration": "identity is selected for Toys or Toys remains negative without a direct safety improvement."
+  },
+  "post_run_policy": "Write results only. Do not analyze, retry, read Sports/test, or start CET until the researcher explicitly requests analysis.",
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "v2_residual_root": "artifacts/phase6/gacr_v2",
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    }
+  },
+  "execution": {
+    "physical_gpu": 6,
+    "minimum_free_mib": 30720,
+    "minimum_disk_kib": 3145728,
+    "hard_timeout_seconds": 21600,
+    "no_automatic_retry": true
+  }
+}

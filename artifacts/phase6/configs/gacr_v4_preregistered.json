@@ -1,0 +1,147 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V4",
+  "registered_at": "2026-08-01T12:14:36+08:00",
+  "decision_status_before_run": "GACR_V4_PREREGISTERED",
+  "parent_evidence": [
+    "GRAM_PHASE6_GACR_V3",
+    "GRAM_PHASE6_CET_GACR_V1_TOYS_PARTIAL"
+  ],
+  "execution_amendments": [
+    {
+      "time": "2026-08-01T12:31:00+08:00",
+      "reason": "The researcher redirected both GACR-v4 and the post-run CodeLlama reservation from physical GPU4 to physical GPU0 while the original tmux was still waiting at the GPU memory gate with workload_pid=0.",
+      "scientific_status": "NO_SCIENTIFIC_WORKLOAD_STARTED",
+      "change": "Set execution physical_gpu=0 and restore_codellama_gpu=0. No cohort, checkpoint, residual, gate, threshold, metric, decision rule, or implementation change."
+    },
+    {
+      "time": "2026-08-01T12:32:54+08:00",
+      "reason": "The first GPU0 start exited before candidate generation because the new standalone runner omitted the repository-local Hugging Face cache environment used by all prior successful phase6 runs; offline loading therefore could not locate t5-small.",
+      "scientific_status": "EXECUTION_INVALID_NO_SCIENTIFIC_RESULT",
+      "change": "Export HF_HOME and TRANSFORMERS_CACHE to the existing repository-local .cache/huggingface directory. No network access and no scientific-design or implementation change. Do not retry without an explicit researcher request."
+    },
+    {
+      "time": "2026-08-01T12:38:04+08:00",
+      "reason": "The researcher explicitly requested restart after reviewing the no-scientific-result cache failure.",
+      "scientific_status": "RESEARCHER_AUTHORIZED_RETRY",
+      "change": "Restart the unchanged frozen GACR-v4 scientific workload on physical GPU0 using the verified repository-local cache; restore CodeLlama to GPU0 on every exit path."
+    }
+  ],
+  "objective": "Test one bounded change: a target-free learned user-level gate that selectively applies the frozen GACR-v3 residual to reduce Toys tail and Recall@50 harm while preserving cross-domain NDCG growth.",
+  "datasets": ["Toys", "Beauty"],
+  "cohort_seed": 2023,
+  "training_seeds": [2023, 2024, 2025],
+  "fit_samples_per_group": 512,
+  "calibration_samples_per_group": 128,
+  "validation_users_per_dataset": 1024,
+  "prior_gacr_p0_validation_salt": "gacr-p0-fresh-validation-v1",
+  "prior_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1",
+    "phase6-gacr-v3-development-v1",
+    "phase6-cet-v1-gacr-v3-combination-development-v1"
+  ],
+  "validation_salt": "phase6-gacr-v4-development-v1",
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "v3_identity_budget": 0.4,
+  "single_changed_factor": {
+    "name": "target_free_learned_residual_application_gate",
+    "definition": "A seed-specific logistic gate uses eight target-free aggregates of the frozen candidate/base/residual tensors and either applies the full frozen v3 residual or returns the exact GRAM ranking.",
+    "training_label": "On fit users only, rank improvement versus rank harm among union-covered examples whose frozen-v3 rank differs from GRAM.",
+    "selection_scope": "One threshold per development domain, shared across the three frozen residual seeds.",
+    "identity_control": "Threshold 0 applies the residual to every user and exactly reproduces GACR-v3.",
+    "frozen_components": "GRAM checkpoints, GACR-v3 residual states, candidate construction, six residual features, fit/calibration user split, residual architecture and all residual parameters."
+  },
+  "residual": {
+    "feature_schema": "identical_to_gacr_v3",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "parameters": "frozen GACR-v3 residual rankers only"
+  },
+  "gate": {
+    "feature_dim": 8,
+    "model": "standardized logistic regression",
+    "fixed_training_steps": 200,
+    "learning_rate": 0.03,
+    "weight_decay": 0.01,
+    "seed_offset": 4000,
+    "threshold_candidates": [0.0, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85],
+    "target_free_at_deployment": true
+  },
+  "threshold_selection": {
+    "eligible": "In every seed calibration cell: overall Recall@10 nondecrease, overall Recall@50 nondecrease, tail NDCG@10 nondecrease, tail Recall@50 nondecrease, and broad harm <=1%.",
+    "objective": "Maximum mean overall NDCG@10 within each development domain.",
+    "tie_break": "Higher mean tail NDCG@10, lower maximum broad harm, then lower threshold.",
+    "fail_closed": "Threshold 0 is the exact frozen GACR-v3 identity control."
+  },
+  "calibration_safety": {"broad_harm_max": 0.01},
+  "development_reporting": [
+    "GRAM baseline, frozen GACR-v3, and GACR-v4",
+    "overall/head/tail NDCG@10, Recall@10, and Recall@50",
+    "changed-user and gate-application coverage",
+    "broad-harm rate",
+    "paired user bootstrap 95% confidence intervals",
+    "three-seed stability and incremental delta versus v3"
+  ],
+  "decision_rule": {
+    "keep_v4": "V4 mean NDCG@10 is strictly above v3 in Toys and in the two-domain macro average; Beauty mean NDCG@10 is not below v3; Toys mean tail NDCG@10 and Recall@50 are not below v3; all integrity and safety cells pass.",
+    "return_to_v3": "Otherwise retain frozen GACR-v3 and stop this gate configuration without closing the GACR direction."
+  },
+  "integrity": {
+    "code_sha256": "eacef4f0780990a911535c11ef5a40dc1b9bff0954d314f066bad529ceda6c96",
+    "fit_calibration_user_disjoint": true,
+    "validation_excludes_all_prior_gacr_and_combination_development_cohorts": true,
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    },
+    "expected_residual_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    },
+    "parent_checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "gate_features_target_free": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "v3_residual_root": "artifacts/phase6/gacr_v2",
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    },
+    "expected_residual_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    }
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "minimum_free_mib": 30720,
+    "gpu_gate_timeout_seconds": 43200,
+    "hard_timeout_seconds": 28800,
+    "restore_codellama_gpu": 0,
+    "no_automatic_retry": true
+  },
+  "post_run_policy": "Write results only. Do not analyze, retry, read Sports/test, or start another experiment until explicitly requested by the researcher."
+}
