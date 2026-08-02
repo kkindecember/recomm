@@ -323,3 +323,29 @@ GACR-v4 预注册计划见
 详细结果见 `report/第六阶段/GRAM_第六阶段_GACR_v5结果与验证报告.md`；详细计划见
 `plan/GRAM_第六阶段_GACR-v6全量残差训练实验计划.md`。原指标对齐 loss 计划在实现前
 被后移，不与训练规模因素混合。
+
+## 11. GACR-v6 全量 fit 完成后的阶段更新（2026-08-02）
+
+### 11.1 工程与完整性结论
+
+- 原 full-fit 科学 workload 完成 6 个 residual checkpoint；validation-only recovery 随后完整写出
+  两域 3 seeds 的 summary 与 12 份逐用户 CSV；runner 的后处理 Bash exit 在结果写完后发生，
+  不影响科学产物；
+- fit/calibration/fresh cohort 隔离、parent SHA、backbone zero-step 与 Sports/test 封存均通过；
+- v6 runner 的显存治理经验已固化为 GPU0 30 GiB 总租约规则。
+
+### 11.2 科学结论
+
+- v6 相对 GRAM：Toys/Beauty mean overall NDCG@10 分别为 `+2.469%`/`+2.972%`，six-cell macro
+  为 `+2.720%`，6/6 为正；相对 v3 macro 增量 `+0.559%`，5/6 为正；
+- 但 Beauty mean tail NDCG@10 为 `-0.0181pp`、overall Recall@50 为 `-0.0977pp`、tail
+  Recall@50 为 `-0.0679pp`（相对 v3），触发 v6 的预注册 safety 门；
+- 决定为 **`KEEP_GACR_V3_FULL_FIT_SCALE_NOT_BENEFICIAL`**：停止只扩大 fit records 且保持
+  hinge loss 的配置，保留 GACR 主线与 v3 incumbent。
+
+### 11.3 当前下一步
+
+唯一主实验为 **GACR-v7 全量指标对齐残差损失**：保持 v6 的全量 fit，仅替换为 NDCG@10/
+Recall@50 截断敏感 pairwise loss，并把 Beauty tail/Recall@50 恢复设为硬保留门。详细方案见
+`plan/GRAM_第六阶段_GACR-v7全量指标对齐残差训练实验计划.md`；详细结果见
+`report/第六阶段/GRAM_第六阶段_GACR_v6全量残差训练结果与验证报告.md`。

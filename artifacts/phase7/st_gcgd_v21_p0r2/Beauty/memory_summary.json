@@ -1,0 +1,51 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V21_P0_R2_V1",
+  "dataset": "Beauty",
+  "status": "P0_R2_COMPLETE",
+  "model": {
+    "embedding_dim": 256,
+    "layers": 3,
+    "session_encoder": "GRU",
+    "mixer": "transition-first bounded UI residual"
+  },
+  "graph_only_peak_allocated_mib": 5332.33642578125,
+  "graph_only_peak_reserved_mib": 7134.0,
+  "frozen_workload_budget_mib": 7134,
+  "frozen_sidecar_mib": 23586,
+  "hard_negative_bank": {
+    "records": 2048,
+    "sha256": "91c745f4efb6c1ba0471bc4b3622574dd55f88ccb4d86a8c202652bab1763456",
+    "fit_records": 17777,
+    "covered_fit_records": 1609,
+    "coverage": 0.0905102098216797
+  },
+  "training": {
+    "backbone": [
+      {
+        "epoch": 1,
+        "loss": 3.7570242881774902,
+        "gradient_norm": 0.09602384269237518
+      }
+    ],
+    "mixer": [
+      {
+        "epoch": 1,
+        "loss": 3.667632579803467,
+        "gradient_norm": 5.8904613979393616e-05
+      }
+    ]
+  },
+  "input_lineage": {
+    "checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+    "user_sequence_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "item_index_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"
+  },
+  "integrity": {
+    "graph_only_peak_reset_after_gram_release": true,
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "sidecar_active_during_measurement": false
+  }
+}

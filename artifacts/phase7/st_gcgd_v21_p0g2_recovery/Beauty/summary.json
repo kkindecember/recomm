@@ -1,0 +1,385 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V21_P0_G2_BEAUTY_RECOVERY_V1",
+  "dataset": "Beauty",
+  "status": "P0_G2_QUALIFIED",
+  "input_lineage": {
+    "user_sequence_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "item_index_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+    "hard_negative_bank_sha256": "91c745f4efb6c1ba0471bc4b3622574dd55f88ccb4d86a8c202652bab1763456"
+  },
+  "graph": {
+    "users": 22363,
+    "items": 12101,
+    "ui_edges": 131413,
+    "directed_transition_edges": 94818
+  },
+  "hard_negative_coverage": {
+    "fit_records": 17777,
+    "covered_fit_records": 1609,
+    "coverage": 0.0905102098216797
+  },
+  "arms": {
+    "static": {
+      "training": {
+        "backbone": [
+          {
+            "epoch": 1,
+            "loss": 3.8186748027801514,
+            "gradient_norm": 0.1889905035495758
+          },
+          {
+            "epoch": 2,
+            "loss": 3.5548031330108643,
+            "gradient_norm": 0.17631757259368896
+          },
+          {
+            "epoch": 3,
+            "loss": 3.305511236190796,
+            "gradient_norm": 0.18290306627750397
+          },
+          {
+            "epoch": 4,
+            "loss": 3.0633726119995117,
+            "gradient_norm": 0.20216581225395203
+          },
+          {
+            "epoch": 5,
+            "loss": 2.8217544555664062,
+            "gradient_norm": 0.22794519364833832
+          },
+          {
+            "epoch": 6,
+            "loss": 2.576620101928711,
+            "gradient_norm": 0.2556321322917938
+          },
+          {
+            "epoch": 7,
+            "loss": 2.3263487815856934,
+            "gradient_norm": 0.28269821405410767
+          },
+          {
+            "epoch": 8,
+            "loss": 2.0721755027770996,
+            "gradient_norm": 0.3064480423927307
+          },
+          {
+            "epoch": 9,
+            "loss": 1.8148176670074463,
+            "gradient_norm": 0.3250542879104614
+          },
+          {
+            "epoch": 10,
+            "loss": 1.5564244985580444,
+            "gradient_norm": 0.336317777633667
+          }
+        ],
+        "mixer": []
+      },
+      "calibration": {
+        "n": 4586,
+        "Recall@10": 0.0015263846144080162,
+        "NDCG@10": 0.001231748377904296,
+        "Recall@50": 0.005233318544924259,
+        "MRR": 0.0017913434421643615,
+        "mean_target_margin": -1.8947967290878296,
+        "mean_target_z_separation": 0.022663528099656105,
+        "head": {
+          "n": 2378,
+          "available": true,
+          "Recall@10": 0.0004205214499961585,
+          "NDCG@10": 0.0004205214499961585
+        },
+        "tail": {
+          "n": 2208,
+          "available": true,
+          "Recall@10": 0.0027173913549631834,
+          "NDCG@10": 0.0021054341923445463
+        }
+      }
+    },
+    "ui": {
+      "training": {
+        "backbone": [
+          {
+            "epoch": 1,
+            "loss": 3.8191616535186768,
+            "gradient_norm": 0.1896163821220398
+          },
+          {
+            "epoch": 2,
+            "loss": 3.5538806915283203,
+            "gradient_norm": 0.17679886519908905
+          },
+          {
+            "epoch": 3,
+            "loss": 3.3038575649261475,
+            "gradient_norm": 0.1835041642189026
+          },
+          {
+            "epoch": 4,
+            "loss": 3.0604803562164307,
+            "gradient_norm": 0.2029058337211609
+          },
+          {
+            "epoch": 5,
+            "loss": 2.817685842514038,
+            "gradient_norm": 0.22886818647384644
+          },
+          {
+            "epoch": 6,
+            "loss": 2.5716755390167236,
+            "gradient_norm": 0.25669074058532715
+          },
+          {
+            "epoch": 7,
+            "loss": 2.320171356201172,
+            "gradient_norm": 0.2838512659072876
+          },
+          {
+            "epoch": 8,
+            "loss": 2.0645034313201904,
+            "gradient_norm": 0.3076842725276947
+          },
+          {
+            "epoch": 9,
+            "loss": 1.8057355880737305,
+            "gradient_norm": 0.32622843980789185
+          },
+          {
+            "epoch": 10,
+            "loss": 1.5457019805908203,
+            "gradient_norm": 0.33726993203163147
+          }
+        ],
+        "mixer": []
+      },
+      "calibration": {
+        "n": 4586,
+        "Recall@10": 0.001962494570761919,
+        "NDCG@10": 0.0012762179831042886,
+        "Recall@50": 0.005887483712285757,
+        "MRR": 0.0017271620454266667,
+        "mean_target_margin": -1.907000184059143,
+        "mean_target_z_separation": 0.023438118398189545,
+        "head": {
+          "n": 2378,
+          "available": true,
+          "Recall@10": 0.000841042899992317,
+          "NDCG@10": 0.00030266671092249453
+        },
+        "tail": {
+          "n": 2208,
+          "available": true,
+          "Recall@10": 0.003170290030539036,
+          "NDCG@10": 0.0023247257340699434
+        }
+      }
+    },
+    "transition": {
+      "training": {
+        "backbone": [
+          {
+            "epoch": 1,
+            "loss": 3.757023811340332,
+            "gradient_norm": 0.09602386504411697
+          },
+          {
+            "epoch": 2,
+            "loss": 3.665440559387207,
+            "gradient_norm": 0.0936647355556488
+          },
+          {
+            "epoch": 3,
+            "loss": 3.575547695159912,
+            "gradient_norm": 0.0962749496102333
+          },
+          {
+            "epoch": 4,
+            "loss": 3.485628128051758,
+            "gradient_norm": 0.10264413058757782
+          },
+          {
+            "epoch": 5,
+            "loss": 3.394524574279785,
+            "gradient_norm": 0.11210991442203522
+          },
+          {
+            "epoch": 6,
+            "loss": 3.2990102767944336,
+            "gradient_norm": 0.12405839562416077
+          },
+          {
+            "epoch": 7,
+            "loss": 3.198737859725952,
+            "gradient_norm": 0.13785302639007568
+          },
+          {
+            "epoch": 8,
+            "loss": 3.0915050506591797,
+            "gradient_norm": 0.15366359055042267
+          },
+          {
+            "epoch": 9,
+            "loss": 2.977008581161499,
+            "gradient_norm": 0.17139384150505066
+          },
+          {
+            "epoch": 10,
+            "loss": 2.85168194770813,
+            "gradient_norm": 0.1924903839826584
+          }
+        ],
+        "mixer": []
+      },
+      "calibration": {
+        "n": 4586,
+        "Recall@10": 0.020933274179697037,
+        "NDCG@10": 0.016602959483861923,
+        "Recall@50": 0.032272133976221085,
+        "MRR": 0.016292696818709373,
+        "mean_target_margin": -1.0514370203018188,
+        "mean_target_z_separation": 0.24364899098873138,
+        "head": {
+          "n": 2378,
+          "available": true,
+          "Recall@10": 0.031539108604192734,
+          "NDCG@10": 0.024655630812048912
+        },
+        "tail": {
+          "n": 2208,
+          "available": true,
+          "Recall@10": 0.009510870091617107,
+          "NDCG@10": 0.00793029461055994
+        }
+      }
+    },
+    "full": {
+      "training": {
+        "backbone": [
+          {
+            "epoch": 1,
+            "loss": 3.757024049758911,
+            "gradient_norm": 0.09602390229701996
+          },
+          {
+            "epoch": 2,
+            "loss": 3.665442943572998,
+            "gradient_norm": 0.09366448223590851
+          },
+          {
+            "epoch": 3,
+            "loss": 3.5755484104156494,
+            "gradient_norm": 0.09627489000558853
+          },
+          {
+            "epoch": 4,
+            "loss": 3.4856276512145996,
+            "gradient_norm": 0.10264366120100021
+          },
+          {
+            "epoch": 5,
+            "loss": 3.394526481628418,
+            "gradient_norm": 0.11210943013429642
+          },
+          {
+            "epoch": 6,
+            "loss": 3.299013376235962,
+            "gradient_norm": 0.12405792623758316
+          },
+          {
+            "epoch": 7,
+            "loss": 3.1987416744232178,
+            "gradient_norm": 0.13785256445407867
+          },
+          {
+            "epoch": 8,
+            "loss": 3.091508626937866,
+            "gradient_norm": 0.15366314351558685
+          },
+          {
+            "epoch": 9,
+            "loss": 2.9770097732543945,
+            "gradient_norm": 0.1713934987783432
+          },
+          {
+            "epoch": 10,
+            "loss": 2.8516881465911865,
+            "gradient_norm": 0.19248919188976288
+          }
+        ],
+        "mixer": [
+          {
+            "epoch": 1,
+            "loss": 2.728130340576172,
+            "gradient_norm": 0.0009177242172881961
+          },
+          {
+            "epoch": 2,
+            "loss": 2.727832078933716,
+            "gradient_norm": 0.0009086162317544222
+          },
+          {
+            "epoch": 3,
+            "loss": 2.727674961090088,
+            "gradient_norm": 0.00090171949705109
+          },
+          {
+            "epoch": 4,
+            "loss": 2.728337287902832,
+            "gradient_norm": 0.0008958506514318287
+          },
+          {
+            "epoch": 5,
+            "loss": 2.727884531021118,
+            "gradient_norm": 0.0008887763251550496
+          }
+        ]
+      },
+      "calibration": {
+        "n": 4586,
+        "Recall@10": 0.020715219900012016,
+        "NDCG@10": 0.016539927572011948,
+        "Recall@50": 0.032054077833890915,
+        "MRR": 0.016271954402327538,
+        "mean_target_margin": -1.0524264574050903,
+        "mean_target_z_separation": 0.24501512944698334,
+        "head": {
+          "n": 2378,
+          "available": true,
+          "Recall@10": 0.031539108604192734,
+          "NDCG@10": 0.024655630812048912
+        },
+        "tail": {
+          "n": 2208,
+          "available": true,
+          "Recall@10": 0.009057970717549324,
+          "NDCG@10": 0.007799377664923668
+        }
+      }
+    }
+  },
+  "fail_closed_mixer": {
+    "mixer_safe": false,
+    "selected_arm": "transition",
+    "rule": "full must preserve transition Recall@10, NDCG@10, and Recall@50; otherwise select transition"
+  },
+  "qualification": {
+    "passed": true,
+    "rule": "selected z-separation > static and not both Recall@10/NDCG@10 lower"
+  },
+  "integrity": {
+    "train_slice": "items[:-2]",
+    "pseudo_future_removed_from_edges": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "resource_audit": {
+    "actual_workload_peak_reserved_mib": 7958,
+    "frozen_workload_budget_mib": 7134,
+    "sidecar_mib": 23586,
+    "declared_total_mib": 30720,
+    "measurement_tolerance_mib": 4096,
+    "passed": true
+  }
+}

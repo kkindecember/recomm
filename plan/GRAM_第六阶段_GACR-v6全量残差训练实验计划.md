@@ -100,3 +100,33 @@ loss；指标对齐 loss 只能作为独立后继实验重新预注册。
   `running`，PID=`431746`；
 - Toys 实际候选构建总量=`22,095`（全量 fit + 256 calibration），已开始持续写日志；
 - 当前未读取 Sports/test，未改变 frozen config，不自动重试。
+
+## 9. GPU 显存租约规则（2026-08-02 运行治理补充）
+
+所有后续启动或恢复运行必须持有物理 GPU0 **总计 30 GiB（30,720 MiB）显存租约**。
+工作负载自身的 CUDA 占用计入该租约；不得在工作负载之外再额外固定占用 30 GiB。
+
+- 每次启动前在冻结运行配置中预声明保守的 `expected_workload_peak_mib`，且不得超过
+  `30,720 MiB`；
+- runner 使用 `experiment/gpu_memory_lease.py` 持续保留
+  `30,720 - expected_workload_peak_mib` MiB 的 sidecar 显存，直至 workload 退出；
+- GPU admission gate 必须同时满足已声明 workload 峰值与 sidecar 租约；sidecar 状态文件
+  必须随运行产物保存；
+- 本规则的目标是防止长实验运行期间其他任务抢占其预留容量；它只约束资源调度，**不改变**
+  GRAM、数据 split、候选、loss、训练步数、seed、scale、fresh cohort 或保留门；
+- 对本次 validation-only recovery，基于 Toys 候选构建观测到的 `22,820 MiB`，声明
+  workload 峰值为 `23,552 MiB`，sidecar 保留 `7,168 MiB`，合计正好 `30,720 MiB`。
+
+## 10. 结果记录与决定（2026-08-02）
+
+- 原 full-fit workload 完成全部 6 个 residual checkpoint；修复 validation 配置兼容性后，
+  recovery 完整写出 summary 与 12 份逐用户 CSV。runner 的 exit=`2` 发生在结果落盘之后的
+  Bash 资源恢复路径，科学产物和完整性检查均有效；
+- v6 相对 GRAM 的 Toys/Beauty mean overall NDCG@10 分别为 `+2.469%`、`+2.972%`，six-cell
+  macro 为 `+2.720%`；相对冻结 v3 的 six-cell macro 增量为 `+0.559%`，5/6 cell 为正；
+- Beauty 相对 v3 的 mean tail NDCG@10=`-0.0181pp`、overall Recall@50=`-0.0977pp`、tail
+  Recall@50=`-0.0679pp`，未满足第 5 节第 6 条的三项 safety 条件；
+- 因此正式决定为 **`KEEP_GACR_V3_FULL_FIT_SCALE_NOT_BENEFICIAL`**。v3 保持 incumbent；
+  v6 的“仅扩大 fit records、保留 hinge loss”配置停止，不得事后调整 steps 或 loss。下一实验
+  为独立预注册的 v7 指标对齐损失，详见
+  `plan/GRAM_第六阶段_GACR-v7全量指标对齐残差训练实验计划.md`。

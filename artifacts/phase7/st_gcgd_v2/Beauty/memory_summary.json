@@ -1,0 +1,31 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_R_MEMORY_V1",
+  "dataset": "Beauty",
+  "status": "P0_R_MEMORY_PILOT_COMPLETE",
+  "workload_peak_allocated_mib": 6878.376953125,
+  "workload_peak_reserved_mib": 26176.0,
+  "recommended_workload_budget_mib": 26368,
+  "recommended_sidecar_mib": 4352,
+  "hard_negative_records": 64,
+  "hard_negative_cache_sha256": "75dc7a226a8f775f7746c71d784b8284097e2fb9991d7bcb53779f2aedf56ea3",
+  "graph_training": [
+    {
+      "epoch": 1,
+      "loss": 3.7376670837402344,
+      "gradient_norm": 0.005103601608425379
+    }
+  ],
+  "input_lineage": {
+    "checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+    "checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+    "user_sequence_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "item_index_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"
+  },
+  "integrity": {
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "sidecar_active_during_measurement": false
+  }
+}

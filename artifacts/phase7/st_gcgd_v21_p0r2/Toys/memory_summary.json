@@ -1,0 +1,51 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V21_P0_R2_V1",
+  "dataset": "Toys",
+  "status": "P0_R2_COMPLETE",
+  "model": {
+    "embedding_dim": 256,
+    "layers": 3,
+    "session_encoder": "GRU",
+    "mixer": "transition-first bounded UI residual"
+  },
+  "graph_only_peak_allocated_mib": 4625.9873046875,
+  "graph_only_peak_reserved_mib": 5928.0,
+  "frozen_workload_budget_mib": 5928,
+  "frozen_sidecar_mib": 24792,
+  "hard_negative_bank": {
+    "records": 2048,
+    "sha256": "f97a0c5a0373a42df89db056d6eebb02056ba452c1ce88464ae68a3afd830e8d",
+    "fit_records": 15514,
+    "covered_fit_records": 1636,
+    "coverage": 0.10545313910016758
+  },
+  "training": {
+    "backbone": [
+      {
+        "epoch": 1,
+        "loss": 3.757472038269043,
+        "gradient_norm": 0.10255224257707596
+      }
+    ],
+    "mixer": [
+      {
+        "epoch": 1,
+        "loss": 3.659843683242798,
+        "gradient_norm": 5.927683741902001e-05
+      }
+    ]
+  },
+  "input_lineage": {
+    "checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "user_sequence_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "item_index_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "integrity": {
+    "graph_only_peak_reset_after_gram_release": true,
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "sidecar_active_during_measurement": false
+  }
+}

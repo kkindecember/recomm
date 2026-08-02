@@ -1,0 +1,84 @@
+.........                                                                [100%]
+9 passed in 0.92s
+stopped codellama; its CUDA context and reserved memory were released
+/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:2339: FutureWarning: The `pad_to_max_length` argument is deprecated and will be removed in a future version, use `padding=True` or `padding='longest'` to pad to the longest sequence in the batch, or use `padding='max_length'` to pad to a max length. In this case, you can give a specific length with `max_length` (e.g. `max_length=45`) or leave max_length to None to pad to the maximal input size of the model (e.g. 512 for Bert).
+  warnings.warn(
+ST_GCGD_V2_P0_R_BEAM dataset=Toys samples=16/64
+ST_GCGD_V2_P0_R_BEAM dataset=Toys samples=32/64
+ST_GCGD_V2_P0_R_BEAM dataset=Toys samples=48/64
+ST_GCGD_V2_P0_R_BEAM dataset=Toys samples=64/64
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_R_MEMORY_V1",
+  "dataset": "Toys",
+  "status": "P0_R_MEMORY_PILOT_COMPLETE",
+  "workload_peak_allocated_mib": 6870.9189453125,
+  "workload_peak_reserved_mib": 22370.0,
+  "recommended_workload_budget_mib": 22528,
+  "recommended_sidecar_mib": 8192,
+  "hard_negative_records": 64,
+  "hard_negative_cache_sha256": "3bb83fb2d67e3bdbef3fce2479e6ad88157dd403f043d6b4edcb28c6e5e41f4c",
+  "graph_training": [
+    {
+      "epoch": 1,
+      "loss": 3.73787784576416,
+      "gradient_norm": 0.005414543207734823
+    }
+  ],
+  "input_lineage": {
+    "checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "user_sequence_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "item_index_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "integrity": {
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "sidecar_active_during_measurement": false
+  }
+}
+/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:2339: FutureWarning: The `pad_to_max_length` argument is deprecated and will be removed in a future version, use `padding=True` or `padding='longest'` to pad to the longest sequence in the batch, or use `padding='max_length'` to pad to a max length. In this case, you can give a specific length with `max_length` (e.g. `max_length=45`) or leave max_length to None to pad to the maximal input size of the model (e.g. 512 for Bert).
+  warnings.warn(
+ST_GCGD_V2_P0_R_BEAM dataset=Beauty samples=16/64
+ST_GCGD_V2_P0_R_BEAM dataset=Beauty samples=32/64
+ST_GCGD_V2_P0_R_BEAM dataset=Beauty samples=48/64
+ST_GCGD_V2_P0_R_BEAM dataset=Beauty samples=64/64
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_R_MEMORY_V1",
+  "dataset": "Beauty",
+  "status": "P0_R_MEMORY_PILOT_COMPLETE",
+  "workload_peak_allocated_mib": 6878.376953125,
+  "workload_peak_reserved_mib": 26176.0,
+  "recommended_workload_budget_mib": 26368,
+  "recommended_sidecar_mib": 4352,
+  "hard_negative_records": 64,
+  "hard_negative_cache_sha256": "75dc7a226a8f775f7746c71d784b8284097e2fb9991d7bcb53779f2aedf56ea3",
+  "graph_training": [
+    {
+      "epoch": 1,
+      "loss": 3.7376670837402344,
+      "gradient_norm": 0.005103601608425379
+    }
+  ],
+  "input_lineage": {
+    "checkpoint_sha256_before": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+    "checkpoint_sha256_after": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+    "user_sequence_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+    "item_index_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"
+  },
+  "integrity": {
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "sidecar_active_during_measurement": false
+  }
+}
+started tmux session codellama on physical GPU 0
+status: /home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh status
+stop:   /home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh stop

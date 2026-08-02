@@ -1,0 +1,71 @@
+{
+  "experiment_id": "GRAM_PHASE7_GCGD_P0_LINEAGE_V1",
+  "registered_at": "2026-08-02T00:00:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "purpose": "CPU-only train-graph and lexical-prefix lineage audit; no recommendation performance evaluation.",
+  "datasets": {
+    "Toys": {
+      "user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt",
+      "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "hierarchical_id_type": "hierarchy_v1_c32_l5_len32768_split"
+    },
+    "Beauty": {
+      "user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+      "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "hierarchical_id_type": "hierarchy_v1_c128_l7_len32768_split"
+    }
+  },
+  "tokenizer": {
+    "name": "t5-small",
+    "local_files_only": true,
+    "item_id_type": "split",
+    "decoder_start_token_id": 0,
+    "discard_token_ids": [1820, 9175]
+  },
+  "graph": {
+    "source": "official user_sequence train positions only",
+    "train_slice": "items[:-2]",
+    "holdout_positions_per_user": 2,
+    "deduplicate_user_item_edges": true,
+    "graph_model_training": false
+  },
+  "outputs": {
+    "summary": "artifacts/phase7/gcgd_p0/summary.json"
+  },
+  "integrity": {
+    "checkpoint_loaded": false,
+    "predictions_generated": false,
+    "validation_or_test_target_values_consumed": false,
+    "fresh_validation_read": false,
+    "test_predictions_read": false,
+    "sports_read": false
+  },
+  "execution": {
+    "mode": "cpu_only",
+    "cuda_visible_devices": "",
+    "physical_gpu_reserved_by_codellama": 0,
+    "codellama_reservation_mib": 30720,
+    "codellama_must_remain_running": true,
+    "background_tmux_required": true,
+    "tmux_session": "gram_phase7_gcgd_p0",
+    "hard_timeout_seconds": 1800,
+    "no_automatic_retry": true
+  },
+  "implementation_lock": {
+    "implementation_sha256": "07d7636fd5a497772ab5613f9a9c86185a8fac1db72e7b7d131af32146f7d44d",
+    "test_sha256": "7f232f8f5d2171d05ea3dc52d187fff5f5abf514844f9676b9113b10a8c315fa",
+    "runner_sha256": "817e0c45d6779aad99e9a6a41b4c684db8adc5e7bb465c5d164c20d3a1ec2909",
+    "phase7_tests": "11 passed",
+    "tokenizer_preflight": "t5-small local-only vocab_size=32100 pad=0 eos=1"
+  },
+  "implementation_repair": {
+    "recorded_at": "2026-08-02T13:36:30+08:00",
+    "failed_start_record": "artifacts/phase7/gcgd_p0/failed_start_20260802.md",
+    "failure_stage": "module import before tokenizer or dataset loading",
+    "repair_scope": "Insert repository root into sys.path for direct-script execution only.",
+    "scientific_configuration_changed": false,
+    "automatic_retry_performed": false
+  },
+  "post_run_policy": "Write the P0 mechanism/lineage summary only; do not start P1, read fresh validation/test/Sports, or modify the design config automatically."
+}

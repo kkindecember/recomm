@@ -1,0 +1,58 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_R_MEMORY_V1",
+  "created_at": "2026-08-02T16:00:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "seed": 2023,
+  "datasets": {
+    "Toys": {
+      "user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt",
+      "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt"
+    },
+    "Beauty": {
+      "user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+      "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt"
+    }
+  },
+  "split": {"calibration_fraction": 0.2, "method": "sha256(seed|user)"},
+  "graph": {"recency_decay": 0.85, "skip_self_transitions": true},
+  "training": {
+    "seed": 2023,
+    "embedding_dim": 64,
+    "epochs": 1,
+    "negative_count": 20,
+    "learning_rate": 0.001,
+    "l2": 0.0001,
+    "pairwise_weight": 1.0,
+    "listwise_weight": 1.0,
+    "gradient_clip": 10.0
+  },
+  "memory_pilot": {"hard_negative_samples_per_group": 32, "generator_top_k": 50, "graph_epochs": 1},
+  "inputs": {
+    "phase4_parent_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "expected_parent_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    }
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "cuda_visible_devices": "0",
+    "total_gpu_lease_mib": 30720,
+    "background_tmux_required": true,
+    "codellama_must_be_running_before_start": true,
+    "stop_codellama_before_workload": true,
+    "restore_codellama_after_every_exit": true,
+    "hard_timeout_seconds_per_domain": 21600,
+    "no_automatic_retry": true,
+    "sidecar_disabled_for_workload_only_measurement": true
+  },
+  "integrity": {"validation_forbidden": true, "test_forbidden": true, "sports_forbidden": true},
+  "code_lock": {
+    "implementation_sha256": "a4ab6cbbb7f58025113a63213bd5b3d49747a9840c708074e681ad6e744ed240",
+    "memory_pilot_sha256": "113365ad1a40ab89f46dd9c314b5484c3124c92ec8dd5a3baf15b6b7cb32c584",
+    "test_sha256": "0b55b0518b9be031c1157f81fe10f2a6f5b90716680174a7ac4dba04a38124f3"
+  }
+}

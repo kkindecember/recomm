@@ -1,0 +1,78 @@
+{
+  "experiment_id": "GRAM_PHASE7_GCGD_P0_GPU_SMOKE_V1",
+  "registered_at": "2026-08-02T14:00:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "objective": "Train-only interface and memory smoke for token-level graph-prefix logits injection into the frozen matched GRAM parent.",
+  "dataset_order": ["Toys", "Beauty"],
+  "datasets": {
+    "Toys": {
+      "parent_checkpoint": "artifacts/phase4/gcdh_p0/Toys/C1/model.pt",
+      "parent_checkpoint_sha256": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "train_users": "artifacts/phase4/gcdh_p0_splits/Toys/train_users.txt"
+    },
+    "Beauty": {
+      "parent_checkpoint": "artifacts/phase4/gcdh_p0/Beauty/C1/model.pt",
+      "parent_checkpoint_sha256": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+      "train_users": "artifacts/phase4/gcdh_p0_splits/Beauty/train_users.txt"
+    }
+  },
+  "inputs": {
+    "parent_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "p0_lineage_summary": "artifacts/phase7/gcgd_p0/summary.json",
+    "p0_lineage_summary_sha256": "bf34ac47ab7883e0fa6836d2f50a91bed933fc0b0df61046b4a059451beb93c2"
+  },
+  "code_lock": {
+    "implementation": "experiment/phase7/gcgd_p0_gpu_smoke.py",
+    "implementation_sha256": "c33ff152b1fd64916de603ddc3b2927b94e7e0be474d5a05a9e8c3fe793359e6",
+    "tests": "experiment/phase7/test_gcgd_p0_gpu_smoke.py",
+    "tests_sha256": "dca4dc20896cb95dc83f0ea767f62781f1b3aab5950fa00e42891068cd151d75",
+    "runner": "experiment/phase7/run_phase7_gcgd_p0_gpu_smoke.sh",
+    "runner_sha256": "376b84b2d644866cb2fe8c23182b4e52a041eed6d9dc90512658521d95e3f2a9"
+  },
+  "smoke": {
+    "sample_selection": "lexicographically_first_train_only_sample_per_domain",
+    "beam_size": 50,
+    "alpha": 0.5,
+    "graph_evidence": "train-only degree plus visible-history indicator; interface-only and forbidden for P1 effect claims",
+    "arms": ["baseline", "alpha_zero_identity", "active_graph_prefix"]
+  },
+  "integrity": {
+    "train_only": true,
+    "fresh_validation_read": false,
+    "test_predictions_read": false,
+    "sports_read": false,
+    "effect_claim_allowed": false,
+    "parent_checkpoint_sha_unchanged": true
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "cuda_visible_devices": "0",
+    "background_tmux_required": true,
+    "minimum_free_mib": 30720,
+    "total_gpu_lease_mib": 30720,
+    "expected_workload_peak_mib": 24576,
+    "sidecar_reservation_mib": 6144,
+    "codellama_must_be_running_before_start": true,
+    "stop_codellama_before_workload": true,
+    "restore_codellama_after_every_exit": true,
+    "hard_timeout_seconds": 3600,
+    "telemetry_interval_seconds": 5,
+    "no_automatic_retry": true
+  },
+  "implementation_repair": {
+    "failed_start_at": "2026-08-02T13:58:19+08:00",
+    "failure_stage": "before_model_and_data_load",
+    "failure_reason": "workload did not inherit the local Hugging Face cache path, so local_files_only t5-small lookup failed",
+    "repair_scope": "runner-only propagation of the verified project-local .cache/huggingface path through HF_HOME, HF_HUB_CACHE, and TRANSFORMERS_CACHE, plus pre-release offline tokenizer preflight",
+    "scientific_configuration_changed": false,
+    "automatic_retry": false,
+    "manual_restart_authorized_by_researcher": true
+  },
+  "status_interface": {
+    "command": "bash experiment/phase7/run_phase7_gcgd_p0_gpu_smoke.sh status",
+    "status_path": "artifacts/phase7/gcgd_p0_gpu_smoke/status.json",
+    "log_path": "artifacts/phase7/gcgd_p0_gpu_smoke/run.log",
+    "result_path": "artifacts/phase7/gcgd_p0_gpu_smoke/summary.json"
+  }
+}

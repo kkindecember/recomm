@@ -1,0 +1,90 @@
+{
+  "experiment_id": "GRAM_PHASE7_GCGD_P1_TRAIN_ONLY_SMOKE_V1",
+  "registered_at": "2026-08-02T14:30:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "datasets": ["Toys", "Beauty"],
+  "seed": 2023,
+  "graph": {
+    "embedding_dim": 64,
+    "layers": 2,
+    "epochs": 20,
+    "batch_size": 4096,
+    "learning_rate": 0.001,
+    "l2": 0.0001,
+    "seed": 2023
+  },
+  "adapter": {
+    "learning_rate": 0.001,
+    "loss_weights": {"next_token_ce": 1.0, "lightgcn_bpr_listwise": 0.2, "gate_reliability_bce": 0.1}
+  },
+  "decoding": {"generator_top_k": 50, "length_penalty": 1.0, "B_alpha": 0.3, "C_alpha": 0.5},
+  "smoke": {
+    "sample_scope": "lexicographically_first_train-only sample per domain",
+    "lightgcn_epochs": 1,
+    "adapter_steps": 5,
+    "effect_claim_allowed": false
+  },
+  "inputs": {
+    "phase4_parent_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "expected_parent_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    }
+  },
+  "integrity": {
+    "train_only": true,
+    "fresh_validation_read": false,
+    "test_predictions_read": false,
+    "sports_read": false,
+    "parent_checkpoint_sha_unchanged": true
+  },
+  "implementation_repair": {
+    "recorded_at": "2026-08-02T14:25:00+08:00",
+    "failed_start_record": "artifacts/phase7/gcgd_p1_train_smoke/failed_start_20260802.md",
+    "zero_mass_prefix_policy": "graph_abstains_and_unchanged_GRAM_logits_decide",
+    "history_mask_policy": "sample_time_visible_history_only",
+    "scientific_configuration_changed": false,
+    "manual_restart_authorized": true,
+    "automatic_retry": false
+  },
+  "code_lock": {
+    "implementation": "experiment/phase7/gcgd_p1_train_smoke.py",
+    "implementation_sha256": "fccca9ebcbecb81cbb9a7b79462e16a3a30dd2533a4345bd4d292dcd5e7c1e33",
+    "tests": "experiment/phase7/test_gcgd_p1_train_smoke.py",
+    "tests_sha256": "51cbd383ba1fb07d1862a98de27d1a1bb74c90450e807029e4fd766d5db011fe",
+    "runner": "experiment/phase7/run_phase7_gcgd_p1_train_smoke.sh",
+    "runner_sha256": "fde0a31ebe9f987b73199b7f762554298985481c506430a32d573c4073c18103",
+    "dependencies": {
+      "p1_components": {
+        "path": "experiment/phase7/gcgd_p1.py",
+        "sha256": "a2d3b1afd63506828cacf727fd09725e2c3d562e1e5731a4d43f6ff76a70c338"
+      },
+      "model_components": {
+        "path": "experiment/phase7/gcgd_v1.py",
+        "sha256": "48218a746afba1a5aab07d0c20d6480c183545c5735ee11e1fed90e314fbc58a"
+      },
+      "prefix_probability_helper": {
+        "path": "experiment/phase7/gcgd_p0_gpu_smoke.py",
+        "sha256": "cd117224c409539e951e98fe5ff61d0f942d35374f19e8562ebec94436ae4216"
+      }
+    }
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "cuda_visible_devices": "0",
+    "background_tmux_required": true,
+    "total_gpu_lease_mib": 30720,
+    "domain_gpu_lease_mib": {
+      "Toys": {"expected_workload_peak_mib": 4608, "sidecar_reservation_mib": 26112},
+      "Beauty": {"expected_workload_peak_mib": 1792, "sidecar_reservation_mib": 28928}
+    },
+    "codellama_must_be_running_before_start": true,
+    "stop_codellama_before_workload": true,
+    "restore_codellama_after_every_exit": true,
+    "hard_timeout_seconds": 7200,
+    "no_automatic_retry": true
+  }
+}

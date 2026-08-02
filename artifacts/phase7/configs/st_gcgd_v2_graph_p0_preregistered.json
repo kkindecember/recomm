@@ -1,0 +1,65 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_G_V1",
+  "created_at": "2026-08-02T16:00:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "seed": 2023,
+  "arms": ["static", "ui", "transition", "full"],
+  "datasets": {
+    "Toys": {"user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt", "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt"},
+    "Beauty": {"user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt", "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt"}
+  },
+  "split": {"calibration_fraction": 0.2, "method": "sha256(seed|user)"},
+  "graph": {"recency_decay": 0.85, "skip_self_transitions": true},
+  "training": {
+    "seed": 2023,
+    "embedding_dim": 64,
+    "epochs": 10,
+    "negative_count": 20,
+    "learning_rate": 0.001,
+    "l2": 0.0001,
+    "pairwise_weight": 1.0,
+    "listwise_weight": 1.0,
+    "gradient_clip": 10.0
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "cuda_visible_devices": "0",
+    "total_gpu_lease_mib": 30720,
+    "domain_gpu_lease_mib": {
+      "Toys": {"workload_budget_mib": 22528, "sidecar_mib": 8192},
+      "Beauty": {"workload_budget_mib": 26368, "sidecar_mib": 4352}
+    },
+    "background_tmux_required": true,
+    "codellama_must_be_running_before_start": true,
+    "stop_codellama_before_workload": true,
+    "restore_codellama_after_every_exit": true,
+    "hard_timeout_seconds_per_domain": 21600,
+    "no_automatic_retry": true
+  },
+  "integrity": {"validation_forbidden": true, "test_forbidden": true, "sports_forbidden": true},
+  "p0_r_lineage": {
+    "status": "P0_R_COMPLETE",
+    "datasets": {
+      "Toys": {
+        "memory_summary": "artifacts/phase7/st_gcgd_v2/Toys/memory_summary.json",
+        "memory_summary_sha256": "7b7081eccd680a6648ab8bef75ea541a1ece66b3aeb9afc03346ad76b088ef95",
+        "hard_negative_cache": "artifacts/phase7/st_gcgd_v2/Toys/gram_hard_negatives.json",
+        "hard_negative_cache_sha256": "3bb83fb2d67e3bdbef3fce2479e6ad88157dd403f043d6b4edcb28c6e5e41f4c"
+      },
+      "Beauty": {
+        "memory_summary": "artifacts/phase7/st_gcgd_v2/Beauty/memory_summary.json",
+        "memory_summary_sha256": "601a35bf730e3f8fc6485081478ac72bf918348b520377f5ab2e300235846373",
+        "hard_negative_cache": "artifacts/phase7/st_gcgd_v2/Beauty/gram_hard_negatives.json",
+        "hard_negative_cache_sha256": "75dc7a226a8f775f7746c71d784b8284097e2fb9991d7bcb53779f2aedf56ea3"
+      }
+    }
+  },
+  "code_lock": {
+    "implementation": "experiment/phase7/st_gcgd_v2.py",
+    "implementation_sha256": "a4ab6cbbb7f58025113a63213bd5b3d49747a9840c708074e681ad6e744ed240",
+    "test": "experiment/phase7/test_st_gcgd_v2.py",
+    "test_sha256": "0b55b0518b9be031c1157f81fe10f2a6f5b90716680174a7ac4dba04a38124f3",
+    "runner_sha256": "aed492ca407df6d3dad83dafc8e6fdcb00a78d7ae6f96afb1377cd283f2e1dd1"
+  }
+}

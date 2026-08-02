@@ -1,11 +1,49 @@
 import torch
 
+from experiment.phase6.gacr_v2 import build_validation_records
 from experiment.phase6.gacr_v6 import (
     add_standard_metrics,
     compare_methods,
     rank_metric,
     train_full_batch_seed,
 )
+
+
+def test_validation_accepts_multi_cohort_config_without_legacy_key(monkeypatch):
+    """Regression guard for v6's fresh-cohort exclusion configuration."""
+    captured = {}
+
+    monkeypatch.setattr("experiment.phase6.gacr_v2.prepare", lambda *args: {
+        "model": type("Model", (), {
+            "load_state_dict": lambda *args, **kwargs: None,
+            "eval": lambda self: None,
+        })(),
+        "sequences": {"u": [1]},
+        "item2input": {},
+        "item2lexid": {},
+    })
+    monkeypatch.setattr("experiment.phase6.gacr_v2.sha256", lambda *args: "sha")
+    monkeypatch.setattr("experiment.phase6.gacr_v2.read_users", lambda *args: set())
+    monkeypatch.setattr(
+        "experiment.phase6.gacr_v2.select_fresh_validation_users",
+        lambda all_users, exclusions, dataset, salt, count: captured.setdefault(
+            "salts", []
+        ).append(salt) or [],
+    )
+    monkeypatch.setattr("experiment.phase6.gacr_v2.build_validation_samples", lambda *args: [])
+    monkeypatch.setattr("experiment.phase6.gacr_v2.torch.load", lambda *args, **kwargs: {})
+
+    config = {
+        "inputs": {"checkpoint_root": "unused", "split_root": "unused"},
+        "prior_validation_salts": ["old-a", "old-b"],
+        "validation_salt": "fresh-v6",
+        "validation_users_per_dataset": 1,
+    }
+    metadata, records = build_validation_records("Toys", config, {}, torch.device("cpu"))
+
+    assert records == []
+    assert metadata["prior_validation_cohorts_excluded"] == 2
+    assert captured["salts"] == ["old-a", "old-b", "fresh-v6"]
 
 
 def test_rank_metric_standard_cutoffs():

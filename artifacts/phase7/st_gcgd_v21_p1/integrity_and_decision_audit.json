@@ -1,0 +1,43 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V21_P1_V1",
+  "status": "P1_COMPLETE_STOP_BEFORE_SEALED_TEST",
+  "completed_at": "2026-08-02T17:36:32+08:00",
+  "decision": {
+    "test_nomination": false,
+    "selected_candidate": null,
+    "reason": "Neither D nor E meets the preregistered development effect gate in either domain. D reduces Recall@10 and NDCG@10 in both domains; E fail-closes to exact A with zero interventions.",
+    "sealed_test_read": false,
+    "sports_read": false
+  },
+  "Toys": {
+    "cohort_sha256": "9832b3156120e8a9611d5ee8aa3d545cdfe4774fd7a00125304d34f78927e727",
+    "A": {"Recall@10": 0.12890625, "NDCG@10": 0.09581240855261486},
+    "V3": {"Recall@10": 0.1328125, "NDCG@10": 0.09741083520864005, "NDCG@10_relative_gain": 0.01668288},
+    "D": {"Recall@10": 0.12109375, "NDCG@10": 0.0896129474657642, "NDCG@10_relative_gain": -0.06470416, "NDCG@10_relative_gain_ci95": [-0.1117656159531182, -0.02268327583190359]},
+    "E": {"Recall@10": 0.12890625, "NDCG@10": 0.09581240855261486, "gate_intervention_rate": 0.0},
+    "row_audit": {"passed": true, "rows_per_arm": 512, "arms": 5},
+    "peak_reserved_mib": 10142.0
+  },
+  "Beauty": {
+    "cohort_sha256": "fb89ac1ba25fc7a59f76e9824bc1e8f49a54c7d654d76e25dbfa1613ae86e976",
+    "A": {"Recall@10": 0.107421875, "NDCG@10": 0.0632607699504796},
+    "V3": {"Recall@10": 0.111328125, "NDCG@10": 0.06547313063979149, "NDCG@10_relative_gain": 0.03497207},
+    "D": {"Recall@10": 0.099609375, "NDCG@10": 0.06101042292101884, "NDCG@10_relative_gain": -0.03557261, "NDCG@10_relative_gain_ci95": [-0.08745150168856242, 0.008226073589861603]},
+    "E": {"Recall@10": 0.107421875, "NDCG@10": 0.0632607699504796, "gate_intervention_rate": 0.0},
+    "row_audit": {"passed": true, "rows_per_arm": 512, "arms": 5},
+    "peak_reserved_mib": 10922.0
+  },
+  "resource": {
+    "policy": "USER_AUTHORIZED_NO_HARD_30G_CAP",
+    "telemetry_max_used_mib": 12922,
+    "telemetry_rows": 603,
+    "codellama_restored": true
+  },
+  "artifacts": {
+    "cross_domain_summary_sha256": "57ced84536d8190a594fb9d1d5f0b167b2c4adf88353b096542f2052fa7e5398",
+    "Toys_summary_sha256": "c70ac015809f310c213bde98155f30cce342025c987393921edf834cad1935cf",
+    "Beauty_summary_sha256": "c39e938e8bcb130571cc6495b91be22f108023659f9304e4183f56d1ff6c3aef",
+    "telemetry_sha256": "4f1d117754f23bbb9e5ba61985133dd7cdc41f8c1dbf9093b619a1e16b3048f8"
+  },
+  "post_run_test_note": "24 tests executed and passed; pytest process returned nonzero only while writing renewable cache metadata because /dev/sdb was full."
+}

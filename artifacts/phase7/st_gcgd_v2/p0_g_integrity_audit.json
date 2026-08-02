@@ -1,0 +1,35 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_G_V1",
+  "audited_at": "2026-08-02T16:00:00+08:00",
+  "scientific_execution": "COMPLETED",
+  "scientific_qualification": "FAIL_CLOSED_BEAUTY_NOT_QUALIFIED",
+  "governance_status": "RESOURCE_LEASE_UNDERSHOOT",
+  "telemetry_domain_label_status": "MISSING_DUE_TO_SUBSHELL_VARIABLE_SNAPSHOT",
+  "telemetry_interpretation": {
+    "ordering_basis": "runner executed Toys then Beauty sequentially; three 5-second samples per domain",
+    "Toys": {
+      "observed_total_peak_mib": 10460,
+      "required_total_mib": 30720,
+      "observed_shortfall_mib": 20260
+    },
+    "Beauty": {
+      "observed_total_peak_mib": 6620,
+      "required_total_mib": 30720,
+      "observed_shortfall_mib": 24100
+    }
+  },
+  "root_cause": "P0-R measured the conservative frozen-GRAM-plus-graph lifecycle, while P0-G loaded only the graph workload; its sidecar complemented the larger combined-path budget instead of the actual graph-only peak.",
+  "hard_negative_coverage": {
+    "Toys": {"fit_records_with_frozen_gram_hard_negatives": 53, "fit_records": 15534},
+    "Beauty": {"fit_records_with_frozen_gram_hard_negatives": 53, "fit_records": 17905}
+  },
+  "integrity": {
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "automatic_retry_performed": false,
+    "codellama_restored": true
+  },
+  "next_action": "Do not enter P1. Redesign relation mixing and separately preregister graph-only resource measurement before any new run."
+}

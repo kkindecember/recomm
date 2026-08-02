@@ -1,0 +1,128 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V21_P1_V1",
+  "created_at": "2026-08-02T16:45:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "objective": "Fresh-cohort matched decoding comparison of frozen GRAM, frozen GACR-v3, static LightGCN fusion, deep transition fusion, and a train-only advantage-gated transition fusion.",
+  "datasets": ["Toys", "Beauty"],
+  "seed": 2023,
+  "development_users_per_dataset": 512,
+  "development_salt": "phase7-st-gcgd-v21-development-v1",
+  "expected_development_cohort": {
+    "Toys": {"users": 512, "user_sha256": "9832b3156120e8a9611d5ee8aa3d545cdfe4774fd7a00125304d34f78927e727", "excluded_phase4_users": 8949, "excluded_prior_validation_users": 8192, "overlap": 0},
+    "Beauty": {"users": 512, "user_sha256": "fb89ac1ba25fc7a59f76e9824bc1e8f49a54c7d654d76e25dbfa1613ae86e976", "excluded_phase4_users": 9687, "excluded_prior_validation_users": 8192, "overlap": 0}
+  },
+  "prior_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1",
+    "phase6-gacr-v3-development-v1",
+    "phase6-cet-v1-gacr-v3-combination-development-v1",
+    "phase6-gacr-v4-development-v1",
+    "phase6-gacr-v5-development-v1",
+    "phase6-gacr-v6-full-fit-development-v1",
+    "phase7-gcgd-p1-development-v1"
+  ],
+  "arms": {
+    "A": "Frozen matched GRAM parent, true constrained beam@50.",
+    "V3": "Frozen seed-2023 GACR-v3 candidate reranker on its matched catalog candidate set; explicitly not called a generated beam.",
+    "B": "A plus fixed static LightGCN prefix log-probabilities, alpha=0.30.",
+    "D": "A plus fixed deep directed-transition/session-GRU prefix log-probabilities, alpha=0.30.",
+    "E": "D evidence multiplied by a train-only target-free advantage probability and fail-closed below fixed threshold 0.70, alpha=0.30."
+  },
+  "static_graph": {
+    "encoder": "LightGCN", "train_slice": "items[:-2]", "embedding_dim": 64, "layers": 2,
+    "epochs": 20, "batch_size": 4096, "learning_rate": 0.001, "l2": 0.0001,
+    "objective_weight": 0.2, "seed": 2023
+  },
+  "temporal_training": {
+    "seed": 2023, "embedding_dim": 256, "layers": 3, "dropout": 0.1,
+    "maximum_session_length": 20, "maximum_ui_fraction": 0.2,
+    "backbone_epochs": 10, "mixer_epochs": 5, "negative_count": 20,
+    "learning_rate": 0.001, "l2": 0.0001, "pairwise_weight": 1.0,
+    "listwise_weight": 1.0, "gradient_clip": 10.0
+  },
+  "temporal_lineage": {
+    "datasets": {
+      "Toys": {"user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt", "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt"},
+      "Beauty": {"user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt", "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt"}
+    },
+    "split": {"calibration_fraction": 0.2, "salt": "phase7-st-gcgd-v21-p0-train-only-v1"},
+    "graph": {"recency_decay": 0.85, "skip_self_transitions": true},
+    "hard_negative_bank": {
+      "datasets": {
+        "Toys": {"path": "artifacts/phase7/st_gcgd_v21_p0r2/Toys/gram_hard_negatives.json", "sha256": "f97a0c5a0373a42df89db056d6eebb02056ba452c1ce88464ae68a3afd830e8d"},
+        "Beauty": {"path": "artifacts/phase7/st_gcgd_v21_p0r2/Beauty/gram_hard_negatives.json", "sha256": "91c745f4efb6c1ba0471bc4b3622574dd55f88ccb4d86a8c202652bab1763456"}
+      }
+    }
+  },
+  "advantage_gate": {
+    "architecture": "MLP(8,128,64,1) with LayerNorm/GELU/Dropout and sigmoid scalar output",
+    "fit_samples_per_dataset": 256,
+    "calibration_samples_per_dataset": 64,
+    "epochs": 100,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "seed": 2023,
+    "threshold": 0.70,
+    "label": "1 iff actual fixed-D constrained beam improves the held-out train-only target rank versus alpha=0; target is never a feature",
+    "features": ["transition_coverage", "normalized_history_length", "repeat_rate", "graph_entropy", "graph_top_margin", "GRAM_graph_top1_agreement", "graph_top_seen_flag", "normalized_unique_history"],
+    "threshold_selection": "fixed before development cohort decoding; calibration diagnostics are descriptive only"
+  },
+  "decoding": {
+    "generator_top_k": 50, "catalog_top_k_for_gacr_v3": 50, "length_penalty": 1.0,
+    "B_alpha": 0.30, "D_alpha": 0.30, "E_alpha": 0.30,
+    "stable_tie_break": true, "alpha_zero_exact_identity_required": true
+  },
+  "inputs": {
+    "phase4_parent_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "gacr_v3_residual_root": "artifacts/phase6/gacr_v2",
+    "expected_parent_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    },
+    "expected_gacr_v3_seed2023_residual_sha256": {
+      "Toys": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+      "Beauty": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370"
+    },
+    "gacr_v3_domain_budget": {"Toys": 0.4, "Beauty": 0.4}
+  },
+  "decision_rule": {
+    "development_only": true,
+    "primary_candidate": "choose E if it improves A NDCG@10 and Recall@10 without greater broad_harm than D; otherwise choose D if D improves A NDCG@10 and Recall@10; otherwise stop",
+    "minimum_effect_for_test_nomination": "overall NDCG@10 relative gain >= 5%, Recall@10 absolute gain > 0, and no head/tail subgroup has both NDCG@10 and Recall@10 below A",
+    "paired_bootstrap_reported": true,
+    "automatic_test_activation": false
+  },
+  "integrity": {
+    "graph_train_slice": "items[:-2]", "gate_fit_calibration_users_disjoint": true,
+    "development_excludes_all_prior_cohorts": true, "matched_parent_checkpoint_and_users": true,
+    "validation_target_not_used_in_gate_features": true, "test_predictions_forbidden": true,
+    "sports_forbidden": true, "no_alpha_or_threshold_scan_on_development": true
+  },
+  "resource_policy": {
+    "physical_gpu": 0,
+    "user_authorized_at": "2026-08-02",
+    "authorization": "Exceeding 30720+256 MiB is acceptable; model size and architecture changes need not be restrained.",
+    "hard_30g_cap": false,
+    "artificial_sidecar_reservation": false,
+    "minimum_free_mib_after_codellama_release": 40000,
+    "hard_timeout_seconds_per_domain": 86400,
+    "telemetry_interval_seconds": 5,
+    "no_automatic_retry": true,
+    "restore_codellama_after_every_exit": true
+  },
+  "lineage_lock": {
+    "toys_p0g2": {"path": "artifacts/phase7/st_gcgd_v21_p0g2/Toys/summary.json", "sha256": "fd84f79988fb678c4b02fd3ecec967086f00eefbe170938262d3dff41ec2059d"},
+    "beauty_recovery_and_cross_domain": {"path": "artifacts/phase7/st_gcgd_v21_p0g2_recovery/summary.json", "sha256": "795b64c63fa427c55a886b7794f8872dd177624cb93e0667982ccd177c486dfe"}
+  },
+  "code_lock": {
+    "workload": {"path": "experiment/phase7/st_gcgd_v21_p1.py", "sha256": "5f8f5072d4e2473eaca03c0a09fcdc42cbcb231cb72b61a9dd1271b525d9946b"},
+    "tests": {"path": "experiment/phase7/test_st_gcgd_v21_p1.py", "sha256": "5c67b448a32f558a85891c769a9e0ced76aba9c77aa56ae33ec61b478ebd0775"},
+    "runner": {"path": "experiment/phase7/run_phase7_st_gcgd_v21_p1.sh", "sha256": "ac4ebb2d6c351729a39fe6af3b4915f3fcc62cfc2822b5b7ce04ca13c28ae37e"},
+    "temporal_model": {"path": "experiment/phase7/st_gcgd_v21.py", "sha256": "48b4d557fab10c8d02742a44f27be8a77cfab496b58355a800afd9fd2f2daa1f"},
+    "p1_components": {"path": "experiment/phase7/gcgd_p1.py", "sha256": "67fd172a7ffd2fb35e8625c9522a861e008a0756b3b5548cfe1d49b67296d352"},
+    "p1_reporting": {"path": "experiment/phase7/gcgd_p1_run.py", "sha256": "9a71f105c538e79e0bf91d5994625b070189f118a3e36b8b1cab7f88444fc968"}
+  }
+}

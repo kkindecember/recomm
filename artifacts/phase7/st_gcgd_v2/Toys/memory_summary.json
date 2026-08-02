@@ -1,0 +1,31 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_R_MEMORY_V1",
+  "dataset": "Toys",
+  "status": "P0_R_MEMORY_PILOT_COMPLETE",
+  "workload_peak_allocated_mib": 6870.9189453125,
+  "workload_peak_reserved_mib": 22370.0,
+  "recommended_workload_budget_mib": 22528,
+  "recommended_sidecar_mib": 8192,
+  "hard_negative_records": 64,
+  "hard_negative_cache_sha256": "3bb83fb2d67e3bdbef3fce2479e6ad88157dd403f043d6b4edcb28c6e5e41f4c",
+  "graph_training": [
+    {
+      "epoch": 1,
+      "loss": 3.73787784576416,
+      "gradient_norm": 0.005414543207734823
+    }
+  ],
+  "input_lineage": {
+    "checkpoint_sha256_before": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "checkpoint_sha256_after": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "user_sequence_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "item_index_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "integrity": {
+    "train_only": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "sidecar_active_during_measurement": false
+  }
+}

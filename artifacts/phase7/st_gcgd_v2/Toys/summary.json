@@ -1,0 +1,327 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V2_P0_G_V1",
+  "dataset": "Toys",
+  "status": "P0_G_QUALIFIED",
+  "input_lineage": {
+    "user_sequence_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "item_index_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "graph": {
+    "users": 19412,
+    "items": 11924,
+    "ui_edges": 109361,
+    "directed_transition_edges": 84669,
+    "fit_records": 15534,
+    "calibration_records": 3878
+  },
+  "hard_negative_cache_records": 64,
+  "arms": {
+    "static": {
+      "training": [
+        {
+          "epoch": 1,
+          "loss": 3.7377586364746094,
+          "gradient_norm": 0.007454810664057732
+        },
+        {
+          "epoch": 2,
+          "loss": 3.7304365634918213,
+          "gradient_norm": 0.007452250923961401
+        },
+        {
+          "epoch": 3,
+          "loss": 3.7231197357177734,
+          "gradient_norm": 0.007466819137334824
+        },
+        {
+          "epoch": 4,
+          "loss": 3.71579647064209,
+          "gradient_norm": 0.007498510181903839
+        },
+        {
+          "epoch": 5,
+          "loss": 3.708455801010132,
+          "gradient_norm": 0.007547295652329922
+        },
+        {
+          "epoch": 6,
+          "loss": 3.7010838985443115,
+          "gradient_norm": 0.007612948771566153
+        },
+        {
+          "epoch": 7,
+          "loss": 3.693668842315674,
+          "gradient_norm": 0.007695276290178299
+        },
+        {
+          "epoch": 8,
+          "loss": 3.6861987113952637,
+          "gradient_norm": 0.007794057950377464
+        },
+        {
+          "epoch": 9,
+          "loss": 3.678657054901123,
+          "gradient_norm": 0.007909031584858894
+        },
+        {
+          "epoch": 10,
+          "loss": 3.6710312366485596,
+          "gradient_norm": 0.008039945736527443
+        }
+      ],
+      "calibration": {
+        "n": 3878,
+        "Recall@10": 0.0005157297709956765,
+        "NDCG@10": 0.00033921218710020185,
+        "Recall@50": 0.0033522434532642365,
+        "MRR": 0.0009013566887006164,
+        "mean_target_margin": -0.09000858664512634,
+        "head": {
+          "n": 1734,
+          "available": true,
+          "Recall@10": 0.0005767012480646372,
+          "NDCG@10": 0.0005767012480646372
+        },
+        "tail": {
+          "n": 2144,
+          "available": true,
+          "Recall@10": 0.00046641789958812296,
+          "NDCG@10": 0.00014713847485836595
+        }
+      }
+    },
+    "ui": {
+      "training": [
+        {
+          "epoch": 1,
+          "loss": 3.7377681732177734,
+          "gradient_norm": 0.007529260125011206
+        },
+        {
+          "epoch": 2,
+          "loss": 3.7303502559661865,
+          "gradient_norm": 0.007527094800025225
+        },
+        {
+          "epoch": 3,
+          "loss": 3.7229385375976562,
+          "gradient_norm": 0.007543591316789389
+        },
+        {
+          "epoch": 4,
+          "loss": 3.7155191898345947,
+          "gradient_norm": 0.007578788325190544
+        },
+        {
+          "epoch": 5,
+          "loss": 3.7080812454223633,
+          "gradient_norm": 0.007632552180439234
+        },
+        {
+          "epoch": 6,
+          "loss": 3.7006101608276367,
+          "gradient_norm": 0.0077046542428433895
+        },
+        {
+          "epoch": 7,
+          "loss": 3.6930932998657227,
+          "gradient_norm": 0.007794874254614115
+        },
+        {
+          "epoch": 8,
+          "loss": 3.685516834259033,
+          "gradient_norm": 0.00790298730134964
+        },
+        {
+          "epoch": 9,
+          "loss": 3.677865505218506,
+          "gradient_norm": 0.008028633892536163
+        },
+        {
+          "epoch": 10,
+          "loss": 3.670124053955078,
+          "gradient_norm": 0.008171615190804005
+        }
+      ],
+      "calibration": {
+        "n": 3878,
+        "Recall@10": 0.0005157297709956765,
+        "NDCG@10": 0.0002486495941411704,
+        "Recall@50": 0.003867973340675235,
+        "MRR": 0.0007614327478222549,
+        "mean_target_margin": -0.09133390337228775,
+        "head": {
+          "n": 1734,
+          "available": true,
+          "Recall@10": 0.0005767012480646372,
+          "NDCG@10": 0.00036385798011906445
+        },
+        "tail": {
+          "n": 2144,
+          "available": true,
+          "Recall@10": 0.00046641789958812296,
+          "NDCG@10": 0.000155472633196041
+        }
+      }
+    },
+    "transition": {
+      "training": [
+        {
+          "epoch": 1,
+          "loss": 3.738287925720215,
+          "gradient_norm": 0.007701553869992495
+        },
+        {
+          "epoch": 2,
+          "loss": 3.7337186336517334,
+          "gradient_norm": 0.007706532254815102
+        },
+        {
+          "epoch": 3,
+          "loss": 3.7291512489318848,
+          "gradient_norm": 0.00772461760789156
+        },
+        {
+          "epoch": 4,
+          "loss": 3.7245781421661377,
+          "gradient_norm": 0.007756027393043041
+        },
+        {
+          "epoch": 5,
+          "loss": 3.719993829727173,
+          "gradient_norm": 0.007800624240189791
+        },
+        {
+          "epoch": 6,
+          "loss": 3.71539306640625,
+          "gradient_norm": 0.007858458906412125
+        },
+        {
+          "epoch": 7,
+          "loss": 3.710766315460205,
+          "gradient_norm": 0.0079293642193079
+        },
+        {
+          "epoch": 8,
+          "loss": 3.7061069011688232,
+          "gradient_norm": 0.008013349026441574
+        },
+        {
+          "epoch": 9,
+          "loss": 3.701406478881836,
+          "gradient_norm": 0.008110246621072292
+        },
+        {
+          "epoch": 10,
+          "loss": 3.6966583728790283,
+          "gradient_norm": 0.008219907991588116
+        }
+      ],
+      "calibration": {
+        "n": 3878,
+        "Recall@10": 0.004125838167965412,
+        "NDCG@10": 0.002137691481038928,
+        "Recall@50": 0.011088189668953419,
+        "MRR": 0.002290666103363037,
+        "mean_target_margin": -0.16780218482017517,
+        "head": {
+          "n": 1734,
+          "available": true,
+          "Recall@10": 0.006920414976775646,
+          "NDCG@10": 0.0036571554373949766
+        },
+        "tail": {
+          "n": 2144,
+          "available": true,
+          "Recall@10": 0.0018656715983524919,
+          "NDCG@10": 0.0009087962680496275
+        }
+      }
+    },
+    "full": {
+      "training": [
+        {
+          "epoch": 1,
+          "loss": 3.73787784576416,
+          "gradient_norm": 0.0054145436733961105
+        },
+        {
+          "epoch": 2,
+          "loss": 3.732985019683838,
+          "gradient_norm": 0.005619572941213846
+        },
+        {
+          "epoch": 3,
+          "loss": 3.7280802726745605,
+          "gradient_norm": 0.006086309440433979
+        },
+        {
+          "epoch": 4,
+          "loss": 3.7231552600860596,
+          "gradient_norm": 0.00676741823554039
+        },
+        {
+          "epoch": 5,
+          "loss": 3.7182013988494873,
+          "gradient_norm": 0.007613715250045061
+        },
+        {
+          "epoch": 6,
+          "loss": 3.713209629058838,
+          "gradient_norm": 0.008585955947637558
+        },
+        {
+          "epoch": 7,
+          "loss": 3.708170175552368,
+          "gradient_norm": 0.009656352922320366
+        },
+        {
+          "epoch": 8,
+          "loss": 3.7030723094940186,
+          "gradient_norm": 0.010806833393871784
+        },
+        {
+          "epoch": 9,
+          "loss": 3.697906494140625,
+          "gradient_norm": 0.012024987488985062
+        },
+        {
+          "epoch": 10,
+          "loss": 3.692662239074707,
+          "gradient_norm": 0.013304740190505981
+        }
+      ],
+      "calibration": {
+        "n": 3878,
+        "Recall@10": 0.0028365137986838818,
+        "NDCG@10": 0.001263927319087088,
+        "Recall@50": 0.006704486906528473,
+        "MRR": 0.001395872444845736,
+        "mean_target_margin": -0.08528541028499603,
+        "head": {
+          "n": 1734,
+          "available": true,
+          "Recall@10": 0.002883506240323186,
+          "NDCG@10": 0.0013502504443749785
+        },
+        "tail": {
+          "n": 2144,
+          "available": true,
+          "Recall@10": 0.0027985074557363987,
+          "NDCG@10": 0.0011941116536036134
+        }
+      }
+    }
+  },
+  "qualification": {
+    "passed": true,
+    "rule": "full margin > static margin and not both Recall@10/NDCG@10 lower"
+  },
+  "integrity": {
+    "train_slice": "items[:-2]",
+    "pseudo_future_removed_from_edges": true,
+    "validation_read": false,
+    "test_read": false,
+    "sports_read": false
+  }
+}

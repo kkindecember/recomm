@@ -1,0 +1,78 @@
+{
+  "experiment_id": "GRAM_PHASE7_GCGD_V1",
+  "version_label": "phase7_gcgd_v1_graph_conditioned_generation_design_v1",
+  "created_at": "2026-08-02T00:00:00+08:00",
+  "decision_status": "DESIGN_NOT_PREREGISTERED",
+  "execution_enabled": false,
+  "scientific_workload_implemented": false,
+  "datasets": ["Toys", "Beauty"],
+  "development_seed": 2023,
+  "confirmatory_seeds": [2023, 2024, 2025],
+  "method": {
+    "name": "Graph-Conditioned GRAM Decoding",
+    "graph_encoder": {
+      "name": "LightGCN",
+      "embedding_dim": 64,
+      "layers": 2,
+      "objective": "BPR",
+      "epochs": 20,
+      "batch_size": 4096,
+      "learning_rate": 0.001,
+      "l2": 0.0001,
+      "seed": 2023,
+      "graph_slice": "items[:-2]"
+    },
+    "prefix_projection": "logsumexp_of_normalized_leaf_item_graph_probability",
+    "fusion": "gram_token_logit_plus_alpha_times_reliability_gate_times_graph_prefix_logit",
+    "adapter": "positive scalar graph temperature plus 6-to-16-to-1 sigmoid reliability gate",
+    "alpha": {"B": 0.3, "C": 0.5},
+    "loss": {"next_token_ce": 1.0, "lightgcn_bpr_listwise": 0.2, "gate_reliability_bce": 0.1}
+  },
+  "controls": [
+    "frozen_GRAM",
+    "frozen_GACR_v3",
+    "GRAM_plus_graph_prefix_decoding",
+    "GRAM_plus_graph_prefix_decoding_plus_adapter_gate"
+  ],
+  "integrity": {
+    "graph_reads_train_interactions_only": true,
+    "fit_calibration_users_disjoint": true,
+    "p1_p2_cohorts_disjoint": true,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true,
+    "parent_checkpoint_sha_unchanged": true
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "cuda_visible_devices": "0",
+    "background_tmux_required": true,
+    "tmux_session": "gram_phase7_gcgd_v1",
+    "minimum_free_mib": 30720,
+    "total_gpu_lease_mib": 30720,
+    "domain_gpu_lease_mib": {
+      "Toys": {"expected_workload_peak_mib": 4608, "sidecar_reservation_mib": 26112},
+      "Beauty": {"expected_workload_peak_mib": 1792, "sidecar_reservation_mib": 28928}
+    },
+    "expected_workload_peak_is_design_placeholder": false,
+    "domain_sidecar_restart_required": true,
+    "codellama_must_be_running_before_start": true,
+    "stop_codellama_before_workload": true,
+    "restore_codellama_after_every_exit": true,
+    "restore_codellama_gpu": 0,
+    "hard_timeout_seconds": 43200,
+    "no_automatic_retry": true
+  },
+  "status_interface": {
+    "command": "bash experiment/phase7/run_phase7_gcgd_v1.sh status",
+    "status_path": "artifacts/phase7/gcgd_v1/status.json",
+    "log_path": "artifacts/phase7/gcgd_v1/run.log",
+    "gpu_telemetry_path": "artifacts/phase7/gcgd_v1/gpu_telemetry.csv",
+    "gpu_lease_status_path": "artifacts/phase7/gcgd_v1/gpu_lease_status.json"
+  },
+  "unresolved_before_freeze": [
+    "p2_validation_salt",
+    "input_checkpoint_sha256",
+    "implementation_test_runner_sha256",
+    "p1_end_to_end_train_only_smoke"
+  ]
+}

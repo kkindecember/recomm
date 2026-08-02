@@ -1,0 +1,65 @@
+{
+  "experiment_id": "GRAM_PHASE7_ST_GCGD_V21_P0_G2_BEAUTY_RECOVERY_V1",
+  "created_at": "2026-08-02T16:31:00+08:00",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "seed": 2023,
+  "arms": ["static", "ui", "transition", "full"],
+  "datasets": {
+    "Toys": {"user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt", "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt"},
+    "Beauty": {"user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt", "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt"}
+  },
+  "split": {"calibration_fraction": 0.2, "salt": "phase7-st-gcgd-v21-p0-train-only-v1"},
+  "graph": {"recency_decay": 0.85, "skip_self_transitions": true},
+  "training": {
+    "seed": 2023,
+    "embedding_dim": 256,
+    "layers": 3,
+    "dropout": 0.1,
+    "maximum_session_length": 20,
+    "maximum_ui_fraction": 0.2,
+    "backbone_epochs": 10,
+    "mixer_epochs": 5,
+    "negative_count": 20,
+    "learning_rate": 0.001,
+    "l2": 0.0001,
+    "pairwise_weight": 1.0,
+    "listwise_weight": 1.0,
+    "gradient_clip": 10.0
+  },
+  "hard_negative_bank": {
+    "datasets": {
+      "Toys": {"path": "artifacts/phase7/st_gcgd_v21_p0r2/Toys/gram_hard_negatives.json", "sha256": "f97a0c5a0373a42df89db056d6eebb02056ba452c1ce88464ae68a3afd830e8d"},
+      "Beauty": {"path": "artifacts/phase7/st_gcgd_v21_p0r2/Beauty/gram_hard_negatives.json", "sha256": "91c745f4efb6c1ba0471bc4b3622574dd55f88ccb4d86a8c202652bab1763456"}
+    }
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "cuda_visible_devices": "0",
+    "total_gpu_lease_mib": 30720,
+    "measurement_tolerance_mib": 4096,
+    "domain_gpu_lease_mib": {
+      "Toys": {"workload_budget_mib": 5928, "sidecar_mib": 24792},
+      "Beauty": {"workload_budget_mib": 7134, "sidecar_mib": 23586}
+    },
+    "resource_override": "USER_AUTHORIZED_OVERSHOOT_ABOVE_30720_PLUS_256",
+    "background_tmux_required": true,
+    "hard_timeout_seconds": 43200,
+    "no_automatic_retry": true,
+    "restore_codellama_after_every_exit": true
+  },
+  "integrity": {"validation_forbidden": true, "test_forbidden": true, "sports_forbidden": true},
+  "recovery": {
+    "dataset": "Beauty",
+    "reason": "Initial P0-G2 stopped after completed Toys because the former 256 MiB resource tolerance was exceeded; user explicitly relaxed that resource gate.",
+    "scientific_configuration_changed": false,
+    "parent_toys_summary": "artifacts/phase7/st_gcgd_v21_p0g2/Toys/summary.json",
+    "parent_toys_summary_sha256": "fd84f79988fb678c4b02fd3ecec967086f00eefbe170938262d3dff41ec2059d"
+  },
+  "code_lock": {
+    "implementation": {"path": "experiment/phase7/st_gcgd_v21.py", "sha256": "48b4d557fab10c8d02742a44f27be8a77cfab496b58355a800afd9fd2f2daa1f"},
+    "entrypoint": {"path": "experiment/phase7/st_gcgd_v21_p0g2.py", "sha256": "465714a2280f1133de7cce0235f8e38d2c89c6dad58c2125dd94ba9295c30a60"},
+    "test": {"path": "experiment/phase7/test_st_gcgd_v21.py", "sha256": "575e1f9df9cc8f84046c6c06c81e1305651a5a3b0c6aacd5fce8f5c3193dc945"},
+    "runner": {"path": "experiment/phase7/run_phase7_st_gcgd_v21_p0g2_beauty_recovery.sh", "sha256": "ae1dcf986a61235eba2b773705f870a93a526e2dc6e5a2822569635a69f49041"}
+  }
+}

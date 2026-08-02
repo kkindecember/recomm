@@ -401,9 +401,13 @@ def build_validation_records(
         ROOT / config["inputs"]["split_root"] / dataset / "validation_users.txt"
     )
     all_users = set(prepared["sequences"])
-    prior_salts = config.get(
-        "prior_validation_salts", [config["prior_gacr_p0_validation_salt"]]
-    )
+    # Do not use ``dict.get(key, config[...])`` here: Python evaluates the
+    # default expression eagerly, including for newer configs that already
+    # provide ``prior_validation_salts``.
+    if "prior_validation_salts" in config:
+        prior_salts = list(config["prior_validation_salts"])
+    else:
+        prior_salts = [config["prior_gacr_p0_validation_salt"]]
     exclusions = train_users | gcdh_validation
     prior_validation_users: set[str] = set()
     for prior_salt in prior_salts:

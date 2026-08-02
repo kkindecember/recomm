@@ -1,0 +1,211 @@
+{
+  "material_passport": {
+    "origin_skill": "academic-research-suite/experiment-agent",
+    "mode": "run",
+    "verification_status": "UNVERIFIED"
+  },
+  "experiment_id": "GRAM_PHASE7_GCGD_P0_LINEAGE_V1",
+  "status": "P0_LINEAGE_MECHANISM_AUDIT_COMPLETE",
+  "tokenizer": {
+    "name": "t5-small",
+    "vocab_size": 32100,
+    "decoder_start_token_id": 0,
+    "discard_token_ids": [
+      1820,
+      9175
+    ]
+  },
+  "datasets": {
+    "Toys": {
+      "input_lineage": {
+        "user_sequence_path": "GRAM/rec_datasets/Toys/user_sequence.txt",
+        "user_sequence_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+        "item_index_path": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+        "item_index_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+        "hierarchical_id_type": "hierarchy_v1_c32_l5_len32768_split"
+      },
+      "graph": {
+        "users": 19412,
+        "catalog_items": 11924,
+        "train_interactions": 128773,
+        "unique_user_item_edges": 128773,
+        "repeated_user_item_interactions": 0,
+        "train_covered_catalog_items": 11876,
+        "cold_catalog_items": 48,
+        "catalog_item_coverage": 0.9959745051995974,
+        "item_degree_min": 0,
+        "item_degree_median": 6.0,
+        "item_degree_mean": 10.799480040254949,
+        "item_degree_max": 215
+      },
+      "prefix": {
+        "encoded_item_paths": 11924,
+        "unique_encoded_item_paths": 11924,
+        "path_length_min": 7,
+        "path_length_median": 7.0,
+        "path_length_mean": 7.072291177457229,
+        "path_length_max": 8,
+        "prefix_nodes": 32428,
+        "branching_by_depth": {
+          "0": {
+            "prefix_nodes": 1,
+            "branching_min": 1,
+            "branching_mean": 1.0,
+            "branching_max": 1
+          },
+          "1": {
+            "prefix_nodes": 1,
+            "branching_min": 30,
+            "branching_mean": 30.0,
+            "branching_max": 30
+          },
+          "2": {
+            "prefix_nodes": 30,
+            "branching_min": 15,
+            "branching_mean": 26.2,
+            "branching_max": 53
+          },
+          "3": {
+            "prefix_nodes": 786,
+            "branching_min": 1,
+            "branching_mean": 10.689567430025445,
+            "branching_max": 186
+          },
+          "4": {
+            "prefix_nodes": 8402,
+            "branching_min": 1,
+            "branching_mean": 1.3034991668650322,
+            "branching_max": 49
+          },
+          "5": {
+            "prefix_nodes": 10952,
+            "branching_min": 1,
+            "branching_mean": 1.0403579254930606,
+            "branching_max": 22
+          },
+          "6": {
+            "prefix_nodes": 11394,
+            "branching_min": 1,
+            "branching_mean": 1.046515710022819,
+            "branching_max": 15
+          },
+          "7": {
+            "prefix_nodes": 862,
+            "branching_min": 1,
+            "branching_mean": 1.0,
+            "branching_max": 1
+          }
+        },
+        "pseudo_degree_probability_mass_max_abs_error": 8.881784197001252e-16
+      }
+    },
+    "Beauty": {
+      "input_lineage": {
+        "user_sequence_path": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+        "user_sequence_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+        "item_index_path": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+        "item_index_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+        "hierarchical_id_type": "hierarchy_v1_c128_l7_len32768_split"
+      },
+      "graph": {
+        "users": 22363,
+        "catalog_items": 12101,
+        "train_interactions": 153776,
+        "unique_user_item_edges": 153776,
+        "repeated_user_item_interactions": 0,
+        "train_covered_catalog_items": 12068,
+        "cold_catalog_items": 33,
+        "catalog_item_coverage": 0.9972729526485414,
+        "item_degree_min": 0,
+        "item_degree_median": 7,
+        "item_degree_mean": 12.707710106602761,
+        "item_degree_max": 369
+      },
+      "prefix": {
+        "encoded_item_paths": 12101,
+        "unique_encoded_item_paths": 12101,
+        "path_length_min": 9,
+        "path_length_median": 9,
+        "path_length_mean": 9.035782166763077,
+        "path_length_max": 10,
+        "prefix_nodes": 63791,
+        "branching_by_depth": {
+          "0": {
+            "prefix_nodes": 1,
+            "branching_min": 1,
+            "branching_mean": 1.0,
+            "branching_max": 1
+          },
+          "1": {
+            "prefix_nodes": 1,
+            "branching_min": 108,
+            "branching_mean": 108.0,
+            "branching_max": 108
+          },
+          "2": {
+            "prefix_nodes": 108,
+            "branching_min": 1,
+            "branching_mean": 61.111111111111114,
+            "branching_max": 255
+          },
+          "3": {
+            "prefix_nodes": 6600,
+            "branching_min": 1,
+            "branching_mean": 1.5342424242424242,
+            "branching_max": 25
+          },
+          "4": {
+            "prefix_nodes": 10126,
+            "branching_min": 1,
+            "branching_mean": 1.1116926723286589,
+            "branching_max": 18
+          },
+          "5": {
+            "prefix_nodes": 11257,
+            "branching_min": 1,
+            "branching_mean": 1.0340232744070357,
+            "branching_max": 6
+          },
+          "6": {
+            "prefix_nodes": 11640,
+            "branching_min": 1,
+            "branching_mean": 1.011168384879725,
+            "branching_max": 6
+          },
+          "7": {
+            "prefix_nodes": 11770,
+            "branching_min": 1,
+            "branching_mean": 1.0072217502124043,
+            "branching_max": 4
+          },
+          "8": {
+            "prefix_nodes": 11855,
+            "branching_min": 1,
+            "branching_mean": 1.0207507380851961,
+            "branching_max": 7
+          },
+          "9": {
+            "prefix_nodes": 433,
+            "branching_min": 1,
+            "branching_mean": 1.0,
+            "branching_max": 1
+          }
+        },
+        "pseudo_degree_probability_mass_max_abs_error": 1.6653345369377348e-15
+      }
+    }
+  },
+  "integrity": {
+    "checkpoint_loaded": false,
+    "predictions_generated": false,
+    "validation_or_test_target_values_consumed": false,
+    "fresh_validation_read": false,
+    "test_predictions_read": false,
+    "sports_read": false,
+    "train_slice": "items[:-2]",
+    "holdout_positions_removed_before_graph_edges": 2,
+    "cuda_visible_devices": "",
+    "gpu_workload": false
+  },
+  "next_gate": "RESEARCHER_REVIEW_REQUIRED_BEFORE_P1_IMPLEMENTATION_OR_EXECUTION"
+}
