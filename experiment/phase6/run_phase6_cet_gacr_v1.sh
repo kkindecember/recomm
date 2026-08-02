@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 export CONFIG="$ROOT/artifacts/phase6/configs/cet_gacr_v1_preregistered.json"
 export OUTPUT="$ROOT/artifacts/phase6/cet_gacr_v1"
 export SESSION=gram_phase6_cet_gacr_v1

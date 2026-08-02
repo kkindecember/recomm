@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG="$ROOT/artifacts/phase6/configs/gacr_v5_preregistered.json"
 OUTPUT="$ROOT/artifacts/phase6/gacr_v5"
 LOG="$OUTPUT/run.log"
@@ -230,4 +230,3 @@ main() {
 if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
   main "$@"
 fi
-

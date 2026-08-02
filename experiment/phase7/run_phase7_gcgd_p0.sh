@@ -2,7 +2,7 @@
 # CPU-only P0 lineage audit. CodeLlama remains resident on GPU0 throughout.
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG="$ROOT/artifacts/phase7/configs/gcgd_p0_preregistered.json"
 OUTPUT="$ROOT/artifacts/phase7/gcgd_p0"
 LOG="$OUTPUT/run.log"

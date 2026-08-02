@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG="$ROOT/artifacts/phase7/configs/st_gcgd_v2_graph_p0_preregistered.json"
 OUTPUT="$ROOT/artifacts/phase7/st_gcgd_v2"
 LOG="$OUTPUT/graph_p0_run.log"

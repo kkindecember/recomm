@@ -2,7 +2,7 @@
 # One-shot, validation-only recovery for the interrupted GACR-v6 run.
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG="$ROOT/artifacts/phase6/configs/gacr_v6_validation_recovery.json"
 OUTPUT="$ROOT/artifacts/phase6/gacr_v6_validation_recovery"
 LOG="$OUTPUT/run.log"

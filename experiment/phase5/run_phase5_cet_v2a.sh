@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG="$ROOT/artifacts/phase5/configs/cet_v2a_preregistered.json"
 OUTPUT="$ROOT/artifacts/phase5/cet_v2a"
 LOG="$OUTPUT/run.log"

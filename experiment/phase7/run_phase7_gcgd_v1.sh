@@ -2,7 +2,7 @@
 # Phase-7 GCGD runner scaffold. GPU execution remains fail-closed until frozen.
 set -euo pipefail
 
-ROOT=/home/jiangtangyunzhi/projects/recomm
+ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG="$ROOT/artifacts/phase7/configs/gcgd_v1_design.json"
 OUTPUT="$ROOT/artifacts/phase7/gcgd_v1"
 LOG="$OUTPUT/run.log"
