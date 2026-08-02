@@ -6,7 +6,7 @@ set -uo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 GPU=${1:?usage: run_phase1_beauty_best_test.sh PHYSICAL_GPU}
-RESERVER=/home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh
+RESERVER="$ROOT/tools/run_codellama.sh"
 STATUS="$ROOT/experiment/phase1_beauty_status.json"
 PID_FILE="$ROOT/experiment/phase1_beauty_best_test.pid"
 GPU_LOG="$ROOT/experiment/phase1_beauty_best_test_gpu.csv"

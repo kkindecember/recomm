@@ -17,7 +17,7 @@ LEASE_HELPER="$ROOT/experiment/gpu_memory_lease.py"
 # lease shared by workload and sidecar.
 EXPECTED_WORKLOAD_PEAK_MIB=23552
 TOTAL_LEASE_MIB=30720
-RESERVER=/home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh
+RESERVER="$ROOT/tools/run_codellama.sh"
 CODELLAMA_HF_HOME=/home/jiangtangyunzhi/hf_cache
 TELEMETRY_PID=""
 WORKLOAD_PID=0

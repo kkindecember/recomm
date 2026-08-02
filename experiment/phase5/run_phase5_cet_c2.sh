@@ -9,7 +9,7 @@ STATUS="$OUTPUT/status.json"
 SESSION=gram_phase5_cet_c2_r2
 GPU=3
 PYTHON=/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python3.9
-RESERVER=/home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh
+RESERVER="$ROOT/tools/run_codellama.sh"
 
 write_status() {
   local state=$1

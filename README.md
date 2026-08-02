@@ -23,4 +23,8 @@
 
 数据文件沿用官方 [GRAM](https://github.com/skleee/GRAM) 仓库。当前本地 GRAM 基线提交与环境信息记录在各阶段的 `artifacts/*/environment/` 中。
 
-GPU 实验统一通过 `/home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh stop` 释放资源，实验退出后使用 `start <GPU>` 立即恢复占用。具体命令和复现参数见对应阶段计划与报告。
+GPU 实验统一通过仓库内的 `tools/run_codellama.sh stop` 释放资源，实验退出后使用
+`tools/run_codellama.sh start <GPU>` 恢复占用，使用 `tools/run_codellama.sh status` 查看当前
+tmux、holder heartbeat、显存和日志。运行状态保存在当前磁盘的 `.runtime/codellama/`，不纳入 Git；
+模型缓存仍复用 `/home/jiangtangyunzhi/hf_cache`，不复制大模型权重。具体实验命令和复现参数见对应
+阶段计划与报告。

@@ -345,7 +345,10 @@ GACR-v4 预注册计划见
 
 ### 11.3 当前下一步
 
-唯一主实验为 **GACR-v7 全量指标对齐残差损失**：保持 v6 的全量 fit，仅替换为 NDCG@10/
-Recall@50 截断敏感 pairwise loss，并把 Beauty tail/Recall@50 恢复设为硬保留门。详细方案见
-`plan/GRAM_第六阶段_GACR-v7全量指标对齐残差训练实验计划.md`；详细结果见
+当前只获准执行 **GACR-v7 全量指标对齐残差损失**；它是固定候选 GACR 主线最后两轮机会中的
+第一轮。v7 只替换截断敏感 pairwise loss，并用运行前冻结的非劣界代替零容忍 point-estimate
+safety gate。第二轮 v8 预先限定为真实生成 path score + nested listwise residual ablation；若两轮
+均未形成可增长信号，则关闭固定候选 GACR，转向多源 candidate drafting + 冻结 GRAM item-level
+verification。v8 和 fallback 均不得自动实现或启动，Sports/test 继续封存。完整阶段门见
+`plan/GRAM_第六阶段_GACR-v7全量指标对齐残差训练实验计划.md`；v6 结果见
 `report/第六阶段/GRAM_第六阶段_GACR_v6全量残差训练结果与验证报告.md`。

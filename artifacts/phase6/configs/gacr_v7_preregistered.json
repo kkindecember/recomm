@@ -1,0 +1,114 @@
+{
+  "experiment_id": "GRAM_PHASE6_GACR_V7_METRIC_ALIGNED_FULL_FIT",
+  "registered_at": "2026-08-02T19:11:14+08:00",
+  "decision_status_before_run": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "single_changed_factor": "Replace the v6 target-vs-highest-negative hinge loss with the frozen NDCG@10/Recall@50 cutoff-sensitive weighted pairwise logistic loss.",
+  "datasets": ["Toys", "Beauty"],
+  "cohort_seed": 2023,
+  "training_seeds": [2023, 2024, 2025],
+  "calibration_samples_per_group": 128,
+  "validation_users_per_dataset": 1024,
+  "validation_salt": "phase6-gacr-v7-full-fit-metric-loss-development-v2",
+  "prior_validation_salts": [
+    "gacr-p0-fresh-validation-v1",
+    "phase6-gacr-v2-development-v1",
+    "phase6-gacr-v3-development-v1",
+    "phase6-gacr-v4-development-v1",
+    "phase6-gacr-v5-development-v1",
+    "phase6-gacr-v6-full-fit-development-v1"
+  ],
+  "generator_top_k": 50,
+  "catalog_top_k": 50,
+  "deployment_scale_candidates": [1.0],
+  "deployment_scale": 1.0,
+  "residual": {
+    "feature_schema": "identical_to_gacr_v2_v3_v6",
+    "hidden_dim": 16,
+    "bound": 0.2,
+    "learning_rate": 0.01,
+    "weight_decay": 0.01,
+    "fixed_training_step": 30,
+    "gradient_clip": 10.0,
+    "loss": "equal-weight head/tail NDCG@10 plus 0.25 Recall@50 cutoff-sensitive weighted pairwise softplus",
+    "ndcg_cutoff": 10,
+    "recall_cutoff": 50,
+    "recall50_weight": 0.25,
+    "zero_weight_record_policy": "exclude_from_group_mean",
+    "parameters": "residual ranker only"
+  },
+  "calibration_noninferiority": {
+    "scope": "every_domain_seed_vs_frozen_gram",
+    "broad_harm_max": 0.01,
+    "overall_recall10_absolute_delta_min": -0.002,
+    "overall_recall50_absolute_delta_min": -0.002,
+    "tail_recall50_absolute_delta_min": -0.004,
+    "tail_ndcg10_absolute_delta_min": -0.0005,
+    "failure_policy": "stop_before_fresh_validation_without_tuning_or_retry"
+  },
+  "fresh_validation_decision": {
+    "growth_gate": "Apply plan section 3.6 after results are complete and only on researcher request.",
+    "incumbent_replacement_gate": "Apply plan section 3.6 after results are complete and only on researcher request."
+  },
+  "inputs": {
+    "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "v3_residual_root": "artifacts/phase6/gacr_v2",
+    "expected_v3_residual_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    },
+    "v6_residual_root": "artifacts/phase6/gacr_v6",
+    "expected_v6_residual_sha256": {
+      "Toys": {
+        "2023": "c05f812ee4204602b58119e0411f08e4aa06c99d8ab277e2861ad48d2d9ce68c",
+        "2024": "12ad030cbc7127d7bdef86fb7e320a172d1731771d7d1046f67faa8502dabc1d",
+        "2025": "33ac0a6166deefdfd3349b2728cee296d28df7c1ecc39825cab4f9569e20973a"
+      },
+      "Beauty": {
+        "2023": "260f47d00ffea5a947fb02753c35286a2688d3c5503adea9e305ef76fe9ab4a4",
+        "2024": "b959497f7c9b211096acc74f17b4255b6d689bbc5cae85cec2d4c637b09dd7c7",
+        "2025": "ce284c8824f485b330e7c645a264f1ed679b05e396a2cb65d4b48c93ca32bfd1"
+      }
+    },
+    "v6_recovery_provenance": {
+      "config": "artifacts/phase6/configs/gacr_v6_validation_recovery.json",
+      "mode": "validation_only_reuse_completed_v6_residuals",
+      "residual_retraining": false
+    },
+    "expected_c1_checkpoint_sha256": {
+      "Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+      "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"
+    }
+  },
+  "integrity": {
+    "fit_calibration_user_disjoint": true,
+    "parent_checkpoint_sha_unchanged": true,
+    "backbone_optimizer_steps": 0,
+    "test_predictions_forbidden": true,
+    "sports_forbidden": true
+  },
+  "execution": {
+    "physical_gpu": 0,
+    "total_gpu_memory_lease_mib": 30720,
+    "minimum_free_mib": 30720,
+    "hard_timeout_seconds": 129600,
+    "no_automatic_retry": true,
+    "restore_codellama_gpu": 0
+  },
+  "post_run_policy": "Write results only. Do not analyze, read Sports/test, retry, implement v8, or start another experiment without researcher request.",
+  "implementation_lock": {
+    "implementation_sha256": "34a1f148ad763212a4a85d890af0970021347aa5261882cb4aa2ed823a320a43",
+    "test_sha256": "d6e288649521b96429fbd02d3ba4ec43f77b1ab5d8a69aee75100ee8d48df64d",
+    "runner_sha256": "946f862b20ea9ea6de973e97b4b2310a97d78609a1490cd07d080cf5e1212ccf",
+    "plan_sha256": "4889c6354b2016814f0e3722525f05b955b22397eacca4b5b105c4f034489b0a"
+  }
+}
