@@ -1,0 +1,51 @@
+{
+  "experiment_id": "GRAM_PHASE8_TIPA_P0A_BRANCHING_RECOVERY_V1",
+  "decision_status": "PREREGISTERED_FROZEN_READY_TO_RUN",
+  "execution_enabled": true,
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "split": {"salt": "phase8-tipa-p0a-v1", "fit_fraction": 0.8},
+  "sample": {"fit_per_group": 128, "calibration_per_group": 128, "minimum_prefix_records": 240, "prefix_sampling": "branching_teacher_path"},
+  "adapter": {"hidden_size": 64, "bound": 0.3, "fixed_steps": 100, "batch_prefixes": 32, "learning_rate": 0.001, "weight_decay": 0.0001, "identity_weight": 0.05, "gradient_clip": 10.0},
+  "decoding": {"beam_size": 50, "length_penalty": 1.0, "B_alpha": 0.3},
+  "teacher": {
+    "architecture": {"embedding_dim": 256, "layers": 3, "dropout": 0.1, "maximum_session_length": 20, "maximum_ui_fraction": 0.2},
+    "checkpoints": {
+      "Toys": {"path": "artifacts/phase7/st_gcgd_v21_p1/Toys/transition_graph.pt", "sha256": "80c90f1cbd033c1e92434223e679d71685833202b9ff1ceb0d7c17de6d47ab50"},
+      "Beauty": {"path": "artifacts/phase7/st_gcgd_v21_p1/Beauty/transition_graph.pt", "sha256": "ca11c025c8a0f434a312a1838a17d5bc05b799a069f60dc83d7961529dc7e249"}
+    },
+    "temporal_lineage": {
+      "datasets": {
+        "Toys": {"user_sequence": "GRAM/rec_datasets/Toys/user_sequence.txt", "item_index": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt"},
+        "Beauty": {"user_sequence": "GRAM/rec_datasets/Beauty/user_sequence.txt", "item_index": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt"}
+      },
+      "split": {"calibration_fraction": 0.2, "salt": "phase7-st-gcgd-v21-p0-train-only-v1"},
+      "graph": {"recency_decay": 0.85, "skip_self_transitions": true}
+    }
+  },
+  "inputs": {
+    "phase4_parent_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+    "checkpoint_root": "artifacts/phase4/gcdh_p0",
+    "split_root": "artifacts/phase4/gcdh_p0_splits",
+    "parent_checkpoint_sha256": {"Toys": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6", "Beauty": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2"}
+  },
+  "gate": {"kendall_delta_min": 0.1, "realized_exclusive_users_min": 5, "broad_harm_max": 0.01, "tail_recall50_delta_min": -0.005},
+  "integrity": {"test_forbidden": true, "sports_forbidden": true, "external_development_forbidden": true, "gram_optimizer_steps": 0, "teacher_optimizer_steps": 0},
+  "execution": {"physical_gpu": 6, "total_lease_mib": 30720, "expected_workload_peak_mib": 24576, "hard_timeout_seconds_per_domain": 86400, "restore_codellama_gpu": 6, "no_automatic_retry": true},
+  "lineage_lock": {
+    "Toys": {"user_sequence_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071", "item_index_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"},
+    "Beauty": {"user_sequence_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7", "item_index_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"}
+  },
+  "parent_failure": {
+    "output": "artifacts/phase8/tipa_p0",
+    "run_log_sha256": "be78681f25f33ec156a3c5bea9b3a1dbad4a931f5ecefbc1c530e515a49f4af6",
+    "status_sha256": "af03f80622fe7235645012d43c58abbf8f00626fd5dbfef5034eb1436f49dcf4"
+  },
+  "implementation_lock": {
+    "workload": {"path": "experiment/phase8/tipa_p0.py", "sha256": "ea2bde014fb9277e2b2f148aa6964bb577df327f31ed3a5430c5cf65a14efdeb"},
+    "tests": {"path": "experiment/phase8/test_tipa_p0.py", "sha256": "5eaf2569f92ec2c5addae1dee127ef63ac97f955bda8b13b53f9db8ac61b989b"},
+    "runner": {"path": "experiment/phase8/run_phase8_tipa_p0_branching_recovery.sh", "sha256": "d9e47218925b0ca96cec91477f23ea7e899f15b0d2384e3359e0a85a77001c97"},
+    "plan": {"path": "plan/第八阶段/GRAM_第八阶段_TIPA-P0商品到词法路径对齐审计实验计划.md", "sha256": "e634b18cccb8f9be22ea99fb1291072e1064ea426b019e3b5e8cf2098f06e3db"},
+    "failure_report": {"path": "report/第八阶段/GRAM_第八阶段_TIPA-P0首次启动失败记录.md", "sha256": "6b6e1e5bc3d5e230bc4fed0fb072d84b23ddf79bd0bcefcf9f0dc7860c480a60"}
+  }
+}

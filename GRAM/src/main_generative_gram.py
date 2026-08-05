@@ -7,7 +7,6 @@ from time import perf_counter
 import torch.distributed as dist
 import torch.multiprocessing as mp
 
-from IPython import embed
 from transformers import T5Config, AutoTokenizer, AutoModelForSeq2SeqLM
 from types import MethodType
 from undecorated import undecorated
@@ -27,6 +26,51 @@ from utils import (
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings(action="ignore")
+
+
+def configure_cf0(config, args):
+    """Attach the Phase-9 CF0 settings and catalog size to the T5 config."""
+    config.cf0_arm = args.cf0_arm
+    config.cf0_enabled = args.cf0_arm in {"B", "C"}
+    config.cf0_num_layers = args.cf0_num_layers
+    config.cf0_num_heads = args.cf0_num_heads
+    config.cf0_dropout = args.cf0_dropout
+    config.cf0_loss_weight = args.cf0_loss_weight
+    config.cf0_injection_scale = args.cf0_injection_scale
+    config.cf0_joint_score_weight = args.cf0_joint_score_weight
+    if not config.cf0_enabled:
+        config.cf0_num_items = 0
+        return
+
+    datasets = args.datasets.split(",")
+    if len(datasets) != 1:
+        raise ValueError("CF0 pilot currently requires exactly one dataset per run")
+    index_name = args.item_id_path or (
+        f"item_generative_indexing_{args.hierarchical_id_type}.txt"
+    )
+    index_path = os.path.join(args.data_path, datasets[0], index_name)
+    if not os.path.isfile(index_path):
+        raise FileNotFoundError(f"CF0 item index not found: {index_path}")
+    with open(index_path, "r", encoding="utf-8") as handle:
+        config.cf0_num_items = sum(1 for line in handle if line.strip())
+    if config.cf0_num_items <= 0:
+        raise ValueError(f"CF0 item index is empty: {index_path}")
+
+
+def configure_hi_gram(config, args):
+    """Attach Phase-12 HI-GRAM (Hierarchical Interaction) settings to the T5 config.
+
+    HI-GRAM is orthogonal to CF0. When disabled, EncoderWrapper falls back to
+    the original GRAM forward path.
+    """
+    config.hi_gram_enabled = bool(args.hi_gram_enabled)
+    config.hi_gram_local_window = int(args.hi_gram_local_window)
+    config.hi_gram_local_layers = int(args.hi_gram_local_layers)
+    config.hi_gram_global_layers = int(args.hi_gram_global_layers)
+    config.hi_gram_num_heads = int(args.hi_gram_num_heads)
+    config.hi_gram_dropout = float(args.hi_gram_dropout)
+    config.hi_gram_fusion_scale_init = float(args.hi_gram_fusion_scale_init)
+    config.hi_gram_include_user_prompt = bool(args.hi_gram_include_user_prompt)
 
 
 def run_with_resource_metrics(label, operation, device, enabled):
@@ -93,6 +137,8 @@ def distributed_main(local_rank, args):
     config.max_item_num = args.max_his
     config.use_position_embedding = args.use_position_embedding
     config.sample_num = args.sample_num
+    configure_cf0(config, args)
+    configure_hi_gram(config, args)
 
     model_backbone = AutoModelForSeq2SeqLM.from_pretrained(args.backbone, config=config)
     model_rec = create_model("gram", config=config)
@@ -178,6 +224,8 @@ def single_main(args):
     config.max_item_num = args.max_his
     config.use_position_embedding = args.use_position_embedding
     config.sample_num = args.sample_num
+    configure_cf0(config, args)
+    configure_hi_gram(config, args)
 
     model_backbone = AutoModelForSeq2SeqLM.from_pretrained(args.backbone, config=config)
     model_rec = create_model("gram", config=config)
@@ -235,12 +283,20 @@ def single_main(args):
         )
 
         logging.info(f"Train done ... Load model from {runner.cur_model_path}")
-        run_with_resource_metrics(
-            "automatic_last_checkpoint_test",
-            lambda: runner.test(runner.cur_model_path),
-            device,
-            args.resource_metrics,
-        )
+        if args.cf0_phase9:
+            run_with_resource_metrics(
+                "automatic_last_checkpoint_validation",
+                lambda: runner.validate(runner.cur_model_path),
+                device,
+                args.resource_metrics,
+            )
+        else:
+            run_with_resource_metrics(
+                "automatic_last_checkpoint_test",
+                lambda: runner.test(runner.cur_model_path),
+                device,
+                args.resource_metrics,
+            )
     else:
         if args.test_by_valid:
             logging.info(

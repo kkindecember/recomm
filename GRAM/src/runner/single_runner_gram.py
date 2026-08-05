@@ -50,7 +50,9 @@ class SingleRunnerGRAM:
             self.rec_optimizer,
             self.rec_scheduler,
         ) = self.create_optimizer_and_scheduler()
-        self.get_testloader(regenerate=False, phase=0)
+        self.testloaders = []
+        if not self.args.cf0_phase9:
+            self.get_testloader(regenerate=False, phase=0)
         self.cur_model_path = None
 
         self.best_score = -1
@@ -112,7 +114,8 @@ class SingleRunnerGRAM:
                 "params": [
                     p
                     for n, p in self.model_rec.named_parameters()
-                    if not any(nd in n for nd in no_decay)
+                    if not n.startswith("encoder.cf0_")
+                    and not any(nd in n for nd in no_decay)
                 ],
                 "weight_decay": self.args.weight_decay,
             },
@@ -120,9 +123,30 @@ class SingleRunnerGRAM:
                 "params": [
                     p
                     for n, p in self.model_rec.named_parameters()
-                    if any(nd in n for nd in no_decay)
+                    if not n.startswith("encoder.cf0_")
+                    and any(nd in n for nd in no_decay)
                 ],
                 "weight_decay": 0.0,
+            },
+            {
+                "params": [
+                    p
+                    for n, p in self.model_rec.named_parameters()
+                    if n.startswith("encoder.cf0_")
+                    and not any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": self.args.weight_decay,
+                "lr": self.args.cf0_lr,
+            },
+            {
+                "params": [
+                    p
+                    for n, p in self.model_rec.named_parameters()
+                    if n.startswith("encoder.cf0_")
+                    and any(nd in n for nd in no_decay)
+                ],
+                "weight_decay": 0.0,
+                "lr": self.args.cf0_lr,
             },
         ]
 
@@ -148,6 +172,39 @@ class SingleRunnerGRAM:
 
         return optimizer_id, scheduler_id, optimizer_rec, scheduler_rec
 
+    def _configure_cf0_trainable(self, rec_epoch):
+        """Pretrain CF0, then jointly tune CF0 and the top GRAM layers."""
+        for parameter in self.model_rec.parameters():
+            parameter.requires_grad = False
+        for name, parameter in self.model_rec.encoder.named_parameters():
+            if name.startswith("cf0_"):
+                parameter.requires_grad = True
+
+        stage = "cf0_pretrain"
+        if rec_epoch >= self.args.cf0_pretrain_epochs:
+            stage = "cf0_joint_top_layers"
+            top_layers = max(0, self.args.cf0_unfreeze_top_layers)
+            if top_layers:
+                for block in self.model_rec.encoder.encoder.block[-top_layers:]:
+                    for parameter in block.parameters():
+                        parameter.requires_grad = True
+                for block in self.model_rec.decoder.block[-top_layers:]:
+                    for parameter in block.parameters():
+                        parameter.requires_grad = True
+                for parameter in self.model_rec.decoder.final_layer_norm.parameters():
+                    parameter.requires_grad = True
+                for parameter in self.model_rec.lm_head.parameters():
+                    parameter.requires_grad = True
+        trainable = sum(
+            parameter.numel()
+            for parameter in self.model_rec.parameters()
+            if parameter.requires_grad
+        )
+        logging.info(
+            f"CF0_TRAIN_STAGE epoch={rec_epoch + 1} stage={stage} "
+            f"trainable_parameters={trainable}"
+        )
+
     def train_generator(self):
         self.model_gen.zero_grad()
         self.model_rec.zero_grad()
@@ -168,6 +225,8 @@ class SingleRunnerGRAM:
                     param.requires_grad = False
 
                 for rec_epoch in range(self.args.rec_epochs):
+                    if self.args.cf0_arm in {"B", "C"}:
+                        self._configure_cf0_trainable(rec_epoch)
                     self.model_gen.train()
                     self.model_rec.train()
                     logging.info(
@@ -177,6 +236,8 @@ class SingleRunnerGRAM:
                     self.train_loader_rec.sampler.set_epoch(global_epoch)
 
                     losses = []
+                    component_sums = {"generation": 0.0, "cf0_item": 0.0, "total": 0.0}
+                    component_count = 0
                     for step, batch in enumerate(
                         tqdm(self.train_loader_rec, dynamic_ncols=True)
                     ):
@@ -185,13 +246,26 @@ class SingleRunnerGRAM:
                         attention_mask = batch["item_text_masks"].to(self.device)
                         output_ids = batch["target_ids"].to(self.device)
                         output_masks = batch["target_masks"].to(self.device)
+                        history_item_ids = batch["history_item_ids"].to(self.device)
+                        history_item_mask = batch["history_item_mask"].to(self.device)
+                        target_item_ids = batch["target_item_ids"].to(self.device)
 
                         loss = self.model_rec(
                             input_ids=input_ids,
                             attention_mask=attention_mask,
+                            history_item_ids=history_item_ids,
+                            history_item_mask=history_item_mask,
+                            target_item_ids=target_item_ids,
                             labels=output_ids,
                             return_dict=False,
                         )[0]
+
+                        if self.model_rec.last_loss_components is not None:
+                            for name in component_sums:
+                                component_sums[name] += float(
+                                    self.model_rec.last_loss_components[name]
+                                )
+                            component_count += 1
 
                         loss = loss / self.args.gradient_accumulation_steps
 
@@ -221,6 +295,15 @@ class SingleRunnerGRAM:
                     logging.info(
                         f"The average training loss for rec phase {alter+1} epoch {rec_epoch+1} is {train_epoch_loss}"
                     )
+                    if component_count:
+                        logging.info(
+                            "CF0_LOSS_COMPONENTS "
+                            f"epoch={rec_epoch + 1} "
+                            + " ".join(
+                                f"{name}={component_sums[name] / component_count:.8f}"
+                                for name in ("generation", "cf0_item", "total")
+                            )
+                        )
 
                     if (
                         (rec_epoch + 1) % self.args.save_rec_epochs == 0
@@ -434,9 +517,11 @@ class SingleRunnerGRAM:
             import datetime
 
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            if not os.path.exists("../preds"):
-                os.makedirs("../preds")
-            pred_fname = f"../preds/{timestamp}_{dataset_gram.dataset}_{dataset_gram.tasks[0]}_pred_debug.tsv"
+            os.makedirs(self.args.prediction_dir, exist_ok=True)
+            pred_fname = os.path.join(
+                self.args.prediction_dir,
+                f"{timestamp}_{dataset_gram.dataset}_{dataset_gram.tasks[0]}_pred_debug.tsv",
+            )
             pred_file = open(pred_fname, "w")
             pred_file.write(f"idx\tH@5\tH@10\tNDCG@5\tNDCG@10\tgold\tpred\tscores\n")
 
@@ -479,6 +564,8 @@ class SingleRunnerGRAM:
                 attention_mask = batch["item_text_masks"].to(self.device)
                 output_ids = batch["target_ids"].to(self.device)
                 output_masks = batch["target_masks"].to(self.device)
+                history_item_ids = batch["history_item_ids"].to(self.device)
+                history_item_mask = batch["history_item_mask"].to(self.device)
 
                 if self.args.item_id_type == "t5_token":
                     max_length = max(
@@ -494,6 +581,8 @@ class SingleRunnerGRAM:
                 prediction = self.model_rec.generate(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
+                    history_item_ids=history_item_ids,
+                    history_item_mask=history_item_mask,
                     max_length=max_length,
                     prefix_allowed_tokens_fn=prefix_allowed_tokens,
                     num_beams=self.generate_num,
@@ -513,6 +602,12 @@ class SingleRunnerGRAM:
                 )
                 generated_sents = self.tokenizer.batch_decode(
                     prediction_ids, skip_special_tokens=True
+                )
+                generated_sents, prediction_scores = self._cf0_rerank(
+                    generated_sents,
+                    prediction_scores,
+                    testloader.dataset,
+                    input_ids.size(0),
                 )
 
                 rel_results = evaluate.rel_results(
@@ -565,7 +660,8 @@ class SingleRunnerGRAM:
             if self.args.save_predictions:
                 pred_file.close()
 
-            logging.info(f">> preds saved to {pred_fname}")
+            if self.args.save_predictions:
+                logging.info(f">> preds saved to {pred_fname}")
 
     def test_dataset_task(self, testloader, mode="test"):
         logging.info(
@@ -581,9 +677,11 @@ class SingleRunnerGRAM:
             import datetime
 
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            if not os.path.exists("../preds"):
-                os.makedirs("../preds")
-            pred_fname = f"../preds/{timestamp}_{testloader.dataset.dataset}_{testloader.dataset.task}_pred_{mode}.tsv"
+            os.makedirs(self.args.prediction_dir, exist_ok=True)
+            pred_fname = os.path.join(
+                self.args.prediction_dir,
+                f"{timestamp}_{testloader.dataset.dataset}_{testloader.dataset.task}_pred_{mode}.tsv",
+            )
             pred_file = open(pred_fname, "w")
             pred_file.write(f"idx\tH@5\tH@10\tNDCG@5\tNDCG@10\tgold\tpred\tscores\n")
 
@@ -625,6 +723,8 @@ class SingleRunnerGRAM:
                 attention_mask = batch["item_text_masks"].to(self.device)
                 output_ids = batch["target_ids"].to(self.device)
                 output_masks = batch["target_masks"].to(self.device)
+                history_item_ids = batch["history_item_ids"].to(self.device)
+                history_item_mask = batch["history_item_mask"].to(self.device)
 
                 if self.args.item_id_type == "t5_token":
                     max_length = max(
@@ -641,6 +741,8 @@ class SingleRunnerGRAM:
                 prediction = self.model_rec.generate(
                     input_ids=input_ids,
                     attention_mask=attention_mask,
+                    history_item_ids=history_item_ids,
+                    history_item_mask=history_item_mask,
                     max_length=max_length,
                     prefix_allowed_tokens_fn=prefix_allowed_tokens,
                     num_beams=self.generate_num,
@@ -659,6 +761,12 @@ class SingleRunnerGRAM:
                 )
                 generated_sents = self.tokenizer.batch_decode(
                     prediction_ids, skip_special_tokens=True
+                )
+                generated_sents, prediction_scores = self._cf0_rerank(
+                    generated_sents,
+                    prediction_scores,
+                    testloader.dataset,
+                    input_ids.size(0),
                 )
 
                 rel_results = evaluate.rel_results(
@@ -716,4 +824,43 @@ class SingleRunnerGRAM:
             if self.args.save_predictions:
                 pred_file.close()
 
-            logging.info(f">> preds saved to {pred_fname}")
+            if self.args.save_predictions:
+                logging.info(f">> preds saved to {pred_fname}")
+
+    def _cf0_rerank(self, generated_sents, prediction_scores, dataset, batch_size):
+        """Apply arm-C item scoring only within the legal generated beams."""
+        if self.args.cf0_arm != "C":
+            return generated_sents, prediction_scores
+        beam_count = self.generate_num
+        candidate_ids = []
+        for batch_idx in range(batch_size):
+            start = batch_idx * beam_count
+            beams = generated_sents[start : start + beam_count]
+            candidate_ids.append(
+                [dataset.lexid2cfid.get(candidate, 0) for candidate in beams]
+            )
+        candidate_ids = torch.tensor(
+            candidate_ids, dtype=torch.long, device=self.device
+        )
+        if candidate_ids.eq(0).any():
+            raise ValueError("CF0 could not map a legal generated beam to an item ID")
+        cf_scores = self.model_rec.score_cf0_candidates(candidate_ids)
+        sequence_scores = prediction_scores.view(batch_size, beam_count)
+
+        def standardize(scores):
+            return (scores - scores.mean(dim=1, keepdim=True)) / scores.std(
+                dim=1, keepdim=True, unbiased=False
+            ).clamp_min(1e-6)
+
+        joint_scores = standardize(sequence_scores) + (
+            self.args.cf0_joint_score_weight * standardize(cf_scores)
+        )
+        order = joint_scores.argsort(dim=1, descending=True)
+        reranked_sents = []
+        reranked_scores = []
+        for batch_idx in range(batch_size):
+            base = batch_idx * beam_count
+            for rank in order[batch_idx].tolist():
+                reranked_sents.append(generated_sents[base + rank])
+                reranked_scores.append(joint_scores[batch_idx, rank])
+        return reranked_sents, torch.stack(reranked_scores)

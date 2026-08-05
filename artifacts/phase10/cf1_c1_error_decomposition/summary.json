@@ -1,0 +1,703 @@
+{
+  "analysis_id": "GRAM_PHASE10_CF1_C1_ERROR_DECOMPOSITION_V1",
+  "status": "completed",
+  "evidence_class": "post_C1_read_only_mechanism_diagnostic_not_model_selection",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "no_training_performed": true,
+  "input_identity": {
+    "feature_table_sha256": "79fd0d670fd37d5a402b6989bee76ec55c9dcbdbb964f953b6ee5b4cd592a269",
+    "c1_summary_sha256": "9477348b7a7b7814d8f10e606e2ea5891ca587c2ae1675d0a78e7785c1b871a7",
+    "fold_models_sha256": "a26b7e4b577cd17ddf64835b90bfe5b3ba4f57eb0d1c2fda82dc32a4599b1949",
+    "per_user_oof_sha256": "9ac1dc921e2a43488149809095415470e94e70d06838fafe220ffa3c9a156d14",
+    "predictions_sha256": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a"
+  },
+  "transitions": {
+    "overall": {
+      "Hit@1": {
+        "users": 19412,
+        "baseline_hits": 803,
+        "candidate_hits": 810,
+        "gains": 75,
+        "losses": 68,
+        "net_hits": 7,
+        "delta": 0.00036060168967648877,
+        "discordant": 143
+      },
+      "Hit@5": {
+        "users": 19412,
+        "baseline_hits": 1818,
+        "candidate_hits": 1828,
+        "gains": 122,
+        "losses": 112,
+        "net_hits": 10,
+        "delta": 0.0005151452709664126,
+        "discordant": 234
+      },
+      "Hit@10": {
+        "users": 19412,
+        "baseline_hits": 2433,
+        "candidate_hits": 2427,
+        "gains": 162,
+        "losses": 168,
+        "net_hits": -6,
+        "delta": -0.0003090871625798475,
+        "discordant": 330
+      },
+      "Hit@20": {
+        "users": 19412,
+        "baseline_hits": 3189,
+        "candidate_hits": 3194,
+        "gains": 183,
+        "losses": 178,
+        "net_hits": 5,
+        "delta": 0.0002575726354832063,
+        "discordant": 361
+      },
+      "Hit@50": {
+        "users": 19412,
+        "baseline_hits": 4114,
+        "candidate_hits": 4398,
+        "gains": 534,
+        "losses": 250,
+        "net_hits": 284,
+        "delta": 0.014630125695446116,
+        "discordant": 784
+      }
+    },
+    "target_tail": {
+      "Hit@1": {
+        "users": 5160,
+        "baseline_hits": 155,
+        "candidate_hits": 145,
+        "gains": 10,
+        "losses": 20,
+        "net_hits": -10,
+        "delta": -0.001937984496124031,
+        "discordant": 30
+      },
+      "Hit@5": {
+        "users": 5160,
+        "baseline_hits": 361,
+        "candidate_hits": 345,
+        "gains": 22,
+        "losses": 38,
+        "net_hits": -16,
+        "delta": -0.0031007751937984496,
+        "discordant": 60
+      },
+      "Hit@10": {
+        "users": 5160,
+        "baseline_hits": 480,
+        "candidate_hits": 455,
+        "gains": 25,
+        "losses": 50,
+        "net_hits": -25,
+        "delta": -0.0048449612403100775,
+        "discordant": 75
+      },
+      "Hit@20": {
+        "users": 5160,
+        "baseline_hits": 597,
+        "candidate_hits": 580,
+        "gains": 28,
+        "losses": 45,
+        "net_hits": -17,
+        "delta": -0.0032945736434108527,
+        "discordant": 73
+      },
+      "Hit@50": {
+        "users": 5160,
+        "baseline_hits": 717,
+        "candidate_hits": 749,
+        "gains": 69,
+        "losses": 37,
+        "net_hits": 32,
+        "delta": 0.006201550387596899,
+        "discordant": 106
+      }
+    },
+    "target_middle": {
+      "Hit@1": {
+        "users": 9235,
+        "baseline_hits": 407,
+        "candidate_hits": 411,
+        "gains": 35,
+        "losses": 31,
+        "net_hits": 4,
+        "delta": 0.0004331348132106118,
+        "discordant": 66
+      },
+      "Hit@5": {
+        "users": 9235,
+        "baseline_hits": 899,
+        "candidate_hits": 901,
+        "gains": 53,
+        "losses": 51,
+        "net_hits": 2,
+        "delta": 0.0002165674066053059,
+        "discordant": 104
+      },
+      "Hit@10": {
+        "users": 9235,
+        "baseline_hits": 1200,
+        "candidate_hits": 1208,
+        "gains": 82,
+        "losses": 74,
+        "net_hits": 8,
+        "delta": 0.0008662696264212236,
+        "discordant": 156
+      },
+      "Hit@20": {
+        "users": 9235,
+        "baseline_hits": 1554,
+        "candidate_hits": 1563,
+        "gains": 80,
+        "losses": 71,
+        "net_hits": 9,
+        "delta": 0.0009745533297238765,
+        "discordant": 151
+      },
+      "Hit@50": {
+        "users": 9235,
+        "baseline_hits": 1893,
+        "candidate_hits": 2073,
+        "gains": 239,
+        "losses": 59,
+        "net_hits": 180,
+        "delta": 0.01949106659447753,
+        "discordant": 298
+      }
+    },
+    "target_head": {
+      "Hit@1": {
+        "users": 5017,
+        "baseline_hits": 241,
+        "candidate_hits": 254,
+        "gains": 30,
+        "losses": 17,
+        "net_hits": 13,
+        "delta": 0.00259118995415587,
+        "discordant": 47
+      },
+      "Hit@5": {
+        "users": 5017,
+        "baseline_hits": 558,
+        "candidate_hits": 582,
+        "gains": 47,
+        "losses": 23,
+        "net_hits": 24,
+        "delta": 0.004783735299980068,
+        "discordant": 70
+      },
+      "Hit@10": {
+        "users": 5017,
+        "baseline_hits": 753,
+        "candidate_hits": 764,
+        "gains": 55,
+        "losses": 44,
+        "net_hits": 11,
+        "delta": 0.0021925453458241976,
+        "discordant": 99
+      },
+      "Hit@20": {
+        "users": 5017,
+        "baseline_hits": 1038,
+        "candidate_hits": 1051,
+        "gains": 75,
+        "losses": 62,
+        "net_hits": 13,
+        "delta": 0.00259118995415587,
+        "discordant": 137
+      },
+      "Hit@50": {
+        "users": 5017,
+        "baseline_hits": 1504,
+        "candidate_hits": 1576,
+        "gains": 226,
+        "losses": 154,
+        "net_hits": 72,
+        "delta": 0.014351205899940203,
+        "discordant": 380
+      }
+    },
+    "history_1-5": {
+      "Hit@1": {
+        "users": 12673,
+        "baseline_hits": 570,
+        "candidate_hits": 574,
+        "gains": 54,
+        "losses": 50,
+        "net_hits": 4,
+        "delta": 0.00031563165785528286,
+        "discordant": 104
+      },
+      "Hit@5": {
+        "users": 12673,
+        "baseline_hits": 1251,
+        "candidate_hits": 1262,
+        "gains": 74,
+        "losses": 63,
+        "net_hits": 11,
+        "delta": 0.0008679870591020279,
+        "discordant": 137
+      },
+      "Hit@10": {
+        "users": 12673,
+        "baseline_hits": 1641,
+        "candidate_hits": 1638,
+        "gains": 98,
+        "losses": 101,
+        "net_hits": -3,
+        "delta": -0.00023672374339146217,
+        "discordant": 199
+      },
+      "Hit@20": {
+        "users": 12673,
+        "baseline_hits": 2107,
+        "candidate_hits": 2098,
+        "gains": 95,
+        "losses": 104,
+        "net_hits": -9,
+        "delta": -0.0007101712301743865,
+        "discordant": 199
+      },
+      "Hit@50": {
+        "users": 12673,
+        "baseline_hits": 2689,
+        "candidate_hits": 2839,
+        "gains": 300,
+        "losses": 150,
+        "net_hits": 150,
+        "delta": 0.011836187169573109,
+        "discordant": 450
+      }
+    },
+    "history_6-10": {
+      "Hit@1": {
+        "users": 4319,
+        "baseline_hits": 166,
+        "candidate_hits": 170,
+        "gains": 17,
+        "losses": 13,
+        "net_hits": 4,
+        "delta": 0.0009261403102570039,
+        "discordant": 30
+      },
+      "Hit@5": {
+        "users": 4319,
+        "baseline_hits": 370,
+        "candidate_hits": 361,
+        "gains": 23,
+        "losses": 32,
+        "net_hits": -9,
+        "delta": -0.002083815698078259,
+        "discordant": 55
+      },
+      "Hit@10": {
+        "users": 4319,
+        "baseline_hits": 504,
+        "candidate_hits": 499,
+        "gains": 30,
+        "losses": 35,
+        "net_hits": -5,
+        "delta": -0.0011576753878212549,
+        "discordant": 65
+      },
+      "Hit@20": {
+        "users": 4319,
+        "baseline_hits": 673,
+        "candidate_hits": 679,
+        "gains": 48,
+        "losses": 42,
+        "net_hits": 6,
+        "delta": 0.0013892104653855058,
+        "discordant": 90
+      },
+      "Hit@50": {
+        "users": 4319,
+        "baseline_hits": 873,
+        "candidate_hits": 930,
+        "gains": 115,
+        "losses": 58,
+        "net_hits": 57,
+        "delta": 0.013197499421162306,
+        "discordant": 173
+      }
+    },
+    "history_11-20": {
+      "Hit@1": {
+        "users": 2420,
+        "baseline_hits": 67,
+        "candidate_hits": 66,
+        "gains": 4,
+        "losses": 5,
+        "net_hits": -1,
+        "delta": -0.00041322314049586776,
+        "discordant": 9
+      },
+      "Hit@5": {
+        "users": 2420,
+        "baseline_hits": 197,
+        "candidate_hits": 205,
+        "gains": 25,
+        "losses": 17,
+        "net_hits": 8,
+        "delta": 0.003305785123966942,
+        "discordant": 42
+      },
+      "Hit@10": {
+        "users": 2420,
+        "baseline_hits": 288,
+        "candidate_hits": 290,
+        "gains": 34,
+        "losses": 32,
+        "net_hits": 2,
+        "delta": 0.0008264462809917355,
+        "discordant": 66
+      },
+      "Hit@20": {
+        "users": 2420,
+        "baseline_hits": 409,
+        "candidate_hits": 417,
+        "gains": 40,
+        "losses": 32,
+        "net_hits": 8,
+        "delta": 0.003305785123966942,
+        "discordant": 72
+      },
+      "Hit@50": {
+        "users": 2420,
+        "baseline_hits": 552,
+        "candidate_hits": 629,
+        "gains": 119,
+        "losses": 42,
+        "net_hits": 77,
+        "delta": 0.031818181818181815,
+        "discordant": 161
+      }
+    },
+    "target_source_gram_only": {
+      "Hit@1": {
+        "users": 1789,
+        "baseline_hits": 97,
+        "candidate_hits": 93,
+        "gains": 18,
+        "losses": 22,
+        "net_hits": -4,
+        "delta": -0.0022358859698155395,
+        "discordant": 40
+      },
+      "Hit@5": {
+        "users": 1789,
+        "baseline_hits": 397,
+        "candidate_hits": 326,
+        "gains": 10,
+        "losses": 81,
+        "net_hits": -71,
+        "delta": -0.039686975964225824,
+        "discordant": 91
+      },
+      "Hit@10": {
+        "users": 1789,
+        "baseline_hits": 663,
+        "candidate_hits": 529,
+        "gains": 14,
+        "losses": 148,
+        "net_hits": -134,
+        "delta": -0.07490217998882057,
+        "discordant": 162
+      },
+      "Hit@20": {
+        "users": 1789,
+        "baseline_hits": 1037,
+        "candidate_hits": 885,
+        "gains": 18,
+        "losses": 170,
+        "net_hits": -152,
+        "delta": -0.08496366685299049,
+        "discordant": 188
+      },
+      "Hit@50": {
+        "users": 1789,
+        "baseline_hits": 1789,
+        "candidate_hits": 1539,
+        "gains": 0,
+        "losses": 250,
+        "net_hits": -250,
+        "delta": -0.13974287311347122,
+        "discordant": 250
+      }
+    },
+    "target_source_both": {
+      "Hit@1": {
+        "users": 2325,
+        "baseline_hits": 706,
+        "candidate_hits": 717,
+        "gains": 57,
+        "losses": 46,
+        "net_hits": 11,
+        "delta": 0.004731182795698925,
+        "discordant": 103
+      },
+      "Hit@5": {
+        "users": 2325,
+        "baseline_hits": 1421,
+        "candidate_hits": 1496,
+        "gains": 106,
+        "losses": 31,
+        "net_hits": 75,
+        "delta": 0.03225806451612903,
+        "discordant": 137
+      },
+      "Hit@10": {
+        "users": 2325,
+        "baseline_hits": 1770,
+        "candidate_hits": 1877,
+        "gains": 127,
+        "losses": 20,
+        "net_hits": 107,
+        "delta": 0.046021505376344085,
+        "discordant": 147
+      },
+      "Hit@20": {
+        "users": 2325,
+        "baseline_hits": 2152,
+        "candidate_hits": 2211,
+        "gains": 67,
+        "losses": 8,
+        "net_hits": 59,
+        "delta": 0.025376344086021504,
+        "discordant": 75
+      },
+      "Hit@50": {
+        "users": 2325,
+        "baseline_hits": 2325,
+        "candidate_hits": 2325,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      }
+    },
+    "target_source_cf_only": {
+      "Hit@1": {
+        "users": 1025,
+        "baseline_hits": 0,
+        "candidate_hits": 0,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      },
+      "Hit@5": {
+        "users": 1025,
+        "baseline_hits": 0,
+        "candidate_hits": 6,
+        "gains": 6,
+        "losses": 0,
+        "net_hits": 6,
+        "delta": 0.005853658536585366,
+        "discordant": 6
+      },
+      "Hit@10": {
+        "users": 1025,
+        "baseline_hits": 0,
+        "candidate_hits": 21,
+        "gains": 21,
+        "losses": 0,
+        "net_hits": 21,
+        "delta": 0.02048780487804878,
+        "discordant": 21
+      },
+      "Hit@20": {
+        "users": 1025,
+        "baseline_hits": 0,
+        "candidate_hits": 98,
+        "gains": 98,
+        "losses": 0,
+        "net_hits": 98,
+        "delta": 0.09560975609756098,
+        "discordant": 98
+      },
+      "Hit@50": {
+        "users": 1025,
+        "baseline_hits": 0,
+        "candidate_hits": 534,
+        "gains": 534,
+        "losses": 0,
+        "net_hits": 534,
+        "delta": 0.5209756097560976,
+        "discordant": 534
+      }
+    },
+    "target_union_miss": {
+      "Hit@1": {
+        "users": 14273,
+        "baseline_hits": 0,
+        "candidate_hits": 0,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      },
+      "Hit@5": {
+        "users": 14273,
+        "baseline_hits": 0,
+        "candidate_hits": 0,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      },
+      "Hit@10": {
+        "users": 14273,
+        "baseline_hits": 0,
+        "candidate_hits": 0,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      },
+      "Hit@20": {
+        "users": 14273,
+        "baseline_hits": 0,
+        "candidate_hits": 0,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      },
+      "Hit@50": {
+        "users": 14273,
+        "baseline_hits": 0,
+        "candidate_hits": 0,
+        "gains": 0,
+        "losses": 0,
+        "net_hits": 0,
+        "delta": 0.0,
+        "discordant": 0
+      }
+    }
+  },
+  "oof_top10_entrant_sources": {
+    "both": 21731,
+    "cf_only": 8758,
+    "gram_only": 4299
+  },
+  "loss_user_top10_entrant_sources": {
+    "both": 286,
+    "cf_only": 69,
+    "gram_only": 42
+  },
+  "coefficient_stability": {
+    "gram_z": {
+      "mean": 0.6434931340670299,
+      "std": 0.01000028989821293,
+      "min": 0.6309225639185472,
+      "max": 0.6599801912282869,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "corrected_item_z": {
+      "mean": 0.44796283454521924,
+      "std": 0.028711835367455786,
+      "min": 0.40090717251576835,
+      "max": 0.4818947007036942,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "source_both": {
+      "mean": 0.15873214686418086,
+      "std": 0.02245222685032112,
+      "min": 0.12325414890206277,
+      "max": 0.18650021576590203,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "source_cf_only": {
+      "mean": -0.1818916374967903,
+      "std": 0.01113997235733332,
+      "min": -0.19553991967891274,
+      "max": -0.16750326903798235,
+      "all_positive": false,
+      "all_negative": true
+    },
+    "gram_rr": {
+      "mean": 1.1570555575192636,
+      "std": 0.026133769925033485,
+      "min": 1.124254391623723,
+      "max": 1.1911632761352036,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "cf_rr": {
+      "mean": 0.315075262940431,
+      "std": 0.033358138822859824,
+      "min": 0.26751526389971975,
+      "max": 0.3551471307382338,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "agreement": {
+      "mean": 0.08625831737297004,
+      "std": 0.031240760590325097,
+      "min": 0.03816218382666162,
+      "max": 0.12464839471917581,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "reliability_x_item": {
+      "mean": -0.006626194808085861,
+      "std": 0.030484829151377513,
+      "min": -0.05744530255698971,
+      "max": 0.031247943557117408,
+      "all_positive": false,
+      "all_negative": false
+    },
+    "short_history_x_item": {
+      "mean": 0.009360506762554332,
+      "std": 0.015227165502165223,
+      "min": -0.013409603135977435,
+      "max": 0.027953032873899678,
+      "all_positive": false,
+      "all_negative": false
+    },
+    "long_history_x_item": {
+      "mean": 0.14037836339836363,
+      "std": 0.01649312512636678,
+      "min": 0.12331427134312392,
+      "max": 0.1687877109129024,
+      "all_positive": true,
+      "all_negative": false
+    },
+    "item_log_frequency": {
+      "mean": 0.02878709417107169,
+      "std": 0.016654829752137532,
+      "min": 0.0006319029537970141,
+      "max": 0.04371061175200982,
+      "all_positive": true,
+      "all_negative": false
+    }
+  },
+  "oracle_gap": {
+    "baseline_Hit@50": 0.21193076447558212,
+    "union_oracle_Hit@50": 0.2647331547496394,
+    "available_gap": 0.052802390274057254,
+    "C1_Hit@50_delta": 0.014630125695446111,
+    "fraction_of_gap_captured": 0.2770731707317074
+  },
+  "interpretation_boundary": "Post-C1 diagnostic only. It may motivate one preregistered C2 specification, but it cannot retroactively pass C1 or authorize Beauty.",
+  "artifacts": {
+    "hit10_transitions_sha256": "d1571b88a4841987c53f40587d174693a09dda5f7f71c928b232c91576551f84"
+  }
+}

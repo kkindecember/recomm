@@ -1,0 +1,781 @@
+{
+  "experiment_id": "GRAM_PHASE8_TIPA_D0_FAILURE_ATTRIBUTION_V1",
+  "status": "ANALYZED",
+  "started_at": "2026-08-03T22:31:26.572182+08:00",
+  "completed_at": "2026-08-03T22:31:28.318922+08:00",
+  "parent_decision": "STOP_TIPA_NO_PATH_REALIZATION",
+  "analysis_only": true,
+  "post_hoc": true,
+  "input_hashes": {
+    "canonical_summary": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/summary.json",
+      "expected_sha256": "a0b6b06717d234c224daa7cf2fc3f3bc08599b364ffdc360ae66ced9d9d09c2b",
+      "actual_sha256": "a0b6b06717d234c224daa7cf2fc3f3bc08599b364ffdc360ae66ced9d9d09c2b"
+    },
+    "toys_summary": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/summary.json",
+      "expected_sha256": "1ac1e6755d02aaf92753b487be62a5d761f2926aa292cfbd48aadb980e802e96",
+      "actual_sha256": "1ac1e6755d02aaf92753b487be62a5d761f2926aa292cfbd48aadb980e802e96"
+    },
+    "beauty_summary": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/summary.json",
+      "expected_sha256": "5ce602cf212115a6d1f407127348c49b0772e97165d2ffa791dd9049c5667500",
+      "actual_sha256": "5ce602cf212115a6d1f407127348c49b0772e97165d2ffa791dd9049c5667500"
+    },
+    "toys_per_prefix": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/per_prefix.csv",
+      "expected_sha256": "9bdb4f27a07f1c2d9b5e5d93873844a02f49ba397760dfc178055a25a835c63d",
+      "actual_sha256": "9bdb4f27a07f1c2d9b5e5d93873844a02f49ba397760dfc178055a25a835c63d"
+    },
+    "beauty_per_prefix": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/per_prefix.csv",
+      "expected_sha256": "b4d80fd10ef40ed02b324800c9f3f9a12b1f1bc7e67d34b50cd9c8ac5376e2fd",
+      "actual_sha256": "b4d80fd10ef40ed02b324800c9f3f9a12b1f1bc7e67d34b50cd9c8ac5376e2fd"
+    },
+    "toys_per_user": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/per_user.csv",
+      "expected_sha256": "51a9c734e37f5df749d5549188eab3aaeea45b471e7f2a6adf15a58a058fea08",
+      "actual_sha256": "51a9c734e37f5df749d5549188eab3aaeea45b471e7f2a6adf15a58a058fea08"
+    },
+    "beauty_per_user": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/per_user.csv",
+      "expected_sha256": "4fd27a30b2dcc0eeb636f816cf1de177e108539ad1f9ce9addf19d0d0533939f",
+      "actual_sha256": "4fd27a30b2dcc0eeb636f816cf1de177e108539ad1f9ce9addf19d0d0533939f"
+    },
+    "toys_per_user_arms": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/per_user_arms.csv",
+      "expected_sha256": "7b78c3d3b1e1217884228e28bd63923031a3ac9f81edf8d370c26965cb3b060e",
+      "actual_sha256": "7b78c3d3b1e1217884228e28bd63923031a3ac9f81edf8d370c26965cb3b060e"
+    },
+    "beauty_per_user_arms": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/per_user_arms.csv",
+      "expected_sha256": "6f3142b5d33fc8fb9c84bdfe5256c816ddd36faa62baef8b0e03606cc64859d3",
+      "actual_sha256": "6f3142b5d33fc8fb9c84bdfe5256c816ddd36faa62baef8b0e03606cc64859d3"
+    }
+  },
+  "analysis_script": {
+    "path": "experiment/phase8/tipa_d0_failure_attribution.py",
+    "sha256": "f8cbb1184beeaa33d854c29035cb8ccd8dcb9f0e16264961525c367a551a9574"
+  },
+  "integrity": {
+    "parent_hashes_match": true,
+    "schemas_match": true,
+    "rows_and_keys_align": true,
+    "summary_exactly_recomputed": true,
+    "finite_values": true,
+    "rank_missing_semantics": "beam@50 absence censored to 51 for paired rank change only"
+  },
+  "failure_chain": {
+    "Toys": {
+      "teacher_availability": {
+        "teacher_exclusive_n": 6,
+        "teacher_exclusive_rate": 0.0234375,
+        "teacher_target_rank": {
+          "mean": 4556.796875,
+          "median": 3965.5,
+          "q25": 1191.75,
+          "q75": 7807.75
+        },
+        "teacher_margin": {
+          "mean": 0.09516956214793026,
+          "median": 0.06105297803878784,
+          "q25": 0.025394544005393982,
+          "q75": 0.1349426507949829
+        },
+        "caveat": "teacher-exclusive availability is not evidence of teacher correctness"
+      },
+      "item_to_path_alignment": {
+        "dataset": "Toys",
+        "family": "alignment",
+        "metric": "C_minus_B_kendall",
+        "n": 256,
+        "estimate": -0.008156887755102041,
+        "ci95_low": -0.017717315051020407,
+        "ci95_high": 0.0017857142857142854,
+        "method": "paired bootstrap seed=2023 resamples=10000",
+        "median": -0.014693877551020404,
+        "count_positive": 113,
+        "count_negative": 142,
+        "count_zero": 1
+      },
+      "perturbation_behavior": {
+        "C_null_rate": {
+          "mean": 0.4800111607142857,
+          "median": 0.48,
+          "q25": 0.45714285714285713,
+          "q75": 0.5057142857142857
+        },
+        "C_max_abs_delta": {
+          "mean": 0.30000000447034836,
+          "median": 0.30000001192092896,
+          "q25": 0.30000001192092896,
+          "q75": 0.30000001192092896
+        },
+        "bound_hit_rate_at_0_3": 1.0,
+        "correlations": [
+          {
+            "dataset": "Toys",
+            "family": "perturbation_correlation",
+            "comparison": "C_null_rate",
+            "metric": "C_minus_B_kendall",
+            "statistic": 0.012466546100128545,
+            "p_value": 0.8426567735086324,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Toys",
+            "family": "perturbation_correlation",
+            "comparison": "C_null_rate",
+            "metric": "C_rank_change_vs_A",
+            "statistic": 0.12136390978771676,
+            "p_value": 0.05244112911757147,
+            "bh_q_value": 0.891499194998715,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Toys",
+            "family": "perturbation_correlation",
+            "comparison": "C_null_rate",
+            "metric": "C_broad_harm",
+            "statistic": 0.057145200932908785,
+            "p_value": 0.36250984224220506,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Toys",
+            "family": "perturbation_correlation",
+            "comparison": "C_max_abs_delta",
+            "metric": "C_minus_B_kendall",
+            "statistic": -0.03727579815398087,
+            "p_value": 0.5527125040006311,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Toys",
+            "family": "perturbation_correlation",
+            "comparison": "C_max_abs_delta",
+            "metric": "C_rank_change_vs_A",
+            "statistic": 0.012774727574320707,
+            "p_value": 0.8388195342386986,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Toys",
+            "family": "perturbation_correlation",
+            "comparison": "C_max_abs_delta",
+            "metric": "C_broad_harm",
+            "statistic": -0.05310659123774033,
+            "p_value": 0.3974721743877093,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          }
+        ]
+      },
+      "beam_realization": {
+        "teacher_exclusive_n": 6,
+        "B_in_beam50": {
+          "successes": 0,
+          "n": 6,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.3903342879021653
+        },
+        "B_in_top10": {
+          "successes": 0,
+          "n": 6,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.3903342879021653
+        },
+        "B_broad_harm": {
+          "successes": 0,
+          "n": 6,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.3903342879021653
+        },
+        "C_in_beam50": {
+          "successes": 0,
+          "n": 6,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.3903342879021653
+        },
+        "C_in_top10": {
+          "successes": 0,
+          "n": 6,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.3903342879021653
+        },
+        "C_broad_harm": {
+          "successes": 0,
+          "n": 6,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.3903342879021653
+        }
+      },
+      "parent_outcomes": {
+        "C_recall10_delta": -0.0078125,
+        "C_ndcg10_delta": -0.007506453848019595,
+        "C_broad_harm": 0.03125
+      }
+    },
+    "Beauty": {
+      "teacher_availability": {
+        "teacher_exclusive_n": 14,
+        "teacher_exclusive_rate": 0.0546875,
+        "teacher_target_rank": {
+          "mean": 3852.23046875,
+          "median": 2397.0,
+          "q25": 537.0,
+          "q75": 6605.5
+        },
+        "teacher_margin": {
+          "mean": 0.09647168102674186,
+          "median": 0.060352623462677,
+          "q25": 0.02288152277469635,
+          "q75": 0.12181775271892548
+        },
+        "caveat": "teacher-exclusive availability is not evidence of teacher correctness"
+      },
+      "item_to_path_alignment": {
+        "dataset": "Beauty",
+        "family": "alignment",
+        "metric": "C_minus_B_kendall",
+        "n": 256,
+        "estimate": -0.018769132653061224,
+        "ci95_low": -0.027697704081632652,
+        "ci95_high": -0.009731505102040827,
+        "method": "paired bootstrap seed=2023 resamples=10000",
+        "median": -0.020408163265306124,
+        "count_negative": 154,
+        "count_positive": 98,
+        "count_zero": 4
+      },
+      "perturbation_behavior": {
+        "C_null_rate": {
+          "mean": 0.6473003472222222,
+          "median": 0.6388888888888888,
+          "q25": 0.6222222222222222,
+          "q75": 0.6688888888888889
+        },
+        "C_max_abs_delta": {
+          "mean": 0.3000000106403604,
+          "median": 0.30000001192092896,
+          "q25": 0.30000001192092896,
+          "q75": 0.30000001192092896
+        },
+        "bound_hit_rate_at_0_3": 1.0,
+        "correlations": [
+          {
+            "dataset": "Beauty",
+            "family": "perturbation_correlation",
+            "comparison": "C_null_rate",
+            "metric": "C_minus_B_kendall",
+            "statistic": -0.006617287669507093,
+            "p_value": 0.9160904602055062,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Beauty",
+            "family": "perturbation_correlation",
+            "comparison": "C_null_rate",
+            "metric": "C_rank_change_vs_A",
+            "statistic": 0.0463530349269437,
+            "p_value": 0.4602616452562307,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Beauty",
+            "family": "perturbation_correlation",
+            "comparison": "C_null_rate",
+            "metric": "C_broad_harm",
+            "statistic": null,
+            "p_value": null,
+            "bh_q_value": null,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Beauty",
+            "family": "perturbation_correlation",
+            "comparison": "C_max_abs_delta",
+            "metric": "C_minus_B_kendall",
+            "statistic": -0.06881572302263682,
+            "p_value": 0.27265706912607124,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Beauty",
+            "family": "perturbation_correlation",
+            "comparison": "C_max_abs_delta",
+            "metric": "C_rank_change_vs_A",
+            "statistic": 0.05008551376940913,
+            "p_value": 0.42490100293854316,
+            "bh_q_value": 1.0,
+            "bh_fdr_0_05": false
+          },
+          {
+            "dataset": "Beauty",
+            "family": "perturbation_correlation",
+            "comparison": "C_max_abs_delta",
+            "metric": "C_broad_harm",
+            "statistic": null,
+            "p_value": null,
+            "bh_q_value": null,
+            "bh_fdr_0_05": false
+          }
+        ]
+      },
+      "beam_realization": {
+        "teacher_exclusive_n": 14,
+        "B_in_beam50": {
+          "successes": 2,
+          "n": 14,
+          "rate": 0.14285714285714285,
+          "wilson95_low": 0.040093921271464966,
+          "wilson95_high": 0.39941379496970353
+        },
+        "B_in_top10": {
+          "successes": 0,
+          "n": 14,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.2153108027376358
+        },
+        "B_broad_harm": {
+          "successes": 0,
+          "n": 14,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.2153108027376358
+        },
+        "C_in_beam50": {
+          "successes": 1,
+          "n": 14,
+          "rate": 0.07142857142857142,
+          "wilson95_low": 0.012722215247890939,
+          "wilson95_high": 0.31468704424151117
+        },
+        "C_in_top10": {
+          "successes": 0,
+          "n": 14,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.2153108027376358
+        },
+        "C_broad_harm": {
+          "successes": 0,
+          "n": 14,
+          "rate": 0.0,
+          "wilson95_low": 0.0,
+          "wilson95_high": 0.2153108027376358
+        }
+      },
+      "parent_outcomes": {
+        "C_recall10_delta": 0.015625,
+        "C_ndcg10_delta": 0.007203215055154977,
+        "C_broad_harm": 0.0
+      }
+    }
+  },
+  "exploratory_tests_bh_fdr": [
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "target_group:head_vs_tail",
+      "metric": "C_minus_B_kendall",
+      "statistic": 8088.0,
+      "p_value": 0.8612927722234153,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "target_group:head_vs_tail",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 8806.0,
+      "p_value": 0.2388316746614364,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "target_group:head_vs_tail",
+      "metric": "C_broad_harm",
+      "statistic": 8448.0,
+      "p_value": 0.15236359454545254,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "history_group:short_vs_long",
+      "metric": "C_minus_B_kendall",
+      "statistic": 8000.5,
+      "p_value": 0.7629768572760602,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "history_group:short_vs_long",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 6806.0,
+      "p_value": 0.008335829747472528,
+      "bh_q_value": 0.2834182114140659,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "history_group:short_vs_long",
+      "metric": "C_broad_harm",
+      "statistic": 8159.5,
+      "p_value": 0.9129515060837525,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "teacher_margin_group:low_vs_high",
+      "metric": "C_minus_B_kendall",
+      "statistic": 7736.0,
+      "p_value": 0.44190794912084685,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "teacher_margin_group:low_vs_high",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 7570.5,
+      "p_value": 0.2331389534695969,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "teacher_margin_group:low_vs_high",
+      "metric": "C_broad_harm",
+      "statistic": 8064.0,
+      "p_value": 0.4750937344750197,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "transition_covered:0_vs_1",
+      "metric": "C_minus_B_kendall",
+      "statistic": 0.0,
+      "p_value": 0.08569240516046013,
+      "bh_q_value": 0.9711805918185482,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "transition_covered:0_vs_1",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 123.5,
+      "p_value": 0.9570427662443867,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "user_strata",
+      "comparison": "transition_covered:0_vs_1",
+      "metric": "C_broad_harm",
+      "statistic": 123.5,
+      "p_value": 0.8751229766102288,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "perturbation_correlation",
+      "comparison": "C_null_rate",
+      "metric": "C_minus_B_kendall",
+      "statistic": 0.012466546100128545,
+      "p_value": 0.8426567735086324,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "perturbation_correlation",
+      "comparison": "C_null_rate",
+      "metric": "C_rank_change_vs_A",
+      "statistic": 0.12136390978771676,
+      "p_value": 0.05244112911757147,
+      "bh_q_value": 0.891499194998715,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "perturbation_correlation",
+      "comparison": "C_null_rate",
+      "metric": "C_broad_harm",
+      "statistic": 0.057145200932908785,
+      "p_value": 0.36250984224220506,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "perturbation_correlation",
+      "comparison": "C_max_abs_delta",
+      "metric": "C_minus_B_kendall",
+      "statistic": -0.03727579815398087,
+      "p_value": 0.5527125040006311,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "perturbation_correlation",
+      "comparison": "C_max_abs_delta",
+      "metric": "C_rank_change_vs_A",
+      "statistic": 0.012774727574320707,
+      "p_value": 0.8388195342386986,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Toys",
+      "family": "perturbation_correlation",
+      "comparison": "C_max_abs_delta",
+      "metric": "C_broad_harm",
+      "statistic": -0.05310659123774033,
+      "p_value": 0.3974721743877093,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "target_group:head_vs_tail",
+      "metric": "C_minus_B_kendall",
+      "statistic": 8449.0,
+      "p_value": 0.6649983065551759,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "target_group:head_vs_tail",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 8606.0,
+      "p_value": 0.3991672810161365,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "target_group:head_vs_tail",
+      "metric": "C_broad_harm",
+      "statistic": 8192.0,
+      "p_value": 1.0,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "history_group:short_vs_long",
+      "metric": "C_minus_B_kendall",
+      "statistic": 8058.0,
+      "p_value": 0.9374088343039845,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "history_group:short_vs_long",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 7743.0,
+      "p_value": 0.5805631661425388,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "history_group:short_vs_long",
+      "metric": "C_broad_harm",
+      "statistic": 8011.5,
+      "p_value": 1.0,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "teacher_margin_group:low_vs_high",
+      "metric": "C_minus_B_kendall",
+      "statistic": 7903.5,
+      "p_value": 0.6268247452114724,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "teacher_margin_group:low_vs_high",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 7674.0,
+      "p_value": 0.2913516715410821,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "teacher_margin_group:low_vs_high",
+      "metric": "C_broad_harm",
+      "statistic": 8192.0,
+      "p_value": 1.0,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "transition_covered:0_vs_1",
+      "metric": "C_minus_B_kendall",
+      "statistic": 159.5,
+      "p_value": 0.6699190390358651,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "transition_covered:0_vs_1",
+      "metric": "C_minus_B_rank_change",
+      "statistic": 119.5,
+      "p_value": 0.9024419444135305,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "user_strata",
+      "comparison": "transition_covered:0_vs_1",
+      "metric": "C_broad_harm",
+      "statistic": 127.5,
+      "p_value": 1.0,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "perturbation_correlation",
+      "comparison": "C_null_rate",
+      "metric": "C_minus_B_kendall",
+      "statistic": -0.006617287669507093,
+      "p_value": 0.9160904602055062,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "perturbation_correlation",
+      "comparison": "C_null_rate",
+      "metric": "C_rank_change_vs_A",
+      "statistic": 0.0463530349269437,
+      "p_value": 0.4602616452562307,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "perturbation_correlation",
+      "comparison": "C_null_rate",
+      "metric": "C_broad_harm",
+      "statistic": null,
+      "p_value": null,
+      "bh_q_value": null,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "perturbation_correlation",
+      "comparison": "C_max_abs_delta",
+      "metric": "C_minus_B_kendall",
+      "statistic": -0.06881572302263682,
+      "p_value": 0.27265706912607124,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "perturbation_correlation",
+      "comparison": "C_max_abs_delta",
+      "metric": "C_rank_change_vs_A",
+      "statistic": 0.05008551376940913,
+      "p_value": 0.42490100293854316,
+      "bh_q_value": 1.0,
+      "bh_fdr_0_05": false
+    },
+    {
+      "dataset": "Beauty",
+      "family": "perturbation_correlation",
+      "comparison": "C_max_abs_delta",
+      "metric": "C_broad_harm",
+      "statistic": null,
+      "p_value": null,
+      "bh_q_value": null,
+      "bh_fdr_0_05": false
+    }
+  ],
+  "diagnostic_labels": [
+    "TEACHER_TO_PATH_TRANSFER_NEGATIVE",
+    "PATH_PERTURBATION_UNSAFE",
+    "DOMAIN_SPECIFIC_RANK_SHIFT",
+    "REALIZATION_BOTTLENECK",
+    "INCONCLUSIVE_ATTRIBUTION"
+  ],
+  "tipa_p1_unlocked": false,
+  "sports_read": false,
+  "test_read": false,
+  "external_development_read": false,
+  "optimizer_steps": 0,
+  "gpu_count": 0,
+  "forward_passes": 0,
+  "decode_calls": 0,
+  "bootstrap_seed": 2023,
+  "bootstrap_resamples": 10000,
+  "counts": {
+    "paired_effect_rows": 512,
+    "strata_rows": 96,
+    "prefix_census_rows": 20,
+    "bootstrap_interval_rows": 6
+  },
+  "sealed_actions": [
+    "TIPA_P1_LOCKED",
+    "NO_P0A_RERUN",
+    "NO_NEW_DATA",
+    "NO_ADAPTER_PATCH_SELECTION"
+  ]
+}

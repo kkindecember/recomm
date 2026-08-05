@@ -1,0 +1,245 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B_TOYS_P1_DIAGNOSTICS_V1",
+  "source_checkpoint": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333/id_0_rec_5/model_rec_phase_1_epoch_5.pt",
+  "dataset": "Toys",
+  "split": "validation",
+  "sample_count": 19412,
+  "test_read": false,
+  "sports_read": false,
+  "item_head": {
+    "overall": {
+      "count": 19412,
+      "mean_rank": 4798.034720791263,
+      "median_rank": 4269.0,
+      "mrr": 0.004852551142041913,
+      "Recall@1": 0.0005666597980630537,
+      "NDCG@1": 0.0005666597980630537,
+      "Recall@5": 0.006490830414176798,
+      "NDCG@5": 0.0036446880716104026,
+      "Recall@10": 0.009375643931588708,
+      "NDCG@10": 0.004570199012459918,
+      "Recall@20": 0.014063465897383063,
+      "NDCG@20": 0.005717161491472712,
+      "Recall@50": 0.032402637543787347,
+      "NDCG@50": 0.009346527651000773
+    },
+    "by_history_length": {
+      "1-5": {
+        "count": 12673,
+        "mean_rank": 4771.205318393435,
+        "median_rank": 4225.0,
+        "mrr": 0.0050432400345837665,
+        "Recall@1": 0.00047344748678292435,
+        "NDCG@1": 0.00047344748678292435,
+        "Recall@5": 0.006707172729424761,
+        "NDCG@5": 0.00371648833015392,
+        "Recall@10": 0.010336936794760514,
+        "NDCG@10": 0.004879939170338404,
+        "Recall@20": 0.015465951234908862,
+        "NDCG@20": 0.006132277033290795,
+        "Recall@50": 0.035192929850864044,
+        "NDCG@50": 0.01004194405851173
+      },
+      "6-10": {
+        "count": 4319,
+        "mean_rank": 4847.471405417921,
+        "median_rank": 4409.0,
+        "mrr": 0.005604974602569927,
+        "Recall@1": 0.0011576753878212549,
+        "NDCG@1": 0.0011576753878212549,
+        "Recall@5": 0.007872192637184533,
+        "NDCG@5": 0.004667595593503649,
+        "Recall@10": 0.009261403102570039,
+        "NDCG@10": 0.005115254530704245,
+        "Recall@20": 0.013197499421162306,
+        "NDCG@20": 0.006106477132103543,
+        "Recall@50": 0.03264644593655939,
+        "NDCG@50": 0.009961518606962901
+      },
+      "11-20": {
+        "count": 2420,
+        "mean_rank": 4850.304132231405,
+        "median_rank": 4298.0,
+        "mrr": 0.00251109772832149,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.002892561983471074,
+        "NDCG@5": 0.001443092094924894,
+        "Recall@10": 0.004545454545454545,
+        "NDCG@10": 0.0019753924818436794,
+        "Recall@20": 0.008264462809917356,
+        "NDCG@20": 0.0028484782214953804,
+        "Recall@50": 0.017355371900826446,
+        "NDCG@50": 0.004607206133981442
+      }
+    },
+    "popularity_frequency_boundaries": {
+      "q1": 5,
+      "q3": 26
+    },
+    "by_target_popularity": {
+      "tail": {
+        "count": 5160,
+        "mean_rank": 7503.555426356589,
+        "median_rank": 7755.0,
+        "mrr": 0.00017575735830929298,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0,
+        "NDCG@10": 0.0,
+        "Recall@20": 0.0,
+        "NDCG@20": 0.0,
+        "Recall@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "middle": {
+        "count": 9235,
+        "mean_rank": 4975.981158635625,
+        "median_rank": 4470.0,
+        "mrr": 0.00048644559687095935,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0,
+        "NDCG@10": 0.0,
+        "Recall@20": 0.0,
+        "NDCG@20": 0.0,
+        "Recall@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "head": {
+        "count": 5017,
+        "mean_rank": 1687.844927247359,
+        "median_rank": 663.0,
+        "mrr": 0.017699519576108897,
+        "Recall@1": 0.0021925453458241976,
+        "NDCG@1": 0.0021925453458241976,
+        "Recall@5": 0.025114610324895356,
+        "NDCG@5": 0.014102189524835785,
+        "Recall@10": 0.03627665935818218,
+        "NDCG@10": 0.017683217705774752,
+        "Recall@20": 0.05441498903727327,
+        "NDCG@20": 0.02212109604793069,
+        "Recall@50": 0.12537372932031093,
+        "NDCG@50": 0.036164001347663344
+      }
+    }
+  },
+  "fusion_ablation": {
+    "full": {
+      "count": 512,
+      "mean": 4.813361318572788,
+      "median": 5.09656286239624,
+      "std": 1.4188335001337444,
+      "positive_fraction": 1.0
+    },
+    "zero_injection_keep_norm": {
+      "count": 512,
+      "mean": 11.997770157642663,
+      "median": 11.98625659942627,
+      "std": 1.768873383905145,
+      "positive_fraction": 1.0
+    },
+    "bypass_cf0_path": {
+      "count": 512,
+      "mean": 1.601278465735959,
+      "median": 1.5015043020248413,
+      "std": 0.847036678939212,
+      "positive_fraction": 1.0
+    },
+    "paired_deltas": {
+      "full_minus_zero_injection": {
+        "count": 512,
+        "mean": -7.184408839069874,
+        "median": -7.196182727813721,
+        "std": 1.8458305602523999,
+        "positive_fraction": 0.0
+      },
+      "zero_injection_minus_bypass": {
+        "count": 512,
+        "mean": 10.396491691906704,
+        "median": 10.46229636669159,
+        "std": 1.8297365263713128,
+        "positive_fraction": 1.0
+      },
+      "full_minus_bypass": {
+        "count": 512,
+        "mean": 3.2120828528368293,
+        "median": 3.4699844121932983,
+        "std": 1.2498767341529875,
+        "positive_fraction": 0.953125
+      }
+    }
+  },
+  "gradient_diagnostics": {
+    "batches": 4,
+    "loss_weight": 0.1,
+    "mean_generation_loss": 5.1585962772369385,
+    "mean_item_loss": 9.562666416168213,
+    "groups": {
+      "cf0_item_embedding": {
+        "mean_generation_gradient_l2": 0.020527451267538667,
+        "mean_weighted_item_gradient_l2": 0.06695958377042233,
+        "generation_item_gradient_cosine": -0.00025210427660815436,
+        "trainable_parameter_count": 6105600
+      },
+      "cf0_position_embedding": {
+        "mean_generation_gradient_l2": 0.020448904726518297,
+        "mean_weighted_item_gradient_l2": 0.0005725496758022832,
+        "generation_item_gradient_cosine": -0.04493125159461188,
+        "trainable_parameter_count": 10240
+      },
+      "cf0_transformer": {
+        "mean_generation_gradient_l2": 1.9539482995153254,
+        "mean_weighted_item_gradient_l2": 0.07509835958887126,
+        "generation_item_gradient_cosine": 0.021049703121290418,
+        "trainable_parameter_count": 6304768
+      },
+      "cf0_sequence_norm": {
+        "mean_generation_gradient_l2": 1.40855588332727,
+        "mean_weighted_item_gradient_l2": 0.06871351026292176,
+        "generation_item_gradient_cosine": -0.005091619248264209,
+        "trainable_parameter_count": 1024
+      },
+      "cf0_gate": {
+        "mean_generation_gradient_l2": 0.0,
+        "mean_weighted_item_gradient_l2": 0.0,
+        "generation_item_gradient_cosine": null,
+        "trainable_parameter_count": 524800
+      },
+      "cf0_token_norm": {
+        "mean_generation_gradient_l2": 2.752627090992727,
+        "mean_weighted_item_gradient_l2": 0.0,
+        "generation_item_gradient_cosine": null,
+        "trainable_parameter_count": 1024
+      },
+      "encoder_top": {
+        "mean_generation_gradient_l2": 11.038705946211763,
+        "mean_weighted_item_gradient_l2": 0.0,
+        "generation_item_gradient_cosine": null,
+        "trainable_parameter_count": 6293504
+      },
+      "decoder_top": {
+        "mean_generation_gradient_l2": 5.251406563925627,
+        "mean_weighted_item_gradient_l2": 0.0,
+        "generation_item_gradient_cosine": null,
+        "trainable_parameter_count": 8391680
+      },
+      "decoder_final_norm": {
+        "mean_generation_gradient_l2": 2.3571305884193974,
+        "mean_weighted_item_gradient_l2": 0.0,
+        "generation_item_gradient_cosine": null,
+        "trainable_parameter_count": 512
+      },
+      "shared_embedding_lm_head": {
+        "mean_generation_gradient_l2": 0.4128283245636927,
+        "mean_weighted_item_gradient_l2": 0.0,
+        "generation_item_gradient_cosine": null,
+        "trainable_parameter_count": 16449536
+      }
+    }
+  }
+}

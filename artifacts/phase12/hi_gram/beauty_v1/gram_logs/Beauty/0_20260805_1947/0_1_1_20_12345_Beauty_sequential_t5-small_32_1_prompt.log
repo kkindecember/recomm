@@ -1,0 +1,23 @@
+2026-08-05 19:47:02,063 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 30, 'save_rec_epochs': 5, 'rec_batch_size': 16, 'rec_model_path': None, 'rec_lr': 0.001, 'test_epoch_rec': 5, 'data_path': '../rec_datasets', 'datasets': 'Beauty', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 0, 'debug_test_100': 0, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 1, 'prediction_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/predictions', 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 8, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 10, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c128_l7_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'A', 'cf0_phase9': 0, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'hi_gram_enabled': 1, 'hi_gram_local_window': 5, 'hi_gram_local_layers': 2, 'hi_gram_global_layers': 2, 'hi_gram_num_heads': 4, 'hi_gram_dropout': 0.1, 'hi_gram_fusion_scale_init': 0.1, 'hi_gram_include_user_prompt': 0, 'log_name': '0_1_1_20_12345_Beauty_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260805_1947', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260805_1947/id_0_rec_30', 'rank': 0}
+2026-08-05 19:47:02,190 - root - INFO - Use t5-small backbone model
+2026-08-05 19:47:12,633 - root - INFO - Generating data for Beauty dataset
+2026-08-05 19:47:12,633 - root - INFO - Reindex data with generative indexing method
+2026-08-05 19:47:12,799 - root - INFO - loading training data
+2026-08-05 19:47:14,422 - root - INFO - Generating data for Beauty dataset
+2026-08-05 19:47:14,422 - root - INFO - Reindex data with generative indexing method
+2026-08-05 19:47:14,565 - root - INFO - loading training data
+2026-08-05 19:47:16,344 - root - INFO - Building Optimizer and Scheduler
+2026-08-05 19:47:16,344 - root - INFO - Batch per epoch id: 32854
+2026-08-05 19:47:16,345 - root - INFO - Warmup proportion: 0.05
+2026-08-05 19:47:16,345 - root - INFO - Total id generator steps: 0
+2026-08-05 19:47:16,345 - root - INFO - Warm up id generator steps: 0
+2026-08-05 19:47:16,345 - root - INFO - Batch per epoch rec: 8214
+2026-08-05 19:47:16,345 - root - INFO - Warmup proportion: 0.05
+2026-08-05 19:47:16,345 - root - INFO - Total rec generator steps: 30780
+2026-08-05 19:47:16,345 - root - INFO - Warm up rec generator steps: 1539
+2026-08-05 19:47:16,349 - root - INFO - Building Optimizer AdamW
+2026-08-05 19:47:17,094 - root - INFO - Start training
+2026-08-05 19:47:17,096 - root - INFO - Training Recommender phase 1
+2026-08-05 19:47:17,099 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-05 20:48:28,285 - root - INFO - The average training loss for rec phase 1 epoch 1 is nan
+2026-08-05 20:48:28,287 - root - INFO - Start training recommender for phase 1, epoch 2

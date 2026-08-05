@@ -1,0 +1,114 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_P0_PSEUDOFUTURE_SMOKE_V1",
+  "status": "completed",
+  "evidence_class": "infrastructure_smoke_only",
+  "test_read": false,
+  "validation_target_read": false,
+  "sports_read": false,
+  "rows": [
+    {
+      "dataset": "Toys",
+      "offset": 4,
+      "width": 50,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.625,
+      "wall_time_seconds": 5.5441858768463135,
+      "beam_sha256": "90a8b8695b77f335e1c9f38ee13b3e4864ee0ff3cf87ad0c4b8c00cb12509acd",
+      "sample_sha256": "705f9ea770208b104f4c0111fbf8a3bd7181d7981483926fc913e5636744bf41"
+    },
+    {
+      "dataset": "Toys",
+      "offset": 4,
+      "width": 200,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.625,
+      "wall_time_seconds": 17.15978741645813,
+      "beam_sha256": "587cf8c072d64a27587ec7f44c99d85f8ce670717c26616116bcedac9e2405c6",
+      "sample_sha256": "705f9ea770208b104f4c0111fbf8a3bd7181d7981483926fc913e5636744bf41"
+    },
+    {
+      "dataset": "Toys",
+      "offset": 3,
+      "width": 50,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.5625,
+      "wall_time_seconds": 5.528761386871338,
+      "beam_sha256": "e3f0be0c7ecf82eeba90cb6f656a239f127f204099ee7b90a91fbbccf2feb7dc",
+      "sample_sha256": "b72c79d5dc426be1ab60b530b08bfe01fab868aeb5fef1ec033d81d6f119edc1"
+    },
+    {
+      "dataset": "Toys",
+      "offset": 3,
+      "width": 200,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.75,
+      "wall_time_seconds": 18.607065439224243,
+      "beam_sha256": "ab15b6af1034e23a8a8a4ac16df76349243c40a1188e418a6e336bc44674d8a2",
+      "sample_sha256": "b72c79d5dc426be1ab60b530b08bfe01fab868aeb5fef1ec033d81d6f119edc1"
+    },
+    {
+      "dataset": "Beauty",
+      "offset": 4,
+      "width": 50,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.5,
+      "wall_time_seconds": 6.710214376449585,
+      "beam_sha256": "43ba1b8ab8ee5affe30358dbcec92b1fc297b4dd763a3df5eba60da05487620a",
+      "sample_sha256": "4941a0585d24870c2c77d6218d3e8ff04aca7770354e12967992e20e9b3bec9d"
+    },
+    {
+      "dataset": "Beauty",
+      "offset": 4,
+      "width": 200,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.5625,
+      "wall_time_seconds": 21.149024486541748,
+      "beam_sha256": "4a59ff270803b56cd323f3ca6a6591d1d49a99b8faf54588ce1275cb1451d11f",
+      "sample_sha256": "4941a0585d24870c2c77d6218d3e8ff04aca7770354e12967992e20e9b3bec9d"
+    },
+    {
+      "dataset": "Beauty",
+      "offset": 3,
+      "width": 50,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.5,
+      "wall_time_seconds": 6.993223667144775,
+      "beam_sha256": "7161c7b0836542c843edd85483befd3cf436a082e705d1f55478678b4d1044f1",
+      "sample_sha256": "873519a2ee3154ee7c12cbad1f7c4e8395a723200627467961e843cb277784f8"
+    },
+    {
+      "dataset": "Beauty",
+      "offset": 3,
+      "width": 200,
+      "users": 16,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.75,
+      "wall_time_seconds": 20.53899312019348,
+      "beam_sha256": "6a4349b89bfbffaf2b3cb272a56a654910bddd66b5553bf6c5ee9ef870507b65",
+      "sample_sha256": "873519a2ee3154ee7c12cbad1f7c4e8395a723200627467961e843cb277784f8"
+    }
+  ],
+  "checkpoint_sha256": {
+    "Toys": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "Beauty": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89"
+  },
+  "peak_allocated_mib": 26880.8935546875,
+  "p0_gate": {
+    "status": "passed",
+    "checks": {
+      "eight_units_present": true,
+      "all_units_16_users": true,
+      "all_candidates_legal": true,
+      "all_checkpoints_identity": true,
+      "only_offsets_minus4_minus3": true,
+      "validation_test_sports_not_used": true
+    }
+  }
+}

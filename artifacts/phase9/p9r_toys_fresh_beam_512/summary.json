@@ -1,0 +1,102 @@
+{
+  "experiment_id": "GRAM_PHASE9_P9R_TOYS_FRESH_BEAM_512_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "sample_sha256": "062edc5be818f63387a2a5fc44e8aad03a5a7b31f9f4611a6aee2b1cf5cfd73a",
+  "frozen_pcrf": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0
+  },
+  "metrics": {
+    "users": 512,
+    "legal_fraction": 1.0,
+    "mean_candidate_set_overlap": 1.0,
+    "mean_sequence_top10_set_overlap": 1.0,
+    "matched_score_pairs": 25600,
+    "score_pearson": 0.999999999999995,
+    "score_spearman": 1.0,
+    "mean_pcrf_top10_set_overlap": 1.0,
+    "cached_baseline": {
+      "count": 512,
+      "mrr": 0.07366457572401525,
+      "Hit@1": 0.048828125,
+      "NDCG@1": 0.048828125,
+      "Hit@5": 0.09765625,
+      "NDCG@5": 0.07460992054686236,
+      "Hit@10": 0.12109375,
+      "NDCG@10": 0.08208665875801152,
+      "Hit@20": 0.150390625,
+      "NDCG@20": 0.08932908356147362,
+      "Hit@50": 0.208984375,
+      "NDCG@50": 0.10088734186663414
+    },
+    "fresh_baseline": {
+      "count": 512,
+      "mrr": 0.07366457572401525,
+      "Hit@1": 0.048828125,
+      "NDCG@1": 0.048828125,
+      "Hit@5": 0.09765625,
+      "NDCG@5": 0.07460992054686236,
+      "Hit@10": 0.12109375,
+      "NDCG@10": 0.08208665875801152,
+      "Hit@20": 0.150390625,
+      "NDCG@20": 0.08932908356147362,
+      "Hit@50": 0.208984375,
+      "NDCG@50": 0.10088734186663414
+    },
+    "cached_pcrf": {
+      "count": 512,
+      "mrr": 0.07581671172280446,
+      "Hit@1": 0.046875,
+      "NDCG@1": 0.046875,
+      "Hit@5": 0.1015625,
+      "NDCG@5": 0.0774123274506735,
+      "Hit@10": 0.123046875,
+      "NDCG@10": 0.08417462178302236,
+      "Hit@20": 0.15625,
+      "NDCG@20": 0.09233833475116307,
+      "Hit@50": 0.208984375,
+      "NDCG@50": 0.10296318601594998
+    },
+    "fresh_pcrf": {
+      "count": 512,
+      "mrr": 0.07581671172280446,
+      "Hit@1": 0.046875,
+      "NDCG@1": 0.046875,
+      "Hit@5": 0.1015625,
+      "NDCG@5": 0.0774123274506735,
+      "Hit@10": 0.123046875,
+      "NDCG@10": 0.08417462178302236,
+      "Hit@20": 0.15625,
+      "NDCG@20": 0.09233833475116307,
+      "Hit@50": 0.208984375,
+      "NDCG@50": 0.10296318601594998
+    },
+    "baseline_Hit@10_abs_delta": 0.0,
+    "pcrf_Hit@10_abs_delta": 0.0,
+    "peak_allocated_mib": 6877.4970703125,
+    "wall_time_seconds": 289.2158353328705
+  },
+  "scientific_gate": {
+    "status": "passed",
+    "checks": {
+      "all_512_users_legal": true,
+      "score_pearson_at_least_0.995": true,
+      "score_spearman_at_least_0.995": true,
+      "pcrf_top10_overlap_at_least_0.98": true,
+      "baseline_Hit10_abs_delta_at_most_0.001": true,
+      "pcrf_Hit10_abs_delta_at_most_0.001": true
+    }
+  },
+  "artifacts": {
+    "fresh_beams_sha256": "62625c06a824c70442272ae7a379e5cf431531876859fb307992436cab5ed6d9",
+    "per_user_sha256": "1786c89adb3e3d2c4fce30f313969abf276b3323544674232d39e9b260cb1d6b",
+    "checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "item_head_sha256": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d"
+  }
+}

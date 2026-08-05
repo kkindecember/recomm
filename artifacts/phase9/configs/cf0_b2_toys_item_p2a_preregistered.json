@@ -1,0 +1,58 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B2_TOYS_ITEM_P2A_V1",
+  "execution_enabled": true,
+  "decision_status": "AUTHORIZED_P9_2A_ISOLATED_ITEM_HEAD",
+  "authorized_at": "2026-08-04T10:20:00+08:00",
+  "dataset": "Toys",
+  "split": "validation",
+  "seed": 2023,
+  "physical_gpu": 6,
+  "test_read": false,
+  "sports_read": false,
+  "model": {
+    "catalog_size": 11924,
+    "d_model": 512,
+    "max_history": 20,
+    "num_layers": 2,
+    "num_heads": 4,
+    "dropout": 0.1,
+    "scoring": "l2_normalized_cosine_with_learnable_temperature",
+    "initial_temperature": 0.07
+  },
+  "training": {
+    "epochs": 10,
+    "batch_size": 512,
+    "eval_batch_size": 1024,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.05,
+    "gradient_clip": 1.0,
+    "loss": "full_catalog_cross_entropy"
+  },
+  "scientific_gate": {
+    "popularity_recall10": 0.01231197197609726,
+    "popularity_recall50": 0.03492684937152277,
+    "relative_margin": 0.20,
+    "minimum_recall10": 0.01477436637131671,
+    "minimum_recall50": 0.04191221924582732,
+    "minimum_nonhead_recall50": 0.005
+  },
+  "resource": {
+    "total_lease_mib": 30720,
+    "expected_workload_peak_mib": 8192,
+    "hard_timeout_seconds": 14400,
+    "telemetry_interval_seconds": 5,
+    "codellama_restore_gpu": 6
+  },
+  "code_lock": {
+    "files": {
+      "experiment/phase9/train_cf0_b2_item_head.py": "12aff6acf812fe2bfa716a83559cc01148f9bf72646164f3075fe0afa2ca78f5",
+      "experiment/phase9/cf0_diagnostic_metrics.py": "0c6453dc51d1e5db837360f502fa0ecab73f9fb053c27580672b78f80d0b4d20",
+      "experiment/phase9/test_cf0_b2_item_head.py": "e48cfa2946f7de7da2f4b47b27a67261d16e527dac5cf5907b52d1eb6b894f76",
+      "plan/第九阶段/GRAM_第九阶段_CF0-B2协同分支隔离训练与安全融合计划.md": "5996dfb4c9c090e651487676ed115ca7014bc30681357ffe4537b9b9e75e2858",
+      "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    }
+  }
+}

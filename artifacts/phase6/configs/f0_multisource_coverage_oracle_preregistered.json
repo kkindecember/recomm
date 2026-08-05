@@ -1,0 +1,14 @@
+{
+  "experiment_id": "GRAM_PHASE6_F0T_MULTISOURCE_COVERAGE_ORACLE",
+  "decision_status_before_run": "P0T_AUTHORIZED_PENDING_MATERIAL_LOCK",
+  "seed": 2023,
+  "datasets": ["Toys", "Beauty"],
+  "p0_config": "artifacts/phase4/configs/gcdh_p0_preregistered.json",
+  "checkpoint_root": "artifacts/phase4/gcdh_p0",
+  "split_root": "artifacts/phase4/gcdh_p0_splits",
+  "drafter": {"hidden_size":64,"num_blocks":2,"num_heads":2,"max_length":50,"dropout":0.2,"batch_size":256,"learning_rate":0.001,"weight_decay":0.0,"epochs":10,"top_k":50,"internal_calibration_salt":"phase6-f0t-drafter-epoch-v1","internal_calibration_fraction":0.1},
+  "integrity": {"test_predictions_forbidden":true,"sports_forbidden":true,"verifier_training_forbidden":true},
+  "gate": {"both_domain_delta_recall50_min":0.01,"one_domain_delta_recall50_min":0.02,"both_domain_tail_delta_recall50_min":0.005,"both_domain_unique_users_min":10},
+  "execution": {"gpu":6,"hard_timeout_seconds":172800,"no_automatic_retry":true,"offline_cache":".cache/huggingface","codellama_restore_gpu":6},
+  "implementation_lock": {"implementation_sha256":"e54783c23bd4d75c45e358614afc5753c554df1a3d013249105ba427fff0aa4d","test_sha256":"ae0a0aa43f69a056e46a62678d7552bd4ab24692b1745d9ca17aed89aaa7afff","runner_sha256":"99447b616bfeb191c3cc1580f361718299c013cb4ac3dd589cf88c81b5774a14","plan_sha256":"e210de32599241ef84a7215d097b3c2784c234f1fef630dfc3b60e07fcf67d97"}
+}

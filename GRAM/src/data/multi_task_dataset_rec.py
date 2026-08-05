@@ -6,7 +6,6 @@ import torch.distributed as dist
 from tqdm import tqdm
 from collections import defaultdict
 from torch.utils.data import Dataset, DataLoader
-from IPython import embed
 
 from utils.prompt import load_prompt_template, get_info_from_prompt, check_task_prompt
 from utils import utils, indexing

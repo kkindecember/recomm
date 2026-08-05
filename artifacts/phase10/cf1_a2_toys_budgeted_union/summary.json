@@ -1,0 +1,123 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_A2_TOYS_BUDGETED_UNION_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "full_run": true,
+  "users": 19412,
+  "catalog_size": 11924,
+  "primary_policy": "fill_cf_only_40",
+  "popularity_frequency_boundaries": {
+    "q1": 5,
+    "q3": 26
+  },
+  "metrics": {
+    "G50_coverage": 0.21193076447558212,
+    "U50_coverage": 0.2666907067793118,
+    "U50_tail_complementary_not_G50": 0.023449612403100777,
+    "policies": {
+      "fixed_top_10": {
+        "coverage": 0.22547908510199877,
+        "complementary_not_G50": 0.01354832062641665,
+        "tail_complementary_not_G50": 0.004651162790697674,
+        "union_size_mean": 56.56155985988049,
+        "union_size_max": 60,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 127373
+      },
+      "fixed_top_20": {
+        "coverage": 0.23712136822583968,
+        "complementary_not_G50": 0.025190603750257574,
+        "tail_complementary_not_G50": 0.009883720930232558,
+        "union_size_mean": 64.56078714197403,
+        "union_size_max": 70,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 282654
+      },
+      "fixed_top_30": {
+        "coverage": 0.2470121574283948,
+        "complementary_not_G50": 0.03508139295281269,
+        "tail_complementary_not_G50": 0.012790697674418604,
+        "union_size_mean": 73.04002678755408,
+        "union_size_max": 80,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 447253
+      },
+      "fixed_top_40": {
+        "coverage": 0.2568514321038533,
+        "complementary_not_G50": 0.044920667628271176,
+        "tail_complementary_not_G50": 0.017635658914728684,
+        "union_size_mean": 81.80151452709664,
+        "union_size_max": 90,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 617331
+      },
+      "fill_cf_only_10": {
+        "coverage": 0.23346383680197816,
+        "complementary_not_G50": 0.021533072326396042,
+        "tail_complementary_not_G50": 0.009496124031007752,
+        "union_size_mean": 59.999948485472906,
+        "union_size_max": 60,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 194119
+      },
+      "fill_cf_only_20": {
+        "coverage": 0.2473727591180713,
+        "complementary_not_G50": 0.035441994642489184,
+        "tail_complementary_not_G50": 0.01608527131782946,
+        "union_size_mean": 69.96110653204204,
+        "union_size_max": 70,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 387485
+      },
+      "fill_cf_only_30": {
+        "coverage": 0.25767566453739954,
+        "complementary_not_G50": 0.04574490006181743,
+        "tail_complementary_not_G50": 0.019573643410852715,
+        "union_size_mean": 79.49799093344323,
+        "union_size_max": 80,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 572615
+      },
+      "fill_cf_only_40": {
+        "coverage": 0.2647331547496394,
+        "complementary_not_G50": 0.05280239027405728,
+        "tail_complementary_not_G50": 0.022093023255813953,
+        "union_size_mean": 87.5182876571193,
+        "union_size_max": 90,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 728305
+      },
+      "adaptive_history": {
+        "coverage": 0.2568514321038533,
+        "complementary_not_G50": 0.044920667628271176,
+        "tail_complementary_not_G50": 0.01937984496124031,
+        "union_size_mean": 77.37064702246033,
+        "union_size_max": 90,
+        "fraction_le_90": 1.0,
+        "cf_only_scoring_total": 531319
+      }
+    }
+  },
+  "scientific_gate": {
+    "status": "passed",
+    "checks": {
+      "reference_G50_identity": true,
+      "reference_U50_identity": true,
+      "hard_budget_all_users": true,
+      "U50_gain_retention_at_least_0.80": true,
+      "tail_complement_retention_at_least_0.80": true
+    },
+    "derived": {
+      "U50_gain_retention": 0.9642521166509871,
+      "tail_complement_retention": 0.9421487603305785
+    }
+  },
+  "artifacts": {
+    "per_user_budget_sha256": "2af35e8b346f3f7136ab8fb367893c7470cf34c04ee4ff25e2676a94829d53b8"
+  },
+  "wall_time_seconds": 8.929088115692139
+}

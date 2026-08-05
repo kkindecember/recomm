@@ -1,0 +1,102 @@
+{
+  "experiment_id": "GRAM_PHASE9_P9R_TOYS_FRESH_BEAM_512_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "sample_sha256": "de230a37c1e734a1b9156b69c1790bfaf91bfde388e2b2a256eb6a22a54dc4b1",
+  "frozen_pcrf": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0
+  },
+  "metrics": {
+    "users": 1,
+    "legal_fraction": 1.0,
+    "mean_candidate_set_overlap": 1.0,
+    "mean_sequence_top10_set_overlap": 1.0,
+    "matched_score_pairs": 50,
+    "score_pearson": 0.9999999999999938,
+    "score_spearman": 0.9999999999999999,
+    "mean_pcrf_top10_set_overlap": 1.0,
+    "cached_baseline": {
+      "count": 1,
+      "mrr": 0.0,
+      "Hit@1": 0.0,
+      "NDCG@1": 0.0,
+      "Hit@5": 0.0,
+      "NDCG@5": 0.0,
+      "Hit@10": 0.0,
+      "NDCG@10": 0.0,
+      "Hit@20": 0.0,
+      "NDCG@20": 0.0,
+      "Hit@50": 0.0,
+      "NDCG@50": 0.0
+    },
+    "fresh_baseline": {
+      "count": 1,
+      "mrr": 0.0,
+      "Hit@1": 0.0,
+      "NDCG@1": 0.0,
+      "Hit@5": 0.0,
+      "NDCG@5": 0.0,
+      "Hit@10": 0.0,
+      "NDCG@10": 0.0,
+      "Hit@20": 0.0,
+      "NDCG@20": 0.0,
+      "Hit@50": 0.0,
+      "NDCG@50": 0.0
+    },
+    "cached_pcrf": {
+      "count": 1,
+      "mrr": 0.0,
+      "Hit@1": 0.0,
+      "NDCG@1": 0.0,
+      "Hit@5": 0.0,
+      "NDCG@5": 0.0,
+      "Hit@10": 0.0,
+      "NDCG@10": 0.0,
+      "Hit@20": 0.0,
+      "NDCG@20": 0.0,
+      "Hit@50": 0.0,
+      "NDCG@50": 0.0
+    },
+    "fresh_pcrf": {
+      "count": 1,
+      "mrr": 0.0,
+      "Hit@1": 0.0,
+      "NDCG@1": 0.0,
+      "Hit@5": 0.0,
+      "NDCG@5": 0.0,
+      "Hit@10": 0.0,
+      "NDCG@10": 0.0,
+      "Hit@20": 0.0,
+      "NDCG@20": 0.0,
+      "Hit@50": 0.0,
+      "NDCG@50": 0.0
+    },
+    "baseline_Hit@10_abs_delta": 0.0,
+    "pcrf_Hit@10_abs_delta": 0.0,
+    "peak_allocated_mib": 1867.17529296875,
+    "wall_time_seconds": 10.983293056488037
+  },
+  "scientific_gate": {
+    "status": "failed_reproducibility_gate",
+    "checks": {
+      "all_512_users_legal": false,
+      "score_pearson_at_least_0.995": true,
+      "score_spearman_at_least_0.995": true,
+      "pcrf_top10_overlap_at_least_0.98": true,
+      "baseline_Hit10_abs_delta_at_most_0.001": true,
+      "pcrf_Hit10_abs_delta_at_most_0.001": true
+    }
+  },
+  "artifacts": {
+    "fresh_beams_sha256": "9058134ca9f928942b5f460cb014982d07babc00b10790d9c43516ca0201ebd9",
+    "per_user_sha256": "1d97b1d80606fc17317230162103ed924303e413dc8a0ab4af497e06e969b656",
+    "checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "item_head_sha256": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d"
+  }
+}

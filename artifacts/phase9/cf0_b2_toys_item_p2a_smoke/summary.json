@@ -1,0 +1,303 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B2_TOYS_ITEM_P2A_V1",
+  "status": "completed",
+  "scientific_gate": {
+    "status": "failed",
+    "thresholds": {
+      "Recall@10": 0.01171875,
+      "Recall@50": 0.03984375,
+      "nonhead_Recall@50": 0.005
+    },
+    "observed": {
+      "Recall@10": 0.001953125,
+      "Recall@50": 0.00390625,
+      "nonhead_Recall@50": 0.0
+    },
+    "checks": {
+      "Recall@10": false,
+      "Recall@50": false,
+      "nonhead_Recall@50": false
+    }
+  },
+  "dataset": "Toys",
+  "split": "validation",
+  "seed": 2023,
+  "test_read": false,
+  "sports_read": false,
+  "catalog_size": 11924,
+  "train_samples": 1024,
+  "validation_samples": 512,
+  "popularity_frequency_boundaries": {
+    "q1": 6,
+    "q3": 28
+  },
+  "popularity_baseline": {
+    "count": 512,
+    "mean_rank": 4249.830078125,
+    "median_rank": 3042.0,
+    "mrr": 0.006339295362620608,
+    "Recall@1": 0.001953125,
+    "NDCG@1": 0.001953125,
+    "Recall@5": 0.0078125,
+    "NDCG@5": 0.004612017804974192,
+    "Recall@10": 0.009765625,
+    "NDCG@10": 0.005199967015255405,
+    "Recall@20": 0.01953125,
+    "NDCG@20": 0.007725237152872523,
+    "Recall@50": 0.033203125,
+    "NDCG@50": 0.010514737398191113
+  },
+  "best_epoch": 1,
+  "best_validation": {
+    "overall": {
+      "count": 512,
+      "mean_rank": 5902.6328125,
+      "median_rank": 5760.0,
+      "mrr": 0.0007221713250232839,
+      "Recall@1": 0.0,
+      "NDCG@1": 0.0,
+      "Recall@5": 0.0,
+      "NDCG@5": 0.0,
+      "Recall@10": 0.001953125,
+      "NDCG@10": 0.0005879492102812133,
+      "Recall@20": 0.001953125,
+      "NDCG@20": 0.0005879492102812133,
+      "Recall@50": 0.00390625,
+      "NDCG@50": 0.0009628685852940261
+    },
+    "by_history_length": {
+      "1-5": {
+        "count": 323,
+        "mean_rank": 5810.863777089783,
+        "median_rank": 5693.0,
+        "mrr": 0.0009463718799017052,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0030959752321981426,
+        "NDCG@10": 0.0009319814107244,
+        "Recall@20": 0.0030959752321981426,
+        "NDCG@20": 0.0009319814107244,
+        "Recall@50": 0.006191950464396285,
+        "NDCG@50": 0.0015262808534691683
+      },
+      "6-10": {
+        "count": 122,
+        "mean_rank": 6046.819672131148,
+        "median_rank": 5988.0,
+        "mrr": 0.0003255968246903668,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0,
+        "NDCG@10": 0.0,
+        "Recall@20": 0.0,
+        "NDCG@20": 0.0,
+        "Recall@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "11-20": {
+        "count": 67,
+        "mean_rank": 6082.492537313433,
+        "median_rank": 5449.0,
+        "mrr": 0.0003634446058424752,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0,
+        "NDCG@10": 0.0,
+        "Recall@20": 0.0,
+        "NDCG@20": 0.0,
+        "Recall@50": 0.0,
+        "NDCG@50": 0.0
+      }
+    },
+    "by_target_popularity": {
+      "tail": {
+        "count": 151,
+        "mean_rank": 6447.735099337749,
+        "median_rank": 6354.0,
+        "mrr": 0.00026080207819943285,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0,
+        "NDCG@10": 0.0,
+        "Recall@20": 0.0,
+        "NDCG@20": 0.0,
+        "Recall@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "middle": {
+        "count": 231,
+        "mean_rank": 6012.878787878788,
+        "median_rank": 5896.0,
+        "mrr": 0.0004109837979060808,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.0,
+        "NDCG@10": 0.0,
+        "Recall@20": 0.0,
+        "NDCG@20": 0.0,
+        "Recall@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "head": {
+        "count": 130,
+        "mean_rank": 5073.576923076923,
+        "median_rank": 4669.0,
+        "mrr": 0.0018110257483654026,
+        "Recall@1": 0.0,
+        "NDCG@1": 0.0,
+        "Recall@5": 0.0,
+        "NDCG@5": 0.0,
+        "Recall@10": 0.007692307692307693,
+        "NDCG@10": 0.0023156153512613937,
+        "Recall@20": 0.007692307692307693,
+        "NDCG@20": 0.0023156153512613937,
+        "Recall@50": 0.015384615384615385,
+        "NDCG@50": 0.003792220889773395
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 9.538276195526123,
+      "mean_preclip_gradient_norm": 3.26689875125885,
+      "finite": true,
+      "learning_rate_end": 0.0,
+      "wall_time_seconds": 0.09426737669855356,
+      "validation": {
+        "overall": {
+          "count": 512,
+          "mean_rank": 5902.6328125,
+          "median_rank": 5760.0,
+          "mrr": 0.0007221713250232839,
+          "Recall@1": 0.0,
+          "NDCG@1": 0.0,
+          "Recall@5": 0.0,
+          "NDCG@5": 0.0,
+          "Recall@10": 0.001953125,
+          "NDCG@10": 0.0005879492102812133,
+          "Recall@20": 0.001953125,
+          "NDCG@20": 0.0005879492102812133,
+          "Recall@50": 0.00390625,
+          "NDCG@50": 0.0009628685852940261
+        },
+        "by_history_length": {
+          "1-5": {
+            "count": 323,
+            "mean_rank": 5810.863777089783,
+            "median_rank": 5693.0,
+            "mrr": 0.0009463718799017052,
+            "Recall@1": 0.0,
+            "NDCG@1": 0.0,
+            "Recall@5": 0.0,
+            "NDCG@5": 0.0,
+            "Recall@10": 0.0030959752321981426,
+            "NDCG@10": 0.0009319814107244,
+            "Recall@20": 0.0030959752321981426,
+            "NDCG@20": 0.0009319814107244,
+            "Recall@50": 0.006191950464396285,
+            "NDCG@50": 0.0015262808534691683
+          },
+          "6-10": {
+            "count": 122,
+            "mean_rank": 6046.819672131148,
+            "median_rank": 5988.0,
+            "mrr": 0.0003255968246903668,
+            "Recall@1": 0.0,
+            "NDCG@1": 0.0,
+            "Recall@5": 0.0,
+            "NDCG@5": 0.0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "Recall@20": 0.0,
+            "NDCG@20": 0.0,
+            "Recall@50": 0.0,
+            "NDCG@50": 0.0
+          },
+          "11-20": {
+            "count": 67,
+            "mean_rank": 6082.492537313433,
+            "median_rank": 5449.0,
+            "mrr": 0.0003634446058424752,
+            "Recall@1": 0.0,
+            "NDCG@1": 0.0,
+            "Recall@5": 0.0,
+            "NDCG@5": 0.0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "Recall@20": 0.0,
+            "NDCG@20": 0.0,
+            "Recall@50": 0.0,
+            "NDCG@50": 0.0
+          }
+        },
+        "by_target_popularity": {
+          "tail": {
+            "count": 151,
+            "mean_rank": 6447.735099337749,
+            "median_rank": 6354.0,
+            "mrr": 0.00026080207819943285,
+            "Recall@1": 0.0,
+            "NDCG@1": 0.0,
+            "Recall@5": 0.0,
+            "NDCG@5": 0.0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "Recall@20": 0.0,
+            "NDCG@20": 0.0,
+            "Recall@50": 0.0,
+            "NDCG@50": 0.0
+          },
+          "middle": {
+            "count": 231,
+            "mean_rank": 6012.878787878788,
+            "median_rank": 5896.0,
+            "mrr": 0.0004109837979060808,
+            "Recall@1": 0.0,
+            "NDCG@1": 0.0,
+            "Recall@5": 0.0,
+            "NDCG@5": 0.0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "Recall@20": 0.0,
+            "NDCG@20": 0.0,
+            "Recall@50": 0.0,
+            "NDCG@50": 0.0
+          },
+          "head": {
+            "count": 130,
+            "mean_rank": 5073.576923076923,
+            "median_rank": 4669.0,
+            "mrr": 0.0018110257483654026,
+            "Recall@1": 0.0,
+            "NDCG@1": 0.0,
+            "Recall@5": 0.0,
+            "NDCG@5": 0.0,
+            "Recall@10": 0.007692307692307693,
+            "NDCG@10": 0.0023156153512613937,
+            "Recall@20": 0.007692307692307693,
+            "NDCG@20": 0.0023156153512613937,
+            "Recall@50": 0.015384615384615385,
+            "NDCG@50": 0.003792220889773395
+          }
+        }
+      }
+    }
+  ],
+  "wall_time_seconds": 0.21087061613798141,
+  "resource": {
+    "peak_allocated_mib": 1107.796875,
+    "peak_reserved_mib": 1244.0
+  },
+  "next_action": "Stop before fusion; revise the isolated collaborative objective."
+}

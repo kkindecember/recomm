@@ -1,0 +1,101 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_A_TOYS_CANDIDATE_UNION_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "sports_read": false,
+  "full_run": false,
+  "users": 128,
+  "catalog_size": 11924,
+  "popularity_frequency_boundaries": {
+    "q1": 5,
+    "q3": 26
+  },
+  "metrics": {
+    "coverage": {
+      "G50": 0.25,
+      "C10": 0.09375,
+      "C20": 0.1171875,
+      "C50": 0.1640625,
+      "U10": 0.2578125,
+      "U20": 0.265625,
+      "U50": 0.2890625,
+      "complementary_C50_not_G50": 0.0390625,
+      "target_in_both_G50_C50": 0.125,
+      "filtered_U50": 0.2890625
+    },
+    "union_size": {
+      "mean": 91.1015625,
+      "median": 93.0,
+      "p80": 96.60000000000001,
+      "p90": 98.0,
+      "p95": 98.64999999999999,
+      "fraction_le_90": 0.3515625,
+      "filtered_mean": 88.109375
+    },
+    "source_overlap": {
+      "intersection_mean": 8.8984375,
+      "cf_only_mean": 41.1015625,
+      "jaccard_mean": 0.10413223579831496,
+      "cf_only_candidates_requiring_gram_scoring_total": 5261
+    },
+    "stratified": {
+      "target_tail": {
+        "count": 32,
+        "G50": 0.15625,
+        "C50": 0.0625,
+        "U50": 0.15625,
+        "complementary_C50_not_G50": 0.0
+      },
+      "target_middle": {
+        "count": 62,
+        "G50": 0.20967741935483872,
+        "C50": 0.1774193548387097,
+        "U50": 0.25806451612903225,
+        "complementary_C50_not_G50": 0.04838709677419355
+      },
+      "target_head": {
+        "count": 34,
+        "G50": 0.4117647058823529,
+        "C50": 0.23529411764705882,
+        "U50": 0.47058823529411764,
+        "complementary_C50_not_G50": 0.058823529411764705
+      },
+      "history_1-5": {
+        "count": 82,
+        "G50": 0.25609756097560976,
+        "C50": 0.15853658536585366,
+        "U50": 0.2926829268292683,
+        "complementary_C50_not_G50": 0.036585365853658534
+      },
+      "history_6-10": {
+        "count": 26,
+        "G50": 0.23076923076923078,
+        "C50": 0.11538461538461539,
+        "U50": 0.23076923076923078,
+        "complementary_C50_not_G50": 0.0
+      },
+      "history_11-20": {
+        "count": 20,
+        "G50": 0.25,
+        "C50": 0.25,
+        "U50": 0.35,
+        "complementary_C50_not_G50": 0.1
+      }
+    },
+    "oracle": {
+      "U50_Hit@10_upper": 0.2890625,
+      "U50_Hit@20_upper": 0.2890625,
+      "U50_Hit@50_upper": 0.2890625
+    }
+  },
+  "scientific_gate": {
+    "status": "not_evaluated_smoke",
+    "checks": {}
+  },
+  "artifacts": {
+    "per_user_coverage_sha256": "54ebbeee0b8f31f0917705097bf5e1dc5b0e79de97de4124aa31c269aa36aa4f"
+  },
+  "wall_time_seconds": 1.0544989109039307
+}

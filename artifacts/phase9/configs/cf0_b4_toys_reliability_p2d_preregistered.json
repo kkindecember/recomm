@@ -1,0 +1,41 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B4_TOYS_RELIABILITY_FUSION_P2D_V1",
+  "decision_status": "AUTHORIZED_P9_2D_CROSSFIT_RELIABILITY_DEVELOPMENT",
+  "execution_enabled": true,
+  "evidence_class": "cross_fitted_development_not_independent_confirmation",
+  "dataset": "Toys",
+  "seed": 2023,
+  "folds": {
+    "count": 5,
+    "seed": "2023",
+    "method": "sha256_sorted_round_robin"
+  },
+  "grid": {
+    "lambda": [0.5, 0.75, 1.0],
+    "beta": [0.0, 0.25, 0.5, 1.0, 2.0],
+    "gamma": [0.0, 1.0, 2.0, 4.0],
+    "count": 60
+  },
+  "bootstrap_replicates": 2000,
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "inputs_sha256": {
+    "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a",
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "code_sha256": {
+    "experiment/phase9/eval_cf0_b4_reliability.py": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "experiment/phase9/test_cf0_b4_reliability.py": "c6058e061a5465afa4216be4be64882ac92572c56255fb982484e3d06b34d755"
+  },
+  "development_gates": {
+    "all_folds_calibration_feasible": true,
+    "oof_Hit@10_delta_min": 0.002,
+    "oof_Hit@10_bootstrap_lower_strictly_positive": true,
+    "oof_NDCG@10_delta_min": 0.0,
+    "oof_tail_Hit@10_delta_min": 0.0,
+    "oof_Hit@50_identity_tolerance": 1e-12
+  }
+}

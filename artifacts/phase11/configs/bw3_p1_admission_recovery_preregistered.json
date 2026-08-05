@@ -1,0 +1,71 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_P1_TRAIN_PREFIX_ADMISSION_RECOVERY_V1",
+  "decision_status": "AUTHORIZED_BW3_P1_RECOVERY",
+  "execution_enabled": true,
+  "authorized_at": "2026-08-05T01:18:00+08:00",
+  "authorization_basis": "Researcher approved stopping the non-compliant foreground-style run and restarting under Phase-9 background/status/CodeLlama governance.",
+  "scientific_scope": {
+    "datasets": ["Toys", "Beauty"],
+    "fit": {"target_offset": 4, "max_users": 1024},
+    "calibration": {"target_offset": 3, "max_users": 512},
+    "beam_widths": [50, 200],
+    "seed": 2023,
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "automatic_retry": false,
+    "reuse_interrupted_outputs": false
+  },
+  "execution_governance": {
+    "tmux_session": "gram_phase11_bw3_p1_admission_recovery",
+    "physical_gpu": 6,
+    "total_gpu_lease_mib": 30720,
+    "expected_workload_peak_mib": 26881,
+    "peak_basis": "Ceiling of the 26880.8935546875 MiB maximum measured in BW3-P0.",
+    "telemetry_interval_seconds": 5,
+    "codellama_controller": "/home/jiangtangyunzhi/projects/UnitTest/tools/run_codellama.sh",
+    "codellama_restore_gpu": 6,
+    "output_dir": "artifacts/phase11/bw3_p1_admission_recovery"
+  },
+  "code_lock": {
+    "files": {
+      "experiment/phase11/run_phase11_bw3_p1_admission_recovery.sh": "4033b020b5686648a7d8c1fe11aae385a2dedc2d398f6c69cba7ffada7b3f2f2",
+      "experiment/phase11/generate_bw3_pseudofuture_beams.py": "83e8d3d1e5f5e53111a0517c9b581f9f6175e92f5a16cb2d4f2918f892b7fb0e",
+      "experiment/phase11/train_bw3_admission_gate.py": "d701cdad6f1c3296f790d4f67f8f177cb85050e13e104a412616a2eb3bb34ab1",
+      "experiment/phase11/smoke_bw3_pseudofuture.py": "9888cbb89f120e1eef13198e622a87eceb20c6f87ad696a454903738d7e7d701",
+      "experiment/phase11/eval_bw1_candidate_ceiling.py": "9b11564b9f3aa42f538a4e358dcf5037b3cbe76148ae0fe767b7b087fdc78f54",
+      "experiment/phase11/eval_bw2_anchored_expansion.py": "1a544398fe1e008c0f7ca622c5ca91d26241b7547dae0b000ceff6dda390a8d0",
+      "experiment/phase11/test_generate_bw3.py": "f7c45bc6fb48249aa1c7701f2514ae6405fa315a7999d4ad4b7666b3d9fc3156",
+      "experiment/phase11/test_bw3_admission_gate.py": "d5ea6afbcd729a231075c866884ea77ce942ebd4d948b17842accada9cdc2e32",
+      "experiment/phase11/test_bw3_pseudofuture.py": "6448e1a4814cc411764285839dd4eb200b20e53e7f4440d45e1f4ceddb1f2cda",
+      "experiment/gpu_memory_lease.py": "13c1c34c099b19a24e46d1e5a5a729d6b929d471b31868e17d543eb0543e0fef",
+      "plan/第十一阶段/GRAM_第十一阶段_BW3训练前缀扩展准入计划.md": "7559fa64c87edc553689c8c46892061ae02881c29431c6eadcdfdc354dae63ea"
+    }
+  },
+  "input_lock": [
+    {
+      "dataset": "Toys",
+      "kind": "gram_checkpoint",
+      "path": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82"
+    },
+    {
+      "dataset": "Beauty",
+      "kind": "gram_checkpoint",
+      "path": "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt",
+      "sha256": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89"
+    },
+    {
+      "dataset": "Toys",
+      "kind": "item_head",
+      "path": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+      "sha256": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d"
+    },
+    {
+      "dataset": "Beauty",
+      "kind": "item_head",
+      "path": "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt",
+      "sha256": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a"
+    }
+  ]
+}

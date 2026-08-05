@@ -1,0 +1,36 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_A2_TOYS_BUDGETED_UNION_V1",
+  "decision_status": "AUTHORIZED_CF1_A2_BUDGETED_UNION",
+  "execution_enabled": true,
+  "dataset": "Toys",
+  "split": "validation",
+  "primary_policy": "fill_cf_only_40",
+  "candidate_hard_cap": 90,
+  "expected_users": 19412,
+  "expected_catalog_size": 11924,
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "inputs_sha256": {
+    "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a",
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "code_sha256": {
+    "experiment/phase10/eval_cf1_a2_budgeted_union.py": "0ce0b592469c4114d46474399a09cd20648f6fa0a2aa4d158972abac769d519e",
+    "experiment/phase10/test_cf1_a2_budgeted_union.py": "5b776fa5002ed59f14550cfaab369d524970fc8692bd1f5456031bcf4f1425e7",
+    "experiment/phase10/eval_cf1_a_candidate_union.py": "c6e7df11915b5f862a1071b0faa32af4b08047c526caa6d8657f824065184c1c",
+    "experiment/phase9/eval_cf0_b3_beamfusion.py": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+    "experiment/phase9/train_cf0_b2_item_head.py": "12aff6acf812fe2bfa716a83559cc01148f9bf72646164f3075fe0afa2ca78f5"
+  },
+  "scientific_gates": {
+    "reference_G50": 0.21193076447558212,
+    "reference_U50": 0.2666907067793118,
+    "reference_tail_complement": 0.023449612403100777,
+    "candidate_hard_cap_fraction": 1.0,
+    "U50_gain_retention_min": 0.8,
+    "tail_complement_retention_min": 0.8
+  }
+}
+

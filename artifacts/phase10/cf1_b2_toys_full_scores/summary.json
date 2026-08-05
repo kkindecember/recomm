@@ -1,0 +1,54 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_B2_TOYS_FULL_SCORE_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "primary_policy": "fill_cf_only_40",
+  "sample_sha256": "79abd3756964aae03035936d7aac98879f3278fb5310587725b036e641a6061a",
+  "metrics": {
+    "users": 19412,
+    "total_candidates": 1698905,
+    "G50_pairs": 970600,
+    "cf_only_candidates": 728305,
+    "union_size_mean": 87.5182876571193,
+    "union_size_max": 90,
+    "valid_budget_fraction": 1.0,
+    "legal_path_fraction": 1.0,
+    "finite_fraction": 1.0,
+    "G50_pearson": 0.9999996652347546,
+    "G50_spearman": 0.9999993112914298,
+    "G50_mean_top10_set_overlap": 0.9995415207088401,
+    "G50_cached_Hit@10": 0.11941067381001443,
+    "G50_recomputed_Hit@10": 0.11930764475582115,
+    "candidates_per_second": 607.3962502382215,
+    "projected_full_validation_hours": 0.7769525336556965,
+    "peak_allocated_mib": 1578.8310546875,
+    "peak_reserved_mib": 4286.0,
+    "wall_time_seconds": 2797.029121160507
+  },
+  "scientific_gate": {
+    "status": "passed",
+    "checks": {
+      "users_exact_19412": true,
+      "total_candidates_identity": true,
+      "cf_only_candidates_identity": true,
+      "all_users_valid_budget": true,
+      "all_paths_legal": true,
+      "all_scores_finite": true,
+      "G50_pearson_at_least_0.995": true,
+      "G50_spearman_at_least_0.995": true,
+      "G50_top10_overlap_at_least_0.98": true,
+      "G50_hit10_identity_within_0.001": true,
+      "peak_allocated_mib_at_most_12000": true,
+      "wall_time_at_most_4h": true
+    }
+  },
+  "artifacts": {
+    "candidate_scores_sha256": "6a7ce546ada91fd8e87534af54706b7ad78a5d9517e7b5d49e0cb1b3c7c4941c"
+  },
+  "full_validation_run": true,
+  "upstream_scorer": "CF1-B1 frozen arbitrary-candidate scorer"
+}

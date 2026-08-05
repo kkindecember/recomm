@@ -1,0 +1,134 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B2_TOYS_SAFE_FUSION_P2B_V1",
+  "status": "completed",
+  "scientific_status": "failed_nll_gate",
+  "dataset": "Toys",
+  "split": "validation",
+  "seed": 2023,
+  "test_read": false,
+  "sports_read": false,
+  "beauty_read": false,
+  "base_checkpoint": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+  "item_checkpoint": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+  "checkpoint_integrity": {
+    "base_sha256_before": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "base_sha256_after": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "item_sha256_before": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "item_sha256_after": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "passed": true
+  },
+  "train_samples": 109361,
+  "validation_samples": 19412,
+  "nll_selection_samples": 4096,
+  "identity_gate": {
+    "status": "passed",
+    "samples": 128,
+    "max_absolute_logit_delta": 0.0,
+    "max_absolute_per_example_nll_delta": 0.0,
+    "alpha": 0.0,
+    "trainable_parameter_names": [
+      "encoder.adapter.alpha",
+      "encoder.adapter.cf_projection.weight",
+      "encoder.adapter.hidden_gate.weight",
+      "encoder.adapter.cf_gate.weight",
+      "encoder.adapter.cf_gate.bias"
+    ]
+  },
+  "best_epoch": 1,
+  "nll_gate": {
+    "status": "failed",
+    "count": 4096,
+    "baseline_mean_nll": 1.680560134707207,
+    "fused_mean_nll": 1.6823247609700616,
+    "mean_delta": 0.0017646262628545628,
+    "median_delta": 0.0006119608879089355,
+    "delta_p95": 0.019977211952209473,
+    "fused_worse_fraction": 0.544677734375,
+    "bootstrap_repetitions": 2000,
+    "bootstrap_95_ci": [
+      0.001455809203730496,
+      0.0020999101351890205
+    ],
+    "checks": {
+      "mean_delta_le_minus_0.002": false,
+      "bootstrap_upper_lt_zero": false,
+      "fused_worse_fraction_le_0.50": false
+    }
+  },
+  "beam_gate": {
+    "status": "not_run",
+    "reason": "teacher-forced NLL gate failed"
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.888476198471776,
+      "mean_preclip_gradient_norm": 0.00359925771677608,
+      "alpha": 0.6470746397972107,
+      "actual_scale": 0.11393946409225464,
+      "learning_rate_end": 0.00015788744322118716,
+      "validation_nll": {
+        "status": "failed",
+        "count": 4096,
+        "baseline_mean_nll": 1.680560134707207,
+        "fused_mean_nll": 1.6823247609700616,
+        "mean_delta": 0.0017646262628545628,
+        "median_delta": 0.0006119608879089355,
+        "delta_p95": 0.019977211952209473,
+        "fused_worse_fraction": 0.544677734375,
+        "bootstrap_repetitions": 2000,
+        "bootstrap_95_ci": [
+          0.001455809203730496,
+          0.0020999101351890205
+        ],
+        "checks": {
+          "mean_delta_le_minus_0.002": false,
+          "bootstrap_upper_lt_zero": false,
+          "fused_worse_fraction_le_0.50": false
+        }
+      },
+      "wall_time_seconds": 1511.9731848724186
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8864468619279323,
+      "mean_preclip_gradient_norm": 0.009487173097350374,
+      "alpha": 0.948460578918457,
+      "actual_scale": 0.14781706035137177,
+      "learning_rate_end": 0.0,
+      "validation_nll": {
+        "status": "failed",
+        "count": 4096,
+        "baseline_mean_nll": 1.680560134707207,
+        "fused_mean_nll": 1.682988167123483,
+        "mean_delta": 0.0024280324162759825,
+        "median_delta": 0.0006917119026184082,
+        "delta_p95": 0.02867835760116577,
+        "fused_worse_fraction": 0.5322265625,
+        "bootstrap_repetitions": 2000,
+        "bootstrap_95_ci": [
+          0.0019943874669110075,
+          0.0029231196827140594
+        ],
+        "checks": {
+          "mean_delta_le_minus_0.002": false,
+          "bootstrap_upper_lt_zero": false,
+          "fused_worse_fraction_le_0.50": false
+        }
+      },
+      "wall_time_seconds": 1527.759079106152
+    }
+  ],
+  "adapter": {
+    "trainable_parameters": 786945,
+    "alpha": 0.6470746397972107,
+    "actual_scale": 0.11393946409225464,
+    "gate_mean_last_batch": 0.3722705543041229,
+    "gate_std_last_batch": 0.16852279007434845
+  },
+  "wall_time_seconds": 3117.0615724315867,
+  "resource": {
+    "peak_allocated_mib": 3527.66796875,
+    "peak_reserved_mib": 4852.0
+  }
+}

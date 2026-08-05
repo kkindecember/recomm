@@ -1,0 +1,113 @@
+{
+  "experiment_id": "GRAM_PHASE9_P9S_MULTISEED_VALIDATION_V1",
+  "status": "completed",
+  "datasets": [
+    "Toys",
+    "Beauty"
+  ],
+  "seeds": [
+    2023,
+    2024,
+    2025
+  ],
+  "test_read": false,
+  "frozen_pcrf": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0
+  },
+  "rows": [
+    {
+      "dataset": "Toys",
+      "seed": 2023,
+      "item_gate": "frozen_existing",
+      "hit10_delta": 0.005924170616113736,
+      "ndcg10_delta": 0.002441008032738015,
+      "tail_hit10_delta": 0.0011627906976744151,
+      "hit50_delta": 0.0
+    },
+    {
+      "dataset": "Toys",
+      "seed": 2024,
+      "item_gate": "passed",
+      "hit10_delta": 0.007005975685143204,
+      "ndcg10_delta": 0.003263106598896476,
+      "tail_hit10_delta": 0.0021317829457364323,
+      "hit50_delta": 0.0
+    },
+    {
+      "dataset": "Toys",
+      "seed": 2025,
+      "item_gate": "passed",
+      "hit10_delta": 0.005924170616113736,
+      "ndcg10_delta": 0.0019131149306525624,
+      "tail_hit10_delta": 0.0019379844961240345,
+      "hit50_delta": 0.0
+    },
+    {
+      "dataset": "Beauty",
+      "seed": 2023,
+      "item_gate": "frozen_existing",
+      "hit10_delta": 0.005097706032285473,
+      "ndcg10_delta": 0.002933978854729083,
+      "tail_hit10_delta": 0.001487849231277899,
+      "hit50_delta": 0.0
+    },
+    {
+      "dataset": "Beauty",
+      "seed": 2024,
+      "item_gate": "passed",
+      "hit10_delta": 0.004650538836470958,
+      "ndcg10_delta": 0.003160552926619098,
+      "tail_hit10_delta": 0.0008265829062654995,
+      "hit50_delta": 0.0
+    },
+    {
+      "dataset": "Beauty",
+      "seed": 2025,
+      "item_gate": "passed",
+      "hit10_delta": 0.005187139471448374,
+      "ndcg10_delta": 0.0037583006589374662,
+      "tail_hit10_delta": 0.001487849231277899,
+      "hit50_delta": 0.0
+    }
+  ],
+  "by_dataset": {
+    "Toys": {
+      "seeds": [
+        2023,
+        2024,
+        2025
+      ],
+      "Hit@10_delta_mean": 0.006284772305790225,
+      "Hit@10_delta_median": 0.005924170616113736,
+      "Hit@10_delta_sample_std": 0.0006245804478148648,
+      "minimum_Hit@10_delta": 0.005924170616113736
+    },
+    "Beauty": {
+      "seeds": [
+        2023,
+        2024,
+        2025
+      ],
+      "Hit@10_delta_mean": 0.004978461446734935,
+      "Hit@10_delta_median": 0.005097706032285473,
+      "Hit@10_delta_sample_std": 0.00028748828454718163,
+      "minimum_Hit@10_delta": 0.004650538836470958
+    }
+  },
+  "robustness_gate": {
+    "status": "passed",
+    "checks": {
+      "four_new_item_heads_passed": true,
+      "all_six_Hit10_deltas_positive": true,
+      "both_dataset_median_Hit10_delta_at_least_0.002": true,
+      "all_six_NDCG10_non_degradation": true,
+      "all_six_tail_Hit10_non_degradation": true,
+      "all_six_Hit50_identity": true
+    }
+  },
+  "artifacts": {
+    "seed_results_sha256": "740d8fed78935bf892f456a5779df79d3ea03456f501d37ec217266d798fd212"
+  }
+}

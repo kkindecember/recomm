@@ -228,6 +228,12 @@ def create_parser() -> argparse.ArgumentParser:
         "--save_predictions", type=int, default=0, help="Whether to save predictions"
     )
     parser.add_argument(
+        "--prediction_dir",
+        type=str,
+        default="../preds",
+        help="Directory for per-user prediction files.",
+    )
+    parser.add_argument(
         "--debug_test_small_set",
         type=int,
         default=0,
@@ -326,6 +332,60 @@ def create_parser() -> argparse.ArgumentParser:
         type=int,
         default=1,
         help="Whether to append lexical id to the history sequence",
+    )
+    parser.add_argument(
+        "--cf0_arm",
+        type=str,
+        default="A",
+        choices=["A", "B", "C"],
+        help="Phase-9 CF0 arm. A is original GRAM; B/C enable the collaborative branch.",
+    )
+    parser.add_argument(
+        "--cf0_phase9",
+        type=int,
+        default=0,
+        help="Enable Phase-9 data isolation: validation only, never construct/read test.",
+    )
+    parser.add_argument("--cf0_num_layers", type=int, default=2)
+    parser.add_argument("--cf0_num_heads", type=int, default=4)
+    parser.add_argument("--cf0_dropout", type=float, default=0.1)
+    parser.add_argument("--cf0_loss_weight", type=float, default=0.1)
+    parser.add_argument("--cf0_lr", type=float, default=1e-3)
+    parser.add_argument("--cf0_injection_scale", type=float, default=0.1)
+    parser.add_argument("--cf0_joint_score_weight", type=float, default=0.25)
+    parser.add_argument("--cf0_pretrain_epochs", type=int, default=1)
+    parser.add_argument("--cf0_unfreeze_top_layers", type=int, default=2)
+
+    """
+    Phase-12 HI-GRAM arguments (Hierarchical Interaction GRAM, early cross-item fusion)
+    """
+    parser.add_argument(
+        "--hi_gram_enabled",
+        type=int,
+        default=0,
+        help="Enable Phase-12 HI-GRAM early cross-item fusion in EncoderWrapper.",
+    )
+    parser.add_argument(
+        "--hi_gram_local_window",
+        type=int,
+        default=5,
+        help="Local window size W for causal window attention (each item attends to itself and the W-1 preceding items).",
+    )
+    parser.add_argument("--hi_gram_local_layers", type=int, default=2)
+    parser.add_argument("--hi_gram_global_layers", type=int, default=2)
+    parser.add_argument("--hi_gram_num_heads", type=int, default=4)
+    parser.add_argument("--hi_gram_dropout", type=float, default=0.1)
+    parser.add_argument(
+        "--hi_gram_fusion_scale_init",
+        type=float,
+        default=0.1,
+        help="Initial value for the learnable fusion scalar alpha.",
+    )
+    parser.add_argument(
+        "--hi_gram_include_user_prompt",
+        type=int,
+        default=0,
+        help="If 1, passage 0 (user prompt) participates in cross-item attention as an extra token. Default 0 keeps user prompt untouched.",
     )
     return parser
 

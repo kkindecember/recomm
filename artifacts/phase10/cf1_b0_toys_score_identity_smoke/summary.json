@@ -1,0 +1,41 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_B0_TOYS_SCORE_IDENTITY_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "sample_sha256": "de230a37c1e734a1b9156b69c1790bfaf91bfde388e2b2a256eb6a22a54dc4b1",
+  "score_definition": "full-vocabulary teacher-forced log-prob sum including EOS divided by predicted-token count",
+  "metrics": {
+    "users": 1,
+    "pairs": 50,
+    "finite_fraction": 1.0,
+    "pearson": 0.9999993579115762,
+    "spearman": 0.9998079231692677,
+    "mean_top10_set_overlap": 1.0,
+    "cached_Hit@10": 0.0,
+    "recomputed_Hit@10": 0.0,
+    "mean_absolute_score_error": 9.546630303344905e-05,
+    "max_absolute_score_error": 0.00042222618331910766,
+    "peak_allocated_mib": 561.837890625,
+    "peak_reserved_mib": 632.0,
+    "wall_time_seconds": 9.203049182891846
+  },
+  "scientific_gate": {
+    "status": "passed",
+    "checks": {
+      "all_scores_finite": true,
+      "pearson_at_least_0.995": true,
+      "spearman_at_least_0.995": true,
+      "top10_overlap_at_least_0.98": true,
+      "hit10_identity_within_0.001": true,
+      "peak_allocated_mib_at_most_12000": true,
+      "wall_time_at_most_1800": true
+    }
+  },
+  "artifacts": {
+    "score_pairs_sha256": "a4d1c399ef26267f81bebc92e6cf68b60ead7e1b4af432c9537496610ddede51"
+  }
+}

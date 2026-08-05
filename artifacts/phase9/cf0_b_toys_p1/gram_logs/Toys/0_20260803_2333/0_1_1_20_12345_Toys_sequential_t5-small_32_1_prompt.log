@@ -1,0 +1,74 @@
+2026-08-03 23:33:44,436 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 5, 'save_rec_epochs': 5, 'rec_batch_size': 16, 'rec_model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt', 'rec_lr': 0.0001, 'test_epoch_rec': 0, 'data_path': '../rec_datasets', 'datasets': 'Toys', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 0, 'debug_test_100': 0, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 1, 'prediction_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/predictions', 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 8, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 5, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c32_l5_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'B', 'cf0_phase9': 1, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'log_name': '0_1_1_20_12345_Toys_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333/id_0_rec_5', 'rank': 0}
+2026-08-03 23:33:44,490 - root - INFO - Use t5-small backbone model
+2026-08-03 23:33:55,551 - root - INFO - Generating data for Toys dataset
+2026-08-03 23:33:55,552 - root - INFO - Reindex data with generative indexing method
+2026-08-03 23:33:55,710 - root - INFO - loading training data
+2026-08-03 23:33:57,099 - root - INFO - Generating data for Toys dataset
+2026-08-03 23:33:57,099 - root - INFO - Reindex data with generative indexing method
+2026-08-03 23:33:57,212 - root - INFO - loading training data
+2026-08-03 23:33:59,082 - root - INFO - Load recommender model from /mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt
+2026-08-03 23:33:59,082 - root - INFO - Building Optimizer and Scheduler
+2026-08-03 23:33:59,082 - root - INFO - Batch per epoch id: 27341
+2026-08-03 23:33:59,082 - root - INFO - Warmup proportion: 0.05
+2026-08-03 23:33:59,082 - root - INFO - Total id generator steps: 0
+2026-08-03 23:33:59,082 - root - INFO - Warm up id generator steps: 0
+2026-08-03 23:33:59,083 - root - INFO - Batch per epoch rec: 6836
+2026-08-03 23:33:59,083 - root - INFO - Warmup proportion: 0.05
+2026-08-03 23:33:59,083 - root - INFO - Total rec generator steps: 4270
+2026-08-03 23:33:59,083 - root - INFO - Warm up rec generator steps: 213
+2026-08-03 23:33:59,086 - root - INFO - Building Optimizer AdamW
+2026-08-03 23:33:59,429 - root - INFO - Start training
+2026-08-03 23:33:59,431 - root - INFO - Training Recommender phase 1
+2026-08-03 23:33:59,433 - root - INFO - CF0_TRAIN_STAGE epoch=1 stage=cf0_pretrain trainable_parameters=12947456
+2026-08-03 23:33:59,435 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-04 00:04:36,887 - root - INFO - The average training loss for rec phase 1 epoch 1 is 7.938764647503345
+2026-08-04 00:04:36,888 - root - INFO - CF0_LOSS_COMPONENTS epoch=1 generation=6.93463148 cf0_item=10.08778437 total=7.94340992
+2026-08-04 00:04:36,891 - root - INFO - CF0_TRAIN_STAGE epoch=2 stage=cf0_joint_top_layers trainable_parameters=44082688
+2026-08-04 00:04:36,893 - root - INFO - Start training recommender for phase 1, epoch 2
+2026-08-04 00:50:41,196 - root - INFO - The average training loss for rec phase 1 epoch 2 is 6.6154155414006865
+2026-08-04 00:50:41,196 - root - INFO - CF0_LOSS_COMPONENTS epoch=2 generation=5.67826023 cf0_item=9.41026236 total=6.61928647
+2026-08-04 00:50:41,199 - root - INFO - CF0_TRAIN_STAGE epoch=3 stage=cf0_joint_top_layers trainable_parameters=44082688
+2026-08-04 00:50:41,200 - root - INFO - Start training recommender for phase 1, epoch 3
+2026-08-04 01:35:29,331 - root - INFO - The average training loss for rec phase 1 epoch 3 is 6.24377435111163
+2026-08-04 01:35:29,331 - root - INFO - CF0_LOSS_COMPONENTS epoch=3 generation=5.31366426 cf0_item=9.33763553 total=6.24742782
+2026-08-04 01:35:29,333 - root - INFO - CF0_TRAIN_STAGE epoch=4 stage=cf0_joint_top_layers trainable_parameters=44082688
+2026-08-04 01:35:29,334 - root - INFO - Start training recommender for phase 1, epoch 4
+2026-08-04 02:19:17,400 - root - INFO - The average training loss for rec phase 1 epoch 4 is 6.04825750045609
+2026-08-04 02:19:17,400 - root - INFO - CF0_LOSS_COMPONENTS epoch=4 generation=5.12253174 cf0_item=9.29264829 total=6.05179656
+2026-08-04 02:19:17,402 - root - INFO - CF0_TRAIN_STAGE epoch=5 stage=cf0_joint_top_layers trainable_parameters=44082688
+2026-08-04 02:19:17,404 - root - INFO - Start training recommender for phase 1, epoch 5
+2026-08-04 03:02:19,350 - root - INFO - The average training loss for rec phase 1 epoch 5 is 5.925095744927725
+2026-08-04 03:02:19,350 - root - INFO - CF0_LOSS_COMPONENTS epoch=5 generation=4.99984481 cf0_item=9.28717930 total=5.92856274
+2026-08-04 03:02:20,424 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333/id_0_rec_5/scheduler_rec_phase_1_epoch_5.pt
+2026-08-04 03:02:20,424 - root - INFO - Training ID Generator phase 1 finished ..
+2026-08-04 03:02:24,232 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333/id_0_rec_5/scheduler_rec_phase_1_epoch_5.pt
+2026-08-04 03:02:24,234 - root - INFO - RESOURCE_METRIC phase=training wall_time_seconds=12504.804382 peak_allocated_mib=12605.983 peak_reserved_mib=12694.000 end_allocated_mib=1014.413 end_reserved_mib=12694.000
+2026-08-04 03:02:24,234 - root - INFO - Train done ... Load model from /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333/id_0_rec_5/model_rec_phase_1_epoch_5.pt
+2026-08-04 03:02:25,241 - root - INFO - [validation] testing Toys dataset on sequential task
+2026-08-04 03:55:24,709 - root - INFO - 
+-------------------------------
+2026-08-04 03:55:24,710 - root - INFO - [GT] game board villages village hopefully || [top-1] game boardlant survive escape || [hits@10] 0.0
+[GT] transformer copbot blade convert || [top-1] sports party tooth walletfold || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game board guesstures hardest || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] helicopter channel1083.5 lithium || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] trainmasvol electric wo || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game board civilizationzol calendar || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] leappad video720 display || [hits@10] 0.0
+[GT] crafts shrink stuff din ale || [top-1] game card humanity seamlesslynew || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] sports bubbleblizz bath || [hits@10] 0.0
+
+2026-08-04 03:55:24,710 - root - INFO - validation hit@1: 0.03219657943540078
+2026-08-04 03:55:24,710 - root - INFO - validation hit@3: 0.052081186894704305
+2026-08-04 03:55:24,710 - root - INFO - validation hit@5: 0.06475376056047806
+2026-08-04 03:55:24,710 - root - INFO - validation hit@10: 0.08494745518236142
+2026-08-04 03:55:24,710 - root - INFO - validation hit@20: 0.10596538223779106
+2026-08-04 03:55:24,710 - root - INFO - validation hit@50: 0.13594683700803625
+2026-08-04 03:55:24,710 - root - INFO - validation ndcg@1: 0.03219657943540078
+2026-08-04 03:55:24,710 - root - INFO - validation ndcg@3: 0.04371716270017097
+2026-08-04 03:55:24,711 - root - INFO - validation ndcg@5: 0.048922096410870634
+2026-08-04 03:55:24,711 - root - INFO - validation ndcg@10: 0.05544104045492686
+2026-08-04 03:55:24,711 - root - INFO - validation ndcg@20: 0.060776596559860764
+2026-08-04 03:55:24,711 - root - INFO - validation ndcg@50: 0.0667361805467603
+2026-08-04 03:55:24,711 - root - INFO - Total inference time: 2944.82s for 19412 samples. Average: 0.1517s
+2026-08-04 03:55:24,711 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_p1/predictions/20260804_030225_Toys_sequential_pred_validation.tsv
+2026-08-04 03:55:24,718 - root - INFO - RESOURCE_METRIC phase=automatic_last_checkpoint_validation wall_time_seconds=3180.483333 peak_allocated_mib=7706.153 peak_reserved_mib=21850.000 end_allocated_mib=1014.380 end_reserved_mib=21850.000

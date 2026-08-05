@@ -1,0 +1,39 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_BEAUTY_OFFSET4_BEAMS_V1",
+  "status": "completed",
+  "dataset": "Beauty",
+  "target_offset": 4,
+  "users": 1024,
+  "sample_sha256": "a4d0335434fce0deee74a1694a24501527ed9a82f41a7898d838a8553539a885",
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false,
+  "rows": [
+    {
+      "width": 50,
+      "users": 1024,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.474609375,
+      "wall_time_seconds": 196.21659302711487,
+      "beam_sha256": "0fae8ff1b1f205aba5a807265c9b7c783f3241c55db7b43157910eef1e1fccc1"
+    },
+    {
+      "width": 200,
+      "users": 1024,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.642578125,
+      "wall_time_seconds": 554.0931277275085,
+      "beam_sha256": "a707a4ccc9d9b11020a606eea04d870946c6c57418453b5c04828252dcb34612"
+    }
+  ],
+  "checkpoint_sha256": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+  "peak_allocated_mib": 26881.93994140625,
+  "gate": {
+    "status": "passed",
+    "checks": {
+      "all_users_legal": true,
+      "checkpoint_identity": true,
+      "validation_test_sports_not_used": true
+    }
+  }
+}

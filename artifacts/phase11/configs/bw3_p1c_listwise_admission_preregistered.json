@@ -1,0 +1,102 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_P1C_LISTWISE_ADMISSION_CORRECTION_V1",
+  "decision_status": "AUTHORIZED_P1C1_FORMAL_RUN",
+  "execution_enabled": true,
+  "authorized_at": "2026-08-05T10:29:42+08:00",
+  "authorization_basis": "Researcher explicitly requested: 启动 P1C-1",
+  "implementation_completed_at": "2026-08-05T10:20:57+08:00",
+  "authorization_required": "Researcher must explicitly authorize the formal P1C-1 start after reviewing P1C-0.",
+  "scientific_scope": {
+    "datasets": ["Toys", "Beauty"],
+    "fit_target_offset": 4,
+    "calibration_target_offset": 3,
+    "reuse_successful_recovery_beams": true,
+    "reuse_interrupted_outputs": false,
+    "objective": "per_user_listwise_cross_entropy_with_fixed_reject_logit_zero",
+    "features": [
+      "seq_raw",
+      "seq_anchor_z",
+      "item_raw",
+      "item_anchor_z",
+      "popularity_log1p",
+      "popularity_anchor_z",
+      "beam200_rank_fraction",
+      "reliability",
+      "cf_pop_adjusted"
+    ],
+    "optimizer": {
+      "name": "Adam",
+      "epochs": 200,
+      "learning_rate": 0.05,
+      "l2": 0.001,
+      "seed": 2023,
+      "early_stopping": false
+    },
+    "margin_grid": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "max_admissions": 3,
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false,
+    "automatic_retry": false,
+    "automatic_p2_start": false
+  },
+  "runtime": {
+    "compute_device": "cpu",
+    "cuda_visible_devices": "",
+    "hard_timeout_seconds": 1800,
+    "tmux_session": "gram_phase11_bw3_p1c_listwise_admission",
+    "output_dir": "artifacts/phase11/bw3_p1c_listwise_admission",
+    "physical_gpu_observed": 6,
+    "codellama_required_reserve_mib": 30720,
+    "codellama_preserved_during_workload": true,
+    "gpu_sidecar_enabled": false,
+    "telemetry_interval_seconds": 5
+  },
+  "p1c0_evidence": {
+    "unit_tests": "9 passed",
+    "successful_dry_run": "artifacts/phase11/bw3_p1c_listwise_admission_dry_run_v5/summary.json",
+    "successful_dry_run_sha256": "0c59ab5c941bb31ddb8193db6e69f5da248fb9bcee4addbaf085891e3e8e17dd",
+    "dry_run_fit_users_per_domain": 16,
+    "dry_run_calibration_users_per_domain": 16,
+    "dry_run_epochs": 5,
+    "both_domains_integrity": true,
+    "scientific_gate_evaluated": false,
+    "validation_target_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "code_lock": {
+    "files": {
+      "experiment/phase11/train_bw3_listwise_admission.py": "5717f78c7fccf443810c4bba95cdcb224ab9424dbce988310def52dbdadeae15",
+      "experiment/phase11/test_bw3_listwise_admission.py": "4866983a80cf0bbe493c73fad3cf389fd644b6916721e9e941b9ec7531b13698",
+      "experiment/phase11/run_phase11_bw3_p1c_listwise_admission.sh": "d5cb7203e771f0b75fc78fddecc1b9264c6cdeeaa5dfd3aba3e6f26c2b92d7ee",
+      "plan/第十一阶段/GRAM_第十一阶段_BW3-P1C_Listwise准入纠偏计划.md": "6753eb78813d8b512b436603b8d46a4e912b66c12a989ed4bd733dc32937757e",
+      "experiment/phase9/eval_cf0_b3_beamfusion.py": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+      "experiment/phase9/eval_p9x_fixed_pcrf.py": "6160572637240459354fcbf32849a039e74a63124c24b2ebbac73afd1b96c3e8",
+      "experiment/phase9/train_cf0_b2_item_head.py": "09a191f9bb978976d5c5febc8bf7fdfc9763715a74f02484ee264e0077c8df23",
+      "experiment/phase9/cf0_diagnostic_metrics.py": "0c6453dc51d1e5db837360f502fa0ecab73f9fb053c27580672b78f80d0b4d20"
+    }
+  },
+  "input_lock": {
+    "files": {
+      "artifacts/phase11/bw3_p1_admission_recovery/Toys/fit/beams_w50.tsv": "af5f24c1a46ec491f9ae191662e658871c951739b372a6bc83487fdff3719010",
+      "artifacts/phase11/bw3_p1_admission_recovery/Toys/fit/beams_w200.tsv": "da5f49a8fcfde9efca95c71768f3a24e21c40d2904dfb2b8543daa72119fbc12",
+      "artifacts/phase11/bw3_p1_admission_recovery/Toys/fit/summary.json": "a4a67971d36d9053577d0b32a2a4a88e512226a4bf34411551a41919227d8bc1",
+      "artifacts/phase11/bw3_p1_admission_recovery/Toys/calibration/beams_w50.tsv": "c75407f98fc00908897ac49bf5bed5e7013cb154c24788c1887b16ed2f925b90",
+      "artifacts/phase11/bw3_p1_admission_recovery/Toys/calibration/beams_w200.tsv": "fd5ce09ddbe89eb7623faad1bf5126129a1d233327e1d21640d57ff9dda9963a",
+      "artifacts/phase11/bw3_p1_admission_recovery/Toys/calibration/summary.json": "2743e38a3d92538ffe6c413410cee7cd709d9ce870b07520b289f94d071e5b1e",
+      "artifacts/phase11/bw3_p1_admission_recovery/Beauty/fit/beams_w50.tsv": "0fae8ff1b1f205aba5a807265c9b7c783f3241c55db7b43157910eef1e1fccc1",
+      "artifacts/phase11/bw3_p1_admission_recovery/Beauty/fit/beams_w200.tsv": "a707a4ccc9d9b11020a606eea04d870946c6c57418453b5c04828252dcb34612",
+      "artifacts/phase11/bw3_p1_admission_recovery/Beauty/fit/summary.json": "d49236227248ca6d8df700249afa8407b4a65ec8df7bde9d9f71cd905b5c66e0",
+      "artifacts/phase11/bw3_p1_admission_recovery/Beauty/calibration/beams_w50.tsv": "3e1281d1150f19aa3393478ea721f662ee32123d1278890b1e867db622bf4a00",
+      "artifacts/phase11/bw3_p1_admission_recovery/Beauty/calibration/beams_w200.tsv": "ba0f7feefe6dd572d6ce0e99afd9d95b0d0bfc86f907176c09c35ea2e1ffb34e",
+      "artifacts/phase11/bw3_p1_admission_recovery/Beauty/calibration/summary.json": "10455748adda6df4c7a58fa4fff701594e1e20d1ca3599eb7ddce06ded2ce9fc",
+      "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+      "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+      "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+      "GRAM/rec_datasets/Beauty/user_sequence.txt": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+      "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"
+    }
+  }
+}

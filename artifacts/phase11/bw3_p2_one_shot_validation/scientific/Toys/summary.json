@@ -1,0 +1,104 @@
+{
+  "dataset": "Toys",
+  "users": 512,
+  "base": {
+    "count": 512,
+    "mrr": 0.07192227802579365,
+    "Hit@1": 0.046875,
+    "NDCG@1": 0.046875,
+    "Hit@5": 0.1015625,
+    "NDCG@5": 0.0774123274506735,
+    "Hit@10": 0.123046875,
+    "NDCG@10": 0.08417462178302235,
+    "Hit@20": 0.123046875,
+    "NDCG@20": 0.08417462178302235,
+    "Hit@50": 0.123046875,
+    "NDCG@50": 0.08417462178302235
+  },
+  "candidate": {
+    "count": 512,
+    "mrr": 0.07192227802579365,
+    "Hit@1": 0.046875,
+    "NDCG@1": 0.046875,
+    "Hit@5": 0.1015625,
+    "NDCG@5": 0.0774123274506735,
+    "Hit@10": 0.123046875,
+    "NDCG@10": 0.08417462178302235,
+    "Hit@20": 0.123046875,
+    "NDCG@20": 0.08417462178302235,
+    "Hit@50": 0.123046875,
+    "NDCG@50": 0.08417462178302235
+  },
+  "hit10_delta": 0.0,
+  "ndcg10_delta": 0.0,
+  "tail": {
+    "users": 128,
+    "base": {
+      "count": 128,
+      "mrr": 0.06705729166666666,
+      "Hit@1": 0.046875,
+      "NDCG@1": 0.046875,
+      "Hit@5": 0.09375,
+      "NDCG@5": 0.07283957670927942,
+      "Hit@10": 0.1015625,
+      "NDCG@10": 0.07562244535856084,
+      "Hit@20": 0.1015625,
+      "NDCG@20": 0.07562244535856084,
+      "Hit@50": 0.1015625,
+      "NDCG@50": 0.07562244535856084
+    },
+    "candidate": {
+      "count": 128,
+      "mrr": 0.06705729166666666,
+      "Hit@1": 0.046875,
+      "NDCG@1": 0.046875,
+      "Hit@5": 0.09375,
+      "NDCG@5": 0.07283957670927942,
+      "Hit@10": 0.1015625,
+      "NDCG@10": 0.07562244535856084,
+      "Hit@20": 0.1015625,
+      "NDCG@20": 0.07562244535856084,
+      "Hit@50": 0.1015625,
+      "NDCG@50": 0.07562244535856084
+    }
+  },
+  "tail_hit10_delta": 0.0,
+  "admissions": 21,
+  "admission_users": 18,
+  "fallback_users": 494,
+  "promotions": 0,
+  "regressions": 0,
+  "unchanged": 512,
+  "coverage": {
+    "target_in_beam50": 107,
+    "target_in_beam200": 167,
+    "target_expansion_only": 60,
+    "target_outside_union": 345
+  },
+  "paired_hit10_delta_95ci": {
+    "replicates": 2000,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  "integrity": {
+    "all_512_users": true,
+    "fallback_identity": true,
+    "finite": true,
+    "max_three_admissions": true,
+    "base_identity": true
+  },
+  "preparation": {
+    "q1": 5,
+    "users": 512,
+    "item_head_sha256": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d"
+  },
+  "gate_sha256": "c5256b9f36a51ee3a6d2c44309d3e8f5eb7e92fd7a653f53c17fbb33906ac6a6",
+  "base_identity": {
+    "expected_hit10": 0.123046875,
+    "expected_ndcg10": 0.08417462178302236,
+    "hit10_exact": true,
+    "ndcg10_close": true,
+    "q1_exact": true,
+    "item_head_exact": true
+  }
+}

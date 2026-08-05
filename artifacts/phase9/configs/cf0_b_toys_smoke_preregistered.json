@@ -1,0 +1,55 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B_TOYS_GPU_SMOKE_V1",
+  "execution_enabled": true,
+  "decision_status": "P9_0_READY_FOR_CONFIRMED_START",
+  "dataset": "Toys",
+  "arm": "B",
+  "seed": 2023,
+  "physical_gpu": 4,
+  "test_read": false,
+  "sports_read": false,
+  "debug_train_samples": 100,
+  "debug_validation_samples": 100,
+  "training": {
+    "epochs": 1,
+    "stage": "cf0_pretrain",
+    "rec_batch_size": 4,
+    "gradient_accumulation_steps": 1,
+    "base_lr": 0.0001,
+    "cf0_lr": 0.001,
+    "cf0_loss_weight": 0.1
+  },
+  "cf0": {
+    "layers": 2,
+    "heads": 4,
+    "dropout": 0.1,
+    "injection_scale": 0.1
+  },
+  "resource": {
+    "total_lease_mib": 30720,
+    "expected_workload_peak_mib": 8192,
+    "hard_timeout_seconds": 7200,
+    "telemetry_interval_seconds": 5,
+    "codellama_restore_gpu": 4
+  },
+  "parent_checkpoint": {
+    "path": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82"
+  },
+  "code_lock": {
+    "files": {
+      "GRAM/src/arguments.py": "3fcfe27230edf48430108c4f556fe6ce8fa7b93dab292f20f77ed7b9732d3b9a",
+      "GRAM/src/main_generative_gram.py": "9e3648a65522bfe5238ade47590b6b1f74ea47a26b0a144b323354d169d15aff",
+      "GRAM/src/model/gram.py": "87d6d15f85be964601cf1aadace0998eda885eb36ebc81b426ba5d9f999cff93",
+      "GRAM/src/model/gram_t5.py": "4bb0c08bf8561303f154931ff2cb2d445d1c382ebc0b44b6797297fa622bd673",
+      "GRAM/src/model/gram_t5_modeling.py": "862fe2306a31bfe102cbff11fd34ca68e4d32a2d61a495aab0e0189042c93bd5",
+      "GRAM/src/data/multi_task_dataset_gram.py": "ab6bdca83b0eec744af7b83915b98e26f7aa6761dccd93b13faaf790014e6433",
+      "GRAM/src/data/test_dataset_gram.py": "eccf4a8acb4e1f17c97ba99ab2d7aa308f6a70e96115270063ed58409c79402c",
+      "GRAM/src/processor/Collator.py": "49a35955d0f952e4015d8e87935c05b8138489d1ed60b4d30cc865dcf7bcc949",
+      "GRAM/src/runner/single_runner_gram.py": "6c3aa02240df7cb1676daba08ce621cf84ad19dd7f4dcb997a1cd3df49c710e3",
+      "experiment/phase9/test_gram_cf0.py": "9d17b43c696428eb7b43f9158af564e54e2e288ca4d23b0a0019abb84395e5aa",
+      "experiment/phase9/run_phase9_gram_cf0.sh": "336ab5a2a28343442a33d2627b7c9fc49f32cc9094addba6e7ba895e605d2e45",
+      "plan/第九阶段/GRAM_第九阶段_CF0协同序列增强效果验证计划.md": "a0af39eefa93fdfe014ddd4a271546308561621b8584cf5d678eb7a636c47a81"
+    }
+  }
+}

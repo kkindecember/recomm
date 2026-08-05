@@ -1,0 +1,182 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW1_BEAUTY_CANDIDATE_CEILING_VALIDATION_V1",
+  "status": "completed",
+  "dataset": "Beauty",
+  "split": "validation",
+  "users": 1,
+  "sample_sha256": "4299bc6e7a8af61d1472d261ac03838e9341348148cdc4cc1f56d58332ed2476",
+  "test_read": false,
+  "sports_read": false,
+  "frozen_pcrf": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1": 6
+  },
+  "cached_w50_baseline": {
+    "count": 1,
+    "mrr": 0.0,
+    "Hit@1": 0.0,
+    "NDCG@1": 0.0,
+    "Hit@5": 0.0,
+    "NDCG@5": 0.0,
+    "Hit@10": 0.0,
+    "NDCG@10": 0.0,
+    "Hit@20": 0.0,
+    "NDCG@20": 0.0,
+    "Hit@50": 0.0,
+    "NDCG@50": 0.0
+  },
+  "widths": [
+    {
+      "width": 50,
+      "legal_fraction": 1.0,
+      "candidate_recall": 0.0,
+      "baseline": {
+        "count": 1,
+        "mrr": 0.0,
+        "Hit@1": 0.0,
+        "NDCG@1": 0.0,
+        "Hit@5": 0.0,
+        "NDCG@5": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "Hit@20": 0.0,
+        "NDCG@20": 0.0,
+        "Hit@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "pcrf": {
+        "count": 1,
+        "mrr": 0.0,
+        "Hit@1": 0.0,
+        "NDCG@1": 0.0,
+        "Hit@5": 0.0,
+        "NDCG@5": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "Hit@20": 0.0,
+        "NDCG@20": 0.0,
+        "Hit@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "pcrf_minus_baseline_Hit@10": 0.0,
+      "wall_time_seconds": 0.4453315734863281,
+      "fresh_beams_sha256": "1e92842e3944c90491ed40f33b1b6c96750cd6b5987e71a5ea3fa985ad5b3a2e"
+    },
+    {
+      "width": 100,
+      "legal_fraction": 1.0,
+      "candidate_recall": 0.0,
+      "baseline": {
+        "count": 1,
+        "mrr": 0.0,
+        "Hit@1": 0.0,
+        "NDCG@1": 0.0,
+        "Hit@5": 0.0,
+        "NDCG@5": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "Hit@20": 0.0,
+        "NDCG@20": 0.0,
+        "Hit@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "pcrf": {
+        "count": 1,
+        "mrr": 0.0,
+        "Hit@1": 0.0,
+        "NDCG@1": 0.0,
+        "Hit@5": 0.0,
+        "NDCG@5": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "Hit@20": 0.0,
+        "NDCG@20": 0.0,
+        "Hit@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "pcrf_minus_baseline_Hit@10": 0.0,
+      "wall_time_seconds": 0.6273617744445801,
+      "fresh_beams_sha256": "18450ef022cb7a74d3ca6aff252cbc31c37a5fd8d2a45e640f925d87810d6154",
+      "baseline_Hit@10_vs_w50_95ci": {
+        "replicates": 2000,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "pcrf_Hit@10_vs_w50_95ci": {
+        "replicates": 2000,
+        "lower": 0.0,
+        "upper": 0.0
+      }
+    },
+    {
+      "width": 200,
+      "legal_fraction": 1.0,
+      "candidate_recall": 0.0,
+      "baseline": {
+        "count": 1,
+        "mrr": 0.0,
+        "Hit@1": 0.0,
+        "NDCG@1": 0.0,
+        "Hit@5": 0.0,
+        "NDCG@5": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "Hit@20": 0.0,
+        "NDCG@20": 0.0,
+        "Hit@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "pcrf": {
+        "count": 1,
+        "mrr": 0.0,
+        "Hit@1": 0.0,
+        "NDCG@1": 0.0,
+        "Hit@5": 0.0,
+        "NDCG@5": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "Hit@20": 0.0,
+        "NDCG@20": 0.0,
+        "Hit@50": 0.0,
+        "NDCG@50": 0.0
+      },
+      "pcrf_minus_baseline_Hit@10": 0.0,
+      "wall_time_seconds": 0.8857016563415527,
+      "fresh_beams_sha256": "afb9a6e631334997658ea0ee178065fc6b243d390aeb4487de535f237ea36254",
+      "baseline_Hit@10_vs_w50_95ci": {
+        "replicates": 2000,
+        "lower": 0.0,
+        "upper": 0.0
+      },
+      "pcrf_Hit@10_vs_w50_95ci": {
+        "replicates": 2000,
+        "lower": 0.0,
+        "upper": 0.0
+      }
+    }
+  ],
+  "headroom": {
+    "coverage_headroom": 0.0,
+    "pcrf_headroom": 0.0
+  },
+  "integrity_gate": {
+    "status": "failed",
+    "checks": {
+      "all_units_512_users_legal": false,
+      "candidate_recall_monotonic": true,
+      "fresh_w50_cached_baseline_Hit10_abs_delta_at_most_0.002": true,
+      "gram_checkpoint_identity": true,
+      "item_head_checkpoint_identity": true,
+      "test_and_sports_not_read": true
+    }
+  },
+  "peak_allocated_mib": 11853.67138671875,
+  "wall_time_seconds": 13.336013317108154,
+  "artifacts": {
+    "per_user_sha256": "67f174241fe218afe7a7db42eec6336b7205a831b24e469e75661bb7fd86ea0e",
+    "checkpoint_sha256": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+    "item_head_sha256": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a"
+  }
+}

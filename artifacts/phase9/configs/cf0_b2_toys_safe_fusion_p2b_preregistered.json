@@ -1,0 +1,100 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B2_TOYS_SAFE_FUSION_P2B_V1",
+  "decision_status": "AUTHORIZED_P9_2B_SAFE_FUSION",
+  "execution_enabled": true,
+  "authorized_at": "2026-08-04",
+  "parent_experiment": "GRAM_PHASE9_CF0_B2_TOYS_ITEM_P2A_V1",
+  "scope": {
+    "dataset": "Toys",
+    "split": "validation",
+    "seed": 2023,
+    "test_read": false,
+    "sports_read": false,
+    "beauty_read": false,
+    "arm_c_reranking": false
+  },
+  "fusion": {
+    "target_passage": "coarse_user_prompt_only",
+    "initialization": "strict_zero_residual_via_alpha",
+    "formula": "h + 0.20*tanh(alpha)*sigmoid(Wh(h)+Wg(c))*normalize(Wc(c))",
+    "alpha_initial": 0.0,
+    "max_residual_scale": 0.2,
+    "posthoc_layer_norm": false,
+    "frozen": [
+      "gram_encoder",
+      "gram_decoder",
+      "gram_position_embedding",
+      "shared_embedding",
+      "lm_head",
+      "p9_2a_item_encoder",
+      "p9_2a_item_embedding"
+    ]
+  },
+  "training": {
+    "epochs": 2,
+    "batch_size": 16,
+    "eval_batch_size": 32,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.05,
+    "gradient_clip": 1.0,
+    "objective": "generation_token_cross_entropy_only",
+    "checkpoint_selection": [
+      "minimum_validation_mean_nll",
+      "lower_delta_p95"
+    ]
+  },
+  "gates": {
+    "identity": {
+      "samples": 128,
+      "max_absolute_logit_delta": 1e-7,
+      "max_absolute_per_example_nll_delta": 1e-8
+    },
+    "teacher_forced_nll": {
+      "samples": 4096,
+      "paired_bootstrap_repetitions": 2000,
+      "bootstrap_seed": 2023,
+      "mean_delta_max": -0.002,
+      "bootstrap_95_upper_strictly_below": 0.0,
+      "fused_worse_fraction_max": 0.5
+    },
+    "beam": {
+      "conditional_on_nll_gate": true,
+      "samples": 19412,
+      "beam_size": 50,
+      "hit_at_10_min": 0.11741067381001443,
+      "ndcg_at_10_min": 0.07527451426000033,
+      "hit_at_50_min": 0.20893076447558212
+    }
+  },
+  "baseline_beam": {
+    "hit@10": 0.11941067381001443,
+    "ndcg@10": 0.07627451426000033,
+    "hit@50": 0.21193076447558212
+  },
+  "resources": {
+    "physical_gpu": 6,
+    "total_gpu_lease_mib": 30720,
+    "expected_workload_peak_mib": 14336,
+    "hard_timeout_seconds": 21600,
+    "telemetry_interval_seconds": 5,
+    "restore_codellama": true
+  },
+  "source_locks": {
+    "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d"
+  },
+  "data_locks": {
+    "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "code_lock": {
+    "files": {
+      "experiment/phase9/train_cf0_b2_safe_fusion.py": "e2e4d2eef189cc30809fc083f3282e13a655adb2bccb2877f9e1daad0477ed2b",
+      "experiment/phase9/test_cf0_b2_safe_fusion.py": "89ac81efd71386dd817207793a443dfad4b75628ef9aee9385f38c8ae5b8eea5",
+      "experiment/phase9/run_phase9_cf0_b2_safe_fusion_p2b.sh": "72752add69893140b381886a9974c712dfaba2d81b600db3f07a46c3be813987",
+      "plan/第九阶段/GRAM_第九阶段_CF0-B2_P9-2B零初始安全融合验证计划.md": "b0a890483aa1277a3a64ed540a618e5e5ac39d3456725745ea3d22b2d9ba8e6b"
+    }
+  }
+}

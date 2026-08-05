@@ -1,0 +1,46 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B_TOYS_GPU_SMOKE_RECOVERY_V1",
+  "status": "succeeded",
+  "scope": "diagnostic_smoke_only",
+  "dataset": "Toys",
+  "arm": "B",
+  "seed": 2023,
+  "train_samples": 100,
+  "validation_samples": 100,
+  "epochs": 1,
+  "metrics": {
+    "Recall@5": 0.02,
+    "Recall@10": 0.02,
+    "Recall@50": 0.05,
+    "NDCG@5": 0.013868528072345416,
+    "NDCG@10": 0.013868528072345416
+  },
+  "training": {
+    "mean_loss": 14.711700019836426,
+    "wall_time_seconds": 5.281904,
+    "process_peak_allocated_mib": 1236.03,
+    "process_peak_reserved_mib": 1322.0
+  },
+  "validation": {
+    "wall_time_seconds": 22.147505,
+    "process_peak_allocated_mib": 7346.357,
+    "process_peak_reserved_mib": 18204.0
+  },
+  "resource": {
+    "physical_gpu": 4,
+    "total_lease_mib": 30720,
+    "telemetry_gpu_used_max_mib": 38306.0,
+    "telemetry_gpu_free_min_mib": 10265.0,
+    "lease_released": true,
+    "codellama_restored_on_gpu4": true
+  },
+  "integrity": {
+    "unit_tests": "4/4 passed",
+    "finite_training": true,
+    "checkpoint_saved": true,
+    "test_read": false,
+    "sports_read": false,
+    "failed_run_preserved": "artifacts/phase9/cf0_b_toys_smoke"
+  },
+  "interpretation": "Metrics are diagnostic only and must not be used as an effect claim."
+}

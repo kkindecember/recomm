@@ -90,6 +90,13 @@ class MultiTaskDatasetGRAM(Dataset):
                 )
             )
         self.all_items = list(self.item2lexid.values())
+        self.item2cfid = {
+            item_id: idx + 1 for idx, item_id in enumerate(sorted(self.item2lexid))
+        }
+        self.lexid2cfid = {
+            self.item2lexid[item_id]: cf_id
+            for item_id, cf_id in self.item2cfid.items()
+        }
 
         # load data
         if self.mode == "train":
@@ -178,6 +185,10 @@ class MultiTaskDatasetGRAM(Dataset):
                 one_sample["history_input"] = [
                     self.item2input[h] for h in history
                 ]  # ['nail lacquer simmer and shimmer', ...]
+                one_sample["history_item_ids"] = [
+                    self.item2cfid[h] for h in history
+                ]
+                one_sample["target_item_id"] = self.item2cfid[items[i]]
 
                 if self.reverse_history:
                     tmp_history = copy.deepcopy(one_sample["history"]).split(
@@ -185,6 +196,9 @@ class MultiTaskDatasetGRAM(Dataset):
                     )
                     one_sample["history"] = self.his_sep.join(tmp_history[::-1])
                     one_sample["history_input"] = one_sample["history_input"][::-1]
+                    one_sample["history_item_ids"] = one_sample[
+                        "history_item_ids"
+                    ][::-1]
 
                 # TODO prefix hardcoded
                 history_lex_ids = [
@@ -220,11 +234,14 @@ class MultiTaskDatasetGRAM(Dataset):
                 history = history[-self.max_his :]
             one_sample["history"] = self.his_sep.join(history)
             one_sample["history_input"] = [self.item2input[h] for h in history]
+            one_sample["history_item_ids"] = [self.item2cfid[h] for h in history]
+            one_sample["target_item_id"] = self.item2cfid[items[-2]]
 
             if self.reverse_history:
                 tmp_history = copy.deepcopy(one_sample["history"]).split(self.his_sep)
                 one_sample["history"] = self.his_sep.join(tmp_history[::-1])
                 one_sample["history_input"] = one_sample["history_input"][::-1]
+                one_sample["history_item_ids"] = one_sample["history_item_ids"][::-1]
 
             history_lex_ids = [self.item2lexid[h] for h in history[::-1]]
             one_sample["history_lex_id"] = self.his_sep.join(
@@ -258,6 +275,8 @@ class MultiTaskDatasetGRAM(Dataset):
         self.data["input"] = []
         self.data["output"] = []
         self.data["user_id"] = []
+        self.data["history_item_ids"] = []
+        self.data["target_item_id"] = []
         for i in range(len(self.data_samples)):
             datapoint = self.data_samples[i]
             input_sample = []
@@ -272,6 +291,8 @@ class MultiTaskDatasetGRAM(Dataset):
             self.data["input"].append(input_sample)
             self.data["output"].append(datapoint["target_lex_id"])
             self.data["user_id"].append(datapoint["user_id"])
+            self.data["history_item_ids"].append(datapoint["history_item_ids"])
+            self.data["target_item_id"].append(datapoint["target_item_id"])
 
         if self.rank == 0 and self.args.verbose_input_output:
             logging.info(f">> Constructing sentence time: {time()-st} s")
@@ -287,4 +308,6 @@ class MultiTaskDatasetGRAM(Dataset):
             "input": self.data["input"][idx],
             "output": self.data["output"][idx],
             "user_id": self.data["user_id"][idx],
+            "history_item_ids": self.data["history_item_ids"][idx],
+            "target_item_id": self.data["target_item_id"][idx],
         }

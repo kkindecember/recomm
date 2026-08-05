@@ -211,6 +211,20 @@ class CollatorGRAM:
         # add user id to the input ('A2CG5Y82ZZNY6W')
         user_ids = [batch_item["user_id"] for batch_item in batch]
 
+        max_history_items = item_text_ids.size(1) - 1
+        history_item_ids = torch.zeros(
+            len(batch), max_history_items, dtype=torch.long
+        )
+        for row, batch_item in enumerate(batch):
+            ids = batch_item.get("history_item_ids", [])[:max_history_items]
+            if ids:
+                history_item_ids[row, : len(ids)] = torch.tensor(ids, dtype=torch.long)
+        history_item_mask = history_item_ids.ne(0)
+        target_item_ids = torch.tensor(
+            [batch_item.get("target_item_id", 0) for batch_item in batch],
+            dtype=torch.long,
+        )
+
         return {
             "target_ids": target_ids,  # B x L
             "target_masks": target_masks,  # B x L
@@ -219,6 +233,9 @@ class CollatorGRAM:
             "neg_item_ids": neg_item_ids,  # B x M x L
             "neg_item_masks": neg_item_masks,  # B x M x L
             "user_ids": user_ids,
+            "history_item_ids": history_item_ids,
+            "history_item_mask": history_item_mask,
+            "target_item_ids": target_item_ids,
         }
 
     def encode_texts(self, batch_item_texts, tokenizer):

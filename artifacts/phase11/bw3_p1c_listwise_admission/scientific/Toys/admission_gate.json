@@ -1,0 +1,68 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_P1C_LISTWISE_ADMISSION_CORRECTION_V1",
+  "dataset": "Toys",
+  "objective": "per_user_listwise_cross_entropy_with_fixed_reject_logit_zero",
+  "feature_schema": [
+    "seq_raw",
+    "seq_anchor_z",
+    "item_raw",
+    "item_anchor_z",
+    "popularity_log1p",
+    "popularity_anchor_z",
+    "beam200_rank_fraction",
+    "reliability",
+    "cf_pop_adjusted"
+  ],
+  "weight": [
+    0.044634029269218445,
+    -0.07872619479894638,
+    0.24277447164058685,
+    0.8199828863143921,
+    0.10323534160852432,
+    -0.2764413356781006,
+    -0.11818359047174454,
+    0.09728249162435532,
+    0.8291890621185303
+  ],
+  "bias": -7.063023090362549,
+  "feature_mean": [
+    -1.187963921450991,
+    -1.967174910560485,
+    1.4657674602488695,
+    -0.561873227277939,
+    2.791135186115578,
+    -0.08000658696167508,
+    0.6241637056976266,
+    0.7948855989233098,
+    -0.5218699337971056
+  ],
+  "feature_std": [
+    0.1582044261832951,
+    0.7191387477216088,
+    1.9174417415103782,
+    1.0168615465637474,
+    0.9177425417884344,
+    1.0736315210350393,
+    0.22223051394813473,
+    0.18475025984828594,
+    1.0807728347758345
+  ],
+  "selected_margin": 0.0,
+  "margin_grid": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "max_admissions": 3,
+  "optimizer": {
+    "name": "Adam",
+    "epochs": 200,
+    "learning_rate": 0.05,
+    "l2": 0.001,
+    "seed": 2023
+  },
+  "item_head_sha256": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+  "compute_device": "cpu"
+}

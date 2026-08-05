@@ -1,0 +1,15 @@
+test_backward_gradients_finite (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests) ... ok
+test_disabled_is_noop_bitwise (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests) ... ok
+test_empty_history_returns_unchanged (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests)
+When all history passages are padding, only user prompt is affected. ... ok
+test_forward_shape_and_finite (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests) ... ok
+test_identical_items_degenerate_case (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests)
+When all valid history passages are identical, output must be finite. ... ok
+test_local_window_mask_shape (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests) ... ok
+test_padding_tokens_not_perturbed (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests)
+Tokens with attention_mask==0 must keep their pre-HI-GRAM values. ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.362s
+
+OK

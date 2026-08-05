@@ -1,0 +1,106 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_A_TOYS_CANDIDATE_UNION_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "sports_read": false,
+  "full_run": true,
+  "users": 19412,
+  "catalog_size": 11924,
+  "popularity_frequency_boundaries": {
+    "q1": 5,
+    "q3": 26
+  },
+  "metrics": {
+    "coverage": {
+      "G50": 0.21193076447558212,
+      "C10": 0.09015042241912219,
+      "C20": 0.12157428394807336,
+      "C50": 0.17453121780342057,
+      "U10": 0.22547908510199877,
+      "U20": 0.23712136822583968,
+      "U50": 0.2666907067793118,
+      "complementary_C50_not_G50": 0.05475994230372965,
+      "target_in_both_G50_C50": 0.11977127549969091,
+      "filtered_U50": 0.2666907067793118
+    },
+    "union_size": {
+      "mean": 90.75092726148775,
+      "median": 93.0,
+      "p80": 97.0,
+      "p90": 98.0,
+      "p95": 99.0,
+      "fraction_le_90": 0.36791675252421185,
+      "filtered_mean": 87.66129198433958
+    },
+    "source_overlap": {
+      "intersection_mean": 9.249072738512261,
+      "cf_only_mean": 40.75092726148774,
+      "jaccard_mean": 0.10943698545278445,
+      "cf_only_candidates_requiring_gram_scoring_total": 791057
+    },
+    "stratified": {
+      "target_tail": {
+        "count": 5160,
+        "G50": 0.13895348837209304,
+        "C50": 0.07616279069767441,
+        "U50": 0.1624031007751938,
+        "complementary_C50_not_G50": 0.023449612403100777
+      },
+      "target_middle": {
+        "count": 9235,
+        "G50": 0.20498105035192205,
+        "C50": 0.17552788305360043,
+        "U50": 0.255224688684353,
+        "complementary_C50_not_G50": 0.05024363833243097
+      },
+      "target_head": {
+        "count": 5017,
+        "G50": 0.29978074546541755,
+        "C50": 0.2738688459238589,
+        "U50": 0.39505680685668726,
+        "complementary_C50_not_G50": 0.09527606139126968
+      },
+      "history_1-5": {
+        "count": 12673,
+        "G50": 0.21218338199321393,
+        "C50": 0.16728477866329994,
+        "U50": 0.2577132486388385,
+        "complementary_C50_not_G50": 0.045529866645624556
+      },
+      "history_6-10": {
+        "count": 4319,
+        "G50": 0.2021301227135911,
+        "C50": 0.16739986107895347,
+        "U50": 0.2583931465617041,
+        "complementary_C50_not_G50": 0.05626302384811299
+      },
+      "history_11-20": {
+        "count": 2420,
+        "G50": 0.228099173553719,
+        "C50": 0.22520661157024793,
+        "U50": 0.3285123966942149,
+        "complementary_C50_not_G50": 0.10041322314049586
+      }
+    },
+    "oracle": {
+      "U50_Hit@10_upper": 0.2666907067793118,
+      "U50_Hit@20_upper": 0.2666907067793118,
+      "U50_Hit@50_upper": 0.2666907067793118
+    }
+  },
+  "scientific_gate": {
+    "status": "failed_candidate_union_gate",
+    "checks": {
+      "union_coverage_gain_at_least_0.030": true,
+      "tail_complementary_coverage_at_least_0.020": true,
+      "union_size_le90_fraction_at_least_0.80": false,
+      "cf_recall50_identity": false
+    }
+  },
+  "artifacts": {
+    "per_user_coverage_sha256": "21c0b3a169828af25a60d7f551b872ffc661a2b0ba0f9442342f33a8cc7b6b78"
+  },
+  "wall_time_seconds": 7.7340569496154785
+}

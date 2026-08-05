@@ -1,0 +1,92 @@
+{
+  "experiment_id": "GRAM_PHASE8_TIPA_D0_FAILURE_ATTRIBUTION_V1",
+  "created_at": "2026-08-03T22:31:28.318922+08:00",
+  "analysis_script": {
+    "path": "experiment/phase8/tipa_d0_failure_attribution.py",
+    "sha256": "f8cbb1184beeaa33d854c29035cb8ccd8dcb9f0e16264961525c367a551a9574"
+  },
+  "inputs": {
+    "canonical_summary": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/summary.json",
+      "expected_sha256": "a0b6b06717d234c224daa7cf2fc3f3bc08599b364ffdc360ae66ced9d9d09c2b",
+      "actual_sha256": "a0b6b06717d234c224daa7cf2fc3f3bc08599b364ffdc360ae66ced9d9d09c2b"
+    },
+    "toys_summary": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/summary.json",
+      "expected_sha256": "1ac1e6755d02aaf92753b487be62a5d761f2926aa292cfbd48aadb980e802e96",
+      "actual_sha256": "1ac1e6755d02aaf92753b487be62a5d761f2926aa292cfbd48aadb980e802e96"
+    },
+    "beauty_summary": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/summary.json",
+      "expected_sha256": "5ce602cf212115a6d1f407127348c49b0772e97165d2ffa791dd9049c5667500",
+      "actual_sha256": "5ce602cf212115a6d1f407127348c49b0772e97165d2ffa791dd9049c5667500"
+    },
+    "toys_per_prefix": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/per_prefix.csv",
+      "expected_sha256": "9bdb4f27a07f1c2d9b5e5d93873844a02f49ba397760dfc178055a25a835c63d",
+      "actual_sha256": "9bdb4f27a07f1c2d9b5e5d93873844a02f49ba397760dfc178055a25a835c63d"
+    },
+    "beauty_per_prefix": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/per_prefix.csv",
+      "expected_sha256": "b4d80fd10ef40ed02b324800c9f3f9a12b1f1bc7e67d34b50cd9c8ac5376e2fd",
+      "actual_sha256": "b4d80fd10ef40ed02b324800c9f3f9a12b1f1bc7e67d34b50cd9c8ac5376e2fd"
+    },
+    "toys_per_user": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/per_user.csv",
+      "expected_sha256": "51a9c734e37f5df749d5549188eab3aaeea45b471e7f2a6adf15a58a058fea08",
+      "actual_sha256": "51a9c734e37f5df749d5549188eab3aaeea45b471e7f2a6adf15a58a058fea08"
+    },
+    "beauty_per_user": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/per_user.csv",
+      "expected_sha256": "4fd27a30b2dcc0eeb636f816cf1de177e108539ad1f9ce9addf19d0d0533939f",
+      "actual_sha256": "4fd27a30b2dcc0eeb636f816cf1de177e108539ad1f9ce9addf19d0d0533939f"
+    },
+    "toys_per_user_arms": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Toys/per_user_arms.csv",
+      "expected_sha256": "7b78c3d3b1e1217884228e28bd63923031a3ac9f81edf8d370c26965cb3b060e",
+      "actual_sha256": "7b78c3d3b1e1217884228e28bd63923031a3ac9f81edf8d370c26965cb3b060e"
+    },
+    "beauty_per_user_arms": {
+      "path": "artifacts/phase8/tipa_p0_branching_recovery/Beauty/per_user_arms.csv",
+      "expected_sha256": "6f3142b5d33fc8fb9c84bdfe5256c816ddd36faa62baef8b0e03606cc64859d3",
+      "actual_sha256": "6f3142b5d33fc8fb9c84bdfe5256c816ddd36faa62baef8b0e03606cc64859d3"
+    }
+  },
+  "outputs": [
+    {
+      "path": "artifacts/phase8/tipa_d0_failure_attribution/summary.json",
+      "bytes": 24017,
+      "sha256": "73d331f0d834f0068211788b0691e128df4ec74a57cc251a36ddca04f98a93cc"
+    },
+    {
+      "path": "artifacts/phase8/tipa_d0_failure_attribution/paired_effects.csv",
+      "bytes": 161096,
+      "sha256": "4d67336556c321abd11876d8cfdffbe7f904640698dfc61a957fd82d2f5f32a0"
+    },
+    {
+      "path": "artifacts/phase8/tipa_d0_failure_attribution/strata.csv",
+      "bytes": 11210,
+      "sha256": "7a1b1bbf9af0c45adaaa19a0c08056e018dc88cd04bacfe6260ffac46fb9bec4"
+    },
+    {
+      "path": "artifacts/phase8/tipa_d0_failure_attribution/prefix_census.csv",
+      "bytes": 2424,
+      "sha256": "08221965a2050d07c6a2659e97fc75157cfcc586165c53d0d55817c3e4ff299a"
+    },
+    {
+      "path": "artifacts/phase8/tipa_d0_failure_attribution/bootstrap_intervals.csv",
+      "bytes": 997,
+      "sha256": "2157147270aae573350af7bac71f9e1d085875a3236ce65e1e78dcefd7991749"
+    },
+    {
+      "path": "artifacts/phase8/tipa_d0_failure_attribution/integrity.json",
+      "bytes": 362,
+      "sha256": "f9bdfe73ddf1ef9fe75952cbf90c7930e388ad60a200b2e8ab6747b676eef957"
+    },
+    {
+      "path": "report/第八阶段/GRAM_第八阶段_TIPA-D0路径对齐失败归因审计报告.md",
+      "bytes": 3334,
+      "sha256": "d13c19c5e1b8d45e23af2e1773115d8e76f470f67f08ef5514ccad1b1b80bf85"
+    }
+  ]
+}

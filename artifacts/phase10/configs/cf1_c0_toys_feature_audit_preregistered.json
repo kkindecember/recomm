@@ -1,0 +1,40 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_C0_TOYS_FEATURE_AUDIT_V1",
+  "decision_status": "AUTHORIZED_CF1_C0_FEATURE_AUDIT_ONLY",
+  "execution_enabled": true,
+  "dataset": "Toys",
+  "split": "validation",
+  "users": 19412,
+  "batch_size": 256,
+  "timeout_seconds": 3600,
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "inputs_sha256": {
+    "artifacts/phase10/cf1_b2_toys_full_scores/candidate_scores.tsv": "6a7ce546ada91fd8e87534af54706b7ad78a5d9517e7b5d49e0cb1b3c7c4941c",
+    "artifacts/phase10/cf1_b2_toys_full_scores/summary.json": "ebfe56b4946b149aedac31440f500d92bad918102e8e4b2c9a2ed404dba067cc",
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a",
+    "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+    "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+  },
+  "code_sha256": {
+    "experiment/phase10/eval_cf1_c0_feature_audit.py": "d7161caa0be506a56ac72a7b39fbecfe9f1e1e9ced663c8ebb026cd8c944ba92",
+    "experiment/phase10/test_cf1_c0_feature_audit.py": "048b62ee85ff5f07e4e04d3ef6c7de491b31d584235985cf4c220d7df4ead6d8",
+    "plan/第十阶段/GRAM_第十阶段_CF1-C跨折校准融合实验计划.md": "d1954586dccf9dccabc770927630d78765ddee54979ef78b43a17babd7950431"
+  },
+  "scientific_gates": {
+    "users_exact": 19412,
+    "total_candidates_exact": 1698905,
+    "cf_only_candidates_exact": 728305,
+    "valid_budget_fraction": 1.0,
+    "duplicate_pairs_exact": 0,
+    "finite_fraction": 1.0,
+    "b2_rows_matched_fraction": 1.0,
+    "b2_sha256_identity": true,
+    "cached_G50_footer_identity": true,
+    "fold_integrity": true,
+    "target_excluded_from_inference_schema": true
+  }
+}
+

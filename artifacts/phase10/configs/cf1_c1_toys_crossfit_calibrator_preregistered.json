@@ -1,0 +1,41 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_C1_TOYS_CROSSFIT_CALIBRATOR_V1",
+  "decision_status": "AUTHORIZED_CF1_C1_FIVE_FOLD_OOF",
+  "execution_enabled": true,
+  "dataset": "Toys",
+  "split": "validation",
+  "users": 19412,
+  "folds": 5,
+  "fold_seed": 2023,
+  "model": "monotone_linear_listwise_softmax",
+  "l2": 0.001,
+  "max_iter": 200,
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 2023,
+  "timeout_seconds": 3600,
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "inputs_sha256": {
+    "artifacts/phase10/cf1_c0_toys_feature_audit/feature_table.npz": "79fd0d670fd37d5a402b6989bee76ec55c9dcbdbb964f953b6ee5b4cd592a269",
+    "artifacts/phase10/cf1_c0_toys_feature_audit/summary.json": "6da792244155667319aca1502702ba4da63041c64aeaddb2671f9a40d2d7a847",
+    "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv": "429c5ceb36485389c304f3e648388805d31846d7e33e50cfd028c360752fce2a"
+  },
+  "code_sha256": {
+    "experiment/phase10/eval_cf1_c1_crossfit_calibrator.py": "568dff8dba38f362cb39bf88fba4fb90e9cac434496c863546a6df8e14073318",
+    "experiment/phase10/test_cf1_c1_crossfit_calibrator.py": "2b9007318234eb7f6b9e3b20ac63ddb556e811a6966e9d00cf6d9d5d3ce28650",
+    "plan/第十阶段/GRAM_第十阶段_CF1-C跨折校准融合实验计划.md": "d1954586dccf9dccabc770927630d78765ddee54979ef78b43a17babd7950431"
+  },
+  "development_gates": {
+    "Hit@10_delta_min": 0.003,
+    "Hit@50_delta_min": 0.020,
+    "tail_Hit@10_delta_min": 0.0,
+    "Hit@1_delta_min": -0.001,
+    "Hit@10_bootstrap_lower_strictly_positive": true,
+    "positive_Hit@10_folds_min": 4,
+    "all_folds_converged": true,
+    "finite_fraction": 1.0,
+    "train_only_scaling": true
+  }
+}
+

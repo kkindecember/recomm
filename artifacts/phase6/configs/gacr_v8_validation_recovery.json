@@ -1,0 +1,68 @@
+{
+  "recovery_id": "GRAM_PHASE6_GACR_V8_VALIDATION_ONLY_RECOVERY_V1",
+  "authorized_at": "2026-08-03T15:51:44+08:00",
+  "reason": "The completed v8 run used all(integrity.values()), so compliant zero optimizer steps and false forbidden-read flags incorrectly blocked qualified arm E before fresh validation.",
+  "repair_scope": "Typed integrity-gate correction plus preregistered A/B/E fresh validation and E-vs-B three-seed user-mean bootstrap; no retraining, tuning, cohort change, Sports/test read, or automatic retry.",
+  "original_preregistered_config": "artifacts/phase6/configs/gacr_v8_preregistered.json",
+  "original_preregistered_config_sha256": "da6a3fbe3ee59a69af6194217cc9463fec6e04e88ec29491e8794b889f1ba72c",
+  "completed_calibration_summary": "artifacts/phase6/gacr_v8_recovery/summary.json",
+  "completed_calibration_summary_sha256": "9065fc8cf9f674bad16857379f253699df403d1c8aebbf7954ecff51137a57ac",
+  "original_frozen_materials": {
+    "implementation_sha256": "4e38f010adf2d54f5f7afe3c75ad734cd523bfb8f144e6f165a29e0dc120c766",
+    "test_sha256": "79c5c7427352178e5e6fcde771188dc6732975c146ffb8a1976494ffb8611814",
+    "runner_sha256": "c843f55de1e4a173ce19a6587a0d3aabfa4b56763e7ae4674ef3582ad2b820d5",
+    "pre_recovery_amendment_plan_sha256": "d113c0c2836f041e8e2b2f62070541ed72cde1493f5b2eeb32ffecef6befe820"
+  },
+  "expected_recomputed_qualified_arms": {
+    "D": false,
+    "E": true
+  },
+  "qualified_checkpoint_root": "artifacts/phase6/gacr_v8_recovery",
+  "expected_qualified_checkpoint_sha256": {
+    "Toys": {
+      "2023": "fc73318f98e2834631d3f415ca98c7ecce9da156ec8e6a69a722a2ea51fb194e",
+      "2024": "d0aacc5074a99bd396c80dcf8b7682a194753d83f5ed1de353288a2a00afdb59",
+      "2025": "3ce6588c5577cf4b56e6bb67282c1e985678a42a5d89abb26905c365c8da6dd0"
+    },
+    "Beauty": {
+      "2023": "8c7bc9c22d824874d8c972f0d1c1829096a34dbb709535fe3f30d0fa866294b0",
+      "2024": "9e94c67058010736e318f767b5e215c26719b3a9805e082a88755c20b890e75b",
+      "2025": "cdccb544f72c212500b3dc5b5c57bee5aa55fe590d5e1fef35448203b6a647a3"
+    }
+  },
+  "incumbent": {
+    "method": "GACR-v3",
+    "checkpoint_root": "artifacts/phase6/gacr_v2",
+    "bound": 0.2,
+    "selected_domain_budgets": {
+      "Toys": 0.4,
+      "Beauty": 0.4
+    },
+    "expected_checkpoint_sha256": {
+      "Toys": {
+        "2023": "d24754ff0d8bd072ca2edcf6e4d1b46a0184792caa5d116b53f64f7c9a7ce53c",
+        "2024": "6f327a897c0e1075a42c668cc3a76f8a96776598e19b6e54e2b61079fcdf4fd5",
+        "2025": "41e836160622d4dc4098d48e647427079bae6f91aee73bdc190bdafecfabf864"
+      },
+      "Beauty": {
+        "2023": "b11618e7e82e3af26231ac4a58d93f2d988ff351d775556df5dae9caa26ea370",
+        "2024": "b76dd10ad52685cec5ef83b78986aea74c663969ab7366271f8af5b45bd73e0e",
+        "2025": "bc490fcadc3ff384118cf13108e8c0413c378c0d05f07a2ead951880ecbf4c0d"
+      }
+    }
+  },
+  "output_root": "artifacts/phase6/gacr_v8_validation_recovery",
+  "implementation_lock": {
+    "implementation_sha256": "76f438f5e3087a14ff3d40b20807bbebc051249018e6c640e6a64927d7ff07d7",
+    "test_sha256": "a40eb62d4d0169e8c7f300f74e5e1232925afb05b4c42a3c4741ceb270f6fef7",
+    "runner_sha256": "02236510a2774ebc2c78b45c84e6c612382fee5e46231820f4870114649047a5",
+    "plan_sha256": "f27f86594482c1ac230f0b2d8dddaa0b470ef29a066ce8e232691d0ad63287ac"
+  },
+  "gpu_memory_lease": {
+    "total_lease_mib": 30720,
+    "expected_workload_peak_mib": 24576,
+    "sidecar_reserved_mib": 6144
+  },
+  "hard_timeout_seconds": 172800,
+  "no_automatic_retry": true
+}

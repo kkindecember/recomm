@@ -1,0 +1,150 @@
+2026-08-03 23:22:04,126 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_smoke/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 1, 'save_rec_epochs': 1, 'rec_batch_size': 4, 'rec_model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt', 'rec_lr': 0.0001, 'test_epoch_rec': 0, 'data_path': '../rec_datasets', 'datasets': 'Toys', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 1, 'debug_test_100': 1, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 0, 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 1, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 5, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c32_l5_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'B', 'cf0_phase9': 1, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'log_name': '0_1_1_20_12345_Toys_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_smoke/gram_logs/Toys/0_20260803_2322', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_smoke/gram_logs/Toys/0_20260803_2322/id_0_rec_1', 'rank': 0}
+2026-08-03 23:22:04,179 - root - INFO - Use t5-small backbone model
+2026-08-03 23:22:14,485 - root - INFO - Generating data for Toys dataset
+2026-08-03 23:22:14,486 - root - INFO - Reindex data with generative indexing method
+2026-08-03 23:22:14,632 - root - INFO - loading training data
+2026-08-03 23:22:15,636 - root - INFO - >>>> Debug mode: only use 100 samples for training (MultiTaskDatasetGRAM)
+2026-08-03 23:22:15,637 - root - INFO - Generating data for Toys dataset
+2026-08-03 23:22:15,637 - root - INFO - Reindex data with generative indexing method
+2026-08-03 23:22:15,744 - root - INFO - loading training data
+2026-08-03 23:22:16,880 - root - INFO - >>>> Debug mode: only use 100 samples for training (MultiTaskDatasetGRAM)
+2026-08-03 23:22:17,090 - root - INFO - Load recommender model from /mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt
+2026-08-03 23:22:17,091 - root - INFO - Building Optimizer and Scheduler
+2026-08-03 23:22:17,091 - root - INFO - Batch per epoch id: 25
+2026-08-03 23:22:17,091 - root - INFO - Warmup proportion: 0.05
+2026-08-03 23:22:17,091 - root - INFO - Total id generator steps: 0
+2026-08-03 23:22:17,091 - root - INFO - Warm up id generator steps: 0
+2026-08-03 23:22:17,091 - root - INFO - Batch per epoch rec: 25
+2026-08-03 23:22:17,091 - root - INFO - Warmup proportion: 0.05
+2026-08-03 23:22:17,091 - root - INFO - Total rec generator steps: 25
+2026-08-03 23:22:17,091 - root - INFO - Warm up rec generator steps: 1
+2026-08-03 23:22:17,095 - root - INFO - Building Optimizer AdamW
+2026-08-03 23:22:17,441 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-03 23:22:17,441 - root - INFO - Start training
+2026-08-03 23:22:17,443 - root - INFO - Training Recommender phase 1
+2026-08-03 23:22:17,445 - root - INFO - CF0_TRAIN_STAGE epoch=1 stage=cf0_pretrain trainable_parameters=12947456
+2026-08-03 23:22:17,447 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-03 23:22:20,354 - root - INFO - The average training loss for rec phase 1 epoch 1 is 14.711700019836426
+2026-08-03 23:22:20,950 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_smoke/gram_logs/Toys/0_20260803_2322/id_0_rec_1/scheduler_rec_phase_1_epoch_1.pt
+2026-08-03 23:22:20,950 - root - INFO - Training ID Generator phase 1 finished ..
+2026-08-03 23:22:23,105 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_smoke/gram_logs/Toys/0_20260803_2322/id_0_rec_1/scheduler_rec_phase_1_epoch_1.pt
+2026-08-03 23:22:23,108 - root - INFO - RESOURCE_METRIC phase=training wall_time_seconds=5.665645 peak_allocated_mib=1236.030 peak_reserved_mib=1322.000 end_allocated_mib=655.946 end_reserved_mib=1322.000
+2026-08-03 23:22:23,108 - root - INFO - Train done ... Load model from /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase9/cf0_b_toys_smoke/gram_logs/Toys/0_20260803_2322/id_0_rec_1/model_rec_phase_1_epoch_1.pt
+2026-08-03 23:22:23,494 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-03 23:22:23,696 - root - INFO - [validation] testing Toys dataset on sequential task
+2026-08-03 23:22:44,511 - root - INFO - 
+-------------------------------
+2026-08-03 23:22:44,511 - root - INFO - [GT] game board villages village hopefully || [top-1] game board pyramid templecan || [hits@10] 0.0
+[GT] transformer copbot blade convert || [top-1] set people basketball sports 52 || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game zombie unde male bag || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] sports uncle globe boundary4,000 || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] mel puzzle nume number pe || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game diceponent mental math || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] leappad helloitty tablet || [hits@10] 0.0
+[GT] crafts shrink stuff din ale || [top-1] game card cards rather would || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] sports rocket refillmp glow || [hits@10] 0.0
+[GT] leaprogreading tag purple || [top-1] mel puzzle nume number pe || [hits@10] 0.0
+[GT] mel magnetic memory flip win || [top-1] buildingplo le du 54 || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] actionassi cre pirate law || [hits@10] 0.0
+[GT] animals ses shoutsofter bit || [top-1] baby laugh wordsddy shapes || [hits@10] 0.0
+[GT] mel sunny bugs bugologists || [top-1] sports party cake cupcake bat || [hits@10] 0.0
+[GT] puzzle princess 35164burger || [top-1] game word tiles wordsword || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] leaprog fix150 speed || [hits@10] 0.0
+[GT] mel stickers pagesreusable five || [top-1] set wheelway ramp people || [hits@10] 0.0
+[GT] animalsroralion auflop || [top-1] game word tiles wordsword || [hits@10] 0.0
+[GT] pretend kitchen pastel culinarycup || [top-1] sports lightez globebe || [hits@10] 0.0
+[GT] baby puppy 1,5 wentcake || [top-1] sportsblomur calendar advent || [hits@10] 0.0
+[GT] building warjarfeder invasion || [top-1] building creator village minecraft || [hits@10] 0.0
+[GT] mel blocks architectural block handsome || [top-1] mel puzzlequoprin 48 || [hits@10] 0.0
+[GT] game board dont say201 || [top-1] crafts stickers official stickernd || [hits@10] 0.0
+[GT] water bathbuck pour bell || [top-1] building sponge glovebob wasn || [hits@10] 0.0
+[GT] leapbig helloitty mo || [top-1] leapbigaga mad cartridge || [hits@10] 0.0
+[GT] leaprog 2.0 grover || [top-1] game word tiles wordsword || [hits@10] 0.0
+[GT] sports video party supplies crafts || [top-1] sports ball soccer footballball || [hits@10] 0.0
+[GT] ney princess juniorrol royal || [top-1] vehicles fire geotra station || [hits@10] 0.0
+[GT] game matchingke ja land || [top-1] sports rocket balloon powered600 || [hits@10] 0.0
+[GT] train railway traffic crossing destinations || [top-1] mel puzzle magnetic animal educate || [hits@10] 0.0
+[GT] animals bear gun amazonsofter || [top-1] game wordgram banana tiles || [hits@10] 0.0
+[GT] building alien creep squad hover || [top-1] building le100 tac guy || [hits@10] 0.0
+[GT] building magtag pen62 || [top-1] buildingplo du brick cars || [hits@10] 0.0
+[GT] water trainer tubefloat swimmer || [top-1] set people basketball sports 52 || [hits@10] 0.0
+[GT] animals fur bun hop belong || [top-1] baby toddlercho280long || [hits@10] 0.0
+[GT] neynnie swirldefinite mi || [top-1] vehiclesblo dump truck cat || [hits@10] 0.0
+[GT] vehicles truck dump dirty external || [top-1] baby phone telephone chatchatting || [hits@10] 0.0
+[GT] mel beads handy trayces || [top-1] dollbie 140 mirror 52 || [hits@10] 0.0
+[GT] sports poke albums pocketfive || [top-1] drawing bondoodle sketch pad || [hits@10] 0.0
+[GT] building city worker garbage trash || [top-1] action buzz soldiers bucket para || [hits@10] 0.0
+[GT] transformer primebot optim auto || [top-1] action batdam westman || [hits@10] 0.0
+[GT] pretend medical doctorboo thermo || [top-1] game word tiles wordsword || [hits@10] 0.0
+[GT] train railway diesel intensplatte || [top-1] sports ball soccer footballball || [hits@10] 0.0
+[GT] sports video party software books || [top-1] leappad pen interrupt opt0 || [hits@10] 0.0
+[GT] game card smash faction000 || [top-1] game card cards states scr || [hits@10] 0.0
+[GT] dollhap family house hallmark || [top-1] set animalsambipond moments || [hits@10] 0.0
+[GT] sports partychyleidscope || [top-1] sports uncle generator electrical torch || [hits@10] 0.0
+[GT] sports nano gravity behave register || [top-1] baby gym center busy 2006 || [hits@10] 0.0
+[GT] baby stackasta reflection sort || [top-1] baby balls telephone busyeffect || [hits@10] 0.0
+[GT] helicopter03walker module450 || [top-1] sports journalancy gaz science || [hits@10] 0.0
+[GT] mel puzzle differentiation latch craftsmanship || [top-1] mel puzzle nume number pe || [hits@10] 0.0
+[GT] neymobil carrying german case || [top-1] building math mat equation scores || [hits@10] 0.0
+[GT] drawingcra crayonularla || [top-1] buildingplo du brick cars || [hits@10] 0.0
+[GT] game boardanz foreheadduce || [top-1] building math equation minute algebra || [hits@10] 0.0
+[GT] doll nestrussia cutie mat || [top-1] doll nestrussia cutie mat || [hits@10] 1.0
+[GT] cars hot rally park race || [top-1] building spongebob pat du || [hits@10] 0.0
+[GT] sports blast crushbow cross || [top-1] sports ball soccer footballball || [hits@10] 0.0
+[GT] wagon cozy coupeannisay || [top-1] animalsaniiganartisteash || [hits@10] 0.0
+[GT] drawing crayon bath towels tablets || [top-1] drawingoodle peopledlermes || [hits@10] 0.0
+[GT] dollhouseannabell dull || [top-1] building math equation minute algebra || [hits@10] 0.0
+[GT] loom bubble bottlesflu assortment || [top-1] leapster messenger adapt cartridge || [hits@10] 0.0
+[GT] animals pillowlite dream ceiling || [top-1] drawing paint wash bottles 29 || [hits@10] 0.0
+[GT] setmobil wiseking splendid || [top-1] building lework clock somebody || [hits@10] 0.0
+[GT] crafts globezu260 bi || [top-1] sports educationgan ori seam || [hits@10] 0.0
+[GT] dollhouse cottage fonttal || [top-1] pretend food birthday cake candles || [hits@10] 0.0
+[GT] building build 72consistswig || [top-1] drawing crayon tub bath star || [hits@10] 0.0
+[GT] animals monkeyley scar university || [top-1] set trio joke lab sixty || [hits@10] 0.0
+[GT] game board carrot farmers bun || [top-1] drawingcra crayon152la || [hits@10] 0.0
+[GT] helicopter channel107smallest functional1 || [top-1] set people basketball sports 52 || [hits@10] 0.0
+[GT] set ja trunkkes doubl || [top-1] water pool pools recreation chamber || [hits@10] 0.0
+[GT] building creator mine foundercraft || [top-1] game board elephant pyramid troupe || [hits@10] 0.0
+[GT] leaprogphon factory letter || [top-1] game word tiles wordsword || [hits@10] 0.0
+[GT] game dicekle risk far || [top-1] game card un font neue || [hits@10] 0.0
+[GT] sports blasttri eliteke || [top-1] buildingurimbo peju || [hits@10] 0.0
+[GT] puzzleplex barriers epic per || [top-1] gameyah hustle score gut || [hits@10] 0.0
+[GT] leapexplorerdoc clinic rond || [top-1] baby cameraizo photographer director || [hits@10] 0.0
+[GT] doll american sneakers pair purpose || [top-1] trainmas theme song engineers || [hits@10] 0.0
+[GT] leapread solar constellation planet || [top-1] sports education robot shark clown || [hits@10] 0.0
+[GT] crafts paint autumn portrait subtle || [top-1] game matching numbers119 memory || [hits@10] 0.0
+[GT] building trekattach invasion dimension || [top-1] vehicles garbage bin trucksbru || [hits@10] 0.0
+[GT] set wheelusementoop loop || [top-1] drawingoodle dotsdoublepens || [hits@10] 0.0
+[GT] leap letter fontphonweight || [top-1] mel puzzle nume number pe || [hits@10] 0.0
+[GT] pretend chefpro mit baking || [top-1] vehiclesblo dump fill wagon || [hits@10] 0.0
+[GT] action bat bank busman || [top-1] mel puzzle nume number pe || [hits@10] 0.0
+[GT] mel puzzle tweet petscatching || [top-1] mel puzzle farmeffect properly || [hits@10] 0.0
+[GT] mel puzzle chunk beneathpainted6 || [top-1] drawingoodle aqua matpens || [hits@10] 0.0
+[GT] setble seats treating we || [top-1] set people basketball sports 52 || [hits@10] 0.0
+[GT] game board gamingenriched painful5 || [top-1] set people basketball sports 52 || [hits@10] 0.0
+[GT] sports light footballzonesmith || [top-1] drawing paintpai340 paper || [hits@10] 0.0
+[GT] carsixvette lightning je || [top-1] set animals parade elephant animal || [hits@10] 0.0
+[GT] game hungryville farm fields || [top-1] game word tiles letter tile || [hits@10] 0.0
+[GT] vehicles truckmax dump cuts || [top-1] building brick 700 le188 || [hits@10] 0.0
+[GT] transformer jazz anomal visitsabsorbing || [top-1] baby laugh songs greetingck || [hits@10] 0.0
+[GT] puzzlesaw stainedwoodstains || [top-1] leap software braveridnot || [hits@10] 0.0
+[GT] game card un phase seven || [top-1] vehicleschuck talkingchatting dump || [hits@10] 0.0
+[GT] sports education bloclib5.2 || [top-1] building math mat equation scores || [hits@10] 0.0
+[GT] mel trainown engineers engine || [top-1] sports light led sequence spirit || [hits@10] 0.0
+[GT] dinosaurologyrannosau || [top-1] buildingplo le du 54 || [hits@10] 0.0
+[GT] leapster handheldexplorerbag || [top-1] baby phonetone messages chat || [hits@10] 0.0
+[GT] game board pirate noir cargo || [top-1] building math equation minute algebra || [hits@10] 0.0
+
+2026-08-03 23:22:44,511 - root - INFO - validation hit@1: 0.01
+2026-08-03 23:22:44,511 - root - INFO - validation hit@3: 0.01
+2026-08-03 23:22:44,511 - root - INFO - validation hit@5: 0.02
+2026-08-03 23:22:44,511 - root - INFO - validation hit@10: 0.02
+2026-08-03 23:22:44,511 - root - INFO - validation hit@20: 0.03
+2026-08-03 23:22:44,511 - root - INFO - validation hit@50: 0.05
+2026-08-03 23:22:44,511 - root - INFO - validation ndcg@1: 0.01
+2026-08-03 23:22:44,511 - root - INFO - validation ndcg@3: 0.01
+2026-08-03 23:22:44,512 - root - INFO - validation ndcg@5: 0.013868528072345416
+2026-08-03 23:22:44,512 - root - INFO - validation ndcg@10: 0.013868528072345416
+2026-08-03 23:22:44,512 - root - INFO - validation ndcg@20: 0.016315033493527677
+2026-08-03 23:22:44,512 - root - INFO - validation ndcg@50: 0.020249452219434753
+2026-08-03 23:22:44,512 - root - INFO - Total inference time: 18.87s for 100 samples. Average: 0.1887s

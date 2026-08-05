@@ -1,0 +1,363 @@
+{
+  "dataset": "Toys",
+  "mode": "formal",
+  "fit": {
+    "bias": -7.063023090362549,
+    "initial_ranking_loss": 5.017280578613281,
+    "final_ranking_loss": 0.85478276014328,
+    "final_objective": 0.856320321559906,
+    "finite": true,
+    "loss_events": 743,
+    "excluded_events": 281,
+    "initial_objective": 5.017280578613281,
+    "last_epoch_objective": 0.8581384420394897
+  },
+  "fit_attrition": {
+    "total_events": 1024,
+    "action_counts": {
+      "base_top10": 501,
+      "base_11_50": 63,
+      "expansion_only": 179,
+      "outside_union": 281
+    },
+    "action_fractions": {
+      "base_top10": 0.4892578125,
+      "base_11_50": 0.0615234375,
+      "expansion_only": 0.1748046875,
+      "outside_union": 0.2744140625
+    },
+    "membership_counts": {
+      "target_in_beam50": 564,
+      "target_in_beam200": 743,
+      "target_in_both": 564,
+      "target_in_beam200_not_beam50": 179,
+      "target_in_union_included_in_loss": 743,
+      "target_outside_union_excluded_from_loss": 281,
+      "empty_expansion_pool": 0
+    },
+    "membership_fractions": {
+      "target_in_beam50": 0.55078125,
+      "target_in_beam200": 0.7255859375,
+      "target_in_both": 0.55078125,
+      "target_in_beam200_not_beam50": 0.1748046875,
+      "target_in_union_included_in_loss": 0.7255859375,
+      "target_outside_union_excluded_from_loss": 0.2744140625,
+      "empty_expansion_pool": 0.0
+    },
+    "expansion_pool_size": {
+      "min": 150,
+      "median": 150.0,
+      "mean": 150.0,
+      "max": 150
+    }
+  },
+  "calibration_attrition": {
+    "total_events": 512,
+    "action_counts": {
+      "base_top10": 278,
+      "base_11_50": 18,
+      "expansion_only": 92,
+      "outside_union": 124
+    },
+    "action_fractions": {
+      "base_top10": 0.54296875,
+      "base_11_50": 0.03515625,
+      "expansion_only": 0.1796875,
+      "outside_union": 0.2421875
+    },
+    "membership_counts": {
+      "target_in_beam50": 296,
+      "target_in_beam200": 388,
+      "target_in_both": 296,
+      "target_in_beam200_not_beam50": 92,
+      "target_in_union_included_in_loss": 388,
+      "target_outside_union_excluded_from_loss": 124,
+      "empty_expansion_pool": 0
+    },
+    "membership_fractions": {
+      "target_in_beam50": 0.578125,
+      "target_in_beam200": 0.7578125,
+      "target_in_both": 0.578125,
+      "target_in_beam200_not_beam50": 0.1796875,
+      "target_in_union_included_in_loss": 0.7578125,
+      "target_outside_union_excluded_from_loss": 0.2421875,
+      "empty_expansion_pool": 0.0
+    },
+    "expansion_pool_size": {
+      "min": 150,
+      "median": 150.0,
+      "mean": 150.0,
+      "max": 150
+    }
+  },
+  "calibration_grid": [
+    {
+      "margin": 0.0,
+      "base": {
+        "count": 512,
+        "mrr": 0.35952679225118933,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.54296875,
+        "NDCG@10": 0.4018289532926428,
+        "Hit@20": 0.57421875,
+        "NDCG@20": 0.40988057291683333,
+        "Hit@50": 0.578125,
+        "NDCG@50": 0.4107445340812925
+      },
+      "candidate": {
+        "count": 512,
+        "mrr": 0.36379898313492065,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.609375,
+        "NDCG@10": 0.42112296595664317,
+        "Hit@20": 0.609375,
+        "NDCG@20": 0.42112296595664317,
+        "Hit@50": 0.609375,
+        "NDCG@50": 0.42112296595664317
+      },
+      "hit10_delta": 0.06640625,
+      "ndcg10_delta": 0.01929401266400038,
+      "tail_hit10_delta": 0.07352941176470584,
+      "admissions": 42,
+      "admission_users": 37,
+      "fallback_users": 475,
+      "promotions": 34,
+      "regressions": 0
+    },
+    {
+      "margin": 0.25,
+      "base": {
+        "count": 512,
+        "mrr": 0.35952679225118933,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.54296875,
+        "NDCG@10": 0.4018289532926428,
+        "Hit@20": 0.57421875,
+        "NDCG@20": 0.40988057291683333,
+        "Hit@50": 0.578125,
+        "NDCG@50": 0.4107445340812925
+      },
+      "candidate": {
+        "count": 512,
+        "mrr": 0.36336495535714286,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.60546875,
+        "NDCG@10": 0.41994706753608074,
+        "Hit@20": 0.60546875,
+        "NDCG@20": 0.41994706753608074,
+        "Hit@50": 0.60546875,
+        "NDCG@50": 0.41994706753608074
+      },
+      "hit10_delta": 0.0625,
+      "ndcg10_delta": 0.018118114243437955,
+      "tail_hit10_delta": 0.07352941176470584,
+      "admissions": 38,
+      "admission_users": 35,
+      "fallback_users": 477,
+      "promotions": 32,
+      "regressions": 0
+    },
+    {
+      "margin": 0.5,
+      "base": {
+        "count": 512,
+        "mrr": 0.35952679225118933,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.54296875,
+        "NDCG@10": 0.4018289532926428,
+        "Hit@20": 0.57421875,
+        "NDCG@20": 0.40988057291683333,
+        "Hit@50": 0.578125,
+        "NDCG@50": 0.4107445340812925
+      },
+      "candidate": {
+        "count": 512,
+        "mrr": 0.3623612661210317,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.595703125,
+        "NDCG@10": 0.4170959757143792,
+        "Hit@20": 0.595703125,
+        "NDCG@20": 0.4170959757143792,
+        "Hit@50": 0.595703125,
+        "NDCG@50": 0.4170959757143792
+      },
+      "hit10_delta": 0.052734375,
+      "ndcg10_delta": 0.015267022421736387,
+      "tail_hit10_delta": 0.0514705882352941,
+      "admissions": 30,
+      "admission_users": 28,
+      "fallback_users": 484,
+      "promotions": 27,
+      "regressions": 0
+    },
+    {
+      "margin": 0.75,
+      "base": {
+        "count": 512,
+        "mrr": 0.35952679225118933,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.54296875,
+        "NDCG@10": 0.4018289532926428,
+        "Hit@20": 0.57421875,
+        "NDCG@20": 0.40988057291683333,
+        "Hit@50": 0.578125,
+        "NDCG@50": 0.4107445340812925
+      },
+      "candidate": {
+        "count": 512,
+        "mrr": 0.3619706411210317,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.591796875,
+        "NDCG@10": 0.41596681623657494,
+        "Hit@20": 0.591796875,
+        "NDCG@20": 0.41596681623657494,
+        "Hit@50": 0.591796875,
+        "NDCG@50": 0.41596681623657494
+      },
+      "hit10_delta": 0.048828125,
+      "ndcg10_delta": 0.014137862943932156,
+      "tail_hit10_delta": 0.04411764705882354,
+      "admissions": 28,
+      "admission_users": 27,
+      "fallback_users": 485,
+      "promotions": 25,
+      "regressions": 0
+    },
+    {
+      "margin": 1.0,
+      "base": {
+        "count": 512,
+        "mrr": 0.35952679225118933,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.54296875,
+        "NDCG@10": 0.4018289532926428,
+        "Hit@20": 0.57421875,
+        "NDCG@20": 0.40988057291683333,
+        "Hit@50": 0.578125,
+        "NDCG@50": 0.4107445340812925
+      },
+      "candidate": {
+        "count": 512,
+        "mrr": 0.36158001612103174,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.587890625,
+        "NDCG@10": 0.4148376567587707,
+        "Hit@20": 0.587890625,
+        "NDCG@20": 0.4148376567587707,
+        "Hit@50": 0.587890625,
+        "NDCG@50": 0.4148376567587707
+      },
+      "hit10_delta": 0.044921875,
+      "ndcg10_delta": 0.013008703466127924,
+      "tail_hit10_delta": 0.04411764705882354,
+      "admissions": 26,
+      "admission_users": 25,
+      "fallback_users": 487,
+      "promotions": 23,
+      "regressions": 0
+    }
+  ],
+  "scientific_gate": {
+    "status": "passed",
+    "selected": {
+      "margin": 0.0,
+      "base": {
+        "count": 512,
+        "mrr": 0.35952679225118933,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.54296875,
+        "NDCG@10": 0.4018289532926428,
+        "Hit@20": 0.57421875,
+        "NDCG@20": 0.40988057291683333,
+        "Hit@50": 0.578125,
+        "NDCG@50": 0.4107445340812925
+      },
+      "candidate": {
+        "count": 512,
+        "mrr": 0.36379898313492065,
+        "Hit@1": 0.271484375,
+        "NDCG@1": 0.271484375,
+        "Hit@5": 0.482421875,
+        "NDCG@5": 0.38218315219936566,
+        "Hit@10": 0.609375,
+        "NDCG@10": 0.42112296595664317,
+        "Hit@20": 0.609375,
+        "NDCG@20": 0.42112296595664317,
+        "Hit@50": 0.609375,
+        "NDCG@50": 0.42112296595664317
+      },
+      "hit10_delta": 0.06640625,
+      "ndcg10_delta": 0.01929401266400038,
+      "tail_hit10_delta": 0.07352941176470584,
+      "admissions": 42,
+      "admission_users": 37,
+      "fallback_users": 475,
+      "promotions": 34,
+      "regressions": 0
+    }
+  },
+  "integrity_gate": {
+    "status": "passed",
+    "checks": {
+      "objective_is_per_user_listwise_ce": true,
+      "bce_or_pos_weight_absent": true,
+      "feature_schema_exact": true,
+      "fit_only_feature_statistics": true,
+      "finite": true,
+      "loss_decreased": true,
+      "action_attrition_complete": true,
+      "compute_device_cpu": true,
+      "validation_target_unread": true,
+      "test_unread": true,
+      "sports_unread": true
+    }
+  },
+  "input_locks": {
+    "fit": {
+      "beams_w50.tsv": "af5f24c1a46ec491f9ae191662e658871c951739b372a6bc83487fdff3719010",
+      "beams_w200.tsv": "da5f49a8fcfde9efca95c71768f3a24e21c40d2904dfb2b8543daa72119fbc12"
+    },
+    "calibration": {
+      "beams_w50.tsv": "c75407f98fc00908897ac49bf5bed5e7013cb154c24788c1887b16ed2f925b90",
+      "beams_w200.tsv": "fd5ce09ddbe89eb7623faad1bf5126129a1d233327e1d21640d57ff9dda9963a"
+    },
+    "item_head": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d"
+  },
+  "checkpoint_sha256": "c5256b9f36a51ee3a6d2c44309d3e8f5eb7e92fd7a653f53c17fbb33906ac6a6",
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false
+}

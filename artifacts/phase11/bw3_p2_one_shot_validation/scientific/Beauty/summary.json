@@ -1,0 +1,104 @@
+{
+  "dataset": "Beauty",
+  "users": 512,
+  "base": {
+    "count": 512,
+    "mrr": 0.052282521081349204,
+    "Hit@1": 0.03515625,
+    "NDCG@1": 0.03515625,
+    "Hit@5": 0.072265625,
+    "NDCG@5": 0.054211895853718065,
+    "Hit@10": 0.103515625,
+    "NDCG@10": 0.0641858583959331,
+    "Hit@20": 0.103515625,
+    "NDCG@20": 0.0641858583959331,
+    "Hit@50": 0.103515625,
+    "NDCG@50": 0.0641858583959331
+  },
+  "candidate": {
+    "count": 512,
+    "mrr": 0.052282521081349204,
+    "Hit@1": 0.03515625,
+    "NDCG@1": 0.03515625,
+    "Hit@5": 0.072265625,
+    "NDCG@5": 0.054211895853718065,
+    "Hit@10": 0.103515625,
+    "NDCG@10": 0.0641858583959331,
+    "Hit@20": 0.103515625,
+    "NDCG@20": 0.0641858583959331,
+    "Hit@50": 0.103515625,
+    "NDCG@50": 0.0641858583959331
+  },
+  "hit10_delta": 0.0,
+  "ndcg10_delta": 0.0,
+  "tail": {
+    "users": 140,
+    "base": {
+      "count": 140,
+      "mrr": 0.029591836734693875,
+      "Hit@1": 0.02142857142857143,
+      "NDCG@1": 0.02142857142857143,
+      "Hit@5": 0.03571428571428571,
+      "NDCG@5": 0.030441853622449395,
+      "Hit@10": 0.04285714285714286,
+      "NDCG@10": 0.032822806003401775,
+      "Hit@20": 0.04285714285714286,
+      "NDCG@20": 0.032822806003401775,
+      "Hit@50": 0.04285714285714286,
+      "NDCG@50": 0.032822806003401775
+    },
+    "candidate": {
+      "count": 140,
+      "mrr": 0.029591836734693875,
+      "Hit@1": 0.02142857142857143,
+      "NDCG@1": 0.02142857142857143,
+      "Hit@5": 0.03571428571428571,
+      "NDCG@5": 0.030441853622449395,
+      "Hit@10": 0.04285714285714286,
+      "NDCG@10": 0.032822806003401775,
+      "Hit@20": 0.04285714285714286,
+      "NDCG@20": 0.032822806003401775,
+      "Hit@50": 0.04285714285714286,
+      "NDCG@50": 0.032822806003401775
+    }
+  },
+  "tail_hit10_delta": 0.0,
+  "admissions": 15,
+  "admission_users": 11,
+  "fallback_users": 501,
+  "promotions": 0,
+  "regressions": 0,
+  "unchanged": 512,
+  "coverage": {
+    "target_in_beam50": 106,
+    "target_in_beam200": 171,
+    "target_expansion_only": 65,
+    "target_outside_union": 341
+  },
+  "paired_hit10_delta_95ci": {
+    "replicates": 2000,
+    "lower": 0.0,
+    "upper": 0.0
+  },
+  "integrity": {
+    "all_512_users": true,
+    "fallback_identity": true,
+    "finite": true,
+    "max_three_admissions": true,
+    "base_identity": true
+  },
+  "preparation": {
+    "q1": 6,
+    "users": 512,
+    "item_head_sha256": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a"
+  },
+  "gate_sha256": "428c811b8955d79c7ab1edf8a9eaf1c9e2636f8a4c9632dd79aab30c9d3a94c6",
+  "base_identity": {
+    "expected_hit10": 0.103515625,
+    "expected_ndcg10": 0.06418585839593309,
+    "hit10_exact": true,
+    "ndcg10_close": true,
+    "q1_exact": true,
+    "item_head_exact": true
+  }
+}

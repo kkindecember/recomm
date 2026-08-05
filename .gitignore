@@ -41,6 +41,13 @@ artifacts/**/candidate_bank.json
 artifacts/**/gamma.json
 artifacts/**/splits/**/*.txt
 
+# Large reproducible detail dumps. Keep their configs and aggregate summaries.
+artifacts/**/predictions/
+artifacts/**/candidate_scores.tsv
+artifacts/**/feature_table.npz
+artifacts/**/beams_w*.tsv
+artifacts/**/fresh_beams*.tsv
+
 # Phase-5 long-running CET session state; durable summaries are committed separately.
 artifacts/phase5/cet_c2*/run.log
 artifacts/phase5/cet_c2*/status.json

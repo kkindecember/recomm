@@ -18,8 +18,6 @@
 import copy
 import warnings
 from typing import Optional, Tuple, Union, List
-from IPython import embed
-
 import torch
 from torch import nn
 from torch.nn import CrossEntropyLoss

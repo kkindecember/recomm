@@ -1,0 +1,127 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_P2_LISTWISE_ADMISSION_ONE_SHOT_VALIDATION_V1",
+  "decision_status": "AUTHORIZED_P2_ONE_SHOT_FORMAL_RUN",
+  "execution_enabled": true,
+  "authorized_at": "2026-08-05T12:29:05+08:00",
+  "authorization_basis": "Researcher explicitly requested: 启动",
+  "implemented_at": "2026-08-05",
+  "authorization_required": "Researcher must explicitly authorize the one-shot P2-1 start after reviewing P2-0. Plan continuation authorized implementation only, not validation access.",
+  "scientific_scope": {
+    "datasets": [
+      "Toys",
+      "Beauty"
+    ],
+    "validation_target_offset": 2,
+    "users_per_domain": 512,
+    "base": "frozen_bw1_beam50_pcrf",
+    "expansion_pool": "beam200_minus_beam50",
+    "objective": "apply_frozen_p1c_per_user_listwise_admission_gate_without_refit",
+    "features": [
+      "seq_raw",
+      "seq_anchor_z",
+      "item_raw",
+      "item_anchor_z",
+      "popularity_log1p",
+      "popularity_anchor_z",
+      "beam200_rank_fraction",
+      "reliability",
+      "cf_pop_adjusted"
+    ],
+    "reject_logit": 0.0,
+    "selected_margin": 0.0,
+    "max_admissions": 3,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 2023,
+    "two_domain_atomic_reveal": true,
+    "validation_access_is_one_shot": true,
+    "automatic_retry": false,
+    "automatic_successor_start": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "preregistered_gate": {
+    "both_hit10_nondegrade": true,
+    "one_domain_hit10_delta_at_least": 0.002,
+    "mean_hit10_delta_at_least": 0.001,
+    "both_ndcg10_delta_at_least": -0.001,
+    "both_tail_hit10_nondegrade": true,
+    "both_admissions_nonzero": true,
+    "both_promotions_at_least_regressions": true,
+    "both_domain_integrity": true,
+    "resource_and_access_protocol_required": true
+  },
+  "domain_inputs": {
+    "Toys": {
+      "gate": "artifacts/phase11/bw3_p1c_listwise_admission/scientific/Toys/admission_gate.json",
+      "beam50": "artifacts/phase11/bw1_candidate_ceiling/Toys/fresh_beams_w50.tsv",
+      "beam200": "artifacts/phase11/bw1_candidate_ceiling/Toys/fresh_beams_w200.tsv",
+      "bw1_summary": "artifacts/phase11/bw1_candidate_ceiling/Toys/summary.json",
+      "expected_q1": 5,
+      "expected_base_hit10": 0.123046875,
+      "expected_base_ndcg10": 0.08417462178302236
+    },
+    "Beauty": {
+      "gate": "artifacts/phase11/bw3_p1c_listwise_admission/scientific/Beauty/admission_gate.json",
+      "beam50": "artifacts/phase11/bw1_candidate_ceiling/Beauty/fresh_beams_w50.tsv",
+      "beam200": "artifacts/phase11/bw1_candidate_ceiling/Beauty/fresh_beams_w200.tsv",
+      "bw1_summary": "artifacts/phase11/bw1_candidate_ceiling/Beauty/summary.json",
+      "expected_q1": 6,
+      "expected_base_hit10": 0.103515625,
+      "expected_base_ndcg10": 0.06418585839593309
+    }
+  },
+  "runtime": {
+    "compute_device": "cpu",
+    "cuda_visible_devices": "",
+    "hard_timeout_seconds": 1800,
+    "tmux_session": "gram_phase11_bw3_p2_one_shot_validation",
+    "output_dir": "artifacts/phase11/bw3_p2_one_shot_validation",
+    "scientific_output_dir": "artifacts/phase11/bw3_p2_one_shot_validation/scientific",
+    "physical_gpu_observed": 6,
+    "codellama_required_reserve_mib": 30720,
+    "codellama_preserved_during_workload": true,
+    "gpu_sidecar_enabled": false,
+    "telemetry_interval_seconds": 5
+  },
+  "p2_0_evidence": {
+    "unit_tests": "11 passed",
+    "tests_use_only_synthetic_fixtures": true,
+    "real_validation_dry_run": false,
+    "validation_access_started": false,
+    "validation_consumed": false,
+    "results_revealed": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "code_lock": {
+    "files": {
+      "experiment/phase11/eval_bw3_p2_one_shot_validation.py": "f77b1e3b819e9c4c6e494fe4d0c5f8c56a2d2276d181b975a8f4184a3eb2bba1",
+      "experiment/phase11/test_bw3_p2_one_shot_validation.py": "0e1db4bea0d93e01bbbf9af1617a32c24d8d23598a4878cd2d9bca4f1f4737b6",
+      "experiment/phase11/run_phase11_bw3_p2_one_shot_validation.sh": "489a0c93899cc7b3870823a0753c6ee3de17311318c0b3d7fcfd3da98e271b8a",
+      "experiment/phase11/train_bw3_listwise_admission.py": "5717f78c7fccf443810c4bba95cdcb224ab9424dbce988310def52dbdadeae15",
+      "experiment/phase9/eval_cf0_b3_beamfusion.py": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+      "experiment/phase9/eval_p9x_fixed_pcrf.py": "6160572637240459354fcbf32849a039e74a63124c24b2ebbac73afd1b96c3e8",
+      "experiment/phase9/train_cf0_b2_item_head.py": "09a191f9bb978976d5c5febc8bf7fdfc9763715a74f02484ee264e0077c8df23",
+      "experiment/phase9/cf0_diagnostic_metrics.py": "0c6453dc51d1e5db837360f502fa0ecab73f9fb053c27580672b78f80d0b4d20",
+      "plan/第十一阶段/GRAM_第十一阶段_BW3-P2_Listwise扩展准入独立验证计划.md": "ff3d3c6a02aa3ebc22e7f725355e45d1edd2c92bcfe58aa28610a54165be1c20"
+    }
+  },
+  "input_lock": {
+    "files": {
+      "artifacts/phase11/bw3_p1c_listwise_admission/scientific/Toys/admission_gate.json": "c5256b9f36a51ee3a6d2c44309d3e8f5eb7e92fd7a653f53c17fbb33906ac6a6",
+      "artifacts/phase11/bw3_p1c_listwise_admission/scientific/Beauty/admission_gate.json": "428c811b8955d79c7ab1edf8a9eaf1c9e2636f8a4c9632dd79aab30c9d3a94c6",
+      "artifacts/phase11/bw1_candidate_ceiling/Toys/fresh_beams_w50.tsv": "62625c06a824c70442272ae7a379e5cf431531876859fb307992436cab5ed6d9",
+      "artifacts/phase11/bw1_candidate_ceiling/Toys/fresh_beams_w200.tsv": "d77392bea8bde078d73b95cff73559425a384f6361f382a3b094dd2409a819d0",
+      "artifacts/phase11/bw1_candidate_ceiling/Beauty/fresh_beams_w50.tsv": "8270b29d6f6c5b4599dda07e0fb8d639fb44ac0b6c40acb1b51b27963e227945",
+      "artifacts/phase11/bw1_candidate_ceiling/Beauty/fresh_beams_w200.tsv": "f45b89c875025cc6a4f186a294cb22dbcc565fa8db99df85e2ebebd2bd2e45f0",
+      "artifacts/phase11/bw1_candidate_ceiling/Toys/summary.json": "cec4dce365c265acceb373f1d92e31d6e590bd0bc57e6df8606f75eb959fca88",
+      "artifacts/phase11/bw1_candidate_ceiling/Beauty/summary.json": "3db221efb31cfbfb33ecb8313f94336b2426da151ac57b58b83f964b5121938c",
+      "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+      "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+      "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "GRAM/rec_datasets/Beauty/user_sequence.txt": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+      "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+      "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"
+    }
+  }
+}

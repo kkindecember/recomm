@@ -1,0 +1,50 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_B1_TOYS_ARBITRARY_SCORE_PILOT_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "primary_policy": "fill_cf_only_40",
+  "sample_sha256": "22154bc941fc13b1fe11c893b7c543e02bb2b9c2dab9fb8b2d7ec3400776dea1",
+  "metrics": {
+    "users": 2,
+    "total_candidates": 179,
+    "G50_pairs": 100,
+    "cf_only_candidates": 79,
+    "union_size_mean": 89.5,
+    "union_size_max": 90,
+    "valid_budget_fraction": 1.0,
+    "legal_path_fraction": 1.0,
+    "finite_fraction": 1.0,
+    "G50_pearson": 0.9999993346819699,
+    "G50_spearman": 0.9999759975997599,
+    "G50_mean_top10_set_overlap": 1.0,
+    "G50_cached_Hit@10": 0.0,
+    "G50_recomputed_Hit@10": 0.0,
+    "candidates_per_second": 11.710453633754339,
+    "projected_full_validation_hours": 41.2113743824429,
+    "peak_allocated_mib": 561.837890625,
+    "peak_reserved_mib": 632.0,
+    "wall_time_seconds": 15.28548812866211
+  },
+  "scientific_gate": {
+    "status": "failed_arbitrary_score_resource_gate",
+    "checks": {
+      "all_users_valid_budget": true,
+      "all_paths_legal": true,
+      "all_scores_finite": true,
+      "G50_pearson_at_least_0.995": true,
+      "G50_spearman_at_least_0.995": true,
+      "G50_top10_overlap_at_least_0.98": true,
+      "G50_hit10_identity_within_0.001": true,
+      "peak_allocated_mib_at_most_12000": true,
+      "wall_time_at_most_600": true,
+      "projected_full_hours_at_most_4": false
+    }
+  },
+  "artifacts": {
+    "candidate_scores_sha256": "5b284f26963eea66bc536613055f70c85b134a3dd962e7623a73bd4667ab6738"
+  }
+}

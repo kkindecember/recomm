@@ -1,0 +1,148 @@
+{
+  "experiment_id": "GRAM_PHASE10_CF1_C0_TOYS_FEATURE_AUDIT_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "split": "validation",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "primary_policy": "fill_cf_only_40",
+  "frozen_PCRF": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "tail_frequency_threshold": 5
+  },
+  "inference_feature_schema": [
+    "gram_z",
+    "corrected_item_z",
+    "source",
+    "gram_rr",
+    "cf_rr",
+    "agreement",
+    "item_log_frequency",
+    "user_tail_mass",
+    "user_reliability",
+    "user_history_length"
+  ],
+  "metrics": {
+    "users": 19412,
+    "total_candidates": 1698905,
+    "source_counts": {
+      "gram": 791057,
+      "both": 179543,
+      "cf_only": 728305
+    },
+    "union_size_mean": 87.5182876571193,
+    "union_size_max": 90,
+    "valid_budget_fraction": 1.0,
+    "duplicate_pairs": 0,
+    "finite_fraction": 1.0,
+    "b2_rows_matched_fraction": 1.0,
+    "b2_sha256_identity": true,
+    "cached_G50_footer_identity": true,
+    "fold_counts": [
+      3883,
+      3883,
+      3882,
+      3882,
+      3882
+    ],
+    "fold_integrity": true,
+    "target_excluded_from_inference_schema": true,
+    "baselines": {
+      "GRAM_G50": {
+        "count": 19412,
+        "mrr": 0.06726496551298926,
+        "Hit@1": 0.04167525242118277,
+        "NDCG@1": 0.04167525242118277,
+        "Hit@5": 0.0909231403255718,
+        "NDCG@5": 0.06713487106644733,
+        "Hit@10": 0.11941067381001443,
+        "NDCG@10": 0.07627451425999991,
+        "Hit@20": 0.15444055223573047,
+        "NDCG@20": 0.08510430222346627,
+        "Hit@50": 0.21193076447558212,
+        "NDCG@50": 0.09653217535352775
+      },
+      "frozen_PCRF_1.0_0.5_1.0": {
+        "count": 19412,
+        "mrr": 0.06863927853067081,
+        "Hit@1": 0.04136616525860293,
+        "NDCG@1": 0.04136616525860293,
+        "Hit@5": 0.0936534102616938,
+        "NDCG@5": 0.06850763766741287,
+        "Hit@10": 0.12533484442612816,
+        "NDCG@10": 0.07871552229273794,
+        "Hit@20": 0.16427982691118895,
+        "NDCG@20": 0.08852973505762471,
+        "Hit@50": 0.21193076447558212,
+        "NDCG@50": 0.09807061245580452
+      },
+      "pure_CF50": {
+        "count": 19412,
+        "mrr": 0.048506164362105114,
+        "Hit@1": 0.028590562538635896,
+        "NDCG@1": 0.028590562538635896,
+        "Hit@5": 0.06640222542757057,
+        "NDCG@5": 0.047731361508424955,
+        "Hit@10": 0.09015042241912219,
+        "NDCG@10": 0.05536724396300085,
+        "Hit@20": 0.12157428394807336,
+        "NDCG@20": 0.06326893814619326,
+        "Hit@50": 0.17453121780342057,
+        "NDCG@50": 0.07366627597894529
+      },
+      "source_agnostic_sum_union": {
+        "count": 19412,
+        "mrr": 0.06369760418305145,
+        "Hit@1": 0.03760560478054811,
+        "NDCG@1": 0.03760560478054811,
+        "Hit@5": 0.0850504842365547,
+        "NDCG@5": 0.062244756424718724,
+        "Hit@10": 0.11642283123840923,
+        "NDCG@10": 0.07236572632217361,
+        "Hit@20": 0.15701627859056255,
+        "NDCG@20": 0.08259262108688713,
+        "Hit@50": 0.2212548938800742,
+        "NDCG@50": 0.09531175353980673
+      },
+      "union_oracle": {
+        "count": 19412,
+        "mrr": 0.2647331547496394,
+        "Hit@1": 0.2647331547496394,
+        "NDCG@1": 0.2647331547496394,
+        "Hit@5": 0.2647331547496394,
+        "NDCG@5": 0.2647331547496394,
+        "Hit@10": 0.2647331547496394,
+        "NDCG@10": 0.2647331547496394,
+        "Hit@20": 0.2647331547496394,
+        "NDCG@20": 0.2647331547496394,
+        "Hit@50": 0.2647331547496394,
+        "NDCG@50": 0.2647331547496394
+      }
+    }
+  },
+  "scientific_gate": {
+    "status": "passed",
+    "checks": {
+      "users_exact_19412": true,
+      "candidates_exact_1698905": true,
+      "cf_only_exact_728305": true,
+      "all_union_sizes_50_to_90": true,
+      "no_duplicate_user_candidate": true,
+      "all_features_finite": true,
+      "b2_rows_exact": true,
+      "b2_sha256_identity": true,
+      "cached_G50_footer_identity": true,
+      "folds_cover_all_users_once": true,
+      "target_excluded_from_inference_schema": true
+    }
+  },
+  "artifacts": {
+    "b2_scores_sha256": "6a7ce546ada91fd8e87534af54706b7ad78a5d9517e7b5d49e0cb1b3c7c4941c",
+    "feature_table_sha256": "79fd0d670fd37d5a402b6989bee76ec55c9dcbdbb964f953b6ee5b4cd592a269",
+    "fold_assignments_sha256": "c6b6f675e52db1bfcdcc4d8ac8bd34543b4b938e78d32635653c1832dfd0f1c0"
+  },
+  "wall_time_seconds": 40.21124219894409
+}

@@ -1,0 +1,45 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW1_CANDIDATE_CEILING_VALIDATION_V1",
+  "status": "completed",
+  "test_read": false,
+  "sports_read": false,
+  "rows": [
+    {
+      "dataset": "Toys",
+      "integrity_gate": "passed",
+      "coverage_w50": 0.208984375,
+      "coverage_w100": 0.267578125,
+      "coverage_w200": 0.326171875,
+      "coverage_headroom": 0.1171875,
+      "baseline_hit10_w50": 0.12109375,
+      "baseline_hit10_w100": 0.12109375,
+      "baseline_hit10_w200": 0.12109375,
+      "pcrf_hit10_w50": 0.123046875,
+      "pcrf_hit10_w100": 0.123046875,
+      "pcrf_hit10_w200": 0.123046875,
+      "pcrf_headroom": 0.0,
+      "minimum_width_at_90pct_pcrf_gain": 50
+    },
+    {
+      "dataset": "Beauty",
+      "integrity_gate": "passed",
+      "coverage_w50": 0.20703125,
+      "coverage_w100": 0.263671875,
+      "coverage_w200": 0.333984375,
+      "coverage_headroom": 0.126953125,
+      "baseline_hit10_w50": 0.1015625,
+      "baseline_hit10_w100": 0.1015625,
+      "baseline_hit10_w200": 0.1015625,
+      "pcrf_hit10_w50": 0.103515625,
+      "pcrf_hit10_w100": 0.103515625,
+      "pcrf_hit10_w200": 0.1015625,
+      "pcrf_headroom": -0.001953125,
+      "minimum_width_at_90pct_pcrf_gain": 50
+    }
+  ],
+  "decision": "coverage_not_converted_by_frozen_pcrf",
+  "all_integrity_gates_passed": true,
+  "artifacts": {
+    "dataset_results_sha256": "5c0b1af8b7699262e897a52a761fed4838200881bacfeac50e4932e3aeec3fee"
+  }
+}

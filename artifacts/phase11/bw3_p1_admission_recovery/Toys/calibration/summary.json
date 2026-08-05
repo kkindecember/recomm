@@ -1,0 +1,39 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW3_TOYS_OFFSET3_BEAMS_V1",
+  "status": "completed",
+  "dataset": "Toys",
+  "target_offset": 3,
+  "users": 512,
+  "sample_sha256": "78a75d3b0c96c72c059c17171f4e03d77e92f6f4e12d12a3b2b5250e34ce5c75",
+  "validation_target_read": false,
+  "test_read": false,
+  "sports_read": false,
+  "rows": [
+    {
+      "width": 50,
+      "users": 512,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.578125,
+      "wall_time_seconds": 80.58912944793701,
+      "beam_sha256": "c75407f98fc00908897ac49bf5bed5e7013cb154c24788c1887b16ed2f925b90"
+    },
+    {
+      "width": 200,
+      "users": 512,
+      "legal_fraction": 1.0,
+      "target_in_beam_fraction": 0.7578125,
+      "wall_time_seconds": 234.82524180412292,
+      "beam_sha256": "fd5ce09ddbe89eb7623faad1bf5126129a1d233327e1d21640d57ff9dda9963a"
+    }
+  ],
+  "checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+  "peak_allocated_mib": 26806.6142578125,
+  "gate": {
+    "status": "passed",
+    "checks": {
+      "all_users_legal": true,
+      "checkpoint_identity": true,
+      "validation_test_sports_not_used": true
+    }
+  }
+}

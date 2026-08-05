@@ -1,0 +1,130 @@
+{
+  "experiment_id": "GRAM_PHASE11_BW2_ANCHORED_EXPANSION_VALIDATION_V1",
+  "status": "completed",
+  "split": "validation",
+  "test_read": false,
+  "sports_read": false,
+  "formula": {
+    "anchor_size": 50,
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0
+  },
+  "rows": [
+    {
+      "dataset": "Toys",
+      "users": 512,
+      "mean_beam50_anchor50_overlap": 0.9112109375,
+      "anchor_top50_order_identity_fraction": 1.0,
+      "beam50_pcrf": {
+        "count": 512,
+        "mrr": 0.07581671172280446,
+        "Hit@1": 0.046875,
+        "NDCG@1": 0.046875,
+        "Hit@5": 0.1015625,
+        "NDCG@5": 0.0774123274506735,
+        "Hit@10": 0.123046875,
+        "NDCG@10": 0.08417462178302235,
+        "Hit@20": 0.15625,
+        "NDCG@20": 0.09233833475116307,
+        "Hit@50": 0.208984375,
+        "NDCG@50": 0.10296318601594998
+      },
+      "anchored_beam200_pcrf": {
+        "count": 512,
+        "mrr": 0.07682631224510722,
+        "Hit@1": 0.046875,
+        "NDCG@1": 0.046875,
+        "Hit@5": 0.1015625,
+        "NDCG@5": 0.07727693010316058,
+        "Hit@10": 0.125,
+        "NDCG@10": 0.0846319973016025,
+        "Hit@20": 0.162109375,
+        "NDCG@20": 0.09375946724444606,
+        "Hit@50": 0.2421875,
+        "NDCG@50": 0.10950783846894094
+      },
+      "hit10_delta": 0.001953125,
+      "ndcg10_delta": 0.000457375518580147,
+      "users_with_expansion_in_top10": 47,
+      "target_promotions_into_top10": 1,
+      "target_regressions_from_top10": 0,
+      "Hit@10_paired_bootstrap_95ci": {
+        "replicates": 2000,
+        "lower": 0.0,
+        "upper": 0.005859375
+      }
+    },
+    {
+      "dataset": "Beauty",
+      "users": 512,
+      "mean_beam50_anchor50_overlap": 0.910859375,
+      "anchor_top50_order_identity_fraction": 1.0,
+      "beam50_pcrf": {
+        "count": 512,
+        "mrr": 0.05747149685865016,
+        "Hit@1": 0.03515625,
+        "NDCG@1": 0.03515625,
+        "Hit@5": 0.072265625,
+        "NDCG@5": 0.054211895853718065,
+        "Hit@10": 0.103515625,
+        "NDCG@10": 0.0641858583959331,
+        "Hit@20": 0.15234375,
+        "NDCG@20": 0.07655127727056132,
+        "Hit@50": 0.20703125,
+        "NDCG@50": 0.08749458932735549
+      },
+      "anchored_beam200_pcrf": {
+        "count": 512,
+        "mrr": 0.05755517283775475,
+        "Hit@1": 0.03515625,
+        "NDCG@1": 0.03515625,
+        "Hit@5": 0.072265625,
+        "NDCG@5": 0.054211895853718065,
+        "Hit@10": 0.103515625,
+        "NDCG@10": 0.06425565705432218,
+        "Hit@20": 0.15234375,
+        "NDCG@20": 0.07665736766262192,
+        "Hit@50": 0.212890625,
+        "NDCG@50": 0.08839693339417531
+      },
+      "hit10_delta": 0.0,
+      "ndcg10_delta": 6.979865838907529e-05,
+      "users_with_expansion_in_top10": 31,
+      "target_promotions_into_top10": 0,
+      "target_regressions_from_top10": 0,
+      "Hit@10_paired_bootstrap_95ci": {
+        "replicates": 2000,
+        "lower": 0.0,
+        "upper": 0.0
+      }
+    }
+  ],
+  "integrity_gate": {
+    "status": "failed",
+    "checks": {
+      "Toys": {
+        "bw1_integrity_passed": true,
+        "all_512_users": true,
+        "mean_anchor_overlap_at_least_0.98": false,
+        "anchor_top50_order_identity": true,
+        "item_head_sha_matches_bw1": true
+      },
+      "Beauty": {
+        "bw1_integrity_passed": true,
+        "all_512_users": true,
+        "mean_anchor_overlap_at_least_0.98": false,
+        "anchor_top50_order_identity": true,
+        "item_head_sha_matches_bw1": true
+      }
+    }
+  },
+  "scientific_gate": {
+    "status": "not_evaluated",
+    "checks": {}
+  },
+  "decision": "train_expansion_admission_gate",
+  "artifacts": {
+    "per_user_sha256": "9a9aaf319248e2c98d704b6914647465be75d12455e64dff0f7afadf2602232c"
+  }
+}

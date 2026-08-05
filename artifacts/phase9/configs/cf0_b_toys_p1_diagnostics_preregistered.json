@@ -1,0 +1,49 @@
+{
+  "experiment_id": "GRAM_PHASE9_CF0_B_TOYS_P1_DIAGNOSTICS_V1",
+  "execution_enabled": true,
+  "decision_status": "AUTHORIZED_POSTHOC_DIAGNOSTICS",
+  "authorized_at": "2026-08-04T09:50:00+08:00",
+  "source_experiment": "GRAM_PHASE9_CF0_B_TOYS_P1_FULL_V1",
+  "dataset": "Toys",
+  "split": "validation",
+  "arm": "B",
+  "seed": 2023,
+  "physical_gpu": 6,
+  "test_read": false,
+  "sports_read": false,
+  "diagnostics": {
+    "item_head_samples": "full_validation",
+    "item_head_batch_size": 256,
+    "fusion_teacher_forced_samples": 512,
+    "fusion_batch_size": 4,
+    "fusion_conditions": [
+      "full",
+      "zero_injection_keep_norm",
+      "bypass_cf0_path"
+    ],
+    "gradient_batches": 4,
+    "gradient_stage": "cf0_joint_top_layers",
+    "gradient_loss_components": [
+      "generation",
+      "0.1_times_item"
+    ]
+  },
+  "resource": {
+    "total_lease_mib": 30720,
+    "expected_workload_peak_mib": 8192,
+    "hard_timeout_seconds": 14400,
+    "telemetry_interval_seconds": 5,
+    "codellama_restore_gpu": 6
+  },
+  "source_checkpoint": {
+    "path": "artifacts/phase9/cf0_b_toys_p1/gram_logs/Toys/0_20260803_2333/id_0_rec_5/model_rec_phase_1_epoch_5.pt",
+    "sha256": "9680b0af83a4814b16730c41fe8b99a7192370d236e1186ed94399d86c4cccbf"
+  },
+  "code_lock": {
+    "files": {
+      "experiment/phase9/diagnose_gram_cf0.py": "0a5cc2d7580541042f2e427afccd3ca4766e93c91a7d676605029b3ed10c950e",
+      "experiment/phase9/cf0_diagnostic_metrics.py": "0c6453dc51d1e5db837360f502fa0ecab73f9fb053c27580672b78f80d0b4d20",
+      "experiment/phase9/test_gram_cf0.py": "350fcc815cc79b583947107adcc7f7bc9189f46c11dd57e4316b895a7587ce3b"
+    }
+  }
+}
