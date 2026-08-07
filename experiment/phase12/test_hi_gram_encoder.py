@@ -258,6 +258,49 @@ class HiGramEncoderTests(unittest.TestCase):
         # Distance 2 → allowed
         self.assertFalse(m[0, 2].item())
 
+    def test_uneven_history_lengths_no_nan(self):
+        """Regression: batch with uneven per-sample history lengths must not
+        produce NaN in forward or backward.
+
+        Original bug: when a sample had only k < local_window valid history
+        items, the attention query positions for the padding items had their
+        entire local window masked by (local_mask | key_padding_mask), giving
+        softmax(all -inf) = NaN. The NaN survived torch.where cleanup because
+        NaN * 0 = NaN in backward, poisoning every T5 encoder gradient.
+        """
+        wrapper = _build_wrapper(hi_gram_enabled=True)
+        wrapper.train()
+
+        input_ids = torch.randint(1, VOCAB_SIZE, (BSZ, N_PASSAGES, PASSAGE_LEN))
+        attention_mask = torch.ones(BSZ, N_PASSAGES, PASSAGE_LEN, dtype=torch.long)
+        # Sample 0: only 1 valid history item (item slot 1); slots 2..6 padded.
+        # This is the pathological pattern — item slot 6 (padding query) sits
+        # far from any valid item, and with local_window=3 its window
+        # [4, 8] contains only padded slots.
+        attention_mask[0, 2:, :] = 0
+        input_ids[0, 2:, :] = 0
+        # Sample 1: full valid history (no padding items) — sanity control.
+
+        input_ids = input_ids.reshape(BSZ, N_PASSAGES * PASSAGE_LEN)
+        attention_mask = attention_mask.reshape(BSZ, N_PASSAGES * PASSAGE_LEN)
+
+        out = wrapper(input_ids=input_ids, attention_mask=attention_mask)[0]
+        self.assertTrue(
+            torch.isfinite(out).all(),
+            "Forward output contains NaN/Inf under uneven history lengths",
+        )
+
+        loss = out.pow(2).mean()
+        loss.backward()
+
+        for name, param in wrapper.named_parameters():
+            if param.grad is None:
+                continue
+            self.assertTrue(
+                torch.isfinite(param.grad).all(),
+                f"Non-finite gradient on {name} under uneven history lengths",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,8 +8,10 @@ When all valid history passages are identical, output must be finite. ... ok
 test_local_window_mask_shape (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests) ... ok
 test_padding_tokens_not_perturbed (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests)
 Tokens with attention_mask==0 must keep their pre-HI-GRAM values. ... ok
+test_uneven_history_lengths_no_nan (experiment.phase12.test_hi_gram_encoder.HiGramEncoderTests)
+Regression: batch with uneven per-sample history lengths must not ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 0.362s
+Ran 8 tests in 0.341s
 
 OK

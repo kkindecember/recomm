@@ -506,20 +506,27 @@ class EncoderWrapper(nn.Module):
         pos_ids = torch.arange(n_items, device=device)
         pos_embed = self.hi_gram_item_position(pos_ids).unsqueeze(0)  # (1, M, D)
         pooled_pos = pooled + pos_embed                              # (B, M, D)
+        # Zero-out padding item positions. Combined with dropping
+        # src_key_padding_mask below, this makes padding keys contribute 0 to
+        # any valid query (weight × 0 = 0) without triggering the softmax-of-
+        # all-`-inf` NaN pathology when local_mask and key_padding_mask
+        # together mask every key in a query's window.
+        valid_float = item_valid_mask.unsqueeze(-1).to(pooled_pos.dtype)
+        pooled_pos = pooled_pos * valid_float
 
-        # Local attention (symmetric window)
+        # Local attention (symmetric window). Intentionally not passing
+        # src_key_padding_mask: local_mask's diagonal is False so every query
+        # can attend to itself, guaranteeing at least one non-masked key and
+        # avoiding NaN in the softmax.
         local_mask = self._build_local_window_mask(n_items, device)  # (M, M) bool
         local_out = self.hi_gram_local_attn(
             pooled_pos,
             mask=local_mask,
-            src_key_padding_mask=~item_valid_mask,
         )                                                            # (B, M, D)
 
-        # Global attention (no positional restriction; padding masked)
-        global_out = self.hi_gram_global_attn(
-            local_out,
-            src_key_padding_mask=~item_valid_mask,
-        )                                                            # (B, M, D)
+        # Global attention. Same reasoning: padding positions are zeroed, so
+        # attending to them contributes 0. No key_padding_mask needed.
+        global_out = self.hi_gram_global_attn(local_out)             # (B, M, D)
 
         # Residual bias: only inject the increment produced by cross-item interaction.
         # For samples/positions whose keys were entirely padded, attention may return

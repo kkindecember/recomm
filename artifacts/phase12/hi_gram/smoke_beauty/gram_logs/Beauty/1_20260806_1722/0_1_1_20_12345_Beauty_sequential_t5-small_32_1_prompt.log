@@ -1,0 +1,60 @@
+2026-08-06 17:22:06,971 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 1, 'save_rec_epochs': 1, 'rec_batch_size': 16, 'rec_model_path': None, 'rec_lr': 0.001, 'test_epoch_rec': 0, 'data_path': '../rec_datasets', 'datasets': 'Beauty', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 1, 'debug_test_100': 1, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 1, 'prediction_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/predictions', 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 8, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 10, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c128_l7_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'A', 'cf0_phase9': 0, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'hi_gram_enabled': 1, 'hi_gram_local_window': 5, 'hi_gram_local_layers': 2, 'hi_gram_global_layers': 2, 'hi_gram_num_heads': 4, 'hi_gram_dropout': 0.1, 'hi_gram_fusion_scale_init': 0.1, 'hi_gram_include_user_prompt': 0, 'log_name': '0_1_1_20_12345_Beauty_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/gram_logs/Beauty/1_20260806_1722', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/gram_logs/Beauty/1_20260806_1722/id_0_rec_1', 'rank': 0}
+2026-08-06 17:22:07,026 - root - INFO - Use t5-small backbone model
+2026-08-06 17:22:16,483 - root - INFO - Generating data for Beauty dataset
+2026-08-06 17:22:16,484 - root - INFO - Reindex data with generative indexing method
+2026-08-06 17:22:16,677 - root - INFO - loading training data
+2026-08-06 17:22:17,928 - root - INFO - >>>> Debug mode: only use 100 samples for training (MultiTaskDatasetGRAM)
+2026-08-06 17:22:17,928 - root - INFO - Generating data for Beauty dataset
+2026-08-06 17:22:17,928 - root - INFO - Reindex data with generative indexing method
+2026-08-06 17:22:18,056 - root - INFO - loading training data
+2026-08-06 17:22:19,347 - root - INFO - >>>> Debug mode: only use 100 samples for training (MultiTaskDatasetGRAM)
+2026-08-06 17:22:19,347 - root - INFO - Building Optimizer and Scheduler
+2026-08-06 17:22:19,348 - root - INFO - Batch per epoch id: 25
+2026-08-06 17:22:19,348 - root - INFO - Warmup proportion: 0.05
+2026-08-06 17:22:19,348 - root - INFO - Total id generator steps: 0
+2026-08-06 17:22:19,348 - root - INFO - Warm up id generator steps: 0
+2026-08-06 17:22:19,348 - root - INFO - Batch per epoch rec: 7
+2026-08-06 17:22:19,348 - root - INFO - Warmup proportion: 0.05
+2026-08-06 17:22:19,348 - root - INFO - Total rec generator steps: 0
+2026-08-06 17:22:19,348 - root - INFO - Warm up rec generator steps: 0
+2026-08-06 17:22:19,352 - root - INFO - Building Optimizer AdamW
+2026-08-06 17:22:19,769 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-06 17:22:20,193 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-06 17:22:20,193 - root - INFO - Start training
+2026-08-06 17:22:20,195 - root - INFO - Training Recommender phase 1
+2026-08-06 17:22:20,198 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-06 17:22:23,050 - root - INFO - The average training loss for rec phase 1 epoch 1 is 10.046815276145935
+2026-08-06 17:22:24,338 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/gram_logs/Beauty/1_20260806_1722/id_0_rec_1/scheduler_rec_phase_1_epoch_1.pt
+2026-08-06 17:22:24,339 - root - INFO - Training ID Generator phase 1 finished ..
+2026-08-06 17:22:28,859 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/gram_logs/Beauty/1_20260806_1722/id_0_rec_1/scheduler_rec_phase_1_epoch_1.pt
+2026-08-06 17:22:28,862 - root - INFO - RESOURCE_METRIC phase=training wall_time_seconds=8.667869 peak_allocated_mib=15579.124 peak_reserved_mib=15842.000 end_allocated_mib=1355.293 end_reserved_mib=15842.000
+2026-08-06 17:22:28,862 - root - INFO - Train done ... Load model from /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/gram_logs/Beauty/1_20260806_1722/id_0_rec_1/model_rec_phase_1_epoch_1.pt
+2026-08-06 17:22:29,442 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-06 17:22:29,701 - root - INFO - [test] testing Beauty dataset on sequential task
+2026-08-06 17:22:53,824 - root - INFO - 
+-------------------------------
+2026-08-06 17:22:53,824 - root - INFO - [GT] glovesaffinchol relief pain par operating || [top-1] hairium spearneybri fantasy toilette || [hits@10] 0.0
+[GT] comb tort stylesler elegant populartang || [top-1] smell givenchy irreible sens scent || [hits@10] 0.0
+[GT] lashesellardlash fashion adhesive steriliz1 || [top-1] lips barely maybestains nec0.1tar || [hits@10] 0.0
+[GT] lashes pairspit faketrimmed falselash || [top-1] shadowoulage introduction colour cam conceal || [hits@10] 0.0
+[GT] lineowedapplication creablack eye elbow || [top-1] foundationbare veiescentualproductfocus || [hits@10] 0.0
+[GT] shadowhang380 sleekme palette super || [top-1] body ver republic 300 nature92 soothing || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] shadowoulage introduction colour cam conceal || [hits@10] 0.0
+[GT] maybe1.1 mattewhipped effortlessly dream mousse || [top-1] colorillian semiceperfashionman || [hits@10] 0.0
+[GT] darkritetreme obtain bright gel || [top-1] menstelle confer holy unionhall si || [hits@10] 0.0
+
+2026-08-06 17:22:53,825 - root - INFO - test hit@1: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test hit@3: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test hit@5: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test hit@10: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test hit@20: 0.02
+2026-08-06 17:22:53,825 - root - INFO - test hit@50: 0.02
+2026-08-06 17:22:53,825 - root - INFO - test ndcg@1: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test ndcg@3: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test ndcg@5: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test ndcg@10: 0.0
+2026-08-06 17:22:53,825 - root - INFO - test ndcg@20: 0.0050060856692804145
+2026-08-06 17:22:53,825 - root - INFO - test ndcg@50: 0.0050060856692804145
+2026-08-06 17:22:53,825 - root - INFO - Total inference time: 21.42s for 100 samples. Average: 0.2142s
+2026-08-06 17:22:53,825 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/smoke_beauty/predictions/20260806_172229_Beauty_sequential_pred_test.tsv
+2026-08-06 17:22:53,841 - root - INFO - RESOURCE_METRIC phase=automatic_last_checkpoint_test wall_time_seconds=24.977776 peak_allocated_mib=8077.499 peak_reserved_mib=22468.000 end_allocated_mib=1355.293 end_reserved_mib=22468.000
