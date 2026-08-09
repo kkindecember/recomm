@@ -1,0 +1,60 @@
+2026-08-08 21:35:50,213 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 1, 'save_rec_epochs': 1, 'rec_batch_size': 16, 'rec_model_path': None, 'rec_lr': 0.001, 'test_epoch_rec': 0, 'data_path': '../rec_datasets', 'datasets': 'Beauty_cold50', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 1, 'debug_test_100': 1, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 1, 'prediction_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/predictions', 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 8, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 10, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c128_l7_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'A', 'cf0_phase9': 0, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'hi_gram_enabled': 0, 'hi_gram_local_window': 5, 'hi_gram_local_layers': 2, 'hi_gram_global_layers': 2, 'hi_gram_num_heads': 4, 'hi_gram_dropout': 0.1, 'hi_gram_fusion_scale_init': 0.1, 'hi_gram_include_user_prompt': 0, 'log_name': '0_1_1_20_12345_Beauty_cold50_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/gram_logs/Beauty_cold50/0_20260808_2135', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/gram_logs/Beauty_cold50/0_20260808_2135/id_0_rec_1', 'rank': 0}
+2026-08-08 21:35:50,266 - root - INFO - Use t5-small backbone model
+2026-08-08 21:36:02,832 - root - INFO - Generating data for Beauty_cold50 dataset
+2026-08-08 21:36:02,832 - root - INFO - Reindex data with generative indexing method
+2026-08-08 21:36:02,976 - root - INFO - loading training data
+2026-08-08 21:36:03,353 - root - INFO - >>>> Debug mode: only use 100 samples for training (MultiTaskDatasetGRAM)
+2026-08-08 21:36:03,353 - root - INFO - Generating data for Beauty_cold50 dataset
+2026-08-08 21:36:03,353 - root - INFO - Reindex data with generative indexing method
+2026-08-08 21:36:03,505 - root - INFO - loading training data
+2026-08-08 21:36:03,891 - root - INFO - >>>> Debug mode: only use 100 samples for training (MultiTaskDatasetGRAM)
+2026-08-08 21:36:03,892 - root - INFO - Building Optimizer and Scheduler
+2026-08-08 21:36:03,892 - root - INFO - Batch per epoch id: 25
+2026-08-08 21:36:03,892 - root - INFO - Warmup proportion: 0.05
+2026-08-08 21:36:03,892 - root - INFO - Total id generator steps: 0
+2026-08-08 21:36:03,892 - root - INFO - Warm up id generator steps: 0
+2026-08-08 21:36:03,892 - root - INFO - Batch per epoch rec: 7
+2026-08-08 21:36:03,892 - root - INFO - Warmup proportion: 0.05
+2026-08-08 21:36:03,892 - root - INFO - Total rec generator steps: 0
+2026-08-08 21:36:03,892 - root - INFO - Warm up rec generator steps: 0
+2026-08-08 21:36:03,896 - root - INFO - Building Optimizer AdamW
+2026-08-08 21:36:04,160 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-08 21:36:04,359 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-08 21:36:04,359 - root - INFO - Start training
+2026-08-08 21:36:04,361 - root - INFO - Training Recommender phase 1
+2026-08-08 21:36:04,363 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-08 21:36:08,895 - root - INFO - The average training loss for rec phase 1 epoch 1 is 8.86506199836731
+2026-08-08 21:36:10,019 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/gram_logs/Beauty_cold50/0_20260808_2135/id_0_rec_1/scheduler_rec_phase_1_epoch_1.pt
+2026-08-08 21:36:10,019 - root - INFO - Training ID Generator phase 1 finished ..
+2026-08-08 21:36:14,007 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/gram_logs/Beauty_cold50/0_20260808_2135/id_0_rec_1/scheduler_rec_phase_1_epoch_1.pt
+2026-08-08 21:36:14,009 - root - INFO - RESOURCE_METRIC phase=training wall_time_seconds=9.648368 peak_allocated_mib=15347.779 peak_reserved_mib=15668.000 end_allocated_mib=1154.596 end_reserved_mib=15668.000
+2026-08-08 21:36:14,009 - root - INFO - Train done ... Load model from /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/gram_logs/Beauty_cold50/0_20260808_2135/id_0_rec_1/model_rec_phase_1_epoch_1.pt
+2026-08-08 21:36:14,300 - root - INFO - >>>> Debug mode: only use 100 samples for test (TestDatasetGRAM)
+2026-08-08 21:36:14,548 - root - INFO - [test] testing Beauty_cold50 dataset on sequential task
+2026-08-08 21:37:38,763 - root - INFO - 
+-------------------------------
+2026-08-08 21:37:38,763 - root - INFO - [GT] lineowedapplication creablack eye elbow || [top-1] shadowshadowaube boxes random span || [hits@10] 0.0
+[GT] shadowhang380 sleekme palette super || [top-1] lipstickctor velvetines crime petrol mica0 || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] brushes2.5 baginchfold fibre86 || [hits@10] 0.0
+[GT] darkritetreme obtain bright gel || [top-1] darkbuttoxicityeffectpha inhibitorar || [hits@10] 0.0
+[GT] clips brightness deviation measurement data clawmaterial || [top-1] par match true superbend coordinate matches1 || [hits@10] 0.0
+[GT] styling barb scissorsar catalog she husband || [top-1] wrinklelite finpm celllysispart || [hits@10] 0.0
+[GT] line leopard shellmarket waterproof 2.0 eye || [top-1] mask fear homemade bowl bearing diy distortion || [hits@10] 0.0
+[GT] glycoyer pumpkin honey lemon me creamy || [top-1] cream alb propositioncat workerani dose || [hits@10] 0.0
+[GT] needleeed sessions micro rotationrollderma || [top-1] creamabouronic acidkual || [hits@10] 0.0
+
+2026-08-08 21:37:38,763 - root - INFO - test hit@1: 0.0
+2026-08-08 21:37:38,763 - root - INFO - test hit@3: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test hit@5: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test hit@10: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test hit@20: 0.02
+2026-08-08 21:37:38,764 - root - INFO - test hit@50: 0.05
+2026-08-08 21:37:38,764 - root - INFO - test ndcg@1: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test ndcg@3: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test ndcg@5: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test ndcg@10: 0.0
+2026-08-08 21:37:38,764 - root - INFO - test ndcg@20: 0.0048362827350676854
+2026-08-08 21:37:38,764 - root - INFO - test ndcg@50: 0.010786006245545134
+2026-08-08 21:37:38,764 - root - INFO - Total inference time: 80.46s for 100 samples. Average: 0.8046s
+2026-08-08 21:37:38,764 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/smoke_v0_beauty/predictions/20260808_213614_Beauty_cold50_sequential_pred_test.tsv
+2026-08-08 21:37:38,778 - root - INFO - RESOURCE_METRIC phase=automatic_last_checkpoint_test wall_time_seconds=84.768849 peak_allocated_mib=7877.083 peak_reserved_mib=18378.000 end_allocated_mib=1154.596 end_reserved_mib=10014.000

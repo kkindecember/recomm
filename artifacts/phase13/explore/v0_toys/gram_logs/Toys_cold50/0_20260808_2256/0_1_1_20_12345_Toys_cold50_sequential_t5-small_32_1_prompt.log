@@ -1,0 +1,280 @@
+2026-08-08 22:56:59,841 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 30, 'save_rec_epochs': 5, 'rec_batch_size': 16, 'rec_model_path': None, 'rec_lr': 0.001, 'test_epoch_rec': 5, 'data_path': '../rec_datasets', 'datasets': 'Toys_cold50', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 0, 'debug_test_100': 0, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 1, 'prediction_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions', 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 8, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 5, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c32_l5_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'A', 'cf0_phase9': 0, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'hi_gram_enabled': 0, 'hi_gram_local_window': 5, 'hi_gram_local_layers': 2, 'hi_gram_global_layers': 2, 'hi_gram_num_heads': 4, 'hi_gram_dropout': 0.1, 'hi_gram_fusion_scale_init': 0.1, 'hi_gram_include_user_prompt': 0, 'log_name': '0_1_1_20_12345_Toys_cold50_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30', 'rank': 0}
+2026-08-08 22:56:59,904 - root - INFO - Use t5-small backbone model
+2026-08-08 22:57:10,873 - root - INFO - Generating data for Toys_cold50 dataset
+2026-08-08 22:57:10,873 - root - INFO - Reindex data with generative indexing method
+2026-08-08 22:57:11,004 - root - INFO - loading training data
+2026-08-08 22:57:11,432 - root - INFO - Generating data for Toys_cold50 dataset
+2026-08-08 22:57:11,432 - root - INFO - Reindex data with generative indexing method
+2026-08-08 22:57:11,612 - root - INFO - loading training data
+2026-08-08 22:57:12,038 - root - INFO - Building Optimizer and Scheduler
+2026-08-08 22:57:12,038 - root - INFO - Batch per epoch id: 10086
+2026-08-08 22:57:12,038 - root - INFO - Warmup proportion: 0.05
+2026-08-08 22:57:12,038 - root - INFO - Total id generator steps: 0
+2026-08-08 22:57:12,038 - root - INFO - Warm up id generator steps: 0
+2026-08-08 22:57:12,038 - root - INFO - Batch per epoch rec: 2522
+2026-08-08 22:57:12,038 - root - INFO - Warmup proportion: 0.05
+2026-08-08 22:57:12,038 - root - INFO - Total rec generator steps: 9450
+2026-08-08 22:57:12,038 - root - INFO - Warm up rec generator steps: 472
+2026-08-08 22:57:12,042 - root - INFO - Building Optimizer AdamW
+2026-08-08 22:57:12,597 - root - INFO - Start training
+2026-08-08 22:57:12,599 - root - INFO - Training Recommender phase 1
+2026-08-08 22:57:12,601 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-08 23:14:32,967 - root - INFO - The average training loss for rec phase 1 epoch 1 is 6.375291921481302
+2026-08-08 23:14:32,968 - root - INFO - Start training recommender for phase 1, epoch 2
+2026-08-08 23:31:51,892 - root - INFO - The average training loss for rec phase 1 epoch 2 is 4.542051034920577
+2026-08-08 23:31:51,894 - root - INFO - Start training recommender for phase 1, epoch 3
+2026-08-08 23:49:34,214 - root - INFO - The average training loss for rec phase 1 epoch 3 is 3.3286737461067455
+2026-08-08 23:49:34,216 - root - INFO - Start training recommender for phase 1, epoch 4
+2026-08-09 00:07:10,131 - root - INFO - The average training loss for rec phase 1 epoch 4 is 2.725297920500176
+2026-08-09 00:07:10,132 - root - INFO - Start training recommender for phase 1, epoch 5
+2026-08-09 00:24:45,373 - root - INFO - The average training loss for rec phase 1 epoch 5 is 2.3775848282760457
+2026-08-09 00:24:46,500 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_5.pt
+2026-08-09 00:24:47,011 - root - INFO - [validation] testing Toys_cold50 dataset on sequential task
+2026-08-09 00:52:43,913 - root - INFO - 
+-------------------------------
+2026-08-09 00:52:43,914 - root - INFO - [GT] game board villages village hopefully || [top-1] game boardgno prominence prosperity || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game boardgno prominence prosperity || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] sports rocket porick ma || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] leaprog font groove musical0 || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game boardgnoky whom || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] leapexplorer download redeempad || [hits@10] 1.0
+[GT] sports party changer voicestor || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] building leachrrington baggage || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] leaprogcou pal my || [hits@10] 0.0
+
+2026-08-09 00:52:43,914 - root - INFO - validation hit@1: 0.012174308795084765
+2026-08-09 00:52:43,914 - root - INFO - validation hit@3: 0.023665946068949825
+2026-08-09 00:52:43,914 - root - INFO - validation hit@5: 0.030378882694276937
+2026-08-09 00:52:43,914 - root - INFO - validation hit@10: 0.04460120605302082
+2026-08-09 00:52:43,914 - root - INFO - validation hit@20: 0.059733758106724315
+2026-08-09 00:52:43,914 - root - INFO - validation hit@50: 0.09022641938787121
+2026-08-09 00:52:43,914 - root - INFO - validation ndcg@1: 0.012174308795084765
+2026-08-09 00:52:43,914 - root - INFO - validation ndcg@3: 0.018754359563090385
+2026-08-09 00:52:43,914 - root - INFO - validation ndcg@5: 0.021530781301290016
+2026-08-09 00:52:43,914 - root - INFO - validation ndcg@10: 0.02615093566074625
+2026-08-09 00:52:43,914 - root - INFO - validation ndcg@20: 0.03001657116163687
+2026-08-09 00:52:43,914 - root - INFO - validation ndcg@50: 0.03609831101071114
+2026-08-09 00:52:43,914 - root - INFO - Total inference time: 1567.91s for 8789 samples. Average: 0.1784s
+2026-08-09 00:52:43,915 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_002447_Toys_cold50_sequential_pred_validation.tsv
+2026-08-09 00:52:43,923 - root - INFO - Start training recommender for phase 1, epoch 6
+2026-08-09 01:08:31,211 - root - INFO - The average training loss for rec phase 1 epoch 6 is 2.138705107560263
+2026-08-09 01:08:31,213 - root - INFO - Start training recommender for phase 1, epoch 7
+2026-08-09 01:24:12,469 - root - INFO - The average training loss for rec phase 1 epoch 7 is 1.967057569400419
+2026-08-09 01:24:12,471 - root - INFO - Start training recommender for phase 1, epoch 8
+2026-08-09 01:39:50,087 - root - INFO - The average training loss for rec phase 1 epoch 8 is 1.8441740947339353
+2026-08-09 01:39:50,088 - root - INFO - Start training recommender for phase 1, epoch 9
+2026-08-09 01:55:19,292 - root - INFO - The average training loss for rec phase 1 epoch 9 is 1.7417089377494552
+2026-08-09 01:55:19,294 - root - INFO - Start training recommender for phase 1, epoch 10
+2026-08-09 02:10:46,105 - root - INFO - The average training loss for rec phase 1 epoch 10 is 1.6619826345409774
+2026-08-09 02:10:47,258 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_10.pt
+2026-08-09 02:10:47,666 - root - INFO - [validation] testing Toys_cold50 dataset on sequential task
+2026-08-09 02:34:30,610 - root - INFO - 
+-------------------------------
+2026-08-09 02:34:30,610 - root - INFO - [GT] game board villages village hopefully || [top-1] game boardlant whale giant || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game board domin rivers pleasant1 || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] game card cards snakelith || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] baby stack blocks sort bucket || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game boardgno seasons participating || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] doll loving holiday furnished holidays || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] action master max steel turbo || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] dollbiestory beach bar || [hits@10] 0.0
+
+2026-08-09 02:34:30,610 - root - INFO - validation hit@1: 0.015018773466833541
+2026-08-09 02:34:30,610 - root - INFO - validation hit@3: 0.029582432586187278
+2026-08-09 02:34:30,610 - root - INFO - validation hit@5: 0.04050517692570258
+2026-08-09 02:34:30,610 - root - INFO - validation hit@10: 0.054727500284446465
+2026-08-09 02:34:30,610 - root - INFO - validation hit@20: 0.07247695983615883
+2026-08-09 02:34:30,610 - root - INFO - validation hit@50: 0.10171805666173626
+2026-08-09 02:34:30,610 - root - INFO - validation ndcg@1: 0.015018773466833541
+2026-08-09 02:34:30,610 - root - INFO - validation ndcg@3: 0.02332849618801118
+2026-08-09 02:34:30,610 - root - INFO - validation ndcg@5: 0.027798314516105344
+2026-08-09 02:34:30,610 - root - INFO - validation ndcg@10: 0.03235414132074721
+2026-08-09 02:34:30,610 - root - INFO - validation ndcg@20: 0.0368132725228658
+2026-08-09 02:34:30,611 - root - INFO - validation ndcg@50: 0.042607023769112996
+2026-08-09 02:34:30,611 - root - INFO - Total inference time: 1324.76s for 8789 samples. Average: 0.1507s
+2026-08-09 02:34:30,611 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_021047_Toys_cold50_sequential_pred_validation.tsv
+2026-08-09 02:34:30,618 - root - INFO - Start training recommender for phase 1, epoch 11
+2026-08-09 02:49:59,650 - root - INFO - The average training loss for rec phase 1 epoch 11 is 1.5927786986001684
+2026-08-09 02:49:59,652 - root - INFO - Start training recommender for phase 1, epoch 12
+2026-08-09 03:05:33,438 - root - INFO - The average training loss for rec phase 1 epoch 12 is 1.538393669349106
+2026-08-09 03:05:33,440 - root - INFO - Start training recommender for phase 1, epoch 13
+2026-08-09 03:21:16,285 - root - INFO - The average training loss for rec phase 1 epoch 13 is 1.485219405940439
+2026-08-09 03:21:16,287 - root - INFO - Start training recommender for phase 1, epoch 14
+2026-08-09 03:36:53,125 - root - INFO - The average training loss for rec phase 1 epoch 14 is 1.4413018687805044
+2026-08-09 03:36:53,127 - root - INFO - Start training recommender for phase 1, epoch 15
+2026-08-09 03:52:33,439 - root - INFO - The average training loss for rec phase 1 epoch 15 is 1.4006976136536915
+2026-08-09 03:52:34,528 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_15.pt
+2026-08-09 03:52:34,721 - root - INFO - [validation] testing Toys_cold50 dataset on sequential task
+2026-08-09 04:16:14,310 - root - INFO - 
+-------------------------------
+2026-08-09 04:16:14,310 - root - INFO - [GT] game board villages village hopefully || [top-1] game boardlant serpent explode || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game card un scored points || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] game board28 spot85 || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] musical instruments tunedckenspiel || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game boardgno seasons participating || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] doll loving holiday furnished holidays || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] actionwebuck strikedown || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] dollbieposania fairy || [hits@10] 0.0
+
+2026-08-09 04:16:14,310 - root - INFO - validation hit@1: 0.01695300944362271
+2026-08-09 04:16:14,310 - root - INFO - validation hit@3: 0.03128911138923655
+2026-08-09 04:16:14,310 - root - INFO - validation hit@5: 0.03925361247013312
+2026-08-09 04:16:14,311 - root - INFO - validation hit@10: 0.053589714415746954
+2026-08-09 04:16:14,311 - root - INFO - validation hit@20: 0.07281829559676868
+2026-08-09 04:16:14,311 - root - INFO - validation hit@50: 0.10763454317897372
+2026-08-09 04:16:14,311 - root - INFO - validation ndcg@1: 0.01695300944362271
+2026-08-09 04:16:14,311 - root - INFO - validation ndcg@3: 0.025238335591973932
+2026-08-09 04:16:14,311 - root - INFO - validation ndcg@5: 0.028518873371012728
+2026-08-09 04:16:14,311 - root - INFO - validation ndcg@10: 0.03311679616511157
+2026-08-09 04:16:14,311 - root - INFO - validation ndcg@20: 0.03794614107527061
+2026-08-09 04:16:14,311 - root - INFO - validation ndcg@50: 0.04482293866251249
+2026-08-09 04:16:14,311 - root - INFO - Total inference time: 1321.65s for 8789 samples. Average: 0.1504s
+2026-08-09 04:16:14,311 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_035234_Toys_cold50_sequential_pred_validation.tsv
+2026-08-09 04:16:14,320 - root - INFO - Start training recommender for phase 1, epoch 16
+2026-08-09 04:31:37,938 - root - INFO - The average training loss for rec phase 1 epoch 16 is 1.3613590648798626
+2026-08-09 04:31:37,940 - root - INFO - Start training recommender for phase 1, epoch 17
+2026-08-09 04:46:58,761 - root - INFO - The average training loss for rec phase 1 epoch 17 is 1.3337734934131178
+2026-08-09 04:46:58,762 - root - INFO - Start training recommender for phase 1, epoch 18
+2026-08-09 05:02:23,445 - root - INFO - The average training loss for rec phase 1 epoch 18 is 1.2987403728397964
+2026-08-09 05:02:23,447 - root - INFO - Start training recommender for phase 1, epoch 19
+2026-08-09 05:17:47,648 - root - INFO - The average training loss for rec phase 1 epoch 19 is 1.2690673792098142
+2026-08-09 05:17:47,650 - root - INFO - Start training recommender for phase 1, epoch 20
+2026-08-09 05:33:14,849 - root - INFO - The average training loss for rec phase 1 epoch 20 is 1.2434754160150319
+2026-08-09 05:33:15,908 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_20.pt
+2026-08-09 05:33:16,104 - root - INFO - [validation] testing Toys_cold50 dataset on sequential task
+2026-08-09 05:57:36,257 - root - INFO - 
+-------------------------------
+2026-08-09 05:57:36,258 - root - INFO - [GT] game board villages village hopefully || [top-1] game board dixit quest || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game board font neuetica || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] sports rocket porick ma || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] baby balls fabric rainbow engaged || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game board mysteriouslant mag || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] doll loving holiday furnished holidays || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] action marvel shieldfire steal || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] dollbiestory beach bar || [hits@10] 0.0
+
+2026-08-09 05:57:36,258 - root - INFO - validation hit@1: 0.017408123791102514
+2026-08-09 05:57:36,258 - root - INFO - validation hit@3: 0.03299579019228581
+2026-08-09 05:57:36,258 - root - INFO - validation hit@5: 0.04107406986005234
+2026-08-09 05:57:36,258 - root - INFO - validation hit@10: 0.055523950392536124
+2026-08-09 05:57:36,258 - root - INFO - validation hit@20: 0.07554898168164752
+2026-08-09 05:57:36,258 - root - INFO - validation hit@50: 0.10899988622141313
+2026-08-09 05:57:36,258 - root - INFO - validation ndcg@1: 0.017408123791102514
+2026-08-09 05:57:36,258 - root - INFO - validation ndcg@3: 0.02642351118362261
+2026-08-09 05:57:36,258 - root - INFO - validation ndcg@5: 0.02971316109730273
+2026-08-09 05:57:36,258 - root - INFO - validation ndcg@10: 0.03437290639490588
+2026-08-09 05:57:36,258 - root - INFO - validation ndcg@20: 0.039405547525540374
+2026-08-09 05:57:36,258 - root - INFO - validation ndcg@50: 0.0459881544313435
+2026-08-09 05:57:36,258 - root - INFO - Total inference time: 1360.23s for 8789 samples. Average: 0.1548s
+2026-08-09 05:57:36,259 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_053316_Toys_cold50_sequential_pred_validation.tsv
+2026-08-09 05:57:36,267 - root - INFO - Start training recommender for phase 1, epoch 21
+2026-08-09 06:12:30,645 - root - INFO - The average training loss for rec phase 1 epoch 21 is 1.2160056197096276
+2026-08-09 06:12:30,646 - root - INFO - Start training recommender for phase 1, epoch 22
+2026-08-09 06:27:28,157 - root - INFO - The average training loss for rec phase 1 epoch 22 is 1.1931974399080383
+2026-08-09 06:27:28,159 - root - INFO - Start training recommender for phase 1, epoch 23
+2026-08-09 06:42:28,618 - root - INFO - The average training loss for rec phase 1 epoch 23 is 1.1711494099065851
+2026-08-09 06:42:28,619 - root - INFO - Start training recommender for phase 1, epoch 24
+2026-08-09 06:57:26,602 - root - INFO - The average training loss for rec phase 1 epoch 24 is 1.1497957828348573
+2026-08-09 06:57:26,604 - root - INFO - Start training recommender for phase 1, epoch 25
+2026-08-09 07:12:29,770 - root - INFO - The average training loss for rec phase 1 epoch 25 is 1.131499282449861
+2026-08-09 07:12:30,931 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_25.pt
+2026-08-09 07:12:31,136 - root - INFO - [validation] testing Toys_cold50 dataset on sequential task
+2026-08-09 07:36:52,036 - root - INFO - 
+-------------------------------
+2026-08-09 07:36:52,036 - root - INFO - [GT] game board villages village hopefully || [top-1] game board dixit quest || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game board font neuetica || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] game board monkey sticks tree0 || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] baby stack blocks sort bucket || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game boardgno seasons participating || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] neyara necklace petite gift || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] action marvel shieldfire steal || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] dollbiestory beach bar || [hits@10] 0.0
+
+2026-08-09 07:36:52,036 - root - INFO - validation hit@1: 0.01695300944362271
+2026-08-09 07:36:52,036 - root - INFO - validation hit@3: 0.030378882694276937
+2026-08-09 07:36:52,037 - root - INFO - validation hit@5: 0.03959494823074297
+2026-08-09 07:36:52,037 - root - INFO - validation hit@10: 0.053475935828877004
+2026-08-09 07:36:52,037 - root - INFO - validation hit@20: 0.0730458527705086
+2026-08-09 07:36:52,037 - root - INFO - validation hit@50: 0.10444874274661509
+2026-08-09 07:36:52,037 - root - INFO - validation ndcg@1: 0.01695300944362271
+2026-08-09 07:36:52,037 - root - INFO - validation ndcg@3: 0.024738530237472363
+2026-08-09 07:36:52,037 - root - INFO - validation ndcg@5: 0.028518197852908524
+2026-08-09 07:36:52,037 - root - INFO - validation ndcg@10: 0.03301366451459687
+2026-08-09 07:36:52,037 - root - INFO - validation ndcg@20: 0.03792705805984273
+2026-08-09 07:36:52,037 - root - INFO - validation ndcg@50: 0.04412246966743979
+2026-08-09 07:36:52,037 - root - INFO - Total inference time: 1363.61s for 8789 samples. Average: 0.1551s
+2026-08-09 07:36:52,037 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_071231_Toys_cold50_sequential_pred_validation.tsv
+2026-08-09 07:36:52,045 - root - INFO - Start training recommender for phase 1, epoch 26
+2026-08-09 07:51:58,817 - root - INFO - The average training loss for rec phase 1 epoch 26 is 1.11730264292299
+2026-08-09 07:51:58,819 - root - INFO - Start training recommender for phase 1, epoch 27
+2026-08-09 08:07:11,484 - root - INFO - The average training loss for rec phase 1 epoch 27 is 1.1005853752876762
+2026-08-09 08:07:11,486 - root - INFO - Start training recommender for phase 1, epoch 28
+2026-08-09 08:22:22,121 - root - INFO - The average training loss for rec phase 1 epoch 28 is 1.0858078302367578
+2026-08-09 08:22:22,122 - root - INFO - Start training recommender for phase 1, epoch 29
+2026-08-09 08:37:36,700 - root - INFO - The average training loss for rec phase 1 epoch 29 is 1.0768146729450436
+2026-08-09 08:37:36,701 - root - INFO - Start training recommender for phase 1, epoch 30
+2026-08-09 08:52:50,129 - root - INFO - The average training loss for rec phase 1 epoch 30 is 1.0698585712315538
+2026-08-09 08:52:51,386 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_30.pt
+2026-08-09 08:52:51,585 - root - INFO - [validation] testing Toys_cold50 dataset on sequential task
+2026-08-09 09:17:04,379 - root - INFO - 
+-------------------------------
+2026-08-09 09:17:04,379 - root - INFO - [GT] game board villages village hopefully || [top-1] game board dixit quest || [hits@10] 0.0
+[GT] game boardsur path journey || [top-1] game board font neuetica || [hits@10] 0.0
+[GT] sports science crystal volcanoology || [top-1] game card un scored points || [hits@10] 0.0
+[GT] doll babytoneromador || [top-1] baby stack blocks sort bucket || [hits@10] 0.0
+[GT] game boardsur sea ships || [top-1] game boardgno seasons participating || [hits@10] 0.0
+[GT] leapexplorertique bow surprise || [top-1] sports partyelf christmas tradition || [hits@10] 0.0
+[GT] sports party changer voicestor || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] ney frozenels palaceice || [top-1] action marvel shieldfire steal || [hits@10] 0.0
+[GT] drawingographpirdrafting 19651 || [top-1] dollbiestory beach bar || [hits@10] 0.0
+
+2026-08-09 09:17:04,379 - root - INFO - validation hit@1: 0.017521902377972465
+2026-08-09 09:17:04,379 - root - INFO - validation hit@3: 0.03174422573671635
+2026-08-09 09:17:04,379 - root - INFO - validation hit@5: 0.03982250540448288
+2026-08-09 09:17:04,379 - root - INFO - validation hit@10: 0.05313460006826715
+2026-08-09 09:17:04,379 - root - INFO - validation hit@20: 0.07077028103310957
+2026-08-09 09:17:04,379 - root - INFO - validation hit@50: 0.1009216065536466
+2026-08-09 09:17:04,379 - root - INFO - validation ndcg@1: 0.017521902377972465
+2026-08-09 09:17:04,379 - root - INFO - validation ndcg@3: 0.025735442230548126
+2026-08-09 09:17:04,380 - root - INFO - validation ndcg@5: 0.029079940393087877
+2026-08-09 09:17:04,380 - root - INFO - validation ndcg@10: 0.03336129972343845
+2026-08-09 09:17:04,380 - root - INFO - validation ndcg@20: 0.037805535282802796
+2026-08-09 09:17:04,380 - root - INFO - validation ndcg@50: 0.043762149219799394
+2026-08-09 09:17:04,380 - root - INFO - Total inference time: 1357.17s for 8789 samples. Average: 0.1544s
+2026-08-09 09:17:04,380 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_085251_Toys_cold50_sequential_pred_validation.tsv
+2026-08-09 09:17:04,387 - root - INFO - Training ID Generator phase 1 finished ..
+2026-08-09 09:17:08,501 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/scheduler_rec_phase_1_epoch_30.pt
+2026-08-09 09:17:08,504 - root - INFO - RESOURCE_METRIC phase=training wall_time_seconds=37195.906044 peak_allocated_mib=15753.175 peak_reserved_mib=23680.000 end_allocated_mib=1154.236 end_reserved_mib=17692.000
+2026-08-09 09:17:08,504 - root - INFO - Train done ... Load model from /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt
+2026-08-09 09:17:09,103 - root - INFO - [test] testing Toys_cold50 dataset on sequential task
+2026-08-09 09:42:13,086 - root - INFO - 
+-------------------------------
+2026-08-09 09:42:13,087 - root - INFO - [GT] game boardbe cu contained || [top-1] game board dixit quest || [hits@10] 0.0
+[GT] game board unprecedentedscribed awards || [top-1] game board sorry determination forcing || [hits@10] 0.0
+[GT] gameguinpig bus drive || [top-1] sports science crystal growing230 || [hits@10] 0.0
+[GT] water bath submarine nauticalsurface || [top-1] baby stack blocks sort bucket || [hits@10] 0.0
+[GT] game board villages village hopefully || [top-1] game boardgno seasons participating || [hits@10] 0.0
+[GT] sports journal microscopeancy science || [top-1] leap ebookburg pencil ultra || [hits@10] 0.0
+[GT] game boardiumboo car || [top-1] buildingangle texture therapeutic manipulation || [hits@10] 0.0
+[GT] sports blast mega bigger mag || [top-1] action marvel shieldfire steal || [hits@10] 0.0
+[GT] dollcrithome luxury town || [top-1] animalsdocippo halluff || [hits@10] 0.0
+
+2026-08-09 09:42:13,087 - root - INFO - test hit@1: 0.013312094663784276
+2026-08-09 09:42:13,087 - root - INFO - test hit@3: 0.026169074980088747
+2026-08-09 09:42:13,087 - root - INFO - test hit@5: 0.03401979747411537
+2026-08-09 09:42:13,087 - root - INFO - test hit@10: 0.04733189213789965
+2026-08-09 09:42:13,087 - root - INFO - test hit@20: 0.06474001592900216
+2026-08-09 09:42:13,087 - root - INFO - test hit@50: 0.09398111275457958
+2026-08-09 09:42:13,087 - root - INFO - test ndcg@1: 0.013312094663784276
+2026-08-09 09:42:13,087 - root - INFO - test ndcg@3: 0.02081316899045905
+2026-08-09 09:42:13,087 - root - INFO - test ndcg@5: 0.0239898567504626
+2026-08-09 09:42:13,087 - root - INFO - test ndcg@10: 0.028266926081618578
+2026-08-09 09:42:13,087 - root - INFO - test ndcg@20: 0.032645110596324925
+2026-08-09 09:42:13,087 - root - INFO - test ndcg@50: 0.038467794890581934
+2026-08-09 09:42:13,087 - root - INFO - Total inference time: 1395.04s for 8789 samples. Average: 0.1587s
+2026-08-09 09:42:13,087 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_091709_Toys_cold50_sequential_pred_test.tsv
+2026-08-09 09:42:13,095 - root - INFO - RESOURCE_METRIC phase=automatic_last_checkpoint_test wall_time_seconds=1504.590066 peak_allocated_mib=7846.377 peak_reserved_mib=17732.000 end_allocated_mib=1154.236 end_reserved_mib=17732.000

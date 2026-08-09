@@ -1,0 +1,143 @@
+2026-08-06 17:27:55,910 - root - INFO - {'id_epochs': 0, 'save_id_epochs': 1, 'id_batch_size': 4, 'id_model_path': None, 'id_lr': 0.001, 'alt_style': 'rec_first', 'test_epoch_id': 1, 'rounds': 1, 'tasks': 'sequential', 'prompt_file': '../prompt.txt', 'valid_prompt': 'seen:0', 'valid_prompt_sample': 1, 'valid_sample_num': '1', 'test_prompt': 'seen:0', 'sample_prompt': 1, 'sample_num': '1', 'batch_size': 32, 'eval_batch_size': 1, 'dist_sampler': 0, 'seed': 2023, 'model_name': 'model.pt', 'log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs', 'distributed': 0, 'gpu': '0', 'master_addr': 'localhost', 'master_port': '12345', 'logging_level': 20, 'resource_metrics': 1, 'rec_epochs': 30, 'save_rec_epochs': 5, 'rec_batch_size': 16, 'rec_model_path': None, 'rec_lr': 0.001, 'test_epoch_rec': 5, 'data_path': '../rec_datasets', 'datasets': 'Beauty', 'max_his': 20, 'his_sep': ' ; ', 'skip_empty_his': 1, 'reverse_history': 1, 'valid_by_test': 0, 'test_by_valid': 0, 'debug_train_100': 0, 'debug_test_100': 0, 'debug_test_on_train': 0, 'verbose_input_output': 0, 'save_predictions': 1, 'prediction_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/predictions', 'debug_test_small_set': 0, 'item_id_path': '', 'user_id_without_target_item': 1, 'clip': 1, 'warmup_prop': 0.05, 'gradient_accumulation_steps': 8, 'weight_decay': 0.01, 'adam_eps': 1e-06, 'train': 1, 'backbone': 't5-small', 'metrics': 'hit@1,hit@3,hit@5,hit@10,hit@20,hit@50,ndcg@1,ndcg@3,ndcg@5,ndcg@10,ndcg@20,ndcg@50', 'beam_size': 50, 'length_penalty': 1.0, 'use_position_embedding': 1, 'item_prompt': 'all_text', 'cf_model': 'sasrec', 'top_k_similar_item': 10, 'item_prompt_max_len': 128, 'target_max_len': 32, 'hierarchical_id_type': 'hierarchy_v1_c128_l7_len32768_split', 'item_id_type': 'split', 'id_linking': 1, 'cf0_arm': 'A', 'cf0_phase9': 0, 'cf0_num_layers': 2, 'cf0_num_heads': 4, 'cf0_dropout': 0.1, 'cf0_loss_weight': 0.1, 'cf0_lr': 0.001, 'cf0_injection_scale': 0.1, 'cf0_joint_score_weight': 0.25, 'cf0_pretrain_epochs': 1, 'cf0_unfreeze_top_layers': 2, 'hi_gram_enabled': 1, 'hi_gram_local_window': 5, 'hi_gram_local_layers': 2, 'hi_gram_global_layers': 2, 'hi_gram_num_heads': 4, 'hi_gram_dropout': 0.1, 'hi_gram_fusion_scale_init': 0.1, 'hi_gram_include_user_prompt': 0, 'log_name': '0_1_1_20_12345_Beauty_sequential_t5-small_32_1_prompt', 'full_log_dir': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260806_1727', 'model_path': '/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260806_1727/id_0_rec_30', 'rank': 0}
+2026-08-06 17:27:55,964 - root - INFO - Use t5-small backbone model
+2026-08-06 17:28:04,915 - root - INFO - Generating data for Beauty dataset
+2026-08-06 17:28:04,915 - root - INFO - Reindex data with generative indexing method
+2026-08-06 17:28:05,083 - root - INFO - loading training data
+2026-08-06 17:28:06,669 - root - INFO - Generating data for Beauty dataset
+2026-08-06 17:28:06,669 - root - INFO - Reindex data with generative indexing method
+2026-08-06 17:28:06,796 - root - INFO - loading training data
+2026-08-06 17:28:08,679 - root - INFO - Building Optimizer and Scheduler
+2026-08-06 17:28:08,679 - root - INFO - Batch per epoch id: 32854
+2026-08-06 17:28:08,679 - root - INFO - Warmup proportion: 0.05
+2026-08-06 17:28:08,679 - root - INFO - Total id generator steps: 0
+2026-08-06 17:28:08,679 - root - INFO - Warm up id generator steps: 0
+2026-08-06 17:28:08,679 - root - INFO - Batch per epoch rec: 8214
+2026-08-06 17:28:08,679 - root - INFO - Warmup proportion: 0.05
+2026-08-06 17:28:08,679 - root - INFO - Total rec generator steps: 30780
+2026-08-06 17:28:08,679 - root - INFO - Warm up rec generator steps: 1539
+2026-08-06 17:28:08,683 - root - INFO - Building Optimizer AdamW
+2026-08-06 17:28:09,449 - root - INFO - Start training
+2026-08-06 17:28:09,451 - root - INFO - Training Recommender phase 1
+2026-08-06 17:28:09,454 - root - INFO - Start training recommender for phase 1, epoch 1
+2026-08-06 18:26:40,621 - root - INFO - The average training loss for rec phase 1 epoch 1 is 5.635786248623106
+2026-08-06 18:26:40,622 - root - INFO - Start training recommender for phase 1, epoch 2
+2026-08-06 19:25:34,316 - root - INFO - The average training loss for rec phase 1 epoch 2 is 3.8394194552792777
+2026-08-06 19:25:34,318 - root - INFO - Start training recommender for phase 1, epoch 3
+2026-08-06 20:24:24,819 - root - INFO - The average training loss for rec phase 1 epoch 3 is 2.8542855679408485
+2026-08-06 20:24:24,821 - root - INFO - Start training recommender for phase 1, epoch 4
+2026-08-06 21:23:11,154 - root - INFO - The average training loss for rec phase 1 epoch 4 is 2.3662830170428975
+2026-08-06 21:23:11,156 - root - INFO - Start training recommender for phase 1, epoch 5
+2026-08-06 22:23:59,754 - root - INFO - The average training loss for rec phase 1 epoch 5 is 2.059615059047502
+2026-08-06 22:24:01,050 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260806_1727/id_0_rec_30/scheduler_rec_phase_1_epoch_5.pt
+2026-08-06 22:24:02,394 - root - INFO - [validation] testing Beauty dataset on sequential task
+2026-08-06 23:41:55,626 - root - INFO - 
+-------------------------------
+2026-08-06 23:41:55,626 - root - INFO - [GT] shadowoulage profession 10,000 colour cam || [top-1] cleanse detox effect790766 11. || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] serumur3397 simply copyonic || [hits@10] 0.0
+[GT] air sponge curl method sleep moon strawberry || [top-1] lashesellardlash dem fashion adhesive1 || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] lashes adhesive pairs sent random sheets sticker || [hits@10] 0.0
+[GT] lashesshop nice extensionlash stainlessator || [top-1] wig model realitykindly personkankal1 || [hits@10] 0.0
+[GT] cream sakebrewed rigid foodachgre || [top-1] dark salmoncirc conceal circlefood circles || [hits@10] 0.0
+[GT] brushes2.5 baginchfold fibre86 || [top-1] line emphasizeados liquid bold studio line || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] hairpuawa pa mitkerche || [hits@10] 0.0
+[GT] peel glyco lunch offices heardnow obsession || [top-1] conditionerabb fragile wheattreated combined3.8 || [hits@10] 0.0
+
+2026-08-06 23:41:55,627 - root - INFO - validation hit@1: 0.024817779367705586
+2026-08-06 23:41:55,627 - root - INFO - validation hit@3: 0.04815990698922327
+2026-08-06 23:41:55,627 - root - INFO - validation hit@5: 0.06376604212314985
+2026-08-06 23:41:55,627 - root - INFO - validation hit@10: 0.09283190985109332
+2026-08-06 23:41:55,627 - root - INFO - validation hit@20: 0.12449134731476098
+2026-08-06 23:41:55,627 - root - INFO - validation hit@50: 0.17734650986003667
+2026-08-06 23:41:55,627 - root - INFO - validation ndcg@1: 0.024817779367705586
+2026-08-06 23:41:55,627 - root - INFO - validation ndcg@3: 0.038251122650136644
+2026-08-06 23:41:55,627 - root - INFO - validation ndcg@5: 0.044635258661554135
+2026-08-06 23:41:55,627 - root - INFO - validation ndcg@10: 0.05400614520676288
+2026-08-06 23:41:55,627 - root - INFO - validation ndcg@20: 0.06199499284859373
+2026-08-06 23:41:55,627 - root - INFO - validation ndcg@50: 0.07249002321572354
+2026-08-06 23:41:55,627 - root - INFO - Total inference time: 4353.91s for 22363 samples. Average: 0.1947s
+2026-08-06 23:41:55,627 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/predictions/20260806_222402_Beauty_sequential_pred_validation.tsv
+2026-08-06 23:41:55,640 - root - INFO - Start training recommender for phase 1, epoch 6
+2026-08-07 00:44:20,361 - root - INFO - The average training loss for rec phase 1 epoch 6 is 1.846649107067123
+2026-08-07 00:44:20,362 - root - INFO - Start training recommender for phase 1, epoch 7
+2026-08-07 01:46:51,829 - root - INFO - The average training loss for rec phase 1 epoch 7 is 1.6861363406625904
+2026-08-07 01:46:51,830 - root - INFO - Start training recommender for phase 1, epoch 8
+2026-08-07 02:49:00,476 - root - INFO - The average training loss for rec phase 1 epoch 8 is 1.5597476138068616
+2026-08-07 02:49:00,477 - root - INFO - Start training recommender for phase 1, epoch 9
+2026-08-07 03:49:51,331 - root - INFO - The average training loss for rec phase 1 epoch 9 is 1.4655252082786634
+2026-08-07 03:49:51,333 - root - INFO - Start training recommender for phase 1, epoch 10
+2026-08-07 04:49:06,920 - root - INFO - The average training loss for rec phase 1 epoch 10 is 1.383334403152069
+2026-08-07 04:49:08,209 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260806_1727/id_0_rec_30/scheduler_rec_phase_1_epoch_10.pt
+2026-08-07 04:49:08,602 - root - INFO - [validation] testing Beauty dataset on sequential task
+2026-08-07 06:05:31,211 - root - INFO - 
+-------------------------------
+2026-08-07 06:05:31,211 - root - INFO - [GT] shadowoulage profession 10,000 colour cam || [top-1] cleanse detox effect790766 11. || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] maskmud teens ebookrenowned everywhere facial || [hits@10] 0.0
+[GT] air sponge curl method sleep moon strawberry || [top-1] lashes fish tail ladieslash stainless steel || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] lashes adhesive du celebratedlash201920180 || [hits@10] 0.0
+[GT] lashesshop nice extensionlash stainlessator || [top-1] lashes pairs femininelash2.6 eyeenhancing || [hits@10] 0.0
+[GT] cream sakebrewed rigid foodachgre || [top-1] brushes guardfound vulnerable hygiene243 visit || [hits@10] 0.0
+[GT] brushes2.5 baginchfold fibre86 || [top-1] line emphasizeados liquid bold studio line || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] rus leaveless controls acts thermal miracle || [hits@10] 0.0
+[GT] peel glyco lunch offices heardnow obsession || [top-1] conditionerabb fragile wheattreated combined3.8 || [hits@10] 0.0
+
+2026-08-07 06:05:31,211 - root - INFO - validation hit@1: 0.028663417251710413
+2026-08-07 06:05:31,211 - root - INFO - validation hit@3: 0.05294459598443858
+2026-08-07 06:05:31,211 - root - INFO - validation hit@5: 0.0700710995841345
+2026-08-07 06:05:31,211 - root - INFO - validation hit@10: 0.09904753387291508
+2026-08-07 06:05:31,211 - root - INFO - validation hit@20: 0.13540222689263515
+2026-08-07 06:05:31,211 - root - INFO - validation hit@50: 0.19304207843312615
+2026-08-07 06:05:31,211 - root - INFO - validation ndcg@1: 0.028663417251710413
+2026-08-07 06:05:31,211 - root - INFO - validation ndcg@3: 0.04255457659159603
+2026-08-07 06:05:31,212 - root - INFO - validation ndcg@5: 0.049560185536440954
+2026-08-07 06:05:31,212 - root - INFO - validation ndcg@10: 0.05892084253194273
+2026-08-07 06:05:31,212 - root - INFO - validation ndcg@20: 0.06808687903129404
+2026-08-07 06:05:31,212 - root - INFO - validation ndcg@50: 0.07949698375471084
+2026-08-07 06:05:31,212 - root - INFO - Total inference time: 4272.23s for 22363 samples. Average: 0.1910s
+2026-08-07 06:05:31,212 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/predictions/20260807_044908_Beauty_sequential_pred_validation.tsv
+2026-08-07 06:05:31,226 - root - INFO - Start training recommender for phase 1, epoch 11
+2026-08-07 07:05:00,329 - root - INFO - The average training loss for rec phase 1 epoch 11 is 1.3187706111599315
+2026-08-07 07:05:00,331 - root - INFO - Start training recommender for phase 1, epoch 12
+2026-08-07 08:04:27,200 - root - INFO - The average training loss for rec phase 1 epoch 12 is 1.2606157813413466
+2026-08-07 08:04:27,201 - root - INFO - Start training recommender for phase 1, epoch 13
+2026-08-07 09:04:22,481 - root - INFO - The average training loss for rec phase 1 epoch 13 is 1.2155120091725
+2026-08-07 09:04:22,482 - root - INFO - Start training recommender for phase 1, epoch 14
+2026-08-07 10:03:53,516 - root - INFO - The average training loss for rec phase 1 epoch 14 is 1.1747037346067657
+2026-08-07 10:03:53,517 - root - INFO - Start training recommender for phase 1, epoch 15
+2026-08-07 11:03:10,705 - root - INFO - The average training loss for rec phase 1 epoch 15 is 1.1400147910649727
+2026-08-07 11:03:11,930 - root - INFO - Save the current rec model to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/gram_logs/Beauty/0_20260806_1727/id_0_rec_30/scheduler_rec_phase_1_epoch_15.pt
+2026-08-07 11:03:12,936 - root - INFO - [validation] testing Beauty dataset on sequential task
+2026-08-07 12:19:52,406 - root - INFO - 
+-------------------------------
+2026-08-07 12:19:52,406 - root - INFO - [GT] shadowoulage profession 10,000 colour cam || [top-1] cleanse detox effect790766 11. || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] serum vitamin reverse 5, 10, youngervid || [hits@10] 0.0
+[GT] air sponge curl method sleep moon strawberry || [top-1] lashes pairspit faketrimmed falselash || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] men klein eternityvincal edition summer || [hits@10] 0.0
+[GT] lashesshop nice extensionlash stainlessator || [top-1] lashes pairs femininelash2.6 eyeenhancing || [hits@10] 0.0
+[GT] cream sakebrewed rigid foodachgre || [top-1] dark salmoncirc conceal circlefood circles || [hits@10] 0.0
+[GT] brushes2.5 baginchfold fibre86 || [top-1] line emphasizeados liquid bold studio line || [hits@10] 0.0
+[GT] shadowoulage profession 10,000 colour cam || [top-1] shadowhem bo chic nu303 matte || [hits@10] 0.0
+[GT] peel glyco lunch offices heardnow obsession || [top-1] conditionerabb fragile wheattreated combined3.8 || [hits@10] 0.0
+
+2026-08-07 12:19:52,406 - root - INFO - validation hit@1: 0.030317935876224122
+2026-08-07 12:19:52,406 - root - INFO - validation hit@3: 0.05674551714886196
+2026-08-07 12:19:52,406 - root - INFO - validation hit@5: 0.0739614541877208
+2026-08-07 12:19:52,407 - root - INFO - validation hit@10: 0.10472655725975942
+2026-08-07 12:19:52,407 - root - INFO - validation hit@20: 0.14385368689352948
+2026-08-07 12:19:52,407 - root - INFO - validation hit@50: 0.20565219335509546
+2026-08-07 12:19:52,407 - root - INFO - validation ndcg@1: 0.030317935876224122
+2026-08-07 12:19:52,407 - root - INFO - validation ndcg@3: 0.04557503393983073
+2026-08-07 12:19:52,407 - root - INFO - validation ndcg@5: 0.05259172460914945
+2026-08-07 12:19:52,407 - root - INFO - validation ndcg@10: 0.06245704364155513
+2026-08-07 12:19:52,407 - root - INFO - validation ndcg@20: 0.07229743151504436
+2026-08-07 12:19:52,407 - root - INFO - validation ndcg@50: 0.0845808333378004
+2026-08-07 12:19:52,407 - root - INFO - Total inference time: 4283.98s for 22363 samples. Average: 0.1916s
+2026-08-07 12:19:52,407 - root - INFO - >> preds saved to /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase12/hi_gram/beauty_v1/predictions/20260807_110312_Beauty_sequential_pred_validation.tsv
+2026-08-07 12:19:52,421 - root - INFO - Start training recommender for phase 1, epoch 16
+2026-08-07 13:19:47,617 - root - INFO - The average training loss for rec phase 1 epoch 16 is 1.1097841963259016
+2026-08-07 13:19:47,634 - root - INFO - Start training recommender for phase 1, epoch 17
+2026-08-07 14:19:30,760 - root - INFO - The average training loss for rec phase 1 epoch 17 is 1.0827859153911226
+2026-08-07 14:19:30,762 - root - INFO - Start training recommender for phase 1, epoch 18
+2026-08-07 15:19:33,971 - root - INFO - The average training loss for rec phase 1 epoch 18 is 1.0567412158690153
+2026-08-07 15:19:33,973 - root - INFO - Start training recommender for phase 1, epoch 19
+2026-08-07 16:28:10,024 - root - INFO - The average training loss for rec phase 1 epoch 19 is 1.035577554854237
+2026-08-07 16:28:10,025 - root - INFO - Start training recommender for phase 1, epoch 20
