@@ -51,3 +51,11 @@ artifacts/**/fresh_beams*.tsv
 # Phase-5 long-running CET session state; durable summaries are committed separately.
 artifacts/phase5/cet_c2*/run.log
 artifacts/phase5/cet_c2*/status.json
+
+# Phase 13 experiment outputs
+artifacts/phase13/explore/**/gram_logs/
+artifacts/phase13/explore/**/mlp/*.pt
+artifacts/phase13/explore/**/gpu_lease.json
+artifacts/phase13/explore/**/metrics_cold_warm.json
+artifacts/phase13/explore/**/*.jsonl
+artifacts/phase13/llm_cache.db
