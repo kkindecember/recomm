@@ -19,6 +19,7 @@
 #   v0_toys              Toys_cold50, 30 epochs, second-domain vanilla baseline
 #   v1_beauty            Beauty_cold50 + MLP-predicted cold ids (c128/l7)
 #   v1_toys              Toys_cold50 + MLP-predicted cold ids (c32/l5)
+#   v2_toys              Toys_cold50 + MLP v2 with LLM prior (c32/l5)
 #
 # Usage:
 #   bash experiment/phase13/run_phase13_explore.sh start <sub> [gpu]
@@ -54,7 +55,7 @@ fi
 
 if [[ -z "$SUB" && "$ACTION" != "help" && "$ACTION" != "--help" && "$ACTION" != "-h" ]]; then
   echo "usage: $0 {start|status|stop} <sub> [gpu]" >&2
-  echo "  sub ∈ {smoke_v0_beauty, v0_beauty, v0_beauty_eta80, v0_toys, v1_beauty, v1_toys}" >&2
+  echo "  sub ∈ {smoke_v0_beauty, v0_beauty, v0_beauty_eta80, v0_toys, v1_beauty, v1_toys, v2_toys}" >&2
   exit 2
 fi
 
@@ -83,6 +84,8 @@ COLD_SEED=""
 COLD_MIN_WARM=""
 COLD_BUCKETS=""
 V1_MLPCOLD=0  # 1 = require MLP-cold artifacts and use v1_mlpcold id suffix
+V2_MLPCOLD_LLMPRIOR=0  # 1 = require MLP v2 + LLM prior artifacts, use v2_mlpcold_llmprior suffix
+V2ITER2_MLPCOLD_LLMPRIOR=0  # 1 = v2_iter2 (vocab-constrained + OOV-masked), use v2iter2_mlpcold_llmprior suffix
 
 case "${SUB:-}" in
   smoke_v0_beauty)
@@ -143,6 +146,42 @@ case "${SUB:-}" in
     COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
     V1_MLPCOLD=1
     ;;
+  v2_toys)
+    # v2 LLM Prior on Toys_cold50 (extends v1 with LLM prior regularization).
+    # MLP v2 trained with KL(MLP || LLM prior) on warm items, using DeepSeek API.
+    # Hierarchical ID suffix: v2_mlpcold_llmprior
+    #
+    # Requires v2_prep artifacts:
+    #   1. artifacts/phase13/embeddings/Toys_sbert.pt
+    #   2. artifacts/phase13/explore/v2_toys/mlp/best.pt (trained with λ_llm=0.5)
+    #   3. artifacts/phase13/explore/v2_toys/llm_priors_all.jsonl (warm+cold priors)
+    #   4. GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split_v2_mlpcold_llmprior.txt
+    DATASET=Toys_cold50; EPOCHS=30; CLUSTER=32; ID_LEN=5; NUM_CF=5; BEAM_SIZE=50
+    DEBUG_TRAIN_100=0; DEBUG_TEST_100=0; TEST_EPOCH_REC=5; SAVE_REC_EPOCHS=5
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V2_MLPCOLD_LLMPRIOR=1
+    ;;
+  v2_beauty)
+    # v2 LLM Prior on Beauty_cold50 (cross-domain validation of v2 approach).
+    DATASET=Beauty_cold50; EPOCHS=30; CLUSTER=128; ID_LEN=7; NUM_CF=10; BEAM_SIZE=50
+    DEBUG_TRAIN_100=0; DEBUG_TEST_100=0; TEST_EPOCH_REC=5; SAVE_REC_EPOCHS=5
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V2_MLPCOLD_LLMPRIOR=1
+    ;;
+  v2_toys_iter2)
+    # v2_iter2: vocab-constrained LLM prior + OOV mask (fix from iter1 -48% regression)
+    # Suffix: v2iter2_mlpcold_llmprior (from artifacts/phase13/explore/v2_toys_iter2/)
+    DATASET=Toys_cold50; EPOCHS=30; CLUSTER=32; ID_LEN=5; NUM_CF=5; BEAM_SIZE=50
+    DEBUG_TRAIN_100=0; DEBUG_TEST_100=0; TEST_EPOCH_REC=5; SAVE_REC_EPOCHS=5
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V2ITER2_MLPCOLD_LLMPRIOR=1
+    ;;
+  v2_beauty_iter2)
+    DATASET=Beauty_cold50; EPOCHS=30; CLUSTER=128; ID_LEN=7; NUM_CF=10; BEAM_SIZE=50
+    DEBUG_TRAIN_100=0; DEBUG_TEST_100=0; TEST_EPOCH_REC=5; SAVE_REC_EPOCHS=5
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V2ITER2_MLPCOLD_LLMPRIOR=1
+    ;;
   "")
     :  # allowed for worker/help; error handled above
     ;;
@@ -159,8 +198,8 @@ TELEMETRY_CSV="$OUTPUT/gpu_telemetry.csv"
 METRICS_COLD_WARM="$OUTPUT/metrics_cold_warm.json"
 
 TOTAL_LEASE_MIB=${LEASE_MIB_OVERRIDE:-30720}
-# vanilla GRAM (no HI-GRAM extra params) peak similar to phase1: ~13 GiB
-EXPECTED_PEAK_MIB=13312
+# v1_toys measured peak_reserved=19290; use 21000 for safety margin
+EXPECTED_PEAK_MIB=${EXPECTED_PEAK_MIB_OVERRIDE:-21000}
 
 WORKLOAD_PID=0
 LEASE_PID=""
@@ -196,7 +235,12 @@ protector() {
       HF_HUB_CACHE="$CODELLAMA_HF_HOME/hub" \
       TRANSFORMERS_CACHE="$CODELLAMA_HF_HOME/hub" "$PROTECTOR_TOOL_PATH" "$@"
   else
-    "$PROTECTOR_TOOL_PATH" "$@"
+    # ablation_scan holder default reserve is 29500 MiB but that fails on
+    # busy GPUs (e.g. GPU0 with 20 GiB of other users' processes). Allow
+    # override via HOLDER_RESERVE_MIB_OVERRIDE so restore doesn't OOM on
+    # a fragmented card.
+    env RESERVE_MIB="${HOLDER_RESERVE_MIB_OVERRIDE:-25000}" \
+      "$PROTECTOR_TOOL_PATH" "$@"
   fi
 }
 
@@ -233,7 +277,9 @@ restore() {
   RESERVATION=restoring_${PROTECTOR_TOOL}_to_gpu${GPU}
   write_status restoring_resource "Experiment ended; restoring $PROTECTOR_TOOL on GPU${GPU}."
   protector start "$GPU" >/dev/null 2>&1 || {
-    RESERVATION=restore_request_failed_on_gpu${GPU}; return 1
+    RESERVATION=restore_request_failed_on_gpu${GPU}
+    fallback_hold
+    return 0
   }
   for _ in $(seq 1 180); do
     if protector_on_target; then
@@ -243,7 +289,8 @@ restore() {
     sleep 5
   done
   RESERVATION=restore_failed_on_gpu${GPU}
-  return 1
+  fallback_hold
+  return 0
 }
 
 # ---------------------------------------------------------------------------
@@ -272,6 +319,25 @@ release_lease() {
   LEASE_PID=""
 }
 
+fallback_hold() {
+  local free_mib
+  free_mib=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits --id="$GPU" 2>/dev/null | tr -d ' ' || true)
+  [[ "$free_mib" =~ ^[0-9]+$ ]] || free_mib=0
+  if (( free_mib < 2048 )); then
+    echo "[fallback-hold] GPU${GPU} only ${free_mib} MiB free, nothing to hold" >&2
+    return
+  fi
+  local hold_mib=$(( free_mib - 512 ))
+  RESERVATION="fallback_lease_${hold_mib}mib_on_gpu${GPU}"
+  write_status fallback_holding "Protector failed; fallback lease holding ${hold_mib} MiB on GPU${GPU}."
+  echo "[fallback-hold] protector failed; holding ${hold_mib} MiB on GPU${GPU} via lease sidecar" >&2
+  "$PYTHON" "$LEASE_HELPER" --gpu "$GPU" --total-lease-mib "$hold_mib" \
+    --expected-workload-peak-mib 1 --status-path "$LEASE_STATUS" &
+  LEASE_PID=$!
+  disown "$LEASE_PID" 2>/dev/null || true
+  sleep 3
+}
+
 # Postflight: partition test predictions by warm/cold target
 run_postflight_eval() {
   STAGE=postflight_eval
@@ -279,8 +345,8 @@ run_postflight_eval() {
   local pred_tsv
   pred_tsv=$(ls -t "$OUTPUT/predictions"/*_test.tsv 2>/dev/null | head -n 1 || true)
   if [[ -z "$pred_tsv" ]]; then
-    echo "[postflight] no *_test.tsv found under $OUTPUT/predictions; skipping cold/warm eval" >&2
-    return 0
+    echo "[postflight] no *_test.tsv found under $OUTPUT/predictions — training did not reach test inference" >&2
+    return 2
   fi
   "$PYTHON" "$EVAL_COLD_WARM_PY" \
     --dataset-dir "$ROOT/GRAM/rec_datasets/$DATASET" \
@@ -294,34 +360,40 @@ run_postflight_eval() {
 }
 
 finish() {
-  local scientific_rc=$? restore_rc=0 postflight_rc=0
   trap - EXIT INT TERM HUP
+  local scientific_rc=${WORKLOAD_RC-$?} postflight_rc=0
   if (( WORKLOAD_PID > 0 )) && kill -0 "$WORKLOAD_PID" 2>/dev/null; then
     kill -TERM "$WORKLOAD_PID" 2>/dev/null || true
     wait "$WORKLOAD_PID" 2>/dev/null || true
   fi
-  release_lease
   [[ -z "$TELEMETRY_PID" ]] || kill "$TELEMETRY_PID" >/dev/null 2>&1 || true
 
-  # postflight eval only if training succeeded
+  # If WORKLOAD_RC is unset, we never reached training — treat as failure
+  if [[ -z "${WORKLOAD_RC+x}" ]]; then
+    scientific_rc=1
+  fi
+
   if (( scientific_rc == 0 )); then
     run_postflight_eval || postflight_rc=$?
   fi
 
-  restore || restore_rc=$?
   STAGE=finished
-  if (( scientific_rc == 0 && restore_rc == 0 && postflight_rc == 0 )); then
-    write_status succeeded "Phase-13 $SUB completed; cold/warm metrics in metrics_cold_warm.json."
-  elif (( scientific_rc == 0 && restore_rc != 0 )); then
-    write_status failed_to_restore_resource "$SUB completed but $PROTECTOR_TOOL restoration failed."
-  elif (( scientific_rc == 0 )); then
-    write_status postflight_failed "$SUB training ok, postflight eval failed (rc=$postflight_rc)."
+  if (( scientific_rc == 0 )); then
+    write_status holding_post_training "Training done. Lease held on GPU${GPU}. Run 'stop $SUB' to release and restore protector."
+    echo "[finish] training done; lease still held on GPU${GPU}. Use 'stop $SUB' to release." >&2
+    # Block indefinitely — keep lease alive until user sends stop (SIGTERM)
+    while true; do sleep 60; done
   else
-    write_status failed "Scientific exit=$scientific_rc; no automatic retry."
+    # Training failed — release and try to restore
+    release_lease
+    restore || true
+    if (( scientific_rc == 124 || scientific_rc == 143 )); then
+      write_status timed_out "Training terminated (rc=$scientific_rc)."
+    else
+      write_status failed "Scientific exit=$scientific_rc; no automatic retry."
+    fi
+    exit "$scientific_rc"
   fi
-  (( scientific_rc != 0 )) && exit "$scientific_rc"
-  (( postflight_rc != 0 )) && exit "$postflight_rc"
-  exit "$restore_rc"
 }
 
 ensure_cold_split_ready() {
@@ -418,14 +490,58 @@ EOF
     done
   fi
 
-  STAGE=${PROTECTOR_TOOL}_pre_reservation
-  write_status preparing_resource "Ensuring $PROTECTOR_TOOL occupies GPU${GPU}."
-  ensure_protector_on_target || { write_status blocked "Could not confirm $PROTECTOR_TOOL on GPU${GPU}."; exit 7; }
+  if (( V2_MLPCOLD_LLMPRIOR == 1 )); then
+    STAGE=v2_mlpcold_llmprior_preflight
+    write_status preparing_data "Verifying v2 MLP + LLM prior artifacts."
+    local dataset_dir="$ROOT/GRAM/rec_datasets/$DATASET"
+    local embed_pt="$ROOT/artifacts/phase13/embeddings/${DATASET%_cold*}_sbert.pt"
+    local mlp_pt="$ROOT/artifacts/phase13/explore/${SUB}/mlp/best.pt"
+    local llm_priors="$ROOT/artifacts/phase13/explore/${SUB}/llm_priors_all.jsonl"
+    local hier_type="hierarchy_v1_c${CLUSTER}_l${ID_LEN}_len32768_split_v2_mlpcold_llmprior"
+    local v2_id="$dataset_dir/item_generative_indexing_${hier_type}.txt"
+    for p in "$embed_pt" "$mlp_pt" "$llm_priors" "$v2_id"; do
+      if [[ ! -f "$p" ]]; then
+        write_status blocked "v2 artifact missing: $p"
+        echo "[v2-preflight] MISSING: $p"
+        echo ""
+        echo "Run the v2 prep pipeline (see artifacts/phase13/explore/v2_toys/run_v2_retrain_and_prepare.sh)"
+        exit 11
+      fi
+    done
+  fi
 
-  STAGE=resource_release
-  write_status releasing_resource "Stopping $PROTECTOR_TOOL before Phase-13 $SUB."
-  protector stop >/dev/null 2>&1 || true
-  RESERVATION=released_for_experiment
+  if (( V2ITER2_MLPCOLD_LLMPRIOR == 1 )); then
+    STAGE=v2iter2_mlpcold_llmprior_preflight
+    write_status preparing_data "Verifying v2_iter2 MLP + LLM prior artifacts."
+    local dataset_dir="$ROOT/GRAM/rec_datasets/$DATASET"
+    local embed_pt="$ROOT/artifacts/phase13/embeddings/${DATASET%_cold*}_sbert.pt"
+    local mlp_pt="$ROOT/artifacts/phase13/explore/${SUB}/mlp/best.pt"
+    local llm_priors="$ROOT/artifacts/phase13/explore/${SUB}/llm_priors_all.jsonl"
+    local hier_type="hierarchy_v1_c${CLUSTER}_l${ID_LEN}_len32768_split_v2iter2_mlpcold_llmprior"
+    local v2_id="$dataset_dir/item_generative_indexing_${hier_type}.txt"
+    for p in "$embed_pt" "$mlp_pt" "$llm_priors" "$v2_id"; do
+      if [[ ! -f "$p" ]]; then
+        write_status blocked "v2_iter2 artifact missing: $p"
+        echo "[v2iter2-preflight] MISSING: $p"
+        echo "Run: bash experiment/phase13/prep_v2iter2.sh <toys|beauty>"
+        exit 11
+      fi
+    done
+  fi
+
+  if [[ "${SKIP_PROTECTOR_CHECK:-0}" == "1" ]]; then
+    RESERVATION=released_for_experiment
+    protector stop >/dev/null 2>&1 || true
+  else
+    STAGE=${PROTECTOR_TOOL}_pre_reservation
+    write_status preparing_resource "Ensuring $PROTECTOR_TOOL occupies GPU${GPU}."
+    ensure_protector_on_target || { write_status blocked "Could not confirm $PROTECTOR_TOOL on GPU${GPU}."; exit 7; }
+
+    STAGE=resource_release
+    write_status releasing_resource "Stopping $PROTECTOR_TOOL before Phase-13 $SUB."
+    protector stop >/dev/null 2>&1 || true
+    RESERVATION=released_for_experiment
+  fi
 
   STAGE=gpu_memory_gate
   write_status waiting_for_gpu "Waiting for ≥ ${TOTAL_LEASE_MIB} MiB free on GPU${GPU}."
@@ -437,16 +553,22 @@ EOF
   done
   [[ "$free_mib" =~ ^[0-9]+$ ]] && (( free_mib >= TOTAL_LEASE_MIB )) || { write_status blocked "GPU${GPU} admission failed: ${free_mib:-unknown} MiB free."; exit 8; }
 
-  STAGE=memory_lease
-  write_status leasing "Starting ${TOTAL_LEASE_MIB} MiB total-lease sidecar (expected workload peak ${EXPECTED_PEAK_MIB} MiB)."
-  "$PYTHON" "$LEASE_HELPER" --gpu "$GPU" --total-lease-mib "$TOTAL_LEASE_MIB" \
-    --expected-workload-peak-mib "$EXPECTED_PEAK_MIB" --status-path "$LEASE_STATUS" &
-  LEASE_PID=$!
-  for _ in $(seq 1 30); do
-    [[ -s "$LEASE_STATUS" ]] && grep -q '"state": "holding"' "$LEASE_STATUS" && break
-    sleep 1
-  done
-  [[ -s "$LEASE_STATUS" ]] && grep -q '"state": "holding"' "$LEASE_STATUS" || { write_status blocked "GPU lease sidecar did not hold."; exit 9; }
+  if [[ "${NO_LEASE_SIDECAR:-0}" == "1" ]]; then
+    STAGE=ready_no_lease
+    write_status ready "GPU${GPU} ready (${free_mib} MiB free). Training without lease sidecar."
+    echo '{"gpu": '$GPU', "state": "no_sidecar"}' > "$LEASE_STATUS"
+  else
+    STAGE=memory_lease
+    write_status leasing "Starting ${TOTAL_LEASE_MIB} MiB total-lease sidecar (expected workload peak ${EXPECTED_PEAK_MIB} MiB)."
+    "$PYTHON" "$LEASE_HELPER" --gpu "$GPU" --total-lease-mib "$TOTAL_LEASE_MIB" \
+      --expected-workload-peak-mib "$EXPECTED_PEAK_MIB" --status-path "$LEASE_STATUS" &
+    LEASE_PID=$!
+    for _ in $(seq 1 30); do
+      [[ -s "$LEASE_STATUS" ]] && grep -q '"state": "holding"' "$LEASE_STATUS" && break
+      sleep 1
+    done
+    [[ -s "$LEASE_STATUS" ]] && grep -q '"state": "holding"' "$LEASE_STATUS" || { write_status blocked "GPU lease sidecar did not hold."; exit 9; }
+  fi
 
   STAGE=telemetry
   telemetry & TELEMETRY_PID=$!
@@ -457,8 +579,14 @@ EOF
   if (( V1_MLPCOLD == 1 )); then
     item_id="${item_id}_v1_mlpcold"
   fi
+  if (( V2_MLPCOLD_LLMPRIOR == 1 )); then
+    item_id="${item_id}_v2_mlpcold_llmprior"
+  fi
+  if (( V2ITER2_MLPCOLD_LLMPRIOR == 1 )); then
+    item_id="${item_id}_v2iter2_mlpcold_llmprior"
+  fi
   cd "$ROOT/GRAM/command"
-  timeout --signal=TERM 86400 env CUDA_VISIBLE_DEVICES="$GPU" \
+  timeout --signal=TERM 108000 env CUDA_VISIBLE_DEVICES="$GPU" \
     HF_HUB_CACHE="$WORKLOAD_CACHE" TRANSFORMERS_CACHE="$WORKLOAD_CACHE/transformers" \
     TRANSFORMERS_OFFLINE=1 "$PYTHON" ../src/main_generative_gram.py \
     --datasets "$DATASET" \
@@ -476,9 +604,9 @@ EOF
     --cf0_arm A --cf0_phase9 0 &
   WORKLOAD_PID=$!
   wait "$WORKLOAD_PID"
-  local workload_rc=$?
+  WORKLOAD_RC=$?
   WORKLOAD_PID=0
-  return "$workload_rc"
+  return "$WORKLOAD_RC"
 }
 
 case "$ACTION" in
@@ -486,8 +614,8 @@ case "$ACTION" in
     mkdir -p "$OUTPUT"
     tmux has-session -t "$SESSION" 2>/dev/null && { echo "session already exists: $SESSION" >&2; exit 1; }
     STARTED_AT=$(date -Is)
-    printf -v launch_cmd 'PHASE13_SUB=%q PHASE13_GPU=%q PROTECTOR_TOOL=%q LEASE_MIB_OVERRIDE=%q bash %q worker %q >> %q 2>&1' \
-      "$SUB" "$GPU" "$PROTECTOR_TOOL" "${LEASE_MIB_OVERRIDE:-30720}" "$0" "$STARTED_AT" "$LOG"
+    printf -v launch_cmd 'PHASE13_SUB=%q PHASE13_GPU=%q PROTECTOR_TOOL=%q LEASE_MIB_OVERRIDE=%q EXPECTED_PEAK_MIB_OVERRIDE=%q SKIP_PROTECTOR_CHECK=%q NO_LEASE_SIDECAR=%q bash %q worker %q >> %q 2>&1' \
+      "$SUB" "$GPU" "$PROTECTOR_TOOL" "${LEASE_MIB_OVERRIDE:-30720}" "${EXPECTED_PEAK_MIB_OVERRIDE:-21000}" "${SKIP_PROTECTOR_CHECK:-0}" "${NO_LEASE_SIDECAR:-0}" "$0" "$STARTED_AT" "$LOG"
     tmux new-session -d -s "$SESSION" "$launch_cmd"
     STAGE=starting
     write_status starting "Persistent Phase-13 $SUB session started; runner will drive $PROTECTOR_TOOL and lease."
@@ -507,7 +635,20 @@ case "$ACTION" in
     if tmux has-session -t "$SESSION" 2>/dev/null; then
       pane_pid=$(tmux list-panes -t "$SESSION" -F '#{pane_pid}' | head -n 1)
       kill -TERM "$pane_pid"
-      echo "stop requested for $SESSION"
+      sleep 2
+      tmux kill-session -t "$SESSION" 2>/dev/null || true
+      echo "stopped $SESSION"
+      # Immediately try to restore protector to hold the freed memory
+      sleep 3
+      local free_now
+      free_now=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits --id="$GPU" 2>/dev/null | tr -d ' ' || true)
+      if [[ "$PROTECTOR_TOOL" == "codellama" ]]; then
+        HOLDER_RESERVE_MIB_OVERRIDE="${free_now:-20000}" "$CODELLAMA_TOOL" start "$GPU" >/dev/null 2>&1 && echo "codellama restored (${free_now} MiB) on GPU${GPU}" || \
+          echo "WARNING: codellama restore failed; GPU${GPU} memory unprotected"
+      else
+        RESERVE_MIB="${free_now:-20000}" "$ABLATION_SCAN_TOOL" start "$GPU" >/dev/null 2>&1 && echo "scan restored (${free_now} MiB) on GPU${GPU}" || \
+          echo "WARNING: scan restore failed; GPU${GPU} memory unprotected"
+      fi
     else
       echo "session not running: $SESSION"
     fi

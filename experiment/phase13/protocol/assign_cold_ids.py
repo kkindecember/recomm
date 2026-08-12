@@ -111,19 +111,25 @@ def main():
     for i, iid in enumerate(cold_with_emb):
         predicted_id_map[iid] = vocab.decode(preds[i])
 
-    # Merge: warm → source id, cold → MLP prediction, missing cold → source
-    # id (fallback so GRAM doesn't crash on missing ids)
+    # Merge: warm → source id (keep full tokens incl. collision suffix),
+    # cold → MLP prediction, missing cold → source id (fallback so GRAM
+    # doesn't crash on missing ids).
+    # NOTE: parse_id_line is called without n_levels so warm rows with
+    # collision-disambiguation suffix (e.g. 5 semantic tokens + '|0') keep
+    # all their tokens. Passing n_levels=5 here silently truncated 862/11924
+    # collision items in the Toys_cold50 baseline, artificially merging warm
+    # items into shared ids and inflating warm hit rate (fixed 2026-08-10).
     merged: dict[str, list[str]] = {}
     n_warm = 0
     n_cold_predicted = 0
     n_cold_fallback = 0
-    n_levels = infer_n_levels(src_id)
+    n_warm_with_collision = 0
     with open(src_id) as f:
         order: list[str] = []
         for line in f:
             if not line.strip():
                 continue
-            item_id, tokens = parse_id_line(line, n_levels=n_levels)
+            item_id, tokens = parse_id_line(line)
             order.append(item_id)
             if item_id in cold_items:
                 if item_id in predicted_id_map:
@@ -135,12 +141,15 @@ def main():
             else:
                 merged[item_id] = tokens
                 n_warm += 1
+                if len(tokens) > vocab.n_levels:
+                    n_warm_with_collision += 1
 
     with open(output_id, "w") as f:
         for iid in order:
             f.write(format_id_line(iid, merged[iid]) + "\n")
 
     print(f"[assign] warm items (source id kept): {n_warm}")
+    print(f"[assign]   of which have collision suffix (>{vocab.n_levels} tokens): {n_warm_with_collision}")
     print(f"[assign] cold items (MLP predicted): {n_cold_predicted}")
     print(f"[assign] cold items (fallback to source id, no embedding): {n_cold_fallback}")
     print(f"[assign] wrote {output_id}")

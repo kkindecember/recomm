@@ -184,6 +184,60 @@ report/第十三阶段/GRAM_第十三阶段_v<N>_iter<M>_<描述>报告.md
 
 ---
 
+### v2_iter1 结果(2026-08-12)❌ FAIL
+
+**执行结果**:cold ndcg@10 **-48% vs v1**(gate 严重不达标)
+
+**根因诊断**(见 `report/第十三阶段/GRAM_第十三阶段_v2_toys_失败根因诊断报告.md`):
+
+不是 token 空间不对齐,而是**双重设计缺陷**:
+
+1. **OOV 比例极高**:LLM 每层预测有 50-61% 的 token 不在 GRAM 词表内
+   - GRAM L1 vocab=30, LLM 用了 1201 个 token
+   - 大量合法英文词(如 `▁princess`, `▁batcave`)不在 GRAM 精选闭集里
+2. **OOV 退化策略灾难**:代码遇到 OOV 时用 uniform 分布作为 KL target
+   - uniform 是熵最大分布 → 破坏 MLP 判别能力
+   - 影响 61% 样本 → cold items 因缺乏 supervised signal 崩得最惨
+
+**关键数据**:
+- Warm items 上 LLM L1 匹配 GRAM 真值率 = 26.9%(远高于随机 3.3%)
+- 说明 **LLM 本身有语义能力**,是**使用方式错了**
+
+---
+
+### v2_iter2:Vocab-Constrained LLM Prior(修复 OOV 问题)
+
+**目的**:修复 iter1 的两个设计缺陷,验证"正确使用"LLM prior 能否带来增量
+
+**改动**:
+
+1. **Prompt 改造**(方向 D):
+   - 给 LLM 提供每层的合法 vocab 列表(小层全给,大层给 top-N 常见)
+   - Prompt 明确要求"必须从提供的 vocab 中选择"
+   - 目标:OOV rate 从 61% 降到 <10%
+
+2. **代码修复**(方向 A):
+   - `load_llm_priors`:OOV 时返回 `None` 而不是 uniform
+   - `train_cmd`:KL loss 计算时 mask 掉 OOV 层
+   - 公式:`L_kl = Σ(mask_l · KL_l) / Σ(mask_l)`
+
+3. **λ_llm 降低**:从 0.5 → 0.2(让 L_CE 主导,LLM prior 作为温和辅助)
+
+**Gate v2_iter2**:
+- ✅ **通过**:cold NDCG@10 相对 v1 提升 **≥ 3%**
+- ⚠️ **边缘**:提升 0-3% 但 warm 不退化 → 允许 iter3
+- ❌ **失败**:再次退化 → 直接跳到 v3(标记 v2 组件 "abandoned")
+
+**iter3 选项**(如果 iter2 依然失败):
+1. 方向 C:LLM 完全不做 loss,只做 few-shot retriever
+2. 换 LLM:DeepSeek → GPT-4o mini
+3. 换 λ_llm 到 0.1(几乎不影响 L_CE)
+
+**时间**:2-3 天(prompt 改造 + 代码改 + 双域实验)
+**成本**:$2-3(重新调用 API,vocab constraint 版本)
+
+---
+
 ### v3:+ Hierarchical Contrastive Alignment Loss
 
 **目的**:验证 hierarchical structure aware 的 alignment 能进一步提升
@@ -522,9 +576,13 @@ ln -s $(pwd)/artifacts/phase13/explore/v1_minimum_bridge/iter_N \
 
 | 版本 | Iteration | 状态 | Cold NDCG@10 | Δ vs prev | Gate | Report 路径 | 日期 |
 |---|---|---|---|---|---|---|---|
-| v0 | — | 未启动 | — | — | — | — | — |
-| v1 | iter_1 | 未启动 | — | — | — | — | — |
-| v2 | iter_1 | 未启动 | — | — | — | — | — |
+| v0_toys | — | ✅ done | 0.00305 | (baseline) | pass | v0_toys_vanilla-baseline | 2026-08-09 |
+| v0_beauty | — | ✅ done | 0.00179 | (baseline) | pass | v0_beauty_vanilla-baseline | 2026-08-10 |
+| v1_toys | iter_1 | ✅ done | 0.00872 | **+186%** vs v0 | **PASS** | v1_toys_MLP-semantic-bridge | 2026-08-11 |
+| v1_beauty | iter_1 | ✅ done | 0.00418 | **+133%** vs v0 | **PASS** | v1_beauty_MLP-semantic-bridge | 2026-08-12 |
+| v2_toys | iter_1 | ❌ FAIL | 0.00453 | **-48%** vs v1 | **FAIL** | v2_toys_LLM-prior_gate-FAIL + v2_toys_失败根因诊断 | 2026-08-12 |
+| v2_toys | iter_2 | 🔄 待启动 | — | — | — | (vocab-constrained LLM prior) | — |
+| v2_beauty | iter_2 | 🔄 待启动 | — | — | — | (vocab-constrained LLM prior) | — |
 | v3 | iter_1 | 未启动 | — | — | — | — | — |
 | v4 | iter_1 | 未启动 | — | — | — | — | — |
 | v5 | iter_1 | 未启动 | — | — | — | — | — |
