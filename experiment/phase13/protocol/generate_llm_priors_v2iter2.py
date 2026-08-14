@@ -135,11 +135,12 @@ def parse_llm_response(response_text: str, num_levels: int) -> Tuple[List[str], 
 
 def generate_llm_priors(
     target_items, item_text, few_shot_pool, per_level_vocab, num_levels,
-    cache, client, model, num_shots=5, output_jsonl=None,
+    cache, client, model, num_shots=5, output_jsonl=None, max_fail_rate=0.02,
 ):
     results = {}
     num_cached = 0
     num_api_calls = 0
+    num_failed = 0
     outfile = open(output_jsonl, 'w') if output_jsonl else None
 
     for idx, target_id in enumerate(target_items, 1):
@@ -175,14 +176,25 @@ def generate_llm_priors(
                 time.sleep(0.1)
             except Exception as e:
                 logger.error(f"API call failed for {target_id}: {e}")
-                response_text = " | ".join(["<unk>"] * num_levels)
-                is_cached = False
+                num_failed += 1
+                # Record failures honestly. Emitting <unk> with confidence 1.0 here made
+                # 47% of v2_iter2's warm priors indistinguishable from real answers.
+                record = {
+                    "item_id": target_id, "text": target_text,
+                    "predicted_tokens": None, "confidence": 0.0,
+                    "cached": False, "status": "failed", "error": str(e)[:200],
+                }
+                results[target_id] = record
+                if outfile:
+                    outfile.write(json.dumps(record, ensure_ascii=False) + '\n')
+                continue
 
         predicted_tokens, confidence = parse_llm_response(response_text, num_levels)
         results[target_id] = {
             "predicted_tokens": predicted_tokens,
             "confidence": confidence,
             "cached": is_cached,
+            "status": "ok",
         }
 
         if outfile:
@@ -190,15 +202,31 @@ def generate_llm_priors(
                 "item_id": target_id, "text": target_text,
                 "predicted_tokens": predicted_tokens,
                 "confidence": confidence, "cached": is_cached,
+                "status": "ok",
             }, ensure_ascii=False) + '\n')
 
         if idx % 100 == 0:
-            logger.info(f"Processed {idx}/{len(target_items)} (cached={num_cached}, api={num_api_calls})")
+            logger.info(f"Processed {idx}/{len(target_items)} (cached={num_cached}, api={num_api_calls}, failed={num_failed})")
 
     if outfile:
         outfile.close()
 
-    logger.info(f"Done: {len(results)} items, {num_cached} cached, {num_api_calls} API calls")
+    n_attempted = num_cached + num_api_calls + num_failed
+    fail_rate = num_failed / n_attempted if n_attempted else 0.0
+    logger.info(
+        f"Done: {len(results)} items, {num_cached} cached, {num_api_calls} API calls, "
+        f"{num_failed} failed ({fail_rate*100:.1f}%)"
+    )
+    if num_failed:
+        logger.error(
+            f"{num_failed}/{n_attempted} calls FAILED ({fail_rate*100:.1f}%). "
+            f"These items have predicted_tokens=null and contribute no KL supervision."
+        )
+    if fail_rate > max_fail_rate:
+        raise RuntimeError(
+            f"API failure rate {fail_rate*100:.1f}% exceeds --max-fail-rate "
+            f"{max_fail_rate*100:.1f}% — refusing to emit a silently degraded prior file."
+        )
     return results
 
 
@@ -215,12 +243,17 @@ def main():
     parser.add_argument("--top-n-per-level", type=int, default=500,
                         help="Max vocab tokens per level to show in prompt (avoid oversize prompt)")
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--max-fail-rate", type=float, default=0.02,
+                        help="Abort with non-zero exit if the API failure rate exceeds this")
     args = parser.parse_args()
 
     random.seed(args.seed)
 
-    target_items = list(hid_utils.read_item_set(args.target_items))
-    warm_items = list(hid_utils.read_item_set(args.warm_items))
+    # sorted(): read_item_set returns a set, whose iteration order varies per process.
+    # Unsorted, the few-shot sample differs run-to-run, so every prompt differs and the
+    # cache never hits — a resumed run would re-pay for every item.
+    target_items = sorted(hid_utils.read_item_set(args.target_items))
+    warm_items = sorted(hid_utils.read_item_set(args.warm_items))
     item_text = load_item_text(args.item_text)
     id_map = hid_utils.read_id_file(args.source_id_file)
 
@@ -239,6 +272,7 @@ def main():
     generate_llm_priors(
         target_items, item_text, few_shot_pool, per_level_vocab, num_levels,
         cache, client, args.model, args.num_shots, args.output_jsonl,
+        max_fail_rate=args.max_fail_rate,
     )
 
     logger.info(f"Output written to {args.output_jsonl}")

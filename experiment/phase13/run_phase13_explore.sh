@@ -200,6 +200,7 @@ METRICS_COLD_WARM="$OUTPUT/metrics_cold_warm.json"
 TOTAL_LEASE_MIB=${LEASE_MIB_OVERRIDE:-30720}
 # v1_toys measured peak_reserved=19290; use 21000 for safety margin
 EXPECTED_PEAK_MIB=${EXPECTED_PEAK_MIB_OVERRIDE:-21000}
+HOLD_TIMEOUT_HOURS=${HOLD_TIMEOUT_HOURS:-6}
 
 WORKLOAD_PID=0
 LEASE_PID=""
@@ -235,13 +236,25 @@ protector() {
       HF_HUB_CACHE="$CODELLAMA_HF_HOME/hub" \
       TRANSFORMERS_CACHE="$CODELLAMA_HF_HOME/hub" "$PROTECTOR_TOOL_PATH" "$@"
   else
-    # ablation_scan holder default reserve is 29500 MiB but that fails on
-    # busy GPUs (e.g. GPU0 with 20 GiB of other users' processes). Allow
-    # override via HOLDER_RESERVE_MIB_OVERRIDE so restore doesn't OOM on
-    # a fragmented card.
-    env RESERVE_MIB="${HOLDER_RESERVE_MIB_OVERRIDE:-25000}" \
+    env RESERVE_MIB="${HOLDER_RESERVE_MIB_OVERRIDE:-$(adaptive_reserve_mib)}" \
       "$PROTECTOR_TOOL_PATH" "$@"
   fi
+}
+
+# Largest holder that currently fits on $GPU. A fixed RESERVE_MIB OOMs on a
+# fragmented card: v2_toys_iter2 asked for 22 GiB with 21.78 GiB free, the
+# protector died, and GPU0 sat unprotected for hours.
+CUDA_CTX_MIB=${CUDA_CTX_MIB:-2200}   # CUDA context costs ~2 GiB on top of the tensor
+MIN_WORTH_HOLDING_MIB=${MIN_WORTH_HOLDING_MIB:-2000}
+adaptive_reserve_mib() {
+  local free_mib
+  free_mib=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits \
+    --id="$GPU" 2>/dev/null | tr -d ' ')
+  [[ "$free_mib" =~ ^[0-9]+$ ]] || { echo 0; return; }
+  local want=$(( free_mib - CUDA_CTX_MIB ))
+  # Never round *up* to a floor — that is what guarantees the OOM we are avoiding.
+  (( want < MIN_WORTH_HOLDING_MIB )) && want=0
+  echo "$want"
 }
 
 protector_on_target() {
@@ -379,10 +392,18 @@ finish() {
 
   STAGE=finished
   if (( scientific_rc == 0 )); then
-    write_status holding_post_training "Training done. Lease held on GPU${GPU}. Run 'stop $SUB' to release and restore protector."
+    write_status holding_post_training "Training done. Lease held on GPU${GPU}. Run 'stop $SUB' to release and restore protector. Auto-releases after ${HOLD_TIMEOUT_HOURS}h."
     echo "[finish] training done; lease still held on GPU${GPU}. Use 'stop $SUB' to release." >&2
-    # Block indefinitely — keep lease alive until user sends stop (SIGTERM)
-    while true; do sleep 60; done
+    echo "[finish] auto-release after ${HOLD_TIMEOUT_HOURS}h if nobody stops it." >&2
+    # Bounded hold: v2_toys_iter2 sat here for 32h unattended, squatting a card
+    # nobody was using.
+    hold_deadline=$(( $(date +%s) + HOLD_TIMEOUT_HOURS * 3600 ))
+    while (( $(date +%s) < hold_deadline )); do sleep 60; done
+    echo "[finish] hold timeout (${HOLD_TIMEOUT_HOURS}h) reached; releasing lease and restoring protector." >&2
+    release_lease
+    restore || true
+    write_status hold_timeout_released "Held ${HOLD_TIMEOUT_HOURS}h with no stop; lease released and protector restored on GPU${GPU}."
+    exit 0
   else
     # Training failed — release and try to restore
     release_lease
@@ -614,8 +635,8 @@ case "$ACTION" in
     mkdir -p "$OUTPUT"
     tmux has-session -t "$SESSION" 2>/dev/null && { echo "session already exists: $SESSION" >&2; exit 1; }
     STARTED_AT=$(date -Is)
-    printf -v launch_cmd 'PHASE13_SUB=%q PHASE13_GPU=%q PROTECTOR_TOOL=%q LEASE_MIB_OVERRIDE=%q EXPECTED_PEAK_MIB_OVERRIDE=%q SKIP_PROTECTOR_CHECK=%q NO_LEASE_SIDECAR=%q bash %q worker %q >> %q 2>&1' \
-      "$SUB" "$GPU" "$PROTECTOR_TOOL" "${LEASE_MIB_OVERRIDE:-30720}" "${EXPECTED_PEAK_MIB_OVERRIDE:-21000}" "${SKIP_PROTECTOR_CHECK:-0}" "${NO_LEASE_SIDECAR:-0}" "$0" "$STARTED_AT" "$LOG"
+    printf -v launch_cmd 'PHASE13_SUB=%q PHASE13_GPU=%q PROTECTOR_TOOL=%q LEASE_MIB_OVERRIDE=%q EXPECTED_PEAK_MIB_OVERRIDE=%q SKIP_PROTECTOR_CHECK=%q NO_LEASE_SIDECAR=%q HOLD_TIMEOUT_HOURS=%q bash %q worker %q >> %q 2>&1' \
+      "$SUB" "$GPU" "$PROTECTOR_TOOL" "${LEASE_MIB_OVERRIDE:-30720}" "${EXPECTED_PEAK_MIB_OVERRIDE:-21000}" "${SKIP_PROTECTOR_CHECK:-0}" "${NO_LEASE_SIDECAR:-0}" "${HOLD_TIMEOUT_HOURS:-6}" "$0" "$STARTED_AT" "$LOG"
     tmux new-session -d -s "$SESSION" "$launch_cmd"
     STAGE=starting
     write_status starting "Persistent Phase-13 $SUB session started; runner will drive $PROTECTOR_TOOL and lease."
@@ -640,13 +661,14 @@ case "$ACTION" in
       echo "stopped $SESSION"
       # Immediately try to restore protector to hold the freed memory
       sleep 3
-      local free_now
-      free_now=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits --id="$GPU" 2>/dev/null | tr -d ' ' || true)
-      if [[ "$PROTECTOR_TOOL" == "codellama" ]]; then
-        HOLDER_RESERVE_MIB_OVERRIDE="${free_now:-20000}" "$CODELLAMA_TOOL" start "$GPU" >/dev/null 2>&1 && echo "codellama restored (${free_now} MiB) on GPU${GPU}" || \
+      reserve_now=$(adaptive_reserve_mib)
+      if (( reserve_now == 0 )); then
+        echo "WARNING: GPU${GPU} has no free memory worth holding; protector NOT restored" >&2
+      elif [[ "$PROTECTOR_TOOL" == "codellama" ]]; then
+        HOLDER_RESERVE_MIB_OVERRIDE="$reserve_now" "$CODELLAMA_TOOL" start "$GPU" >/dev/null 2>&1 && echo "codellama restored (${reserve_now} MiB) on GPU${GPU}" || \
           echo "WARNING: codellama restore failed; GPU${GPU} memory unprotected"
       else
-        RESERVE_MIB="${free_now:-20000}" "$ABLATION_SCAN_TOOL" start "$GPU" >/dev/null 2>&1 && echo "scan restored (${free_now} MiB) on GPU${GPU}" || \
+        RESERVE_MIB="$reserve_now" "$ABLATION_SCAN_TOOL" start "$GPU" >/dev/null 2>&1 && echo "scan restored (${reserve_now} MiB) on GPU${GPU}" || \
           echo "WARNING: scan restore failed; GPU${GPU} memory unprotected"
       fi
     else

@@ -76,11 +76,18 @@ def load_llm_priors(jsonl_path: str, vocab: HierIdVocab):
     priors = {}
     masks = {}
     total, oov_per_level = 0, [0] * vocab.n_levels
+    n_failed = 0
     with open(jsonl_path) as f:
         for line in f:
             record = json.loads(line)
             item_id = record["item_id"]
             predicted_tokens = record["predicted_tokens"]
+
+            # API-failed records carry predicted_tokens=null. Skip them entirely so they
+            # are never confused with genuine OOV in the diagnostics below.
+            if record.get("status") == "failed" or predicted_tokens is None:
+                n_failed += 1
+                continue
 
             level_dists, level_mask = [], []
             for lv, token in enumerate(predicted_tokens):
@@ -98,9 +105,14 @@ def load_llm_priors(jsonl_path: str, vocab: HierIdVocab):
             masks[item_id] = level_mask
             total += 1
 
-    print(f"[bridge_v2] Loaded {total} LLM priors")
+    print(f"[bridge_v2] Loaded {total} usable LLM priors ({n_failed} API-failed records skipped)")
+    if n_failed:
+        pct = n_failed / (total + n_failed) * 100
+        print(f"[bridge_v2] WARNING: {n_failed} ({pct:.1f}%) priors are API failures — "
+              f"those items contribute NO KL supervision")
     for lv, cnt in enumerate(oov_per_level):
-        print(f"[bridge_v2]   L{lv+1} OOV: {cnt}/{total} ({cnt/total*100:.1f}%) — will be masked out")
+        denom = max(total, 1)
+        print(f"[bridge_v2]   L{lv+1} OOV: {cnt}/{denom} ({cnt/denom*100:.1f}%) — will be masked out")
     return priors, masks
 
 

@@ -1,0 +1,29 @@
+{
+  "version": "v2_iter2",
+  "iteration": 2,
+  "dataset": "Beauty",
+  "eta": 0.5,
+  "seed_gram": 2023,
+  "seed_mlp": 12345,
+  "lambda_llm": 0.2,
+  "split": "test",
+  "cold_ndcg_at_10": 0.0023574166301224176,
+  "warm_ndcg_at_10": 0.07031698442401259,
+  "cold_recall_at_10": 0.005158578525028659,
+  "warm_recall_at_10": 0.11787493082457111,
+  "overall_ndcg_at_10": 0.03693356088264974,
+  "n_cold": 5234,
+  "n_warm": 5421,
+  "delta_vs_prev_version_cold_ndcg": "-43.6%",
+  "delta_vs_v0_cold_ndcg": "+31.4%",
+  "delta_vs_prev_version_warm_ndcg": "-0.7%",
+  "gate_threshold": "cold ndcg@10 >= +3% vs v1",
+  "gate_passed": false,
+  "next_action": "abandon_v2_component_proceed_to_v3",
+  "known_defects": [
+    "DeepSeek API 402 Insufficient Balance: warm-side KL coverage degraded (see report)",
+    "Beauty: training OOM before test inference; test re-run manually from epoch-30 ckpt",
+    "Beauty: cold/warm split computed post-hoc on 2026-08-14"
+  ],
+  "report": "report/第十三阶段/GRAM_第十三阶段_v2_iter2_vocab-constrained-LLM-prior_双域gate-FAIL报告.md"
+}

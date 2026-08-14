@@ -82,7 +82,13 @@ def main():
 
     device = torch.device(args.device if torch.cuda.is_available()
                           or args.device == "cpu" else "cpu")
-    model = build_model(text_dim, level_sizes)
+    # v3 checkpoints carry a trunk + per-level projections; v1/v2 are bare heads.
+    if ckpt.get("arch") == "v3":
+        from semantic_bridge_v3 import build_model_v3
+        model = build_model_v3(text_dim, level_sizes,
+                               ckpt["hidden_dim"], ckpt["proj_dim"])
+    else:
+        model = build_model(text_dim, level_sizes)
     model.load_state_dict(ckpt["state_dict"])
     model.eval().to(device)
 
@@ -103,8 +109,9 @@ def main():
     rows = torch.tensor([id_to_row[iid] for iid in cold_with_emb])
     x = embs[rows].to(device)
     with torch.no_grad():
-        logits_list = model(x)  # list of (N, level_size)
-        preds = torch.stack([lg.argmax(dim=1) for lg in logits_list], dim=1)  # (N, 7)
+        out = model(x)
+        logits_list = out[0] if isinstance(out, tuple) else out  # v3 returns (logits, h)
+        preds = torch.stack([lg.argmax(dim=1) for lg in logits_list], dim=1)
     preds = preds.cpu().tolist()
 
     predicted_id_map: dict[str, list[str]] = {}

@@ -238,6 +238,35 @@ report/第十三阶段/GRAM_第十三阶段_v<N>_iter<M>_<描述>报告.md
 
 ---
 
+### v2_iter2 结果(2026-08-14)❌ FAIL — **v2 组件 abandoned**
+
+**执行结果**:cold ndcg@10 双域一致回退 —— Beauty **-43.6%** vs v1、Toys **-39.8%** vs v1(iter1 为 -48%)
+
+**两项修复均已验证生效**,但不足以挽回:
+- OOV mask 已正确实现(`semantic_bridge_v2.py:85-104, 241-249`),iter1 的 uniform 退化路径已消除
+- vocab-constrained prompt 有效:剔除 API 失败样本后,真实 OOV 率 Beauty L1=13.6%、Toys L1=4.5%(iter1 为 50-61%),但深层仍有 26-32%
+
+**根因(机制层,非调参问题)**:LLM 语义空间与 GRAM 的 SASRec 协同聚类空间**只在浅层对齐**。warm item 上 LLM 与 GRAM 真值一致率:
+
+| 层 | Beauty | Toys |
+|---|---|---|
+| L1 | 44.5% | 60.4% |
+| L2 | 22.7% | 27.5% |
+| L3 | 10.1% | 16.5% |
+| L4+ | 3.5-5.8% | 6.4-8.2% |
+
+虽远高于随机(175-867 倍,证明 LLM 确有语义能力),但深层 85-96% 的样本上 KL 项把 MLP 往**错误 cluster** 拉。佐证:MLP val_acc 随 KL 项单调下降(Toys v1=0.4060 → iter1=0.3930 → iter2=0.3846),且 **λ 从 0.5 降到 0.2 时 val_acc 继续下降而非回升** —— 与"调小 λ 就能修好"矛盾。
+
+**执行缺陷**:DeepSeek API 余额耗尽,Beauty 2871 次 / Toys 1942 次调用失败,失败样本被写成 `<unk>` + confidence **1.0**(伪装成正常回答),导致 47.5% / 32.6% 的 warm item 完全无 KL 监督。**已于 2026-08-14 补齐全部失败调用并重训 MLP 复核**:完整覆盖下 Beauty **0.2505** / Toys **0.3889**,均仍低于 v1 的 0.2630 / 0.4060,且 **Beauty 补齐后反而更差**(0.2531 → 0.2505)—— 误判假设排除,FAIL 结论成立。见 `artifacts/phase13/explore/v2_verify/CONCLUSION.md`。
+
+**决策**:按 gate 条文命中"❌ 失败 → 直接跳到 v3,标记 v2 abandoned"。**不做 iter3** —— iter3 的三个候选(λ→0.1 / 换 GPT-4o mini / 方向 C)都绕不开上述机制层错位。
+
+**给 v3 的提示**:浅层语义信号可靠(L1 44-60%)、深层不可靠。v3 的 hierarchical alignment 若按层加权(浅层高、深层低或为 0),可能正好避开 v2 的坑。
+
+**Report**:`report/第十三阶段/GRAM_第十三阶段_v2_iter2_vocab-constrained-LLM-prior_双域gate-FAIL报告.md`
+
+---
+
 ### v3:+ Hierarchical Contrastive Alignment Loss
 
 **目的**:验证 hierarchical structure aware 的 alignment 能进一步提升
@@ -581,9 +610,9 @@ ln -s $(pwd)/artifacts/phase13/explore/v1_minimum_bridge/iter_N \
 | v1_toys | iter_1 | ✅ done | 0.00872 | **+186%** vs v0 | **PASS** | v1_toys_MLP-semantic-bridge | 2026-08-11 |
 | v1_beauty | iter_1 | ✅ done | 0.00418 | **+133%** vs v0 | **PASS** | v1_beauty_MLP-semantic-bridge | 2026-08-12 |
 | v2_toys | iter_1 | ❌ FAIL | 0.00453 | **-48%** vs v1 | **FAIL** | v2_toys_LLM-prior_gate-FAIL + v2_toys_失败根因诊断 | 2026-08-12 |
-| v2_toys | iter_2 | 🔄 待启动 | — | — | — | (vocab-constrained LLM prior) | — |
-| v2_beauty | iter_2 | 🔄 待启动 | — | — | — | (vocab-constrained LLM prior) | — |
-| v3 | iter_1 | 未启动 | — | — | — | — | — |
+| v2_toys | iter_2 | ❌ FAIL | 0.00525 | **-39.8%** vs v1 | **FAIL** | v2_iter2_vocab-constrained-LLM-prior_双域gate-FAIL | 2026-08-14 |
+| v2_beauty | iter_2 | ❌ FAIL | 0.00236 | **-43.6%** vs v1 | **FAIL** | 同上(双域合并报告) | 2026-08-14 |
+| v3 | iter_1 | ❌ 快筛未通过 | (未跑 GRAM) | 均未过 v1/对照组 | 快筛未通过 | v3_iter1_hierarchical-alignment_中期报告与交接 | 2026-08-14 |
 | v4 | iter_1 | 未启动 | — | — | — | — | — |
 | v5 | iter_1 | 未启动 | — | — | — | — | — |
 
