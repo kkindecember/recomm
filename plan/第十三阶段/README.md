@@ -1,7 +1,7 @@
 # Phase 13: Cold-Start Item for Hierarchical-ID Generative Recommendation
 
 **创建日期**:2026-08-07
-**状态**:planning
+**状态**:R²-v2 method exploration preregistered / not started（2026-08-19）
 **目标会议**:RecSys 2026(CCF-B,主),CIKM 2026 / WSDM 2027(备选)
 **预计总工期**:约 4 个月(6-8 周 exploratory + 8-10 周 publication)
 
@@ -11,8 +11,8 @@
 
 | 文档 | 定位 | 何时读 |
 |---|---|---|
-| **`./GRAM_第十三阶段_CANARD探索计划v0.1.md`** | **验证 CANARD 方向是否 work,失败就迭代改进**。MVP-style,单数据集单 seed,快速 iteration。含 Plan Z fallback。 | **现在读**(HI-GRAM 收尾后启动) |
-| **`./GRAM_第十三阶段_CANARD主线设计v0.1.md`** | 完稿级 plan,假设 exploratory 已验证。全矩阵实验 + ablation + 论文。 | Exploratory 通过后回来读 |
+| **`./GRAM_第十三阶段_CANARD探索计划v0.1.md`** | Phase 13 当前权威记录：原 v1 FAIL、v1-R²/B1 证据，以及新单一可训练 R²-v2 CBSA 预注册。 | **现在优先读** |
+| **`./GRAM_第十三阶段_CANARD主线设计v0.1.md`** | 旧完稿级 plan，仍假设 LLM/alignment/uncertainty 版 CANARD 成立。 | **已过期；创新性决策后重写，不按现文启动** |
 
 **规范**:
 - Plan 文档统一放 `plan/第N阶段/`(和之前 12 个 phase 一致)
@@ -22,6 +22,8 @@
 ---
 
 ## 两 plan 的关系
+
+> 下图是 2026-08-07 的原路线图，仅作历史背景。旧 v2–v5 已于 2026-08-19 被新的 **R²-v2 CBSA** 取代，不得按图串行启动。
 
 ```
 ┌──────────────────────────────────────────────────────────┐
@@ -88,13 +90,22 @@
 
 | 阶段 | 状态 | 备注 |
 |---|---|---|
-| Phase 12 HI-GRAM | 运行中 | beauty_v1 (GPU6) + toys_v1_light (GPU0),等 8h 后 val 结果 |
-| Phase 13 Exploratory | 待启动 | HI-GRAM 收尾后正式启动 |
-| Phase 13 Publication | 待启动 | Exploratory 通过后启动 |
+| Phase 12 HI-GRAM | 历史阶段 | 不再是 Phase 13 当前阻塞项 |
+| Phase 13 v1-R² | **已冻结** | 原 collision-safe v1 双域 FAIL；`resolver + portfolio@2` 在 Beauty B1 **PASS** |
+| Phase 13 R²-v2 | **当前：已预注册、未启动** | 单一可训练 CBSA；先做 Toys+Beauty source OOF Gate |
+| Phase 13 Sports confirmation | 封存 | 仅 R²-v2 source Gate PASS 且用户确认后解锁一次 |
+| Phase 13 Publication matrix | 未启动 | 仅 Sports 独立确认 PASS 后重写 plan，不自动启动 |
 
-**HI-GRAM 收尾决策点(2026-08-08 凌晨或上午)**:
-- 若 Beauty epoch 15 val 追平或超过 baseline → HI-GRAM 继续跑完,phase13 等待
-- 若 Beauty epoch 15 val 明显退化 → HI-GRAM 停止,立即启动 Phase 13 Exploratory
+**当前冻结结论（2026-08-19）**：
+
+- 原始 collision-safe v1 Minimum Semantic Bridge：Toys / Beauty 双域 FAIL；
+- v1-R² learned gating P1–P7：没有获得独立确认；
+- v1-R² 最终简化方法：Toys 和 Beauty **各自训练** warm-only residual resolver，共享 Toys 冻结的 `portfolio@2` 排序规则；
+- Beauty B1：overall NDCG@10 +4.15%、cold H@50 2.49×、warm NDCG@10 −5.26%，冻结 transition=`PASS_TO_PUBLICATION_PREPARATION`；
+- 用户已选择方法论文路线；旧 v2–v5 不再继续，也不新增 P8；
+- 新的 R²-v2 只训练一个跨域预算条件化 slate allocator，在 `no-op / portfolio@2 / portfolio@3` 三动作间决策；
+- Toys/Beauty 只作为 source/development，主 Gate 直接挑战 `portfolio@2`；Sports 保持封存，作为唯一一次独立确认域；
+- 当前只允许实现、单测、冻结配置与 source preflight，**尚未启动任何 R²-v2 训练**。
 
 ---
 

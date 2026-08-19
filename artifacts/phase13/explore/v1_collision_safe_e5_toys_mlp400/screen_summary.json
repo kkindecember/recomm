@@ -1,0 +1,35 @@
+{
+  "experiment": "Phase-13 Toys E5 MLP convergence screen",
+  "protocol": {
+    "from_scratch": true,
+    "epochs": 400,
+    "lr": 0.001,
+    "batch_size": 512,
+    "seed": 12345,
+    "relative_floor": 0.95,
+    "gram_training_run": false
+  },
+  "reference_minilm": {
+    "best_epoch": 166,
+    "best_val_avg_acc": 0.4060402691364288,
+    "raw_id_duplicate_excess": 1352
+  },
+  "gate": {
+    "minimum_val_avg_acc": 0.38573825567960734,
+    "collision_stop_reference": 1352
+  },
+  "e5_result": {
+    "best_epoch": 398,
+    "best_val_avg_acc": 0.3912751764059067,
+    "best_at_epoch_limit": false,
+    "epoch_200_val_avg_acc": 0.3365771800279617,
+    "previous_run_epoch_200_val_avg_acc": 0.3365771800279617,
+    "epoch_200_reproduced": true,
+    "raw_id_duplicate_excess": 1352,
+    "collision_safe_modified_cold_items": 1791,
+    "collision_safe_modified_cold_rate": 0.30035217172564144,
+    "output_duplicate_excess": 0
+  },
+  "verdict": "PASS_TO_SMOKE",
+  "reason": "E5 validation accuracy reached the frozen 95%-of-MiniLM gate."
+}

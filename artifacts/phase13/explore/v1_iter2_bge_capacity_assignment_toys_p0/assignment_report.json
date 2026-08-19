@@ -1,0 +1,548 @@
+{
+  "n_items": 11924,
+  "n_warm": 5961,
+  "n_cold": 5963,
+  "n_cold_changed_from_bge_top1": 1534,
+  "cold_changed_rate": 0.25725306053999664,
+  "warm_ids_unchanged": true,
+  "row_order_unchanged": true,
+  "cold_prefix_levels_preserved": 3,
+  "cold_prefixes_unchanged": true,
+  "cold_fixed_length": 5,
+  "cold_appended_suffix_count": 0,
+  "input_collision": {
+    "n_items": 11924,
+    "n_unique_ids": 10448,
+    "duplicate_excess": 1476,
+    "duplicate_excess_rate": 0.1237839651123784,
+    "items_in_collision_buckets": 2492,
+    "items_in_collision_buckets_rate": 0.20899027172089904,
+    "max_bucket": 18
+  },
+  "output_collision": {
+    "n_items": 11924,
+    "n_unique_ids": 11924,
+    "duplicate_excess": 0,
+    "duplicate_excess_rate": 0.0,
+    "items_in_collision_buckets": 0,
+    "items_in_collision_buckets_rate": 0.0,
+    "max_bucket": 1
+  },
+  "groups": {
+    "n_prefix3_groups": 3355,
+    "max_group_size": 93,
+    "infeasible_groups": 0
+  },
+  "assignment_rank": {
+    "fraction_max_rank_le_1": 0.7427469394600034,
+    "fraction_max_rank_le_4": 0.993459667952373,
+    "fraction_max_rank_le_8": 0.9984906926043937,
+    "fraction_max_rank_le_16": 1.0,
+    "max": 16
+  },
+  "logit_penalty": {
+    "mean": 0.30548448770215014,
+    "p50": 0.0,
+    "p95": 2.012992978096008,
+    "max": 5.831698179244995
+  },
+  "sample_changed_items": [
+    {
+      "item_id": "B008AWFXD4",
+      "before": [
+        "▁animals",
+        "▁plus",
+        "pies",
+        "mol",
+        "▁nickel"
+      ],
+      "after": [
+        "▁animals",
+        "▁plus",
+        "pies",
+        "mol",
+        "▁bubble"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 2,
+      "max_level_rank": 2,
+      "raw_score": 6.006410360336304,
+      "assigned_score": 5.616337537765503,
+      "logit_penalty": 0.3900728225708008
+    },
+    {
+      "item_id": "B0013PP4FC",
+      "before": [
+        "▁animals",
+        "kin",
+        "▁web",
+        "▁code",
+        "▁code"
+      ],
+      "after": [
+        "▁animals",
+        "kin",
+        "▁web",
+        "▁code",
+        "▁pet"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 13,
+      "max_level_rank": 13,
+      "raw_score": 11.837725162506104,
+      "assigned_score": 9.207266807556152,
+      "logit_penalty": 2.630458354949951
+    },
+    {
+      "item_id": "B004FWRAI4",
+      "before": [
+        "▁helicopter",
+        "▁horse",
+        "▁aluminiu",
+        "▁optimized",
+        "eller"
+      ],
+      "after": [
+        "▁helicopter",
+        "▁horse",
+        "▁aluminiu",
+        "▁double",
+        "eller"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 9.180492877960205,
+      "assigned_score": 9.129478454589844,
+      "logit_penalty": 0.05101442337036133
+    },
+    {
+      "item_id": "B004UF9R46",
+      "before": [
+        "▁action",
+        "zilla",
+        "lion",
+        "▁sword",
+        "▁thunder"
+      ],
+      "after": [
+        "▁action",
+        "zilla",
+        "lion",
+        "▁cat",
+        "▁thunder"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 7.7780678272247314,
+      "assigned_score": 6.203725814819336,
+      "logit_penalty": 1.5743420124053955
+    },
+    {
+      "item_id": "B00D8VHIOO",
+      "before": [
+        "▁game",
+        "▁board",
+        "▁gaming",
+        "enriched",
+        "▁painful"
+      ],
+      "after": [
+        "▁game",
+        "▁board",
+        "▁gaming",
+        "▁candy",
+        "▁painful"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 6.017929792404175,
+      "assigned_score": 4.031196594238281,
+      "logit_penalty": 1.9867331981658936
+    },
+    {
+      "item_id": "B003F1KETI",
+      "before": [
+        "▁doll",
+        "▁nest",
+        "▁cutie",
+        "▁reinvent",
+        "▁six"
+      ],
+      "after": [
+        "▁doll",
+        "▁nest",
+        "▁cutie",
+        "▁reinvent",
+        "be"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 3,
+      "max_level_rank": 3,
+      "raw_score": 5.128003120422363,
+      "assigned_score": 3.6347168684005737,
+      "logit_penalty": 1.4932862520217896
+    },
+    {
+      "item_id": "B0015XJ8KY",
+      "before": [
+        "▁sports",
+        "▁ball",
+        "▁gag",
+        "▁ball",
+        "▁ball"
+      ],
+      "after": [
+        "▁sports",
+        "▁ball",
+        "▁gag",
+        "▁ball",
+        "nic"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 3,
+      "max_level_rank": 3,
+      "raw_score": 5.324852228164673,
+      "assigned_score": 4.881235718727112,
+      "logit_penalty": 0.44361650943756104
+    },
+    {
+      "item_id": "B003XRDYSW",
+      "before": [
+        "▁drawing",
+        "▁wonder",
+        "▁coloring",
+        "▁pad",
+        "la"
+      ],
+      "after": [
+        "▁drawing",
+        "▁wonder",
+        "▁coloring",
+        "▁marker",
+        "la"
+      ],
+      "changed": true,
+      "rank4": 6,
+      "rank5": 1,
+      "max_level_rank": 6,
+      "raw_score": 11.137285232543945,
+      "assigned_score": 8.449266195297241,
+      "logit_penalty": 2.688019037246704
+    },
+    {
+      "item_id": "B00A1T6RD4",
+      "before": [
+        "▁animals",
+        "▁fur",
+        "by",
+        "▁boom",
+        "by"
+      ],
+      "after": [
+        "▁animals",
+        "▁fur",
+        "by",
+        "bling",
+        "by"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 7.9908342361450195,
+      "assigned_score": 7.773723602294922,
+      "logit_penalty": 0.21711063385009766
+    },
+    {
+      "item_id": "B002RL7VPM",
+      "before": [
+        "▁building",
+        "▁city",
+        "▁fire",
+        "fight",
+        "▁fire"
+      ],
+      "after": [
+        "▁building",
+        "▁city",
+        "▁fire",
+        "▁helicopter",
+        "▁fire"
+      ],
+      "changed": true,
+      "rank4": 3,
+      "rank5": 1,
+      "max_level_rank": 3,
+      "raw_score": 6.4730894565582275,
+      "assigned_score": 5.9181060791015625,
+      "logit_penalty": 0.554983377456665
+    },
+    {
+      "item_id": "B0023ASUTI",
+      "before": [
+        "▁building",
+        "▁letters",
+        "▁magnetic",
+        "▁36",
+        "case"
+      ],
+      "after": [
+        "▁building",
+        "▁letters",
+        "▁magnetic",
+        "▁magnetic",
+        "case"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 6.048184156417847,
+      "assigned_score": 5.621788024902344,
+      "logit_penalty": 0.42639613151550293
+    },
+    {
+      "item_id": "B002V5TOPE",
+      "before": [
+        "▁pretend",
+        "▁chef",
+        "▁baking",
+        "pro",
+        "ils"
+      ],
+      "after": [
+        "▁pretend",
+        "▁chef",
+        "▁baking",
+        "pro",
+        "▁cook"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 2,
+      "max_level_rank": 2,
+      "raw_score": 10.632498741149902,
+      "assigned_score": 8.762333154678345,
+      "logit_penalty": 1.8701655864715576
+    },
+    {
+      "item_id": "B006Y3RF64",
+      "before": [
+        "mel",
+        "▁paint",
+        "▁inclusive",
+        "painters",
+        "▁embedded"
+      ],
+      "after": [
+        "mel",
+        "▁paint",
+        "▁inclusive",
+        "painters",
+        "▁brush"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 2,
+      "max_level_rank": 2,
+      "raw_score": 9.561939239501953,
+      "assigned_score": 7.6480512619018555,
+      "logit_penalty": 1.9138879776000977
+    },
+    {
+      "item_id": "B00A4U2NIS",
+      "before": [
+        "▁cars",
+        "▁hot",
+        "▁wall",
+        "▁tracks",
+        "▁wall"
+      ],
+      "after": [
+        "▁cars",
+        "▁hot",
+        "▁wall",
+        "▁revolution",
+        "▁wall"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 6.602996826171875,
+      "assigned_score": 5.634080410003662,
+      "logit_penalty": 0.9689164161682129
+    },
+    {
+      "item_id": "B00BJ90LC8",
+      "before": [
+        "loom",
+        "▁glow",
+        "▁glow",
+        "stick",
+        "▁sticks"
+      ],
+      "after": [
+        "loom",
+        "▁glow",
+        "▁glow",
+        "stick",
+        "▁kit"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 2,
+      "max_level_rank": 2,
+      "raw_score": 4.530799388885498,
+      "assigned_score": 3.9233211278915405,
+      "logit_penalty": 0.6074782609939575
+    },
+    {
+      "item_id": "B00125V99S",
+      "before": [
+        "▁drawing",
+        "▁erase",
+        "board",
+        "203",
+        "▁dry"
+      ],
+      "after": [
+        "▁drawing",
+        "▁erase",
+        "board",
+        "▁simplicity",
+        "▁dry"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 7.658626556396484,
+      "assigned_score": 5.771016240119934,
+      "logit_penalty": 1.8876103162765503
+    },
+    {
+      "item_id": "B005QZP31U",
+      "before": [
+        "▁vehicles",
+        "▁cater",
+        "▁dump",
+        "pillar",
+        "▁cat"
+      ],
+      "after": [
+        "▁vehicles",
+        "▁cater",
+        "▁dump",
+        "pillar",
+        "▁truck"
+      ],
+      "changed": true,
+      "rank4": 1,
+      "rank5": 2,
+      "max_level_rank": 2,
+      "raw_score": 4.798794388771057,
+      "assigned_score": 4.752603888511658,
+      "logit_penalty": 0.046190500259399414
+    },
+    {
+      "item_id": "B004N53IC0",
+      "before": [
+        "▁baby",
+        "▁video",
+        "izo",
+        "570",
+        "50"
+      ],
+      "after": [
+        "▁baby",
+        "▁video",
+        "izo",
+        "▁digital",
+        "50"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 5.923112392425537,
+      "assigned_score": 5.770810604095459,
+      "logit_penalty": 0.15230178833007812
+    },
+    {
+      "item_id": "B001ORUL5C",
+      "before": [
+        "▁animals",
+        "kin",
+        "▁web",
+        "▁code",
+        "▁code"
+      ],
+      "after": [
+        "▁animals",
+        "kin",
+        "▁web",
+        "▁ganz",
+        "▁code"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 11.714348793029785,
+      "assigned_score": 10.35515546798706,
+      "logit_penalty": 1.3591933250427246
+    },
+    {
+      "item_id": "B001CEJHRA",
+      "before": [
+        "▁dinosaur",
+        "▁party",
+        "▁mask",
+        "650",
+        "▁party"
+      ],
+      "after": [
+        "▁dinosaur",
+        "▁party",
+        "▁mask",
+        "▁cake",
+        "▁party"
+      ],
+      "changed": true,
+      "rank4": 2,
+      "rank5": 1,
+      "max_level_rank": 2,
+      "raw_score": 3.0320926904678345,
+      "assigned_score": 2.948834180831909,
+      "logit_penalty": 0.08325850963592529
+    }
+  ],
+  "protocol": {
+    "encoder": "BAAI/bge-large-en-v1.5",
+    "bridge": "frozen one-layer independent heads",
+    "prefix_levels_frozen": 3,
+    "top_k4": 16,
+    "top_k5": 16,
+    "optimizer": "per-prefix rectangular linear_sum_assignment",
+    "gram_training_run": false
+  },
+  "inputs": {
+    "embeddings": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "mlp": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_bge_toys_screen/mlp/best.pt",
+    "vocab_json": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_bge_toys_screen/mlp/vocab.json",
+    "raw_assigned_id": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split_v1_bge_mlpcold.txt",
+    "cold_items": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt"
+  },
+  "output_id": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split_v1_bge_capacitycold.txt"
+}

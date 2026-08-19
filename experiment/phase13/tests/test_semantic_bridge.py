@@ -22,6 +22,47 @@ from hierarchical_id_utils import (
     read_item_set,
     write_id_file,
 )
+from precompute_item_embeddings import (
+    add_text_prefix,
+    l2_normalize,
+    mean_pool,
+    pool_hidden_state,
+)
+
+
+class TestEmbeddingProtocol(unittest.TestCase):
+    def test_text_prefix_is_applied_without_mutating_input(self):
+        raw = ["alpha", "", "beta"]
+        prefixed = add_text_prefix(raw, "query: ")
+        self.assertEqual(prefixed, ["query: alpha", "query: ", "query: beta"])
+        self.assertEqual(raw, ["alpha", "", "beta"])
+
+    def test_mean_pool_respects_attention_mask(self):
+        import torch
+        hidden = torch.tensor([[[1.0, 3.0], [3.0, 5.0], [99.0, 99.0]]])
+        mask = torch.tensor([[1, 1, 0]])
+        pooled = mean_pool(hidden, mask)
+        self.assertTrue(torch.allclose(pooled, torch.tensor([[2.0, 4.0]])))
+
+    def test_cls_pool_selects_first_token(self):
+        import torch
+        hidden = torch.tensor([[[1.0, 3.0], [8.0, 9.0], [5.0, 7.0]]])
+        mask = torch.tensor([[1, 1, 0]])
+        pooled = pool_hidden_state(hidden, mask, "cls")
+        self.assertTrue(torch.equal(pooled, torch.tensor([[1.0, 3.0]])))
+
+    def test_unknown_pooling_is_rejected(self):
+        import torch
+        with self.assertRaises(ValueError):
+            pool_hidden_state(torch.zeros(1, 1, 2), torch.ones(1, 1), "bad")
+
+    def test_l2_normalize_produces_unit_rows(self):
+        import torch
+        x = torch.tensor([[3.0, 4.0], [5.0, 12.0]])
+        normalized = l2_normalize(x)
+        self.assertTrue(torch.allclose(
+            normalized.norm(p=2, dim=1), torch.ones(2), atol=1e-6
+        ))
 
 
 class TestHierarchicalIdUtils(unittest.TestCase):
@@ -130,6 +171,43 @@ class TestSemanticBridgeModel(unittest.TestCase):
             losses.append(loss.item())
         self.assertLess(losses[-1], losses[0] * 0.5,
                         f"loss did not decrease enough: {losses[0]:.3f} -> {losses[-1]:.3f}")
+
+
+class TestResidualSemanticBridgeModel(unittest.TestCase):
+    def test_forward_shapes_residual_width_and_loss_decrease(self):
+        import torch
+        import torch.nn as nn
+        from semantic_bridge_residual import build_model_residual
+
+        text_dim = 16
+        hidden_dim = 32
+        level_sizes = [5, 7, 3]
+        model = build_model_residual(text_dim, level_sizes, hidden_dim)
+        self.assertEqual(model.fc1.in_features, text_dim)
+        self.assertEqual(model.fc1.out_features, hidden_dim)
+        self.assertEqual(model.fc2.in_features, hidden_dim)
+        self.assertEqual(model.fc2.out_features, text_dim)
+
+        generator = torch.Generator().manual_seed(7)
+        x = torch.randn(48, text_dim, generator=generator)
+        y = torch.stack(
+            [torch.randint(0, size, (48,), generator=generator) for size in level_sizes],
+            dim=1,
+        )
+        outputs = model(x)
+        self.assertEqual([tuple(output.shape) for output in outputs], [(48, 5), (48, 7), (48, 3)])
+
+        optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)
+        cross_entropy = nn.CrossEntropyLoss()
+        losses = []
+        for _ in range(80):
+            outputs = model(x)
+            loss = sum(cross_entropy(outputs[level], y[:, level]) for level in range(3))
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            losses.append(float(loss.item()))
+        self.assertLess(losses[-1], losses[0] * 0.5)
 
 
 class TestAssignColdIdsEndToEnd(unittest.TestCase):

@@ -1,0 +1,85 @@
+{
+  "experiment": "Phase-13 MiniLM regularized residual warm-only arm selection",
+  "cold_diagnostic_computed": false,
+  "selection_metric": "0.5*prefix@2+0.3*prefix@3+0.2*exact",
+  "arms": [
+    {
+      "name": "a0_control",
+      "history_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a0_control/training_history.json",
+      "checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a0_control/best.pt",
+      "best_epoch": 14,
+      "best_val_hscore": 0.3877516835927963,
+      "best_val_avg_acc": 0.40570469945669174,
+      "best_val_prefix_accuracy": [
+        0.8842281699180603,
+        0.6476510167121887,
+        0.18624161183834076,
+        0.06375838816165924,
+        0.04026845842599869
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.0001
+    },
+    {
+      "name": "a1_dropout02",
+      "history_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a1_dropout02/training_history.json",
+      "checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a1_dropout02/best.pt",
+      "best_epoch": 14,
+      "best_val_hscore": 0.38859061896800995,
+      "best_val_avg_acc": 0.40570469200611115,
+      "best_val_prefix_accuracy": [
+        0.8842281699180603,
+        0.649328887462616,
+        0.18624161183834076,
+        0.06375838816165924,
+        0.04026845842599869
+      ],
+      "dropout": 0.2,
+      "weight_decay": 0.0001
+    },
+    {
+      "name": "a2_weight_decay1e3",
+      "history_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a2_weight_decay1e3/training_history.json",
+      "checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a2_weight_decay1e3/best.pt",
+      "best_epoch": 14,
+      "best_val_hscore": 0.3877516835927963,
+      "best_val_avg_acc": 0.40570469945669174,
+      "best_val_prefix_accuracy": [
+        0.8842281699180603,
+        0.6476510167121887,
+        0.18624161183834076,
+        0.06375838816165924,
+        0.04026845842599869
+      ],
+      "dropout": 0.0,
+      "weight_decay": 0.001
+    }
+  ],
+  "winner": {
+    "name": "a1_dropout02",
+    "history_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a1_dropout02/training_history.json",
+    "checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_collision_safe_minilm_regularized_residual_toys_screen/arms/a1_dropout02/best.pt",
+    "best_epoch": 14,
+    "best_val_hscore": 0.38859061896800995,
+    "best_val_avg_acc": 0.40570469200611115,
+    "best_val_prefix_accuracy": [
+      0.8842281699180603,
+      0.649328887462616,
+      0.18624161183834076,
+      0.06375838816165924,
+      0.04026845842599869
+    ],
+    "dropout": 0.2,
+    "weight_decay": 0.0001
+  },
+  "warm_gate": {
+    "minimum_hscore": 0.39550671726465225,
+    "minimum_val_avg_acc": 0.4036761759594083,
+    "checks": {
+      "winner_hscore_gain_at_least_2pct": false,
+      "winner_val_avg_drop_at_most_0_5pct": true
+    }
+  },
+  "advance_to_cold": false,
+  "verdict": "FAIL_WARM_GATE"
+}

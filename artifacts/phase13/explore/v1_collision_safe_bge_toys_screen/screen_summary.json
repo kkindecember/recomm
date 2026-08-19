@@ -1,0 +1,96 @@
+{
+  "experiment": "Phase-13 Toys BGE-large-en-v1.5 pre-GRAM encoder screen",
+  "cold_diagnostic_computed": true,
+  "protocol": {
+    "gram_training_run": false,
+    "cold_evaluated_after_warm_gate_only": true
+  },
+  "warm_selection": {
+    "experiment": "Phase-13 Toys BGE-large-en-v1.5 warm-only encoder screen",
+    "cold_diagnostic_computed": false,
+    "protocol": {
+      "encoder": "BAAI/bge-large-en-v1.5",
+      "pooling": "cls",
+      "l2_normalized": true,
+      "text_prefix": "",
+      "bridge": "one-layer independent heads",
+      "epochs": 400,
+      "seed": 12345,
+      "gram_training_run": false
+    },
+    "reference_minilm": {
+      "best_epoch": 166,
+      "best_val_avg_acc": 0.4060402691364288
+    },
+    "candidate": {
+      "best_epoch": 331,
+      "best_val_avg_acc": 0.42013423293828966,
+      "best_at_epoch_limit": false
+    },
+    "warm_gate": {
+      "relative_floor": 0.995,
+      "minimum_val_avg_acc": 0.40401006779074666,
+      "checks": {
+        "validation_drop_at_most_0_5pct": true
+      }
+    },
+    "advance_to_cold": true,
+    "verdict": "PASS_WARM_TO_COLD"
+  },
+  "reference_minilm_cold_id_metrics": {
+    "n_cold": 5963,
+    "n_levels": 5,
+    "position_accuracy": [
+      0.8589636089216837,
+      0.6676169713231594,
+      0.24517860137514674,
+      0.1309743417742747,
+      0.09391246017105484
+    ],
+    "macro_position_accuracy": 0.3993291967130638,
+    "prefix_accuracy": [
+      0.8589636089216837,
+      0.6149589132986751,
+      0.17759517021633406,
+      0.06272010732852591,
+      0.034714070098943485
+    ],
+    "exact_path_accuracy": 0.034714070098943485
+  },
+  "candidate_cold_id_metrics": {
+    "n_cold": 5963,
+    "n_levels": 5,
+    "position_accuracy": [
+      0.8992118061378501,
+      0.6897534797920509,
+      0.2518866342445078,
+      0.1385208787523059,
+      0.09626027167533122
+    ],
+    "macro_position_accuracy": 0.4151266141204092,
+    "prefix_accuracy": [
+      0.8992118061378501,
+      0.6508468891497569,
+      0.19520375649840685,
+      0.06741573033707865,
+      0.03655877913801778
+    ],
+    "exact_path_accuracy": 0.03655877913801778
+  },
+  "candidate_collision": {
+    "raw_duplicate_excess": 1476,
+    "modified_cold_items": 1845,
+    "modified_cold_rate": 0.30940801609927887
+  },
+  "cold_gate": {
+    "checks": {
+      "prefix3_gain_at_least_3pct": true,
+      "exact_path_gain_at_least_5pct": true,
+      "macro_drop_at_most_0_5pct": true,
+      "prefix2_drop_at_most_0_5pct": true,
+      "raw_duplicate_excess_not_worse": false,
+      "collision_safe_output_unique": true
+    }
+  },
+  "verdict": "FAIL_STOP_BGE"
+}

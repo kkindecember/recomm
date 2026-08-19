@@ -1,0 +1,75 @@
+{
+  "experiment": "Phase-13 Toys MiniLM 2-layer residual MLP pre-GRAM screen",
+  "protocol": {
+    "architecture": "384->768->384 GELU residual + LayerNorm + independent heads",
+    "from_scratch": true,
+    "gram_training_run": false,
+    "validation_relative_gain_gate": 0.02
+  },
+  "baseline": {
+    "best_val_avg_acc": 0.4060402691364288,
+    "cold_id_metrics": {
+      "n_cold": 5963,
+      "n_levels": 5,
+      "position_accuracy": [
+        0.8589636089216837,
+        0.6676169713231594,
+        0.24517860137514674,
+        0.1309743417742747,
+        0.09391246017105484
+      ],
+      "macro_position_accuracy": 0.3993291967130638,
+      "prefix_accuracy": [
+        0.8589636089216837,
+        0.6149589132986751,
+        0.17759517021633406,
+        0.06272010732852591,
+        0.034714070098943485
+      ],
+      "exact_path_accuracy": 0.034714070098943485
+    },
+    "raw_id_duplicate_excess": 1352
+  },
+  "candidate": {
+    "best_epoch": 14,
+    "best_val_avg_acc": 0.40570469945669174,
+    "best_at_epoch_limit": false,
+    "cold_id_metrics": {
+      "n_cold": 5963,
+      "n_levels": 5,
+      "position_accuracy": [
+        0.8559449941304712,
+        0.6667784672144893,
+        0.2481972161663592,
+        0.1309743417742747,
+        0.09005534127117223
+      ],
+      "macro_position_accuracy": 0.39839007211135335,
+      "prefix_accuracy": [
+        0.8559449941304712,
+        0.6146235116552071,
+        0.18312929733355693,
+        0.0645648163676002,
+        0.03639107831628375
+      ],
+      "exact_path_accuracy": 0.03639107831628375
+    },
+    "raw_id_duplicate_excess": 1264,
+    "collision_safe_modified_cold_items": 1532,
+    "collision_safe_modified_cold_rate": 0.25691765889652857
+  },
+  "gate": {
+    "minimum_val_avg_acc": 0.4141610745191574,
+    "checks": {
+      "validation_gain_at_least_2pct": false,
+      "cold_macro_strictly_better": false,
+      "cold_prefix2_strictly_better": false,
+      "cold_prefix3_strictly_better": true,
+      "cold_exact_path_strictly_better": true,
+      "raw_duplicate_excess_not_worse": true,
+      "collision_safe_output_unique": true
+    }
+  },
+  "verdict": "FAIL_STOP_RESIDUAL",
+  "reason": "Residual bridge did not improve the MiniLM validation reference."
+}

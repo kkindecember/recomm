@@ -19,6 +19,10 @@
 #   v0_toys              Toys_cold50, 30 epochs, second-domain vanilla baseline
 #   v1_beauty            Beauty_cold50 + MLP-predicted cold ids (c128/l7)
 #   v1_toys              Toys_cold50 + MLP-predicted cold ids (c32/l5)
+#   smoke_v1_collision_safe_beauty  Beauty collision-safe IDs, 1 epoch / 100 samples
+#   smoke_v1_collision_safe_toys    Toys collision-safe IDs, 1 epoch / 100 samples
+#   v1_collision_safe_beauty        Beauty collision-safe IDs, full 30 epochs
+#   v1_collision_safe_toys          Toys collision-safe IDs, full 30 epochs
 #   v2_toys              Toys_cold50 + MLP v2 with LLM prior (c32/l5)
 #
 # Usage:
@@ -84,8 +88,10 @@ COLD_SEED=""
 COLD_MIN_WARM=""
 COLD_BUCKETS=""
 V1_MLPCOLD=0  # 1 = require MLP-cold artifacts and use v1_mlpcold id suffix
+V1_COLLISION_SAFE=0  # 1 = require collision-safe v1 IDs and audit report
 V2_MLPCOLD_LLMPRIOR=0  # 1 = require MLP v2 + LLM prior artifacts, use v2_mlpcold_llmprior suffix
 V2ITER2_MLPCOLD_LLMPRIOR=0  # 1 = v2_iter2 (vocab-constrained + OOV-masked), use v2iter2_mlpcold_llmprior suffix
+RESTORE_IMMEDIATELY=0  # collision-safe reruns return the card to scan holder at exit
 
 case "${SUB:-}" in
   smoke_v0_beauty)
@@ -146,6 +152,30 @@ case "${SUB:-}" in
     COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
     V1_MLPCOLD=1
     ;;
+  smoke_v1_collision_safe_beauty)
+    DATASET=Beauty_cold50; EPOCHS=1; CLUSTER=128; ID_LEN=7; NUM_CF=10; BEAM_SIZE=50
+    DEBUG_TRAIN_100=1; DEBUG_TEST_100=1; TEST_EPOCH_REC=0; SAVE_REC_EPOCHS=1
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V1_COLLISION_SAFE=1; RESTORE_IMMEDIATELY=1
+    ;;
+  smoke_v1_collision_safe_toys)
+    DATASET=Toys_cold50; EPOCHS=1; CLUSTER=32; ID_LEN=5; NUM_CF=5; BEAM_SIZE=50
+    DEBUG_TRAIN_100=1; DEBUG_TEST_100=1; TEST_EPOCH_REC=0; SAVE_REC_EPOCHS=1
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V1_COLLISION_SAFE=1; RESTORE_IMMEDIATELY=1
+    ;;
+  v1_collision_safe_beauty)
+    DATASET=Beauty_cold50; EPOCHS=30; CLUSTER=128; ID_LEN=7; NUM_CF=10; BEAM_SIZE=50
+    DEBUG_TRAIN_100=0; DEBUG_TEST_100=0; TEST_EPOCH_REC=5; SAVE_REC_EPOCHS=5
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V1_COLLISION_SAFE=1; RESTORE_IMMEDIATELY=1
+    ;;
+  v1_collision_safe_toys)
+    DATASET=Toys_cold50; EPOCHS=30; CLUSTER=32; ID_LEN=5; NUM_CF=5; BEAM_SIZE=50
+    DEBUG_TRAIN_100=0; DEBUG_TEST_100=0; TEST_EPOCH_REC=5; SAVE_REC_EPOCHS=5
+    COLD_ETA=0.5; COLD_SEED=12345; COLD_MIN_WARM=3; COLD_BUCKETS=10
+    V1_COLLISION_SAFE=1; RESTORE_IMMEDIATELY=1
+    ;;
   v2_toys)
     # v2 LLM Prior on Toys_cold50 (extends v1 with LLM prior regularization).
     # MLP v2 trained with KL(MLP || LLM prior) on warm items, using DeepSeek API.
@@ -201,10 +231,21 @@ TOTAL_LEASE_MIB=${LEASE_MIB_OVERRIDE:-30720}
 # v1_toys measured peak_reserved=19290; use 21000 for safety margin
 EXPECTED_PEAK_MIB=${EXPECTED_PEAK_MIB_OVERRIDE:-21000}
 HOLD_TIMEOUT_HOURS=${HOLD_TIMEOUT_HOURS:-6}
+HARD_TIMEOUT_SECONDS=${HARD_TIMEOUT_SECONDS:-259200}  # 72h; validation-heavy Beauty needs >30h
+SCAN_SESSION=${SCAN_SESSION:-gram_ablation_scan_gpu${GPU}}
+SCAN_STATE_ROOT=${SCAN_STATE_ROOT:-$ROOT/.runtime/gram_ablation_scan_gpu${GPU}}
+RESOURCE_WATCHDOG="$ROOT/experiment/phase13/resource_watchdog.sh"
+
+[[ "$HARD_TIMEOUT_SECONDS" =~ ^[1-9][0-9]*$ ]] || {
+  echo "HARD_TIMEOUT_SECONDS must be a positive integer" >&2
+  exit 2
+}
 
 WORKLOAD_PID=0
 LEASE_PID=""
 TELEMETRY_PID=""
+POSTFLIGHT_RC=0
+TERMINATION_SIGNAL=""
 STARTED_AT=""
 STAGE=not_started
 
@@ -237,6 +278,7 @@ protector() {
       TRANSFORMERS_CACHE="$CODELLAMA_HF_HOME/hub" "$PROTECTOR_TOOL_PATH" "$@"
   else
     env RESERVE_MIB="${HOLDER_RESERVE_MIB_OVERRIDE:-$(adaptive_reserve_mib)}" \
+      SESSION="$SCAN_SESSION" STATE_ROOT="$SCAN_STATE_ROOT" \
       "$PROTECTOR_TOOL_PATH" "$@"
   fi
 }
@@ -259,9 +301,31 @@ adaptive_reserve_mib() {
 
 protector_on_target() {
   # Verify the protector process is holding memory on the target GPU
-  nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory \
-    --format=csv,noheader --id="$GPU" 2>/dev/null | \
-    grep -q "$PROTECTOR_PROCESS_MATCH" || return 1
+  if [[ "$PROTECTOR_TOOL" == "ablation_scan" ]]; then
+    local holder_pid
+    holder_pid=$("$PYTHON" -c \
+      "import json; print(json.load(open('$SCAN_STATE_ROOT/status.json')).get('pid', 0))" \
+      2>/dev/null || echo 0)
+    [[ "$holder_pid" =~ ^[0-9]+$ ]] && (( holder_pid > 0 )) || return 1
+    nvidia-smi --query-compute-apps=pid,process_name,used_memory \
+      --format=csv,noheader,nounits --id="$GPU" 2>/dev/null | \
+      grep -Eq "^[[:space:]]*${holder_pid},.*gram-repro" || return 1
+  else
+    nvidia-smi --query-compute-apps=gpu_uuid,pid,process_name,used_memory \
+      --format=csv,noheader --id="$GPU" 2>/dev/null | \
+      grep -q "$PROTECTOR_PROCESS_MATCH" || return 1
+  fi
+}
+
+protector_at_requested_size() {
+  protector_on_target || return 1
+  if [[ "$PROTECTOR_TOOL" == "ablation_scan" && -n "${HOLDER_RESERVE_MIB_OVERRIDE:-}" ]]; then
+    local actual_reserve
+    actual_reserve=$("$PYTHON" -c \
+      "import json; print(json.load(open('$SCAN_STATE_ROOT/status.json')).get('reserve_mib', 0))" \
+      2>/dev/null || echo 0)
+    [[ "$actual_reserve" == "$HOLDER_RESERVE_MIB_OVERRIDE" ]] || return 1
+  fi
 }
 
 ensure_protector_on_target() {
@@ -282,28 +346,44 @@ ensure_protector_on_target() {
 }
 
 restore() {
-  if protector_on_target; then
-    RESERVATION=${PROTECTOR_TOOL}_already_running_on_gpu${GPU}
+  if protector_at_requested_size; then
+    RESERVATION=${PROTECTOR_TOOL}_exact_holder_on_gpu${GPU}
     return 0
   fi
   STAGE=resource_restoration
   RESERVATION=restoring_${PROTECTOR_TOOL}_to_gpu${GPU}
   write_status restoring_resource "Experiment ended; restoring $PROTECTOR_TOOL on GPU${GPU}."
-  protector start "$GPU" >/dev/null 2>&1 || {
-    RESERVATION=restore_request_failed_on_gpu${GPU}
-    fallback_hold
-    return 0
-  }
-  for _ in $(seq 1 180); do
-    if protector_on_target; then
-      RESERVATION=restored_on_gpu${GPU}
+  protector start "$GPU" >/dev/null 2>&1 || true
+  for _ in $(seq 1 30); do
+    if protector_at_requested_size; then
+      RESERVATION=exact_holder_restored_on_gpu${GPU}
       return 0
     fi
-    sleep 5
+    sleep 1
   done
-  RESERVATION=restore_failed_on_gpu${GPU}
-  fallback_hold
-  return 0
+
+  # If the original-sized scan holder no longer fits, retain as much of the
+  # still-free card as is safe. This is explicitly reported as degraded, never
+  # mislabeled as an exact restore. The independent watchdog keeps the same
+  # recovery policy if this shell is killed before reaching here.
+  if [[ "$PROTECTOR_TOOL" == "ablation_scan" ]]; then
+    protector stop >/dev/null 2>&1 || true
+    local adaptive_mib
+    adaptive_mib=$(adaptive_reserve_mib)
+    if (( adaptive_mib >= MIN_WORTH_HOLDING_MIB )); then
+      env RESERVE_MIB="$adaptive_mib" SESSION="$SCAN_SESSION" STATE_ROOT="$SCAN_STATE_ROOT" \
+        "$ABLATION_SCAN_TOOL" start "$GPU" >/dev/null 2>&1 || true
+      for _ in $(seq 1 30); do
+        if protector_on_target; then
+          RESERVATION=degraded_scan_${adaptive_mib}mib_on_gpu${GPU}
+          return 1
+        fi
+        sleep 1
+      done
+    fi
+  fi
+  RESERVATION=resource_restore_unprotected_on_gpu${GPU}
+  return 2
 }
 
 # ---------------------------------------------------------------------------
@@ -311,9 +391,9 @@ restore() {
 write_status() {
   local state=$1 reason=$2 tmp="${STATUS}.tmp.$$"
   mkdir -p "$OUTPUT"
-  printf '{"experiment_id":"GRAM_PHASE13_%s_V1","sub":"%s","status":"%s","stage":"%s","reason":"%s","started_at":"%s","updated_at":"%s","runner_pid":%s,"workload_pid":%s,"tmux_session":"%s","physical_gpu":%d,"total_gpu_lease_mib":%d,"resource_reservation":"%s","protector_tool":"%s","log_path":"%s","dataset":"%s"}\n' \
+  printf '{"experiment_id":"GRAM_PHASE13_%s_V1","sub":"%s","status":"%s","stage":"%s","reason":"%s","started_at":"%s","updated_at":"%s","runner_pid":%s,"workload_pid":%s,"tmux_session":"%s","physical_gpu":%d,"total_gpu_lease_mib":%d,"hard_timeout_seconds":%d,"resource_reservation":"%s","protector_tool":"%s","log_path":"%s","dataset":"%s"}\n' \
     "${SUB^^}" "$SUB" "$state" "$STAGE" "$reason" "$STARTED_AT" "$(date -Is)" "$$" "$WORKLOAD_PID" \
-    "$SESSION" "$GPU" "$TOTAL_LEASE_MIB" "$RESERVATION" "$PROTECTOR_TOOL" "${LOG#$ROOT/}" "$DATASET" > "$tmp"
+    "$SESSION" "$GPU" "$TOTAL_LEASE_MIB" "$HARD_TIMEOUT_SECONDS" "$RESERVATION" "$PROTECTOR_TOOL" "${LOG#$ROOT/}" "$DATASET" > "$tmp"
   mv "$tmp" "$STATUS"
 }
 
@@ -330,25 +410,10 @@ release_lease() {
   [[ -z "$LEASE_PID" ]] || kill "$LEASE_PID" >/dev/null 2>&1 || true
   [[ -z "$LEASE_PID" ]] || wait "$LEASE_PID" 2>/dev/null || true
   LEASE_PID=""
-}
-
-fallback_hold() {
-  local free_mib
-  free_mib=$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits --id="$GPU" 2>/dev/null | tr -d ' ' || true)
-  [[ "$free_mib" =~ ^[0-9]+$ ]] || free_mib=0
-  if (( free_mib < 2048 )); then
-    echo "[fallback-hold] GPU${GPU} only ${free_mib} MiB free, nothing to hold" >&2
-    return
-  fi
-  local hold_mib=$(( free_mib - 512 ))
-  RESERVATION="fallback_lease_${hold_mib}mib_on_gpu${GPU}"
-  write_status fallback_holding "Protector failed; fallback lease holding ${hold_mib} MiB on GPU${GPU}."
-  echo "[fallback-hold] protector failed; holding ${hold_mib} MiB on GPU${GPU} via lease sidecar" >&2
-  "$PYTHON" "$LEASE_HELPER" --gpu "$GPU" --total-lease-mib "$hold_mib" \
-    --expected-workload-peak-mib 1 --status-path "$LEASE_STATUS" &
-  LEASE_PID=$!
-  disown "$LEASE_PID" 2>/dev/null || true
-  sleep 3
+  # The pane closing can deliver HUP to the sidecar before its Python signal
+  # handler writes state=released. The process is already gone after wait, so
+  # make the durable state agree with the verified cleanup outcome here.
+  printf '{"gpu": %d, "state": "released"}\n' "$GPU" > "$LEASE_STATUS"
 }
 
 # Postflight: partition test predictions by warm/cold target
@@ -373,25 +438,35 @@ run_postflight_eval() {
 }
 
 finish() {
+  local shell_rc=$?
   trap - EXIT INT TERM HUP
-  local scientific_rc=${WORKLOAD_RC-$?} postflight_rc=0
+  local scientific_rc=${WORKLOAD_RC-$shell_rc}
+  local postflight_rc=${POSTFLIGHT_RC:-0}
+  local restore_rc=0
   if (( WORKLOAD_PID > 0 )) && kill -0 "$WORKLOAD_PID" 2>/dev/null; then
     kill -TERM "$WORKLOAD_PID" 2>/dev/null || true
     wait "$WORKLOAD_PID" 2>/dev/null || true
   fi
+  WORKLOAD_PID=0
   [[ -z "$TELEMETRY_PID" ]] || kill "$TELEMETRY_PID" >/dev/null 2>&1 || true
 
-  # If WORKLOAD_RC is unset, we never reached training — treat as failure
-  if [[ -z "${WORKLOAD_RC+x}" ]]; then
-    scientific_rc=1
-  fi
-
-  if (( scientific_rc == 0 )); then
-    run_postflight_eval || postflight_rc=$?
-  fi
-
   STAGE=finished
-  if (( scientific_rc == 0 )); then
+  if (( scientific_rc == 0 && postflight_rc != 0 )); then
+    release_lease
+    restore || restore_rc=$?
+    write_status failed "Training succeeded but postflight failed (rc=$postflight_rc); resource=$RESERVATION; no automatic retry."
+    exit "$postflight_rc"
+  elif (( scientific_rc == 0 && RESTORE_IMMEDIATELY == 1 )); then
+    release_lease
+    restore || restore_rc=$?
+    printf '{"gpu": %d, "state": "released"}\n' "$GPU" > "$LEASE_STATUS"
+    if (( restore_rc == 0 )); then
+      write_status succeeded "Training and postflight succeeded; exact holder restored on GPU${GPU}."
+    else
+      write_status succeeded_resource_degraded "Training succeeded; resource protection is $RESERVATION (restore_rc=$restore_rc)."
+    fi
+    exit 0
+  elif (( scientific_rc == 0 )); then
     write_status holding_post_training "Training done. Lease held on GPU${GPU}. Run 'stop $SUB' to release and restore protector. Auto-releases after ${HOLD_TIMEOUT_HOURS}h."
     echo "[finish] training done; lease still held on GPU${GPU}. Use 'stop $SUB' to release." >&2
     echo "[finish] auto-release after ${HOLD_TIMEOUT_HOURS}h if nobody stops it." >&2
@@ -401,20 +476,27 @@ finish() {
     while (( $(date +%s) < hold_deadline )); do sleep 60; done
     echo "[finish] hold timeout (${HOLD_TIMEOUT_HOURS}h) reached; releasing lease and restoring protector." >&2
     release_lease
-    restore || true
-    write_status hold_timeout_released "Held ${HOLD_TIMEOUT_HOURS}h with no stop; lease released and protector restored on GPU${GPU}."
+    restore || restore_rc=$?
+    write_status hold_timeout_released "Held ${HOLD_TIMEOUT_HOURS}h; resource=$RESERVATION (restore_rc=$restore_rc)."
     exit 0
   else
     # Training failed — release and try to restore
     release_lease
-    restore || true
-    if (( scientific_rc == 124 || scientific_rc == 143 )); then
-      write_status timed_out "Training terminated (rc=$scientific_rc)."
+    restore || restore_rc=$?
+    if [[ -n "$TERMINATION_SIGNAL" ]]; then
+      write_status stopped "Stopped by $TERMINATION_SIGNAL (rc=$scientific_rc); resource=$RESERVATION (restore_rc=$restore_rc)."
+    elif (( scientific_rc == 124 || scientific_rc == 137 )); then
+      write_status timed_out "Hard timeout after ${HARD_TIMEOUT_SECONDS}s (rc=$scientific_rc); resource=$RESERVATION (restore_rc=$restore_rc)."
     else
-      write_status failed "Scientific exit=$scientific_rc; no automatic retry."
+      write_status failed "Scientific exit=$scientific_rc; resource=$RESERVATION (restore_rc=$restore_rc); no automatic retry."
     fi
     exit "$scientific_rc"
   fi
+}
+
+on_signal() {
+  TERMINATION_SIGNAL=$1
+  exit "$2"
 }
 
 ensure_cold_split_ready() {
@@ -445,9 +527,9 @@ ensure_cold_split_ready() {
 worker() {
   STARTED_AT=${1:?missing start timestamp}
   trap finish EXIT
-  trap 'exit 130' INT
-  trap 'exit 143' TERM
-  trap 'exit 129' HUP
+  trap 'on_signal INT 130' INT
+  trap 'on_signal TERM 143' TERM
+  trap 'on_signal HUP 129' HUP
   cd "$ROOT"
   mkdir -p "$OUTPUT"
 
@@ -509,6 +591,28 @@ EOF
         exit 10
       fi
     done
+  fi
+
+  if (( V1_COLLISION_SAFE == 1 )); then
+    STAGE=v1_collision_safe_preflight
+    write_status preparing_data "Verifying globally unique v1 collision-safe IDs and audit invariants."
+    local dataset_dir="$ROOT/GRAM/rec_datasets/$DATASET"
+    local domain_lower="${DATASET%_cold*}"
+    domain_lower="${domain_lower,,}"
+    local hier_type="hierarchy_v1_c${CLUSTER}_l${ID_LEN}_len32768_split_v1_mlpcold_collision_safe"
+    local collision_safe_id="$dataset_dir/item_generative_indexing_${hier_type}.txt"
+    local collision_report="$ROOT/artifacts/phase13/explore/v1_collision_safe/${domain_lower}_id_report.json"
+    for p in "$collision_safe_id" "$collision_report"; do
+      if [[ ! -s "$p" ]]; then
+        write_status blocked "Collision-safe artifact missing or empty: $p"
+        exit 12
+      fi
+    done
+    "$PYTHON" -m unittest experiment/phase13/tests/test_collision_safe_ids.py \
+      || { write_status blocked "Collision-safe unit tests failed."; exit 13; }
+    "$PYTHON" -c \
+      "import json; r=json.load(open('$collision_report')); assert r['output_collision']['duplicate_excess']==0; assert r['warm_ids_unchanged']; assert r['row_order_unchanged']; assert r['cold_prefixes_unchanged']" \
+      || { write_status blocked "Collision-safe report invariants failed."; exit 14; }
   fi
 
   if (( V2_MLPCOLD_LLMPRIOR == 1 )); then
@@ -600,6 +704,9 @@ EOF
   if (( V1_MLPCOLD == 1 )); then
     item_id="${item_id}_v1_mlpcold"
   fi
+  if (( V1_COLLISION_SAFE == 1 )); then
+    item_id="${item_id}_v1_mlpcold_collision_safe"
+  fi
   if (( V2_MLPCOLD_LLMPRIOR == 1 )); then
     item_id="${item_id}_v2_mlpcold_llmprior"
   fi
@@ -607,7 +714,7 @@ EOF
     item_id="${item_id}_v2iter2_mlpcold_llmprior"
   fi
   cd "$ROOT/GRAM/command"
-  timeout --signal=TERM 108000 env CUDA_VISIBLE_DEVICES="$GPU" \
+  timeout --signal=TERM --kill-after=60 "$HARD_TIMEOUT_SECONDS" env CUDA_VISIBLE_DEVICES="$GPU" \
     HF_HUB_CACHE="$WORKLOAD_CACHE" TRANSFORMERS_CACHE="$WORKLOAD_CACHE/transformers" \
     TRANSFORMERS_OFFLINE=1 "$PYTHON" ../src/main_generative_gram.py \
     --datasets "$DATASET" \
@@ -624,9 +731,13 @@ EOF
     --debug_train_100 "$DEBUG_TRAIN_100" --debug_test_100 "$DEBUG_TEST_100" \
     --cf0_arm A --cf0_phase9 0 &
   WORKLOAD_PID=$!
+  write_status running "Phase-13 $SUB training on GPU${GPU} (dataset=$DATASET, workload_pid=$WORKLOAD_PID)."
   wait "$WORKLOAD_PID"
   WORKLOAD_RC=$?
   WORKLOAD_PID=0
+  if (( WORKLOAD_RC == 0 )); then
+    run_postflight_eval || POSTFLIGHT_RC=$?
+  fi
   return "$WORKLOAD_RC"
 }
 
@@ -635,11 +746,17 @@ case "$ACTION" in
     mkdir -p "$OUTPUT"
     tmux has-session -t "$SESSION" 2>/dev/null && { echo "session already exists: $SESSION" >&2; exit 1; }
     STARTED_AT=$(date -Is)
-    printf -v launch_cmd 'PHASE13_SUB=%q PHASE13_GPU=%q PROTECTOR_TOOL=%q LEASE_MIB_OVERRIDE=%q EXPECTED_PEAK_MIB_OVERRIDE=%q SKIP_PROTECTOR_CHECK=%q NO_LEASE_SIDECAR=%q HOLD_TIMEOUT_HOURS=%q bash %q worker %q >> %q 2>&1' \
-      "$SUB" "$GPU" "$PROTECTOR_TOOL" "${LEASE_MIB_OVERRIDE:-30720}" "${EXPECTED_PEAK_MIB_OVERRIDE:-21000}" "${SKIP_PROTECTOR_CHECK:-0}" "${NO_LEASE_SIDECAR:-0}" "${HOLD_TIMEOUT_HOURS:-6}" "$0" "$STARTED_AT" "$LOG"
-    tmux new-session -d -s "$SESSION" "$launch_cmd"
+    printf -v launch_cmd 'PHASE13_SUB=%q PHASE13_GPU=%q PROTECTOR_TOOL=%q LEASE_MIB_OVERRIDE=%q EXPECTED_PEAK_MIB_OVERRIDE=%q HOLDER_RESERVE_MIB_OVERRIDE=%q SKIP_PROTECTOR_CHECK=%q NO_LEASE_SIDECAR=%q HOLD_TIMEOUT_HOURS=%q HARD_TIMEOUT_SECONDS=%q SCAN_SESSION=%q SCAN_STATE_ROOT=%q bash %q worker %q >> %q 2>&1' \
+      "$SUB" "$GPU" "$PROTECTOR_TOOL" "${LEASE_MIB_OVERRIDE:-30720}" "${EXPECTED_PEAK_MIB_OVERRIDE:-21000}" "${HOLDER_RESERVE_MIB_OVERRIDE:-}" "${SKIP_PROTECTOR_CHECK:-0}" "${NO_LEASE_SIDECAR:-0}" "${HOLD_TIMEOUT_HOURS:-6}" "$HARD_TIMEOUT_SECONDS" "$SCAN_SESSION" "$SCAN_STATE_ROOT" "$0" "$STARTED_AT" "$LOG"
     STAGE=starting
-    write_status starting "Persistent Phase-13 $SUB session started; runner will drive $PROTECTOR_TOOL and lease."
+    write_status starting "Persistent Phase-13 $SUB session is starting; runner will drive $PROTECTOR_TOOL and lease."
+    tmux new-session -d -s "$SESSION" "$launch_cmd"
+    if [[ "$PROTECTOR_TOOL" == "ablation_scan" && -n "${HOLDER_RESERVE_MIB_OVERRIDE:-}" ]]; then
+      bash "$RESOURCE_WATCHDOG" start "$SUB" "$GPU" "$HOLDER_RESERVE_MIB_OVERRIDE" \
+        "$SESSION" "$SCAN_SESSION" "$SCAN_STATE_ROOT" || {
+          echo "WARNING: independent resource watchdog did not start for $SUB" >&2
+        }
+    fi
     echo "started $SESSION (gpu=$GPU protector=$PROTECTOR_TOOL)"
     ;;
   worker)
@@ -651,26 +768,21 @@ case "$ACTION" in
     [[ -f "$LEASE_STATUS" ]] && echo "--- lease ---" && sed -n '1,20p' "$LEASE_STATUS"
     [[ -f "$METRICS_COLD_WARM" ]] && echo "--- cold/warm metrics ---" && sed -n '1,40p' "$METRICS_COLD_WARM"
     [[ -f "$LOG" ]] && echo "--- last 30 log lines ---" && tail -n 30 "$LOG" || true
+    [[ -x "$RESOURCE_WATCHDOG" ]] && bash "$RESOURCE_WATCHDOG" status "$SUB" || true
     ;;
   stop)
     if tmux has-session -t "$SESSION" 2>/dev/null; then
       pane_pid=$(tmux list-panes -t "$SESSION" -F '#{pane_pid}' | head -n 1)
       kill -TERM "$pane_pid"
-      sleep 2
-      tmux kill-session -t "$SESSION" 2>/dev/null || true
-      echo "stopped $SESSION"
-      # Immediately try to restore protector to hold the freed memory
-      sleep 3
-      reserve_now=$(adaptive_reserve_mib)
-      if (( reserve_now == 0 )); then
-        echo "WARNING: GPU${GPU} has no free memory worth holding; protector NOT restored" >&2
-      elif [[ "$PROTECTOR_TOOL" == "codellama" ]]; then
-        HOLDER_RESERVE_MIB_OVERRIDE="$reserve_now" "$CODELLAMA_TOOL" start "$GPU" >/dev/null 2>&1 && echo "codellama restored (${reserve_now} MiB) on GPU${GPU}" || \
-          echo "WARNING: codellama restore failed; GPU${GPU} memory unprotected"
-      else
-        RESERVE_MIB="$reserve_now" "$ABLATION_SCAN_TOOL" start "$GPU" >/dev/null 2>&1 && echo "scan restored (${reserve_now} MiB) on GPU${GPU}" || \
-          echo "WARNING: scan restore failed; GPU${GPU} memory unprotected"
+      for _ in $(seq 1 180); do
+        tmux has-session -t "$SESSION" 2>/dev/null || break
+        sleep 1
+      done
+      if tmux has-session -t "$SESSION" 2>/dev/null; then
+        echo "WARNING: $SESSION did not exit in 180s; left running so its cleanup trap is not bypassed" >&2
+        exit 1
       fi
+      echo "stopped $SESSION after cleanup; inspect status for exact/degraded resource result"
     else
       echo "session not running: $SESSION"
     fi

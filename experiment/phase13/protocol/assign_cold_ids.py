@@ -87,6 +87,14 @@ def main():
         from semantic_bridge_v3 import build_model_v3
         model = build_model_v3(text_dim, level_sizes,
                                ckpt["hidden_dim"], ckpt["proj_dim"])
+    elif ckpt.get("arch") == "residual_v1":
+        from semantic_bridge_residual import build_model_residual
+        model = build_model_residual(
+            text_dim,
+            level_sizes,
+            ckpt["hidden_dim"],
+            ckpt.get("dropout", 0.0),
+        )
     else:
         model = build_model(text_dim, level_sizes)
     model.load_state_dict(ckpt["state_dict"])

@@ -1,0 +1,34 @@
+{
+  "p0_predictions": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl",
+  "item_id_file": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+  "cold_items": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+  "output_dir": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p2_anchored_interleaving",
+  "calibration_warm_retention": 0.98,
+  "audit_warm_retention": 0.97,
+  "audit_cold_improvement": 2.0,
+  "experiment_id": "GRAM_PHASE13_V1_R2_TOYS_P2_ANCHORED_INTERLEAVING",
+  "split": "validation_calibration_audit",
+  "partition_rule": "sha256(user_id)[0] parity: even=calibration, odd=audit",
+  "prefix_grid": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "quota_grid": [
+    1,
+    2,
+    3
+  ],
+  "selection_order": "max cold ndcg10, all ndcg10, warm ndcg10; min quota; max prefix",
+  "test_predictions_opened": false,
+  "input_sha256": {
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl": "c8f29872f7490ca58ab6000001b92b76520cbe43de801b01112f0a45ed81ed51",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+  },
+  "n_catalog_items": 11924,
+  "n_calibration": 4381,
+  "n_audit": 4408
+}

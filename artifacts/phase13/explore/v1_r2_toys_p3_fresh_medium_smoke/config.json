@@ -1,0 +1,39 @@
+{
+  "dataset_dir": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50",
+  "gram_test_predictions": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_091709_Toys_cold50_sequential_pred_test.tsv",
+  "item_id_file": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+  "item_embeddings": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+  "resolver_checkpoint": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt",
+  "confidence_gates": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p3_confidence_abstention/confidence_gates.pt",
+  "cold_items": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+  "output_dir": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p3_fresh_medium_smoke",
+  "device": "cuda:0",
+  "sample_size": 1000,
+  "frozen_threshold": 0.3266778290271759,
+  "max_history": 20,
+  "recency_decay": 0.85,
+  "experiment_id": "GRAM_PHASE13_V1_R2_TOYS_P3_FRESH_MEDIUM_SMOKE",
+  "split": "test_hash_medium_1000_one_shot",
+  "threshold_source": "frozen P3 full_selected_threshold",
+  "protected_prefix": 6,
+  "cold_quota": 1,
+  "feature_names": [
+    "proposed_cold_cosine",
+    "cold_top1_top2_margin",
+    "cold_vs_overall_top_gap",
+    "proposed_cold_resolver_rr",
+    "proposed_cold_depth1_route_rr",
+    "proposed_cold_gram_rr"
+  ],
+  "test_predictions_opened": true,
+  "selection_manifest_sha256": "6b6bac6ef983b363369fa691738e2a214c513fa90e197083fc230f8c0dca46a0",
+  "input_sha256": {
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/user_sequence.txt": "11001e54e69f6c39c2d2dc2769742c49f0b2a7fab3358d0458d59eb301e2a6c9",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_091709_Toys_cold50_sequential_pred_test.tsv": "b8a073ae592453a0bd4e63b60d4c10fd3eb53bbcd50ec80480d2dcd8c4a78773",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt": "f203044d56c32da03971b3ce18b17ae695ef1acff50ab059b1a0cb977428b96d",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p3_confidence_abstention/confidence_gates.pt": "b8a6c45c28c83d70f541ac39da40c2d4674f4122b5fd2a71e485f910e96d24ac",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+  }
+}

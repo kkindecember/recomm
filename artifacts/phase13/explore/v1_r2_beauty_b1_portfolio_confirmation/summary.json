@@ -1,0 +1,195 @@
+{
+  "experiment_id": "GRAM_PHASE13_V1_R2_BEAUTY_B1_PORTFOLIO_CONFIRMATION",
+  "status": "completed",
+  "domain": "beauty",
+  "split": "validation",
+  "test_predictions_opened": false,
+  "primary_candidate": "unconditional_portfolio2",
+  "verdict": "PASS",
+  "verdict_rationale": "Both primary intervals exclude zero from above.",
+  "n_users": 10655,
+  "n_cold_users": 5287,
+  "n_warm_users": 5368,
+  "n_skipped_insufficient_candidates": 0,
+  "p6_comparison_included": false,
+  "baseline_cold_hit50_events": 69,
+  "event_density_guard": {
+    "threshold": 30,
+    "triggered": false
+  },
+  "frozen_parameters": {
+    "anchor_prefix": 7,
+    "portfolio2_positions": "ranks 9-10",
+    "portfolio3_positions": "ranks 8-10",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260818,
+    "migrated_from": "Toys; retuning on this domain is forbidden"
+  },
+  "pareto_front": {
+    "v0_gram": {
+      "all": {
+        "hit@10": 0.0671046457062412,
+        "ndcg@10": 0.03893624315108779,
+        "hit@50": 0.1347724073205068
+      },
+      "warm": {
+        "hit@10": 0.1294709388971684,
+        "ndcg@10": 0.07536116132571902,
+        "hit@50": 0.25465722801788376
+      },
+      "cold": {
+        "hit@10": 0.0037828636277662192,
+        "ndcg@10": 0.0019532734591224924,
+        "hit@50": 0.013050879515793456
+      },
+      "cold_hit50_events": 69,
+      "cold_hit10_events": 20,
+      "warm_retention_ndcg10": 1.0
+    },
+    "resolver_only": {
+      "all": {
+        "hit@10": 0.04664476771468794,
+        "ndcg@10": 0.02267044507998811,
+        "hit@50": 0.12304082590333176
+      },
+      "warm": {
+        "hit@10": 0.05402384500745157,
+        "ndcg@10": 0.027002414871345616,
+        "hit@50": 0.13561847988077497
+      },
+      "cold": {
+        "hit@10": 0.03915263854738037,
+        "ndcg@10": 0.018272106922241356,
+        "hit@50": 0.11027047474938528
+      },
+      "cold_hit50_events": 583,
+      "cold_hit10_events": 207,
+      "warm_retention_ndcg10": 0.35830677760707913
+    },
+    "unconditional_portfolio2": {
+      "all": {
+        "hit@10": 0.07254809948381041,
+        "ndcg@10": 0.04055018083507623,
+        "hit@50": 0.14359455654622244
+      },
+      "warm": {
+        "hit@10": 0.1160581222056632,
+        "ndcg@10": 0.07139705754416434,
+        "hit@50": 0.2529806259314456
+      },
+      "cold": {
+        "hit@10": 0.02837147720824664,
+        "ndcg@10": 0.009230711537859475,
+        "hit@50": 0.032532627198789486
+      },
+      "cold_hit50_events": 172,
+      "cold_hit10_events": 150,
+      "warm_retention_ndcg10": 0.947398584206772
+    },
+    "unconditional_portfolio3": {
+      "all": {
+        "hit@10": 0.07179727827311122,
+        "ndcg@10": 0.0403913271981572,
+        "hit@50": 0.14603472548099483
+      },
+      "warm": {
+        "hit@10": 0.10860655737704918,
+        "ndcg@10": 0.06904635056364475,
+        "hit@50": 0.25130402384500744
+      },
+      "cold": {
+        "hit@10": 0.03442405901267259,
+        "ndcg@10": 0.011297291747819157,
+        "hit@50": 0.03915263854738037
+      },
+      "cold_hit50_events": 207,
+      "cold_hit10_events": 182,
+      "warm_retention_ndcg10": 0.9162060317146523
+    }
+  },
+  "paired_bootstrap_vs_v0": {
+    "resolver_only": {
+      "overall_ndcg@10": {
+        "observed": -0.016265798071099676,
+        "ci_low": -0.019480935139536217,
+        "ci_high": -0.012939813931070047,
+        "verdict": "FAIL"
+      },
+      "cold_hit@50": {
+        "observed": 0.09721959523359183,
+        "ci_low": 0.08870815207111783,
+        "ci_high": 0.10573103839606582,
+        "verdict": "PASS"
+      },
+      "cold_ndcg@10": {
+        "observed": 0.016318833463118868,
+        "ci_low": 0.01350517739985155,
+        "ci_high": 0.01920598213586989,
+        "verdict": "PASS"
+      },
+      "warm_ndcg@10": {
+        "observed": -0.048358746454373415,
+        "ci_low": -0.05415414310416842,
+        "ci_high": -0.04262406424585188,
+        "verdict": "FAIL"
+      }
+    },
+    "unconditional_portfolio2": {
+      "overall_ndcg@10": {
+        "observed": 0.0016139376839884425,
+        "ci_low": 0.000851088643048843,
+        "ci_high": 0.002399391839958504,
+        "verdict": "PASS"
+      },
+      "cold_hit@50": {
+        "observed": 0.01948174768299603,
+        "ci_low": 0.01569888405522981,
+        "ci_high": 0.023269339890296885,
+        "verdict": "PASS"
+      },
+      "cold_ndcg@10": {
+        "observed": 0.007277438078736983,
+        "ci_low": 0.006060960620007316,
+        "ci_high": 0.008548590178343873,
+        "verdict": "PASS"
+      },
+      "warm_ndcg@10": {
+        "observed": -0.003964103781554688,
+        "ci_low": -0.004901893064359957,
+        "ci_high": -0.0030846778173492205,
+        "verdict": "FAIL"
+      }
+    },
+    "unconditional_portfolio3": {
+      "overall_ndcg@10": {
+        "observed": 0.001455084047069408,
+        "ci_low": 0.0005123414420384803,
+        "ci_high": 0.002394797314740295,
+        "verdict": "PASS"
+      },
+      "cold_hit@50": {
+        "observed": 0.026101759031586912,
+        "ci_low": 0.02175146585965576,
+        "ci_high": 0.030641195384906374,
+        "verdict": "PASS"
+      },
+      "cold_ndcg@10": {
+        "observed": 0.009344018288696663,
+        "ci_low": 0.007909580458997648,
+        "ci_high": 0.010865598384374084,
+        "verdict": "PASS"
+      },
+      "warm_ndcg@10": {
+        "observed": -0.006314810762074277,
+        "ci_low": -0.007475961616313922,
+        "ci_high": -0.0051752523064283905,
+        "verdict": "FAIL"
+      }
+    }
+  },
+  "inputs": {
+    "p0_predictions": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl",
+    "p6_predictions": null,
+    "cold_items": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt"
+  }
+}
