@@ -1,0 +1,44 @@
+{
+  "experiment_id": "GRAM_PHASE13_TIER1_RESOLVER_TOYS_CHECKPOINT_TRAJECTORY",
+  "dataset": "Toys_cold50",
+  "split": "validation_development_only",
+  "paths": {
+    "dataset_dir": "GRAM/rec_datasets/Toys_cold50",
+    "item_id_file": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+    "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "gram_validation_predictions": "artifacts/phase13/explore/v0_toys/predictions/20260809_085251_Toys_cold50_sequential_pred_validation.tsv",
+    "baseline_p0_predictions": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl"
+  },
+  "training": {
+    "checkpoint_epochs": [12, 30, 60, 100, 150],
+    "batch_size": 256,
+    "hidden_dim": 512,
+    "dropout": 0.1,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "temperature": 0.07,
+    "max_history": 20,
+    "recency_decay": 0.85,
+    "seed": 12345
+  },
+  "evaluation": {
+    "global_retrieve_k": 200,
+    "ranking_k": 50,
+    "portfolio_size": 2,
+    "portfolio_candidate_protected_prefix": 7,
+    "portfolio_ranking_anchor": 8,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260819
+  },
+  "baseline_reproduction": {
+    "required_epoch": 12,
+    "expected_exact_top50_mismatches": 0,
+    "expected_cold_hit50_events": 498
+  },
+  "evidence_role": "development_trajectory_not_confirmatory_efficacy",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "automatic_next_stage": false,
+  "automatic_retry": false
+}

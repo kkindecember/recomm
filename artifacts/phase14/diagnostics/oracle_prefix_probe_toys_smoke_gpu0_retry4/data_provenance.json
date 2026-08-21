@@ -1,0 +1,8 @@
+{
+  "split": "validation",
+  "test_predictions_opened": false,
+  "target_rule": "user_sequence[-2]",
+  "teacher_history_rule": "visible history user_sequence[:-2], max_his truncated",
+  "teacher_target_labels_used_for_scoring_only": true,
+  "model_or_teacher_training": false
+}

@@ -1,0 +1,373 @@
+{
+  "experiment": "TIER0_A_WARM_COST_MATCHED_RANDOM_BASELINE",
+  "domain": "Toys",
+  "purpose": "Test whether the 'simple beats learned' claim survives once warm cost is equalised. Refutable by design.",
+  "evaluation_only": true,
+  "test_read": false,
+  "n_users_evaluated": 8789,
+  "n_cold": 4367,
+  "n_warm": 4422,
+  "n_skipped_insufficient_candidates": 0,
+  "p6_warm_cost_absolute": 0.00028209512121689373,
+  "p6_warm_retention": 0.995563155895682,
+  "fixed_points": {
+    "v0_gram": {
+      "cold_h50": 0.010304556904053125,
+      "cold_h10": 0.005266773528738264,
+      "cold_n10": 0.0027618804951256956,
+      "warm_n10": 0.06358012916035434,
+      "all_n10": 0.03336129972343849,
+      "cold_h50_events": 45.0,
+      "cold_h10_events": 23.0
+    },
+    "P6_learned": {
+      "cold_h50": 0.01809022212044882,
+      "cold_h10": 0.013968399358827571,
+      "cold_n10": 0.005416169748917293,
+      "warm_n10": 0.06329803403913745,
+      "all_n10": 0.034538209103946706,
+      "cold_h50_events": 79.0,
+      "cold_h10_events": 61.0
+    },
+    "portfolio@2_always": {
+      "cold_h50": 0.029768719945042363,
+      "cold_h10": 0.02541790702999771,
+      "cold_n10": 0.008723859698990775,
+      "warm_n10": 0.0609820058508502,
+      "all_n10": 0.03501644387051455,
+      "cold_h50_events": 130.0,
+      "cold_h10_events": 111.0
+    },
+    "portfolio@3_always": {
+      "cold_h50": 0.039615296542248685,
+      "cold_h10": 0.035493473780627435,
+      "cold_n10": 0.011917831063809111,
+      "warm_n10": 0.05941252885191624,
+      "all_n10": 0.035813786646811695,
+      "cold_h50_events": 173.0,
+      "cold_h10_events": 155.0
+    }
+  },
+  "matched_random": {
+    "random_portfolio@2_matched": {
+      "coverage": 0.1,
+      "warm_cost_gap_vs_p6": 2.2553373019693068e-05,
+      "n_seeds": 20,
+      "mean": {
+        "cold_h50": 0.01241126631554843,
+        "cold_h10": 0.007419280970918251,
+        "cold_n10": 0.0033972462336760495,
+        "warm_n10": 0.06332058741215714,
+        "all_n10": 0.03354641163261146,
+        "cold_h50_events": 54.2,
+        "cold_h10_events": 32.4
+      },
+      "std": {
+        "cold_h50": 0.0006169999352098686,
+        "cold_h10": 0.000567415236700887,
+        "cold_n10": 0.00016680383448429217,
+        "warm_n10": 0.00011481577698988433,
+        "all_n10": 0.00011703077790115776,
+        "cold_h50_events": 2.694438717061496,
+        "cold_h10_events": 2.477902338672773
+      },
+      "min_cold_h50": 0.01144950767117014,
+      "max_cold_h50": 0.013510419051980764,
+      "coverage_curve": [
+        {
+          "coverage": 0.05,
+          "warm_n10": 0.0634801805267001,
+          "warm_cost": 9.994863365424267e-05,
+          "warm_retention": 0.9984279894524567
+        },
+        {
+          "coverage": 0.1,
+          "warm_n10": 0.06332058741215714,
+          "warm_cost": 0.00025954174819720066,
+          "warm_retention": 0.995917879506935
+        },
+        {
+          "coverage": 0.15,
+          "warm_n10": 0.06318373840226002,
+          "warm_cost": 0.0003963907580943199,
+          "warm_retention": 0.9937654930348665
+        },
+        {
+          "coverage": 0.2,
+          "warm_n10": 0.06305029316888555,
+          "warm_cost": 0.0005298359914687883,
+          "warm_retention": 0.9916666417878376
+        },
+        {
+          "coverage": 0.25,
+          "warm_n10": 0.06295334243762415,
+          "warm_cost": 0.0006267867227301854,
+          "warm_retention": 0.9901417828021492
+        },
+        {
+          "coverage": 0.3,
+          "warm_n10": 0.06282983795106448,
+          "warm_cost": 0.0007502912092898634,
+          "warm_retention": 0.9881992814547833
+        },
+        {
+          "coverage": 0.35,
+          "warm_n10": 0.06270700992138778,
+          "warm_cost": 0.0008731192389665604,
+          "warm_retention": 0.9862674195460585
+        },
+        {
+          "coverage": 0.4,
+          "warm_n10": 0.0625768331731594,
+          "warm_cost": 0.0010032959871949382,
+          "warm_retention": 0.9842199756363417
+        },
+        {
+          "coverage": 0.45,
+          "warm_n10": 0.0624372568436226,
+          "warm_cost": 0.0011428723167317412,
+          "warm_retention": 0.982024693377874
+        },
+        {
+          "coverage": 0.5,
+          "warm_n10": 0.06229400615480994,
+          "warm_cost": 0.0012861230055443984,
+          "warm_retention": 0.9797716201189103
+        },
+        {
+          "coverage": 0.55,
+          "warm_n10": 0.062150890757373886,
+          "warm_cost": 0.001429238402980454,
+          "warm_retention": 0.9775206747476748
+        },
+        {
+          "coverage": 0.6,
+          "warm_n10": 0.062051347997849414,
+          "warm_cost": 0.001528781162504926,
+          "warm_retention": 0.9759550478633157
+        },
+        {
+          "coverage": 0.65,
+          "warm_n10": 0.061932059036071976,
+          "warm_cost": 0.0016480701242823637,
+          "warm_retention": 0.9740788490673589
+        },
+        {
+          "coverage": 0.7,
+          "warm_n10": 0.061834431847927626,
+          "warm_cost": 0.0017456973124267139,
+          "warm_retention": 0.97254335064303
+        },
+        {
+          "coverage": 0.75,
+          "warm_n10": 0.06166122362729402,
+          "warm_cost": 0.0019189055330603166,
+          "warm_retention": 0.9698190997973489
+        },
+        {
+          "coverage": 0.8,
+          "warm_n10": 0.06150163051275105,
+          "warm_cost": 0.0020784986476032885,
+          "warm_retention": 0.9673089898518271
+        },
+        {
+          "coverage": 0.85,
+          "warm_n10": 0.06140535623837264,
+          "warm_cost": 0.0021747729219816977,
+          "warm_retention": 0.9657947703047797
+        },
+        {
+          "coverage": 0.9,
+          "warm_n10": 0.061285255528335615,
+          "warm_cost": 0.002294873632018725,
+          "warm_retention": 0.9639058041824535
+        },
+        {
+          "coverage": 0.95,
+          "warm_n10": 0.06113533257785425,
+          "warm_cost": 0.002444796582500089,
+          "warm_retention": 0.9615477883611386
+        },
+        {
+          "coverage": 1.0,
+          "warm_n10": 0.06098200585085019,
+          "warm_cost": 0.0025981233095041523,
+          "warm_retention": 0.9591362373147831
+        }
+      ]
+    },
+    "random_portfolio@3_matched": {
+      "coverage": 0.05,
+      "warm_cost_gap_vs_p6": 0.00010723963079535548,
+      "n_seeds": 20,
+      "mean": {
+        "cold_h50": 0.011770093885962903,
+        "cold_h10": 0.006766659033661552,
+        "cold_n10": 0.0032170816270884702,
+        "warm_n10": 0.0634052736699328,
+        "all_n10": 0.03349950115302517,
+        "cold_h50_events": 51.4,
+        "cold_h10_events": 29.55
+      },
+      "std": {
+        "cold_h50": 0.000590066348831011,
+        "cold_h10": 0.0005584496633046577,
+        "cold_n10": 0.00017009801671117637,
+        "warm_n10": 7.92805983524856e-05,
+        "all_n10": 0.0001009869601653728,
+        "cold_h50_events": 2.5768197453450252,
+        "cold_h10_events": 2.4387496796514396
+      },
+      "min_cold_h50": 0.010533547057476528,
+      "max_cold_h50": 0.012823448591710557,
+      "coverage_curve": [
+        {
+          "coverage": 0.05,
+          "warm_n10": 0.0634052736699328,
+          "warm_cost": 0.00017485549042153825,
+          "warm_retention": 0.997249840591224
+        },
+        {
+          "coverage": 0.1,
+          "warm_n10": 0.06316007271908433,
+          "warm_cost": 0.00042005644127000863,
+          "warm_retention": 0.9933932748042932
+        },
+        {
+          "coverage": 0.15,
+          "warm_n10": 0.06292691489334354,
+          "warm_cost": 0.0006532142670108015,
+          "warm_retention": 0.9897261255106397
+        },
+        {
+          "coverage": 0.2,
+          "warm_n10": 0.062693593850946,
+          "warm_cost": 0.00088653530940834,
+          "warm_retention": 0.9860564091153003
+        },
+        {
+          "coverage": 0.25,
+          "warm_n10": 0.06252530325609673,
+          "warm_cost": 0.0010548259042576086,
+          "warm_retention": 0.9834095035951051
+        },
+        {
+          "coverage": 0.3,
+          "warm_n10": 0.062319757926410944,
+          "warm_cost": 0.0012603712339433956,
+          "warm_retention": 0.9801766487330557
+        },
+        {
+          "coverage": 0.35,
+          "warm_n10": 0.06213272401950515,
+          "warm_cost": 0.0014474051408491923,
+          "warm_retention": 0.9772349449432743
+        },
+        {
+          "coverage": 0.4,
+          "warm_n10": 0.061916939434971244,
+          "warm_cost": 0.0016631897253830963,
+          "warm_retention": 0.9738410451921481
+        },
+        {
+          "coverage": 0.45,
+          "warm_n10": 0.06172385820774353,
+          "warm_cost": 0.0018562709526108098,
+          "warm_retention": 0.9708042280328003
+        },
+        {
+          "coverage": 0.5,
+          "warm_n10": 0.06147716471672839,
+          "warm_cost": 0.0021029644436259473,
+          "warm_retention": 0.9669241872988006
+        },
+        {
+          "coverage": 0.55,
+          "warm_n10": 0.06127341043524261,
+          "warm_cost": 0.002306718725111727,
+          "warm_retention": 0.9637195023732338
+        },
+        {
+          "coverage": 0.6,
+          "warm_n10": 0.06109539382577146,
+          "warm_cost": 0.002484735334582877,
+          "warm_retention": 0.9609196243009169
+        },
+        {
+          "coverage": 0.65,
+          "warm_n10": 0.06090119800722672,
+          "warm_cost": 0.002678931153127617,
+          "warm_retention": 0.9578652766437273
+        },
+        {
+          "coverage": 0.7,
+          "warm_n10": 0.060710828996418074,
+          "warm_cost": 0.0028693001639362656,
+          "warm_retention": 0.9548711177245386
+        },
+        {
+          "coverage": 0.75,
+          "warm_n10": 0.06044131195994077,
+          "warm_cost": 0.0031388172004135698,
+          "warm_retention": 0.9506321040572722
+        },
+        {
+          "coverage": 0.8,
+          "warm_n10": 0.0602139459749893,
+          "warm_cost": 0.0033661831853650376,
+          "warm_retention": 0.9470560499039685
+        },
+        {
+          "coverage": 0.85,
+          "warm_n10": 0.06002492987794663,
+          "warm_cost": 0.0035551992824077103,
+          "warm_retention": 0.9440831698620618
+        },
+        {
+          "coverage": 0.9,
+          "warm_n10": 0.0598441902838599,
+          "warm_cost": 0.0037359388764944407,
+          "warm_retention": 0.9412404641854046
+        },
+        {
+          "coverage": 0.95,
+          "warm_n10": 0.0596229274697906,
+          "warm_cost": 0.003957201690563739,
+          "warm_retention": 0.9377604018295819
+        },
+        {
+          "coverage": 1.0,
+          "warm_n10": 0.059412528851916245,
+          "warm_cost": 0.004167600308438095,
+          "warm_retention": 0.9344512135556211
+        }
+      ]
+    }
+  },
+  "verdicts": {
+    "random_portfolio@2_matched": {
+      "random_cold_h50": 0.01241126631554843,
+      "random_cold_h50_std": 0.0006169999352098686,
+      "p6_cold_h50": 0.01809022212044882,
+      "random_beats_p6_on_cold_h50": false,
+      "n_seeds_beating_p6": 0,
+      "n_seeds": 20,
+      "random_warm_retention": 0.995917879506935,
+      "p6_warm_retention": 0.995563155895682
+    },
+    "random_portfolio@3_matched": {
+      "random_cold_h50": 0.011770093885962903,
+      "random_cold_h50_std": 0.000590066348831011,
+      "p6_cold_h50": 0.01809022212044882,
+      "random_beats_p6_on_cold_h50": false,
+      "n_seeds_beating_p6": 0,
+      "n_seeds": 20,
+      "random_warm_retention": 0.997249840591224,
+      "p6_warm_retention": 0.995563155895682
+    }
+  },
+  "seeds": {
+    "bootstrap_seed": 20260819,
+    "n_random_seeds": 20
+  }
+}

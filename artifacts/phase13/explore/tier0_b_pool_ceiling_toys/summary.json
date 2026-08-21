@@ -1,0 +1,113 @@
+{
+  "experiment": "TIER0_B_CANDIDATE_POOL_CEILING_DECOMPOSITION",
+  "domain": "Toys",
+  "evaluation_only": true,
+  "test_read": false,
+  "n_cold_users": 4367,
+  "n_warm_users": 4422,
+  "cold_target_rank_distribution": {
+    "resolver_top50": {
+      "rank_1": {
+        "n": 6,
+        "pct": 0.13739409205404168
+      },
+      "rank_2_3": {
+        "n": 33,
+        "pct": 0.7556675062972292
+      },
+      "rank_4_10": {
+        "n": 130,
+        "pct": 2.9768719945042363
+      },
+      "rank_11_50": {
+        "n": 329,
+        "pct": 7.533776047629952
+      },
+      "absent_from_top50": {
+        "n": 3869,
+        "pct": 88.59629035951454
+      }
+    },
+    "gram_v0_top50": {
+      "rank_1": {
+        "n": 3,
+        "pct": 0.06869704602702084
+      },
+      "rank_2_3": {
+        "n": 8,
+        "pct": 0.18319212273872224
+      },
+      "rank_4_10": {
+        "n": 12,
+        "pct": 0.27478818410808337
+      },
+      "rank_11_50": {
+        "n": 22,
+        "pct": 0.5037783375314862
+      },
+      "absent_from_top50": {
+        "n": 4322,
+        "pct": 98.96954430959468
+      }
+    },
+    "eligible_candidate_slice": {
+      "rank_1": {
+        "n": 52,
+        "pct": 1.1907487978016946
+      },
+      "rank_2_3": {
+        "n": 84,
+        "pct": 1.9235172887565835
+      },
+      "rank_4_10": {
+        "n": 177,
+        "pct": 4.05312571559423
+      },
+      "rank_11_50": {
+        "n": 176,
+        "pct": 4.030226700251889
+      },
+      "absent_from_top50": {
+        "n": 3878,
+        "pct": 88.8023814975956
+      }
+    }
+  },
+  "cold_reachability": {
+    "by_resolver_top50": {
+      "n": 498,
+      "pct": 11.40370964048546
+    },
+    "by_gram_top50": {
+      "n": 45,
+      "pct": 1.0304556904053126
+    },
+    "by_either": {
+      "n": 522,
+      "pct": 11.953286008701626
+    }
+  },
+  "portfolio_insertion_ceiling": {
+    "portfolio@1": {
+      "cold_users_fixable": 52,
+      "pct_of_cold": 1.1907487978016946
+    },
+    "portfolio@2": {
+      "cold_users_fixable": 92,
+      "pct_of_cold": 2.1067094114953058
+    },
+    "portfolio@3": {
+      "cold_users_fixable": 136,
+      "pct_of_cold": 3.114266086558278
+    },
+    "portfolio@5": {
+      "cold_users_fixable": 203,
+      "pct_of_cold": 4.648500114495077
+    },
+    "portfolio@10": {
+      "cold_users_fixable": 313,
+      "pct_of_cold": 7.167391802152507
+    }
+  },
+  "mean_eligible_candidates": 23.19509961071674
+}

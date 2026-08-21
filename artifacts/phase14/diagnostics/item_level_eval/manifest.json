@@ -1,0 +1,19 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_0A_ITEM_LEVEL_EVAL",
+  "code": "experiment/phase14/protocol/item_level_eval.py",
+  "runner": "experiment/phase14/run_stage14_0a_item_eval.sh",
+  "config": "experiment/phase14/configs/stage14_0_toys_beauty.json",
+  "tests": [
+    "experiment/phase14/tests/test_item_level_eval.py",
+    "experiment/phase14/tests/test_cold_prefix_support.py"
+  ],
+  "jobs": [
+    "toys_v0_formal",
+    "beauty_v0_formal",
+    "toys_raw_v1_legacy_alias_audit",
+    "beauty_raw_v1_legacy_alias_audit"
+  ],
+  "formal_policy": "hard_fail",
+  "legacy_audit_policy": "record_invalid_never_credit",
+  "test_predictions_opened": false
+}

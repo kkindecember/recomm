@@ -1,0 +1,113 @@
+{
+  "experiment": "TIER0_B_CANDIDATE_POOL_CEILING_DECOMPOSITION",
+  "domain": "Beauty",
+  "evaluation_only": true,
+  "test_read": false,
+  "n_cold_users": 5287,
+  "n_warm_users": 5368,
+  "cold_target_rank_distribution": {
+    "resolver_top50": {
+      "rank_1": {
+        "n": 18,
+        "pct": 0.3404577264989597
+      },
+      "rank_2_3": {
+        "n": 66,
+        "pct": 1.2483449971628522
+      },
+      "rank_4_10": {
+        "n": 123,
+        "pct": 2.3264611310762247
+      },
+      "rank_11_50": {
+        "n": 376,
+        "pct": 7.111783620200492
+      },
+      "absent_from_top50": {
+        "n": 4704,
+        "pct": 88.97295252506147
+      }
+    },
+    "gram_v0_top50": {
+      "rank_1": {
+        "n": 2,
+        "pct": 0.03782863627766219
+      },
+      "rank_2_3": {
+        "n": 8,
+        "pct": 0.15131454511064876
+      },
+      "rank_4_10": {
+        "n": 10,
+        "pct": 0.18914318138831096
+      },
+      "rank_11_50": {
+        "n": 49,
+        "pct": 0.9268015888027237
+      },
+      "absent_from_top50": {
+        "n": 5218,
+        "pct": 98.69491204842065
+      }
+    },
+    "eligible_candidate_slice": {
+      "rank_1": {
+        "n": 76,
+        "pct": 1.4374881785511633
+      },
+      "rank_2_3": {
+        "n": 90,
+        "pct": 1.7022886324947986
+      },
+      "rank_4_10": {
+        "n": 185,
+        "pct": 3.4991488556837527
+      },
+      "rank_11_50": {
+        "n": 227,
+        "pct": 4.2935502175146585
+      },
+      "absent_from_top50": {
+        "n": 4709,
+        "pct": 89.06752411575563
+      }
+    }
+  },
+  "cold_reachability": {
+    "by_resolver_top50": {
+      "n": 583,
+      "pct": 11.027047474938529
+    },
+    "by_gram_top50": {
+      "n": 69,
+      "pct": 1.3050879515793457
+    },
+    "by_either": {
+      "n": 616,
+      "pct": 11.651219973519954
+    }
+  },
+  "portfolio_insertion_ceiling": {
+    "portfolio@1": {
+      "cold_users_fixable": 76,
+      "pct_of_cold": 1.4374881785511633
+    },
+    "portfolio@2": {
+      "cold_users_fixable": 131,
+      "pct_of_cold": 2.4777756761868734
+    },
+    "portfolio@3": {
+      "cold_users_fixable": 166,
+      "pct_of_cold": 3.139776811045962
+    },
+    "portfolio@5": {
+      "cold_users_fixable": 223,
+      "pct_of_cold": 4.217892944959334
+    },
+    "portfolio@10": {
+      "cold_users_fixable": 351,
+      "pct_of_cold": 6.6389256667297145
+    }
+  },
+  "mean_eligible_candidates": 23.448080196708908
+}

@@ -1,0 +1,210 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_1A_PSEUDO_COLD_CPU_AUDIT_TOYS",
+  "status": "completed",
+  "verdict": "PASS_STAGE14_1A_CPU_DATA_AUDIT",
+  "selection": {
+    "requested_fraction": 0.2,
+    "n_eligible_warm": 5879,
+    "n_selected": 1176,
+    "reference_real_cold_bucket_counts": {
+      "0": 2518,
+      "1": 1522,
+      "2": 755,
+      "3": 541,
+      "4": 354,
+      "5": 163,
+      "6": 65,
+      "7": 34,
+      "8": 9,
+      "9": 2
+    },
+    "eligible_warm_bucket_counts": {
+      "0": 2455,
+      "1": 1508,
+      "2": 751,
+      "3": 541,
+      "4": 353,
+      "5": 163,
+      "6": 65,
+      "7": 33,
+      "8": 9,
+      "9": 1
+    },
+    "selected_bucket_counts": {
+      "0": 496,
+      "1": 300,
+      "2": 149,
+      "3": 107,
+      "4": 70,
+      "5": 32,
+      "6": 13,
+      "7": 7,
+      "8": 2,
+      "9": 0
+    }
+  },
+  "n_pseudo_cold": 1176,
+  "n_retained_warm": 4785,
+  "leakage_audit": {
+    "pseudo_occurrences_removed": 9804,
+    "held_dropped_empty_history": 2144,
+    "student_ce_examples": 30568,
+    "teacher_visible_histories": 30568,
+    "student_history_pseudo_leaks": 0,
+    "student_history_real_cold_leaks": 0,
+    "student_target_pseudo_leaks": 0,
+    "student_target_real_cold_leaks": 0,
+    "held_events": 7660,
+    "held_unique_items": 1155,
+    "student_users": 8761
+  },
+  "leakage_free": true,
+  "profiles": {
+    "real_cold": {
+      "source_frequency": {
+        "n": 5963,
+        "mean": 14.127955726983062,
+        "median": 9.0,
+        "p10": 5.0,
+        "p90": 29.0,
+        "min": 5.0,
+        "max": 309.0
+      },
+      "path_length": {
+        "n": 5963,
+        "mean": 5.071272849236961,
+        "median": 5.0,
+        "p10": 5.0,
+        "p90": 5.0,
+        "min": 5.0,
+        "max": 6.0
+      },
+      "deepest_retained_warm_overlap": {
+        "n": 5963,
+        "mean": 2.392252222035888,
+        "median": 2.0,
+        "p10": 2.0,
+        "p90": 3.0,
+        "min": 1.0,
+        "max": 5.0
+      },
+      "normalized_deepest_overlap": {
+        "n": 5963,
+        "mean": 0.46913186874615687,
+        "median": 0.4,
+        "p10": 0.4,
+        "p90": 0.6,
+        "min": 0.16666666666666666,
+        "max": 0.8333333333333334
+      },
+      "text_length_words": {
+        "n": 5963,
+        "mean": 98.77226228408519,
+        "median": 81.0,
+        "p10": 34.0,
+        "p90": 169.0,
+        "min": 13.0,
+        "max": 1004.0
+      }
+    },
+    "pseudo_cold": {
+      "source_frequency": {
+        "n": 1176,
+        "mean": 14.03486394557823,
+        "median": 9.0,
+        "p10": 5.0,
+        "p90": 30.0,
+        "min": 5.0,
+        "max": 170.0
+      },
+      "path_length": {
+        "n": 1176,
+        "mean": 5.074829931972789,
+        "median": 5.0,
+        "p10": 5.0,
+        "p90": 5.0,
+        "min": 5.0,
+        "max": 6.0
+      },
+      "deepest_retained_warm_overlap": {
+        "n": 1176,
+        "mean": 2.372448979591837,
+        "median": 2.0,
+        "p10": 2.0,
+        "p90": 3.0,
+        "min": 1.0,
+        "max": 5.0
+      },
+      "normalized_deepest_overlap": {
+        "n": 1176,
+        "mean": 0.4649092970521542,
+        "median": 0.4,
+        "p10": 0.4,
+        "p90": 0.6,
+        "min": 0.16666666666666666,
+        "max": 0.8333333333333334
+      },
+      "text_length_words": {
+        "n": 1176,
+        "mean": 98.3639455782313,
+        "median": 85.0,
+        "p10": 36.0,
+        "p90": 171.0,
+        "min": 16.0,
+        "max": 696.0
+      }
+    },
+    "retained_warm": {
+      "source_frequency": {
+        "n": 4785,
+        "mean": 13.970114942528735,
+        "median": 9.0,
+        "p10": 5.0,
+        "p90": 29.0,
+        "min": 5.0,
+        "max": 215.0
+      },
+      "path_length": {
+        "n": 4785,
+        "mean": 5.072936259143155,
+        "median": 5.0,
+        "p10": 5.0,
+        "p90": 5.0,
+        "min": 5.0,
+        "max": 6.0
+      },
+      "deepest_retained_warm_overlap": {
+        "n": 4785,
+        "mean": 5.072936259143155,
+        "median": 5.0,
+        "p10": 5.0,
+        "p90": 5.0,
+        "min": 5.0,
+        "max": 6.0
+      },
+      "normalized_deepest_overlap": {
+        "n": 4785,
+        "mean": 1.0,
+        "median": 1.0,
+        "p10": 1.0,
+        "p90": 1.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "text_length_words": {
+        "n": 4785,
+        "mean": 99.51974921630094,
+        "median": 82.0,
+        "p10": 34.0,
+        "p90": 169.0,
+        "min": 13.0,
+        "max": 901.0
+      }
+    }
+  },
+  "held_ground_truth_path": "held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+  "student_train_sequences_path": "student_readable/filtered_train_sequences.jsonl",
+  "student_training_must_not_read_held_ground_truth": true,
+  "test_opened": false,
+  "runtime_seconds": 0.6356410980224609
+}

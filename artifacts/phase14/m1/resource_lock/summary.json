@@ -1,0 +1,42 @@
+{
+  "experiment_id": "GRAM_PHASE14_M1_COMPETITOR_AND_RESOURCE_LOCK",
+  "status": "completed",
+  "m1_arm_lock": [
+    "v0_gram",
+    "r2_portfolio_at_2",
+    "same_backbone_r2_plus_gram_verifier",
+    "r2pd"
+  ],
+  "specgr_promoted_to_local_arm": false,
+  "genrecedit_promoted_to_local_arm": false,
+  "historical_v0_seed0_dual_domain_wall_hours": 37.41,
+  "stage14_0c_gpu5_wall_hours": 0.3244444444444444,
+  "shared_gpu_slowdown_multiplier": {
+    "stage14_0c_observed_orchestration_over_domain_runtime": 1.0056429654590004,
+    "future_30g_lease_training_planning_interval": [1.0, 1.25],
+    "unleased_shared_gpu_conservative_interval": [1.0, 20.0]
+  },
+  "budgets_gpu_hours": {
+    "m3_m4_seed0_core4": [144, 188],
+    "promotion_v0_plus_r2pd_seed1_seed2": [144, 188],
+    "toys_seed0_ablation_max7": [70, 112],
+    "active_package_without_trainable_external_competitor": [358, 488],
+    "global_contingency_ceiling_if_trainable_competitor_reenters": [466, 629]
+  },
+  "wall_clock_days_with_30g_lease_multiplier": {
+    "seed0_core4": [6.0, 9.8],
+    "active_package": [14.9, 25.4],
+    "global_contingency_ceiling": [19.4, 32.8]
+  },
+  "promotion_set": [
+    "v0_gram",
+    "r2pd",
+    "r2_portfolio_at_2_checkpoint_reevaluation",
+    "same_backbone_r2_plus_gram_verifier"
+  ],
+  "m2_step_time_required_before_final_lock": true,
+  "m3_user_approval_required": true,
+  "m3_authorized": false,
+  "test_predictions_opened": false,
+  "model_training": false
+}

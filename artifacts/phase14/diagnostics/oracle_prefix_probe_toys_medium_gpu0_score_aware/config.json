@@ -1,0 +1,18 @@
+{
+  "dataset_dir": "GRAM/rec_datasets/Toys_cold50",
+  "historical_config": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+  "checkpoint": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+  "item_path_file": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+  "frozen_predictions": "artifacts/phase13/explore/v0_toys/predictions/20260809_085251_Toys_cold50_sequential_pred_validation.tsv",
+  "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+  "resolver_checkpoint": "artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt",
+  "output_dir": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/diagnostics/oracle_prefix_probe_toys_medium_gpu0_score_aware",
+  "device": "cuda:0",
+  "batch_size": 16,
+  "teacher_batch_size": 32,
+  "beam_size": 50,
+  "teacher_temperature": 0.07,
+  "recency_decay": 0.85,
+  "limit": 128,
+  "skip_beam_trace": false
+}

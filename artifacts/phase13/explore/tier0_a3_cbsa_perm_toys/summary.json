@@ -1,0 +1,47 @@
+{
+  "experiment": "TIER0_A3_CBSA_MATCHED_ACTION_MULTISET_PERMUTATION",
+  "domain": "Toys",
+  "evaluation_only": true,
+  "test_read": false,
+  "n_users": 8789,
+  "n_cold": 4367,
+  "n_skipped": 0,
+  "action_mix": {
+    "a0": 2489,
+    "a2": 600,
+    "a3": 5700
+  },
+  "v0_reference": {
+    "cold_h50": 0.010304556904053125,
+    "cold_h10": 0.005266773528738264,
+    "cold_h50_events": 45.0,
+    "warm_n10": 0.06358012916035434,
+    "all_n10": 0.03336129972343849
+  },
+  "learned_cbsa": {
+    "cold_h50": 0.036409434394321046,
+    "cold_h10": 0.03205862147927639,
+    "cold_h50_events": 159.0,
+    "warm_n10": 0.06052244034918117,
+    "all_n10": 0.035844990032369094
+  },
+  "random_permutation_mean": {
+    "cold_h50": 0.030652621937256697,
+    "cold_h10": 0.02626173574536295,
+    "cold_h50_events": 133.86,
+    "warm_n10": 0.060722929482177126,
+    "all_n10": 0.035078056433229345
+  },
+  "random_permutation_sd": {
+    "cold_h50": 0.0010830629086338276,
+    "cold_h10": 0.0010959463719030513,
+    "cold_h50_events": 4.729735722003926,
+    "warm_n10": 0.0002645095859656792,
+    "all_n10": 0.00020784711303364746
+  },
+  "n_permutations": 200,
+  "n_permutations_ge_learned_cold_h50": 0,
+  "empirical_p_value_cold_h50": 0.004975124378109453,
+  "learned_beats_random": true,
+  "note": "Action multiset is held fixed by construction, so warm cost is matched exactly; only the user-to-action mapping differs."
+}

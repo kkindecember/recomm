@@ -1,0 +1,49 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_0C_SAME_BACKBONE_VERIFIER_DUAL_DOMAIN_SYNTHESIS",
+  "status": "completed",
+  "route_decision": "PASS_INTERFACE_CONTROL_COMPLETE_PATH_TRANSFER_STILL_NEEDED",
+  "split": "validation",
+  "test_predictions_opened": false,
+  "model_training": false,
+  "candidate_budget": 50,
+  "beam_k": 50,
+  "domains": {
+    "toys": {
+      "n_users": 8789,
+      "verifier_cold_hit50": 0.08266544538584841,
+      "verifier_cold_ndcg10": 0.0027576028558354677,
+      "r2_score_cold_ndcg10": 0.004652400004111095,
+      "portfolio2_cold_ndcg10": 0.008723859698990775,
+      "verifier_vs_r2_cold_ndcg10_delta": -0.0018947971482756278,
+      "verifier_vs_r2_cold_ndcg10_ci95": [-0.0029530527020369987, -0.000877456267563398]
+    },
+    "beauty": {
+      "n_users": 10655,
+      "verifier_cold_hit50": 0.08095328163419709,
+      "verifier_cold_ndcg10": 0.0019532734591224924,
+      "r2_score_cold_ndcg10": 0.0060948952352371435,
+      "portfolio2_cold_ndcg10": 0.009230711537859475,
+      "verifier_vs_r2_cold_ndcg10_delta": -0.0041416217761146516,
+      "verifier_vs_r2_cold_ndcg10_ci95": [-0.005311135500865439, -0.0030361954550266715]
+    }
+  },
+  "runtime": {
+    "toys_seconds": 541.9467222690582,
+    "beauty_seconds": 619.4992780685425,
+    "runner_wall_seconds": 1168.0,
+    "orchestration_multiplier": 1.0056429654590004,
+    "peak_cuda_allocated_mib": 6059.27880859375,
+    "gpu5_telemetry_utilization_mean_percent": 85.35,
+    "gpu5_telemetry_utilization_median_percent": 97
+  },
+  "shared_gpu_slowdown_multiplier": {
+    "stage14_0c_observed_orchestration_over_domain_runtime": 1.0056429654590004,
+    "future_30g_lease_training_planning_interval": [1.0, 1.25],
+    "unleased_shared_gpu_conservative_interval": [1.0, 20.0],
+    "admission_rule": "M3 full training requires a 30 GiB lease; the unleased interval is not an admissible execution plan and M2 smoke must replace the planning interval with measured step-time slowdown."
+  },
+  "interpretation": "Frozen GRAM likelihood recovers native top ranks but significantly demotes cold targets inside the R2 candidate pool in both domains. Candidate reachability alone is insufficient; training-time path transfer remains independently testable.",
+  "strongest_protocol_aligned_competitor": "same_backbone_r2_plus_gram_verifier",
+  "specgr_local_promotion": false,
+  "genrecedit_local_promotion": false
+}

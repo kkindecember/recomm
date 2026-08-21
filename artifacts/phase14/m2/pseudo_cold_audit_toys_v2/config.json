@@ -1,0 +1,16 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_1A_PSEUDO_COLD_CPU_AUDIT_TOYS",
+  "dataset_dir": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50",
+  "source_sequences": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys/user_sequence.txt",
+  "item_path_file": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+  "pseudo_fraction": 0.2,
+  "frequency_buckets": 10,
+  "seed": 1401,
+  "max_history": 20,
+  "split": "train_only_pseudo_cold",
+  "test_opened": false,
+  "student_forbidden_inputs": [
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/pseudo_cold_audit_toys_v2/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys/user_sequence.txt"
+  ]
+}

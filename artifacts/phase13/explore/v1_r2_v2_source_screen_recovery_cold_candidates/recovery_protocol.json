@@ -1,0 +1,24 @@
+{
+  "recovery_id": "GRAM_PHASE13_R2_V2_CBSA_SOURCE_OOF_COLD_CANDIDATE_RECOVERY",
+  "authorized_at": "2026-08-19",
+  "parent_artifact": "artifacts/phase13/explore/v1_r2_v2_source_screen",
+  "recovery_artifact": "artifacts/phase13/explore/v1_r2_v2_source_screen_recovery_cold_candidates",
+  "parent_integrity_verdict": "INVALID_FOR_PREREGISTERED_INCUMBENT_COMPARISON",
+  "canonical_config": "experiment/phase13/configs/r2_v2_cbsa_frozen.json",
+  "expected_canonical_config_sha256": "b24db4550e44f548169eb3bcc68e8c9453107b0514283c28948aa31a0a996cd2",
+  "parent_allocator_code_sha256": "2768cb9f20360a7b92542241e99362aa05740ad5c68e78a1e3b6309d71cf1c72",
+  "permitted_change": "Use the frozen B1 shared candidate pool: first three catalog-cold resolver items outside v0 top-7; a2 uses the first two and a3 uses all three.",
+  "frozen_unchanged": [
+    "source domains and validation-only inputs",
+    "feature schema and feature count",
+    "network architecture",
+    "loss and optimizer",
+    "epochs and batch size",
+    "fold salt and allocator seed",
+    "budget grid and primary rho",
+    "bootstrap and source Gate"
+  ],
+  "sports_read": false,
+  "test_read": false,
+  "automatic_retry": false
+}

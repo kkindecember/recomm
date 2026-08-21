@@ -1,0 +1,36 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_0A_ITEM_LEVEL_EVAL",
+  "status": "completed",
+  "verdict": "PASS_STAGE14_0A",
+  "split": "validation",
+  "test_predictions_opened": false,
+  "automatic_retry": false,
+  "tests": "15 passed",
+  "v0_formal": {
+    "toys": {
+      "duplicate_path_groups": 0,
+      "integrity_issue_count": 0,
+      "max_metric_abs_diff_vs_saved": 0.0
+    },
+    "beauty": {
+      "duplicate_path_groups": 0,
+      "integrity_issue_count": 0,
+      "max_metric_abs_diff_vs_saved": 0.0
+    }
+  },
+  "raw_v1_legacy_alias_audit": {
+    "toys": {
+      "formal_item_level_valid": false,
+      "duplicate_path_groups": 932,
+      "items_in_duplicate_path_groups": 2284,
+      "legacy_string_hits_removed_at_50": 198
+    },
+    "beauty": {
+      "formal_item_level_valid": false,
+      "duplicate_path_groups": 719,
+      "items_in_duplicate_path_groups": 1641,
+      "legacy_string_hits_removed_at_50": 234
+    }
+  },
+  "next_gate": "Stage14-0B learned NLL/rank/beam diagnosis"
+}

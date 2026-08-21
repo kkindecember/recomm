@@ -1,0 +1,162 @@
+{
+  "canonical_config": {
+    "experiment_id": "GRAM_PHASE13_R2_V2_CBSA_SOURCE_OOF",
+    "method": "cross_domain_budget_conditioned_slate_allocator",
+    "stage": "source_oof",
+    "source_domains": {
+      "Toys": {
+        "dataset_dir": "GRAM/rec_datasets/Toys_cold50",
+        "item_id_file": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+        "cold_items": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+        "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+        "resolver_checkpoint": "artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt",
+        "p0_config": "artifacts/phase13/explore/v1_r2_toys_p0/config.json",
+        "p0_predictions": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl"
+      },
+      "Beauty": {
+        "dataset_dir": "GRAM/rec_datasets/Beauty_cold50",
+        "item_id_file": "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+        "cold_items": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt",
+        "item_embeddings": "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt",
+        "resolver_checkpoint": "artifacts/phase13/explore/v1_r2_beauty_p0/resolver.pt",
+        "p0_config": "artifacts/phase13/explore/v1_r2_beauty_p0/config.json",
+        "p0_predictions": "artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl"
+      }
+    },
+    "folds": 5,
+    "fold_salt": "GRAM_PHASE13_R2_V2_CBSA_SOURCE_OOF_V1_20260819",
+    "actions": [
+      "a0",
+      "a2",
+      "a3"
+    ],
+    "action_tie_break": [
+      "a0",
+      "a2",
+      "a3"
+    ],
+    "budgets": [
+      0.93,
+      0.95,
+      0.97,
+      0.99
+    ],
+    "primary_budget": 0.97,
+    "network": {
+      "hidden_dims": [
+        64,
+        32
+      ],
+      "activation": "gelu",
+      "dropout": 0.1,
+      "output_dim": 3
+    },
+    "optimizer": {
+      "name": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 512,
+      "epochs": 50,
+      "gradient_clip": 5.0,
+      "policy_temperature": 1.0,
+      "dual_lr": 0.01,
+      "dual_initial": 0.0,
+      "seed": 20260819,
+      "early_stopping": false,
+      "domain_balanced_batches": true,
+      "budget_sampling": "one_uniform_budget_per_optimizer_step"
+    },
+    "bootstrap": {
+      "resamples": 10000,
+      "seed": 20260819,
+      "confidence": 0.95,
+      "domain_aggregation": "equal_domain_mean",
+      "paired_by_user": true
+    },
+    "gates": {
+      "overall_ndcg10_ci_low_gt": 0.0,
+      "warm_ndcg10_ci_low_gt": 0.0,
+      "cold_hit50_relative_noninferiority": -0.05,
+      "minimum_portfolio2_cold_hit50_events_per_domain": 30,
+      "intervention_coverage_min": 0.05,
+      "intervention_coverage_max": 0.95,
+      "per_domain_overall_delta_gt": 0.0,
+      "per_domain_cold_hit50_retention_min": 0.95
+    },
+    "guards": {
+      "allowed_domains": [
+        "Toys",
+        "Beauty"
+      ],
+      "sports_read": false,
+      "test_read": false,
+      "source_split": "validation",
+      "target_features_forbidden": true
+    }
+  },
+  "canonical_config_path": "experiment/phase13/configs/r2_v2_cbsa_frozen.json",
+  "canonical_config_sha256": "b24db4550e44f548169eb3bcc68e8c9453107b0514283c28948aa31a0a996cd2",
+  "allocator_code_path": "experiment/phase13/protocol/r2_v2_budgeted_slate_allocator.py",
+  "allocator_code_sha256": "b82b0316617bcfbbac22251c550d4ca4926657e80f1ba5a103d81f61941d93b3",
+  "feature_schema": [
+    "v0_score_rank1",
+    "v0_score_rank2",
+    "v0_score_rank3",
+    "v0_score_gap_1_2",
+    "v0_score_gap_2_3",
+    "v0_score_gap_7_8",
+    "v0_score_gap_8_9",
+    "v0_score_mean_top10",
+    "v0_score_std_top10",
+    "v0_score_entropy_top10",
+    "resolver_cosine_rank1",
+    "resolver_cosine_rank2",
+    "resolver_cosine_rank3",
+    "resolver_cosine_margin_1_2",
+    "resolver_cosine_margin_2_3",
+    "resolver_cosine_mean_top10",
+    "resolver_cosine_std_top10",
+    "resolver_cosine_entropy_top10",
+    "overlap_count_top10",
+    "overlap_count_top50",
+    "jaccard_top10",
+    "rank_agreement_spearman",
+    "rrf_agreement",
+    "resolver_cold_count_top10",
+    "resolver_cold_ratio_top10",
+    "resolver_cold_count_top50",
+    "resolver_cold_ratio_top50",
+    "usable_unique_candidates_a2",
+    "usable_unique_candidates_a3",
+    "history_length",
+    "history_cold_count",
+    "history_warm_count",
+    "history_cold_ratio",
+    "history_candidate_similarity_mean_top3",
+    "history_candidate_similarity_std_top3",
+    "history_candidate_similarity_max_top3"
+  ],
+  "feature_schema_sha256": "a4ca56cbdb8eef04b05ec630b3a0207c45fe16737f9ae9a18676469779794912",
+  "input_sha256": {
+    "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt": "d7edea19e40ae42c0c848fe7185001d9a762ec747957bf3766bc787c7bc99f13",
+    "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+    "GRAM/rec_datasets/Beauty_cold50/user_sequence.txt": "ede585941e9afe8fc86fa8a85447c0b5992b8081f580ee57450fa4915ec5f081",
+    "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e",
+    "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "GRAM/rec_datasets/Toys_cold50/user_sequence.txt": "11001e54e69f6c39c2d2dc2769742c49f0b2a7fab3358d0458d59eb301e2a6c9",
+    "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt": "f6fbc0527c3dfbe66a60388c84645357ea8c14d97c58fe66a02a75ffa4192090",
+    "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262",
+    "artifacts/phase13/explore/v0_beauty/predictions/20260811_103607_Beauty_cold50_sequential_pred_validation.tsv": "1655f64faa7ca528b08b4cc941183f3f95ed685d2090395ac9777a4f19d17823",
+    "artifacts/phase13/explore/v0_toys/predictions/20260809_085251_Toys_cold50_sequential_pred_validation.tsv": "ead87acb9f88847b04df7a08819b4b03dca483dff49d951e55140af5b86dc9af",
+    "artifacts/phase13/explore/v1_r2_beauty_p0/config.json": "3048a1de63952d8c951493119fff24b9be9e180cc1761f5e20717f5b04995611",
+    "artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl": "895b26b16fe176bbb311d41dbf2d3bf72d2aac12d423c9e06ee96e07ed4f63e1",
+    "artifacts/phase13/explore/v1_r2_beauty_p0/resolver.pt": "4febb0ff4fa2ab2998b05037387d7eca1be88fdb4f2c834eb1666601fd84dffc",
+    "artifacts/phase13/explore/v1_r2_toys_p0/config.json": "07961b755f27fc185b55aef93f246e7fea87b10c7df1ae431056b1cd6736894e",
+    "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl": "c8f29872f7490ca58ab6000001b92b76520cbe43de801b01112f0a45ed81ed51",
+    "artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt": "f203044d56c32da03971b3ce18b17ae695ef1acff50ab059b1a0cb977428b96d"
+  },
+  "sports_read": false,
+  "test_read": false,
+  "source_outcomes_read": false,
+  "created_for_stage": "T0_IMPLEMENTATION_FREEZE"
+}

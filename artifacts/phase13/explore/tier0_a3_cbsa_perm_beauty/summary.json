@@ -1,0 +1,47 @@
+{
+  "experiment": "TIER0_A3_CBSA_MATCHED_ACTION_MULTISET_PERMUTATION",
+  "domain": "Beauty",
+  "evaluation_only": true,
+  "test_read": false,
+  "n_users": 10655,
+  "n_cold": 5287,
+  "n_skipped": 0,
+  "action_mix": {
+    "a0": 5156,
+    "a2": 1103,
+    "a3": 4396
+  },
+  "v0_reference": {
+    "cold_h50": 0.013050879515793456,
+    "cold_h10": 0.0037828636277662192,
+    "cold_h50_events": 69.0,
+    "warm_n10": 0.07536116132571902,
+    "all_n10": 0.03893624315108779
+  },
+  "learned_cbsa": {
+    "cold_h50": 0.02988462265935313,
+    "cold_h10": 0.025345186306033666,
+    "cold_h50_events": 158.0,
+    "warm_n10": 0.07265311068159347,
+    "all_n10": 0.040845880306615547
+  },
+  "random_permutation_mean": {
+    "cold_h50": 0.025903158691129188,
+    "cold_h10": 0.019046718365802913,
+    "cold_h50_events": 136.95,
+    "warm_n10": 0.07235827859215126,
+    "all_n10": 0.03972094696265565
+  },
+  "random_permutation_sd": {
+    "cold_h50": 0.0010615213463287575,
+    "cold_h10": 0.001180289824991314,
+    "cold_h50_events": 5.612263358040141,
+    "warm_n10": 0.0003083532841667671,
+    "all_n10": 0.00023387939519950134
+  },
+  "n_permutations": 200,
+  "n_permutations_ge_learned_cold_h50": 0,
+  "empirical_p_value_cold_h50": 0.004975124378109453,
+  "learned_beats_random": true,
+  "note": "Action multiset is held fixed by construction, so warm cost is matched exactly; only the user-to-action mapping differs."
+}

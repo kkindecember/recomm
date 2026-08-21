@@ -1,0 +1,211 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_0B_ORACLE_PREFIX_PROBE",
+  "status": "completed",
+  "dataset": "Toys_cold50",
+  "split": "validation",
+  "test_predictions_opened": false,
+  "n_users": 2,
+  "beam_trace_enabled": true,
+  "beam_size": 50,
+  "beam_parity_mismatches": 0,
+  "teacher_temperature": 0.07,
+  "recency_decay": 0.85,
+  "summary_by_slice": {
+    "all": {
+      "n": 2,
+      "token_by_raw_depth": {
+        "1": {
+          "n": 2,
+          "normalized_depth_mean": 0.2,
+          "legal_nll_mean": 0.07453682832419872,
+          "legal_nll_median": 0.07453682832419872,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.07594765350222588,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 30.0
+        },
+        "2": {
+          "n": 2,
+          "normalized_depth_mean": 0.4,
+          "legal_nll_mean": 0.3563137501478195,
+          "legal_nll_median": 0.3563137501478195,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.3676692098379135,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 24.0
+        },
+        "3": {
+          "n": 2,
+          "normalized_depth_mean": 0.6,
+          "legal_nll_mean": 10.20228123664856,
+          "legal_nll_median": 10.20228123664856,
+          "legal_rank_mean": 90.5,
+          "legal_rank_median": 90.5,
+          "raw_nll_mean": 10.336992740631104,
+          "raw_rank_median": 1771.5,
+          "branch_factor_mean": 186.0
+        },
+        "4": {
+          "n": 2,
+          "normalized_depth_mean": 0.8,
+          "legal_nll_mean": 0.07858782392577268,
+          "legal_nll_median": 0.07858782392577268,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 5.678377829492092,
+          "raw_rank_median": 25.0,
+          "branch_factor_mean": 6.5
+        },
+        "5": {
+          "n": 2,
+          "normalized_depth_mean": 1.0,
+          "legal_nll_mean": 2.1473710536956787,
+          "legal_nll_median": 2.1473710536956787,
+          "legal_rank_mean": 1.5,
+          "legal_rank_median": 1.5,
+          "raw_nll_mean": 11.13442611694336,
+          "raw_rank_median": 3029.5,
+          "branch_factor_mean": 1.5
+        }
+      },
+      "beam_trace_n": 2,
+      "beam_target_hit50": 0.0,
+      "beam_first_dropout_depth_median": 3.0,
+      "beam_first_dropout_normalized_median": 0.6
+    },
+    "warm": {
+      "n": 1,
+      "token_by_raw_depth": {
+        "1": {
+          "n": 1,
+          "normalized_depth_mean": 0.2,
+          "legal_nll_mean": 0.11284226179122925,
+          "legal_nll_median": 0.11284226179122925,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.11485946178436279,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 30.0
+        },
+        "2": {
+          "n": 1,
+          "normalized_depth_mean": 0.4,
+          "legal_nll_mean": 0.340442419052124,
+          "legal_nll_median": 0.340442419052124,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.35507702827453613,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 24.0
+        },
+        "3": {
+          "n": 1,
+          "normalized_depth_mean": 0.6,
+          "legal_nll_mean": 6.586089611053467,
+          "legal_nll_median": 6.586089611053467,
+          "legal_rank_mean": 42.0,
+          "legal_rank_median": 42.0,
+          "raw_nll_mean": 6.784209251403809,
+          "raw_rank_median": 51.0,
+          "branch_factor_mean": 186.0
+        },
+        "4": {
+          "n": 1,
+          "normalized_depth_mean": 0.8,
+          "legal_nll_mean": 0.15701889991760254,
+          "legal_nll_median": 0.15701889991760254,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.15801088511943817,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 8.0
+        },
+        "5": {
+          "n": 1,
+          "normalized_depth_mean": 1.0,
+          "legal_nll_mean": 4.294742107391357,
+          "legal_nll_median": 4.294742107391357,
+          "legal_rank_mean": 2.0,
+          "legal_rank_median": 2.0,
+          "raw_nll_mean": 4.294765472412109,
+          "raw_rank_median": 2.0,
+          "branch_factor_mean": 2.0
+        }
+      },
+      "beam_trace_n": 1,
+      "beam_target_hit50": 0.0,
+      "beam_first_dropout_depth_median": 3.0,
+      "beam_first_dropout_normalized_median": 0.6
+    },
+    "cold": {
+      "n": 1,
+      "token_by_raw_depth": {
+        "1": {
+          "n": 1,
+          "normalized_depth_mean": 0.2,
+          "legal_nll_mean": 0.0362313948571682,
+          "legal_nll_median": 0.0362313948571682,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.03703584522008896,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 30.0
+        },
+        "2": {
+          "n": 1,
+          "normalized_depth_mean": 0.4,
+          "legal_nll_mean": 0.372185081243515,
+          "legal_nll_median": 0.372185081243515,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 0.3802613914012909,
+          "raw_rank_median": 1.0,
+          "branch_factor_mean": 24.0
+        },
+        "3": {
+          "n": 1,
+          "normalized_depth_mean": 0.6,
+          "legal_nll_mean": 13.818472862243652,
+          "legal_nll_median": 13.818472862243652,
+          "legal_rank_mean": 139.0,
+          "legal_rank_median": 139.0,
+          "raw_nll_mean": 13.889776229858398,
+          "raw_rank_median": 3492.0,
+          "branch_factor_mean": 186.0
+        },
+        "4": {
+          "n": 1,
+          "normalized_depth_mean": 0.8,
+          "legal_nll_mean": 0.0001567479339428246,
+          "legal_nll_median": 0.0001567479339428246,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 11.198744773864746,
+          "raw_rank_median": 49.0,
+          "branch_factor_mean": 5.0
+        },
+        "5": {
+          "n": 1,
+          "normalized_depth_mean": 1.0,
+          "legal_nll_mean": 0.0,
+          "legal_nll_median": 0.0,
+          "legal_rank_mean": 1.0,
+          "legal_rank_median": 1.0,
+          "raw_nll_mean": 17.97408676147461,
+          "raw_rank_median": 6057.0,
+          "branch_factor_mean": 1.0
+        }
+      },
+      "beam_trace_n": 1,
+      "beam_target_hit50": 0.0,
+      "beam_first_dropout_depth_median": 3.0,
+      "beam_first_dropout_normalized_median": 0.6
+    }
+  },
+  "runtime_seconds": 12.634988784790039,
+  "peak_cuda_allocated_mib": 2340.9853515625,
+  "test_read": false,
+  "route_decision": "PENDING_DUAL_DOMAIN_SYNTHESIS"
+}

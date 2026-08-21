@@ -68,6 +68,14 @@ artifacts/phase13/explore/**/llm_priors_status.json
 artifacts/phase13/explore/**/gram_logs/**/config.json
 artifacts/phase13/explore/**/*.log
 
+# Phase 14 local model/data payloads and per-example outputs. Keep compact
+# configs, provenance, aggregate summaries and synthesis files in Git.
+artifacts/phase14/**/*.jsonl
+artifacts/phase14/m2/pretrained/
+artifacts/phase14/m2/pseudo_cold_audit_toys/
+artifacts/phase14/m2/pseudo_cold_screen_toys_pipeline_smoke*/
+artifacts/phase14/m2/pseudo_cold_screen_toys_shape_smoke/
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt

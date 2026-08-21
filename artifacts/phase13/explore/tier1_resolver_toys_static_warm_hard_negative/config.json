@@ -1,0 +1,94 @@
+{
+  "experiment_id": "GRAM_PHASE13_TIER1_RESOLVER_TOYS_STATIC_WARM_HARD_NEGATIVE",
+  "dataset": "Toys_cold50",
+  "split": "validation_development_only",
+  "paths": {
+    "dataset_dir": "GRAM/rec_datasets/Toys_cold50",
+    "item_id_file": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+    "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "gram_validation_predictions": "artifacts/phase13/explore/v0_toys/predictions/20260809_085251_Toys_cold50_sequential_pred_validation.tsv",
+    "baseline_p0_predictions": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl"
+  },
+  "training": {
+    "epochs": 12,
+    "hard_negative_counts": [
+      0,
+      8,
+      16,
+      32
+    ],
+    "hard_negative_source": "frozen_bge_target_nearest_warm_only",
+    "mining_chunk_size": 512,
+    "batch_size": 256,
+    "hidden_dim": 512,
+    "dropout": 0.1,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "temperature": 0.07,
+    "max_history": 20,
+    "recency_decay": 0.85,
+    "seed": 12345
+  },
+  "evaluation": {
+    "global_retrieve_k": 200,
+    "ranking_k": 50,
+    "portfolio_size": 2,
+    "portfolio_candidate_protected_prefix": 7,
+    "portfolio_ranking_anchor": 8,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260820,
+    "familywise_alpha": 0.05,
+    "primary_metric": "resolver_cold_hit50",
+    "winner_tiebreakers": [
+      "eligible_cold_hit3",
+      "smaller_hard_negative_count"
+    ]
+  },
+  "baseline_reproduction": {
+    "control_hard_negative_count": 0,
+    "expected_exact_top50_mismatches": 0,
+    "expected_cold_hit50_events": 498
+  },
+  "gate": {
+    "require_bonferroni_adjusted_primary_ci_above_zero": true,
+    "maximum_relative_warm_recall50_degradation": 0.05,
+    "tier1_toys_relative_cold_recall50_gain": 0.3,
+    "tier1_toys_absolute_cold_recall50_target": 0.148
+  },
+  "evidence_role": "development_static_hard_negative_screen_not_confirmatory_efficacy",
+  "test_read": false,
+  "beauty_read": false,
+  "sports_read": false,
+  "automatic_next_stage": false,
+  "automatic_retry": false,
+  "source_config_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase13/configs/tier1_resolver_toys_static_hard_negative.json",
+  "source_config_sha256": "d24501c2af44a6761460df28bd1dca993160d5ac6f8f251bd2e1be7a67afd0b6",
+  "input_sha256": {
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/user_sequence.txt": "11001e54e69f6c39c2d2dc2769742c49f0b2a7fab3358d0458d59eb301e2a6c9",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/warm_items.txt": "7041604505ea91abf3ab27dfa218d1e62b0ceea3e7aded5cf7926d46b72912e0",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/predictions/20260809_085251_Toys_cold50_sequential_pred_validation.tsv": "ead87acb9f88847b04df7a08819b4b03dca483dff49d951e55140af5b86dc9af",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl": "c8f29872f7490ca58ab6000001b92b76520cbe43de801b01112f0a45ed81ed51"
+  },
+  "device": "cuda:0",
+  "smoke": false,
+  "effective_hard_negative_counts": [
+    0,
+    8,
+    16,
+    32
+  ],
+  "effective_epochs": 12,
+  "code_sha256": "3d1ed3064eafa217bdf1027060c809175dd895cdd2d19412a5021b934ca18f1c",
+  "negative_pool_audit": {
+    "n_unique_train_targets": 5810,
+    "n_warm_catalog_items": 5961,
+    "max_hard_negative_count": 32,
+    "self_negative_count": 0,
+    "cold_negative_count": 0,
+    "all_training_targets_warm": true,
+    "all_hard_negatives_warm": true
+  }
+}

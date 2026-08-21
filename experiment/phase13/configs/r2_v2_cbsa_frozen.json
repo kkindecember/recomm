@@ -1,0 +1,76 @@
+{
+  "experiment_id": "GRAM_PHASE13_R2_V2_CBSA_SOURCE_OOF",
+  "method": "cross_domain_budget_conditioned_slate_allocator",
+  "stage": "source_oof",
+  "source_domains": {
+    "Toys": {
+      "dataset_dir": "GRAM/rec_datasets/Toys_cold50",
+      "item_id_file": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "cold_items": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+      "resolver_checkpoint": "artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt",
+      "p0_config": "artifacts/phase13/explore/v1_r2_toys_p0/config.json",
+      "p0_predictions": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl"
+    },
+    "Beauty": {
+      "dataset_dir": "GRAM/rec_datasets/Beauty_cold50",
+      "item_id_file": "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "cold_items": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt",
+      "item_embeddings": "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt",
+      "resolver_checkpoint": "artifacts/phase13/explore/v1_r2_beauty_p0/resolver.pt",
+      "p0_config": "artifacts/phase13/explore/v1_r2_beauty_p0/config.json",
+      "p0_predictions": "artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl"
+    }
+  },
+  "folds": 5,
+  "fold_salt": "GRAM_PHASE13_R2_V2_CBSA_SOURCE_OOF_V1_20260819",
+  "actions": ["a0", "a2", "a3"],
+  "action_tie_break": ["a0", "a2", "a3"],
+  "budgets": [0.93, 0.95, 0.97, 0.99],
+  "primary_budget": 0.97,
+  "network": {
+    "hidden_dims": [64, 32],
+    "activation": "gelu",
+    "dropout": 0.1,
+    "output_dim": 3
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 512,
+    "epochs": 50,
+    "gradient_clip": 5.0,
+    "policy_temperature": 1.0,
+    "dual_lr": 0.01,
+    "dual_initial": 0.0,
+    "seed": 20260819,
+    "early_stopping": false,
+    "domain_balanced_batches": true,
+    "budget_sampling": "one_uniform_budget_per_optimizer_step"
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20260819,
+    "confidence": 0.95,
+    "domain_aggregation": "equal_domain_mean",
+    "paired_by_user": true
+  },
+  "gates": {
+    "overall_ndcg10_ci_low_gt": 0.0,
+    "warm_ndcg10_ci_low_gt": 0.0,
+    "cold_hit50_relative_noninferiority": -0.05,
+    "minimum_portfolio2_cold_hit50_events_per_domain": 30,
+    "intervention_coverage_min": 0.05,
+    "intervention_coverage_max": 0.95,
+    "per_domain_overall_delta_gt": 0.0,
+    "per_domain_cold_hit50_retention_min": 0.95
+  },
+  "guards": {
+    "allowed_domains": ["Toys", "Beauty"],
+    "sports_read": false,
+    "test_read": false,
+    "source_split": "validation",
+    "target_features_forbidden": true
+  }
+}

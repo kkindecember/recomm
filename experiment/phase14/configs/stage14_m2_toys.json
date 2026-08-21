@@ -1,0 +1,40 @@
+{
+  "experiment_id": "GRAM_PHASE14_M2_TOYS",
+  "stage": "M2",
+  "dataset": "Toys_cold50",
+  "split": "train_only_pseudo_cold",
+  "test_opened": false,
+  "pseudo_cold": {
+    "fraction_of_eligible_warm_train_items": 0.2,
+    "frequency_buckets": 10,
+    "seed": 1401,
+    "max_history": 20,
+    "held_ground_truth_student_access": "forbidden"
+  },
+  "teacher": {
+    "resolver_checkpoint": "artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt",
+    "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "candidate_size_m": 50,
+    "temperature_status": "to_be_frozen_using_retained_warm_train_only",
+    "stop_gradient": true
+  },
+  "screen_arms": {
+    "A0": "frozen_v0",
+    "A1": "top1_hard_cold_path_ce",
+    "A2": "soft_subtree_distillation",
+    "A3": "A2_plus_frozen_v0_retention"
+  },
+  "primary_metric": "held_pseudo_cold_exact_path_mrr",
+  "gate": {
+    "a2_minus_a1_item_paired_bootstrap_95ci_lower_gt": 0.0,
+    "a2_vs_a0_recall50_non_degradation": true,
+    "a2_vs_a0_beam_survival_non_degradation": true,
+    "bootstrap_resamples": 10000
+  },
+  "smoke": {
+    "users": 256,
+    "checkpoint": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "fixed_steps_status": "freeze_after_14_1_screen",
+    "lambda_mu_zero_requires_tokenwise_v0_parity": true
+  }
+}

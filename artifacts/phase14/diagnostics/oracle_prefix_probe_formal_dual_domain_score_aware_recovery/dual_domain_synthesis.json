@@ -1,0 +1,1674 @@
+{
+  "status": "completed",
+  "split": "validation",
+  "test_predictions_opened": false,
+  "domains": {
+    "toys": {
+      "n": 8789,
+      "slices": {
+        "all": {
+          "n": 8789,
+          "item_rank": {
+            "uniform": {
+              "mean": 5962.5,
+              "median": 5962.5,
+              "hit50": 0.0
+            },
+            "popularity": {
+              "mean": 5558.357776766413,
+              "median": 8902.0,
+              "hit50": 0.020593924223461145
+            },
+            "catalog_text": {
+              "mean": 3533.1876208897484,
+              "median": 2398.0,
+              "hit50": 0.1064967573102742
+            },
+            "r2": {
+              "mean": 2916.124644441916,
+              "median": 1651.0,
+              "hit50": 0.12310843099328707
+            }
+          },
+          "normalized_depth_quartiles": {
+            "q1": {
+              "normalized_depth_interval": [
+                0.0,
+                0.25
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.05463047118513966,
+                  "target_prefix_rank_mean": 9.595289566503585,
+                  "target_prefix_rank_median": 7.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.05422246380915167,
+                  "target_prefix_rank_mean": 11.809534645579703,
+                  "target_prefix_rank_median": 9.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0751428120507669,
+                  "target_prefix_rank_mean": 7.498805324837866,
+                  "target_prefix_rank_median": 5.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.12821513233445125,
+                  "target_prefix_rank_mean": 6.810786210035271,
+                  "target_prefix_rank_median": 4.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.05307232028368437,
+                "ci95": [
+                  0.05067097828216552,
+                  0.055473662285203215
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 0.6880191148025941,
+                "ci95": [
+                  0.6135580614109939,
+                  0.7624801681941944
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6335191716918875,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.3981112754579588,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.01173544644916505,
+                "ci95": [
+                  0.007501364736362126,
+                  0.015969528161967977
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1.183752417794971,
+                "ci95": [
+                  -1.2827722865295077,
+                  -1.0847325490604343
+                ]
+              }
+            },
+            "q2": {
+              "normalized_depth_interval": [
+                0.25,
+                0.5
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.00602036792506004,
+                  "target_prefix_rank_mean": 173.15877801797703,
+                  "target_prefix_rank_median": 98.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.011552346655291944,
+                  "target_prefix_rank_mean": 260.06786892706793,
+                  "target_prefix_rank_median": 158.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.01016829642105634,
+                  "target_prefix_rank_mean": 143.68642621458642,
+                  "target_prefix_rank_median": 54.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.02159310815679092,
+                  "target_prefix_rank_mean": 127.22266469450449,
+                  "target_prefix_rank_median": 41.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.010040761501498975,
+                "ci95": [
+                  0.00796691742285495,
+                  0.012114605580143
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 16.46376152008192,
+                "ci95": [
+                  13.079621387109873,
+                  19.847901653053967
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9656388667652748,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5602457617476391,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.001291959501879593,
+                "ci95": [
+                  -0.0006448756944854111,
+                  0.0032287946982445972
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -32.49758220502901,
+                "ci95": [
+                  -36.45013061706663,
+                  -28.545033792991397
+                ]
+              }
+            },
+            "q3": {
+              "normalized_depth_interval": [
+                0.5,
+                0.75
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.0002865361473169291,
+                  "target_prefix_rank_mean": 2974.760496074639,
+                  "target_prefix_rank_median": 4990.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0006468946678454785,
+                  "target_prefix_rank_mean": 3275.2564000455113,
+                  "target_prefix_rank_median": 2554.5
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0008428136460990899,
+                  "target_prefix_rank_mean": 2028.3878143133463,
+                  "target_prefix_rank_median": 1026.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0022619393894700596,
+                  "target_prefix_rank_mean": 1719.5339629081807,
+                  "target_prefix_rank_median": 730.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.0014191257433709696,
+                "ci95": [
+                  0.001233497205100007,
+                  0.0016047542816419323
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 308.8538514051655,
+                "ci95": [
+                  273.45061593427084,
+                  344.2570868760602
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6286266924564797,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.58140857890545,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0008286588195960219,
+                "ci95": [
+                  0.0004929915687025843,
+                  0.0011643260704894596
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -492.07941745363524,
+                "ci95": [
+                  -529.3220768570891,
+                  -454.8367580501814
+                ]
+              }
+            },
+            "q4": {
+              "normalized_depth_interval": [
+                0.75,
+                1.0
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 9.721848069329252e-05,
+                  "target_prefix_rank_mean": 5443.133519171692,
+                  "target_prefix_rank_median": 5817.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.00020937093092720737,
+                  "target_prefix_rank_mean": 5139.247980430083,
+                  "target_prefix_rank_median": 5506.25
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0003153265972937113,
+                  "target_prefix_rank_mean": 3332.319746273751,
+                  "target_prefix_rank_median": 2319.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0009080927662807492,
+                  "target_prefix_rank_mean": 2742.8043577198773,
+                  "target_prefix_rank_median": 1603.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.000592766168987038,
+                "ci95": [
+                  0.0005260047847249858,
+                  0.0006595275532490902
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 589.5153885538741,
+                "ci95": [
+                  532.3613516418375,
+                  646.6694254659108
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6280577995221299,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5855046080327683,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.00037591892647509693,
+                "ci95": [
+                  0.0002737685372606932,
+                  0.00047806931568950066
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -774.7332461030834,
+                "ci95": [
+                  -830.713969943186,
+                  -718.7525222629807
+                ]
+              }
+            }
+          }
+        },
+        "warm": {
+          "n": 4422,
+          "item_rank": {
+            "uniform": {
+              "mean": 5962.5,
+              "median": 5962.5,
+              "hit50": 0.0
+            },
+            "popularity": {
+              "mean": 2256.303143374039,
+              "median": 1685.0,
+              "hit50": 0.04093170511080959
+            },
+            "catalog_text": {
+              "mean": 3542.4889190411577,
+              "median": 2351.5,
+              "hit50": 0.10402532790592492
+            },
+            "r2": {
+              "mean": 2852.8960877431027,
+              "median": 1543.0,
+              "hit50": 0.1320669380370873
+            }
+          },
+          "normalized_depth_quartiles": {
+            "q1": {
+              "normalized_depth_interval": [
+                0.0,
+                0.25
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.054674081279201606,
+                  "target_prefix_rank_mean": 9.634328358208956,
+                  "target_prefix_rank_median": 7.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0533167694903176,
+                  "target_prefix_rank_mean": 11.856173677069199,
+                  "target_prefix_rank_median": 8.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0748891986792851,
+                  "target_prefix_rank_mean": 7.528493894165536,
+                  "target_prefix_rank_median": 5.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.1275759640934878,
+                  "target_prefix_rank_mean": 6.799864314789688,
+                  "target_prefix_rank_median": 4.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.05268676541420268,
+                "ci95": [
+                  0.049314604056920675,
+                  0.05605892677148469
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 0.728629579375848,
+                "ci95": [
+                  0.622099734200681,
+                  0.8351594245510151
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6277702397105382,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.3989145183175034,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.011988703854625716,
+                "ci95": [
+                  0.006076169952071687,
+                  0.017901237757179743
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1.1515151515151516,
+                "ci95": [
+                  -1.2934287397421393,
+                  -1.0096015632881639
+                ]
+              }
+            },
+            "q2": {
+              "normalized_depth_interval": [
+                0.25,
+                0.5
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.005862603915828383,
+                  "target_prefix_rank_mean": 172.53307327001357,
+                  "target_prefix_rank_median": 109.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.012711784908818687,
+                  "target_prefix_rank_mean": 226.60696517412936,
+                  "target_prefix_rank_median": 148.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00992566160010132,
+                  "target_prefix_rank_mean": 144.23202170963364,
+                  "target_prefix_rank_median": 56.25
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.021424325096390896,
+                  "target_prefix_rank_mean": 125.09746720940751,
+                  "target_prefix_rank_median": 40.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.008712540187572209,
+                "ci95": [
+                  0.0056487820891515834,
+                  0.011776298285992835
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 19.13455450022614,
+                "ci95": [
+                  14.553582259170579,
+                  23.715526741281703
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9611035730438715,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.576662143826323,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 8.930754326273963e-05,
+                "ci95": [
+                  -0.002789697317432654,
+                  0.0029683124039581333
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -36.28109452736319,
+                "ci95": [
+                  -41.81829721103599,
+                  -30.74389184369039
+                ]
+              }
+            },
+            "q3": {
+              "normalized_depth_interval": [
+                0.5,
+                0.75
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.00031895808354258636,
+                  "target_prefix_rank_mean": 2917.0841248303936,
+                  "target_prefix_rank_median": 4990.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.001025476599636161,
+                  "target_prefix_rank_mean": 1588.1844188150158,
+                  "target_prefix_rank_median": 1065.5
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0009766384361457859,
+                  "target_prefix_rank_mean": 1986.182157394844,
+                  "target_prefix_rank_median": 999.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0027239580299798353,
+                  "target_prefix_rank_mean": 1655.2791723202172,
+                  "target_prefix_rank_median": 669.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "popularity",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.0016984814303436743,
+                "ci95": [
+                  0.001036407666208787,
+                  0.0023605551944785616
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": -67.09475350520127,
+                "ci95": [
+                  -139.56017795279044,
+                  5.370670942387903
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.968340117593849,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5764360018091361,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0008101304773024954,
+                "ci95": [
+                  0.00024401079447056487,
+                  0.001376250160134426
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -871.7885572139304,
+                "ci95": [
+                  -927.4090983222037,
+                  -816.1680161056571
+                ]
+              }
+            },
+            "q4": {
+              "normalized_depth_interval": [
+                0.75,
+                1.0
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 9.976686609713386e-05,
+                  "target_prefix_rank_mean": 5408.141621438263,
+                  "target_prefix_rank_median": 5817.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0004161344036824018,
+                  "target_prefix_rank_mean": 2144.7193577566713,
+                  "target_prefix_rank_median": 1487.75
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00033844030537867473,
+                  "target_prefix_rank_mean": 3325.688037087291,
+                  "target_prefix_rank_median": 2297.75
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0010397782219475195,
+                  "target_prefix_rank_mean": 2674.720827679783,
+                  "target_prefix_rank_median": 1526.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "popularity",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.0006236438182651177,
+                "ci95": [
+                  0.00040374313490208654,
+                  0.0008435445016281488
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": -530.0014699231117,
+                "ci95": [
+                  -633.2313164783236,
+                  -426.7716233678998
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9776119402985075,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.4966078697421981,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.00028063897878318947,
+                "ci95": [
+                  9.064987641987197e-05,
+                  0.000470628081146507
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1432.8514246947084,
+                "ci95": [
+                  -1514.943245907372,
+                  -1350.7596034820447
+                ]
+              }
+            }
+          }
+        },
+        "cold": {
+          "n": 4367,
+          "item_rank": {
+            "uniform": {
+              "mean": 5962.5,
+              "median": 5962.5,
+              "hit50": 0.0
+            },
+            "popularity": {
+              "mean": 8902.0,
+              "median": 8902.0,
+              "hit50": 0.0
+            },
+            "catalog_text": {
+              "mean": 3523.769177925349,
+              "median": 2437.0,
+              "hit50": 0.10899931302953973
+            },
+            "r2": {
+              "mean": 2980.1495305701856,
+              "median": 1752.0,
+              "hit50": 0.11403709640485458
+            }
+          },
+          "normalized_depth_quartiles": {
+            "q1": {
+              "normalized_depth_interval": [
+                0.0,
+                0.25
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.05458631184556056,
+                  "target_prefix_rank_mean": 9.555759102358598,
+                  "target_prefix_rank_median": 8.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.055139564857442085,
+                  "target_prefix_rank_mean": 11.762308220746508,
+                  "target_prefix_rank_median": 9.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0753996195453152,
+                  "target_prefix_rank_mean": 7.468742844057705,
+                  "target_prefix_rank_median": 5.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.12886235055326062,
+                  "target_prefix_rank_mean": 6.821845660636592,
+                  "target_prefix_rank_median": 4.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.05346273100794542,
+                "ci95": [
+                  0.050042223726758206,
+                  0.05688323828913264
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 0.6468971834211129,
+                "ci95": [
+                  0.5428716046524158,
+                  0.75092276218981
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6393405083581406,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.39729791618960386,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.011478999403837125,
+                "ci95": [
+                  0.005414366305429353,
+                  0.0175436325022449
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1.2163956949851156,
+                "ci95": [
+                  -1.3544824292436048,
+                  -1.0783089607266263
+                ]
+              }
+            },
+            "q2": {
+              "normalized_depth_interval": [
+                0.25,
+                0.5
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.0061801188865490235,
+                  "target_prefix_rank_mean": 173.79236317838334,
+                  "target_prefix_rank_median": 96.25
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.010378305904869399,
+                  "target_prefix_rank_mean": 293.9501946416304,
+                  "target_prefix_rank_median": 171.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.010413987096179557,
+                  "target_prefix_rank_mean": 143.1339592397527,
+                  "target_prefix_rank_median": 52.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.021764016948430238,
+                  "target_prefix_rank_mean": 129.3746278910007,
+                  "target_prefix_rank_median": 42.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.01135002985225068,
+                "ci95": [
+                  0.010294468278229064,
+                  0.012405591426272298
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 13.759331348752003,
+                "ci95": [
+                  8.772985725899183,
+                  18.745676971604823
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6343027249828257,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5436226242271582,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0025097582106049714,
+                "ci95": [
+                  -7.776341412122842e-05,
+                  0.005097279835331171
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -28.666418594000458,
+                "ci95": [
+                  -34.307678877166886,
+                  -23.025158310834033
+                ]
+              }
+            },
+            "q3": {
+              "normalized_depth_interval": [
+                0.5,
+                0.75
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.00025370587436298903,
+                  "target_prefix_rank_mean": 3033.163269979391,
+                  "target_prefix_rank_median": 4990.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.00026354470164937174,
+                  "target_prefix_rank_mean": 4983.576139226013,
+                  "target_prefix_rank_median": 6534.5
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0007073034052961384,
+                  "target_prefix_rank_mean": 2071.125028623769,
+                  "target_prefix_rank_median": 1054.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0017941018743946693,
+                  "target_prefix_rank_mean": 1784.5980077856652,
+                  "target_prefix_rank_median": 796.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.001086798469098531,
+                "ci95": [
+                  0.0009080995085077164,
+                  0.0012654974296893455
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 286.52702083810397,
+                "ci95": [
+                  237.1740940419147,
+                  335.8799476342932
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6217082665445386,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5798030684680558,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0008474205163264946,
+                "ci95": [
+                  0.000489901345234174,
+                  0.0012049396874188152
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -107.5880467139913,
+                "ci95": [
+                  -154.3662287840067,
+                  -60.8098646439759
+                ]
+              }
+            },
+            "q4": {
+              "normalized_depth_interval": [
+                0.75,
+                1.0
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 9.463799975539778e-05,
+                  "target_prefix_rank_mean": 5478.566120906801,
+                  "target_prefix_rank_median": 5817.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 3.384207841737181e-09,
+                  "target_prefix_rank_mean": 8171.491069384017,
+                  "target_prefix_rank_median": 8406.75
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00029192178457291705,
+                  "target_prefix_rank_mean": 3339.0349782459352,
+                  "target_prefix_rank_median": 2367.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0007747488036156569,
+                  "target_prefix_rank_mean": 2811.745362949393,
+                  "target_prefix_rank_median": 1706.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.00048282701904273984,
+                "ci95": [
+                  0.00041047169933764105,
+                  0.0005551823387478386
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 527.2896152965423,
+                "ci95": [
+                  448.0335455126473,
+                  606.5456850804371
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6196473551637279,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5749942752461644,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0004723988735082124,
+                "ci95": [
+                  0.0003999845989921599,
+                  0.0005448131480242648
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -108.32642546370506,
+                "ci95": [
+                  -179.0981818289401,
+                  -37.554669098470015
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "beauty": {
+      "n": 10655,
+      "slices": {
+        "all": {
+          "n": 10655,
+          "item_rank": {
+            "uniform": {
+              "mean": 6051.0,
+              "median": 6051.0,
+              "hit50": 0.0
+            },
+            "popularity": {
+              "mean": 5448.63477240732,
+              "median": 5883.5,
+              "hit50": 0.02599718442045988
+            },
+            "catalog_text": {
+              "mean": 3416.0778977006103,
+              "median": 2030.0,
+              "hit50": 0.10764899108399813
+            },
+            "r2": {
+              "mean": 2994.5547630220553,
+              "median": 1575.0,
+              "hit50": 0.12304082590333176
+            }
+          },
+          "normalized_depth_quartiles": {
+            "q1": {
+              "normalized_depth_interval": [
+                0.0,
+                0.25
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.014713911565441136,
+                  "target_prefix_rank_mean": 43.90588925387142,
+                  "target_prefix_rank_median": 28.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.029428511466811642,
+                  "target_prefix_rank_mean": 63.23343500703895,
+                  "target_prefix_rank_median": 34.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.02605507320751268,
+                  "target_prefix_rank_mean": 34.0961051149695,
+                  "target_prefix_rank_median": 15.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.04496163957978003,
+                  "target_prefix_rank_mean": 30.864429845143125,
+                  "target_prefix_rank_median": 13.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.015533128112968383,
+                "ci95": [
+                  0.013324348040965503,
+                  0.01774190818497126
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 3.2316752698263724,
+                "ci95": [
+                  1.934861561345546,
+                  4.528488978307199
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.8852182074143594,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.48709526044110746,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.005722684623835241,
+                "ci95": [
+                  -0.007635435291265011,
+                  -0.003809933956405471
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -8.207203190990146,
+                "ci95": [
+                  -9.571760731759426,
+                  -6.8426456502208675
+                ]
+              }
+            },
+            "q2": {
+              "normalized_depth_interval": [
+                0.25,
+                0.5
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.00026876869444439913,
+                  "target_prefix_rank_mean": 3073.126888784608,
+                  "target_prefix_rank_median": 3233.25
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0020119784769803777,
+                  "target_prefix_rank_mean": 3107.2804082590333,
+                  "target_prefix_rank_median": 2849.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0008378800496528987,
+                  "target_prefix_rank_mean": 1937.4024636320976,
+                  "target_prefix_rank_median": 1112.5
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0018673476225152595,
+                  "target_prefix_rank_mean": 1716.970553730643,
+                  "target_prefix_rank_median": 858.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": -0.00014463085446511816,
+                "ci95": [
+                  -0.0006439666703806819,
+                  0.00035470496145044564
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 220.4319099014547,
+                "ci95": [
+                  188.71402351602188,
+                  252.14979628688752
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9747536367902393,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5879868606288128,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.0009758773303959633,
+                "ci95": [
+                  -0.0014592285749799624,
+                  -0.0004925260858119642
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -555.3817691224777,
+                "ci95": [
+                  -587.3443654745697,
+                  -523.4191727703858
+                ]
+              }
+            },
+            "q3": {
+              "normalized_depth_interval": [
+                0.5,
+                0.75
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 9.613285380788901e-05,
+                  "target_prefix_rank_mean": 5405.047559831065,
+                  "target_prefix_rank_median": 5959.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0014528322667557664,
+                  "target_prefix_rank_mean": 4970.153050211168,
+                  "target_prefix_rank_median": 5326.75
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0002678157662002821,
+                  "target_prefix_rank_mean": 3142.296996715157,
+                  "target_prefix_rank_median": 1839.5
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0005937435190677891,
+                  "target_prefix_rank_mean": 2764.418535898639,
+                  "target_prefix_rank_median": 1416.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": -0.0008590887476879775,
+                "ci95": [
+                  -0.001296616444462067,
+                  -0.0004215610509138881
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 377.87846081651804,
+                "ci95": [
+                  322.3637142153385,
+                  433.39320741769757
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9853589863913655,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5631159080244017,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.0011334773015881886,
+                "ci95": [
+                  -0.0015700015613942804,
+                  -0.0006969530417820968
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -999.5809479117785,
+                "ci95": [
+                  -1052.8260396901294,
+                  -946.3358561334275
+                ]
+              }
+            },
+            "q4": {
+              "normalized_depth_interval": [
+                0.75,
+                1.0
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 8.637220842541112e-05,
+                  "target_prefix_rank_mean": 5856.747700610043,
+                  "target_prefix_rank_median": 6014.5
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.001452831489513652,
+                  "target_prefix_rank_mean": 5273.282566870014,
+                  "target_prefix_rank_median": 5803.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00022915375405078344,
+                  "target_prefix_rank_mean": 3340.18385734397,
+                  "target_prefix_rank_median": 2017.5
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0005111334043438867,
+                  "target_prefix_rank_mean": 2922.5527686532146,
+                  "target_prefix_rank_median": 1554.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": -0.0009416980851697652,
+                "ci95": [
+                  -0.0013786528178732287,
+                  -0.0005047433524663016
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 417.6310886907555,
+                "ci95": [
+                  358.7900375795709,
+                  476.47213980194016
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9853589863913655,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5611450023463163,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.0011768288919943122,
+                "ci95": [
+                  -0.00161327658021173,
+                  -0.0007403812037768944
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1034.117691224777,
+                "ci95": [
+                  -1089.9769668616318,
+                  -978.2584155879221
+                ]
+              }
+            }
+          }
+        },
+        "warm": {
+          "n": 5368,
+          "item_rank": {
+            "uniform": {
+              "mean": 6051.0,
+              "median": 6051.0,
+              "hit50": 0.0
+            },
+            "popularity": {
+              "mean": 1903.5818740685545,
+              "median": 1119.0,
+              "hit50": 0.05160208643815201
+            },
+            "catalog_text": {
+              "mean": 3408.7081780923995,
+              "median": 2024.0,
+              "hit50": 0.11140089418777943
+            },
+            "r2": {
+              "mean": 2903.5731184798806,
+              "median": 1510.5,
+              "hit50": 0.13561847988077497
+            }
+          },
+          "normalized_depth_quartiles": {
+            "q1": {
+              "normalized_depth_interval": [
+                0.0,
+                0.25
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.014932127464905416,
+                  "target_prefix_rank_mean": 40.77738450074516,
+                  "target_prefix_rank_median": 27.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.028483486657540236,
+                  "target_prefix_rank_mean": 49.62490685543964,
+                  "target_prefix_rank_median": 32.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.026612780824394177,
+                  "target_prefix_rank_mean": 31.655178837555887,
+                  "target_prefix_rank_median": 14.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0461479031766441,
+                  "target_prefix_rank_mean": 27.359444858420268,
+                  "target_prefix_rank_median": 12.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.017664416519103863,
+                "ci95": [
+                  0.014494002848450501,
+                  0.020834830189757222
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 4.295733979135618,
+                "ci95": [
+                  2.7995282398270964,
+                  5.79193971844414
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.8854321907600596,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.4860283159463487,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.004204112794515779,
+                "ci95": [
+                  -0.0069388555120396414,
+                  -0.0014693700769919165
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -6.48155737704918,
+                "ci95": [
+                  -8.012487282982413,
+                  -4.950627471115947
+                ]
+              }
+            },
+            "q2": {
+              "normalized_depth_interval": [
+                0.25,
+                0.5
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.0002706126342171578,
+                  "target_prefix_rank_mean": 3121.342026825633,
+                  "target_prefix_rank_median": 3233.25
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.003496780835914828,
+                  "target_prefix_rank_mean": 1344.6796758569299,
+                  "target_prefix_rank_median": 835.5
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0008407346245445634,
+                  "target_prefix_rank_mean": 1948.436195976155,
+                  "target_prefix_rank_median": 1126.75
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0018855744930726358,
+                  "target_prefix_rank_mean": 1675.808867362146,
+                  "target_prefix_rank_median": 865.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "popularity",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": -0.0016112063428421917,
+                "ci95": [
+                  -0.002540640350132371,
+                  -0.0006817723355520127
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": -331.1291915052161,
+                "ci95": [
+                  -389.7541051570293,
+                  -272.5042778534029
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.962183308494784,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5098733233979136,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.0024370447401264902,
+                "ci95": [
+                  -0.0033512745468632157,
+                  -0.0015228149333897647
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -920.9826285394932,
+                "ci95": [
+                  -967.9195693878065,
+                  -874.04568769118
+                ]
+              }
+            },
+            "q3": {
+              "normalized_depth_interval": [
+                0.5,
+                0.75
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 9.55153210431806e-05,
+                  "target_prefix_rank_mean": 5462.219867734724,
+                  "target_prefix_rank_median": 5959.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0028837393442704687,
+                  "target_prefix_rank_mean": 1827.9753166915052,
+                  "target_prefix_rank_median": 1020.75
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00026624984940758656,
+                  "target_prefix_rank_mean": 3158.0164865871834,
+                  "target_prefix_rank_median": 1867.75
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0006167762085625434,
+                  "target_prefix_rank_mean": 2702.3310823397915,
+                  "target_prefix_rank_median": 1369.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "popularity",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": -0.0022669631357079252,
+                "ci95": [
+                  -0.0031320689446697114,
+                  -0.0014018573267461393
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": -874.3557656482861,
+                "ci95": [
+                  -966.8696165089515,
+                  -781.8419147876208
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9709388971684053,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.47168405365126675,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.002536834125140252,
+                "ci95": [
+                  -0.003400791474740483,
+                  -0.0016728767755400209
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1658.3788654992547,
+                "ci95": [
+                  -1735.8639390983346,
+                  -1580.8937919001748
+                ]
+              }
+            },
+            "q4": {
+              "normalized_depth_interval": [
+                0.75,
+                1.0
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 8.631709300531964e-05,
+                  "target_prefix_rank_mean": 5873.769653502235,
+                  "target_prefix_rank_median": 6014.5
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0028837392654111095,
+                  "target_prefix_rank_mean": 1878.3519467213114,
+                  "target_prefix_rank_median": 1115.25
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0002314696504170952,
+                  "target_prefix_rank_mean": 3341.5101061847986,
+                  "target_prefix_rank_median": 1997.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0005503318547949511,
+                  "target_prefix_rank_mean": 2841.300251490313,
+                  "target_prefix_rank_median": 1477.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "popularity",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": -0.0023334074106161587,
+                "ci95": [
+                  -0.0031986736263287727,
+                  -0.0014681411949035448
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": -962.9483047690015,
+                "ci95": [
+                  -1059.060889539544,
+                  -866.835719998459
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.9709388971684053,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.4662816691505216,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.002568277963152943,
+                "ci95": [
+                  -0.003432731031324358,
+                  -0.0017038248949815282
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -1737.8896702682564,
+                "ci95": [
+                  -1818.927042241303,
+                  -1656.8522982952097
+                ]
+              }
+            }
+          }
+        },
+        "cold": {
+          "n": 5287,
+          "item_rank": {
+            "uniform": {
+              "mean": 6051.0,
+              "median": 6051.0,
+              "hit50": 0.0
+            },
+            "popularity": {
+              "mean": 9048.0,
+              "median": 9048.0,
+              "hit50": 0.0
+            },
+            "catalog_text": {
+              "mean": 3423.5605258180444,
+              "median": 2045.0,
+              "hit50": 0.1038396065821827
+            },
+            "r2": {
+              "mean": 3086.9303007376584,
+              "median": 1645.0,
+              "hit50": 0.11027047474938528
+            }
+          },
+          "normalized_depth_quartiles": {
+            "q1": {
+              "normalized_depth_interval": [
+                0.0,
+                0.25
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.014492352467971066,
+                  "target_prefix_rank_mean": 47.08232456969926,
+                  "target_prefix_rank_median": 28.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.030388014620995288,
+                  "target_prefix_rank_mean": 77.05045394363533,
+                  "target_prefix_rank_median": 35.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.02548882117660292,
+                  "target_prefix_rank_mean": 36.5744278418763,
+                  "target_prefix_rank_median": 16.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0437572017155912,
+                  "target_prefix_rank_mean": 34.42311329676565,
+                  "target_prefix_rank_median": 13.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "popularity",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.01336918709459591,
+                "ci95": [
+                  0.010295395786252303,
+                  0.01644297840293952
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 2.151314545110649,
+                "ci95": [
+                  0.024916796922119566,
+                  4.277712293299178
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.8850009457159069,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.48817855116323056,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": -0.007264521881218799,
+                "ci95": [
+                  -0.009938051340312951,
+                  -0.004590992422124647
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -9.959286930206167,
+                "ci95": [
+                  -12.227058735010216,
+                  -7.691515125402118
+                ]
+              }
+            },
+            "q2": {
+              "normalized_depth_interval": [
+                0.25,
+                0.5
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 0.0002668965044122129,
+                  "target_prefix_rank_mean": 3024.17306601097,
+                  "target_prefix_rank_median": 3233.25
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 0.0005044280584518874,
+                  "target_prefix_rank_mean": 4896.885237374692,
+                  "target_prefix_rank_median": 5529.25
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.0008349817409677359,
+                  "target_prefix_rank_mean": 1926.1996879137507,
+                  "target_prefix_rank_median": 1098.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0018488415054068812,
+                  "target_prefix_rank_mean": 1758.7628617363343,
+                  "target_prefix_rank_median": 849.5
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.0010138597644391454,
+                "ci95": [
+                  0.0008468833031368733,
+                  0.0011808362257414175
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 167.4368261774163,
+                "ci95": [
+                  122.97622985061963,
+                  211.89742250421295
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.6071496122564781,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5727255532438056,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0005076760373803689,
+                "ci95": [
+                  0.00021754472053630203,
+                  0.0007978073542244357
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -184.1796860223189,
+                "ci95": [
+                  -225.16503759849002,
+                  -143.19433444614776
+                ]
+              }
+            },
+            "q3": {
+              "normalized_depth_interval": [
+                0.5,
+                0.75
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 9.675984754364743e-05,
+                  "target_prefix_rank_mean": 5346.9993379988655,
+                  "target_prefix_rank_median": 5959.0
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 2.837571177874817e-09,
+                  "target_prefix_rank_mean": 8160.470824664271,
+                  "target_prefix_rank_median": 8632.0
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00026940567377417844,
+                  "target_prefix_rank_mean": 3126.3366748628714,
+                  "target_prefix_rank_median": 1786.0
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.0005703579550035105,
+                  "target_prefix_rank_mean": 2827.457206355211,
+                  "target_prefix_rank_median": 1460.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.000300952281229332,
+                "ci95": [
+                  0.0002608735763752037,
+                  0.00034103098608346025
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 298.8794685076603,
+                "ci95": [
+                  221.13281318872427,
+                  376.6261238265963
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.5969358804615094,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5422735010402875,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.0002913797872764749,
+                "ci95": [
+                  0.00025125312751508085,
+                  0.00033150644703786893
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -330.6898524683185,
+                "ci95": [
+                  -399.10708098296624,
+                  -262.2726239536708
+                ]
+              }
+            },
+            "q4": {
+              "normalized_depth_interval": [
+                0.75,
+                1.0
+              ],
+              "sources": {
+                "uniform": {
+                  "target_prefix_mass_mean": 8.642816824668047e-05,
+                  "target_prefix_rank_mean": 5839.464961225648,
+                  "target_prefix_rank_median": 6014.5
+                },
+                "popularity": {
+                  "target_prefix_mass_mean": 1.351246666014617e-09,
+                  "target_prefix_rank_mean": 8720.225553243805,
+                  "target_prefix_rank_median": 8862.75
+                },
+                "catalog_text": {
+                  "target_prefix_mass_mean": 0.00022680237676794599,
+                  "target_prefix_rank_mean": 3338.837289578211,
+                  "target_prefix_rank_median": 2033.5
+                },
+                "r2": {
+                  "target_prefix_mass_mean": 0.00047133441020329403,
+                  "target_prefix_rank_mean": 3005.050122943068,
+                  "target_prefix_rank_median": 1640.0
+                }
+              },
+              "strongest_fixed_mass_baseline": "catalog_text",
+              "strongest_fixed_rank_baseline": "catalog_text",
+              "r2_minus_strongest_fixed_mass": {
+                "mean": 0.000244532033435348,
+                "ci95": [
+                  0.00022212460166115555,
+                  0.0002669394652095405
+                ]
+              },
+              "strongest_fixed_minus_r2_rank": {
+                "mean": 333.7871666351428,
+                "ci95": [
+                  251.25966615840264,
+                  416.31466711188295
+                ]
+              },
+              "r2_mass_win_rate_vs_strongest_fixed": 0.5967467372801211,
+              "r2_rank_win_rate_vs_strongest_fixed": 0.5424626442216758,
+              "r2_minus_per_user_oracle_mass": {
+                "mean": 0.00023593801059307784,
+                "ci95": [
+                  0.0002134689491330804,
+                  0.0002584070720530753
+                ]
+              },
+              "per_user_oracle_minus_r2_rank": {
+                "mean": -319.5635048231511,
+                "ci95": [
+                  -391.4510080642803,
+                  -247.6760015820219
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "gate": {
+    "criterion": "On cold validation users in both domains and every normalized-depth quartile, R2 must beat the strongest fixed baseline in paired mean target-prefix mass and rank with 95% normal CIs above zero.",
+    "checks": [
+      {
+        "domain": "toys",
+        "quartile": "q1",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "toys",
+        "quartile": "q2",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "toys",
+        "quartile": "q3",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "toys",
+        "quartile": "q4",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "beauty",
+        "quartile": "q1",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "beauty",
+        "quartile": "q2",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "beauty",
+        "quartile": "q3",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      },
+      {
+        "domain": "beauty",
+        "quartile": "q4",
+        "mass_significantly_better": true,
+        "rank_significantly_better": true
+      }
+    ],
+    "passed": true,
+    "route_decision": "PASS_PATH_TRANSFER_GATE"
+  }
+}

@@ -1,7 +1,7 @@
 # Phase 13: Cold-Start Item for Hierarchical-ID Generative Recommendation
 
 **创建日期**:2026-08-07
-**状态**:R²-v2 method exploration preregistered / not started（2026-08-19）
+**状态**:R²-v2 Stage S catalog-cold 等价 recovery 已正式 `FAIL_STOP_R2_V2_SOURCE`；R²-v2 停止，Sports locked（2026-08-19）
 **目标会议**:RecSys 2026(CCF-B,主),CIKM 2026 / WSDM 2027(备选)
 **预计总工期**:约 4 个月(6-8 周 exploratory + 8-10 周 publication)
 
@@ -92,7 +92,7 @@
 |---|---|---|
 | Phase 12 HI-GRAM | 历史阶段 | 不再是 Phase 13 当前阻塞项 |
 | Phase 13 v1-R² | **已冻结** | 原 collision-safe v1 双域 FAIL；`resolver + portfolio@2` 在 Beauty B1 **PASS** |
-| Phase 13 R²-v2 | **当前：已预注册、未启动** | 单一可训练 CBSA；先做 Toys+Beauty source OOF Gate |
+| Phase 13 R²-v2 | **当前：Stage S 运行完成但口径 INVALID** | mechanical INCONCLUSIVE；未正确实现 B1 frozen incumbent comparator |
 | Phase 13 Sports confirmation | 封存 | 仅 R²-v2 source Gate PASS 且用户确认后解锁一次 |
 | Phase 13 Publication matrix | 未启动 | 仅 Sports 独立确认 PASS 后重写 plan，不自动启动 |
 
@@ -105,7 +105,7 @@
 - 用户已选择方法论文路线；旧 v2–v5 不再继续，也不新增 P8；
 - 新的 R²-v2 只训练一个跨域预算条件化 slate allocator，在 `no-op / portfolio@2 / portfolio@3` 三动作间决策；
 - Toys/Beauty 只作为 source/development，主 Gate 直接挑战 `portfolio@2`；Sports 保持封存，作为唯一一次独立确认域；
-- 当前只允许实现、单测、冻结配置与 source preflight，**尚未启动任何 R²-v2 训练**。
+- 原 Stage S 的 comparator 审计为 INVALID；用户授权的唯一一次 catalog-cold 等价 recovery 已正式 `FAIL_STOP_R2_V2_SOURCE`：overall/cold 聚合 Gate PASS，但 warm CI 跨 0 且 Beauty cold retention=`91.86%<95%`。R²-v2 停止，Sports 继续封存。
 
 ---
 

@@ -1,7 +1,7 @@
 # Phase 13 Exploratory: CANARD MVP 逐步验证 & 迭代
 
 **创建日期**:2026-08-07
-**状态**:R²-v2 方法探索已预注册、尚未实现/训练（2026-08-19 更新：原 collision-safe v1 **双域 FAIL**；v1-R² P0–P7 的 learned gating 均未通过独立确认；冻结的 `resolver + unconditional portfolio@2` 在 Beauty B1 跨域确认中正式 **PASS**。用户已选择方法论文路线，下一步是实现并源域筛查单一可训练的 R²-v2；不直接启动 publication 全矩阵，不把它记作 P8）
+**状态**:R²-v2 Stage S 唯一一次 catalog-cold 等价 recovery 已正式完成并 **`FAIL_STOP_R2_V2_SOURCE`**（2026-08-19：overall 与聚合 cold Gate PASS；warm CI 跨 0；Beauty cold retention=`91.86%<95%` 导致方向一致性硬失败。R²-v2 停止，Sports/test 保持封存，不做参数 rescue）
 **目的**:保留 CANARD/v1-R² 完整证据链，并以最低成本验证新的单一可训练 R²-v2 是否能严格优于冻结的 `portfolio@2`
 **预计工期**:6-8 周(每一步顺利 4-5 周,考虑常态 iteration 6-8 周)
 
@@ -664,7 +664,7 @@ Beauty 是唯一未被 P1–P7 用于调参的域（Beauty validation 至今未�
 
 ### R²-v2：Cross-Domain Budget-Conditioned Slate Allocator（CBSA；预注册，2026-08-19）
 
-**当前状态：`R2_V2_PREREGISTERED_NOT_STARTED`。** 本节是用户选择“方法论文”路线后的正式新方法线。它从 v1-R² 的已冻结 endpoint 出发，但**不是 P8，也不继承旧 v2–v5 的串行组件**。在代码、测试、冻结配置与运行授权完成前，不得启动训练或读取 Sports。
+**当前状态：`R2_V2_STAGE_S_INVALID_COMPARATOR_STOPPED`。** 本节是用户选择“方法论文”路线后的正式新方法线。它从 v1-R² 的已冻结 endpoint 出发，但**不是 P8，也不继承旧 v2–v5 的串行组件**。Stage S 运行完整，但实现中的 portfolio candidate filter 与 B1 incumbent 不同；本次结果不能作为预注册研究问题的正式 Gate，Sports 保持封存。
 
 #### 单一研究问题与假设
 
@@ -758,13 +758,40 @@ Sports confirmation 沿用 source Gate 的三个主指标、bootstrap 次数/see
 - 一旦看到 Stage S 指标，不得调整 hidden size、loss、dual lr、budget grid、feature、action 或 Gate。Stage S FAIL/INCONCLUSIVE 即停止本 R²-v2，不接旧 v3/v4/v5，不在相同两域发明 R²-v2.1 rescue；
 - 这是“可证伪的方法预注册”，不是为了保证得到 PASS 的调参计划。
 
-#### 预期实现、产物与资源（本次仅规划，不执行）
+#### 预期实现、产物与资源（预注册原文；T0 已完成，Stage S 未执行）
 
 - 实现：`experiment/phase13/protocol/r2_v2_budgeted_slate_allocator.py`；
 - 单测：`experiment/phase13/tests/test_r2_v2_budgeted_slate_allocator.py`，至少覆盖 target leakage、fold isolation、action exact-item 去重、budget condition、Sports/test guard、deterministic tie-break 与指标配对；
 - Stage S runner：`experiment/phase13/run_v1_r2_v2_source_screen.sh`；artifact：`artifacts/phase13/explore/v1_r2_v2_source_screen/`；
 - Stage C 仅在解锁后另建 runner；artifact 预留：`artifacts/phase13/explore/v1_r2_v2_sports_confirmation/`；
 - allocator 本身为小 MLP，预计 CPU 可运行、GPU 增量显存 `<2 GiB`。如需重新生成 domain-local embedding/resolver 或 Sports v0，则按实际 workload 另做资源 preflight，并在用户指定 GPU 后遵守 Section 1.2；本预注册**不构成启动授权**。
+
+#### T0 实现与冻结结果（2026-08-19）
+
+- 已实现 `r2_v2_budgeted_slate_allocator.py`、专项单测、冻结 canonical config 与 Stage S 后台 runner；动作、预算、网络、Lagrangian、5-fold OOF、domain-balanced bootstrap 和 Gate 均按上文预注册固化；
+- R²-v2 新增 12 个 contract tests；Phase-13 全套 **99 tests passed**。覆盖 target-free feature signature、fold isolation、exact-item 去重与退化、budget condition、Sports/test pre-open guard、`a0>a2>a3` tie-break、domain-balanced batch 和配对 Gate；
+- source-only preflight 对齐 Toys `8,789` users / `11,924` items 与 Beauty `10,655` users / `12,101` items；P0、原始 GRAM score、sequence、catalog、embedding 与 resolver checkpoint 均通过哈希和 schema 审计；
+- 冻结 feature count=`36`，feature schema SHA256=`a4ca56cbdb8eef04b05ec630b3a0207c45fe16737f9ae9a18676469779794912`；canonical config SHA256=`b24db4550e44f548169eb3bcc68e8c9453107b0514283c28948aa31a0a996cd2`；allocator code SHA256=`2768cb9f20360a7b92542241e99362aa05740ad5c68e78a1e3b6309d71cf1c72`；
+- T0 没有训练 allocator、没有生成 OOF prediction、没有计算 efficacy；`sports_read=false`、`test_read=false`。证据：`artifacts/phase13/explore/v1_r2_v2_source_screen/{frozen_config.json,preflight_summary.json}`；
+- T0 当时的冻结 transition 为 `R2_V2_T0_READY_STAGE_S_NOT_STARTED`；随后 Stage S 已在 GPU2 后台执行并完成，最终状态以下方完整性审计为准。
+
+#### Stage S 运行结果与 comparator 完整性审计（2026-08-19）
+
+- GPU2 科学运行完整完成：Toys 8,789 + Beauty 10,655，共 19,444 个 OOF user；五折 train/held overlap=0，runtime=`178.56s`，无 crash/OOM/NaN，`sports_read=false`、`test_read=false`；
+- 针对代码内 implemented comparator，mechanical Gate 为：overall NDCG@10 `+0.00046688 [0.00007234,0.00085864]` PASS；warm NDCG@10 `+0.00038134 [-0.00023223,0.00100549]` INCONCLUSIVE；cold H@50 `+0.00168263 [0.00003493,0.00331531]` PASS。因此 summary verdict=`INCONCLUSIVE_STOP_R2_V2_SOURCE`；
+- **完整性 RED_FLAG**：B1 incumbent 只选择 resolver 的 catalog-cold candidates；Stage S 实现却选择任意 catalog item 的 raw resolver top2/top3。Toys/Beauty implemented comparator 的 cold H@50=`0.016716/0.022319`，而真实 incumbent=`0.029769/0.032533`，确认不是同一方法；
+- 只读诊断（不能替代修正版 Gate）显示，当前 CBSA OOF 相对真实 incumbent 的 overall Δ=`−0.00034483 [-0.00080620,0.00012151]`，warm Δ=`+0.00221657 [0.00155264,0.00290202]`，cold H@50 Δ=`−0.00995046 [−0.01209093,−0.00793444]`，cold retention=`68.06%`，远低于 95% 非劣界；
+- 因 CBSA 训练动作本身也使用错误 candidate filter，post-hoc 对齐不能修复本轮。科学完整性 verdict 冻结为 **`INVALID_FOR_PREREGISTERED_INCUMBENT_COMPARISON`**；不启动 Sports、不自动 recovery；
+- 证据：`artifacts/phase13/explore/v1_r2_v2_source_screen/{status.json,summary.json,predictions_oof.jsonl,comparator_integrity_audit.json}`；报告：`report/第十三阶段/GRAM_第十三阶段_R2-v2_StageS_source-OOF口径失配审计报告.md`。
+
+#### Stage S catalog-cold 等价 recovery 正式结果（2026-08-19）
+
+- 用户授权唯一一次纯工程 recovery；只把 `a2/a3` 候选池纠正为冻结 B1 的 catalog-cold shared pool，其他结构、loss、seed、budget、fold、bootstrap 与 Gate 全部不变；启动前 19,444-user `a2/B1` exact ranking mismatch=`0`，Phase-13 `101 tests passed`；
+- CPU 运行完整完成，runtime=`156.88s`，19,444 OOF user 全覆盖，5-fold overlap=0，checkpoint/input/config/code hash 全通过，`sports_read=false`、`test_read=false`；
+- overall NDCG@10 Δ=`+0.00056212 [+0.00018388,+0.00094513]`（`+1.49%`）PASS；warm NDCG@10 Δ=`+0.00039824 [-0.00011795,+0.00092591]`（`+0.60%`）INCONCLUSIVE；cold H@50 Δ=`+0.00199635 [+0.00008954,+0.00389788]`（`+6.41%`）PASS；
+- 每域方向门 **FAIL**：Toys cold retention=`122.31%`，Beauty 仅 `91.86%<95%`；同时 Toys warm Δ 为负、Beauty warm Δ 为正，显示跨域 trade-off 不一致；
+- 正式 verdict=`FAIL_STOP_R2_V2_SOURCE`。R²-v2 到此结束，Sports Stage C 不解锁；不做调参、重跑或 R²-v2.1 rescue；
+- 证据：`artifacts/phase13/explore/v1_r2_v2_source_screen_recovery_cold_candidates/{status.json,summary.json,predictions_oof.jsonl,frozen_config.json,recovery_protocol.json}`；报告：`report/第十三阶段/GRAM_第十三阶段_R2-v2_StageS_catalog-cold等价恢复正式结果.md`。
 
 ---
 
@@ -1098,7 +1125,7 @@ cold H@50 的事件密度（Toys）：v0=45、resolver-only=498。相比 cold ND
 3. ~~确认 warm 保护取向，冻结 `portfolio@2` 为主候选~~ ✅ **已完成**；95% 降级为参考线，不再作跨域保证；
 4. ~~预注册并执行唯一一次 Beauty B1 确认~~ ✅ **已完成，主 Gate PASS**；portfolio@2 overall +4.15%、cold H@50 2.49×、warm −5.26%；
 5. ~~评估“训练 resolver + 无训练 portfolio”的创新性是否足够~~ ✅ **已完成方向选择**；用户于 2026-08-19 选择方法论文路线；
-6. **当前：实现前冻结 R²-v2**。按上文 R²-v2 预注册先完成代码、单测、配置 SHA 与 source-only preflight；不启动 publication 全矩阵，不把新方法记为 P8，不读取 Sports。
+6. ~~实现并执行 R²-v2 Stage S~~ ❌ **等价 recovery 正式 FAIL**；只纠正 B1 catalog-cold candidate pool 后，overall/cold 聚合 Gate PASS，但 warm CI 跨 0 且 Beauty cold retention=`91.86%<95%`。R²-v2 停止，Sports 继续封存。
 
 ### 3.5.7 现有证据叙事（结果层成立，方法创新性待审）
 
@@ -1106,9 +1133,28 @@ cold H@50 的事件密度（Toys）：v0=45、resolver-only=498。相比 cold ND
 
 1. **GRAM 的生成路径对零交互 item 结构性不可达**——双域 v0 cold H@10 仅 23/4,367 与 16/5,234；且 collision-safe 修复、E5/BGE encoder 升级、capacity-aware assignment 均无法改善（本文档已积累 6 次独立 pre-GRAM screen 证据）；
 2. **exact resolver 存在强 cold ceiling**——cold H@50 达 `0.114037`（**11.07×v0**、498 事件，新口径实测），但 warm 仅 v0 的 33.3%，故不能单独作推荐器；
-3. **简单 portfolio 即可兑现该 ceiling，而 Toys 上的复杂 gating 反而更差**——P1–P7 七轮递增复杂度的选择性插入机制，无一超过无条件 top-3 portfolio 基线；portfolio 相对 v0 的 cold/overall 增益已在 Toys 与 Beauty 均通过 paired bootstrap 95% CI 检验。Beauty 未生成 domain-local P6，因此“复杂 gating 更差”的直接对照仍限于 Toys。
+3. ~~**简单 portfolio 即可兑现该 ceiling，而 Toys 上的复杂 gating 反而更差**~~ —— **🔴 本条已于 2026-08-19 撤回，见下方更正。**
 
-第 3 条是本工作最反直觉的实验发现：**在 cold 事件极度稀疏的条件下，学习型选择机制（linear rerank / abstention / counterfactual utility / setwise selector / robust ensemble）的收益被其自身的估计方差抵消，简单的无条件配额反而占优。** 该发现具有分析价值，但尚不能据此断定方法创新性足以支撑 CCF-B full paper。
+#### 🔴 主张 3 撤回（2026-08-19，Tier-0 诊断）
+
+原第 3 条的比较**未匹配 warm 代价**：`portfolio@2` 的 warm 保留为 95.91%、`portfolio@3` 为 93.45%，而 P6 为 99.56%。三者不在同一 warm 预算上，因此原比较无法区分"机制更优"与"多花了 warm"。
+
+匹配代价后结论**反转**，且双域双机制一致：
+
+| 检验 | 域 | 结果 |
+|---|---|---|
+| A：随机子集 @ P6 的 warm 代价 | Toys | P6 胜，**0/20** 随机种子追平 |
+| A2：学习效用排序 vs 随机，全覆盖率扫描 | Toys | 低覆盖区 **9/20**（@2）、**12/20**（@3）个覆盖点超出随机 2sd |
+| A3：CBSA 动作多重集固定 + 随机置换 | Toys | **0/200** 置换 ≥ 学习型，p=0.005 |
+| A3：同上 | Beauty | **0/200** 置换 ≥ 学习型，p=0.005 |
+
+A3 为最强证据：动作多重集按构造固定，warm 代价精确匹配而非校准得到。
+
+**因此正确的表述是**：学习型分配机制**确实优于随机分配**；P1–P7 之所以全部 FAIL，是被未经论证的 `warm≥0.97` 门槛与未对齐的比较基线共同埋没，而不是"学习型机制无效"。
+
+**同时定位了真正的瓶颈**：cold target 落在 resolver top-50 内的比例仅 **11.40%（Toys）/ 11.03%（Beauty）** —— 约 **89% 的 cold 用户，正确答案根本不在候选池内**。插入 N 个候选的理论天花板为 @2=2.11%、@3=3.11%、@10=7.17%；而 oracle 用户选择（0.029998）与无条件全覆盖（0.029769）几乎相同，说明**用户选择维度已近饱和**。这也解释了 P1–P7/CBSA 的可学正例为何只有 52 个（base rate 0.59%）——可学的部分本就只有约 3%。
+
+**方向重定位：停止设计第 9 个 slate allocator，转向提升 resolver 召回。** 详见 `report/第十三阶段/GRAM_第十三阶段_Tier0_诊断三连_核心论断更正与瓶颈重定位.md` 与本文档 Section 3.5.9。
 
 ### 3.5.8 Publication 创新性检查点（2026-08-18 初步；2026-08-19 已选择方法路线）
 
@@ -1134,6 +1180,64 @@ cold H@50 的事件密度（Toys）：v0=45、resolver-only=498。相比 cold ND
 
 **用户已于 2026-08-19 明确选择方法论文路线。** 因而本阶段不再停留在“是否训练过模型”的争论，也不直接把 B1 PASS 升级为 publication matrix GO；改为执行本计划新增的 **R²-v2 CBSA** 预注册。它必须相对已经通过的 `portfolio@2` 做 Pareto 改进，并在未参与设计的 Sports 上一次性确认，才有资格重写 publication plan。旧 v2–v5 不再恢复。
 
+**2026-08-19 更新**：R²-v2 已 `FAIL_STOP_R2_V2_SOURCE`。随后的 Tier-0 诊断（3.5.7 更正节）撤回了主张 3，并把瓶颈重新定位到 resolver 召回。方法论文路线**保持不变**，但方法的着力点从"slate allocator"改为"cold-item 召回"。见 Section 3.5.9。
+
+### 3.5.9 方向重定位：从 slate 分配转向 resolver 召回（2026-08-19）
+
+#### 为什么换方向
+
+Tier-0 三个诊断（证据见 `report/第十三阶段/GRAM_第十三阶段_Tier0_诊断三连_核心论断更正与瓶颈重定位.md`）给出三条互相印证的结论：
+
+1. **学习型分配是有效的**（A/A2/A3，双域双机制，A3 达 p=0.005）——所以"再设计一个更好的 allocator"不是没价值，但……
+2. **分配维度已近饱和**：oracle 用户选择 `0.029998` ≈ 无条件全覆盖 `0.029769`。把"选哪些用户"做到完美，收益也就这么多；
+3. **真正的约束是召回**：cold target 在 resolver top-50 内仅 `11.40%/11.03%`，插入 10 个候选的天花板也只有 `7.17%/6.64%`。约 89% 的 cold 用户，答案根本不在池子里。
+
+因此 P8/P9 式的分配机制迭代**期望收益上界很低**，而 resolver 召回是一个**尚未认真优化过**的维度。
+
+#### Resolver 当前状态（欠训练证据）
+
+| 项 | 当前值 | 备注 |
+|---|---|---|
+| 架构 | residual user projector | 单个小 MLP |
+| epochs | **12** | 几乎确定欠训练 |
+| 负样本 | in-batch 随机 | 对 12k item 全库检索过弱 |
+| hard negative mining | 无 | — |
+| 温度 | 未调 | — |
+| projector 容量 | 未调 | — |
+| 用户表示 | history embedding 投影 | 长历史被均值抹平 |
+| item 侧 | BGE 完全冻结 | — |
+
+#### Tier-1 候选（按性价比排序）
+
+全部**不重训 GRAM**，复用冻结的 v0 预测与 BGE embedding，小 GPU、分钟到小时级：
+
+| 优先级 | 改动 | 假设 |
+|---|---|---|
+| 1 | epochs 12 → 50/100 | 最可能白捡的收益 |
+| 2 | hard negative mining（BGE 空间近邻） | 随机负样本无法教会模型区分近义 item |
+| 3 | 温度 / projector 容量调参 | 从未调过 |
+| 4 | 用户表示：均值 → attention 加权 / 多向量 | 保留长历史中的多兴趣信号 |
+| 5 | item 侧轻量微调 | 让 item 空间适配推荐任务而非纯语义 |
+
+**主指标：cold recall@50**（当前 Toys `11.40%` / Beauty `11.03%`）。
+
+选择该指标的理由：(a) 它直接测量被识别为瓶颈的量；(b) 事件密度远高于 cold NDCG@10（498/583 vs 23/16），具备统计分辨率；(c) 召回提升会按比例放大下游 portfolio 收益，**不需要任何新的 gating 机制**。
+
+#### 纪律要求（硬规则）
+
+- Tier-1 属于**方法开发**，只能使用 Toys/Beauty 的 **train + validation**；
+- **Toys/Beauty test 与 Sports 全部保持封存**；
+- 任何 Tier-1 候选若要声称 efficacy，必须另行预注册，并在**尚未查看的数据**上确认；
+- Tier-1 的 validation 结果只用于**选择方向**，不得直接作为论文的主结果数字；
+- 不恢复 P1–P7、CBSA 或旧 v2–v5；不在现有 validation 上继续调 allocator。
+
+#### 若 Tier-1 成功，论文形态
+
+> **瓶颈不在 slate 分配而在 cold-item 召回。** 我们用 8 个失败的分配机制 + 匹配代价的对照实验证明：分配层学习虽有效但天花板仅约 3%（因为 89% 的 cold target 不在候选池内）；随后给出一个显著提升 cold 召回的 resolver，配合最简单的固定 portfolio 规则即可兑现收益，并报告诚实的 warm–cold Pareto 前沿。
+
+该叙事**同时用上全部负结果**（它们成为"为什么不该往分配方向走"的证据），并有一个正向的方法贡献。若 Tier-1 失败，则回落到分析/基准论文定位（3.5.8 第一种）。
+
+
 ## 4. 探索时间表（原计划归档 + 当前 R²-v2）
 
 | Week | 版本 | 主要工作 | 累积时间 |
@@ -1145,8 +1249,8 @@ cold H@50 的事件密度（Toys）：v0=45、resolver-only=498。相比 cold ND
 | 5 | 旧 v4 | + Multi-perspective + reflection（历史归档，不执行） | +5 天 |
 | 6 | 旧 v5 | + Uncertainty dual-path（历史归档，不执行） | +5 天 |
 | 7-8 | Buffer | 补 iteration + 决策进 publication or Plan Z |  |
-| 当前 T0 | R²-v2 freeze | 实现、单测、source schema/preflight；不读 Sports | 预计 1–2 天 |
-| 当前 T1 | R²-v2 Stage S | Toys+Beauty 5-fold OOF source Gate | 预计 1 天内（不含 cache 重建） |
+| T0 | R²-v2 freeze | ✅ 实现、99 tests、source schema/preflight；未读 Sports | 2026-08-19 完成 |
+| T1 | R²-v2 Stage S | ❌ catalog-cold recovery `FAIL_STOP_R2_V2_SOURCE`；Sports locked | 2026-08-19 11:27 完成 |
 | 条件 T2 | R²-v2 Stage C | 仅 Stage S PASS 后讨论并执行 Sports 一次性确认 | 另行资源评估 |
 
 原 v0–v5 工期只作历史记录。R²-v2 不套用旧“三次 iteration”额度；它按一次 source Gate + 条件式一次 confirmation 止损。
@@ -1348,9 +1452,9 @@ ln -s $(pwd)/artifacts/phase13/explore/v1_minimum_bridge/iter_N \
 ## 8. 关键 TODO(HI-GRAM 收尾前可零成本准备)
 
 **High priority(不占 GPU 可先做)**:
-- [ ] 实现 `r2_v2_budgeted_slate_allocator.py` 与 target-leakage / fold-isolation / Sports guard 单测
-- [ ] 冻结 R²-v2 feature schema、5-fold salt、三动作构造与 config/code SHA256
-- [ ] 完成 Toys/Beauty cache alignment preflight（只核完整性，不输出 efficacy）
+- [x] 实现 `r2_v2_budgeted_slate_allocator.py` 与 target-leakage / fold-isolation / Sports guard 单测（Phase-13 99 tests passed）
+- [x] 冻结 R²-v2 feature schema、5-fold salt、三动作构造与 config/code SHA256
+- [x] 完成 Toys/Beauty cache alignment preflight（只核完整性，不输出 efficacy；随后 Stage S 已执行）
 
 **以下为旧路线历史 TODO（已 superseded，不执行）**:
 
@@ -1406,11 +1510,18 @@ ln -s $(pwd)/artifacts/phase13/explore/v1_minimum_bridge/iter_N \
 | v1_r2_beauty_b1_portfolio | Beauty validation 跨域确认 | ✅ completed | **0.009231** | overall **+4.15%**；cold H@50 **2.49×**；warm **−5.26%** | **PASS_TO_PUBLICATION_PREPARATION** | `GRAM_第十三阶段_v1-R2_Beauty-B1_无条件portfolio跨域确认报告.md` | 2026-08-18 18:59 |
 | 旧 v4 | iter_1 | ⚫ superseded / not executing | — | — | — | 历史方案见本文旧 v4 节 | 2026-08-19 重标 |
 | 旧 v5 | iter_1 | ⚫ superseded / not executing | — | — | — | 历史方案见本文旧 v5 节 | 2026-08-19 重标 |
-| R²-v2 CBSA | preregistration | 📝 frozen / not started | — | 主对照=`portfolio@2` | **R2_V2_PREREGISTERED_NOT_STARTED** | 本文 R²-v2 节 | 2026-08-19 |
+| R²-v2 CBSA | Stage S source OOF | ⚠️ completed / comparator mismatch | mechanical overall +1.26%；warm CI 跨0；true-incumbent cold H@50 retention 68.06% | 声明主对照未被正确实现 | **INVALID_FOR_PREREGISTERED_INCUMBENT_COMPARISON** | `GRAM_第十三阶段_R2-v2_StageS_source-OOF口径失配审计报告.md` | 2026-08-19 10:46 |
+| R²-v2 CBSA | Stage S equivalent recovery | ❌ completed / CPU | overall `+1.49%` PASS；warm `+0.60%` CI 跨0；cold aggregate `+6.41%` PASS；Beauty cold retention=`91.86%` | 每域 cold 方向一致性硬门失败 | **FAIL_STOP_R2_V2_SOURCE** | `GRAM_第十三阶段_R2-v2_StageS_catalog-cold等价恢复正式结果.md` | 2026-08-19 11:27 |
+| Tier-0 A | warm 代价匹配随机基线（Toys） | ✅ done（纯 CPU，未读 test） | P6 `0.018090` vs 随机 `0.012411` | **0/20 随机种子追平 P6** | 🔴 **主张 3 撤回** | `GRAM_第十三阶段_Tier0_诊断三连_核心论断更正与瓶颈重定位.md` | 2026-08-19 |
+| Tier-0 A2 | 学习效用排序 vs 随机，扫覆盖率（Toys） | ✅ done（纯 CPU） | 低覆盖区学习型持续领先 | @2: 9/20 点超 2sd；@3: 12/20 | 学习型分配**有效** | 同上 | 2026-08-19 |
+| Tier-0 A3 | CBSA 动作多重集置换（Toys+Beauty） | ✅ done（纯 CPU） | Toys `0.036409` vs `0.030653`；Beauty `0.029885` vs `0.025903` | **0/200 置换 ≥ 学习型，p=0.005，双域** | 代价按构造匹配，最强证据 | 同上 | 2026-08-19 |
+| Tier-0 B | 候选池天花板分解（Toys+Beauty） | ✅ done（纯 CPU） | cold target 在 resolver top-50 内仅 `11.40%/11.03%` | 插入天花板 @2=2.11% @10=7.17% | 🎯 **瓶颈=召回非分配** | 同上 | 2026-08-19 |
 
 **每次 iteration 完成后必须回来更新此表**(新增行 or 更新对应行)。
 
-**当前执行顺序（2026-08-19 修订）**：原 collision-safe v1 双域 FAIL；P1–P7 learned gating 未获独立确认；冻结的 `domain-local resolver + unconditional portfolio@2` 已在 Beauty B1 通过跨域主 Gate（overall +4.15%、cold H@50 2.49×、warm −5.26%）。用户已选择方法论文路线，当前 transition 为 **`R2_V2_PREREGISTERED_NOT_STARTED`**：先实现并审计单一可训练 R²-v2 CBSA，再做 Toys+Beauty source OOF Gate；只有相对 `portfolio@2` 的 overall/warm 改善和 cold 非劣同时成立，才讨论 Sports 一次性确认。**不启动旧 v2–v5、P8、Toys/Beauty test 或 publication 全矩阵，不在 Sports 上开发**。GPU5 holder 的旧 degraded 状态与 B1 科学结论分开处理。
+**当前执行顺序（2026-08-19 二次修订）**：R²-v2 已正式 `FAIL_STOP_R2_V2_SOURCE`。随后的 **Tier-0 三连诊断已完成**（纯 CPU、未读 test），产出两项方向性结论：(1) 主张 3「简单打败复杂」**已撤回**——原比较未匹配 warm 代价，匹配后学习型分配在双域双机制上显著优于随机（A3: p=0.005）；(2) 真正的瓶颈是 **resolver 召回**（约 89% 的 cold target 不在 resolver top-50 内），分配维度已近饱和。
+
+**下一步：Tier-1 resolver 召回提升**（详见 Section 3.5.9）。不重训 GRAM，复用冻结 v0 预测与 BGE embedding，主指标 `cold recall@50`。**仍禁止**：读取任一域 test、启动 Sports、恢复 P1–P7/CBSA/旧 v2–v5、在现有 validation 上继续调 allocator、启动 publication 全矩阵。GPU0 约 30 GiB 与 GPU5 约 20 GiB 用户占位资源不得调整；当前 8 卡接近满载，大实验需先申请。
 
 ---
 
@@ -1432,11 +1543,11 @@ ln -s $(pwd)/artifacts/phase13/explore/v1_minimum_bridge/iter_N \
 ## 11. Notes for Future Sessions
 
 **续接时必做(顺序)**:
-0. **先读 R²-v2 新节、Beauty B1 报告与 Section 3.5**——B1 已 PASS；用户已选择方法论文路线，当前任务是实现/审计 R²-v2 的 source Gate，不是恢复 P8 或旧 v2–v5
+0. **先读 R²-v2 catalog-cold 等价恢复正式结果、原口径失配审计、R²-v2 新节、Beauty B1 报告与 Section 3.5**——recovery 已 `FAIL_STOP_R2_V2_SOURCE`，R²-v2 停止，Sports 锁定
 1. 读本文档(尤其 Section 9 进度追踪表)
 2. 优先读 `report/第十三阶段/GRAM_第十三阶段_v1_collision-safe_双域重跑验证报告.md`；Beauty 结果已于 2026-08-18 补记在本文档 v1 Beauty 结果节，该报告仍待补全
-3. `nvidia-smi -i <保护卡>` 确认占位者还在（**注意：GPU5 的 ablation-scan holder 在 Beauty 运行后处于 degraded 状态 `degraded_scan_18263mib_on_gpu5`，需先确认/恢复**）
-4. 看当前 iteration 状态 `cat artifacts/phase13/explore/<current_v>/iter_<M>/status.json`
+3. 启动前重新执行 `nvidia-smi`：GPU0 约 30 GiB 与 GPU5 约 20 GiB 为用户占位，不得调整；小实验只选其他卡实时空闲，资源不足先向用户申请
+4. 看正式恢复状态 `cat artifacts/phase13/explore/v1_r2_v2_source_screen_recovery_cold_candidates/status.json`；原 `v1_r2_v2_source_screen/` 只保留 comparator-invalid 历史证据
 5. 参考 memory `project_current_run.md`
 
 **证据使用禁令**：不得再把旧 v1 raw PASS、旧 v2 FAIL 或旧 v3 快筛当作 collision-safe 主线的正式 Gate；它们只可作为历史/诊断材料。

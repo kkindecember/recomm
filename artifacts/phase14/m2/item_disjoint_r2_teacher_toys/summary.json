@@ -1,0 +1,102 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_1B_ITEM_DISJOINT_R2_TEACHER_TOYS",
+  "status": "completed",
+  "verdict": "PASS_ITEM_DISJOINT_TEACHER_READY",
+  "data_report": {
+    "n_train": 27480,
+    "n_calibration": 3088,
+    "n_unique_targets": 4615,
+    "forbidden_target_count": 0,
+    "forbidden_history_count": 0
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "loss": 4.982870412740471,
+      "residual_scale": 0.12700465321540833
+    },
+    {
+      "epoch": 2,
+      "loss": 4.860867923767112,
+      "residual_scale": 0.16946683824062347
+    },
+    {
+      "epoch": 3,
+      "loss": 4.792132919289313,
+      "residual_scale": 0.20672881603240967
+    },
+    {
+      "epoch": 4,
+      "loss": 4.740108611038852,
+      "residual_scale": 0.24406464397907257
+    },
+    {
+      "epoch": 5,
+      "loss": 4.69238836359249,
+      "residual_scale": 0.28022831678390503
+    },
+    {
+      "epoch": 6,
+      "loss": 4.639604024873203,
+      "residual_scale": 0.3160625994205475
+    },
+    {
+      "epoch": 7,
+      "loss": 4.5983785371072425,
+      "residual_scale": 0.34880390763282776
+    },
+    {
+      "epoch": 8,
+      "loss": 4.561657513211735,
+      "residual_scale": 0.3779873549938202
+    },
+    {
+      "epoch": 9,
+      "loss": 4.529946751018452,
+      "residual_scale": 0.4068467617034912
+    },
+    {
+      "epoch": 10,
+      "loss": 4.505366885089458,
+      "residual_scale": 0.43170812726020813
+    },
+    {
+      "epoch": 11,
+      "loss": 4.470614541843642,
+      "residual_scale": 0.4570296108722687
+    },
+    {
+      "epoch": 12,
+      "loss": 4.449006289130909,
+      "residual_scale": 0.48059409856796265
+    }
+  ],
+  "calibration": {
+    "candidate_size": 50,
+    "n_calibration": 3088,
+    "target_recall_at_m": 0.11755181347150259,
+    "temperature_nll": {
+      "0.03": 9.25516784252898,
+      "0.05": 8.646642314337695,
+      "0.07": 8.659466703938696,
+      "0.1": 8.783822385758317,
+      "0.2": 9.037706389946024
+    },
+    "selected_temperature": 0.05,
+    "confidence_rule": {
+      "name": "margin_entropy_prefix_coverage_v1",
+      "margin_q25": 0.005061045289039612,
+      "margin_q50": 0.01358938217163086,
+      "margin_q75": 0.03231668472290039,
+      "normalized_entropy_q25": 0.9795652627944946,
+      "normalized_entropy_q50": 0.9892339110374451,
+      "normalized_entropy_q75": 0.9939359426498413,
+      "prefix_coverage_component": "0.5 + 0.5 * min(1, descendant_count / 5)",
+      "fit_inputs": "retained-warm train calibration fold only"
+    }
+  },
+  "selected_score_temperature": 0.05,
+  "test_opened": false,
+  "held_ground_truth_opened": false,
+  "runtime_seconds": 24.786232471466064
+}

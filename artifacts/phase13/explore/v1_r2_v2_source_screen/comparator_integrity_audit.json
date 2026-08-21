@@ -1,0 +1,55 @@
+{
+  "audit_type": "post_run_read_only_comparator_alignment",
+  "status": "RED_FLAG",
+  "mechanical_summary_verdict": "INCONCLUSIVE_STOP_R2_V2_SOURCE",
+  "scientific_integrity_verdict": "INVALID_FOR_PREREGISTERED_INCUMBENT_COMPARISON",
+  "reason": "The implemented a2/portfolio2 uses raw resolver top items, while the frozen B1 incumbent uses catalog-cold resolver candidates. The implemented comparator is therefore not the incumbent named by the Stage-S research question and Gate.",
+  "implementation_evidence": {
+    "stage_s_candidate_filter": "item in catalog and item not in protected",
+    "stage_s_code": "experiment/phase13/protocol/r2_v2_budgeted_slate_allocator.py:199",
+    "b1_incumbent_candidate_filter": "item in cold_items and item not in protected",
+    "b1_code": "experiment/phase13/protocol/b1_portfolio_confirmation.py:103",
+    "plan_incumbent_clause": "plan/第十三阶段/GRAM_第十三阶段_CANARD探索计划v0.1.md:729"
+  },
+  "implemented_comparator_mechanical_gate": {
+    "overall_ndcg10_delta": 0.0004668777126904189,
+    "overall_ndcg10_ci95": [0.0000723410937361251, 0.0008586448475880354],
+    "warm_ndcg10_delta": 0.0003813372016565085,
+    "warm_ndcg10_ci95": [-0.0002322343203004416, 0.0010054874109113345],
+    "cold_hit50_delta": 0.0016826250180340032,
+    "cold_hit50_ci95": [0.00003493485821342909, 0.0033153113852457663]
+  },
+  "read_only_diagnostic_vs_true_b1_incumbent": {
+    "warning": "Post-hoc diagnostic only. It cannot repair the run because CBSA was trained on the mismatched action definition.",
+    "overall_ndcg10_delta": -0.00034482565774377404,
+    "overall_ndcg10_relative_percent": -0.912640094981673,
+    "overall_ndcg10_ci95": [-0.0008061996984282609, 0.00012151023008027424],
+    "warm_ndcg10_delta": 0.002216572514799448,
+    "warm_ndcg10_relative_percent": 3.348826404950868,
+    "warm_ndcg10_ci95": [0.0015526353548813226, 0.002902023960162353],
+    "cold_hit50_delta": -0.009950460252017372,
+    "cold_hit50_relative_percent": -31.943001903458896,
+    "cold_hit50_retention": 0.680569980965411,
+    "cold_hit50_ci95": [-0.012090931851326269, -0.007934441682635414],
+    "cold_hit50_noninferiority_boundary": -0.0015575336785957964,
+    "per_domain": {
+      "Toys": {
+        "overall_ndcg10_delta": -0.0005789782869546276,
+        "cold_hit50_cbsa": 0.020838103961529655,
+        "cold_hit50_true_incumbent": 0.029768719945042363
+      },
+      "Beauty": {
+        "overall_ndcg10_delta": -0.00011067302853292466,
+        "cold_hit50_cbsa": 0.021562322678267448,
+        "cold_hit50_true_incumbent": 0.032532627198789486
+      }
+    }
+  },
+  "guards": {
+    "sports_read": false,
+    "test_read": false,
+    "rerun_performed": false,
+    "parameters_changed": false
+  },
+  "next_action": "STOP_AND_REQUEST_USER_DECISION_ON_EQUIVALENT_RECOVERY; SPORTS_REMAINS_LOCKED"
+}
