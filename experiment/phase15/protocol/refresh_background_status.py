@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 
-PROGRESS_RE = re.compile(r"\[s3a-eval\]\s+events=(\d+)/(\d+)")
+PROGRESS_RE = re.compile(r"\[s3[ab]-eval\]\s+events=(\d+)/(\d+)")
 
 
 def _pid_alive(pid: Any) -> bool:
@@ -20,7 +20,11 @@ def _pid_alive(pid: Any) -> bool:
         return False
     try:
         os.kill(pid, 0)
-    except (OSError, PermissionError):
+    except PermissionError:
+        # EPERM means the PID exists but belongs to a process namespace/user
+        # that the status reader is not allowed to signal.
+        return True
+    except OSError:
         return False
     return True
 
@@ -56,7 +60,7 @@ def refresh(
     status["process_alive"] = _pid_alive(status.get("workload_pid"))
     status["progress_current"] = current
     status["progress_total"] = total
-    status["progress_unit"] = "held_events"
+    status["progress_unit"] = "events"
     status["updated_at"] = dt.datetime.now().astimezone().isoformat(timespec="seconds")
 
     tmp_path = status_path.with_name(f"{status_path.name}.refresh.{os.getpid()}")
