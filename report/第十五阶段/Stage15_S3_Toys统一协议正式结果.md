@@ -5,8 +5,8 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: run + validate
 - Origin Date: 2026-08-22
-- Verification Status: PARTIALLY_VERIFIED（B2 与 exploratory B3 S15-3A 均已 PASS；B0/B1/B2 S15-3B 运行中；B3 独立 full-validation runner 已冻结并等待 GPU admission）
-- Version Label: stage15_s3_toys_v4_b3_full_ready
+- Verification Status: PARTIALLY_VERIFIED（B2 与 exploratory B3 S15-3A 均已 PASS；B0/B1/B2 与独立 B0/B1/B3 S15-3B 均运行中）
+- Version Label: stage15_s3_toys_v5_b3_full_running
 
 ## 当前结论
 
@@ -100,4 +100,4 @@ admission 非推广性指标如下，仅证明 evaluator 与排序路径完整�
 
 S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行。exploratory B3 的独立入口已冻结为 `experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh`：复用同一 8,789-event validation、B0/B1 frozen replay、10,000 次 paired bootstrap、seed 与指标定义；从 Toys GRAM v0 上为全部 5,963 cold catalog 重建 train-only BGE contexts、covariance、edit requests 与 deltaW，不改动或并入当前活跃 run。
 
-B3 full-validation resource contract 为 GPU free≥`16,384 MiB`、预计增量上界=`12,288 MiB`、hard timeout=`86,400 s`，独立 artifact=`artifacts/phase15/s3_toys/full_validation/b3_branching_seed0`，status/log/telemetry 均按后台规范写出。49/49 tests 与真实输入 dry preflight 已 PASS；22:14 资源快照暂时没有 GPU 达到门槛，因此不降低 admission、不修改现有进程，等待启动前重新采样。test 继续封存且 automatic retry=false。
+B3 full-validation resource contract 为 GPU free≥`16,384 MiB`、预计增量上界=`12,288 MiB`、hard timeout=`86,400 s`，独立 artifact=`artifacts/phase15/s3_toys/full_validation/b3_branching_seed0`。22:17:14 重采样 GPU6 free=`25,450 MiB` 后按 exact command `bash experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh start 6` 后台启动；49/49 worker preflight、全量 5,963 cold contexts、probe、256 covariance 和六位置 delta 均已成功，selected request z-success=`[2,2,1,1,1,1]/4`，现已进入 8,789-event evaluation。status 刷新器新增 `[s3b-b3-eval]` marker 支持并经完整 50/50 tests 验证。test 继续封存且 automatic retry=false。

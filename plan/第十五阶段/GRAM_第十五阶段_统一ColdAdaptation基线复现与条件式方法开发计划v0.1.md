@@ -2,7 +2,7 @@
 
 > **建立日期**：2026-08-21
 > **修订日期**：2026-08-22（v0.1-r8）
-> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FORMAL_FAIL_PRESERVED / B3_EXPLORATORY_RECOVERY_PASS_S15_3A / S15_3B_B0_B1_B2_RUNNING / B3_FULL_VALIDATION_READY_RESOURCE_PENDING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
+> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FORMAL_FAIL_PRESERVED / B3_EXPLORATORY_RECOVERY_PASS_S15_3A / S15_3B_B0_B1_B2_RUNNING / S15_3B_B0_B1_B3_RUNNING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
 > **阶段定位**：先复现并对齐 SpecGR / GenRecEdit，再依据同协议证据决定是否开发新方法
 > **上一阶段**：Stage14 R2PD 在 M2 14-1 得到 `FAIL_STOP_PATH_TRANSFER_STAGE14_1`，14-2/M3/M4 已取消
 
@@ -13,7 +13,7 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: plan
 - Origin Date: 2026-08-21
-- Verification Status: PARTIALLY_VERIFIED（S15-3A B2 与 exploratory B3 512-event admission 均已 PASS；B3 原正式 admission FAIL 历史保留；S15-3B B0/B1/B2 full validation 运行中，B3 独立 full validation runner 已冻结并等待 16 GiB GPU admission；官方原生 GPU 闭环尚未执行）
+- Verification Status: PARTIALLY_VERIFIED（S15-3A B2 与 exploratory B3 512-event admission 均已 PASS；B3 原正式 admission FAIL 历史保留；S15-3B B0/B1/B2 与独立 B0/B1/B3 full validation 均运行中；官方原生 GPU 闭环尚未执行）
 - Version Label: phase15_cold_adaptation_plan_v0.1-r8
 
 ---
@@ -618,3 +618,4 @@ S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态
 | 2026-08-22 | B3 recovery attempt-5 GPU6 后台启动 | 21:05:37 启动时 GPU6 是唯一满足 16,384 MiB admission 的设备，保留其既有进程；47/47 preflight PASS，status=`RUNNING`、worker 已进入 B2 train/state 构建，512-event progress 尚为 0。独立 artifact=`artifacts/phase15/s3_toys/admission/b3_branching_recovery_attempt5`，hard timeout=14,400 s、test_read=false、automatic_retry=false。 |
 | 2026-08-22 | B3 exploratory recovery attempt-5 完成并 PASS S15-3A | 512/512 events、workload rc=0、verdict=`PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`；runtime=2,111.37 s，peak CUDA allocated=6,935.35 MiB。六位置 delta finite/nonzero 且 generation 全部实际触发，B3 与 B0 排序在 510/512 events 不同；所有 ranking unique known top-50，base hash 前后不变，held-after-state、test sealed。允许冻结独立 B3 full validation，不回填当前 B0/B1/B2 run。 |
 | 2026-08-22 | B3 独立 S15-3B runner 冻结并获启动授权 | 新入口=`experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh`，只运行 B0/B1 frozen replay + exploratory B3；8,789 validation events、全部 5,963 cold catalog、59,630 train-only BGE contexts、256 covariance transitions、4 requests/position、beam=50、10,000 paired bootstrap、seed=1502/20260822 均冻结。49/49 tests 与真实输入 dry preflight PASS；GPU admission=16,384 MiB、预计增量上界=12,288 MiB、hard timeout=86,400 s、automatic retry=false。22:14 资源快照无设备达到门槛，最近 GPU5 free=16,017 MiB，故暂不降门槛，等待重新采样。exact command=`bash experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh start <admitted_gpu>`。 |
+| 2026-08-22 | B3 独立 S15-3B 在 GPU6 启动 | 22:17:14 重采样 GPU6 free=25,450 MiB，满足 16,384 MiB admission；按用户确认 exact command=`bash experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh start 6` 后台启动，保留既有进程。49/49 worker preflight PASS，全量 contexts/probe/covariance 与六位置 delta 均成功，selected request z-success=`[2,2,1,1,1,1]/4`；已进入 evaluation。新增 `[s3b-b3-eval]` status 解析后完整 Stage15 tests 50/50 PASS，观察面显示 96/8,789；test_read=false、automatic_retry=false。 |
