@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import inspect
 import sys
 import unittest
 
@@ -262,6 +263,10 @@ class TestGenRecEditGramAdapter(unittest.TestCase):
         )
         hidden = torch.tensor([[[1.0, 2.0]], [[3.0, 4.0]]])
         with context:
+            self.assertIn(
+                "encoder_outputs",
+                inspect.signature(model.prepare_inputs_for_generation).parameters,
+            )
             model.prepare_inputs_for_generation(torch.tensor([[0], [0]]))
             first = model.decoder.block[0].layer[2].DenseReluDense.wo(hidden)
             self.assertTrue(torch.equal(first, hidden))

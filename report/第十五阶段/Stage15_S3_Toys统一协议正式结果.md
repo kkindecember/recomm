@@ -78,6 +78,8 @@ attempt-2 中 positions 4/5 在全部 6 层的 token accuracy 均为 0。按冻�
 
 该恢复标记为 exploratory。它不会把 B3 追加到已运行的 B0/B1/B2 S15-3B；只有独立 recovery 512-event admission 完成全部 One-One path、finite/nonzero delta、unique known top-50、base hash unchanged、held-after-state 和 test sealed Gate 后，才允许另行安排 B3 full validation。
 
+branching recovery attempt-1 已验证 edit-state 根因修复：positions 0–5 的 successful z requests 分别为 `[2,1,2,3,2,1]/4`，六个 covariance/deltaW bundle 全部成功写出。随后在第一个 edited beam 前由 Transformers 4.21 generation kwargs 校验失败：One-One context 的动态 `prepare_inputs_for_generation` wrapper 将原 T5 的显式 `encoder_outputs` 参数折叠进 `**kwargs`，而 GRAM `forward` 也只通过 `**kwargs` 转发，导致旧版校验器将实际使用的 `encoder_outputs` 误报为 unused。该 attempt rc=1、`0/512`，独立 artifact 保留；修复必须恢复原 encoder-decoder generation 参数的显式签名，不允许改 edit-state 超参数。
+
 ## 下一 Gate
 
 S15-3B 只允许 B0、B1、B2 进入 Toys full validation。启动前必须冻结：full validation event 数、paired bootstrap seed/10,000 resamples、cost telemetry、显存与 hard timeout、exact background command 和独立 `status.json`。在该资源合约获得确认前不自动启动。

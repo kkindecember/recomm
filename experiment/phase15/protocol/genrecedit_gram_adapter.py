@@ -599,9 +599,35 @@ class OneOneGenerationDeltaContext:
         self._original_prepare = self.model.prepare_inputs_for_generation
         original = self._original_prepare
 
-        def prepare(_model, decoder_input_ids, **kwargs):
+        # Keep every encoder-decoder generation kwarg explicit.  Transformers
+        # 4.21 validates model_kwargs by inspecting this bound method's
+        # signature before generation; collapsing these names into **kwargs
+        # makes GRAM's precomputed ``encoder_outputs`` look unused even though
+        # the original T5 method consumes it.
+        def prepare(
+            _model,
+            decoder_input_ids,
+            past_key_values=None,
+            attention_mask=None,
+            head_mask=None,
+            decoder_head_mask=None,
+            cross_attn_head_mask=None,
+            use_cache=None,
+            encoder_outputs=None,
+            **kwargs,
+        ):
             self._set_decoder_prefixes(decoder_input_ids)
-            return original(decoder_input_ids, **kwargs)
+            return original(
+                decoder_input_ids,
+                past_key_values=past_key_values,
+                attention_mask=attention_mask,
+                head_mask=head_mask,
+                decoder_head_mask=decoder_head_mask,
+                cross_attn_head_mask=cross_attn_head_mask,
+                use_cache=use_cache,
+                encoder_outputs=encoder_outputs,
+                **kwargs,
+            )
 
         self.model.prepare_inputs_for_generation = MethodType(prepare, self.model)
         for layer in sorted(set(self.position_to_layer.values())):
