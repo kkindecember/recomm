@@ -20,6 +20,7 @@ from genrecedit_gram_adapter import (  # noqa: E402
     merge_probe_counts,
     probe_accuracy_from_counts,
     select_probe_layers,
+    select_branching_positionwise_smoke_requests,
     select_positionwise_smoke_requests,
     solve_closed_form_delta,
     validate_request_universe,
@@ -114,6 +115,50 @@ class TestGenRecEditGramAdapter(unittest.TestCase):
             legal_target_state(
                 torch.zeros(8), target_token_id=7, legal_token_ids=(5, 6)
             )
+
+    def test_branching_request_selection_excludes_structurally_solved_prefixes(self):
+        catalog = {
+            "c1": ("a", "x"),
+            "c2": ("a", "y"),
+            "c3": ("b", "z"),
+        }
+        requests = build_positionwise_requests(
+            cold_paths=catalog,
+            pseudo_contexts={item: [("warm", ("history",))] for item in catalog},
+        )
+        selected = select_branching_positionwise_smoke_requests(
+            requests,
+            catalog_paths=catalog,
+            requests_per_position=1,
+            seed=1502,
+        )
+        self.assertEqual(set(selected), {0, 1})
+        self.assertNotEqual(selected[1][0].cold_item, "c3")
+        for position, rows in selected.items():
+            prefix = rows[0].prefix_tokens
+            children = {
+                path[position]
+                for path in catalog.values()
+                if path[:position] == prefix
+            }
+            self.assertGreaterEqual(len(children), 2)
+
+    def test_branching_request_selection_is_input_order_independent(self):
+        catalog = {
+            "c1": ("a", "x"),
+            "c2": ("a", "y"),
+            "c3": ("b", "x"),
+            "c4": ("b", "y"),
+        }
+        requests = build_positionwise_requests(
+            cold_paths=catalog,
+            pseudo_contexts={item: [("warm", ("history",))] for item in catalog},
+        )
+        kwargs = dict(catalog_paths=catalog, requests_per_position=2, seed=1502)
+        self.assertEqual(
+            select_branching_positionwise_smoke_requests(requests, **kwargs),
+            select_branching_positionwise_smoke_requests(list(reversed(requests)), **kwargs),
+        )
     def test_probe_selection_and_position_map_are_complete(self):
         cold_paths = {"c1": ("a", "b"), "c2": ("a", "b", "c")}
         selected = select_probe_layers(

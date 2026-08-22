@@ -188,6 +188,60 @@ def select_positionwise_smoke_requests(
     return result
 
 
+def select_branching_positionwise_smoke_requests(
+    requests: Sequence[PositionWiseRequest],
+    *,
+    catalog_paths: Mapping[str, Sequence[str]],
+    requests_per_position: int,
+    seed: int,
+    minimum_legal_children: int = 2,
+) -> dict[int, list[PositionWiseRequest]]:
+    """Select deterministic edit requests only at non-trivial trie branches.
+
+    A prefix with one legal continuation has legal-set target probability 1 by
+    construction.  It therefore cannot satisfy the GenRecEdit admission rule
+    requiring a strict probability increase, regardless of layer, optimizer,
+    seed, or step budget.  Filtering those structurally solved requests is an
+    item-catalog operation; it does not inspect interaction targets or model
+    outcomes.  The existing SHA ranking and distinct-cold-item rule are then
+    applied unchanged to the remaining requests.
+    """
+
+    if minimum_legal_children < 2:
+        raise ValueError("Branching request selection requires at least two children")
+    if not catalog_paths:
+        raise ValueError("Branching request selection requires a catalog")
+    filtered: list[PositionWiseRequest] = []
+    children_by_prefix: dict[tuple[str, ...], set[str]] = {}
+    for raw_path in catalog_paths.values():
+        path = tuple(raw_path)
+        for position, token in enumerate(path):
+            children_by_prefix.setdefault(path[:position], set()).add(token)
+    for request in requests:
+        prefix = tuple(request.prefix_tokens)
+        children = children_by_prefix.get(prefix, set())
+        if request.target_token not in children:
+            raise ValueError("Edit request target is not a catalog continuation")
+        if len(children) >= minimum_legal_children:
+            filtered.append(request)
+    required_positions = {request.position for request in requests}
+    try:
+        selected = select_positionwise_smoke_requests(
+            filtered,
+            requests_per_position=requests_per_position,
+            seed=seed,
+        )
+    except ValueError as error:
+        raise ValueError(
+            "Insufficient distinct branching cold items for every lexical position"
+        ) from error
+    if set(selected) != required_positions:
+        raise ValueError(
+            "Insufficient distinct branching cold items for every lexical position"
+        )
+    return selected
+
+
 def legal_next_token_ids(
     encoded_paths: Mapping[str, Sequence[int]], prefix: Sequence[int]
 ) -> tuple[int, ...]:

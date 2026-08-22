@@ -2,7 +2,7 @@
 
 > **建立日期**：2026-08-21
 > **修订日期**：2026-08-22（v0.1-r6）
-> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FAIL_S15_3A_EDIT_STATE_ADMISSION / S15_3B_FROZEN_AWAITING_AUTHORIZATION / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
+> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FAIL_S15_3A_EDIT_STATE_ADMISSION_WITH_EXPLORATORY_BRANCHING_RECOVERY / S15_3B_B0_B1_B2_RUNNING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
 > **阶段定位**：先复现并对齐 SpecGR / GenRecEdit，再依据同协议证据决定是否开发新方法
 > **上一阶段**：Stage14 R2PD 在 M2 14-1 得到 `FAIL_STOP_PATH_TRANSFER_STAGE14_1`，14-2/M3/M4 已取消
 
@@ -350,6 +350,8 @@ admission 不判显著性；通过后才做 full validation。
 
 > **执行更新（2026-08-22）**：B2 已通过 512-event admission，B3 已在 edit-state admission 失败。当前 S15-3B 只允许 B0、B1、B2；B3 记 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不生成伪造的 efficacy 数字。B2d 只在机制附表，不参与“真 SpecGR”主表。
 
+> **B3 exploratory recovery（2026-08-22）**：失败根因定位为 deterministic request sampler 在 position 4 选中 4/4 个 legal branching factor=1 的结构确定前缀；其 legal probability 恒为 1，不可能满足预注册的“edited probability 严格高于 baseline”条件。recovery 只允许在冻结 catalog trie 上排除 branching factor=1 的不可编辑请求，再沿用原 SHA rank、distinct-cold、4 requests/position、seed、layer probe、z optimizer 与 probability threshold=0.3。该修复不得改变正在运行的 B0/B1/B2 S15-3B；只有新的独立 512-event admission 完整 PASS 后，B3 才可另行进入 full validation。
+
 主要报告：
 
 ```text
@@ -609,3 +611,4 @@ S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态
 | 2026-08-22 | B3 admission 冻结 FAIL，拆分 B2-only admission | 不通过放宽 0.3 threshold、增加 requests、改 tie-break 或换 seed 救援 B3；B3 不进入 full validation。B2 两次 state build 均正常，方法级 Gate 应独立裁决，故冻结 B0+B2 512-event admission 独立入口，等待用户确认 |
 | 2026-08-22 | B0+B2 独立 S15-3A admission 已确认并启动 | GPU7 启动时 free=21,441 MiB，满足 16,384 MiB admission；exact command=`bash experiment/phase15/run_stage15_s3a_toys_b2_only_admission.sh start 7`。38/38 tests PASS，B2 train-only loss=`[9.36309439,9.24616081]`，已进入 512 held-event evaluation；独立 artifact/session，不含 B3、不读 test、不自动 retry |
 | 2026-08-22 | B2 S15-3A 512-event admission 完成并重裁决 PASS | workload rc=0，512/512 events、25,600 verifier candidates、所有 unique known top-50、base hash 不变、test 未读；runtime 3,154.16 s，peak CUDA allocated 6,935.35 MiB。原 reducer 将两个正确的负向安全事实误判为失败；改为正向断言并用完整 artifact 确定性重算 `PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION`，原始 verdict 留档。S15-3B 冻结为 B0/B1/B2，等待资源与 exact command 授权 |
+| 2026-08-22 | B3 branching recovery 合约冻结 | 两次失败均在 held 打开前停于 position 4；真实 request preflight 证明旧 sampler 的 position-4 branching factors=`[1,1,1,1]`，修复后=`[22,2,3,2]`，positions 0–5 均保留 4 个 distinct cold requests。未改 seed、layer、threshold、step 或 request budget；恢复结果只认新的独立 512-event admission。 |

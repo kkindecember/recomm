@@ -70,6 +70,14 @@ runner 日志在完整 summary 与 completed status 写出后出现一次 shell 
 
 attempt-2 中 positions 4/5 在全部 6 层的 token accuracy 均为 0。按冻结纪律，不放宽 legal probability threshold=`0.3`，不增加 requests、不改 tie-break、不换 seed；B3 不进入当前 S15-3B。若继续 B3，必须另立 recovery 计划并标为 exploratory。
 
+### B3 exploratory branching recovery
+
+后续静态复算发现，失败并非首先由 position-4 layer accuracy=0 导致，而是 request admission 集合含有结构上不可满足成功判据的样本：attempt-2 的 position-4 四个请求 legal branching factor 均为 1。此时 target 在 legal set 中的 baseline probability 恒为 1，而当前成功判据要求 edited probability 严格大于 baseline，因此任何 layer、z residual 或优化步数都不可能成功。
+
+恢复修复只在冻结 catalog trie 上排除 branching factor=1 的请求，然后执行原有 SHA rank 与 distinct-cold selection。真实 artifact 的修复后 branching factors 为：position 3=`[2,2,2,4]`，position 4=`[22,2,3,2]`；其余位置仍为非平凡分支。seed=`1502`、4 requests/position、layer probe、z steps、learning rate、weight decay、max norm、preservation lambda 与 legal probability threshold=`0.3` 均保持不变，也不读取 held/validation outcome。
+
+该恢复标记为 exploratory。它不会把 B3 追加到已运行的 B0/B1/B2 S15-3B；只有独立 recovery 512-event admission 完成全部 One-One path、finite/nonzero delta、unique known top-50、base hash unchanged、held-after-state 和 test sealed Gate 后，才允许另行安排 B3 full validation。
+
 ## 下一 Gate
 
 S15-3B 只允许 B0、B1、B2 进入 Toys full validation。启动前必须冻结：full validation event 数、paired bootstrap seed/10,000 resamples、cost telemetry、显存与 hard timeout、exact background command 和独立 `status.json`。在该资源合约获得确认前不自动启动。

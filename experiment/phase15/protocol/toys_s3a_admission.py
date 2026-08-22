@@ -58,6 +58,7 @@ from genrecedit_gram_adapter import (  # noqa: E402
     edited_parameter_name,
     merge_probe_counts,
     probe_accuracy_from_counts,
+    select_branching_positionwise_smoke_requests,
     select_positionwise_smoke_requests,
     select_probe_layers,
     solve_closed_form_delta,
@@ -422,8 +423,11 @@ def build_b3_state(
         covariance[position] = accumulator.moment(ridge=0.01).float()
         counts[position] = accumulator.count
 
-    selected_requests = select_positionwise_smoke_requests(
-        requests, requests_per_position=args.requests_per_position, seed=args.seed
+    selected_requests = select_branching_positionwise_smoke_requests(
+        requests,
+        catalog_paths=item_paths,
+        requests_per_position=args.requests_per_position,
+        seed=args.seed,
     )
     encoded_paths = {
         item: tuple(tokenizer.convert_tokens_to_ids(token) for token in path)
@@ -433,7 +437,18 @@ def build_b3_state(
     deltas: dict[int, dict[str, torch.Tensor]] = {}
     z_success = {}
     z_diagnostics = {}
+    branching_factors = {}
     for position, rows in selected_requests.items():
+        branching_factors[position] = [
+            len(
+                {
+                    path[position]
+                    for path in item_paths.values()
+                    if len(path) > position and path[:position] == row.prefix_tokens
+                }
+            )
+            for row in rows
+        ]
         samples = [
             _make_sample(
                 context_items=row.context_items,
@@ -495,6 +510,10 @@ def build_b3_state(
         "covariance_transitions": len(covariance_rows),
         "covariance_counts": {str(key): value for key, value in counts.items()},
         "successful_z_requests": {str(key): value for key, value in z_success.items()},
+        "request_selection_rule": "catalog-only legal branching factor >=2; existing SHA rank and distinct-cold rule unchanged",
+        "selected_request_branching_factors": {
+            str(key): value for key, value in branching_factors.items()
+        },
         "delta_finite": True,
         "delta_nonzero": all(float(next(iter(bundle.values())).norm()) > 0 for bundle in deltas.values()),
     }, selected_layers
