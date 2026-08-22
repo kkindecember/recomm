@@ -1,10 +1,10 @@
 # GRAM 第十四阶段：R²-to-Path Distillation 与冷路径原生可达性 v0.4
 
 > **建立日期**：2026-08-20（v0.4 根据 v0.3 末尾专家回评形成；同日按附录 B 原地补全 ablation 预算）
-> **当前状态**：`M1_STAGE14_0A_PASS / STAGE14_0B_PASS_PATH_TRANSFER_GATE / STAGE14_0C_PASS_INTERFACE_CONTROL / STAGE14_0D_PASS_WITH_M2_PENDING / NO_MODEL_TRAINING_STARTED`
-> **工作名**：R2PD（R²-to-Path Distillation，暂定名；是否进入训练仍由 Stage 14-0B 决定）
+> **当前状态**：`M2_STOPPED_AT_STAGE14_1 / FAIL_STOP_PATH_TRANSFER_STAGE14_1 / STAGE14_2_CANCELLED / M3_NOT_AUTHORIZED`
+> **工作名**：R2PD（R²-to-Path Distillation；Toys pseudo-cold 主 Gate 已失败，当前主线停止）
 > **前一版**：`GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.3.md`（含专家回评，保留不删）
-> **计划验证状态**：Stage14 evaluator/probe/verifier 已通过 24 项测试；14-0B 双域 validation 的 frozen parity、score-aware survival 与 tie-aware R² prior Gate 已通过；14-0C 双域同-backbone verifier 已完成并显示 frozen likelihood 会显著压低 cold top-10 placement；SpecGR/GenRecEdit 仅完成兼容性审计、未本地适配，R2PD 与所有模型训练结果仍未验证
+> **计划验证状态**：Stage14 当前 39 项测试通过；M1 evaluator/probe/verifier 已核对；M2 item-disjoint audit、teacher 与 512/512 正式 pseudo-cold screen 已完整运行。A2−A1 exact-path MRR item-level paired-bootstrap 95% CI=`[−0.000779,+0.000869]`，主 Gate FAIL；SpecGR/GenRecEdit 仍仅完成兼容性审计、未本地适配
 
 ---
 
@@ -294,6 +294,8 @@ M1 结束生成 `Stage14_M1_竞争边界与资源冻结报告.md` 初版；M2 sm
 
 ### M2：pseudo-cold screen + smoke（小–中 GPU）
 
+> **执行更新（2026-08-21）**：14-1 正式筛查完整结束，workload `rc=0`，但科学 verdict 为 `FAIL_STOP_PATH_TRANSFER_STAGE14_1`。A2−A1 item-level paired-bootstrap exact-path MRR point=`+0.0000693`、95% CI=`[−0.000779,+0.000869]`，未满足 CI 下界 >0；A2 对 A0 的 Recall@50 与 beam survival 保护项均 PASS。按冻结 stop rule 停止 R2PD path-transfer，不用 A3 的较高点估计事后替换 Gate，不调参或换 seed rescue。14-2、M3/M4 与 seed expansion 均取消/不启动。唯一阶段报告：`report/第十四阶段/Stage14_M2_PseudoCold迁移筛查报告.md`。
+
 **14-1｜item-disjoint pseudo-cold transfer screen**（保留 v0.1 设计，吸取 P5 教训）
 
 在 warm train item 内建 deterministic、item-disjoint 的 pseudo-cold split；按真实 cold50 的 frequency stratum 匹配，并记录 path length/deepest-overlap/text-length 分布差异。先从所有历史与 CE 样本中删除 audit item 的真实 interaction，再按真实 cold onboarding 的同一规则允许其 metadata/ID 接收 R² 的 synthetic soft mass。**audit ground truth 永不可见，synthetic supervision可见该 catalog path。**
@@ -310,10 +312,14 @@ M1 结束生成 `Stage14_M1_竞争边界与资源冻结报告.md` 初版；M2 sm
 
 **14-2｜matched smoke**：固定 256–512 users、固定 checkpoint/steps。验证 loss 各分量有限且下降、synthetic cold-only prefix 的目标 token log-prob 上升、retention 梯度生效、生成 path 全部合法唯一可反解、显存与 runtime 达标；同时实测 step time、peak memory，并外推 R2PD full-update 成本区间，回填 14-0D 预算。
 
+> **执行裁决（2026-08-21）**：`CANCELLED_AFTER_STAGE14_1_FAIL`。14-1 efficacy 主 Gate 已失败，14-2 的 parity/cost smoke 不能挽救机制结论；不再为未获 promotion 的 M3 外推 full-update 预算。
+
 - **主 Gate**：`λ_cp = μ_keep = 0` 时与原 v0 behavior **逐位 parity**
 - smoke 不以 H@10 的一两个事件判 efficacy
 
 ### M3：Toys full（30G lease）
+
+> **状态（2026-08-21）**：`NOT_AUTHORIZED_AND_CANCELLED_AFTER_M2_FAIL`。不得启动。
 
 **本阶段只跑 seed-0 screening，不预付另外两个 seeds。** 核心 arm：v0 / R² portfolio@2 / 同-backbone R²+GRAM verifier / R2PD 主 arm；通过 compatibility audit 的真 SpecGR 作为强 baseline。GenRecEdit 仅在同协议实现可审计时加入，不为凑表强行复现。
 
@@ -426,7 +432,7 @@ report/第十四阶段/
 | 14-0A/B | CPU / 小 GPU | 分钟–数小时 | 否 |
 | 14-0C compatibility + controls | 小 GPU | 数小时–数天（适配失败也须留报告） | 否 |
 | 14-0D budget lock | CPU | M1 初版；M2 smoke 后定版 | 否 |
-| 14-1 / 14-2 | 单小 GPU | 数小时 | 否 |
+| 14-1 / 14-2 | GPU5 正式 14-1 实测 21m56s、峰值增量约 16.3 GiB；14-2 取消 | 14-1 `FAIL_STOP_PATH_TRANSFER_STAGE14_1` | 否 |
 | M3/M4 seed-0 core 4 arms | GRAM full | 144–188 GPU-hours（顺序约 6.0–7.8 天） | **是** |
 | M3/M4 seed-0 若加第 5 arm | GRAM full | 合计 180–235 GPU-hours（7.5–9.8 GPU-days） | **是** |
 | M5 v0+R2PD 新增 seed-1/2 | GRAM full | 额外 144–188 GPU-hours（6.0–7.8 GPU-days） | **是，过 promotion Gate 才发生** |
@@ -477,7 +483,7 @@ report/第十四阶段/
 
 ## 12. 下一步唯一动作
 
-M1 已完成。下一步进入 M2：先做 14-1 pseudo-cold mechanism unit test / CPU 数据审计，再做 14-2 固定 256–512 users 的 matched smoke；只在 smoke 后用实测 step time 定版 14-0D。M3 full training 在预算复核和用户明确批准前仍禁止启动。
+M2 已在 14-1 正式筛查处结束，verdict=`FAIL_STOP_PATH_TRANSFER_STAGE14_1`。当前计划内没有后续自动实验：14-2、M3/M4、额外 seed、Toys/Beauty test 均不启动。若继续研究，只能由用户另行批准新分支；SpecGR/GenRecEdit 的本地 port/reproduction 不因 R2PD 失败自动解锁。
 
 **M1 四件事已完成，未启动 GRAM full training：**
 
@@ -515,6 +521,12 @@ experiment/phase14/tests/test_same_backbone_verifier.py ✅（phase14 合计 24 
 artifacts/phase14/controls/same_backbone_verifier_formal_dual_domain_gpu5_recovery/ ✅ PASS_INTERFACE_CONTROL_COMPLETE_PATH_TRANSFER_STILL_NEEDED
 artifacts/phase14/m1/resource_lock/ ✅ PASS_WITH_M2_PENDING
 report/第十四阶段/Stage14_M1_竞争边界与资源冻结报告.md ✅
+experiment/phase14/protocol/{pseudo_cold_audit.py,pseudo_cold_teacher.py,r2pd_pseudo_cold_screen.py,r2pd_targets.py} ✅
+experiment/phase14/tests/ ✅ 39 tests passed
+artifacts/phase14/m2/pseudo_cold_audit_toys_v2/ ✅ item-disjoint audit PASS
+artifacts/phase14/m2/item_disjoint_r2_teacher_toys/ ✅ teacher PASS
+artifacts/phase14/m2/pseudo_cold_screen_toys_formal/ ❌ FAIL_STOP_PATH_TRANSFER_STAGE14_1（科学负结果；workload rc=0）
+report/第十四阶段/Stage14_M2_PseudoCold迁移筛查报告.md ✅ M2 唯一报告
 ```
 
 **不得从本计划直接跳到 full training。**
@@ -575,6 +587,7 @@ report/第十四阶段/Stage14_M1_竞争边界与资源冻结报告.md ✅
 | **2026-08-20 / M1 14-0B formal** | **双域 `PASS_PATH_TRANSFER_GATE`** | cold learned failure 可定位；tie-aware 配对统计下 R² prefix mass/rank 双域全 normalized quartile 显著优于最强固定 prior；转 14-0C/14-0D，不直接训练 |
 | **2026-08-20 / M1 14-0C formal** | **`PASS_INTERFACE_CONTROL_COMPLETE_PATH_TRANSFER_STILL_NEEDED`** | verifier 保留 R² cold H@50，但双域 cold NDCG@10 均显著低于 R² score-only；冻结 GRAM likelihood 不能替代 path transfer |
 | **2026-08-20 / M1 14-0D 初锁** | **core4 与条件预算冻结，M3 未授权** | SpecGR/GenRecEdit 兼容性未通过；active package 358–488 GPU-h，M2 实测后再定版并申请 M3 批准 |
+| **2026-08-21 / M2 14-1 formal** | **`FAIL_STOP_PATH_TRANSFER_STAGE14_1`** | A2−A1 exact-path MRR item-level paired CI=`[−0.000779,+0.000869]`，主 Gate FAIL；保护项 PASS 不改变裁决。14-2/M3 取消，不做调参或 seed rescue；GPU5 holder 已恢复约 20 GiB |
 
 ---
 

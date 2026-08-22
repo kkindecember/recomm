@@ -1,0 +1,37 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B2_B3_CONTRACT_INPUTS",
+  "status": "completed",
+  "verdict": "PASS_B2_B3_INPUT_CONTRACT",
+  "domain": "Toys_cold50",
+  "split": "train_only",
+  "users": 8789,
+  "train_events": 49133,
+  "train_transitions": 40344,
+  "catalog_items": 11924,
+  "warm_items": 5961,
+  "warm_items_with_train_context": 5810,
+  "warm_items_without_train_context": 151,
+  "cold_items": 5963,
+  "cold_seen_in_train": 0,
+  "specgr_catalog_index_rows": 11924,
+  "genrecedit_cold_coverage": 5963,
+  "genrecedit_pseudo_context_rows": 59630,
+  "genrecedit_positionwise_request_count": 302400,
+  "embedding": {
+    "model_name": "BAAI/bge-large-en-v1.5",
+    "pooling": "cls",
+    "l2_normalized": true,
+    "text_source_sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+    "shape": [
+      11924,
+      1024
+    ]
+  },
+  "original_user_sequence_opened": false,
+  "similar_item_sasrec_opened": false,
+  "test_predictions_opened": false,
+  "test_metrics_opened": false,
+  "model_training": false,
+  "gpu_used": false,
+  "runtime_seconds": 80.83926963806152
+}

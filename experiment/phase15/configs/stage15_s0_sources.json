@@ -1,0 +1,159 @@
+{
+  "schema_version": "stage15_s0_sources_v1",
+  "audit_id": "GRAM_PHASE15_S0_SOURCE_FREEZE",
+  "output_dir": "artifacts/phase15/s0_source_freeze",
+  "network_policy": "audit_local_clones_only_no_fetch_no_lfs_pull",
+  "protocol_boundaries": {
+    "official_native": {
+      "purpose": "Check the official input-to-algorithm-to-metric loop without claiming GRAM comparability.",
+      "allowed_backbone": "official TIGER/RQ-VAE only",
+      "allowed_split": "official repository split only",
+      "metric_scope": "official evaluator; label as native_official",
+      "project_test_policy": "No GRAM Toys/Beauty test file may be read. Official-repository test data must be labelled separately."
+    },
+    "gram_port": {
+      "purpose": "Compare intervention location under the frozen GRAM cold50 validation protocol.",
+      "allowed_backbone": "frozen Phase14 GRAM v0 only",
+      "allowed_split": "Toys_cold50 validation; Beauty only after the Toys gate",
+      "metric_scope": "strict item-level evaluator with collision hard-fail",
+      "project_test_policy": "GRAM test is sealed; test_read must remain false",
+      "code_reuse_policy": "Because neither target repository contains a license file, do not copy or redistribute third-party implementation code. Implement adapters against the published mechanism and local contracts."
+    }
+  },
+  "local_environment": {
+    "name": "gram-repro",
+    "python": "3.9.25",
+    "packages": {
+      "torch": "1.11.0+cu113",
+      "transformers": "4.26.0",
+      "numpy": "1.23.1",
+      "scipy": "1.13.1",
+      "scikit-learn": "1.6.1",
+      "pandas": "MISSING",
+      "lightning": "MISSING",
+      "datasets": "MISSING",
+      "sentence-transformers": "MISSING",
+      "faiss": "MISSING"
+    },
+    "mutation_allowed": false
+  },
+  "sources": [
+    {
+      "name": "SpecGR",
+      "role": "target_baseline",
+      "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/38486",
+      "expected_remote": "https://github.com/Jamesding000/SpecGR.git",
+      "path": ".runtime/phase15_sources/SpecGR",
+      "native_environment": "phase15-specgr-native (Python 3.10; repository requirements isolated from gram-repro)",
+      "s15_0_gate": "SOURCE_READY_ARTIFACT_BLOCKED",
+      "gate_reason": "Source is present, but the advertised Video Games dataset, semantic IDs, and SpecGR checkpoints are absent from HEAD and repository history.",
+      "artifact_checks": [
+        {"id": "video_games_dataset", "glob": "dataset/Video_Games/*.csv", "required_for": "native_inference"},
+        {"id": "video_games_semantic_ids", "glob": "semantic_ids/Video_Games.semantic_id", "required_for": "native_inference"},
+        {"id": "video_games_model", "glob": "results/SpecGR/Video_Games_best_ft.pt", "required_for": "native_inference"},
+        {"id": "video_games_embeddings", "glob": "results/SpecGR/Video_Games_best_emb_ft.pt", "required_for": "native_inference"}
+      ],
+      "compatibility_assertions": [
+        {
+          "id": "eval_mode_ignored",
+          "path": "SpecGR/run.py",
+          "line_contains": "run_SpecGR(config, params, devices, eval_mode='test')",
+          "severity": "blocker_for_project_protocol",
+          "finding": "CLI eval_mode is ignored at the final call and test is forced. A validation-only wrapper is mandatory before any project data is connected."
+        },
+        {
+          "id": "checkpoint_cuda0_map",
+          "path": "SpecGR/lightning_modules/inference.py",
+          "line_contains": "map_location='cuda:0'",
+          "severity": "native_entry_risk",
+          "finding": "Checkpoint loading is hard-coded to cuda:0. Device-safe path adaptation is required for a local native run."
+        },
+        {
+          "id": "fixed_semantic_id_shape",
+          "path": "utils.py",
+          "line_contains": "reshape(-1, config['RQ-VAE']['num_layers']+1)",
+          "severity": "port_semantics_risk",
+          "finding": "Official IDs are fixed-width RQ-VAE codes; GRAM paths are variable-length lexical paths and require a new path contract."
+        },
+        {
+          "id": "quick_start_four_gpus",
+          "path": "quick_start.sh",
+          "line_contains": "--devices '[0,1,2,3]'",
+          "severity": "resource_risk",
+          "finding": "Quick start requests four GPUs and cannot be used as-is under the project resource policy."
+        }
+      ]
+    },
+    {
+      "name": "GenRecEdit",
+      "role": "target_baseline",
+      "paper_url": "https://arxiv.org/abs/2603.14259",
+      "expected_remote": "https://github.com/Starrylay/GenRecEdit.git",
+      "path": ".runtime/phase15_sources/GenRecEdit",
+      "native_environment": "phase15-genrecedit-native (Python 3.10; CUDA 12.4 dependency stack isolated from gram-repro)",
+      "s15_0_gate": "READY_OFFICIAL_NATIVE_RUN",
+      "gate_reason": "Algorithm source and official LFS pointers exist. A minimal Video Games native run is actionable after selective LFS materialization and processed-cache construction; no full-model download is required.",
+      "artifact_checks": [
+        {"id": "video_games_checkpoint", "glob": "data/ckpt/TIGER_Video_Games/genrec_default_ori.pth", "required_for": "native_edit_eval"},
+        {"id": "video_games_covariance_requests", "glob": "data/Edit/Video_Games/edit_requests_COV.json", "required_for": "native_edit_eval"},
+        {"id": "video_games_augmented10_requests", "glob": "data/Edit/Video_Games/edit_requests_cold_test_augmented_10.json", "required_for": "native_edit_eval"},
+        {"id": "video_games_processed_cache", "glob": "data/cache/AmazonReviews2023/Video_Games/processed/*", "required_for": "native_edit_eval"}
+      ],
+      "compatibility_assertions": [
+        {
+          "id": "missing_train_entry",
+          "path": "Scripts/rec_train.sh",
+          "line_contains": "python main.py",
+          "severity": "native_entry_bug",
+          "finding": "The training script calls absent main.py; rec_main.py is the apparent repository entrypoint. Any path-only correction must be logged as an entry bug fix."
+        },
+        {
+          "id": "fixed_codebook_probe",
+          "path": "genrecedit/editor.py",
+          "line_contains": "for i in range(256):",
+          "severity": "port_semantics_risk",
+          "finding": "Probability probing hard-codes a 256-token codebook per SID position and cannot be applied directly to GRAM lexical paths."
+        },
+        {
+          "id": "fixed_position_map",
+          "path": "genrecedit/hparams.py",
+          "line_contains": "default_factory=lambda: [0, 1, 2, 3]",
+          "severity": "port_semantics_risk",
+          "finding": "The native method assumes four SID positions; GRAM needs explicit variable-length position/EOS/padding behavior."
+        },
+        {
+          "id": "cuda_default_device",
+          "path": "genrecedit/model_bundle.py",
+          "line_contains": "model.eval().cuda()",
+          "severity": "native_entry_risk",
+          "finding": "Model placement defaults to the current CUDA device and needs a resource-policy wrapper."
+        },
+        {
+          "id": "prefix_evaluator",
+          "path": "genrec/evaluator.py",
+          "line_contains": "top_position=3",
+          "severity": "metric_incompatibility",
+          "finding": "The compact native evaluator matches a three-position SID prefix; it is not the project strict item-level evaluator."
+        },
+        {
+          "id": "test_derived_cold_split",
+          "path": "genrec/dataset.py",
+          "line_contains": "self.thr_cold_test_split(datasets)",
+          "severity": "protocol_incompatibility",
+          "finding": "The official cold split is derived from its test data. Native results must stay separate and this path is forbidden for the GRAM port."
+        }
+      ]
+    },
+    {
+      "name": "ColdGenRec",
+      "role": "protocol_reference_only",
+      "paper_url": "https://arxiv.org/abs/2603.29845",
+      "expected_remote": "https://anonymous.4open.science/r/ColdGenrec-0DEC",
+      "path": ".runtime/phase15_sources/ColdGenrec",
+      "retrieval_note": "Paper-provided 4open.science endpoint redirects to an API that returned HTTP 401 on 2026-08-21. The guessed GitHub mirror github.com/zhangzhen-research/ColdGenrec returned repository not found.",
+      "native_environment": "not_applicable_until_source_available",
+      "s15_0_gate": "SOURCE_OR_LICENSE_BLOCKED",
+      "gate_reason": "Reference source is not locally obtainable from the paper endpoint in the current environment. This does not block either target baseline. The paper remains the protocol reference."
+    }
+  ]
+}

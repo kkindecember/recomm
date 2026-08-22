@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "experiment_id": "GRAM_STAGE15_S2P_TRAIN_VALIDATION_PROJECTION",
+  "output_root": "artifacts/phase15/s2_dual_domain_preflight/projected_data",
+  "audit_file": "projection_audit.json",
+  "domains": [
+    {
+      "name": "Toys_cold50",
+      "source": "GRAM/rec_datasets/Toys_cold50/user_sequence.txt",
+      "output": "Toys_cold50/user_sequence_train_validation.txt"
+    },
+    {
+      "name": "Beauty_cold50",
+      "source": "GRAM/rec_datasets/Beauty_cold50/user_sequence.txt",
+      "output": "Beauty_cold50/user_sequence_train_validation.txt"
+    }
+  ]
+}

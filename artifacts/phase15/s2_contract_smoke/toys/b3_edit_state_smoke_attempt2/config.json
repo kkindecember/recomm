@@ -1,0 +1,35 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B3_EDIT_STATE_SMOKE",
+  "mechanism_name": "GenRecEdit-GRAM official-mechanism port state smoke",
+  "split": "train_only_for_covariance_and_requests",
+  "covariance_transitions": 256,
+  "covariance_long_path_minimum": 32,
+  "covariance_batch_size": 32,
+  "requests_per_position": 4,
+  "z_steps": 30,
+  "z_learning_rate": 0.5,
+  "z_weight_decay": 0.2,
+  "z_max_norm": 8000.0,
+  "legal_probability_threshold": 0.3,
+  "covariance_ridge": 0.01,
+  "preservation_lambda": 10000.0,
+  "seed": 1502,
+  "device": "cuda:0",
+  "selected_layer_by_position": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5,
+    "5": 4
+  },
+  "base_model_training": false,
+  "automatic_retry": false,
+  "test_read": false,
+  "numerical_mode": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  }
+}

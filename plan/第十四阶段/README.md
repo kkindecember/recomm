@@ -2,7 +2,7 @@
 
 **阶段主题**：从 R² 的外部 cold reachability，走向 GRAM 原生生成路径的冷路径支持。
 
-**当前状态（2026-08-20）**：M1 Stage 14-0A 已 `PASS`；14-0B probe 已实现且 18 tests OK。工具原生 session 下仍在 GPU3 首次 CUDA 分配前终止，最小 PyTorch CUDA 探针复现；当前需要一张可正常分配、至少 12 GiB 空闲（建议 16 GiB）的其他 GPU。尚未得到 14-0B 模型结果。
+**当前状态（2026-08-21）**：M1 已完成；M2 Stage 14-1 正式筛查完整运行但科学 Gate 失败，verdict=`FAIL_STOP_PATH_TRANSFER_STAGE14_1`。R2PD 当前主线停止，14-2/M3/M4 与额外 seed 均不启动；GPU5 项目 holder 已恢复约 20 GiB。
 
 ## 先读什么
 
@@ -12,10 +12,11 @@
 | [`GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.3.md`](./GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.3.md) | 方法算子与科学口径修正版；末尾保留另一专家回评，供版本审计 |
 | [`GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.2.md`](./GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.2.md) | 专家审阅后的战略收缩版，保留用于版本审计 |
 | [`GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.1.md`](./GRAM_第十四阶段_R2突破与ColdPath蒸馏探索计划v0.1.md) | 初版完整论证与严格 Gate，保留用于版本审计 |
+| [`../../report/第十四阶段/Stage14_M2_PseudoCold迁移筛查报告.md`](../../report/第十四阶段/Stage14_M2_PseudoCold迁移筛查报告.md) | M2 唯一阶段报告：工程试错合并摘要、正式负结果、资源与 stop 决策 |
 
 ## 一句话决策
 
-第十四阶段保留第十三阶段的 **R²（domain-local content resolver + warm-anchored portfolio）** 作为有效贡献点、teacher 与强基线，但不再继续堆 resolver 训练轮数、hard negative、gating 或 slate allocator。预期主线 **R²-to-Path Distillation（R2PD）** 显式构造 teacher candidate path 的 synthetic decoder prefixes，以 absolute prefix mass 加权 soft next-token distillation，并用冻结 v0 retention 抑制 warm forgetting；是否进入训练由真实 NLL/rank/beam 诊断决定。预算采用 seed-0 双域筛选后再条件扩到 3 seeds，不在方法成立前预付全部 GPU 成本。
+第十四阶段保留第十三阶段的 **R²（domain-local content resolver + warm-anchored portfolio）** 作为有效历史贡献点、teacher 与强基线。R2PD 已完成 item-disjoint pseudo-cold 机制筛查，但 soft subtree distillation 没有显著优于 hard-path CE；因此按预注册规则停止，不继续 14-2、full training、Beauty 或 seed expansion。SpecGR/GenRecEdit 仍只是兼容性边界，若要本地 port 必须另立计划并重新授权资源。
 
 ## 阶段边界
 
@@ -27,7 +28,7 @@
 
 ## 目录约定
 
-计划通过后再建立以下实现目录；当前不预建空代码：
+当前实现与证据目录：
 
 ```text
 experiment/phase14/

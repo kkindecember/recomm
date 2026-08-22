@@ -1,0 +1,17 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2P_DUAL_DOMAIN_PREFLIGHT",
+  "resource_mode": "cpu_only_foreground_preflight",
+  "gpu_used": false,
+  "gpu_hours": 0.0,
+  "checkpoint_cpu_load": {
+    "Toys_cold50": {"wall_seconds": 1.08, "peak_rss_kib": 513112, "exit_code": 0},
+    "Beauty_cold50": {"wall_seconds": 1.12, "peak_rss_kib": 513432, "exit_code": 0}
+  },
+  "python_compile_check": {"exit_code": 0},
+  "projection_unit_contract": {"tests": 5, "passed": 5, "exit_code": 0},
+  "projection_execution": {"exit_code": 0, "gpu_used": false, "output_bytes": 1702168, "output_rows": 19444},
+  "background_job_started": false,
+  "expected_first_smoke_gpu_memory_mib": null,
+  "expected_first_smoke_runtime_seconds": null,
+  "note": "GPU telemetry remains deliberately unset until the redaction Gate and exact-command confirmation are complete."
+}

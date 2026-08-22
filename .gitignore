@@ -78,6 +78,21 @@ artifacts/phase14/m2/pseudo_cold_screen_toys_shape_smoke/
 artifacts/phase14/controls/same_backbone_verifier_smoke/
 artifacts/phase14/diagnostics/oracle_prefix_probe_toys_smoke_gpu0_retry3/
 
+# Phase 15 local data/model payloads and per-event diagnostics. Keep source,
+# tests, plans/reports, and compact JSON contracts/summaries in Git.
+artifacts/phase15/**/*.jsonl
+artifacts/phase15/**/dataset_view*/
+artifacts/phase15/**/projected_data/*/user_sequence_train_validation.txt
+artifacts/phase15/**/b2_verifier_direct_parity.json
+artifacts/phase15/**/trigger_diagnostics.json
+artifacts/phase15/**/z_optimization.json
+artifacts/phase15/**/layer_probe.json
+artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke/
+artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt2/
+artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt3/
+artifacts/phase15/s3_toys/admission/item_disjoint_b2_b3/
+artifacts/phase15/s3_toys/admission/item_disjoint_b2_b3_attempt2/
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt

@@ -1,0 +1,40 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B0_PROJECTION_PARITY_SMOKE",
+  "status": "attempt1_blocked_gpu3_admission_superseded_by_attempt3_pass",
+  "exact_start_command": "bash experiment/phase15/run_stage15_s2_toys_b0_projection_parity.sh start 3",
+  "working_directory": "/mnt/18T/jiangtangyunzhi/projects/recomm",
+  "physical_gpu": 3,
+  "sample_size": 16,
+  "selection_rule": "lowest sha256(1502:user_id), independent of target",
+  "beam_size": 50,
+  "batch_size": 1,
+  "minimum_free_mib": 12288,
+  "expected_incremental_gpu_mib_upper_bound": 8192,
+  "hard_timeout_seconds": 3600,
+  "background": true,
+  "automatic_retry": false,
+  "resource_changes": false,
+  "test_predictions_opened": false,
+  "model_training": false,
+  "gpu_selection_revision": "User rejected GPU4 due to reduced free memory and explicitly selected GPU3.",
+  "latest_gpu_query_at": "2026-08-21T15:54:00+08:00",
+  "latest_gpu_query_status": "GPU3_FREE_5603_MIB_BELOW_12288_MIB_GATE",
+  "launch_attempt": {
+    "status": "blocked",
+    "workload_rc": 9,
+    "model_loaded": false,
+    "users_forwarded": 0,
+    "automatic_retry": false,
+    "status_path": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke/status.json"
+  },
+  "latest_successful_attempt": {
+    "attempt": 3,
+    "physical_gpu": 4,
+    "verdict": "PASS_B0_PROJECTION_PARITY",
+    "users": 16,
+    "exact_users": 16,
+    "summary_path": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3/summary.json",
+    "launch_contract_path": "artifacts/phase15/s2_dual_domain_preflight/toys_b0_parity_attempt3_launch_contract.json"
+  },
+  "admission_behavior": "The confirmed start command rechecks GPU3. If the query fails or free memory is below 12288 MiB, it records blocked and exits without changing processes or switching GPU."
+}

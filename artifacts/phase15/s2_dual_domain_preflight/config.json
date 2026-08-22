@@ -1,0 +1,37 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2P_DUAL_DOMAIN_PREFLIGHT",
+  "domains": ["Toys_cold50", "Beauty_cold50"],
+  "mode": "cpu_only_static_preflight",
+  "backbone": "t5-small",
+  "beam_size": 50,
+  "seed": 2023,
+  "development_split": "train_plus_validation_only",
+  "test_policy": "sealed",
+  "test_predictions_opened": false,
+  "checkpoint_load": {
+    "map_location": "cpu",
+    "python": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python"
+  },
+  "domain_specific_state": {
+    "Toys_cold50": {
+      "specgr": "artifacts/phase15/s2_contract_smoke/toys/specgr_gram/{drafter,projection,index}",
+      "genrecedit": "artifacts/phase15/s2_contract_smoke/toys/genrecedit_gram/{covariance,edit_requests,deltaW}"
+    },
+    "Beauty_cold50": {
+      "specgr": "artifacts/phase15/s2_contract_smoke/beauty/specgr_gram/{drafter,projection,index}",
+      "genrecedit": "artifacts/phase15/s2_contract_smoke/beauty/genrecedit_gram/{covariance,edit_requests,deltaW}"
+    }
+  },
+  "forbidden_adapter_inputs": [
+    "GRAM/rec_datasets/Toys_cold50/user_sequence.txt",
+    "GRAM/rec_datasets/Beauty_cold50/user_sequence.txt",
+    "any test predictions or test metrics",
+    "validation/test target occurrence lists for request selection",
+    "similar_item_sasrec.txt until train-only provenance is proved"
+  ],
+  "projection_command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python experiment/phase15/protocol/build_train_validation_projection.py --config experiment/phase15/configs/stage15_s2p_projection.json --repo-root /mnt/18T/jiangtangyunzhi/projects/recomm",
+  "projection_command_status": "EXECUTED_EXIT_0",
+  "first_gpu_command": "env OUTPUT_OVERRIDE=/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3 SESSION_OVERRIDE=gram_stage15_s2_toys_b0_projection_parity_attempt3 EXACT_START_COMMAND_OVERRIDE='GPU4 attempt3 confirmed by user' bash experiment/phase15/run_stage15_s2_toys_b0_projection_parity.sh start 4",
+  "first_gpu_command_status": "COMPLETED_PASS_ATTEMPT3_GPU4",
+  "first_gpu_result": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3/summary.json"
+}

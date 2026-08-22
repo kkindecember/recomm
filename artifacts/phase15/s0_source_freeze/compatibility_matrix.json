@@ -1,0 +1,192 @@
+{
+  "schema_version": "stage15_s0_sources_v1",
+  "audit_id": "GRAM_PHASE15_S0_SOURCE_FREEZE",
+  "generated_at_utc": "2026-08-21T05:35:16.413040+00:00",
+  "config": "experiment/phase15/configs/stage15_s0_sources.json",
+  "config_sha256": "5a01d8555a8f78e4090115bce0af2ea9d9cb383a82301a96455960b8c505b3ec",
+  "network_policy": "audit_local_clones_only_no_fetch_no_lfs_pull",
+  "protocol_boundaries": {
+    "official_native": {
+      "purpose": "Check the official input-to-algorithm-to-metric loop without claiming GRAM comparability.",
+      "allowed_backbone": "official TIGER/RQ-VAE only",
+      "allowed_split": "official repository split only",
+      "metric_scope": "official evaluator; label as native_official",
+      "project_test_policy": "No GRAM Toys/Beauty test file may be read. Official-repository test data must be labelled separately."
+    },
+    "gram_port": {
+      "purpose": "Compare intervention location under the frozen GRAM cold50 validation protocol.",
+      "allowed_backbone": "frozen Phase14 GRAM v0 only",
+      "allowed_split": "Toys_cold50 validation; Beauty only after the Toys gate",
+      "metric_scope": "strict item-level evaluator with collision hard-fail",
+      "project_test_policy": "GRAM test is sealed; test_read must remain false",
+      "code_reuse_policy": "Because neither target repository contains a license file, do not copy or redistribute third-party implementation code. Implement adapters against the published mechanism and local contracts."
+    }
+  },
+  "sources": [
+    {
+      "name": "SpecGR",
+      "assertions": [
+        {
+          "id": "eval_mode_ignored",
+          "path": "SpecGR/run.py",
+          "line_contains": "run_SpecGR(config, params, devices, eval_mode='test')",
+          "severity": "blocker_for_project_protocol",
+          "finding": "CLI eval_mode is ignored at the final call and test is forced. A validation-only wrapper is mandatory before any project data is connected.",
+          "evidence": [
+            {
+              "line": 72,
+              "text": "def run_SpecGR(config, params, devices, eval_mode='test'):"
+            },
+            {
+              "line": 119,
+              "text": "run_SpecGR(config, params, devices, eval_mode='test')"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "checkpoint_cuda0_map",
+          "path": "SpecGR/lightning_modules/inference.py",
+          "line_contains": "map_location='cuda:0'",
+          "severity": "native_entry_risk",
+          "finding": "Checkpoint loading is hard-coded to cuda:0. Device-safe path adaptation is required for a local native run.",
+          "evidence": [
+            {
+              "line": 62,
+              "text": "self.model.load_state_dict(torch.load(self.saved_model_path, map_location='cuda:0'))"
+            },
+            {
+              "line": 66,
+              "text": "self.item_embeddings.load_state_dict(torch.load(self.saved_embedding_path, map_location='cuda:0'))"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "fixed_semantic_id_shape",
+          "path": "utils.py",
+          "line_contains": "reshape(-1, config['RQ-VAE']['num_layers']+1)",
+          "severity": "port_semantics_risk",
+          "finding": "Official IDs are fixed-width RQ-VAE codes; GRAM paths are variable-length lexical paths and require a new path contract.",
+          "evidence": [
+            {
+              "line": 94,
+              "text": "semantic_ids = np.fromfile(saved_id_path, dtype=np.int64).reshape(-1, config['RQ-VAE']['num_layers']+1)"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "quick_start_four_gpus",
+          "path": "quick_start.sh",
+          "line_contains": "--devices '[0,1,2,3]'",
+          "severity": "resource_risk",
+          "finding": "Quick start requests four GPUs and cannot be used as-is under the project resource policy.",
+          "evidence": [
+            {
+              "line": 7,
+              "text": "--devices '[0,1,2,3]'"
+            }
+          ],
+          "assertion_verified": true
+        }
+      ],
+      "native_environment": "phase15-specgr-native (Python 3.10; repository requirements isolated from gram-repro)"
+    },
+    {
+      "name": "GenRecEdit",
+      "assertions": [
+        {
+          "id": "missing_train_entry",
+          "path": "Scripts/rec_train.sh",
+          "line_contains": "python main.py",
+          "severity": "native_entry_bug",
+          "finding": "The training script calls absent main.py; rec_main.py is the apparent repository entrypoint. Any path-only correction must be logged as an entry bug fix.",
+          "evidence": [
+            {
+              "line": 33,
+              "text": "python main.py \\"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "fixed_codebook_probe",
+          "path": "genrecedit/editor.py",
+          "line_contains": "for i in range(256):",
+          "severity": "port_semantics_risk",
+          "finding": "Probability probing hard-codes a 256-token codebook per SID position and cannot be applied directly to GRAM lexical paths.",
+          "evidence": [
+            {
+              "line": 143,
+              "text": "for i in range(256):"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "fixed_position_map",
+          "path": "genrecedit/hparams.py",
+          "line_contains": "default_factory=lambda: [0, 1, 2, 3]",
+          "severity": "port_semantics_risk",
+          "finding": "The native method assumes four SID positions; GRAM needs explicit variable-length position/EOS/padding behavior.",
+          "evidence": [
+            {
+              "line": 27,
+              "text": "pos2layer: List[int] = field(default_factory=lambda: [0, 1, 2, 3])"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "cuda_default_device",
+          "path": "genrecedit/model_bundle.py",
+          "line_contains": "model.eval().cuda()",
+          "severity": "native_entry_risk",
+          "finding": "Model placement defaults to the current CUDA device and needs a resource-policy wrapper.",
+          "evidence": [
+            {
+              "line": 52,
+              "text": "model.eval().cuda()"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "prefix_evaluator",
+          "path": "genrec/evaluator.py",
+          "line_contains": "top_position=3",
+          "severity": "metric_incompatibility",
+          "finding": "The compact native evaluator matches a three-position SID prefix; it is not the project strict item-level evaluator.",
+          "evidence": [
+            {
+              "line": 84,
+              "text": "pos_index = self.calculate_pos_index_fine(preds, labels, top_position=3)"
+            }
+          ],
+          "assertion_verified": true
+        },
+        {
+          "id": "test_derived_cold_split",
+          "path": "genrec/dataset.py",
+          "line_contains": "self.thr_cold_test_split(datasets)",
+          "severity": "protocol_incompatibility",
+          "finding": "The official cold split is derived from its test data. Native results must stay separate and this path is forbidden for the GRAM port.",
+          "evidence": [
+            {
+              "line": 120,
+              "text": "self.thr_cold_test_split(datasets)  # 增加字段 cold_test warm_test"
+            }
+          ],
+          "assertion_verified": true
+        }
+      ],
+      "native_environment": "phase15-genrecedit-native (Python 3.10; CUDA 12.4 dependency stack isolated from gram-repro)"
+    },
+    {
+      "name": "ColdGenRec",
+      "assertions": [],
+      "native_environment": "not_applicable_until_source_available"
+    }
+  ]
+}

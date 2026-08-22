@@ -1,0 +1,42 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B2_B3_CONTRACT_INPUTS",
+  "status": "completed_pass",
+  "mode": "cpu_only_foreground",
+  "working_directory": "/mnt/18T/jiangtangyunzhi/projects/recomm",
+  "exact_command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python experiment/phase15/protocol/build_toys_b2_b3_contract_inputs.py --config experiment/phase15/configs/stage15_s2_toys_b2_b3_contract_inputs.json --repo-root /mnt/18T/jiangtangyunzhi/projects/recomm --output-dir /mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase15/s2_contract_smoke/toys/b2_b3_adapter_contract_state",
+  "output_dir": "artifacts/phase15/s2_contract_smoke/toys/b2_b3_adapter_contract_state",
+  "expected_runtime": "approximately 1-10 minutes; measured value will replace this estimate",
+  "hard_timeout_seconds": 1200,
+  "gpu_used": false,
+  "model_training": false,
+  "scientific_outputs": [
+    "specgr_gram/drafter/training_manifest.json",
+    "specgr_gram/projection/contract.json",
+    "specgr_gram/index/catalog_index.jsonl",
+    "genrecedit_gram/edit_requests/pseudo_contexts.jsonl",
+    "genrecedit_gram/edit_requests/position_map.json",
+    "genrecedit_gram/covariance/manifest.json",
+    "genrecedit_gram/deltaW/manifest.json",
+    "summary.json",
+    "open_file_manifest.json",
+    "input_file_sha256.json",
+    "resource_summary.json"
+  ],
+  "input_contract": {
+    "projected_train_validation_only": true,
+    "validation_target_removed_before_sequential_construction": true,
+    "cold_items_seen_in_train_required": 0,
+    "full_cold_catalog_request_coverage_required": true,
+    "similar_item_sasrec_allowed": false,
+    "original_user_sequence_allowed": false,
+    "test_predictions_or_metrics_allowed": false
+  },
+  "unit_contract_tests": 22,
+  "unit_contract_tests_passed": 22,
+  "automatic_retry": false,
+  "overwrite_existing_output": false,
+  "execution_authorized": true,
+  "measured_runtime_seconds": 80.83926963806152,
+  "verdict": "PASS_B2_B3_INPUT_CONTRACT",
+  "summary": "artifacts/phase15/s2_contract_smoke/toys/b2_b3_adapter_contract_state/summary.json"
+}

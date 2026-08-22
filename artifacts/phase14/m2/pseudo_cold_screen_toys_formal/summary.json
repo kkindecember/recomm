@@ -1,0 +1,103 @@
+{
+  "experiment_id": "GRAM_PHASE14_STAGE14_1_PSEUDO_COLD_SCREEN_TOYS",
+  "status": "completed",
+  "verdict": "FAIL_STOP_PATH_TRANSFER_STAGE14_1",
+  "arm_metrics": {
+    "A0": {
+      "n": 512,
+      "exact_path_mrr": 0.00033054537485283965,
+      "recall_at_50": 0.009765625,
+      "mean_prefix_survival": 0.1478236607142857,
+      "hit_events": 5,
+      "unique_target_items": 351
+    },
+    "A1": {
+      "n": 512,
+      "exact_path_mrr": 0.0012191095641607749,
+      "recall_at_50": 0.0234375,
+      "mean_prefix_survival": 0.2334356398809524,
+      "hit_events": 12,
+      "unique_target_items": 351
+    },
+    "A2": {
+      "n": 512,
+      "exact_path_mrr": 0.0009148993586846811,
+      "recall_at_50": 0.021484375,
+      "mean_prefix_survival": 0.2417224702380953,
+      "hit_events": 11,
+      "unique_target_items": 351
+    },
+    "A3": {
+      "n": 512,
+      "exact_path_mrr": 0.0017357205251451774,
+      "recall_at_50": 0.03515625,
+      "mean_prefix_survival": 0.24840959821428577,
+      "hit_events": 18,
+      "unique_target_items": 351
+    }
+  },
+  "paired_a2_minus_a1_mrr": {
+    "unit": "item",
+    "n_items": 351,
+    "point": 6.929590635148806e-05,
+    "ci95": [
+      -0.0007790441669321702,
+      0.0008694036557100367
+    ],
+    "resamples": 10000
+  },
+  "gates": {
+    "a2_minus_a1_mrr_ci_lower_gt_zero": false,
+    "a2_vs_a0_recall50_non_degradation": true,
+    "a2_vs_a0_beam_survival_non_degradation": true
+  },
+  "scientific_gate_eligible": true,
+  "clean_base_history": [
+    {
+      "epoch": 1,
+      "warm_ce": 6.855138823390007
+    },
+    {
+      "epoch": 2,
+      "warm_ce": 5.694167064502835
+    }
+  ],
+  "arm_training_history": {
+    "A0": [],
+    "A1": [
+      {
+        "epoch": 1,
+        "warm_ce": 5.009147558361292,
+        "prefix_kd": 3.1881747292463842,
+        "retention": 0.0
+      }
+    ],
+    "A2": [
+      {
+        "epoch": 1,
+        "warm_ce": 4.532512573990971,
+        "prefix_kd": 4.598126707085612,
+        "retention": 0.0
+      }
+    ],
+    "A3": [
+      {
+        "epoch": 1,
+        "warm_ce": 4.481868150178343,
+        "prefix_kd": 4.626713811572699,
+        "retention": 0.4010963923938107
+      }
+    ]
+  },
+  "teacher_report": {
+    "mean_tail_mass": 0.8732203826730256,
+    "max_tail_mass": 0.9703174293390475,
+    "min_tail_mass": 0.23771687597036362
+  },
+  "input_filter_report": {
+    "forbidden_similar_edges_removed": 67491,
+    "top_k": 5
+  },
+  "test_opened": false,
+  "runtime_seconds": 1315.9917407035828
+}

@@ -1,0 +1,86 @@
+{
+  "status": "completed",
+  "official_mechanism": "z residual optimization plus RK^T(lambda C + KK^T)^-1",
+  "preservation_lambda": 10000.0,
+  "position_to_layer": {
+    "0": 5,
+    "1": 5,
+    "2": 5,
+    "3": 5,
+    "4": 5,
+    "5": 4
+  },
+  "successful_requests_by_position": {
+    "0": 2,
+    "1": 2,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1
+  },
+  "bundles": {
+    "0": {
+      "parameter": "decoder.block.5.layer.2.DenseReluDense.wo.weight",
+      "shape": [
+        512,
+        2048
+      ],
+      "frobenius_norm": 21.80470085144043,
+      "file": "artifacts/phase15/s2_contract_smoke/toys/b3_edit_state_smoke_attempt2/genrecedit_gram/deltaW/position_0.pt",
+      "sha256": "731d63da4b7b6b1f49c3ba133ec7a3df476972a0c0602dc44eba6d61f12e9cb4"
+    },
+    "1": {
+      "parameter": "decoder.block.5.layer.2.DenseReluDense.wo.weight",
+      "shape": [
+        512,
+        2048
+      ],
+      "frobenius_norm": 5.8502607345581055,
+      "file": "artifacts/phase15/s2_contract_smoke/toys/b3_edit_state_smoke_attempt2/genrecedit_gram/deltaW/position_1.pt",
+      "sha256": "99ca638e968b122b911e279d8659dbc55ee0c0f1d330debe095cd5db2da553d7"
+    },
+    "2": {
+      "parameter": "decoder.block.5.layer.2.DenseReluDense.wo.weight",
+      "shape": [
+        512,
+        2048
+      ],
+      "frobenius_norm": 2.3580820560455322,
+      "file": "artifacts/phase15/s2_contract_smoke/toys/b3_edit_state_smoke_attempt2/genrecedit_gram/deltaW/position_2.pt",
+      "sha256": "aea0f41bffb52e8a5dc4d07b4691e694a5c19a3bd0cde5dddcb7c9ae25003a9a"
+    },
+    "3": {
+      "parameter": "decoder.block.5.layer.2.DenseReluDense.wo.weight",
+      "shape": [
+        512,
+        2048
+      ],
+      "frobenius_norm": 1.1503134965896606,
+      "file": "artifacts/phase15/s2_contract_smoke/toys/b3_edit_state_smoke_attempt2/genrecedit_gram/deltaW/position_3.pt",
+      "sha256": "0af9c617e250ec7fdc44ab3204bb306095668e7a732ff3137288d9ae67afcb98"
+    },
+    "4": {
+      "parameter": "decoder.block.5.layer.2.DenseReluDense.wo.weight",
+      "shape": [
+        512,
+        2048
+      ],
+      "frobenius_norm": 1.2528612613677979,
+      "file": "artifacts/phase15/s2_contract_smoke/toys/b3_edit_state_smoke_attempt2/genrecedit_gram/deltaW/position_4.pt",
+      "sha256": "d166775041ff81e681164e2963ac47fde18903c215919bd16bf3c21bd3bf22c0"
+    },
+    "5": {
+      "parameter": "decoder.block.4.layer.2.DenseReluDense.wo.weight",
+      "shape": [
+        512,
+        2048
+      ],
+      "frobenius_norm": 2.6961352825164795,
+      "file": "artifacts/phase15/s2_contract_smoke/toys/b3_edit_state_smoke_attempt2/genrecedit_gram/deltaW/position_5.pt",
+      "sha256": "175b85975681e928b7998492aa0967d941e819ba1c0fcf20f0a5d1f76d3f2c17"
+    }
+  },
+  "one_one_trigger": true,
+  "eos_and_padding_inactive": true,
+  "base_checkpoint_mutated": false
+}

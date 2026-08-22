@@ -1,0 +1,22 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2P_DUAL_DOMAIN_PREFLIGHT",
+  "policy": "No test predictions or test metrics; raw monolithic sequences were not semantically inspected during static preflight.",
+  "opened_categories": [
+    "historical validation-only configs",
+    "frozen GRAM checkpoint state dictionaries with CPU map_location",
+    "item path catalogs",
+    "item metadata",
+    "cold/warm manifests",
+    "static similarity files for coverage and SHA only; not admitted as method input",
+    "B0 validation predictions for SHA only",
+    "B1 validation summaries",
+    "GRAM loader/model source files"
+  ],
+  "forbidden_categories_opened": [],
+  "test_predictions_opened": false,
+  "test_metrics_opened": false,
+  "raw_test_target_used": false,
+  "redaction_exception_executed": true,
+  "redaction_exception_result": "The dedicated redactor streamed each monolithic row once, discarded its final item without logging/aggregation/use, and emitted the audited projection.",
+  "post_projection_model_original_sequence_access": "forbidden"
+}

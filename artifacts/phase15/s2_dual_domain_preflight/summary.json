@@ -1,0 +1,96 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2P_DUAL_DOMAIN_PREFLIGHT",
+  "status": "completed",
+  "static_preflight_verdict": "PASS",
+  "overall_verdict": "PASS_S15_2P_AND_TOYS_B0_PROJECTION_PARITY_SMOKE",
+  "test_predictions_opened": false,
+  "gpu_job_started": true,
+  "next_smoke_contract": {
+    "name": "Toys B0 projection-parity",
+    "purpose": "Require exact top-50 parity between the safe projection adapter and frozen B0 on 16 target-independent sampled validation users.",
+    "unit_contract_tests": 9,
+    "unit_contract_tests_passed": 9,
+    "exact_start_command": "env OUTPUT_OVERRIDE=/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3 SESSION_OVERRIDE=gram_stage15_s2_toys_b0_projection_parity_attempt3 EXACT_START_COMMAND_OVERRIDE='GPU4 attempt3 confirmed by user' bash experiment/phase15/run_stage15_s2_toys_b0_projection_parity.sh start 4",
+    "status": "completed_pass_attempt3_gpu4",
+    "verdict": "PASS_B0_PROJECTION_PARITY",
+    "users": 16,
+    "exact_users": 16,
+    "runtime_seconds": 40.310362815856934,
+    "peak_cuda_allocated_mib": 5055.17333984375,
+    "result_path": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3/summary.json",
+    "prior_attempts_preserved": [
+      "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke",
+      "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt2"
+    ]
+  },
+  "projection_tool_contract": {
+    "source": "experiment/phase15/protocol/build_train_validation_projection.py",
+    "config": "experiment/phase15/configs/stage15_s2p_projection.json",
+    "tests": "experiment/phase15/tests/test_train_validation_projection.py",
+    "tests_run": 5,
+    "tests_passed": 5,
+    "test_command_exit_code": 0,
+    "real_dataset_projection_executed": true,
+    "real_dataset_projection_exit_code": 0,
+    "Toys_cold50": {"rows": 8789, "output_sha256": "839ff2b3944b95b0d5fdb78e45660a21e026c04642159fee95ac9f504a1318b0"},
+    "Beauty_cold50": {"rows": 10655, "output_sha256": "b7b16f370df9e93423e9d4ac72d78177fc7833048e41828c895fa56495ef855e"}
+  },
+  "checkpoint_interface": {
+    "Toys_cold50": {"load": "PASS", "state_dict_keys": 136, "decoder_blocks": 6, "shared_weight_shape": [32128, 512]},
+    "Beauty_cold50": {"load": "PASS", "state_dict_keys": 136, "decoder_blocks": 6, "shared_weight_shape": [32128, 512]},
+    "same_structure": true,
+    "decoder_and_lm_head_hooks_present": true
+  },
+  "catalog": {
+    "Toys_cold50": {
+      "items": 11924,
+      "path_lengths": {"5": 11062, "6": 862},
+      "lexical_vocabulary_by_depth": [30, 670, 4568, 5533, 5777, 15],
+      "duplicate_item_ids": 0,
+      "duplicate_full_paths": 0,
+      "cold_items": 5963,
+      "warm_items": 5961,
+      "cold_warm_overlap": 0,
+      "missing_metadata_items": 0,
+      "missing_similarity_anchors": 0
+    },
+    "Beauty_cold50": {
+      "items": 12101,
+      "path_lengths": {"7": 11668, "8": 433},
+      "lexical_vocabulary_by_depth": [108, 3823, 4894, 5062, 5026, 5008, 4776, 7],
+      "duplicate_item_ids": 0,
+      "duplicate_full_paths": 0,
+      "cold_items": 6052,
+      "warm_items": 6049,
+      "cold_warm_overlap": 0,
+      "missing_metadata_items": 0,
+      "missing_similarity_anchors": 0
+    }
+  },
+  "historical_config_guards": {
+    "Toys_cold50": {"valid_by_test": 0, "test_by_valid": 0, "debug_test_on_train": 0, "top_k_similar_item": 5},
+    "Beauty_cold50": {"valid_by_test": 0, "test_by_valid": 0, "debug_test_on_train": 0, "top_k_similar_item": 10}
+  },
+  "b1_reference": {
+    "Toys_cold50": {
+      "artifact": "artifacts/phase13/explore/v1_r2_toys_p6_candidate_portfolio/summary.json",
+      "comparator": "unconditional_portfolio2",
+      "evaluation_status": "validation_outer_5fold_oof_exploratory"
+    },
+    "Beauty_cold50": {
+      "artifact": "artifacts/phase13/explore/v1_r2_beauty_b1_portfolio_confirmation/summary.json",
+      "comparator": "unconditional_portfolio2",
+      "evaluation_status": "beauty_validation_only_frozen_from_toys"
+    }
+  },
+  "blocking_finding": {
+    "code_evidence": [
+      "GRAM/src/utils/indexing.py:153-155 reads the complete user_sequence.txt into memory",
+      "GRAM/src/data/multi_task_dataset_gram.py:155-218 slices train as original[:-2]",
+      "GRAM/src/data/multi_task_dataset_gram.py:218+ uses original[-2] for validation",
+      "cf0_phase9 only suppresses test loader/evaluation and does not suppress the complete indexing read"
+    ],
+    "required_resolution": "Create an audited per-line original[:-1] projection and force every Stage15 job to use only that projection.",
+    "resolution_status": "PASS: dual-domain projection completed and the GPU smoke open-file manifest confirms the original sequence and test artifacts were not opened."
+  }
+}

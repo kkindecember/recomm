@@ -1,0 +1,13 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B0_PROJECTION_PARITY_SMOKE",
+  "domain": "Toys_cold50",
+  "split": "validation",
+  "sample_size": 16,
+  "sample_seed": 1502,
+  "selection_rule": "lowest sha256(sample_seed:user_id), independent of target",
+  "beam_size": 50,
+  "batch_size": 1,
+  "device": "cuda:0",
+  "model_training": false,
+  "test_read": false
+}

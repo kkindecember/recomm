@@ -1,0 +1,46 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B2_B3_CONTRACT_INPUTS",
+  "domain": "Toys_cold50",
+  "split": "train_only",
+  "test_policy": "sealed",
+  "inputs": {
+    "projected_sequences": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Toys_cold50/user_sequence_train_validation.txt",
+    "item_paths": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+    "item_metadata": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+    "item_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "cold_items": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+    "warm_items": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/warm_items.txt",
+    "checkpoint": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "historical_config": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json"
+  },
+  "common": {
+    "seed": 1502,
+    "max_history": 20,
+    "strict_item_identity": true,
+    "validation_target_used": false,
+    "test_used": false
+  },
+  "specgr": {
+    "mechanism_name": "SpecGR-GRAM official-mechanism port",
+    "draft_size": 50,
+    "beam_size": 50,
+    "acceptance_threshold_initial": -1.6,
+    "minimum_cold_prefix": 2,
+    "projection_dim": 512,
+    "guided_redrafting": true,
+    "adaptive_exit": true,
+    "frozen_gram": true
+  },
+  "genrecedit": {
+    "mechanism_name": "GenRecEdit-GRAM official-mechanism port",
+    "number_knowledge": 10,
+    "similarity_batch_size": 128,
+    "decoder_layers": 6,
+    "layer_selection": "all-layer train-only probe; max accuracy; shallow tie-break",
+    "position_wise": true,
+    "one_one_trigger": true,
+    "eos_edited": false,
+    "padding_edited": false,
+    "frozen_gram_base": true
+  }
+}

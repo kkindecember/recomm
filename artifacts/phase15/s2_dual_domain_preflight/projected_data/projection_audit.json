@@ -1,0 +1,42 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2P_TRAIN_VALIDATION_PROJECTION",
+  "status": "completed",
+  "verdict": "PASS_TRAIN_VALIDATION_PROJECTION",
+  "operation": "mechanical_per_row_final_item_redaction",
+  "raw_monolithic_sequence_streamed_by_redactor": true,
+  "test_target_materialized": false,
+  "test_target_logged": false,
+  "test_target_aggregated": false,
+  "test_target_used": false,
+  "model_or_adapter_opened_original_sequence": false,
+  "domains": [
+    {
+      "domain": "Toys_cold50",
+      "source_path": "GRAM/rec_datasets/Toys_cold50/user_sequence.txt",
+      "output_path": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Toys_cold50/user_sequence_train_validation.txt",
+      "source_sha256": "11001e54e69f6c39c2d2dc2769742c49f0b2a7fab3358d0458d59eb301e2a6c9",
+      "output_sha256": "839ff2b3944b95b0d5fdb78e45660a21e026c04642159fee95ac9f504a1318b0",
+      "rows": 8789,
+      "projected_items_min": 4,
+      "projected_items_max": 280,
+      "test_target_retained": false,
+      "discarded_target_logged": false,
+      "discarded_target_aggregated": false,
+      "operation": "preserve user_id and original items[:-1]"
+    },
+    {
+      "domain": "Beauty_cold50",
+      "source_path": "GRAM/rec_datasets/Beauty_cold50/user_sequence.txt",
+      "output_path": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Beauty_cold50/user_sequence_train_validation.txt",
+      "source_sha256": "ede585941e9afe8fc86fa8a85447c0b5992b8081f580ee57450fa4915ec5f081",
+      "output_sha256": "b7b16f370df9e93423e9d4ac72d78177fc7833048e41828c895fa56495ef855e",
+      "rows": 10655,
+      "projected_items_min": 4,
+      "projected_items_max": 100,
+      "test_target_retained": false,
+      "discarded_target_logged": false,
+      "discarded_target_aggregated": false,
+      "operation": "preserve user_id and original items[:-1]"
+    }
+  ]
+}

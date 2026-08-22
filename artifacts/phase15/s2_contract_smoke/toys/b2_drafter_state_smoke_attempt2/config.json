@@ -1,0 +1,27 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B2_DRAFTER_STATE_SMOKE",
+  "mechanism_name": "SpecGR-GRAM official-mechanism port auxiliary content drafter smoke",
+  "split": "train_only_for_drafter_validation_history_only_for_output_contract",
+  "train_transitions": 4096,
+  "epochs": 2,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "hidden_size": 300,
+  "max_history": 20,
+  "transformer_layers": 2,
+  "attention_heads": 2,
+  "feedforward_size": 256,
+  "dropout": 0.5,
+  "temperature": 0.07,
+  "validation_users": 16,
+  "top_k": 50,
+  "seed": 1502,
+  "device": "cuda:0",
+  "automatic_retry": false,
+  "numerical_mode": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  }
+}

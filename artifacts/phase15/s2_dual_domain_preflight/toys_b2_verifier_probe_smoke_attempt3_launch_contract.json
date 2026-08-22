@@ -1,0 +1,39 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B2_VERIFIER_PROBE_SMOKE_ATTEMPT3",
+  "status": "failed_deterministic_environment_precondition",
+  "reason": "attempt2 completed all forwards but TF32 batch-shape drift exceeded the preregistered 2e-5 hook/direct tolerance",
+  "working_directory": "/mnt/18T/jiangtangyunzhi/projects/recomm",
+  "exact_command": "bash experiment/phase15/run_stage15_s2_toys_b2_verifier_probe_smoke_attempt3.sh start 5",
+  "physical_gpu": 5,
+  "output_dir": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt3",
+  "status_path": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt3/status.json",
+  "log_path": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt3/run.log",
+  "summary_path": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt3/summary.json",
+  "minimum_free_mib_at_worker_admission": 8192,
+  "expected_incremental_gpu_mib_upper_bound": 4096,
+  "resource_basis": "attempt2 measured 1061.59 MiB peak CUDA allocation and approximately 3.9 GiB maximum device-memory increment including co-resident variation",
+  "hard_timeout_seconds": 3600,
+  "stage15_unit_tests_required": "26/26 PASS",
+  "scientific_contract_unchanged": true,
+  "numerical_contract": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "deterministic_algorithms": true,
+    "direct_reference_pairs": 8,
+    "absolute_tolerance": 0.00002,
+    "acceptance_equality_required": true,
+    "all_pair_evidence_saved": "b2_verifier_direct_parity.json"
+  },
+  "automatic_retry": false,
+  "overwrite_prior_attempts": false,
+  "execution_authorized": true,
+  "result": {
+    "status": "failed",
+    "workload_rc": 1,
+    "reason": "torch deterministic guard requires CUBLAS_WORKSPACE_CONFIG to be set before process start",
+    "complete_user_forwards": 0,
+    "model_training": false,
+    "test_read": false,
+    "automatic_retry": false
+  }
+}

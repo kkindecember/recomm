@@ -1,0 +1,71 @@
+{
+  "opened_inputs": [
+    {
+      "role": "historical_config",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+      "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"
+    },
+    {
+      "role": "train_sequences",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/pseudo_cold_audit_toys_v2/student_readable/filtered_train_sequences.jsonl",
+      "sha256": "08c5adeceddbf23bcd627a66ae5813411f4350090fa05439b49972e45ecfce3b"
+    },
+    {
+      "role": "held_events",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/pseudo_cold_audit_toys_v2/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+      "sha256": "98e2e39bfc69ecabb9b91923e1026728129f7d478c88f75990719e6dedb3022c"
+    },
+    {
+      "role": "pseudo_cold_items",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/pseudo_cold_audit_toys_v2/pseudo_cold_items.txt",
+      "sha256": "cbc0e25eef2fef8263ef137be5600b511c61c3be4ba9431b960a7829863311d8"
+    },
+    {
+      "role": "real_cold_items",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    },
+    {
+      "role": "item_path_file",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    },
+    {
+      "role": "item_text_file",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+      "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"
+    },
+    {
+      "role": "similar_items_file",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/rec_datasets/Toys_cold50/similar_item_sasrec.txt",
+      "sha256": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1"
+    },
+    {
+      "role": "item_embeddings",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262"
+    },
+    {
+      "role": "teacher_checkpoint",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/item_disjoint_r2_teacher_toys/resolver_item_disjoint.pt",
+      "sha256": "223eaa613a483d860454268782220dd09857458229bf969c868239c8a76a7f25"
+    },
+    {
+      "role": "teacher_summary",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/item_disjoint_r2_teacher_toys/summary.json",
+      "sha256": "71cada8c78f3431c1bf93c2e5500f7d61124f02f6ed54e6868c1410526173fb2"
+    },
+    {
+      "role": "backbone_config",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/pretrained/t5-small/config.json",
+      "sha256": "4e1e11591a7d9559328e1e5d2f5cfad32d807a8dc0a842ff83c6c641719ec69b"
+    },
+    {
+      "role": "backbone_weights",
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase14/m2/pretrained/t5-small/pytorch_model.bin",
+      "sha256": "7cc541f7d54c29243b22f46a861e1834a7b4ed4ea9ad81d7f45bc088ed938002"
+    }
+  ],
+  "held_ground_truth_open_phase": "evaluation_after_all_arm_checkpoints",
+  "test_opened": false
+}

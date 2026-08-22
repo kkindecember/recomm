@@ -1,0 +1,33 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2P_DUAL_DOMAIN_PREFLIGHT",
+  "frozen_domains": {
+    "Toys_cold50": {
+      "dataset_dir": "GRAM/rec_datasets/Toys_cold50",
+      "checkpoint": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "historical_config": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+      "validation_predictions": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl"
+    },
+    "Beauty_cold50": {
+      "dataset_dir": "GRAM/rec_datasets/Beauty_cold50",
+      "checkpoint": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "historical_config": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/config.json",
+      "validation_predictions": "artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl"
+    }
+  },
+  "cold_universe_rule": "Use every item in the pre-frozen cold_items.txt; never filter by validation/test occurrence.",
+  "specgr_training_rule": "Domain-local train interactions plus catalog metadata/content; frozen domain GRAM verifier.",
+  "genrecedit_rule": "Train-only covariance and contexts; edit requests cover the full frozen cold catalog; domain-local deltaW from the matching GRAM checkpoint.",
+  "sequence_projection": {
+    "status": "completed_pass",
+    "operation": "For each original row, preserve user id and items[:-1]; discard the original final item without logging or aggregation.",
+    "Toys_cold50_output": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Toys_cold50/user_sequence_train_validation.txt",
+    "Beauty_cold50_output": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Beauty_cold50/user_sequence_train_validation.txt",
+    "post_projection_original_sequence_access": "forbidden",
+    "Toys_cold50_rows": 8789,
+    "Toys_cold50_sha256": "839ff2b3944b95b0d5fdb78e45660a21e026c04642159fee95ac9f504a1318b0",
+    "Beauty_cold50_rows": 10655,
+    "Beauty_cold50_sha256": "b7b16f370df9e93423e9d4ac72d78177fc7833048e41828c895fa56495ef855e"
+  },
+  "test_read": false,
+  "target_leakage": false
+}

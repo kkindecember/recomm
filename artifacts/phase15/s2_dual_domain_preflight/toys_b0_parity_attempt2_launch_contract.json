@@ -1,0 +1,27 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B0_PROJECTION_PARITY_SMOKE_ATTEMPT2",
+  "status": "blocked_gpu3_admission",
+  "confirmation_text": "现在重试 GPU3",
+  "physical_gpu": 3,
+  "output_dir": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt2",
+  "preserves_attempt1": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke",
+  "exact_start_command": "env OUTPUT_OVERRIDE=/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt2 SESSION_OVERRIDE=gram_stage15_s2_toys_b0_projection_parity_attempt2 EXACT_START_COMMAND_OVERRIDE='GPU3 attempt2 confirmed by user' bash experiment/phase15/run_stage15_s2_toys_b0_projection_parity.sh start 3",
+  "minimum_free_mib": 12288,
+  "hard_timeout_seconds": 3600,
+  "automatic_retry": false,
+  "attempt2_result": {
+    "started_at": "2026-08-21T16:48:28+08:00",
+    "status": "blocked",
+    "workload_rc": 9,
+    "reason": "GPU3 free memory below 12288 MiB at worker admission",
+    "model_loaded": false,
+    "users_forwarded": 0,
+    "status_path": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt2/status.json"
+  },
+  "post_attempt_snapshot": {
+    "memory_used_mib": 44665,
+    "memory_free_mib": 3905,
+    "utilization_gpu_percent": 100
+  },
+  "attempt3_authorized": false
+}

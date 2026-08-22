@@ -1,0 +1,39 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B0_PROJECTION_PARITY_SMOKE_ATTEMPT3",
+  "status": "completed_pass",
+  "confirmation_text": "用gpu4吧",
+  "physical_gpu": 4,
+  "prelaunch_snapshot": {
+    "memory_total_mib": 49140,
+    "memory_used_mib": 34284,
+    "memory_free_mib": 14287,
+    "utilization_gpu_percent": 82
+  },
+  "output_dir": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3",
+  "preserves_attempts": [
+    "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke",
+    "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt2"
+  ],
+  "exact_start_command": "env OUTPUT_OVERRIDE=/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3 SESSION_OVERRIDE=gram_stage15_s2_toys_b0_projection_parity_attempt3 EXACT_START_COMMAND_OVERRIDE='GPU4 attempt3 confirmed by user' bash experiment/phase15/run_stage15_s2_toys_b0_projection_parity.sh start 4",
+  "minimum_free_mib": 12288,
+  "hard_timeout_seconds": 3600,
+  "automatic_retry": false,
+  "attempt4_authorized": false,
+  "result": {
+    "status": "completed",
+    "verdict": "PASS_B0_PROJECTION_PARITY",
+    "workload_rc": 0,
+    "users": 16,
+    "exact_users": 16,
+    "mismatched_users": 0,
+    "beam_size": 50,
+    "runtime_seconds": 40.310362815856934,
+    "peak_cuda_allocated_mib": 5055.17333984375,
+    "model_training": false,
+    "original_user_sequence_opened": false,
+    "test_predictions_opened": false,
+    "automatic_retry": false,
+    "status_path": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3/status.json",
+    "summary_path": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3/summary.json"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "experiment_id": "GRAM_STAGE15_S2_TOYS_B2_VERIFIER_PROBE_SMOKE",
+  "status": "attempt1_failed_pre_model_load",
+  "mode": "background_gpu_smoke",
+  "working_directory": "/mnt/18T/jiangtangyunzhi/projects/recomm",
+  "exact_command": "bash experiment/phase15/run_stage15_s2_toys_b2_verifier_probe_smoke.sh start 5",
+  "physical_gpu": 5,
+  "gpu_selection": "GPU5 had 12030 MiB free at the 2026-08-21 preflight; use remaining memory only and do not release, stop, or move its approximately 20 GiB project holder or any other process",
+  "output_dir": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke",
+  "status_path": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke/status.json",
+  "log_path": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke/run.log",
+  "summary_path": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke/summary.json",
+  "expected_runtime": "approximately 2-10 minutes; measured value replaces this estimate",
+  "hard_timeout_seconds": 3600,
+  "minimum_free_mib_at_worker_admission": 8192,
+  "expected_incremental_gpu_mib_upper_bound": 7168,
+  "resource_basis": "Toys B0 frozen-GRAM beam-50 smoke measured 5055.17 MiB; this smoke uses batch 1 verifier chunks of 8 and train-only probe batches of 4 without optimizer state",
+  "verifier_contract": {
+    "users": 16,
+    "candidate_budget_per_user": 32,
+    "warm_candidates_per_user": 16,
+    "cold_candidates_per_user": 16,
+    "candidate_selection": "SHA-ranked catalog sample independent of validation target",
+    "candidate_chunk_size": 8,
+    "score": "mean raw token log-likelihood over frozen per-item target-aware score_length",
+    "direct_reference_pairs": 8,
+    "direct_parity_atol": 0.00002
+  },
+  "probe_contract": {
+    "transitions": 64,
+    "longest_path_minimum": 16,
+    "source": "train-only next-item transitions from audited projection",
+    "decoder_layers": 6,
+    "positions": 6,
+    "selection": "highest frozen logit-lens token accuracy; shallowest layer tie-break",
+    "eos_and_padding_excluded": true
+  },
+  "gate": {
+    "cpu_input_gate_required": "PASS_B2_B3_INPUT_CONTRACT",
+    "stage15_unit_tests_required": "25/25 PASS",
+    "finite_verifier_scores_required": true,
+    "direct_reference_parity_required": true,
+    "all_probe_positions_and_layers_required": true,
+    "frozen_gram_parameter_hash_unchanged_required": true,
+    "original_user_sequence_allowed": false,
+    "test_predictions_or_metrics_allowed": false
+  },
+  "automatic_retry": false,
+  "overwrite_existing_output": false,
+  "execution_authorized": true,
+  "attempt1": {
+    "status": "failed",
+    "workload_rc": 1,
+    "reason": "probe sample lookup used truncated history_item_ids length as the chronological transition key",
+    "model_loaded": false,
+    "gpu_forward_users": 0,
+    "model_training": false,
+    "test_read": false,
+    "automatic_retry": false,
+    "artifact": "artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke"
+  }
+}

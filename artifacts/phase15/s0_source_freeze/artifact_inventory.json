@@ -1,0 +1,246 @@
+{
+  "schema_version": "stage15_s0_sources_v1",
+  "audit_id": "GRAM_PHASE15_S0_SOURCE_FREEZE",
+  "generated_at_utc": "2026-08-21T05:35:16.413040+00:00",
+  "config": "experiment/phase15/configs/stage15_s0_sources.json",
+  "config_sha256": "5a01d8555a8f78e4090115bce0af2ea9d9cb383a82301a96455960b8c505b3ec",
+  "network_policy": "audit_local_clones_only_no_fetch_no_lfs_pull",
+  "sources": [
+    {
+      "name": "SpecGR",
+      "checks": [
+        {
+          "id": "video_games_dataset",
+          "glob": "dataset/Video_Games/*.csv",
+          "required_for": "native_inference",
+          "match_count": 0,
+          "matches": []
+        },
+        {
+          "id": "video_games_semantic_ids",
+          "glob": "semantic_ids/Video_Games.semantic_id",
+          "required_for": "native_inference",
+          "match_count": 0,
+          "matches": []
+        },
+        {
+          "id": "video_games_model",
+          "glob": "results/SpecGR/Video_Games_best_ft.pt",
+          "required_for": "native_inference",
+          "match_count": 0,
+          "matches": []
+        },
+        {
+          "id": "video_games_embeddings",
+          "glob": "results/SpecGR/Video_Games_best_emb_ft.pt",
+          "required_for": "native_inference",
+          "match_count": 0,
+          "matches": []
+        }
+      ],
+      "lfs_pointers": [],
+      "lfs_unmaterialized_bytes": 0
+    },
+    {
+      "name": "GenRecEdit",
+      "checks": [
+        {
+          "id": "video_games_checkpoint",
+          "glob": "data/ckpt/TIGER_Video_Games/genrec_default_ori.pth",
+          "required_for": "native_edit_eval",
+          "match_count": 1,
+          "matches": [
+            {
+              "path": "data/ckpt/TIGER_Video_Games/genrec_default_ori.pth",
+              "state": "lfs_pointer_not_materialized",
+              "working_tree_bytes": 133,
+              "sha256": "3b63a9cb9ffd6cd5019d5c78dfe65048716c7634d44a749d6867b8a4f79f66d8",
+              "lfs": {
+                "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/.runtime/phase15_sources/GenRecEdit/data/ckpt/TIGER_Video_Games/genrec_default_ori.pth",
+                "oid_sha256": "9a88c4e9c42e6086213eaead60495e2ea10747c57fec85cd96b873bd13fe0bda",
+                "object_bytes": 38364788,
+                "working_tree_bytes": 133,
+                "materialized": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "video_games_covariance_requests",
+          "glob": "data/Edit/Video_Games/edit_requests_COV.json",
+          "required_for": "native_edit_eval",
+          "match_count": 1,
+          "matches": [
+            {
+              "path": "data/Edit/Video_Games/edit_requests_COV.json",
+              "state": "lfs_pointer_not_materialized",
+              "working_tree_bytes": 133,
+              "sha256": "88c15f29940720e6a468c92d08e94d085693683b2a04ab5d72bc88caea1e8aab",
+              "lfs": {
+                "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/.runtime/phase15_sources/GenRecEdit/data/Edit/Video_Games/edit_requests_COV.json",
+                "oid_sha256": "f44d2a4501552e671330f162d559c52b26825cf69af132b9e18865ef6e70d5f8",
+                "object_bytes": 41245906,
+                "working_tree_bytes": 133,
+                "materialized": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "video_games_augmented10_requests",
+          "glob": "data/Edit/Video_Games/edit_requests_cold_test_augmented_10.json",
+          "required_for": "native_edit_eval",
+          "match_count": 1,
+          "matches": [
+            {
+              "path": "data/Edit/Video_Games/edit_requests_cold_test_augmented_10.json",
+              "state": "lfs_pointer_not_materialized",
+              "working_tree_bytes": 133,
+              "sha256": "e5879f7085b3790b776db5e4c274102c254afbbd82d4829902e79ce7a3223e1e",
+              "lfs": {
+                "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/.runtime/phase15_sources/GenRecEdit/data/Edit/Video_Games/edit_requests_cold_test_augmented_10.json",
+                "oid_sha256": "0705ab661ce6d2fae007fdec4f8bae15b8363ef926991ab10eb626d10775c826",
+                "object_bytes": 32698016,
+                "working_tree_bytes": 133,
+                "materialized": false
+              }
+            }
+          ]
+        },
+        {
+          "id": "video_games_processed_cache",
+          "glob": "data/cache/AmazonReviews2023/Video_Games/processed/*",
+          "required_for": "native_edit_eval",
+          "match_count": 0,
+          "matches": []
+        }
+      ],
+      "lfs_pointers": [
+        {
+          "path": "data/Edit/Cell_Phones_and_Accessories/edit_requests_COV.json",
+          "oid_sha256": "e4c67fc96292a99d4fd0de9dcdfafa5f8843d0ecf156b27d65bffec240566460",
+          "object_bytes": 58977756,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Cell_Phones_and_Accessories/edit_requests_cold_test_augmented_10.json",
+          "oid_sha256": "bf94b6883177aa9cb90656402aff04be39bae5b10860e5a62aa4102a9500f552",
+          "object_bytes": 96927976,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Cell_Phones_and_Accessories/edit_requests_cold_test_augmented_3.json",
+          "oid_sha256": "92a8f8885dea86f2ee5c47477dfcab2a34ebdb30a04045ed7eb0617acda56865",
+          "object_bytes": 33266751,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Cell_Phones_and_Accessories/edit_requests_cold_test_augmented_5.json",
+          "oid_sha256": "768a40178ed834bfc1c9038a2fd139ad88579b0dd720dc862d6999093d80ae49",
+          "object_bytes": 56087798,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Cell_Phones_and_Accessories/edit_requests_gt.json",
+          "oid_sha256": "2fd110c950423b7ca1abf8c7bb47afb8372f79ec5bf92faa019aebfae95d2226",
+          "object_bytes": 21559447,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Software/edit_requests_COV.json",
+          "oid_sha256": "a43a281827966550f7338bc5345a7fca34b696a7be9897a53aa1d521d4b7635a",
+          "object_bytes": 30509809,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Software/edit_requests_cold_test_augmented_10.json",
+          "oid_sha256": "831ed53c6611453f98d8a28d014b33677cdf111b61836da1ad9b34905870299b",
+          "object_bytes": 9476200,
+          "working_tree_bytes": 132,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Software/edit_requests_cold_test_augmented_3.json",
+          "oid_sha256": "215426738b7f9cad111a67a73d16a563f018ba3d7806d1c3c930a6f28ce51650",
+          "object_bytes": 2834776,
+          "working_tree_bytes": 132,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Software/edit_requests_cold_test_augmented_5.json",
+          "oid_sha256": "4e6b5fc8154d9e520259ea7f9f072dc755f396fa8903505498ef3cb52cc0fa3c",
+          "object_bytes": 4740676,
+          "working_tree_bytes": 132,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Video_Games/edit_requests_COV.json",
+          "oid_sha256": "f44d2a4501552e671330f162d559c52b26825cf69af132b9e18865ef6e70d5f8",
+          "object_bytes": 41245906,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Video_Games/edit_requests_cold_test_augmented_10.json",
+          "oid_sha256": "0705ab661ce6d2fae007fdec4f8bae15b8363ef926991ab10eb626d10775c826",
+          "object_bytes": 32698016,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Video_Games/edit_requests_cold_test_augmented_3.json",
+          "oid_sha256": "6e9a413a5cd03bd9135835969bfabc3afac95188ff9d8ed15be77f220bdfbe89",
+          "object_bytes": 9935203,
+          "working_tree_bytes": 132,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Video_Games/edit_requests_cold_test_augmented_5.json",
+          "oid_sha256": "1e9c8e741f6c8e071ddb0cde930b77d1775321d5c2800ee911afaa632d7b7e78",
+          "object_bytes": 16508246,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/Edit/Video_Games/edit_requests_gt_0.json",
+          "oid_sha256": "15d1504dce0ce26b0588424e998516679fd947ef436b5e36440c426681d4e88a",
+          "object_bytes": 12961891,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/ckpt/TIGER_Cell_Phones_and_Accessories/genrec_default_ori.pth",
+          "oid_sha256": "824742674c77f7b534bb9ea46a248f0e2a9d49fa250d173ccbd63af1dc88c452",
+          "object_bytes": 38364788,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/ckpt/TIGER_Software/genrec_default_ori.pth",
+          "oid_sha256": "3b88876461018fad7ba5617ed51329c46476ef45303470dd004cdfe1bec0144c",
+          "object_bytes": 38364788,
+          "working_tree_bytes": 133,
+          "materialized": false
+        },
+        {
+          "path": "data/ckpt/TIGER_Video_Games/genrec_default_ori.pth",
+          "oid_sha256": "9a88c4e9c42e6086213eaead60495e2ea10747c57fec85cd96b873bd13fe0bda",
+          "object_bytes": 38364788,
+          "working_tree_bytes": 133,
+          "materialized": false
+        }
+      ],
+      "lfs_unmaterialized_bytes": 542824815
+    },
+    {
+      "name": "ColdGenRec",
+      "checks": []
+    }
+  ]
+}
