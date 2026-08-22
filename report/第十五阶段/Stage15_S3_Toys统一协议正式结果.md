@@ -5,8 +5,8 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: run + validate
 - Origin Date: 2026-08-22
-- Verification Status: PARTIALLY_VERIFIED（B2 与 exploratory B3 S15-3A 均已 PASS；B0/B1/B2 S15-3B 运行中；B3 独立 full validation 尚未执行）
-- Version Label: stage15_s3_toys_v3_b3_recovery_admitted
+- Verification Status: PARTIALLY_VERIFIED（B2 与 exploratory B3 S15-3A 均已 PASS；B0/B1/B2 S15-3B 运行中；B3 独立 full-validation runner 已冻结并等待 GPU admission）
+- Version Label: stage15_s3_toys_v4_b3_full_ready
 
 ## 当前结论
 
@@ -98,4 +98,6 @@ admission 非推广性指标如下，仅证明 evaluator 与排序路径完整�
 
 ## 当前运行 Gate
 
-S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行。exploratory B3 已通过独立 S15-3A Gate，下一步必须另建 B3-only full-validation 入口，复用同一 8,789-event validation、B0/B1 frozen replay、10,000 次 paired bootstrap、seed 与指标定义；不得改动或并入当前活跃 run。首次启动前仍需冻结 exact command、独立 artifact/status、显存 admission 与 hard timeout。test 继续封存且 automatic retry=false。
+S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行。exploratory B3 的独立入口已冻结为 `experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh`：复用同一 8,789-event validation、B0/B1 frozen replay、10,000 次 paired bootstrap、seed 与指标定义；从 Toys GRAM v0 上为全部 5,963 cold catalog 重建 train-only BGE contexts、covariance、edit requests 与 deltaW，不改动或并入当前活跃 run。
+
+B3 full-validation resource contract 为 GPU free≥`16,384 MiB`、预计增量上界=`12,288 MiB`、hard timeout=`86,400 s`，独立 artifact=`artifacts/phase15/s3_toys/full_validation/b3_branching_seed0`，status/log/telemetry 均按后台规范写出。49/49 tests 与真实输入 dry preflight 已 PASS；22:14 资源快照暂时没有 GPU 达到门槛，因此不降低 admission、不修改现有进程，等待启动前重新采样。test 继续封存且 automatic retry=false。
