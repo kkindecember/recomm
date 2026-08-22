@@ -5,13 +5,13 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: run + validate
 - Origin Date: 2026-08-22
-- Verification Status: PARTIALLY_VERIFIED（S15-3A 已完成；S15-3B full validation 尚未授权）
-- Version Label: stage15_s3_toys_v1_s3a_complete
+- Verification Status: PARTIALLY_VERIFIED（B2 S15-3A 已完成；B0/B1/B2 S15-3B 与 B3 exploratory recovery attempt5 运行中）
+- Version Label: stage15_s3_toys_v2_running
 
 ## 当前结论
 
 - B2：`PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION`，允许进入 S15-3B full validation。
-- B3：`FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不进入 S15-3B；该结论仅表示当前 GenRecEdit-GRAM port 的 edit-state 兼容失败，不等价于 GenRecEdit 方法无效。
+- B3：原正式入口仍为 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不混入正在运行的 B0/B1/B2 S15-3B；独立 exploratory branching recovery attempt5 正在重新执行 512-event admission，该结论仅在新 Gate 完整结束后更新。
 - test：未打开。
 - automatic retry：false。
 
@@ -82,6 +82,6 @@ branching recovery attempt-1 已验证 edit-state 根因修复：positions 0–5
 
 branching recovery attempt-2 已越过上述 kwargs 校验并再次完成六位置 edit state，但在首个 constrained B3 beam 暴露另一项旧版 Transformers 行为：当某个 frozen trie 层的合法 children 少于 `num_beams=50` 时，beam search 会用 score=`-inf` 的非法 dead rows 补满内部 beam slots。它们不可能成为最终输出，且后续仍受同一 prefix constraint 限制；旧 One-One hook 却在模型前向前将这些 dead rows 当作活跃 lexical prefix 拒绝，故于 20:05:15 rc=1、`0/512`。修复仅对 trie 外 dead rows 禁用 delta 并累计披露其数量，合法活跃 rows 仍按当前 lexical position 应用 position-wise delta，最终输出仍必须通过 exact catalog、unique top-50 和 base-hash checks；未更改 seed、beam budget、catalog、B2/B3 状态或 held/test 边界。对应边界测试与完整 Stage15 tests 47/47 PASS，attempt-2 artifact 原样保留。
 
-## 下一 Gate
+## 当前运行 Gate
 
-S15-3B 只允许 B0、B1、B2 进入 Toys full validation。启动前必须冻结：full validation event 数、paired bootstrap seed/10,000 resamples、cost telemetry、显存与 hard timeout、exact background command 和独立 `status.json`。在该资源合约获得确认前不自动启动。
+S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行；B3 不追加到该运行，而是在独立 attempt5 上重新执行 exploratory 512-event admission。两条任务均以各自 `status.json` 为准，test 继续封存且 automatic retry=false。
