@@ -1,8 +1,8 @@
 # GRAM 第十五阶段：统一 Cold Adaptation 基线复现与条件式方法开发计划 v0.1
 
 > **建立日期**：2026-08-21
-> **修订日期**：2026-08-22（v0.1-r5）
-> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B3_FAIL_S15_3A_EDIT_STATE_ADMISSION / B0_B2_S15_3A_ADMISSION_RUNNING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
+> **修订日期**：2026-08-22（v0.1-r6）
+> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FAIL_S15_3A_EDIT_STATE_ADMISSION / S15_3B_FROZEN_AWAITING_AUTHORIZATION / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
 > **阶段定位**：先复现并对齐 SpecGR / GenRecEdit，再依据同协议证据决定是否开发新方法
 > **上一阶段**：Stage14 R2PD 在 M2 14-1 得到 `FAIL_STOP_PATH_TRANSFER_STAGE14_1`，14-2/M3/M4 已取消
 
@@ -13,8 +13,8 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: plan
 - Origin Date: 2026-08-21
-- Verification Status: PARTIALLY_VERIFIED（Stage13/14 本地证据已核对；S15-0 已冻结 SpecGR/GenRecEdit 官方 commit、LFS、依赖和接口风险；尚未完成官方原生 GPU 闭环或 GRAM 同协议复现）
-- Version Label: phase15_cold_adaptation_plan_v0.1-r5
+- Verification Status: PARTIALLY_VERIFIED（S15-3A B2 512-event admission 已完成并 PASS；B3 edit-state admission FAIL；S15-3B full validation 与官方原生 GPU 闭环尚未执行）
+- Version Label: phase15_cold_adaptation_plan_v0.1-r6
 
 ---
 
@@ -348,7 +348,7 @@ admission 不判显著性；通过后才做 full validation。
 
 #### S15-3B Toys full validation
 
-正式 arms：B0、B1、B2、B3。B2d 只在机制附表，不参与“真 SpecGR”主表。
+> **执行更新（2026-08-22）**：B2 已通过 512-event admission，B3 已在 edit-state admission 失败。当前 S15-3B 只允许 B0、B1、B2；B3 记 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不生成伪造的 efficacy 数字。B2d 只在机制附表，不参与“真 SpecGR”主表。
 
 主要报告：
 
@@ -513,7 +513,7 @@ resource_summary.json
 | 1 | S15-0 | 两个官方方法均有 source/artifact/compatibility 状态和一份报告 |
 | 2 | S15-2P | 双域 base/data/leakage/artifact 路径冻结；train+validation 投影 Gate PASS；首个 exact smoke command 与资源合约完成 |
 | 3 | S15-2 | Toys adapters contract smoke PASS；Beauty 仅做 frozen-domain schema/contract 确认；报告完成 |
-| 4 | S15-3A | 512-event Toys admission PASS，仍不作 efficacy 结论 |
+| 4 | S15-3A | B2 512-event Toys admission PASS；B3 edit-state admission FAIL，均不作 efficacy 结论 |
 | 5 | S15-3B | Toys full validation 标签 + 配置冻结 + cost 初测 + 单一 S15-3 报告 |
 | 6 | S15-4 | 所有 Toys contract-pass B2/B3 的 Beauty seed-0 冻结确认，不以 Toys efficacy 为进入条件 |
 | 7 | S15-1 | native sanity 可在不与主线争用资源时完成或保持 blocked；不改变主表 Gate |
@@ -552,7 +552,8 @@ S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态
 - S15-3A 入口与 One-One cached beam generation hook 已实现，Stage15 tests 38/38 PASS；真实 CPU preflight 核对 4,096 train-only transitions、11,924 catalog、1,176 pseudo-cold、5,963 real-cold、4,785 retained warm，Stage14 clean base 136/136 state keys strict load，historical v0 checkpoint 不用于 admission；
 - S15-3A attempt-1 在 GPU7 通过 16,384 MiB admission 后启动：B2 loss=`[9.36309439,9.24616081]`，1,176/1,176 pseudo-cold 的 train-only BGE contexts 与完整 requests 已构建，256 条 covariance 完成；positions 0–3 z-success=`[2,1,2,1]/4`，position 4 为 `0/4`，worker rc=1；held events 尚未打开、beam evaluation 未启动、test 未读、未自动 retry；
 - attempt-2 已按确认命令在 GPU7 执行：clean-base train-only probe 完成，selected layers=`[5,5,3,5,0,0]`；positions 4/5 在全部 6 层 token accuracy 均为 0，position 4 的固定 4 requests 再次 `0/4`，worker rc=1；held events 仍未打开、beam evaluation 未启动、test 未读、未自动 retry；先前“仅为 layer-map 迁移错误”的假设被证伪；
-- B3 admission 结论冻结为 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`：不放宽 legal probability threshold=`0.3`，不增加 requests、不修改浅层 tie-break、不换 seed。B2 state 两次均 finite/changed，因此拆分出独立 B0+B2 512-event admission；38/38 tests PASS，独立 output/session/wrapper 已于 2026-08-22 16:12:58 在 GPU7 启动，当前后台运行，test 未打开。
+- B3 admission 结论冻结为 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`：不放宽 legal probability threshold=`0.3`，不增加 requests、不修改浅层 tie-break、不换 seed。B2 独立 admission 已完成 512/512 events，完整 B0 beam 与 B2 draft→verify→redraft 路径、finite/unique top-50、base hash 不变、防泄漏与 test 封存 checks 均 PASS；workload rc=0，runtime=`3,154.16 s`，peak CUDA allocated=`6,935.35 MiB`，B2 rankings 与 B0 在 164/512 events 不同。
+- B2 workload 原始 verdict 因 reducer 对 `held target used=false`、`test opened=false` 直接执行 `all(values)` 而被错误写为 FAIL；该确定性布尔方向 bug 已修为正向安全断言并补回归测试，基于完整 artifact 重算为 `PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION`。原始 verdict 与修正理由保留在 summary；不重跑模型，不把 admission 的 B0/B2 指标解释为 efficacy。
 
 ---
 
@@ -607,3 +608,4 @@ S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态
 | 2026-08-22 | S15-3A attempt-2 仍在 B3 position 4 admission 失败 | clean-base 6×6 probe 完成，selected layers=`[5,5,3,5,0,0]`；positions 4/5 全层 accuracy=0，position 4 固定 requests 再次 0/4。held events 未打开、test 未读；证明失败不是单纯 v0 layer-map 迁移错误 |
 | 2026-08-22 | B3 admission 冻结 FAIL，拆分 B2-only admission | 不通过放宽 0.3 threshold、增加 requests、改 tie-break 或换 seed 救援 B3；B3 不进入 full validation。B2 两次 state build 均正常，方法级 Gate 应独立裁决，故冻结 B0+B2 512-event admission 独立入口，等待用户确认 |
 | 2026-08-22 | B0+B2 独立 S15-3A admission 已确认并启动 | GPU7 启动时 free=21,441 MiB，满足 16,384 MiB admission；exact command=`bash experiment/phase15/run_stage15_s3a_toys_b2_only_admission.sh start 7`。38/38 tests PASS，B2 train-only loss=`[9.36309439,9.24616081]`，已进入 512 held-event evaluation；独立 artifact/session，不含 B3、不读 test、不自动 retry |
+| 2026-08-22 | B2 S15-3A 512-event admission 完成并重裁决 PASS | workload rc=0，512/512 events、25,600 verifier candidates、所有 unique known top-50、base hash 不变、test 未读；runtime 3,154.16 s，peak CUDA allocated 6,935.35 MiB。原 reducer 将两个正确的负向安全事实误判为失败；改为正向断言并用完整 artifact 确定性重算 `PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION`，原始 verdict 留档。S15-3B 冻结为 B0/B1/B2，等待资源与 exact command 授权 |

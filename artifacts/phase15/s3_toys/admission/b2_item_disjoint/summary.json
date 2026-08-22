@@ -1,0 +1,75 @@
+{
+  "experiment_id": "GRAM_STAGE15_S3A_TOYS_ITEM_DISJOINT_ADMISSION",
+  "scope": "engineering admission only; metrics are non-promotional",
+  "arms": "b0,b2",
+  "train_transitions": 4096,
+  "eval_events": 512,
+  "beam_size": 50,
+  "b2_candidate_budget": 50,
+  "b2_draft_size": 10,
+  "b2_draft_rounds": 5,
+  "b2_verifier_threshold": -1.6,
+  "b3_covariance_transitions": 256,
+  "b3_requests_per_position": 4,
+  "seed": 1502,
+  "device": "cuda:0",
+  "automatic_retry": false,
+  "test_read": false,
+  "numerical_mode": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  },
+  "status": "completed",
+  "verdict": "PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION",
+  "original_emitted_verdict": "FAIL_S15_3A_B2_ITEM_DISJOINT_ADMISSION",
+  "verdict_recomputed_from_completed_artifact": true,
+  "verdict_correction_reason": "The original reducer applied all() to negative fact fields; held-target non-use and test non-open are passing safety conditions.",
+  "admission_checks": {
+    "b0_complete_beam_path": true,
+    "b2_complete_draft_verify_redraft_path": true,
+    "all_rankings_unique_known_top50": true,
+    "b2_finite_loss_and_scores": true,
+    "b2_state_changed": true,
+    "base_hash_unchanged": true,
+    "held_ground_truth_opened_after_state_only": true,
+    "held_ground_truth_not_used_for_training_or_state_selection": true,
+    "test_not_opened": true
+  },
+  "b2_state": {
+    "train_transitions": 4096,
+    "epochs": 2,
+    "epoch_losses": [
+      9.36309438943863,
+      9.246160805225372
+    ],
+    "finite_loss": true,
+    "state_changed": true,
+    "state_sha256": "c185aa01e74d526e71023deb6a9234aa02a1c65b407e2885449decbb6e7cbe78",
+    "trainable_parameters": 1346912
+  },
+  "arm_metrics_non_promotional": {
+    "b0": {
+      "events": 512,
+      "hit50": 6,
+      "mrr": 0.0004434164468344156
+    },
+    "b2": {
+      "events": 512,
+      "hit50": 6,
+      "mrr": 0.00042564440455458496
+    }
+  },
+  "b2_rankings_different_from_b0": 164,
+  "forward_accounting": {
+    "b0_model_forward_users": 512,
+    "b2_verifier_forward_candidates": 25600,
+    "b2_accepted_drafts": 270,
+    "b3_model_forward_users": 0
+  },
+  "clean_base_hash_before": "cadd9eccec616ef85a00c17ef1459cfb46ff34a958c41f43175b67b153072ffd",
+  "clean_base_hash_after": "cadd9eccec616ef85a00c17ef1459cfb46ff34a958c41f43175b67b153072ffd",
+  "runtime_seconds": 3154.16344499588,
+  "peak_cuda_allocated_mib": 6935.34814453125
+}

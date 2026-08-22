@@ -747,6 +747,13 @@ def rank_metrics(ranking: list[str], target: str) -> dict:
     }
 
 
+def admission_verdict(run_b3: bool, checks: dict[str, bool]) -> str:
+    """Return the method-specific verdict from positively phrased checks only."""
+    method = "B2_B3" if run_b3 else "B2"
+    prefix = "PASS" if checks and all(checks.values()) else "FAIL"
+    return f"{prefix}_S15_3A_{method}_ITEM_DISJOINT_ADMISSION"
+
+
 def main() -> None:
     args = parse_args()
     started = time.time()
@@ -1019,8 +1026,8 @@ def main() -> None:
         "b2_state_changed": b2_state["state_changed"],
         "base_hash_unchanged": base_hash_before == base_hash_after_eval,
         "held_ground_truth_opened_after_state_only": True,
-        "held_ground_truth_used_for_training_or_state_selection": False,
-        "test_opened": False,
+        "held_ground_truth_not_used_for_training_or_state_selection": True,
+        "test_not_opened": True,
     }
     if run_b3:
         admission_checks.update(
@@ -1031,19 +1038,7 @@ def main() -> None:
                 "b3_every_position_exercised": True,
             }
         )
-    verdict = (
-        (
-            "PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION"
-            if run_b3
-            else "PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION"
-        )
-        if all(admission_checks.values())
-        else (
-            "FAIL_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION"
-            if run_b3
-            else "FAIL_S15_3A_B2_ITEM_DISJOINT_ADMISSION"
-        )
-    )
+    verdict = admission_verdict(run_b3, admission_checks)
     arm_metrics = {}
     for arm in (("b0", "b2", "b3") if run_b3 else ("b0", "b2")):
         arm_metrics[arm] = {

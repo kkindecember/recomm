@@ -156,7 +156,7 @@ case "$ACTION" in
   status)
     if [[ -f "$STATUS" ]]; then
       "$PYTHON" experiment/phase15/protocol/refresh_background_status.py \
-        --status "$STATUS" --log "$LOG" --total 512
+        --status "$STATUS" --log "$LOG" --total 512 --summary "$SUMMARY"
     else
       echo '{"status":"not_started","status_code":"NOT_STARTED","exit_code":-1,"exit_code_pending":false,"test_read":false}'
     fi

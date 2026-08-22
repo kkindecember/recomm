@@ -9,7 +9,7 @@ import json
 import os
 import re
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 
 PROGRESS_RE = re.compile(r"\[s3a-eval\]\s+events=(\d+)/(\d+)")
@@ -34,8 +34,17 @@ def _last_progress(log_path: Path, default_total: int) -> tuple[int, int]:
     return current, total
 
 
-def refresh(status_path: Path, log_path: Path, default_total: int) -> Dict[str, Any]:
+def refresh(
+    status_path: Path,
+    log_path: Path,
+    default_total: int,
+    summary_path: Optional[Path] = None,
+) -> Dict[str, Any]:
     status = json.loads(status_path.read_text(encoding="utf-8"))
+    if summary_path is not None and summary_path.is_file():
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        if status.get("status") == "completed" and isinstance(summary.get("verdict"), str):
+            status["reason"] = summary["verdict"]
     current, total = _last_progress(log_path, default_total)
     workload_rc = status.get("workload_rc", -1)
     state = str(status.get("status", "unknown"))
@@ -61,8 +70,9 @@ def main() -> int:
     parser.add_argument("--status", required=True, type=Path)
     parser.add_argument("--log", required=True, type=Path)
     parser.add_argument("--total", required=True, type=int)
+    parser.add_argument("--summary", type=Path)
     args = parser.parse_args()
-    refreshed = refresh(args.status, args.log, args.total)
+    refreshed = refresh(args.status, args.log, args.total, args.summary)
     print(json.dumps(refreshed, ensure_ascii=False, separators=(",", ":")))
     return 0
 

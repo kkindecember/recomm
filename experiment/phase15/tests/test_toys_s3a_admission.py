@@ -8,7 +8,7 @@ import unittest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "protocol"))
 
 from specgr_gram_adapter import PathCatalog  # noqa: E402
-from toys_s3a_admission import rank_metrics, verifier_score_lengths  # noqa: E402
+from toys_s3a_admission import admission_verdict, rank_metrics, verifier_score_lengths  # noqa: E402
 
 
 class TestToysS3AAdmission(unittest.TestCase):
@@ -31,6 +31,22 @@ class TestToysS3AAdmission(unittest.TestCase):
     def test_rank_metrics_do_not_collapse_missing_targets(self):
         self.assertEqual(rank_metrics(["a", "b"], "b"), {"rank": 2, "hit50": 1, "mrr": 0.5})
         self.assertEqual(rank_metrics(["a", "b"], "c"), {"rank": None, "hit50": 0, "mrr": 0.0})
+
+    def test_admission_verdict_requires_positive_safety_checks(self):
+        checks = {
+            "complete_path": True,
+            "held_ground_truth_not_used_for_training_or_state_selection": True,
+            "test_not_opened": True,
+        }
+        self.assertEqual(
+            admission_verdict(False, checks),
+            "PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION",
+        )
+        checks["test_not_opened"] = False
+        self.assertEqual(
+            admission_verdict(False, checks),
+            "FAIL_S15_3A_B2_ITEM_DISJOINT_ADMISSION",
+        )
 
 
 if __name__ == "__main__":
