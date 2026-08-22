@@ -80,6 +80,8 @@ attempt-2 中 positions 4/5 在全部 6 层的 token accuracy 均为 0。按冻�
 
 branching recovery attempt-1 已验证 edit-state 根因修复：positions 0–5 的 successful z requests 分别为 `[2,1,2,3,2,1]/4`，六个 covariance/deltaW bundle 全部成功写出。随后在第一个 edited beam 前由 Transformers 4.21 generation kwargs 校验失败：One-One context 的动态 `prepare_inputs_for_generation` wrapper 将原 T5 的显式 `encoder_outputs` 参数折叠进 `**kwargs`，而 GRAM `forward` 也只通过 `**kwargs` 转发，导致旧版校验器将实际使用的 `encoder_outputs` 误报为 unused。该 attempt rc=1、`0/512`，独立 artifact 保留；修复必须恢复原 encoder-decoder generation 参数的显式签名，不允许改 edit-state 超参数。
 
+branching recovery attempt-2 已越过上述 kwargs 校验并再次完成六位置 edit state，但在首个 constrained B3 beam 暴露另一项旧版 Transformers 行为：当某个 frozen trie 层的合法 children 少于 `num_beams=50` 时，beam search 会用 score=`-inf` 的非法 dead rows 补满内部 beam slots。它们不可能成为最终输出，且后续仍受同一 prefix constraint 限制；旧 One-One hook 却在模型前向前将这些 dead rows 当作活跃 lexical prefix 拒绝，故于 20:05:15 rc=1、`0/512`。修复仅对 trie 外 dead rows 禁用 delta 并累计披露其数量，合法活跃 rows 仍按当前 lexical position 应用 position-wise delta，最终输出仍必须通过 exact catalog、unique top-50 和 base-hash checks；未更改 seed、beam budget、catalog、B2/B3 状态或 held/test 边界。对应边界测试与完整 Stage15 tests 47/47 PASS，attempt-2 artifact 原样保留。
+
 ## 下一 Gate
 
 S15-3B 只允许 B0、B1、B2 进入 Toys full validation。启动前必须冻结：full validation event 数、paired bootstrap seed/10,000 resamples、cost telemetry、显存与 hard timeout、exact background command 和独立 `status.json`。在该资源合约获得确认前不自动启动。

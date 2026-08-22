@@ -278,9 +278,18 @@ class TestGenRecEditGramAdapter(unittest.TestCase):
             self.assertTrue(torch.equal(second[0], torch.zeros_like(second[0])))
             self.assertTrue(torch.equal(second[1], 2 * hidden[1]))
 
+            # A constrained beam search may retain -inf rows to fill
+            # num_beams when a trie level has too few legal children.  Such a
+            # dead row must remain unedited while a live lexical row is routed.
+            model.prepare_inputs_for_generation(torch.tensor([[0, 99], [0, 11]]))
+            third = model.decoder.block[0].layer[2].DenseReluDense.wo(hidden)
+            self.assertTrue(torch.equal(third[0], torch.zeros_like(third[0])))
+            self.assertTrue(torch.equal(third[1], 2 * hidden[1]))
+
         restored = model.decoder.block[0].layer[2].DenseReluDense.wo(hidden)
         self.assertTrue(torch.equal(restored, torch.zeros_like(restored)))
-        self.assertEqual(context.applied_rows_by_position, {0: 2, 1: 1})
+        self.assertEqual(context.applied_rows_by_position, {0: 2, 1: 2})
+        self.assertEqual(context.dead_prefix_rows, 1)
 
     def test_train_only_probe_counts_exclude_eos_and_padding(self):
         labels = torch.tensor([[4, 5, 1], [4, 1, -100]])

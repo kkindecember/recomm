@@ -536,6 +536,7 @@ class OneOneGenerationDeltaContext:
         self._active_mask: torch.Tensor | None = None
         self.applied_rows_by_position = {position: 0 for position in self.position_to_layer}
         self.prepare_calls = 0
+        self.dead_prefix_rows = 0
 
     def _parameter_name(self, position: int) -> str:
         bundle = self.router.active_bundle(position)
@@ -558,17 +559,24 @@ class OneOneGenerationDeltaContext:
             while suffix and suffix[-1] == self.pad_token_id:
                 suffix = suffix[:-1]
             position = len(suffix)
-            positions.add(position)
             if suffix in self.complete_paths:
                 active.append(False)
             elif suffix in self.valid_prefixes:
-                active.append(position in self.position_to_layer)
+                is_active = position in self.position_to_layer
+                active.append(is_active)
+                if is_active:
+                    positions.add(position)
             else:
-                raise ValueError("Generation prefix is outside the frozen lexical trie")
-        if len(positions) != 1:
+                # PrefixConstrainedLogitsProcessor can retain -inf rows when a
+                # trie level has fewer legal children than num_beams.  Those
+                # rows are dead search slots, not lexical candidates: leave
+                # them unedited while active rows continue through the frozen
+                # trie.  The prefix constraint keeps dead rows at -inf.
+                active.append(False)
+                self.dead_prefix_rows += 1
+        if len(positions) > 1:
             raise ValueError("Beam rows disagree on the current lexical position")
-        position = next(iter(positions))
-        self._active_position = position if position in self.position_to_layer else None
+        self._active_position = next(iter(positions)) if positions else None
         self._active_mask = torch.tensor(active, dtype=torch.bool)
         self.prepare_calls += 1
 

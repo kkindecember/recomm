@@ -941,6 +941,7 @@ def main() -> None:
         "b3_model_forward_users": 0,
     }
     b3_trace = None
+    b3_dead_prefix_rows = 0
     for index, event in enumerate(held, 1):
         sample = make_model_sample(
             {
@@ -1004,6 +1005,7 @@ def main() -> None:
                 b3_trace = {position: 0 for position in position_to_layer}
             for position, count in trace.applied_rows_by_position.items():
                 b3_trace[position] += count
+            b3_dead_prefix_rows += trace.dead_prefix_rows
         for ranking in ((b0, b2, b3) if run_b3 else (b0, b2)):
             if len(ranking) != 50 or len(set(ranking)) != 50 or not set(ranking).issubset(item_paths):
                 raise RuntimeError("Admission ranking violates strict item contract")
@@ -1097,7 +1099,8 @@ def main() -> None:
             {
                 "b3_generation_applied_rows_by_position": {
                     str(key): value for key, value in b3_trace.items()
-                }
+                },
+                "b3_generation_dead_prefix_rows": b3_dead_prefix_rows,
             }
             if run_b3
             else {}
