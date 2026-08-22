@@ -5,13 +5,13 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: run + validate
 - Origin Date: 2026-08-22
-- Verification Status: PARTIALLY_VERIFIED（B2 S15-3A 已完成；B0/B1/B2 S15-3B 与 B3 exploratory recovery attempt5 运行中）
-- Version Label: stage15_s3_toys_v2_running
+- Verification Status: PARTIALLY_VERIFIED（B2 与 exploratory B3 S15-3A 均已 PASS；B0/B1/B2 S15-3B 运行中；B3 独立 full validation 尚未执行）
+- Version Label: stage15_s3_toys_v3_b3_recovery_admitted
 
 ## 当前结论
 
 - B2：`PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION`，允许进入 S15-3B full validation。
-- B3：原正式入口仍为 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不混入正在运行的 B0/B1/B2 S15-3B；独立 exploratory branching recovery attempt5 正在重新执行 512-event admission，该结论仅在新 Gate 完整结束后更新。
+- B3：原正式入口仍保留 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION` 历史结论；冻结 catalog trie 上排除 branching factor=1 不可编辑请求的 exploratory variant 已在独立 attempt5 得到 `PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`，具备另行进入 B3 full validation 的资格，但不回填或改动正在运行的 B0/B1/B2 S15-3B。
 - test：未打开。
 - automatic retry：false。
 
@@ -82,6 +82,20 @@ branching recovery attempt-1 已验证 edit-state 根因修复：positions 0–5
 
 branching recovery attempt-2 已越过上述 kwargs 校验并再次完成六位置 edit state，但在首个 constrained B3 beam 暴露另一项旧版 Transformers 行为：当某个 frozen trie 层的合法 children 少于 `num_beams=50` 时，beam search 会用 score=`-inf` 的非法 dead rows 补满内部 beam slots。它们不可能成为最终输出，且后续仍受同一 prefix constraint 限制；旧 One-One hook 却在模型前向前将这些 dead rows 当作活跃 lexical prefix 拒绝，故于 20:05:15 rc=1、`0/512`。修复仅对 trie 外 dead rows 禁用 delta 并累计披露其数量，合法活跃 rows 仍按当前 lexical position 应用 position-wise delta，最终输出仍必须通过 exact catalog、unique top-50 和 base-hash checks；未更改 seed、beam budget、catalog、B2/B3 状态或 held/test 边界。对应边界测试与完整 Stage15 tests 47/47 PASS，attempt-2 artifact 原样保留。
 
+### B3 exploratory recovery attempt5：PASS
+
+attempt5 于 GPU6 完成独立 512-event admission，workload rc=0，verdict=`PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`。总运行 `2,111.37 s`（35m11s），peak CUDA allocated=`6,935.35 MiB`。positions 0–5 的 successful z requests 为 `[2,1,2,3,2,1]/4`；六个 delta bundle 均 finite/nonzero，实际 generation applied rows 分别为 `[25,600,25,600,25,600,25,600,25,600,175]`。constrained search 共披露 `6,602` 个 `-inf` dead prefix rows，这些行保持未编辑；最终 512 组 B0/B2/B3 ranking 均满足 50 个唯一已知 catalog item，B3 在 `510/512` 个事件上与 B0 排序不同。
+
+clean base 运行前后 SHA256 均为 `cadd9eccec616ef85a00c17ef1459cfb46ff34a958c41f43175b67b153072ffd`。held ground truth 只在 B2/B3 state 冻结后打开且未用于训练或状态选择；test prediction/metric 均未打开，automatic retry=false。
+
+admission 非推广性指标如下，仅证明 evaluator 与排序路径完整，不构成 efficacy 或显著性结论：
+
+| Arm | Hit@50 events | MRR |
+|---|---:|---:|
+| B0 | 6/512 | 0.0004434164 |
+| B2 | 6/512 | 0.0004256444 |
+| B3 exploratory | 6/512 | 0.0006622012 |
+
 ## 当前运行 Gate
 
-S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行；B3 不追加到该运行，而是在独立 attempt5 上重新执行 exploratory 512-event admission。两条任务均以各自 `status.json` 为准，test 继续封存且 automatic retry=false。
+S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行。exploratory B3 已通过独立 S15-3A Gate，下一步必须另建 B3-only full-validation 入口，复用同一 8,789-event validation、B0/B1 frozen replay、10,000 次 paired bootstrap、seed 与指标定义；不得改动或并入当前活跃 run。首次启动前仍需冻结 exact command、独立 artifact/status、显存 admission 与 hard timeout。test 继续封存且 automatic retry=false。

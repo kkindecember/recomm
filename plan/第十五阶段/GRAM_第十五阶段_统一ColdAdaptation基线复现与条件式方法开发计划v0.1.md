@@ -2,7 +2,7 @@
 
 > **建立日期**：2026-08-21
 > **修订日期**：2026-08-22（v0.1-r7）
-> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FORMAL_FAIL_WITH_EXPLORATORY_RECOVERY_ATTEMPT5_RUNNING / S15_3B_B0_B1_B2_RUNNING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
+> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FORMAL_FAIL_PRESERVED / B3_EXPLORATORY_RECOVERY_PASS_S15_3A / S15_3B_B0_B1_B2_RUNNING / B3_FULL_VALIDATION_PENDING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
 > **阶段定位**：先复现并对齐 SpecGR / GenRecEdit，再依据同协议证据决定是否开发新方法
 > **上一阶段**：Stage14 R2PD 在 M2 14-1 得到 `FAIL_STOP_PATH_TRANSFER_STAGE14_1`，14-2/M3/M4 已取消
 
@@ -13,7 +13,7 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: plan
 - Origin Date: 2026-08-21
-- Verification Status: PARTIALLY_VERIFIED（S15-3A B2 512-event admission 已完成并 PASS；B3 原正式 admission FAIL，exploratory recovery attempt5 运行中；S15-3B B0/B1/B2 full validation 运行中；官方原生 GPU 闭环尚未执行）
+- Verification Status: PARTIALLY_VERIFIED（S15-3A B2 与 exploratory B3 512-event admission 均已 PASS；B3 原正式 admission FAIL 历史保留；S15-3B B0/B1/B2 full validation 运行中，B3 独立 full validation 待冻结；官方原生 GPU 闭环尚未执行）
 - Version Label: phase15_cold_adaptation_plan_v0.1-r7
 
 ---
@@ -348,7 +348,7 @@ admission 不判显著性；通过后才做 full validation。
 
 #### S15-3B Toys full validation
 
-> **执行更新（2026-08-22）**：B2 已通过 512-event admission，B3 已在 edit-state admission 失败。当前 S15-3B 只允许 B0、B1、B2；B3 记 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不生成伪造的 efficacy 数字。B2d 只在机制附表，不参与“真 SpecGR”主表。
+> **执行更新（2026-08-22）**：B2 已通过 512-event admission；B3 原正式 edit-state admission 的 FAIL 历史保留。随后冻结的 exploratory branching recovery 已在独立 attempt5 通过完整 512-event admission，因此允许另行安排 B3 full validation；不得把 B3 追加到或改动当前运行中的 B0/B1/B2 S15-3B。B2d 只在机制附表，不参与“真 SpecGR”主表。
 
 > **B3 exploratory recovery（2026-08-22）**：失败根因定位为 deterministic request sampler 在 position 4 选中 4/4 个 legal branching factor=1 的结构确定前缀；其 legal probability 恒为 1，不可能满足预注册的“edited probability 严格高于 baseline”条件。recovery 只允许在冻结 catalog trie 上排除 branching factor=1 的不可编辑请求，再沿用原 SHA rank、distinct-cold、4 requests/position、seed、layer probe、z optimizer 与 probability threshold=0.3。该修复不得改变正在运行的 B0/B1/B2 S15-3B；只有新的独立 512-event admission 完整 PASS 后，B3 才可另行进入 full validation。
 
@@ -616,3 +616,4 @@ S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态
 | 2026-08-22 | B3 branching recovery attempt-2 generation interface PASS、首个 constrained beam FAIL | attempt-2 于 19:59:26 在 GPU5 启动，六位置 edit state 再次全部成功；随后在首个 B3 beam 发现 Transformers constrained beam search 会在浅层合法分支少于 `num_beams=50` 时保留若干 `-inf` dead rows，旧 hook 将其误判为 frozen trie 污染，20:05:15 rc=1、进度 0/512。该 attempt 独立 artifact 原样保留。修复只让 dead rows 保持未编辑并累计披露，活跃 lexical rows、prefix constraint、最终 unique known top-50 与所有数值合约不变；Stage15 tests 47/47 PASS。 |
 | 2026-08-22 | B3 recovery attempt-3 launch blocked、attempt-4 GPU admission blocked | attempt-3 仅写入 `STARTING` status 后因当前执行沙箱无权连接宿主 tmux socket而未产生 runner、workload 或 run.log；证据保留且不冒充运行。宿主 tmux attempt-4 于 GPU5 完成 47/47 preflight，但 admission 时 free 已低于 16,384 MiB，rc=9；科学 workload 未启动、test 未读、未改现有进程、未自动 retry。 |
 | 2026-08-22 | B3 recovery attempt-5 GPU6 后台启动 | 21:05:37 启动时 GPU6 是唯一满足 16,384 MiB admission 的设备，保留其既有进程；47/47 preflight PASS，status=`RUNNING`、worker 已进入 B2 train/state 构建，512-event progress 尚为 0。独立 artifact=`artifacts/phase15/s3_toys/admission/b3_branching_recovery_attempt5`，hard timeout=14,400 s、test_read=false、automatic_retry=false。 |
+| 2026-08-22 | B3 exploratory recovery attempt-5 完成并 PASS S15-3A | 512/512 events、workload rc=0、verdict=`PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`；runtime=2,111.37 s，peak CUDA allocated=6,935.35 MiB。六位置 delta finite/nonzero 且 generation 全部实际触发，B3 与 B0 排序在 510/512 events 不同；所有 ranking unique known top-50，base hash 前后不变，held-after-state、test sealed。允许冻结独立 B3 full validation，不回填当前 B0/B1/B2 run。 |

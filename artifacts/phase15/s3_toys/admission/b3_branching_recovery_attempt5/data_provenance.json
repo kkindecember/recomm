@@ -1,0 +1,21 @@
+{
+  "base": "Stage14 item-disjoint clean_base.pt from fresh local t5-small",
+  "historical_v0_checkpoint_used": false,
+  "pseudo_or_real_cold_interactions_used_for_base_or_state_training": false,
+  "held_ground_truth_opened_after_b2_b3_state": true,
+  "held_ground_truth_used_for_training_or_selection": false,
+  "test_opened": false,
+  "gram_input_similar_items_filtered_forbidden": {
+    "forbidden_similar_edges_removed": 67491,
+    "top_k": 5
+  },
+  "adapter_similarity_source": {
+    "model_name": "BAAI/bge-large-en-v1.5",
+    "pooling": "cls",
+    "l2_normalized": true,
+    "shape": [
+      11924,
+      1024
+    ]
+  }
+}
