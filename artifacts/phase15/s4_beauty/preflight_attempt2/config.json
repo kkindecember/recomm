@@ -1,0 +1,112 @@
+{
+  "stage": "S15-4",
+  "domain": "Beauty_cold50",
+  "frozen_from": "Toys S15-3 complete artifacts; no Beauty efficacy outcome used",
+  "common": {
+    "events": 10655,
+    "catalog_items": 12101,
+    "cold_items": 6052,
+    "warm_items": 6049,
+    "path_lengths": {
+      "7": 11668,
+      "8": 433
+    },
+    "lexical_positions": 8,
+    "beam_size": 50,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260822,
+    "seed": 1502,
+    "similar_top_k": 10
+  },
+  "b2": {
+    "train_transitions": 4096,
+    "drafter_epochs": 2,
+    "drafter_batch_size": 128,
+    "drafter_learning_rate": 0.001,
+    "draft_size": 10,
+    "draft_rounds": 5,
+    "verifier_threshold": -1.6,
+    "candidate_chunk_size": 10
+  },
+  "b3": {
+    "train_transitions": 4096,
+    "contexts_per_pseudo_cold": 10,
+    "covariance_transitions": 256,
+    "covariance_long_path_minimum": 32,
+    "covariance_batch_size": 32,
+    "requests_per_position": 4,
+    "z_steps": 30,
+    "request_selection_rule": "catalog-only legal branching factor >=2; existing SHA rank and distinct-cold rule unchanged"
+  },
+  "execution": {
+    "minimum_free_mib": 16384,
+    "expected_incremental_gpu_mib_upper_bound": 12288,
+    "hard_timeout_seconds": 86400,
+    "background_required": true,
+    "resource_mode": "user_assigned_remaining_memory_only_no_process_changes"
+  },
+  "paths": {
+    "projected_sequences": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Beauty_cold50/user_sequence_train_validation.txt",
+    "historical_config": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/config.json",
+    "checkpoint": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "frozen_b0_b1_predictions": "artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl",
+    "item_path_file": "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+    "item_text_file": "GRAM/rec_datasets/Beauty_cold50/item_plain_text.txt",
+    "similar_items_file": "GRAM/rec_datasets/Beauty_cold50/similar_item_sasrec.txt",
+    "item_embeddings": "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt",
+    "cold_items": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt",
+    "warm_items": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/warm_items.txt",
+    "b1_source_summary": "artifacts/phase13/explore/v1_r2_beauty_p0/summary.json",
+    "b1_state": "artifacts/phase13/explore/v1_r2_beauty_p0/resolver.pt",
+    "s2_preflight_summary": "artifacts/phase15/s2_dual_domain_preflight/summary.json",
+    "toys_b2_summary": "artifacts/phase15/s3_toys/full_validation/b0_b1_b2_seed0_attempt2/summary.json",
+    "toys_b3_summary": "artifacts/phase15/s3_toys/full_validation/b3_branching_seed0/summary.json",
+    "toys_b2_admission_summary": "artifacts/phase15/s3_toys/admission/b2_item_disjoint/summary.json",
+    "toys_b3_admission_summary": "artifacts/phase15/s3_toys/admission/b3_branching_recovery_attempt5/summary.json",
+    "toys_b0_parity_summary": "artifacts/phase15/s2_contract_smoke/toys/b0_projection_parity_smoke_attempt3/summary.json"
+  },
+  "sha256": {
+    "projected_sequences": "b7b16f370df9e93423e9d4ac72d78177fc7833048e41828c895fa56495ef855e",
+    "historical_config": "61dfbb0d51ba65fe0b3af5f8985c0f7cff6314d30778af739859938becb9c2e7",
+    "checkpoint": "6e5d43f2a3d51f02b351314bad31bff00249cee536731f105215883c022c27b8",
+    "frozen_b0_b1_predictions": "895b26b16fe176bbb311d41dbf2d3bf72d2aac12d423c9e06ee96e07ed4f63e1",
+    "item_path_file": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+    "item_text_file": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc",
+    "similar_items_file": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c",
+    "item_embeddings": "f6fbc0527c3dfbe66a60388c84645357ea8c14d97c58fe66a02a75ffa4192090",
+    "cold_items": "d7edea19e40ae42c0c848fe7185001d9a762ec747957bf3766bc787c7bc99f13",
+    "warm_items": "291b3b82d5d37c56e52157d6a14c5c06e4e10160a10e37173a9e313baeea2def",
+    "b1_source_summary": "8743d74416f3137be3d186fbb40e33c084182387c170ec533802a8730c38a58e",
+    "b1_state": "4febb0ff4fa2ab2998b05037387d7eca1be88fdb4f2c834eb1666601fd84dffc",
+    "s2_preflight_summary": "f6755fb74917114e315358523d2778df7b536e6885c50c8b792fa91a499598a8",
+    "toys_b2_summary": "8b3a5ec759657514af6c25315e54dcdb7c6735a906489a70c3017d2abcad6972",
+    "toys_b3_summary": "b0ed6cdcd2382d2b50e72b4b8ecbe99cf1cb03d2e1b16ee8e179a6154be9bae8",
+    "toys_b2_admission_summary": "fa8e0ed41b2d7e42c11e43ff7cd65eba7481f449d16940d9d5179694414f2109",
+    "toys_b3_admission_summary": "b842439e32987cd3cb0d3fc5770790ff86fe4ad84a9dd74d7898bd12b14f59d1",
+    "toys_b0_parity_summary": "9fa1c944074748307e168c7bed2d33e4aeff7e32ff02d21565b32f033ec5cb87"
+  },
+  "code_paths": {
+    "common_adapter": "experiment/phase15/protocol/common_adapter.py",
+    "specgr_adapter": "experiment/phase15/protocol/specgr_gram_adapter.py",
+    "genrecedit_adapter": "experiment/phase15/protocol/genrecedit_gram_adapter.py",
+    "state_and_generation": "experiment/phase15/protocol/toys_s3a_admission.py",
+    "b2_full_validation": "experiment/phase15/protocol/toys_s3b_full_validation.py",
+    "b3_full_validation": "experiment/phase15/protocol/toys_s3b_b3_full_validation.py",
+    "status_refresh": "experiment/phase15/protocol/refresh_background_status.py",
+    "b2_wrapper": "experiment/phase15/run_stage15_s4_beauty_b2_full_validation.sh",
+    "b3_wrapper": "experiment/phase15/run_stage15_s4_beauty_b3_full_validation.sh"
+  },
+  "code_sha256": {
+    "common_adapter": "1c05270b777f93899d786ae6ccb9e0391f79a0ec2591262e8c0976ba349c2f69",
+    "specgr_adapter": "b890f91a11d027151bdf61c1960c193afe21c6e9e8269b7ef5bd37eae1430330",
+    "genrecedit_adapter": "c57750454db0a791259872ae28feeef188097000307235ddc7a2c94e5fc750e3",
+    "state_and_generation": "83068f2fc2c459bdbf06983600057ba6787e7cdea2017eddc189adc4325078f4",
+    "b2_full_validation": "af99911bcb0f9eb065d04dc3ab2bd038defeddab28df75916bffbd68d1085a97",
+    "b3_full_validation": "c83631c4b5fb912fc30985dc3ba5196dd133298432157c6e74644f71dc8ec86a",
+    "status_refresh": "602b70e392aca12e937025fa4e1c054c7229a3c7854e3975ce1b4a70f0326c36",
+    "b2_wrapper": "fea0f025a6a14bdf3d7b5336c2d8c9e6467eccefc8abb3213b29f5bac3b97c9f",
+    "b3_wrapper": "00bc42d44525b20d651f71dcbc9dc5b4ecaabda5733047b736b6357229b8ed72"
+  },
+  "test_read": false,
+  "automatic_retry": false
+}

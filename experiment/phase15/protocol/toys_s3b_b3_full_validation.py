@@ -74,6 +74,11 @@ EXPECTED_ADMISSION_VERDICT = "PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--experiment-id", default="GRAM_STAGE15_S3B_TOYS_B3_FULL_VALIDATION_SEED0")
+    parser.add_argument("--domain", default="Toys_cold50")
+    parser.add_argument("--completed-verdict", default="COMPLETED_S15_3B_TOYS_B3_FULL_VALIDATION")
+    parser.add_argument("--required-events", type=int, default=8789)
+    parser.add_argument("--progress-marker", default="s3b-b3-eval")
     parser.add_argument("--projected-sequences", type=Path, required=True)
     parser.add_argument("--historical-config", type=Path, required=True)
     parser.add_argument("--backbone-path", type=Path, required=True)
@@ -89,6 +94,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--b0-parity-summary", type=Path, required=True)
     parser.add_argument("--b1-source-summary", type=Path, required=True)
     parser.add_argument("--b1-state", type=Path, required=True)
+    parser.add_argument("--frozen-contract", type=Path)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--train-transitions", type=int, default=4096)
@@ -98,6 +104,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--contexts-per-pseudo-cold", type=int, default=10)
     parser.add_argument("--requests-per-position", type=int, default=4)
     parser.add_argument("--z-steps", type=int, default=30)
+    parser.add_argument("--similar-top-k", type=int, default=5)
     parser.add_argument("--beam-size", type=int, default=50)
     parser.add_argument("--bootstrap-resamples", type=int, default=BOOTSTRAP_RESAMPLES)
     parser.add_argument("--bootstrap-seed", type=int, default=BOOTSTRAP_SEED)
@@ -169,6 +176,8 @@ def run(args: argparse.Namespace) -> dict:
             "b1_state": args.b1_state,
         }.items()
     }
+    if args.frozen_contract is not None:
+        paths["frozen_contract"] = args.frozen_contract.resolve()
     backbone = args.backbone_path.resolve()
     if paths["projected_sequences"].name != "user_sequence_train_validation.txt":
         raise ValueError("B3 full validation requires the audited projection")
@@ -188,6 +197,10 @@ def run(args: argparse.Namespace) -> dict:
 
     numerical_mode = _configure_determinism()
     projected = read_projected_sequences(paths["projected_sequences"])
+    if len(projected) != args.required_events:
+        raise ValueError(
+            f"Projected event count drift: {len(projected)} != {args.required_events}"
+        )
     train_sequences = train_only_sequences(projected)
     cold = read_set(paths["cold_items"])
     warm = read_set(paths["warm_items"])
@@ -236,7 +249,11 @@ def run(args: argparse.Namespace) -> dict:
     # selects edit contexts; the historical SASRec file is never used for
     # request selection or target supervision.
     item_inputs, input_audit = build_filtered_item_inputs(
-        item_paths, item_text, paths["similar_items_b0_historical_only"], set(), 5
+        item_paths,
+        item_text,
+        paths["similar_items_b0_historical_only"],
+        set(),
+        args.similar_top_k,
     )
     item_to_cfid = {item: index + 1 for index, item in enumerate(sorted(item_paths))}
     position_to_layer, probe_state = probe_clean_base_layers(
@@ -352,7 +369,7 @@ def run(args: argparse.Namespace) -> dict:
             for position, count in trace.applied_rows_by_position.items():
                 b3_trace[position] += count
             if index % 16 == 0 or index == len(projected):
-                print(f"[s3b-b3-eval] events={index}/{len(projected)}", flush=True)
+                print(f"[{args.progress_marker}] events={index}/{len(projected)}", flush=True)
     b3_inference_seconds = time.time() - inference_started
 
     base_hash_after = _model_state_sha256(model)
@@ -438,8 +455,8 @@ def run(args: argparse.Namespace) -> dict:
     }
 
     config = {
-        "experiment_id": "GRAM_STAGE15_S3B_TOYS_B3_FULL_VALIDATION_SEED0",
-        "domain": "Toys_cold50",
+        "experiment_id": args.experiment_id,
+        "domain": args.domain,
         "split": "validation",
         "arms": list(ARMS),
         "events": len(rows),
@@ -450,6 +467,7 @@ def run(args: argparse.Namespace) -> dict:
         "covariance_long_path_minimum": args.covariance_long_path_minimum,
         "requests_per_position": args.requests_per_position,
         "z_steps": args.z_steps,
+        "similar_top_k": args.similar_top_k,
         "beam_size": args.beam_size,
         "bootstrap_resamples": args.bootstrap_resamples,
         "bootstrap_seed": args.bootstrap_seed,
@@ -463,7 +481,7 @@ def run(args: argparse.Namespace) -> dict:
     summary = {
         **config,
         "status": "completed",
-        "verdict": "COMPLETED_S15_3B_TOYS_B3_FULL_VALIDATION",
+        "verdict": args.completed_verdict,
         "metrics": metrics,
         "paired_bootstrap": intervals,
         "success_labels": labels,
@@ -535,6 +553,11 @@ def run(args: argparse.Namespace) -> dict:
                 )
             ],
             "backbone_dir": str(backbone.relative_to(REPO_ROOT)),
+            "frozen_contract": (
+                str(paths["frozen_contract"].relative_to(REPO_ROOT))
+                if "frozen_contract" in paths
+                else None
+            ),
             "projected_validation_target_used_for_state": False,
             "original_user_sequence_opened": False,
             "test_predictions_opened": False,

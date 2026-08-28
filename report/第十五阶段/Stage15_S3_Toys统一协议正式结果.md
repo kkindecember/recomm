@@ -4,100 +4,137 @@
 
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: run + validate
-- Origin Date: 2026-08-22
-- Verification Status: PARTIALLY_VERIFIED（B2 与 exploratory B3 S15-3A 均已 PASS；B0/B1/B2 与独立 B0/B1/B3 S15-3B 均运行中）
-- Version Label: stage15_s3_toys_v5_b3_full_running
+- Origin Date: 2026-08-23
+- Verification Status: ANALYZED（完整 artifact、状态、日志、hash、输入边界与 paired-bootstrap summary 已核对；未做独立重复运行）
+- Version Label: stage15_s3_toys_v6_complete
 
-## 当前结论
+## 最终结论
 
-- B2：`PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION`，允许进入 S15-3B full validation。
-- B3：原正式入口仍保留 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION` 历史结论；冻结 catalog trie 上排除 branching factor=1 不可编辑请求的 exploratory variant 已在独立 attempt5 得到 `PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`，具备另行进入 B3 full validation 的资格，但不回填或改动正在运行的 B0/B1/B2 S15-3B。
-- test：未打开。
-- automatic retry：false。
+S15-3 已完成。B2 与 B3 exploratory full validation 均完成 8,789/8,789 个 Toys validation events，workload exit code 均为 0；原始完整序列、test predictions 与 test metrics 均未打开，`automatic_retry=false`。
 
-S15-3A 只作工程与协议 admission，不作 efficacy 或显著性结论。
+最终方法级标签：
 
-## B2 512-event admission
+| Arm | S15-3A admission | `PASS_NATIVE_COLD_RECOVERY` | `PASS_OVER_R2_PARETO` | `PASS_COST_QUALITY_CANDIDATE` |
+|---|---|---:|---:|---:|
+| B1 R² portfolio@2 | 历史冻结 reference | true | true（reference） | reference |
+| B2 SpecGR-GRAM | `PASS_S15_3A_B2_ITEM_DISJOINT_ADMISSION` | true | false | false |
+| B3 GenRecEdit-GRAM 原正式入口 | `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION` | 未生成 efficacy | 未生成 efficacy | 未生成 efficacy |
+| B3 exploratory branching recovery | `PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION` | false | false | false |
 
-### 执行结果
+因此：B2 只达到相对原生 GRAM 的 cold reachability recovery，但被 B1 在 cold、warm 与 overall 质量轴同时压过；B3 exploratory 虽改变全部排序，却未形成 cold H@50 recovery。依预注册 Gate，禁止回 Toys 调参，也不能据此进入 S15-5 新方法开发；所有 contract-pass arm 仍须按冻结配置进入 S15-4 Beauty seed-0。
 
-| 字段 | 结果 |
-|---|---:|
-| exact command | `bash experiment/phase15/run_stage15_s3a_toys_b2_only_admission.sh start 7` |
-| workload exit code | 0 |
-| held events | 512/512 |
-| runtime | 3,154.16 s（52m34s） |
-| peak CUDA allocated | 6,935.35 MiB |
-| B2 train transitions | 4,096 |
-| B2 loss | `9.36309439 → 9.24616081` |
-| B2 trainable parameters | 1,346,912 |
-| verifier candidate forwards | 25,600（512×50） |
-| accepted drafts | 270 |
-| B2 rankings differing from B0 | 164/512 |
+## 正式结果
 
-全部 512 个事件均完成 B0 beam-50 与 B2 draft→verify→redraft 路径；所有 ranking 均为 50 个唯一、已知 catalog item。B2 loss/score finite、drafter state 改变，冻结 clean base 的运行前后 SHA256 均为 `cadd9eccec616ef85a00c17ef1459cfb46ff34a958c41f43175b67b153072ffd`。
+### 统一指标
 
-held target 只在 B2 state 完成后用于 evaluation，没有参与训练、状态选择或超参数选择；test 未打开。
+| Arm | Overall H@50 | Overall NDCG@10 | Warm H@50 | Warm NDCG@10 | Cold H@50 | Cold NDCG@10 | Cold hit events |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| B0 GRAM v0 | 0.10092161 | 0.03336130 | 0.19041158 | 0.06358013 | 0.01030456 | 0.00276188 | 45/4,367 |
+| B1 R² portfolio@2 | 0.10888611 | 0.03501644 | 0.18701945 | 0.06098201 | 0.02976872 | 0.00872386 | 130/4,367 |
+| B2 SpecGR-GRAM | 0.10023894 | 0.01844138 | 0.18588874 | 0.03383872 | 0.01351042 | 0.00285012 | 59/4,367 |
+| B3 exploratory | 0.10001138 | 0.03272002 | 0.18928087 | 0.06212094 | 0.00961759 | 0.00294882 | 42/4,367 |
 
-### 非推广性指标
+事件构成固定为 8,789 total、4,422 warm、4,367 cold；四个 arm 均在同一 projected validation target 上评估。B0/B1 分别从冻结 Phase13 validation ranking replay；B2/B3 在对应 state 冻结后才打开 validation target。
 
-| Arm | Hit@50 events | MRR |
-|---|---:|---:|
-| B0 | 6/512 | 0.0004434164 |
-| B2 | 6/512 | 0.0004256444 |
+### Paired bootstrap 主比较
 
-这些指标只证明完整 evaluator 已执行。S15-3A 未设计显著性检验，不能据此宣称 B2 优于、等于或劣于 B0。
+10,000 次 event-level paired bootstrap，seed=`20260822`，95% percentile CI：
 
-### Verdict 修正记录
+| 比较 | 指标 | 差值 | 95% CI | 解释 |
+|---|---|---:|---:|---|
+| B1−B0 | cold H@50 | +0.01946416 | `[+0.01534234,+0.02381498]` | recovery PASS |
+| B2−B0 | cold H@50 | +0.00320586 | `[+0.00114495,+0.00549576]` | recovery PASS；绝对增益小 |
+| B2−B0 | warm NDCG@10 | −0.02974141 | `[−0.03405413,−0.02554456]` | warm cost 明确 |
+| B2−B0 | overall NDCG@10 | −0.01491992 | `[−0.01719079,−0.01270866]` | overall utility 下降 |
+| B2−B1 | cold H@50 | −0.01625830 | `[−0.02106709,−0.01167850]` | cold 显著低于 B1 |
+| B2−B1 | warm NDCG@10 | −0.02714329 | `[−0.03141081,−0.02288320]` | warm 显著低于 B1 |
+| B3−B0 | cold H@50 | −0.00068697 | `[−0.00183192,+0.00022899]` | inconclusive；不得写成等价 |
+| B3−B0 | warm NDCG@10 | −0.00145919 | `[−0.00283483,−0.00008364]` | warm cost CI 全负 |
+| B3−B1 | cold H@50 | −0.02015113 | `[−0.02450195,−0.01602931]` | cold 显著低于 B1 |
+| B3−B1 | warm NDCG@10 | +0.00113893 | `[−0.00038647,+0.00267458]` | inconclusive |
 
-workload 首次写出的 verdict 为 `FAIL_S15_3A_B2_ITEM_DISJOINT_ADMISSION`，但这是 reducer 的确定性布尔方向错误：`admission_checks` 同时保存了 `held_ground_truth_used_for_training_or_state_selection=false` 与 `test_opened=false`，随后错误执行 `all(admission_checks.values())`，把两个正确的安全事实判为失败。
+B2 cold H@50 相对 B0 的 point estimate 约增加 31.1%，但只对应 14 个额外 cold hit events，且 warm NDCG@10 仅保留 B0 的约 53.2%。因此统计 recovery 不等于部署层面胜出。
 
-现已将 Gate 改为正向断言：
+B3 在 8,789/8,789 个事件上改变 B0 排序，但 cold hit events 从 45 降为 42，primary CI 跨 0。该结果证明 edit/generation path 生效，却没有证明推荐质量恢复。
 
-- `held_ground_truth_not_used_for_training_or_state_selection=true`
-- `test_not_opened=true`
+## 成本与状态
 
-其余 admission checks 原本全部为 true。现有 512-event 完整 artifact 足以确定性重算 verdict，无须重跑模型；summary 同时保留 `original_emitted_verdict` 与 correction reason，回归测试覆盖 PASS/FAIL 两条路径。
+| Arm | Offline update | Full inference | users/s | Extra state | 其他 |
+|---|---:|---:|---:|---:|---|
+| B0 | replay | replay | 不可与本次实测直接比较 | 0 | 冻结 validation artifact |
+| B1 | 历史 train+validation 118.26 s | 本次 replay | 不可与本次实测直接比较 | 4,202,331 bytes | 冻结 resolver |
+| B2 | 33.70 s | 25,457.57 s | 0.3452 | 5,395,153 bytes | 1,346,912 trainable parameters；439,450 verifier candidates |
+| B3 exploratory | 69.87 s | 8,435.40 s | 1.0419 | 213,245,140 bytes | 6 delta positions；6,291,456 updated parameter elements |
 
-runner 日志在完整 summary 与 completed status 写出后出现一次 shell 尾部解析错误，原因是任务运行期间补入 status 观察接口导致长生命周期 shell 读取到变更后的文件尾。该异常未影响 workload、summary、模型 hash 或 512 个预测；当前脚本重新执行 `bash -n` 必须通过，后续禁止在活跃 run 中修改其 runner 文件。
+B2 单卡总 runtime=`25,501.12 s`，约 7.08 GPU-hours，peak CUDA allocated=`1,046.05 MiB`。B3 单卡总 runtime=`8,511.30 s`，约 2.36 GPU-hours，peak CUDA allocated=`6,877.99 MiB`。两次 peak CPU RSS 分别约 5.70/5.74 GiB。
 
-## B3 admission 证据
+当前 B0/B1 使用 replay，而 B2/B3 为本次完整推理，因此不能从这组数字宣称严格的跨 arm latency Pareto；成本结论只足以支持 B2/B3 均不满足当前 promotion label。每 100/500/全量 cold-item 的 batch sensitivity 尚未形成同硬件对照，必须在任何最终成本主张前补齐或明确列为未验证。
 
-| Attempt | Layer rule | Position z-success | 结果 |
-|---|---|---|---|
-| attempt-1 | 复用 v0 probe `[5,5,5,5,5,4]` | positions 0–3=`[2,1,2,1]/4`；position 4=`0/4` | rc=1，held 未打开 |
-| attempt-2 | clean-base train-only 6×6 probe；selected=`[5,5,3,5,0,0]` | positions 0–3=`[2,1,2,1]/4`；position 4=`0/4` | rc=1，held 未打开 |
+## B2 执行与合约
 
-attempt-2 中 positions 4/5 在全部 6 层的 token accuracy 均为 0。按冻结纪律，不放宽 legal probability threshold=`0.3`，不增加 requests、不改 tie-break、不换 seed；B3 不进入当前 S15-3B。若继续 B3，必须另立 recovery 计划并标为 exploratory。
+- Artifact：`artifacts/phase15/s3_toys/full_validation/b0_b1_b2_seed0_attempt2/`
+- Status：`COMPLETED_S15_3B_TOYS_FULL_VALIDATION`
+- Drafter：4,096 条 SHA-ranked train-only transitions；2 epochs；loss=`9.36830384→9.24912384`；state SHA256=`8e6ceb801be0bbbfe035f1402eb6e49b40f6a65d9dd5ac9ea2e6099dc2adcb2f`
+- Budget：draft size 10 × 5 rounds = 50；verifier threshold=`-1.6`；candidate chunk size=10；beam=50
+- 8,071/8,789 个 B2 ranking 与 B0 不同；accepted drafts=72,465
+- Base model hash 前后均为 `80d089304ad74d57ff4f0a62f26ac9bd2a3e9a33e210a8d29902a6f1acf6cc6f`
+- Validation target 未用于 drafter training/state selection；原 `user_sequence.txt` 与 test 未打开
 
-### B3 exploratory branching recovery
+B2 full summary 中保留的 B3 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION` 字段只代表该 B0/B1/B2 runner 启动时的原正式历史状态；B3 exploratory efficacy 的权威结果来自独立 B0/B1/B3 artifact，二者不合并覆盖。
 
-后续静态复算发现，失败并非首先由 position-4 layer accuracy=0 导致，而是 request admission 集合含有结构上不可满足成功判据的样本：attempt-2 的 position-4 四个请求 legal branching factor 均为 1。此时 target 在 legal set 中的 baseline probability 恒为 1，而当前成功判据要求 edited probability 严格大于 baseline，因此任何 layer、z residual 或优化步数都不可能成功。
+## B3 原正式失败与 exploratory 结果
 
-恢复修复只在冻结 catalog trie 上排除 branching factor=1 的请求，然后执行原有 SHA rank 与 distinct-cold selection。真实 artifact 的修复后 branching factors 为：position 3=`[2,2,2,4]`，position 4=`[22,2,3,2]`；其余位置仍为非平凡分支。seed=`1502`、4 requests/position、layer probe、z steps、learning rate、weight decay、max norm、preservation lambda 与 legal probability threshold=`0.3` 均保持不变，也不读取 held/validation outcome。
+原正式 B3 admission 的 position-4 requests 为 4/4 个 branching factor=1 前缀，其 legal target probability 恒为 1，不可能满足“edited probability 严格升高”的成功条件。该原始 verdict 永久保留为 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`。
 
-该恢复标记为 exploratory。它不会把 B3 追加到已运行的 B0/B1/B2 S15-3B；只有独立 recovery 512-event admission 完成全部 One-One path、finite/nonzero delta、unique known top-50、base hash unchanged、held-after-state 和 test sealed Gate 后，才允许另行安排 B3 full validation。
+exploratory recovery 只加入 catalog-only `legal branching factor >=2` exclusion；seed、SHA rank、distinct-cold、4 requests/position、layer-selection rule、z steps、learning rate、preservation lambda 与 probability threshold 均保持不变。其独立 512-event admission PASS 后才执行 full validation。
 
-branching recovery attempt-1 已验证 edit-state 根因修复：positions 0–5 的 successful z requests 分别为 `[2,1,2,3,2,1]/4`，六个 covariance/deltaW bundle 全部成功写出。随后在第一个 edited beam 前由 Transformers 4.21 generation kwargs 校验失败：One-One context 的动态 `prepare_inputs_for_generation` wrapper 将原 T5 的显式 `encoder_outputs` 参数折叠进 `**kwargs`，而 GRAM `forward` 也只通过 `**kwargs` 转发，导致旧版校验器将实际使用的 `encoder_outputs` 误报为 unused。该 attempt rc=1、`0/512`，独立 artifact 保留；修复必须恢复原 encoder-decoder generation 参数的显式签名，不允许改 edit-state 超参数。
+Full artifact：`artifacts/phase15/s3_toys/full_validation/b3_branching_seed0/`
 
-branching recovery attempt-2 已越过上述 kwargs 校验并再次完成六位置 edit state，但在首个 constrained B3 beam 暴露另一项旧版 Transformers 行为：当某个 frozen trie 层的合法 children 少于 `num_beams=50` 时，beam search 会用 score=`-inf` 的非法 dead rows 补满内部 beam slots。它们不可能成为最终输出，且后续仍受同一 prefix constraint 限制；旧 One-One hook 却在模型前向前将这些 dead rows 当作活跃 lexical prefix 拒绝，故于 20:05:15 rc=1、`0/512`。修复仅对 trie 外 dead rows 禁用 delta 并累计披露其数量，合法活跃 rows 仍按当前 lexical position 应用 position-wise delta，最终输出仍必须通过 exact catalog、unique top-50 和 base-hash checks；未更改 seed、beam budget、catalog、B2/B3 状态或 held/test 边界。对应边界测试与完整 Stage15 tests 47/47 PASS，attempt-2 artifact 原样保留。
+- Status：`COMPLETED_S15_3B_TOYS_B3_FULL_VALIDATION`
+- 5,963 个 cold catalog items、59,630 train-only pseudo-contexts、302,400 position-wise requests
+- 256 条 train-only covariance transitions；每 position 4 requests；z steps=30
+- train-only probe 按“最高 frozen logit-lens accuracy，tie 时取最浅层”规则选择 positions 0–5 均为 layer 5
+- successful z requests=`[2,2,1,1,1,1]/4`
+- 六个 delta bundle finite/nonzero；generation 在所有六个 lexical positions 实际触发
+- Base model hash 在 state 前、state 后与运行后均为 `80d089304ad74d57ff4f0a62f26ac9bd2a3e9a33e210a8d29902a6f1acf6cc6f`
+- Validation target 未用于 request、context、covariance、layer 或 delta selection；原序列与 test 未打开
 
-### B3 exploratory recovery attempt5：PASS
+因此该 arm 必须始终命名为 `B3 exploratory branching recovery`，不得回写成原预注册 B3 的 confirmatory PASS。
 
-attempt5 于 GPU6 完成独立 512-event admission，workload rc=0，verdict=`PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`。总运行 `2,111.37 s`（35m11s），peak CUDA allocated=`6,935.35 MiB`。positions 0–5 的 successful z requests 为 `[2,1,2,3,2,1]/4`；六个 delta bundle 均 finite/nonzero，实际 generation applied rows 分别为 `[25,600,25,600,25,600,25,600,25,600,175]`。constrained search 共披露 `6,602` 个 `-inf` dead prefix rows，这些行保持未编辑；最终 512 组 B0/B2/B3 ranking 均满足 50 个唯一已知 catalog item，B3 在 `510/512` 个事件上与 B0 排序不同。
+## 统计完整性与 11 项 fallacy scan
 
-clean base 运行前后 SHA256 均为 `cadd9eccec616ef85a00c17ef1459cfb46ff34a958c41f43175b67b153072ffd`。held ground truth 只在 B2/B3 state 冻结后打开且未用于训练或状态选择；test prediction/metric 均未打开，automatic retry=false。
+Overall Confidence：`CAUTION`。Primary paired CI 与冻结 Gate 足以裁决 S15-3，但 B3 为 exploratory、只完成 seed-0/Toys，secondary comparisons 未做 multiplicity correction，成本也不是全部 arm 同次重算。
 
-admission 非推广性指标如下，仅证明 evaluator 与排序路径完整，不构成 efficacy 或显著性结论：
+Coverage：11/11 checked。
 
-| Arm | Hit@50 events | MRR |
-|---|---:|---:|
-| B0 | 6/512 | 0.0004434164 |
-| B2 | 6/512 | 0.0004256444 |
-| B3 exploratory | 6/512 | 0.0006622012 |
+| Fallacy | 状态 | 核验结果 |
+|---|---|---|
+| Simpson's paradox | 未发现 | warm/cold/overall 均分层报告；B2 cold 正而 overall 负是已披露的 warm trade-off，不是隐藏反转 |
+| Ecological fallacy | 未发现 | 推荐主指标与 bootstrap 单位均为 event/user，没有用域级均值推断个体效果 |
+| Berkson's paradox | NOTE | 仅对冻结 catalog-known cold50 validation protocol 成立；外部有效性不得扩展到开放世界 cold-start |
+| Collider bias | 未发现 | 没有按模型输出或结果变量重新筛选验证事件 |
+| Base-rate neglect | 未发现 | total/warm/cold events、hit events 与 unique targets 均报告 |
+| Regression to the mean | 不适用 | 非按极端 baseline 表现选组的 pre/post 设计 |
+| Survivorship bias | 未发现 | 两个正式 run 都覆盖 8,789/8,789 events；无 skipped event |
+| Look-elsewhere effect | CAUTION | 多个 secondary metric/arm CI 未校正；路线裁决只使用预注册 primary Gate，其他结果保持描述性 |
+| Garden of forking paths | CAUTION | B3 branching recovery 是失败后的 exploratory 修复；已保留原 FAIL、独立 admission 和独立 full run，不得改写为 confirmatory |
+| Correlation ≠ causation | 不适用 | 同一事件上的算法干预比较，不据此声称现实用户因果效应 |
+| Reverse causality | 不适用 | 不涉及横截面方向性因果主张 |
 
-## 当前运行 Gate
+## Reproducibility
 
-S15-3B B0/B1/B2 Toys full validation 已按冻结资源合约后台运行。exploratory B3 的独立入口已冻结为 `experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh`：复用同一 8,789-event validation、B0/B1 frozen replay、10,000 次 paired bootstrap、seed 与指标定义；从 Toys GRAM v0 上为全部 5,963 cold catalog 重建 train-only BGE contexts、covariance、edit requests 与 deltaW，不改动或并入当前活跃 run。
+- Method：未重复运行完整 stochastic/deterministic job；核对两个独立 full artifact、冻结 seeds、数值模式、hash 与共享 B0/B1 replay 一致性
+- Verdict：`CANNOT_VERIFY`（运行完成且审计通过，但未以独立 rerun 达到 ARS 的 VERIFIED 定义）
+- Numerical mode：TF32 off、deterministic algorithms on、`CUBLAS_WORKSPACE_CONFIG=:4096:8`
+- B0/B1 metrics 在 B2 与 B3 两个独立 summary 中逐项一致
 
-B3 full-validation resource contract 为 GPU free≥`16,384 MiB`、预计增量上界=`12,288 MiB`、hard timeout=`86,400 s`，独立 artifact=`artifacts/phase15/s3_toys/full_validation/b3_branching_seed0`。22:17:14 重采样 GPU6 free=`25,450 MiB` 后按 exact command `bash experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh start 6` 后台启动；49/49 worker preflight、全量 5,963 cold contexts、probe、256 covariance 和六位置 delta 均已成功，selected request z-success=`[2,2,1,1,1,1]/4`，现已进入 8,789-event evaluation。status 刷新器新增 `[s3b-b3-eval]` marker 支持并经完整 50/50 tests 验证。test 继续封存且 automatic retry=false。
+## S15-3 Gate 与下一阶段
+
+S15-3 Gate 正式关闭：
+
+- B2：`PASS_NATIVE_COLD_RECOVERY / FAIL_OVER_R2_PARETO / FAIL_COST_QUALITY_CANDIDATE`
+- B3 exploratory：`FAIL_NATIVE_COLD_RECOVERY / FAIL_OVER_R2_PARETO / FAIL_COST_QUALITY_CANDIDATE`
+- test：sealed
+- automatic retry：false
+
+下一主 Gate 为 S15-4 Beauty frozen confirmation。进入前必须同时冻结 B2 与 B3 Beauty runners/config/hash，沿用 Toys 的算法、超参数选择规则、budget、seed 与 evaluator；只允许重建 Beauty 域内 drafter/projection/index、catalog/covariance/edit requests/deltaW。Beauty 的 7/8 lexical positions 必须全部覆盖，结果不得反向改变 Toys 配置。

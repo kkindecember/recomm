@@ -1,0 +1,34 @@
+{
+  "experiment_id": "GRAM_STAGE15_S4_BEAUTY_FULL_VALIDATION_B0_B1_B2_SEED0",
+  "domain": "Beauty_cold50",
+  "split": "validation",
+  "arms": [
+    "b0",
+    "b1",
+    "b2"
+  ],
+  "events": 10655,
+  "train_transitions": 4096,
+  "drafter_epochs": 2,
+  "drafter_batch_size": 128,
+  "drafter_learning_rate": 0.001,
+  "beam_size": 50,
+  "b2_candidate_budget": 50,
+  "b2_draft_size": 10,
+  "b2_draft_rounds": 5,
+  "b2_verifier_threshold": -1.6,
+  "candidate_chunk_size": 10,
+  "similar_top_k": 10,
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260822,
+  "seed": 1502,
+  "device": "cuda:0",
+  "test_read": false,
+  "automatic_retry": false,
+  "numerical_mode": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  }
+}

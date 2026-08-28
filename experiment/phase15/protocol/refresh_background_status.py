@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 
-PROGRESS_RE = re.compile(r"\[s3(?:a|b(?:-b3)?)-eval\]\s+events=(\d+)/(\d+)")
+PROGRESS_RE = re.compile(r"\[s(?:3(?:a|b(?:-b3)?)|4-(?:b2|b3))-eval\]\s+events=(\d+)/(\d+)")
 
 
 def _pid_alive(pid: Any) -> bool:

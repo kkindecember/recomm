@@ -1,0 +1,32 @@
+{
+  "experiment_id": "GRAM_STAGE15_S3B_TOYS_B3_FULL_VALIDATION_SEED0",
+  "domain": "Toys_cold50",
+  "split": "validation",
+  "arms": [
+    "b0",
+    "b1",
+    "b3"
+  ],
+  "events": 8789,
+  "train_transitions": 4096,
+  "cold_catalog_items": 5963,
+  "contexts_per_cold": 10,
+  "covariance_transitions": 256,
+  "covariance_long_path_minimum": 32,
+  "requests_per_position": 4,
+  "z_steps": 30,
+  "beam_size": 50,
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260822,
+  "seed": 1502,
+  "device": "cuda:0",
+  "request_selection_rule": "catalog-only legal branching factor >=2; existing SHA rank and distinct-cold rule unchanged",
+  "test_read": false,
+  "automatic_retry": false,
+  "numerical_mode": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8"
+  }
+}

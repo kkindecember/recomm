@@ -1,0 +1,9 @@
+{
+  "development_view": "audited Stage15 train+validation projection",
+  "training_slice": "projected_items[:-1] only",
+  "validation_target": "projected_items[-1]",
+  "b0_b1": "frozen validation-only Phase13 rankings, rescored on projected target",
+  "b2": "4096 SHA-ranked train-only transitions; validation opened after state freeze",
+  "test_target_materialized": false,
+  "test_target_used": false
+}

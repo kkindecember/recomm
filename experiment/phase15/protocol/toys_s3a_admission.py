@@ -369,6 +369,7 @@ def build_b3_state(
     output_dir: Path,
     selected_layers: dict[int, int],
 ) -> tuple[dict[int, dict[str, torch.Tensor]], dict, dict[int, int]]:
+    encoded_paths = encoded_catalog(tokenizer, item_paths)
     transitions = [
         TrainTransition(
             user_id=row["user_id"],
@@ -404,6 +405,12 @@ def build_b3_state(
             for row in subset
         ]
         batch = batch_to_device(collator(samples), device)
+        batch = align_batch_to_canonical_targets(
+            batch,
+            target_items=[row.target for row in subset],
+            encoded_paths=encoded_paths,
+            eos_token_id=tokenizer.eos_token_id,
+        )
         captured = _capture_wo_inputs(model, batch, selected_layers.values())
         for position, layer in selected_layers.items():
             if position >= batch["target_ids"].size(1):
@@ -429,10 +436,6 @@ def build_b3_state(
         requests_per_position=args.requests_per_position,
         seed=args.seed,
     )
-    encoded_paths = {
-        item: tuple(tokenizer.convert_tokens_to_ids(token) for token in path)
-        for item, path in item_paths.items()
-    }
     base_parameters = dict(model.named_parameters())
     deltas: dict[int, dict[str, torch.Tensor]] = {}
     z_success = {}
@@ -464,6 +467,12 @@ def build_b3_state(
             for index, row in enumerate(rows)
         ]
         batch = batch_to_device(collator(samples), device)
+        batch = align_batch_to_canonical_targets(
+            batch,
+            target_items=[row.cold_item for row in rows],
+            encoded_paths=encoded_paths,
+            eos_token_id=tokenizer.eos_token_id,
+        )
         captured = _capture_wo_inputs(model, batch, [selected_layers[position]])
         keys = captured[selected_layers[position]][:, position].detach()
         residuals, success_mask, diagnostics = _optimize_z_residuals(
@@ -511,6 +520,7 @@ def build_b3_state(
         "covariance_counts": {str(key): value for key, value in counts.items()},
         "successful_z_requests": {str(key): value for key, value in z_success.items()},
         "request_selection_rule": "catalog-only legal branching factor >=2; existing SHA rank and distinct-cold rule unchanged",
+        "target_token_alignment": "canonical_catalog_token_ids_plus_eos",
         "selected_request_branching_factors": {
             str(key): value for key, value in branching_factors.items()
         },
@@ -534,6 +544,7 @@ def probe_clean_base_layers(
 ) -> tuple[dict[int, int], dict]:
     """Select edit layers on the actual admission base using train-only rows."""
 
+    encoded_paths = encoded_catalog(tokenizer, item_paths)
     transitions = [
         TrainTransition(
             user_id=row["user_id"], history=tuple(row["history"]), target=row["target"]
@@ -566,6 +577,12 @@ def probe_clean_base_layers(
             for row in subset
         ]
         batch = batch_to_device(collator(samples), device)
+        batch = align_batch_to_canonical_targets(
+            batch,
+            target_items=[row.target for row in subset],
+            encoded_paths=encoded_paths,
+            eos_token_id=tokenizer.eos_token_id,
+        )
         predictions = _probe_layer_predictions(model, batch)
         update = accumulate_probe_predictions(
             predictions_by_layer=predictions,
@@ -585,6 +602,7 @@ def probe_clean_base_layers(
         "source": "64 train-only transitions on Stage14 clean_base.pt",
         "selection_rule": "highest frozen logit-lens token accuracy; shallowest tie-break",
         "validation_or_held_used": False,
+        "target_token_alignment": "canonical_catalog_token_ids_plus_eos",
         "transitions": len(selected_rows),
         "counts": {str(p): {str(l): v for l, v in layers.items()} for p, layers in counts.items()},
         "accuracy": {str(p): {str(l): v for l, v in layers.items()} for p, layers in accuracy.items()},
@@ -592,6 +610,53 @@ def probe_clean_base_layers(
     }
     atomic_json(probe_root / "layer_probe.json", payload)
     return selected, payload
+
+
+def canonical_target_ids(
+    *,
+    target_items: list[str],
+    encoded_paths: dict[str, tuple[int, ...]],
+    eos_token_id: int,
+    device: torch.device,
+) -> torch.Tensor:
+    """Build labels from the same token paths used by constrained generation."""
+
+    if not target_items:
+        raise ValueError("Canonical target batch must not be empty")
+    if any(item not in encoded_paths for item in target_items):
+        raise ValueError("Canonical target batch contains an unknown item")
+    max_length = max(len(encoded_paths[item]) for item in target_items) + 1
+    rows = []
+    for item in target_items:
+        path = encoded_paths[item]
+        if not path:
+            raise ValueError("Canonical target path must not be empty")
+        row = [*path, int(eos_token_id)]
+        rows.append(row + [-100] * (max_length - len(row)))
+    return torch.tensor(rows, dtype=torch.long, device=device)
+
+
+def align_batch_to_canonical_targets(
+    batch: dict,
+    *,
+    target_items: list[str],
+    encoded_paths: dict[str, tuple[int, ...]],
+    eos_token_id: int,
+) -> dict:
+    """Replace split-collator labels without changing its encoder inputs."""
+
+    if "target_ids" not in batch or batch["target_ids"].ndim != 2:
+        raise ValueError("GRAM batch lacks matrix target_ids")
+    if batch["target_ids"].size(0) != len(target_items):
+        raise ValueError("Canonical target items do not align with the GRAM batch")
+    aligned = dict(batch)
+    aligned["target_ids"] = canonical_target_ids(
+        target_items=target_items,
+        encoded_paths=encoded_paths,
+        eos_token_id=eos_token_id,
+        device=batch["target_ids"].device,
+    )
+    return aligned
 
 
 def encoded_catalog(tokenizer, item_paths: dict[str, tuple[str, ...]]) -> dict[str, tuple[int, ...]]:

@@ -1,8 +1,8 @@
 # GRAM 第十五阶段：统一 Cold Adaptation 基线复现与条件式方法开发计划 v0.1
 
 > **建立日期**：2026-08-21
-> **修订日期**：2026-08-22（v0.1-r8）
-> **当前状态**：`PLAN_REVISED / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING / S15_2_CONTRACT_PASS / B2_PASS_S15_3A_ITEM_DISJOINT_ADMISSION / B3_FORMAL_FAIL_PRESERVED / B3_EXPLORATORY_RECOVERY_PASS_S15_3A / S15_3B_B0_B1_B2_RUNNING / S15_3B_B0_B1_B3_RUNNING / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
+> **修订日期**：2026-08-24（v0.1-r14）
+> **当前状态**：`PLAN_COMPLETE / STAGE15_COMPLETE / S15_0_COMPLETE / NATIVE_SANITY_NON_BLOCKING_INCOMPLETE / S15_2_CONTRACT_PASS / S15_3_COMPLETE / S15_4_COMPLETE / B2_TOYS_RECOVERY_NOT_REPLICATED_ON_BEAUTY / B3_BEAUTY_FAIL_STATE_CONSTRUCTION_POSITION3 / STOP_GRAM_COLD_ADAPTATION_METHOD_BRANCH / S15_5_NOT_ENTERED / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`
 > **阶段定位**：先复现并对齐 SpecGR / GenRecEdit，再依据同协议证据决定是否开发新方法
 > **上一阶段**：Stage14 R2PD 在 M2 14-1 得到 `FAIL_STOP_PATH_TRANSFER_STAGE14_1`，14-2/M3/M4 已取消
 
@@ -13,8 +13,8 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: plan
 - Origin Date: 2026-08-21
-- Verification Status: PARTIALLY_VERIFIED（S15-3A B2 与 exploratory B3 512-event admission 均已 PASS；B3 原正式 admission FAIL 历史保留；S15-3B B0/B1/B2 与独立 B0/B1/B3 full validation 均运行中；官方原生 GPU 闭环尚未执行）
-- Version Label: phase15_cold_adaptation_plan_v0.1-r8
+- Verification Status: ANALYZED（S15-3 Toys 与 S15-4 Beauty 主线已完成并形成阶段报告；已核对完整 artifact/Gate/hash/test seal，未做独立重复运行；官方原生 GPU sanity 保持非阻塞未完成）
+- Version Label: phase15_cold_adaptation_plan_v0.1-r14_final
 
 ---
 
@@ -352,6 +352,8 @@ admission 不判显著性；通过后才做 full validation。
 
 > **B3 exploratory recovery（2026-08-22）**：失败根因定位为 deterministic request sampler 在 position 4 选中 4/4 个 legal branching factor=1 的结构确定前缀；其 legal probability 恒为 1，不可能满足预注册的“edited probability 严格高于 baseline”条件。recovery 只允许在冻结 catalog trie 上排除 branching factor=1 的不可编辑请求，再沿用原 SHA rank、distinct-cold、4 requests/position、seed、layer probe、z optimizer 与 probability threshold=0.3。该修复不得改变正在运行的 B0/B1/B2 S15-3B；只有新的独立 512-event admission 完整 PASS 后，B3 才可另行进入 full validation。
 
+> **S15-3 最终裁决（2026-08-23）**：B0/B1/B2 与独立 B0/B1/B3 exploratory full validation 均完成 8,789/8,789 events、exit code 0、test sealed。B2=`PASS_NATIVE_COLD_RECOVERY / FAIL_OVER_R2_PARETO / FAIL_COST_QUALITY_CANDIDATE`；B3 exploratory=`FAIL_NATIVE_COLD_RECOVERY / FAIL_OVER_R2_PARETO / FAIL_COST_QUALITY_CANDIDATE`。禁止回 Toys 调参；依 contract-pass 必做规则进入 S15-4 Beauty。
+
 主要报告：
 
 ```text
@@ -384,6 +386,10 @@ C_w(M) = warm_NDCG@10(B0) - warm_NDCG@10(M)
 单一报告：`report/第十五阶段/Stage15_S3_Toys统一协议正式结果.md`。
 
 ### S15-4：Beauty 冻结双域确认（contract-pass arm 必做）
+
+> **执行更新（2026-08-23）**：S15-4 frozen contract 与代码/input SHA 已冻结。B2 attempt2 已在 GPU5 后台运行。B3 GPU6 attempt2 在 scientific workload 前因 free memory `<16,384 MiB` admission blocked；经用户明确批准，仅将 B3 operational admission 调整为 15,360 MiB。attempt3 因 split-token position alignment fail-fast；修复将 probe/covariance/z-edit labels 统一为 canonical catalog token IDs + EOS，55/55 tests 与 `preflight_attempt4` PASS，canonical mismatch=0、positions=0–7。attempt4 于 GPU6 free=15,690 MiB 时启动并成功完成 6,052 contexts、16/16 probe 与 256/256 covariance，但固定 request/threshold 下 z-success positions 0–2=`[1,1,2]/4`、position 3=`0/4`，依预注册 Gate 于 0/10,655 fail-fast。该结果裁决为 `FAIL_B3_BEAUTY_STATE_CONSTRUCTION_POSITION3`，不是工程错误；禁止 attempt5、换 seed/request/layer、降 threshold 或增加 steps。test sealed、automatic_retry=false，历史 artifact 原样保留。
+
+> **S15-4 最终裁决（2026-08-24）**：B2 attempt2 完成 10,655/10,655 events、rc=0、test sealed；cold H@50 对 B0 差值=`-0.00018914`，95% paired CI=`[-0.00170229,+0.00113486]`，因此 `FAIL_NATIVE_COLD_RECOVERY / FAIL_OVER_R2_PARETO / FAIL_COST_QUALITY_CANDIDATE`。warm/overall NDCG@10 对 B0 的 CI 均全负。B3 保留 `FAIL_B3_BEAUTY_STATE_CONSTRUCTION_POSITION3`，未生成 efficacy metrics。双域无 arm 达到 `PASS_OVER_R2_PARETO`，且复杂 adaptation 没有形成双域 native recovery；依 S15-5 分支表裁决 `STOP_GRAM_COLD_ADAPTATION_METHOD_BRANCH`，不进入 S15-5。单一报告见 `report/第十五阶段/Stage15_S4_Beauty冻结确认报告.md`。
 
 运行 Toys 通过机制/安全 contract 的 B2/B3，另带 B0/B1；不要求 Toys efficacy PASS。全部 adapter、超参数选择规则、budget、evaluator 和 cost 字段从 Toys 冻结；只允许域内 SpecGR drafter/projection/index 与 GenRecEdit catalog/covariance/edit requests/deltaW 重建。
 
@@ -440,9 +446,9 @@ C_w(M) = warm_NDCG@10(B0) - warm_NDCG@10(M)
 | S15-2P dual-domain preflight | CPU，只读为主；投影生成是唯一受控写入 | PASS；双域末项剥离、synthetic parity、输出 manifest 与 test guard 已完成 |
 | S15-2 adapter smoke | CPU + 小 GPU，预计单卡 | PASS；B0 parity、B2/B3 input contract、attempt-4 deterministic hook/probe、B2 drafter state 与 B3 edit state 均已完成；35/35 tests PASS，历史失败/blocked attempts 原样保留 |
 | S15-3A Toys admission | 单卡；实测后再定 full | S15-2 contract PASS 后授权 |
-| S15-3B Toys full | 由 S15-2 telemetry 定版 | S15-3A PASS 后授权 |
-| S15-4 Beauty | Toys contract/admission PASS 且配置冻结后 | contract-pass B2/B3 必做；首次启动前重新检查资源 |
-| S15-5 新方法 | 另立计划和预算 | 禁止自动执行 |
+| S15-3B Toys full | 由 S15-2 telemetry 定版 | COMPLETE；B2/B3 exploratory 均完成 full validation，单一 S15-3 报告已更新 |
+| S15-4 Beauty | Toys contract/admission PASS 且配置冻结后 | COMPLETE；B2 attempt2 10,655/10,655、rc=0，`FAIL_NATIVE_COLD_RECOVERY`；B3 attempt4 `FAIL_B3_BEAUTY_STATE_CONSTRUCTION_POSITION3`，0/10,655；test sealed |
+| S15-5 新方法 | 另立计划和预算 | NOT ENTERED；条件未满足，Stage15 裁决 `STOP_GRAM_COLD_ADAPTATION_METHOD_BRANCH` |
 
 用户于 2026-08-21 已明确授权“修改 plan 并开始实验”；该授权允许按上述 Gate 连续推进，但不取消每阶段 preflight、空闲卡检查、后台状态、test 封存和不干扰既有进程规则。在 S15-2P 前不承诺 GPU-hours；adapter、依赖和运行模式未核实前给出训练预算属于伪精确。
 
@@ -525,11 +531,11 @@ resource_summary.json
 
 ---
 
-## 11. 当前唯一下一步
+## 11. 阶段最终状态与历史执行摘要
 
-**B3 冻结为 `FAIL_B3_S15_3A_EDIT_STATE_ADMISSION`，不再以放宽 threshold、增加 request、修改 tie-break 或换 seed 救援。等待用户确认独立 B0+B2 admission；exact command 为 `bash experiment/phase15/run_stage15_s3a_toys_b2_only_admission.sh start 7`。两个 B3 失败 attempt 原样保留，不自动重试。**
+**Stage15 已完成，当前无待执行主线。B2 Beauty attempt2 已完成并得到 `FAIL_NATIVE_COLD_RECOVERY`；B3 Beauty 在 canonical alignment PASS 后得到 `FAIL_B3_BEAUTY_STATE_CONSTRUCTION_POSITION3`。依预注册分支，最终状态为 `STAGE15_COMPLETE / STOP_GRAM_COLD_ADAPTATION_METHOD_BRANCH / S15_5_NOT_ENTERED / TEST_NOT_OPENED / PRIOR_ATTEMPTS_PRESERVED`。官方 Video Games native sanity 保持非阻塞未完成，不影响本阶段主线收尾。**
 
-S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态 preflight 和 train+validation 投影 Gate 已 PASS；Toys B0 projection-parity 在 GPU4 attempt-3 上 16/16 用户 beam-50 逐位一致。B2/B3 真实 contract-input CPU Gate 已 PASS；GPU hook/probe 合约与完整 Stage15 CPU 测试已 27/27 PASS。当前主线：
+S15-0 已完成；native Video Games sanity 保持非阻塞支线。双域静态 preflight 和 train+validation 投影 Gate 已 PASS；以下保留 S15-2/S15-3A 历史执行摘要，不再代表当前待办：
 
 - Toys/Beauty `user_sequence_train_validation.txt` 已生成并通过审计；后续 model/adapter job denylist 原 `user_sequence.txt`；
 - 沿用已在 B0 smoke 验证的 train/validation、catalog metadata、cold manifest 输入 allowlist；禁止 adapter/model job 读取任何项目 test 内容；
@@ -619,3 +625,14 @@ S15-0 已完成；native Video Games sanity 改为非阻塞支线。双域静态
 | 2026-08-22 | B3 exploratory recovery attempt-5 完成并 PASS S15-3A | 512/512 events、workload rc=0、verdict=`PASS_S15_3A_B2_B3_ITEM_DISJOINT_ADMISSION`；runtime=2,111.37 s，peak CUDA allocated=6,935.35 MiB。六位置 delta finite/nonzero 且 generation 全部实际触发，B3 与 B0 排序在 510/512 events 不同；所有 ranking unique known top-50，base hash 前后不变，held-after-state、test sealed。允许冻结独立 B3 full validation，不回填当前 B0/B1/B2 run。 |
 | 2026-08-22 | B3 独立 S15-3B runner 冻结并获启动授权 | 新入口=`experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh`，只运行 B0/B1 frozen replay + exploratory B3；8,789 validation events、全部 5,963 cold catalog、59,630 train-only BGE contexts、256 covariance transitions、4 requests/position、beam=50、10,000 paired bootstrap、seed=1502/20260822 均冻结。49/49 tests 与真实输入 dry preflight PASS；GPU admission=16,384 MiB、预计增量上界=12,288 MiB、hard timeout=86,400 s、automatic retry=false。22:14 资源快照无设备达到门槛，最近 GPU5 free=16,017 MiB，故暂不降门槛，等待重新采样。exact command=`bash experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh start <admitted_gpu>`。 |
 | 2026-08-22 | B3 独立 S15-3B 在 GPU6 启动 | 22:17:14 重采样 GPU6 free=25,450 MiB，满足 16,384 MiB admission；按用户确认 exact command=`bash experiment/phase15/run_stage15_s3b_toys_b3_full_validation.sh start 6` 后台启动，保留既有进程。49/49 worker preflight PASS，全量 contexts/probe/covariance 与六位置 delta 均成功，selected request z-success=`[2,2,1,1,1,1]/4`；已进入 evaluation。新增 `[s3b-b3-eval]` status 解析后完整 Stage15 tests 50/50 PASS，观察面显示 96/8,789；test_read=false、automatic_retry=false。 |
+| 2026-08-23 | S15-3 Toys full validation 完成并关闭 Gate | B2 与 B3 exploratory 均完成 8,789/8,789、rc=0、test sealed；B2 仅 `PASS_NATIVE_COLD_RECOVERY`，B3 不达 native recovery，二者均 `FAIL_OVER_R2_PARETO`。单一 S15-3 报告更新为 ANALYZED，不回 Toys 调参。 |
+| 2026-08-23 | S15-4 Beauty frozen contract 与 dry preflight PASS | 54/54 tests PASS；输入/核心代码 SHA 冻结；10,655 events、12,101 catalog、6,052 cold、7/8 path 和 positions 0–7 完整，position 7 有 225 cold requests，train-only cold occurrence=0；test 未打开。 |
+| 2026-08-23 | S15-4 B2 GPU5 attempt2 启动，B3 GPU6 attempt2 admission blocked | 两个首条 start 仅因沙箱 tmux socket 无权限失败并保留 status；宿主 attempt2 中 B2 通过 16,384 MiB admission 并进入 evaluation，B3 在 workload 前因 GPU6 free memory 漂移到门槛以下 rc=9、0/10,655。均不改既有 PID、不自动 retry、test sealed。 |
+| 2026-08-23 | 用户批准 B3 operational admission 从 16,384 调整到 15,360 MiB | 该调整只作用于 B3 资源准入，不改变科学 contract；Toys 实测 peak=6,878 MiB，冻结预计新增显存上界仍为 12,288 MiB，新门槛相对该上界保留 3,072 MiB 缓冲。代码/config SHA 重新冻结，54/54 tests 与 `preflight_attempt3` PASS。 |
+| 2026-08-23 | S15-4 B3 GPU6 attempt3 后台启动 | 启动前 GPU6 free=16,112 MiB，满足 15,360 MiB admission；17:16:49 启动独立 artifact/session，未停止或迁移既有进程。首次状态为 `RUNNING`、0/10,655 初始化中；test_read=false、automatic_retry=false、hard timeout=86,400 s。同期 B2 attempt2 已推进至 1,584/10,655。 |
+| 2026-08-23 | S15-4 B3 attempt3 split-token position alignment fail-fast | 17:20:22 rc=1，已完成 6,052/6,052 context 与 16/16 train-only probe batches，尚未进入 10,655-event evaluation。复核 64 条 probe：catalog path-length 7/8 的抽样为 48/16，positions 0–7 active counts=`[64,64,64,64,64,64,64,22]`，另有 4 条首 component 无 SentencePiece word-boundary 的样本产生额外 position 8，故 observed probe set 为 0–8 而冻结 component set 为 0–7。非 OOM、test sealed、无自动 retry；先进行 CPU-only canonical token alignment 审计，不直接放宽 Gate。 |
+| 2026-08-23 | B3 canonical target-token alignment 修复与真实 preflight PASS | 诊断发现 frozen probe 中历史 split collator 共 13/64 labels 与 constrained-generation canonical paths 不一致，其中 4 条产生额外 position 8。修复仅将 probe/covariance/z-edit teacher-forced labels 统一为既有 canonical catalog token IDs + EOS，不改 encoder inputs、catalog、request、seed、threshold、模型或 efficacy Gate。55/55 tests PASS；`preflight_attempt4` 得到 canonical mismatch=0、positions=0–7、counts=`[64,64,64,64,64,64,64,16]`；input/code SHA 与 test seal PASS。 |
+| 2026-08-23 | S15-4 B3 GPU6 attempt4 后台启动 | 用户指示继续；17:54:27 启动前 GPU6 free=15,690 MiB，满足 15,360 MiB admission。使用独立 output/session，attempt3 原样保留；首次状态=`RUNNING`、0/10,655 状态构建中，test_read=false、automatic_retry=false、hard timeout=86,400 s。同期 B2 attempt2 为 2,128/10,655。 |
+| 2026-08-23 | S15-4 B3 attempt4 FAIL Beauty state construction，关闭 B3 | canonical 修复后 16/16 train-only probe 与 256/256 covariance 完整通过，selected layers=`[5,5,5,5,5,5,5,4]`；固定 request/threshold 的 z-success positions 0–2=`[1,1,2]/4`，position 3=`0/4`，17:58:34 rc=1、0/10,655。该停止点属于方法级 Beauty state-construction Gate，而非 OOM/对齐工程问题；依冻结协议不换 seed/request/layer、不降 0.3 threshold、不加 steps、不启动 attempt5。test sealed、automatic_retry=false。 |
+| 2026-08-24 | S15-4 B2 Beauty full validation 完成 | attempt2 完成 10,655/10,655、rc=0；B2−B0 cold H@50=`-0.00018914`，95% CI=`[-0.00170229,+0.00113486]`，故 `FAIL_NATIVE_COLD_RECOVERY`；warm/overall NDCG@10 CI 全负。runtime=37,227.83 s，peak CUDA allocated=1,050.29 MiB，base hash unchanged，test sealed、automatic_retry=false。 |
+| 2026-08-24 | Stage15 收尾，不进入 S15-5 | B2 Toys 弱正信号未在 Beauty 复现，B3 未通过 Beauty state-construction Gate，无 arm 达 `PASS_OVER_R2_PARETO`。依预注册决策表裁决 `STOP_GRAM_COLD_ADAPTATION_METHOD_BRANCH`；不自动开发新 adaptation 机制，官方 native sanity 保持 non-blocking incomplete。 |

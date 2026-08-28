@@ -1,0 +1,19 @@
+{
+  "development_view": "audited Stage15 train+validation projection",
+  "training_slice": "projected_items[:-1] only",
+  "validation_target": "projected_items[-1], excluded from every B3 state builder",
+  "b0_b1": "frozen validation-only Phase13 rankings, rescored on projected target",
+  "b3": "full frozen cold catalog plus train-only warm BGE contexts/covariance",
+  "request_similarity_source": {
+    "model_name": "BAAI/bge-large-en-v1.5",
+    "pooling": "cls",
+    "l2_normalized": true,
+    "shape": [
+      11924,
+      1024
+    ]
+  },
+  "historical_similar_items_use": "frozen GRAM encoder prompt only; not request selection",
+  "test_target_materialized": false,
+  "test_target_used": false
+}

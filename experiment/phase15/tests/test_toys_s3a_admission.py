@@ -4,14 +4,49 @@ import os
 import sys
 import unittest
 
+import torch
+
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "protocol"))
 
 from specgr_gram_adapter import PathCatalog  # noqa: E402
-from toys_s3a_admission import admission_verdict, rank_metrics, verifier_score_lengths  # noqa: E402
+from toys_s3a_admission import (  # noqa: E402
+    admission_verdict,
+    align_batch_to_canonical_targets,
+    rank_metrics,
+    verifier_score_lengths,
+)
 
 
 class TestToysS3AAdmission(unittest.TestCase):
+    def test_canonical_targets_remove_split_token_position_drift(self):
+        split_collator_batch = {
+            "target_ids": torch.tensor(
+                [
+                    [3, 22188, 3820, 986, 8058, 340, 2934, 18257, 536, 1],
+                    [7334, 768, 9319, 3829, 1023, 18312, 12663, 632, 1, -100],
+                ],
+                dtype=torch.long,
+            ),
+            "item_text_ids": torch.ones((2, 1, 1), dtype=torch.long),
+        }
+        encoded_paths = {
+            "split-leading-token": (22188, 3820, 986, 8058, 340, 2934, 18257, 536),
+            "canonical-token": (7334, 768, 9319, 3829, 1023, 18312, 12663, 632),
+        }
+
+        aligned = align_batch_to_canonical_targets(
+            split_collator_batch,
+            target_items=["split-leading-token", "canonical-token"],
+            encoded_paths=encoded_paths,
+            eos_token_id=1,
+        )
+
+        self.assertEqual(tuple(aligned["target_ids"].shape), (2, 9))
+        self.assertEqual(aligned["target_ids"][:, :8].tolist(), list(map(list, encoded_paths.values())))
+        self.assertEqual(aligned["target_ids"][:, 8].tolist(), [1, 1])
+        self.assertIs(aligned["item_text_ids"], split_collator_batch["item_text_ids"])
+
     def test_verifier_lengths_use_full_warm_and_shared_cold_prefix(self):
         catalog = PathCatalog.build(
             {

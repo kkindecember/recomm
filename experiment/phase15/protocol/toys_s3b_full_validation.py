@@ -65,6 +65,11 @@ BOOTSTRAP_SEED = 20260822
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--experiment-id", default="GRAM_STAGE15_S3B_TOYS_FULL_VALIDATION_B0_B1_B2_SEED0")
+    parser.add_argument("--domain", default="Toys_cold50")
+    parser.add_argument("--completed-verdict", default="COMPLETED_S15_3B_TOYS_FULL_VALIDATION")
+    parser.add_argument("--required-events", type=int, default=8789)
+    parser.add_argument("--progress-marker", default="s3b-eval")
     parser.add_argument("--projected-sequences", type=Path, required=True)
     parser.add_argument("--historical-config", type=Path, required=True)
     parser.add_argument("--backbone-path", type=Path, required=True)
@@ -80,6 +85,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--b0-parity-summary", type=Path, required=True)
     parser.add_argument("--b1-source-summary", type=Path, required=True)
     parser.add_argument("--b1-state", type=Path, required=True)
+    parser.add_argument("--frozen-contract", type=Path)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--train-transitions", type=int, default=4096)
@@ -91,6 +97,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--draft-rounds", type=int, default=5)
     parser.add_argument("--verifier-threshold", type=float, default=-1.6)
     parser.add_argument("--candidate-chunk-size", type=int, default=10)
+    parser.add_argument("--similar-top-k", type=int, default=5)
     parser.add_argument("--bootstrap-resamples", type=int, default=BOOTSTRAP_RESAMPLES)
     parser.add_argument("--bootstrap-seed", type=int, default=BOOTSTRAP_SEED)
     parser.add_argument("--seed", type=int, default=1502)
@@ -261,6 +268,8 @@ def run(args: argparse.Namespace) -> dict:
             "b1_state": args.b1_state,
         }.items()
     }
+    if args.frozen_contract is not None:
+        paths["frozen_contract"] = args.frozen_contract.resolve()
     backbone = args.backbone_path.resolve()
     if paths["projected_sequences"].name != "user_sequence_train_validation.txt":
         raise ValueError("S15-3B requires the audited projected sequence")
@@ -280,6 +289,10 @@ def run(args: argparse.Namespace) -> dict:
 
     numerical_mode = _configure_determinism()
     projected = read_projected_sequences(paths["projected_sequences"])
+    if len(projected) != args.required_events:
+        raise ValueError(
+            f"Projected event count drift: {len(projected)} != {args.required_events}"
+        )
     cold = read_set(paths["cold_items"])
     warm = read_set(paths["warm_items"])
     if cold & warm:
@@ -331,7 +344,11 @@ def run(args: argparse.Namespace) -> dict:
     base_hash_before = _model_state_sha256(model)
 
     item_inputs, input_audit = build_filtered_item_inputs(
-        item_paths, item_text, paths["similar_items_b0_historical_only"], set(), 5
+        item_paths,
+        item_text,
+        paths["similar_items_b0_historical_only"],
+        set(),
+        args.similar_top_k,
     )
     item_to_index = {item: index for index, item in enumerate(item_ids)}
     item_to_cfid = {item: index + 1 for index, item in enumerate(sorted(item_paths))}
@@ -398,7 +415,7 @@ def run(args: argparse.Namespace) -> dict:
             totals["b2_accepted_drafts"] += int(budget["accepted_drafts"])
             totals["b2_rankings_different_from_b0"] += int(b2 != b0)
             if index % 16 == 0 or index == len(projected):
-                print(f"[s3b-eval] events={index}/{len(projected)}", flush=True)
+                print(f"[{args.progress_marker}] events={index}/{len(projected)}", flush=True)
     b2_inference_seconds = time.time() - inference_started
     base_hash_after = _model_state_sha256(model)
     if base_hash_before != base_hash_after:
@@ -474,8 +491,8 @@ def run(args: argparse.Namespace) -> dict:
     labels["b2"]["cost_quality_caveat"] = "B1 current full inference was replayed, so the label uses quality non-domination only."
 
     config = {
-        "experiment_id": "GRAM_STAGE15_S3B_TOYS_FULL_VALIDATION_B0_B1_B2_SEED0",
-        "domain": "Toys_cold50",
+        "experiment_id": args.experiment_id,
+        "domain": args.domain,
         "split": "validation",
         "arms": list(ARMS),
         "events": len(rows),
@@ -489,6 +506,7 @@ def run(args: argparse.Namespace) -> dict:
         "b2_draft_rounds": args.draft_rounds,
         "b2_verifier_threshold": args.verifier_threshold,
         "candidate_chunk_size": args.candidate_chunk_size,
+        "similar_top_k": args.similar_top_k,
         "bootstrap_resamples": args.bootstrap_resamples,
         "bootstrap_seed": args.bootstrap_seed,
         "seed": args.seed,
@@ -500,7 +518,7 @@ def run(args: argparse.Namespace) -> dict:
     summary = {
         **config,
         "status": "completed",
-        "verdict": "COMPLETED_S15_3B_TOYS_FULL_VALIDATION",
+        "verdict": args.completed_verdict,
         "metrics": metrics,
         "paired_bootstrap": intervals,
         "success_labels": labels,

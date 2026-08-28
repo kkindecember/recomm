@@ -32,6 +32,16 @@ class TestRefreshBackgroundStatus(unittest.TestCase):
             )
             self.assertEqual(_last_progress(log, 8789), (48, 8789))
 
+    def test_s4_beauty_progress_markers(self):
+        with tempfile.TemporaryDirectory() as directory:
+            log = Path(directory) / "run.log"
+            log.write_text(
+                "[s4-b2-eval] events=64/10655\n"
+                "[s4-b3-eval] events=96/10655\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(_last_progress(log, 10655), (96, 10655))
+
 
 if __name__ == "__main__":
     unittest.main()

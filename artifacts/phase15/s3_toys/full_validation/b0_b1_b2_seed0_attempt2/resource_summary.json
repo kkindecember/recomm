@@ -1,0 +1,33 @@
+{
+  "runtime_seconds": 25501.124125003815,
+  "peak_cuda_allocated_mib": 1046.0517578125,
+  "peak_cpu_rss_mib": 5699.66015625,
+  "cost": {
+    "b0": {
+      "run_mode": "frozen_validation_prediction_replay",
+      "extra_state_bytes": 0
+    },
+    "b1": {
+      "run_mode": "frozen_resolver_prediction_replay",
+      "extra_state_bytes": 4202331,
+      "source_train_plus_validation_runtime_seconds": 118.26354646682739,
+      "current_full_inference_recomputed": false
+    },
+    "b2": {
+      "offline_update_wall_seconds": 33.701207399368286,
+      "inference_wall_seconds": 25457.573093652725,
+      "users_per_second": 0.3452410788596082,
+      "extra_state_bytes": 5395153,
+      "trainable_parameters": 1346912,
+      "verifier_forward_candidates": 439450,
+      "encoder_forward_histories": 43945
+    },
+    "comparability": "B2 measured in this run; B0/B1 replay frozen validation artifacts and retain source runtime separately"
+  },
+  "model_training": "B2 drafter only",
+  "frozen_gram_training": false,
+  "input_audit": {
+    "forbidden_similar_edges_removed": 0,
+    "top_k": 5
+  }
+}
