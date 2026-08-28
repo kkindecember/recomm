@@ -1,0 +1,50 @@
+{
+  "schema_version": "stage16_s2_saux_batch2048_sweep_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SAUX_BATCH2048_MEMORY_SWEEP",
+  "attempt_id": "s16_s2_saux_batch2048_gpu2_a1",
+  "config_sha256": "3dd330b03efbbeeba5497b6dc570f0d4a9e4624950f8a0e936749eaf4b94de18",
+  "test_read": false,
+  "network_used": false,
+  "status": "completed",
+  "verdict": "PASS_S16_2_SAUX_BATCH2048_MEMORY_SWEEP",
+  "official_runtime": "PINNED_SPECGR_UNISREC_PLUS_RECBOLE_V1_2_0",
+  "physical_gpu": 2,
+  "visible_gpu": 0,
+  "batch_size": 2048,
+  "optimizer_steps": 1,
+  "train_transitions": 27659,
+  "train_catalog_items": 4799,
+  "finite_loss": true,
+  "loss": 8.605942726135254,
+  "peak_cuda_allocated_mib": 3440.6904296875,
+  "peak_cuda_reserved_mib": 4314.0,
+  "cuda_total_mib": 48569.625,
+  "cuda_free_before_mib": 21666.4375,
+  "cuda_free_after_mib": 17336.4375,
+  "optimizer_step_seconds": 1.8447589874267578,
+  "runtime_seconds": 14.241092681884766,
+  "recalibration_eligible": true,
+  "safety_margin_mib": 4096,
+  "recommended_minimum_free_mib": 9216,
+  "recalibration_rule": {
+    "basis": "torch_cuda_max_memory_reserved_mib",
+    "safety_margin_mib": "max(4096, ceil(0.5 * peak_reserved_mib))",
+    "rounding_mib": 1024,
+    "minimum_recommended_free_mib": 8192,
+    "formula": "max(8192, ceil_to_1024(peak_reserved_mib + max(4096, 0.5 * peak_reserved_mib)))",
+    "eligibility_requires": [
+      "finite_loss",
+      "batch_size_exactly_2048",
+      "train_catalog_items_exactly_4799",
+      "peak_reserved_mib_at_most_8192",
+      "no_validation_or_test_read"
+    ]
+  },
+  "cold_content_only": {
+    "cold_interaction_label_count": 0,
+    "cold_candidate_content_count": 7125,
+    "cold_candidates_complete": true
+  },
+  "validation_used": false,
+  "scientific_scope": "resource-only calibration; not an efficacy or formal scientific result"
+}

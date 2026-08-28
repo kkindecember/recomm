@@ -1,0 +1,75 @@
+{
+  "schema_version": "stage16_s2_splus_objective_resource_sweep_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_OBJECTIVE_RESOURCE_SWEEP",
+  "attempt_id": "s16_s2_splus_resource_gpu5_a1",
+  "output_dir": "artifacts/phase16/s2_splus_objective_resource_sweep/gpu5_a1",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "inputs": {
+    "train_sequences": {"path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl", "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"},
+    "split_manifest": {"path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json", "sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"},
+    "retained_warm_items": {"path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt", "sha256": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253"},
+    "lexical_paths": {"path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt", "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"},
+    "metadata": {"path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt", "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"},
+    "gram_config": {"path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json", "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"},
+    "gram_checkpoint": {"path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt", "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"}
+  },
+  "formal_budget": {
+    "train_transitions": 27659,
+    "train_catalog_items": 4799,
+    "projection_dimension": 64,
+    "temperature": 0.07,
+    "precision": "bf16-mixed",
+    "gradient_clip_norm": 1.0,
+    "pretrain": {
+      "epochs": 100,
+      "lambda_embedding": 6.0,
+      "lambda_generation": 1.0,
+      "learning_rate": 0.001,
+      "weight_decay": 0.05,
+      "warmup_steps": 10000,
+      "embedding_microbatch": 4,
+      "generation_microbatch": 1,
+      "gradient_accumulation": 256,
+      "effective_embedding_batch": 1024,
+      "effective_generation_batch": 256,
+      "optimizer_steps": 10900,
+      "physical_microsteps": 2765900
+    },
+    "finetune": {
+      "epochs": 15,
+      "lambda_embedding": 6.0,
+      "lambda_generation": 1.0,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.05,
+      "warmup_steps": 10000,
+      "microbatch": 1,
+      "gradient_accumulation": 256,
+      "effective_batch": 256,
+      "optimizer_steps": 1635,
+      "physical_microsteps": 414885
+    },
+    "arms": ["S-PLUS", "S-PLUS-CTRL"],
+    "same_start_checkpoint_data_steps_batches_optimizer_gpu_timeout": true
+  },
+  "sweep": {
+    "pretrain_microsteps_per_arm": 4,
+    "finetune_microsteps_per_arm": 2,
+    "execute_optimizer_step": true,
+    "build_full_train_item_index": true,
+    "item_index_encode_batch": 64,
+    "maximum_eligible_peak_reserved_mib": 8192,
+    "runtime_projection_lower_multiplier": 1.25,
+    "runtime_projection_upper_multiplier": 2.0,
+    "scientific_efficacy_metric": false
+  },
+  "resources": {
+    "physical_gpu": 5,
+    "gpu_count": 1,
+    "minimum_free_mib": 10240,
+    "hard_timeout_seconds": 600,
+    "release_holder": false
+  },
+  "automatic_retry": false,
+  "test_read": false
+}

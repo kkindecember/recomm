@@ -1,0 +1,103 @@
+{
+  "schema_version": "stage16_s2_specgr_contract_smoke_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPECGR_CONTRACT_SMOKE",
+  "attempt_id": "s16_s2_contract_a1",
+  "generated_at_utc": "2026-08-23T13:36:54.510707+00:00",
+  "test_read": false,
+  "network_used_during_experiment": false,
+  "verdict": "PASS_S16_2_SPECGR_CONTRACT_SMALL_SMOKE",
+  "checks": {
+    "official_unisrec_finite_forward_backward": true,
+    "official_unisrec_inductive_scores_finite": true,
+    "cold_content_only": true,
+    "splus_joint_loss_finite": true,
+    "splus_ctrl_loss_finite": true,
+    "splus_ctrl_budget_match": true,
+    "base_checkpoint_unchanged": true,
+    "test_read_false": true,
+    "peak_below_small_experiment_cap": true,
+    "wall_below_small_experiment_cap": true
+  },
+  "s_aux": {
+    "execution_class": "PINNED_OFFICIAL_SPECGR_UNISREC_AND_RECBOLE",
+    "optimizer_steps": 1,
+    "train_batch_size": 64,
+    "train_catalog_items_excluding_padding": 4799,
+    "pseudo_cold_admission_events": 32,
+    "loss": 8.701787948608398,
+    "loss_finite": true,
+    "inductive_score_shape": [
+      32,
+      32
+    ],
+    "inductive_scores_finite": true,
+    "cold_content_only": {
+      "cold_interaction_label_count": 0,
+      "cold_candidate_content_count": 5963,
+      "cold_candidates_complete": true
+    },
+    "elapsed_seconds": 11.591368097811937,
+    "peak_allocated_mib": 419.04443359375
+  },
+  "s_plus": {
+    "optimizer_steps": 1,
+    "batch_size": 2,
+    "contrastive_loss": 0.3204604983329773,
+    "generative_loss": 1.0166631937026978,
+    "joint_loss": 2.9394261837005615,
+    "all_losses_finite": true,
+    "elapsed_seconds": 5.680807784199715,
+    "peak_allocated_mib": 3712.54541015625
+  },
+  "s_plus_control": {
+    "objective": "GRAM generative loss only; no SpecGR contrastive, ranking, projection, or self-drafting objective",
+    "optimizer_steps": 1,
+    "batch_size": 2,
+    "generative_loss": 1.1125432252883911,
+    "loss_finite": true,
+    "elapsed_seconds": 3.9754813238978386,
+    "peak_allocated_mib": 2081.373046875
+  },
+  "budget_audit": {
+    "matched": true,
+    "fields": [
+      "dataset_manifest_sha256",
+      "epochs",
+      "gpu_count",
+      "gradient_accumulation",
+      "learning_rate",
+      "optimizer",
+      "optimizer_steps",
+      "physical_microbatch",
+      "timeout_seconds",
+      "transitions",
+      "warmup_steps",
+      "weight_decay"
+    ],
+    "budget": {
+      "dataset_manifest_sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471",
+      "transitions": 27659,
+      "epochs": 100,
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.05,
+      "warmup_steps": 10000,
+      "physical_microbatch": 1,
+      "gradient_accumulation": 256,
+      "optimizer_steps": 10900,
+      "gpu_count": 1,
+      "timeout_seconds": 259200
+    }
+  },
+  "same_start_checkpoint": true,
+  "checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "checkpoint_sha256_after": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "checkpoint_unchanged": true,
+  "validation_or_test_used": false,
+  "scientific_efficacy_metric_produced": false,
+  "formal_gates": {
+    "PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION": "PENDING_FULL_TRAIN_AND_FIXED_SCALE_ADMISSION",
+    "PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION": "PENDING_FULL_TRAIN_AND_FIXED_SCALE_ADMISSION",
+    "S_PLUS_CTRL_BUDGET_MATCH": "CONTRACT_PASS_FORMAL_EXECUTION_PENDING"
+  }
+}

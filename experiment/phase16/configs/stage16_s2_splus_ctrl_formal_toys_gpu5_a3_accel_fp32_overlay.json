@@ -1,0 +1,116 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_formal_toys_accel_overlay_v1",
+  "base_config": {
+    "path": "experiment/phase16/configs/stage16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32.json",
+    "sha256": "6dd2a909ef4a28923deb16e86de4fb9d49dd389b978eb7f0b308eeb3eae66e7e"
+  },
+  "overrides": {
+    "schema_version": "stage16_s2_splus_ctrl_formal_toys_accel_fp32_v1",
+    "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32",
+    "parent_attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32",
+    "parent_status_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a2_fp32/status.json",
+    "parent_status_sha256": "83c9921e015e7f747f00af03a6c87eba2cc78cb59bb140b3dd5a538e293ee045",
+    "parent_log_sha256": "9f45f7be164224a3e14bc403d1b27bd7eb83ef7d4915f44a294d8f4c68e47326",
+    "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32",
+    "inputs": {
+      "accelerated_batch_sweep_summary": {
+        "path": "artifacts/phase16/s2_splus_accelerated_batch_sweep/gpu5_a2_recovery/summary.json",
+        "sha256": "954c131ef302017840a5a0469bf18624481c9a6db17ab5fcc0589decbc3810a8"
+      }
+    },
+    "batching_adaptation": {
+      "classification": "F1 engineering batching adaptation; not a bitwise continuation of a2",
+      "selected_candidate": "e16_g4_a64",
+      "embedding_microbatch": 16,
+      "generation_microbatch": 4,
+      "gradient_accumulation": 64,
+      "effective_embedding_batch": 1024,
+      "effective_generation_batch": 256,
+      "matched_between_arms": true,
+      "optimizer_steps_unchanged": true,
+      "epochs_data_objective_optimizer_scheduler_checkpoint_unchanged": true,
+      "dropout_grouping_may_differ_from_a2": true,
+      "tail_generation_normalization": "sample-count weighted within each accumulation window",
+      "tail_embedding_normalization": "microstep-count weighted because every embedding microbatch remains full via deterministic cycling"
+    },
+    "formal_budget": {
+      "pretrain": {
+        "embedding_microbatch": 16,
+        "generation_microbatch": 4,
+        "gradient_accumulation": 64,
+        "effective_embedding_batch": 1024,
+        "effective_generation_batch": 256,
+        "optimizer_steps_per_epoch": 109,
+        "optimizer_steps": 10900,
+        "physical_microsteps": 691500
+      },
+      "finetune": {
+        "microbatch": 4,
+        "gradient_accumulation": 64,
+        "effective_batch": 256,
+        "optimizer_steps_per_epoch": 109,
+        "optimizer_steps": 1635,
+        "physical_microsteps": 103725
+      },
+      "tail_accumulation_normalization": "sample-count weighted generation/ranking losses; actual-microstep weighted full embedding batches",
+      "same_start_checkpoint_data_epochs_batches_optimizer_gpu_timeout": true
+    },
+    "admission": {
+      "maximum_eligible_peak_reserved_mib": 28672
+    },
+    "resource_evidence": {
+      "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+      "verdict": "PASS_S16_2_SPLUS_OBJECTIVE_RESOURCE_SWEEP",
+      "accelerated_batch_verdict": "PASS_S16_2_SPLUS_ACCELERATED_BATCH_SWEEP",
+      "selected_candidate": "e16_g4_a64",
+      "maximum_peak_reserved_mib": 17466,
+      "recommended_minimum_free_mib": 28672,
+      "engineering_minimum_free_mib": 28672,
+      "measured_splus_pretrain_microstep_seconds": 0.4853170895949006,
+      "measured_optimizer_step_seconds": 0.1526213362812996,
+      "projected_splus_pretrain_core_gpu_hours": 93.579,
+      "pair_runtime_projection_status": "requires first full optimizer-window calibration; no linear speedup promise"
+    },
+    "resources": {
+      "physical_gpu": 5,
+      "gpu_count": 1,
+      "minimum_free_mib": 28672,
+      "expected_peak_reserved_mib": 17466,
+      "per_arm_hard_timeout_seconds": 1209600,
+      "heartbeat_seconds": 60,
+      "stall_advisory_seconds": 3600,
+      "disk_reservation_mib": 8192,
+      "release_holder": true,
+      "restore_holder_on_completed_failed_timeout_interrupted_preflight_terminal_paths": true
+    },
+    "execution": {
+      "runner_path": "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32.sh",
+      "exact_start_command": "bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32.sh 5",
+      "tmux_session": "phase16_s2_splus_ctrl_formal_gpu5_a3_accel",
+      "background_start_command": "tmux new-session -d -s phase16_s2_splus_ctrl_formal_gpu5_a3_accel 'cd /mnt/18T/jiangtangyunzhi/projects/recomm && bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32.sh 5'",
+      "resume_command_template": "CUDA_VISIBLE_DEVICES=5 /home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python experiment/phase16/protocol/splus_formal_train_accel.py --config experiment/phase16/configs/stage16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32_overlay.json --arm <ARM> --resume"
+    },
+    "owned_holder_observation": {
+      "controller": "tools/gram_ablation_scan.sh",
+      "session": "gram_ablation_scan_gpu5",
+      "state_root": ".runtime/gram_ablation_scan_gpu5",
+      "expected_start_pid": 1533786,
+      "reserve_mib": 18263,
+      "must_be_released_during_formal_runtime": true,
+      "must_be_restored_on_every_terminal_path": true,
+      "restored_pid_may_differ": true
+    },
+    "code_freeze": {
+      "experiment/phase16/protocol/splus_formal_train.py": "9e1c842b5638684e7082357d504a5921c926909a3a65ad79719b6af568fad4aa",
+      "experiment/phase16/protocol/splus_formal_train_accel.py": "89f166335050ddb8cf9148f22349a64157b8275e12469d323ec4c189c2adca7a",
+      "experiment/phase16/protocol/finalize_splus_formal.py": "9959504a8b9925ad044b71cd8001801101e42432ff3de67976eab155db45957f",
+      "experiment/phase16/protocol/finalize_splus_formal_accel.py": "e8b0373a6e4150223d8e9b1c03834f346fca5e40c59a71c4c1e43b98c49e344c",
+      "experiment/phase16/tests/test_splus_formal.py": "9b97858bf9ab345897f9490838ae5448f99951b60af71ca9e8ffab09e7652531",
+      "experiment/phase16/tests/test_splus_formal_accel.py": "c0bab2451959dba1f356a8625b0c238d1dee67f3632817b2890d3263d4afaad2",
+      "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32.sh": "912deed2dc7d0308230a249590bff9956810eead031547035a16ee5594e6293f"
+    },
+    "automatic_retry": false,
+    "validation_used": false,
+    "test_read": false
+  }
+}

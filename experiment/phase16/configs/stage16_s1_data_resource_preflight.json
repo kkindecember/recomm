@@ -1,0 +1,54 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "output_dir": "artifacts/phase16/s1_data_resource_preflight",
+  "seed": 1502,
+  "split_policy": {
+    "internal_dev_user_fraction": 0.10,
+    "pseudo_cold_fraction_of_eligible_warm": 0.20,
+    "pseudo_cold_strata": ["lexical_path_length", "catalog_text_word_count_quintile"],
+    "maximum_history_items": 20,
+    "minimum_student_sequence_items": 2,
+    "adaptation_scope_note": "Pseudo-cold means unseen by Stage16 adaptation. The inherited GRAM checkpoint may have seen these formerly-warm items."
+  },
+  "workload_policy": {
+    "genrecedit_contexts_per_cold_item": 10,
+    "genrecedit_mom2_sample_cap": 400000,
+    "genrecedit_cov_lambda": 1000,
+    "genrecedit_position_to_layer": [0, 1, 2, 3],
+    "specgr_aux_official_train_batch_size": 2048,
+    "resource_probe_only": true,
+    "resource_probe_hard_timeout_seconds": 600,
+    "resource_probe_max_incremental_gpu_mib": 8192,
+    "resource_probe_max_gpu_count": 1
+  },
+  "denylist": {
+    "exact_basenames": ["user_sequence.txt"],
+    "path_substrings": ["predictions_test", "test_metrics", "test_ground_truth", "test_target"]
+  },
+  "domains": [
+    {
+      "name": "Toys_cold50",
+      "projected_sequence": {"path": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Toys_cold50/user_sequence_train_validation.txt", "sha256": "839ff2b3944b95b0d5fdb78e45660a21e026c04642159fee95ac9f504a1318b0"},
+      "lexical_paths": {"path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt", "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"},
+      "metadata": {"path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt", "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"},
+      "cold_items": {"path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt", "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"},
+      "warm_items": {"path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/warm_items.txt", "sha256": "7041604505ea91abf3ab27dfa218d1e62b0ceea3e7aded5cf7926d46b72912e0"},
+      "content_embeddings": {"path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt", "sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262"},
+      "gram_config": {"path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json", "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"},
+      "gram_checkpoint": {"path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt", "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"}
+    },
+    {
+      "name": "Beauty_cold50",
+      "projected_sequence": {"path": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Beauty_cold50/user_sequence_train_validation.txt", "sha256": "b7b16f370df9e93423e9d4ac72d78177fc7833048e41828c895fa56495ef855e"},
+      "lexical_paths": {"path": "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt", "sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"},
+      "metadata": {"path": "GRAM/rec_datasets/Beauty_cold50/item_plain_text.txt", "sha256": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc"},
+      "cold_items": {"path": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt", "sha256": "d7edea19e40ae42c0c848fe7185001d9a762ec747957bf3766bc787c7bc99f13"},
+      "warm_items": {"path": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/warm_items.txt", "sha256": "291b3b82d5d37c56e52157d6a14c5c06e4e10160a10e37173a9e313baeea2def"},
+      "content_embeddings": {"path": "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt", "sha256": "f6fbc0527c3dfbe66a60388c84645357ea8c14d97c58fe66a02a75ffa4192090"},
+      "gram_config": {"path": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/config.json", "sha256": "61dfbb0d51ba65fe0b3af5f8985c0f7cff6314d30778af739859938becb9c2e7"},
+      "gram_checkpoint": {"path": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/id_0_rec_30/model_rec_phase_1_epoch_30.pt", "sha256": "6e5d43f2a3d51f02b351314bad31bff00249cee536731f105215883c022c27b8"}
+    }
+  ]
+}

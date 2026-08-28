@@ -1,0 +1,108 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "generated_at_utc": "2026-08-23T13:06:30.635225+00:00",
+  "verdict": "PASS_S16_1_RESOURCE_PROBE",
+  "scientific_results_produced": false,
+  "test_read": false,
+  "network_used": false,
+  "physical_gpu": 7,
+  "visible_gpu": 0,
+  "gpu_name": "NVIDIA RTX A6000",
+  "admission_free_mib": 15609,
+  "admission_util_percent": 23,
+  "total_probe_seconds": 18.53608050942421,
+  "maximum_peak_allocated_mib": 1457.57861328125,
+  "checks": {
+    "single_visible_gpu": true,
+    "all_losses_finite": true,
+    "probe_peak_below_cap": true,
+    "probe_wall_below_10_minutes": true
+  },
+  "probes": [
+    {
+      "name": "S-AUX",
+      "execution_class": "RESOURCE_PROXY_NOT_SCIENTIFIC_EXECUTION",
+      "fidelity": "Exact official MoE adaptor algebra and official 2-layer/2-head/300d/256-inner dimensions; PyTorch Transformer substitutes unavailable RecBole kernel.",
+      "batch_size": 64,
+      "catalog_shape": [
+        12101,
+        1024
+      ],
+      "loss_finite": true,
+      "elapsed_seconds": 10.396485203877091,
+      "peak_allocated_mib": 1015.52685546875,
+      "peak_reserved_mib": 1032.0
+    },
+    {
+      "name": "S-PLUS",
+      "execution_class": "REAL_FROZEN_GRAM_FORWARD_BACKWARD_RESOURCE_PROBE",
+      "fidelity": "Real checkpoint, 21x128 encoder passages, 9 decoder tokens, physical microbatch 1; index/contrastive values are deferred.",
+      "batch_size": 1,
+      "loss_finite": true,
+      "elapsed_seconds": 3.2143314760178328,
+      "peak_allocated_mib": 1457.57861328125,
+      "peak_reserved_mib": 1554.0
+    },
+    {
+      "name": "G-FULL",
+      "execution_class": "REAL_FROZEN_GRAM_Z_OPTIMIZATION_RESOURCE_PROBE",
+      "fidelity": "Real checkpoint and decoder FFN-output residual hook at layer 3; 3 of official 30 Adam steps, one request, no weight materialization.",
+      "batch_size": 1,
+      "probe_z_steps": 3,
+      "formal_z_steps": 30,
+      "loss_finite": true,
+      "elapsed_seconds": 3.950291007757187,
+      "peak_allocated_mib": 306.9072265625,
+      "peak_reserved_mib": 368.0
+    }
+  ],
+  "formal_resource_freeze": [
+    {
+      "workload": "S-AUX",
+      "gpu_count": 1,
+      "minimum_free_mib_per_gpu": 24576,
+      "expected_peak_mib_per_gpu": 20480,
+      "formal_timeout_seconds": 172800,
+      "disk_reservation_mib": 8192,
+      "training_examples": 33775,
+      "maximum_epochs": 300,
+      "early_stopping_patience_epochs": 40,
+      "exact_command_template": "CUDA_VISIBLE_DEVICES=<USER_GPU> bash experiment/phase16/run_stage16_s2_saux_formal.sh",
+      "estimate_basis": "RESOURCE_PROXY_NOT_SCIENTIFIC_EXECUTION",
+      "uncertainty": "HIGH_UNTIL_S16_2_NATIVE_MICROBATCH_SWEEP"
+    },
+    {
+      "workload": "S-PLUS",
+      "gpu_count": 1,
+      "minimum_free_mib_per_gpu": 24576,
+      "expected_peak_mib_per_gpu": 20480,
+      "formal_timeout_seconds": 259200,
+      "disk_reservation_mib": 16384,
+      "pretrain_examples": 33775,
+      "finetune_examples": 33775,
+      "physical_microbatch": 1,
+      "gradient_accumulation_required": true,
+      "exact_command_template": "CUDA_VISIBLE_DEVICES=<USER_GPU> bash experiment/phase16/run_stage16_s2_splus_formal.sh",
+      "estimate_basis": "REAL_FROZEN_GRAM_FORWARD_BACKWARD_RESOURCE_PROBE",
+      "uncertainty": "HIGH_UNTIL_S16_2_OBJECTIVE_COMPLETE_SWEEP"
+    },
+    {
+      "workload": "G-FULL",
+      "gpu_count": 1,
+      "minimum_free_mib_per_gpu": 24576,
+      "expected_peak_mib_per_gpu": 20480,
+      "formal_timeout_seconds": 604800,
+      "disk_reservation_mib": 32768,
+      "edit_targets": 6052,
+      "contexts": 60520,
+      "prefix_next_token_requests": 425890,
+      "covariance_rows": 33775,
+      "z_steps": 30,
+      "exact_command_template": "CUDA_VISIBLE_DEVICES=<USER_GPU> bash experiment/phase16/run_stage16_s3_gfull_formal.sh",
+      "estimate_basis": "REAL_FROZEN_GRAM_Z_OPTIMIZATION_RESOURCE_PROBE",
+      "uncertainty": "HIGH; FULL REQUEST COUNT MAKES WALL-TIME THE PRIMARY RISK"
+    }
+  ]
+}

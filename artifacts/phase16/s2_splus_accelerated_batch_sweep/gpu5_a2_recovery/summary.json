@@ -1,0 +1,168 @@
+{
+  "schema_version": "stage16_s2_splus_accelerated_batch_sweep_recovery_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_ACCELERATED_BATCH_SWEEP",
+  "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+  "config_sha256": "8a5bb9e8c48715e8e3a9c656e4b39a17f1f66e0347cbbf76a6d683c6c61d342e",
+  "status": "completed",
+  "verdict": "PASS_S16_2_SPLUS_ACCELERATED_BATCH_SWEEP",
+  "selected_candidate": {
+    "candidate_id": "e16_g4_a64",
+    "embedding_microbatch": 16,
+    "generation_microbatch": 4,
+    "gradient_accumulation": 64,
+    "effective_embedding_batch": 1024,
+    "effective_generation_batch": 256
+  },
+  "selected_measurement": {
+    "schema_version": "stage16_s2_splus_accelerated_batch_sweep_recovery_v1",
+    "experiment_id": "GRAM_PHASE16_S2_SPLUS_ACCELERATED_BATCH_SWEEP",
+    "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+    "candidate_id": "e16_g4_a64",
+    "config_sha256": "8a5bb9e8c48715e8e3a9c656e4b39a17f1f66e0347cbbf76a6d683c6c61d342e",
+    "candidate": {
+      "candidate_id": "e16_g4_a64",
+      "embedding_microbatch": 16,
+      "generation_microbatch": 4,
+      "gradient_accumulation": 64,
+      "effective_embedding_batch": 1024,
+      "effective_generation_batch": 256
+    },
+    "physical_gpu": 5,
+    "visible_gpu": 0,
+    "execution_precision": "fp32",
+    "scientific_efficacy_metric_produced": false,
+    "validation_used": false,
+    "test_read": false,
+    "automatic_retry": false,
+    "status": "completed",
+    "verdict": "PASS",
+    "probe_microsteps": 3,
+    "losses": [
+      {
+        "embedding": 2.8150906562805176,
+        "generation": 1.6344496011734009
+      },
+      {
+        "embedding": 2.7840218544006348,
+        "generation": 1.4596314430236816
+      },
+      {
+        "embedding": 2.726102352142334,
+        "generation": 1.6670265197753906
+      }
+    ],
+    "all_finite": true,
+    "gradient_norm": 19.883272171020508,
+    "microstep_seconds": [
+      0.5535108149051666,
+      0.4731414783746004,
+      0.4974927008152008
+    ],
+    "median_warm_microstep_seconds": 0.4853170895949006,
+    "optimizer_step_seconds": 0.1526213362812996,
+    "runtime_seconds": 17.04003886319697,
+    "peak_allocated_mib": 16886.888671875,
+    "peak_reserved_mib": 17466.0,
+    "maximum_eligible_peak_reserved_mib": 28672,
+    "checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+    "checkpoint_sha256_after": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+    "checkpoint_unchanged": true,
+    "result_sha256": "ed9063388dae001e5f26fe856f3df1d627e838a5f0f0b00cf142858490700053"
+  },
+  "candidate_results": [
+    {
+      "schema_version": "stage16_s2_splus_accelerated_batch_sweep_recovery_v1",
+      "experiment_id": "GRAM_PHASE16_S2_SPLUS_ACCELERATED_BATCH_SWEEP",
+      "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+      "candidate_id": "e32_g8_a32",
+      "config_sha256": "8a5bb9e8c48715e8e3a9c656e4b39a17f1f66e0347cbbf76a6d683c6c61d342e",
+      "candidate": {
+        "candidate_id": "e32_g8_a32",
+        "embedding_microbatch": 32,
+        "generation_microbatch": 8,
+        "gradient_accumulation": 32,
+        "effective_embedding_batch": 1024,
+        "effective_generation_batch": 256
+      },
+      "physical_gpu": 5,
+      "visible_gpu": 0,
+      "execution_precision": "fp32",
+      "scientific_efficacy_metric_produced": false,
+      "validation_used": false,
+      "test_read": false,
+      "automatic_retry": false,
+      "status": "failed",
+      "verdict": "FAIL_CUDA_OOM",
+      "reason": "RuntimeError: CUDA out of memory. Tried to allocate 168.00 MiB (GPU 0; 47.43 GiB total capacity; 31.08 GiB already allocated; 161.31 MiB free; 31.12 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase16/protocol/splus_accelerated_batch_probe.py\", line 144, in run_candidate\n    generation_loss = model(**gen_context, use_cache=False).loss\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram.py\", line 76, in forward\n    outputs = super().forward(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5.py\", line 181, in forward\n    encoder_outputs = self.encoder(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram.py\", line 594, in forward\n    outputs = self.encoder(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 1224, in forward\n    layer_outputs = layer_module(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram.py\", line 675, in forward\n    output = self.module(hidden_states, attention_mask, position_bias, **kwargs)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 820, in forward\n    hidden_states = self.layer[-1](hidden_states)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 349, in forward\n    forwarded_states = self.DenseReluDense(forwarded_states)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 305, in forward\n    hidden_states = self.wi(hidden_states)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/linear.py\", line 103, in forward\n    return F.linear(input, self.weight, self.bias)\nRuntimeError: CUDA out of memory. Tried to allocate 168.00 MiB (GPU 0; 47.43 GiB total capacity; 31.08 GiB already allocated; 161.31 MiB free; 31.12 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF\n",
+      "runtime_seconds": 17.872787887230515,
+      "checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+      "scientific_failure": false,
+      "result_sha256": "dfda12550ded5b725e61c5306005c8dd4183a8baab8b31040bb755036247c179"
+    },
+    {
+      "schema_version": "stage16_s2_splus_accelerated_batch_sweep_recovery_v1",
+      "experiment_id": "GRAM_PHASE16_S2_SPLUS_ACCELERATED_BATCH_SWEEP",
+      "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+      "candidate_id": "e16_g4_a64",
+      "config_sha256": "8a5bb9e8c48715e8e3a9c656e4b39a17f1f66e0347cbbf76a6d683c6c61d342e",
+      "candidate": {
+        "candidate_id": "e16_g4_a64",
+        "embedding_microbatch": 16,
+        "generation_microbatch": 4,
+        "gradient_accumulation": 64,
+        "effective_embedding_batch": 1024,
+        "effective_generation_batch": 256
+      },
+      "physical_gpu": 5,
+      "visible_gpu": 0,
+      "execution_precision": "fp32",
+      "scientific_efficacy_metric_produced": false,
+      "validation_used": false,
+      "test_read": false,
+      "automatic_retry": false,
+      "status": "completed",
+      "verdict": "PASS",
+      "probe_microsteps": 3,
+      "losses": [
+        {
+          "embedding": 2.8150906562805176,
+          "generation": 1.6344496011734009
+        },
+        {
+          "embedding": 2.7840218544006348,
+          "generation": 1.4596314430236816
+        },
+        {
+          "embedding": 2.726102352142334,
+          "generation": 1.6670265197753906
+        }
+      ],
+      "all_finite": true,
+      "gradient_norm": 19.883272171020508,
+      "microstep_seconds": [
+        0.5535108149051666,
+        0.4731414783746004,
+        0.4974927008152008
+      ],
+      "median_warm_microstep_seconds": 0.4853170895949006,
+      "optimizer_step_seconds": 0.1526213362812996,
+      "runtime_seconds": 17.04003886319697,
+      "peak_allocated_mib": 16886.888671875,
+      "peak_reserved_mib": 17466.0,
+      "maximum_eligible_peak_reserved_mib": 28672,
+      "checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+      "checkpoint_sha256_after": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+      "checkpoint_unchanged": true,
+      "result_sha256": "ed9063388dae001e5f26fe856f3df1d627e838a5f0f0b00cf142858490700053"
+    }
+  ],
+  "selection_rule": "first PASS in preregistered descending-throughput order",
+  "maximum_eligible_peak_reserved_mib": 28672,
+  "holder_released_during_probe": true,
+  "holder_restore_required_after_probe": true,
+  "scientific_efficacy_metric_produced": false,
+  "validation_used": false,
+  "test_read": false,
+  "automatic_retry": false
+}

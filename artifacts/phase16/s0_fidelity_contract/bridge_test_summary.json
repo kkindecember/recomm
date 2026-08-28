@@ -1,0 +1,110 @@
+{
+  "schema_version": "stage16_s0_fidelity_contract_v1",
+  "audit_id": "GRAM_PHASE16_S0_FIDELITY_CONTRACT",
+  "generated_at_utc": "2026-08-23T12:07:45.979578+00:00",
+  "config": "experiment/phase16/configs/stage16_s0_fidelity_contract.json",
+  "config_sha256": "b818eb787d93797e9a0946fe55a03b7e32cb84b9e3f045a47beefd0b7816c45f",
+  "test_read": false,
+  "network_used": false,
+  "contract": {
+    "fixed_width": "A synthetic 4-position, 256-codebook SID is emulated with the official token offsets.",
+    "variable_lexical": "GRAM uses strict unique variable-length paths and legal next-token sets from the frozen trie.",
+    "probability_definition": "Match the official split semantics: compare target argmax only against the current position's legal competitor set, but compute the 0.3 cache-probe probability with full-vocabulary softmax. For GRAM, the legal competitor set is the frozen trie's legal next tokens; optimizer success is argmax and does not use 0.3.",
+    "eos_policy": "EOS and padding are never edit targets and never activate deltaW.",
+    "selection_policy": "This definition is frozen before efficacy and may not be selected based on validation outcomes."
+  },
+  "checks": [
+    {
+      "id": "saux_content_only_cold_access",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "specgr_draft_without_replacement",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "specgr_fixed_width_score_parity",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "specgr_strict_acceptance",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "specgr_variable_trie_redraft",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "specgr_adaptive_exit",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "specgr_unique_fallback",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "splus_normalized_knn",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "splus_weighted_objective",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_fixed_width_probe_parity",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_threshold_scope",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_optimizer_contract",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_norm_clip",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_second_moment",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_variable_position_routing",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_valid_z_filter",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_closed_form_parity",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    },
+    {
+      "id": "genrecedit_additive_aggregation",
+      "status": "PASS",
+      "detail": "contract assertion passed"
+    }
+  ],
+  "passed": 18,
+  "total": 18
+}

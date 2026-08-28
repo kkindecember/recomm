@@ -1,0 +1,389 @@
+{
+  "schema_version": "stage16_s0_fidelity_contract_v1",
+  "audit_id": "GRAM_PHASE16_S0_FIDELITY_CONTRACT",
+  "generated_at_utc": "2026-08-23T12:07:45.979578+00:00",
+  "config": "experiment/phase16/configs/stage16_s0_fidelity_contract.json",
+  "config_sha256": "b818eb787d93797e9a0946fe55a03b7e32cb84b9e3f045a47beefd0b7816c45f",
+  "test_read": false,
+  "network_used": false,
+  "parameters": [
+    {
+      "method": "SpecGR-Aux",
+      "name": "draft_size",
+      "value": 50,
+      "source": "SpecGR",
+      "path": "SpecGR_Aux/run.py",
+      "contains": "default=50, help=\"Draft size",
+      "evidence": {
+        "path": "SpecGR_Aux/run.py",
+        "contains": "default=50, help=\"Draft size",
+        "verified": true,
+        "matches": [
+          {
+            "line": 122,
+            "text": "parser.add_argument(\"--draft_size\", type=int, default=50, help=\"Draft size for the process.\")"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR-Aux",
+      "name": "acceptance_threshold",
+      "value": -1.8,
+      "source": "SpecGR",
+      "path": "SpecGR_Aux/run.py",
+      "contains": "default=-1.8, help=\"Threshold",
+      "evidence": {
+        "path": "SpecGR_Aux/run.py",
+        "contains": "default=-1.8, help=\"Threshold",
+        "verified": true,
+        "matches": [
+          {
+            "line": 123,
+            "text": "parser.add_argument(\"--threshold\", type=float, default=-1.8, help=\"Threshold for acceptance.\")"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR-Aux",
+      "name": "num_beams",
+      "value": 20,
+      "source": "SpecGR",
+      "path": "SpecGR_Aux/run.py",
+      "contains": "default=20, help=\"Number of beams",
+      "evidence": {
+        "path": "SpecGR_Aux/run.py",
+        "contains": "default=20, help=\"Number of beams",
+        "verified": true,
+        "matches": [
+          {
+            "line": 124,
+            "text": "parser.add_argument(\"--num_beams\", type=int, default=20, help=\"Number of beams to use.\")"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR++",
+      "name": "draft_size",
+      "value": 20,
+      "source": "SpecGR",
+      "path": "SpecGR/run.py",
+      "contains": "default=20, help='Draft size",
+      "evidence": {
+        "path": "SpecGR/run.py",
+        "contains": "default=20, help='Draft size",
+        "verified": true,
+        "matches": [
+          {
+            "line": 102,
+            "text": "parser.add_argument('--draft_size', type=int, default=20, help='Draft size for the process.')"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR++",
+      "name": "acceptance_threshold",
+      "value": -1.8,
+      "source": "SpecGR",
+      "path": "SpecGR/run.py",
+      "contains": "default=-1.8, help='Threshold",
+      "evidence": {
+        "path": "SpecGR/run.py",
+        "contains": "default=-1.8, help='Threshold",
+        "verified": true,
+        "matches": [
+          {
+            "line": 103,
+            "text": "parser.add_argument('--threshold', type=float, default=-1.8, help='Threshold for acceptance.')"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR++",
+      "name": "num_beams",
+      "value": 50,
+      "source": "SpecGR",
+      "path": "SpecGR/run.py",
+      "contains": "default=50, help='Number of beams",
+      "evidence": {
+        "path": "SpecGR/run.py",
+        "contains": "default=50, help='Number of beams",
+        "verified": true,
+        "matches": [
+          {
+            "line": 104,
+            "text": "parser.add_argument('--num_beams', type=int, default=50, help='Number of beams to use.')"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR++",
+      "name": "temperature",
+      "value": 0.07,
+      "source": "SpecGR",
+      "path": "configs/base.yaml",
+      "contains": "temperature: 0.07",
+      "evidence": {
+        "path": "configs/base.yaml",
+        "contains": "temperature: 0.07",
+        "verified": true,
+        "matches": [
+          {
+            "line": 23,
+            "text": "temperature: 0.07"
+          },
+          {
+            "line": 70,
+            "text": "temperature: 0.07"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR++",
+      "name": "pretrain_lambda_emb",
+      "value": 6.0,
+      "source": "SpecGR",
+      "path": "configs/base.yaml",
+      "contains": "lambda_emb: 6.0",
+      "evidence": {
+        "path": "configs/base.yaml",
+        "contains": "lambda_emb: 6.0",
+        "verified": true,
+        "matches": [
+          {
+            "line": 76,
+            "text": "lambda_emb: 6.0"
+          }
+        ]
+      }
+    },
+    {
+      "method": "SpecGR++",
+      "name": "pretrain_lambda_gen",
+      "value": 1.0,
+      "source": "SpecGR",
+      "path": "configs/base.yaml",
+      "contains": "lambda_gen: 1.0",
+      "evidence": {
+        "path": "configs/base.yaml",
+        "contains": "lambda_gen: 1.0",
+        "verified": true,
+        "matches": [
+          {
+            "line": 77,
+            "text": "lambda_gen: 1.0"
+          },
+          {
+            "line": 88,
+            "text": "lambda_gen: 1.0"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "v_lr",
+      "value": 0.5,
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "v_lr: float = 0.5",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "v_lr: float = 0.5",
+        "verified": true,
+        "matches": [
+          {
+            "line": 30,
+            "text": "v_lr: float = 0.5"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "v_num_grad_steps",
+      "value": 30,
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "v_num_grad_steps: int = 30",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "v_num_grad_steps: int = 30",
+        "verified": true,
+        "matches": [
+          {
+            "line": 31,
+            "text": "v_num_grad_steps: int = 30"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "v_weight_decay",
+      "value": 0.2,
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "v_weight_decay: float = 0.2",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "v_weight_decay: float = 0.2",
+        "verified": true,
+        "matches": [
+          {
+            "line": 32,
+            "text": "v_weight_decay: float = 0.2"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "cov_lambda_dataclass_default",
+      "value": 10000,
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "cov_lambda: int = 10000",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "cov_lambda: int = 10000",
+        "verified": true,
+        "matches": [
+          {
+            "line": 35,
+            "text": "cov_lambda: int = 10000"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "mom2_n_samples",
+      "value": 400000,
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "mom2_n_samples: int = 400000",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "mom2_n_samples: int = 400000",
+        "verified": true,
+        "matches": [
+          {
+            "line": 40,
+            "text": "mom2_n_samples: int = 400000"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "z_vector_max",
+      "value": 8000,
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "z_vector_max: int = 8000",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "z_vector_max: int = 8000",
+        "verified": true,
+        "matches": [
+          {
+            "line": 48,
+            "text": "z_vector_max: int = 8000"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "prob_threshold",
+      "value": 0.3,
+      "scope": "cache_hit_probe_only_not_optimizer_success_gate",
+      "source": "GenRecEdit",
+      "path": "genrecedit/hparams.py",
+      "contains": "prob_threshold: float = 0.3",
+      "evidence": {
+        "path": "genrecedit/hparams.py",
+        "contains": "prob_threshold: float = 0.3",
+        "verified": true,
+        "matches": [
+          {
+            "line": 52,
+            "text": "prob_threshold: float = 0.3"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "official_script_cov_lambda",
+      "value": 1000,
+      "scope": "Scripts/edit.sh overrides the dataclass default of 10000",
+      "source": "GenRecEdit",
+      "path": "Scripts/edit.sh",
+      "contains": "COV_LAMBDAS=(1000)",
+      "evidence": {
+        "path": "Scripts/edit.sh",
+        "contains": "COV_LAMBDAS=(1000)",
+        "verified": true,
+        "matches": [
+          {
+            "line": 13,
+            "text": "COV_LAMBDAS=(1000) # 3000 5000 6000 8000 10000 12000 # 1000 3000 5000"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "official_script_number_knowledge",
+      "value": 10,
+      "scope": "Scripts/edit.sh overrides the dataclass default of 5",
+      "source": "GenRecEdit",
+      "path": "Scripts/edit.sh",
+      "contains": "NUMBER_KNOWLEDGES=(10)",
+      "evidence": {
+        "path": "Scripts/edit.sh",
+        "contains": "NUMBER_KNOWLEDGES=(10)",
+        "verified": true,
+        "matches": [
+          {
+            "line": 14,
+            "text": "NUMBER_KNOWLEDGES=(10)"
+          }
+        ]
+      }
+    },
+    {
+      "method": "GenRecEdit",
+      "name": "official_script_pos2layer",
+      "value": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "source": "GenRecEdit",
+      "path": "Scripts/edit.sh",
+      "contains": "POS2LAYER=(0 1 2 3)",
+      "evidence": {
+        "path": "Scripts/edit.sh",
+        "contains": "POS2LAYER=(0 1 2 3)",
+        "verified": true,
+        "matches": [
+          {
+            "line": 15,
+            "text": "POS2LAYER=(0 1 2 3)"
+          }
+        ]
+      }
+    }
+  ],
+  "parameter_count": 19
+}

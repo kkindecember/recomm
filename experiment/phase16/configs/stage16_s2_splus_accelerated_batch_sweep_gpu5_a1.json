@@ -1,0 +1,38 @@
+{
+  "schema_version": "stage16_s2_splus_accelerated_batch_sweep_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_ACCELERATED_BATCH_SWEEP",
+  "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a1",
+  "output_dir": "artifacts/phase16/s2_splus_accelerated_batch_sweep/gpu5_a1",
+  "seed": 1502,
+  "source_formal_config": {
+    "path": "experiment/phase16/configs/stage16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32.json",
+    "sha256": "6dd2a909ef4a28923deb16e86de4fb9d49dd389b978eb7f0b308eeb3eae66e7e"
+  },
+  "parent_interrupted_attempt": {
+    "status_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a2_fp32/status.json",
+    "status_sha256": "83c9921e015e7f747f00af03a6c87eba2cc78cb59bb140b3dd5a538e293ee045",
+    "run_log_sha256": "9f45f7be164224a3e14bc403d1b27bd7eb83ef7d4915f44a294d8f4c68e47326"
+  },
+  "probe_microsteps": 3,
+  "maximum_eligible_peak_reserved_mib": 28672,
+  "minimum_admission_free_mib": 32768,
+  "candidates": [
+    {"candidate_id": "e64_g16_a16", "embedding_microbatch": 64, "generation_microbatch": 16, "gradient_accumulation": 16, "effective_embedding_batch": 1024, "effective_generation_batch": 256},
+    {"candidate_id": "e32_g8_a32", "embedding_microbatch": 32, "generation_microbatch": 8, "gradient_accumulation": 32, "effective_embedding_batch": 1024, "effective_generation_batch": 256},
+    {"candidate_id": "e16_g4_a64", "embedding_microbatch": 16, "generation_microbatch": 4, "gradient_accumulation": 64, "effective_embedding_batch": 1024, "effective_generation_batch": 256},
+    {"candidate_id": "e8_g2_a128", "embedding_microbatch": 8, "generation_microbatch": 2, "gradient_accumulation": 128, "effective_embedding_batch": 1024, "effective_generation_batch": 256}
+  ],
+  "resources": {
+    "physical_gpu": 5,
+    "gpu_count": 1,
+    "hard_timeout_seconds_per_candidate": 600,
+    "holder_session": "gram_ablation_scan_gpu5",
+    "holder_state_root": ".runtime/gram_ablation_scan_gpu5",
+    "holder_reserve_mib": 18263,
+    "restore_holder_on_every_terminal_path": true
+  },
+  "selection_scope": "train-only objective-complete resource/throughput probe; no validation or test efficacy",
+  "automatic_retry": false,
+  "validation_used": false,
+  "test_read": false
+}

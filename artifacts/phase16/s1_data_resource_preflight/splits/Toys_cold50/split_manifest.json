@@ -1,0 +1,88 @@
+{
+  "domain": "Toys_cold50",
+  "seed": 1502,
+  "source_projected_users": 8789,
+  "source_train_items_after_validation_drop": 49133,
+  "catalog_items": 11924,
+  "real_cold_items": 5963,
+  "real_warm_items": 5961,
+  "eligible_pseudo_cold_items": 5810,
+  "pseudo_cold_items": 1162,
+  "pseudo_cold_held_events": 7435,
+  "train_users": 7487,
+  "internal_dev_users": 832,
+  "train_transitions": 27659,
+  "internal_dev_transitions": 3108,
+  "s_aux_training_examples": 27659,
+  "s_plus_pretrain_examples": 27659,
+  "s_plus_finetune_examples": 27659,
+  "g_full_edit_targets": 5963,
+  "g_full_contexts": 59630,
+  "g_full_prefix_next_token_requests": 302400,
+  "g_full_covariance_rows": 27659,
+  "lexical_path_length_counts_real_cold": {
+    "5": 5538,
+    "6": 425
+  },
+  "catalog_text_word_count_quintile_thresholds": [
+    50,
+    71,
+    94,
+    131
+  ],
+  "allocation": {
+    "target": 1162,
+    "selected": 1162,
+    "capacity_by_stratum": {
+      "path5_textq0": 1100,
+      "path5_textq1": 1118,
+      "path5_textq2": 1079,
+      "path5_textq3": 1052,
+      "path5_textq4": 1030,
+      "path6_textq0": 38,
+      "path6_textq1": 54,
+      "path6_textq2": 99,
+      "path6_textq3": 110,
+      "path6_textq4": 130
+    },
+    "reference_by_stratum": {
+      "path5_textq0": 1189,
+      "path5_textq1": 1140,
+      "path5_textq2": 1075,
+      "path5_textq3": 1093,
+      "path5_textq4": 1041,
+      "path6_textq0": 39,
+      "path6_textq1": 68,
+      "path6_textq2": 102,
+      "path6_textq3": 98,
+      "path6_textq4": 118
+    },
+    "selected_by_stratum": {
+      "path5_textq0": 232,
+      "path5_textq1": 222,
+      "path5_textq2": 209,
+      "path5_textq3": 213,
+      "path5_textq4": 203,
+      "path6_textq0": 8,
+      "path6_textq1": 13,
+      "path6_textq2": 20,
+      "path6_textq3": 19,
+      "path6_textq4": 23
+    }
+  },
+  "leakage_audit": {
+    "validation_target_values_logged": false,
+    "test_files_opened": false,
+    "real_cold_in_student_items": 0,
+    "pseudo_cold_in_student_items": 0,
+    "train_internal_dev_user_overlap": 0,
+    "pseudo_cold_adaptation_scope_only": true
+  },
+  "outputs": {
+    "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl": "11102f7e1b636eee9c350645fa14f060147cb2a9108ec9607f6597d007026492",
+    "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab",
+    "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253",
+    "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_internal_dev_sequences.jsonl": "cdcee5b02b2e7586500ed5407dcbba55351670d9c9cc9f2facf5dd727727fca0",
+    "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
+  }
+}

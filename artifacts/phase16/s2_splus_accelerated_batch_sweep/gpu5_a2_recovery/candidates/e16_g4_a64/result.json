@@ -1,0 +1,55 @@
+{
+  "schema_version": "stage16_s2_splus_accelerated_batch_sweep_recovery_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_ACCELERATED_BATCH_SWEEP",
+  "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+  "candidate_id": "e16_g4_a64",
+  "config_sha256": "8a5bb9e8c48715e8e3a9c656e4b39a17f1f66e0347cbbf76a6d683c6c61d342e",
+  "candidate": {
+    "candidate_id": "e16_g4_a64",
+    "embedding_microbatch": 16,
+    "generation_microbatch": 4,
+    "gradient_accumulation": 64,
+    "effective_embedding_batch": 1024,
+    "effective_generation_batch": 256
+  },
+  "physical_gpu": 5,
+  "visible_gpu": 0,
+  "execution_precision": "fp32",
+  "scientific_efficacy_metric_produced": false,
+  "validation_used": false,
+  "test_read": false,
+  "automatic_retry": false,
+  "status": "completed",
+  "verdict": "PASS",
+  "probe_microsteps": 3,
+  "losses": [
+    {
+      "embedding": 2.8150906562805176,
+      "generation": 1.6344496011734009
+    },
+    {
+      "embedding": 2.7840218544006348,
+      "generation": 1.4596314430236816
+    },
+    {
+      "embedding": 2.726102352142334,
+      "generation": 1.6670265197753906
+    }
+  ],
+  "all_finite": true,
+  "gradient_norm": 19.883272171020508,
+  "microstep_seconds": [
+    0.5535108149051666,
+    0.4731414783746004,
+    0.4974927008152008
+  ],
+  "median_warm_microstep_seconds": 0.4853170895949006,
+  "optimizer_step_seconds": 0.1526213362812996,
+  "runtime_seconds": 17.04003886319697,
+  "peak_allocated_mib": 16886.888671875,
+  "peak_reserved_mib": 17466.0,
+  "maximum_eligible_peak_reserved_mib": 28672,
+  "checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "checkpoint_sha256_after": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "checkpoint_unchanged": true
+}

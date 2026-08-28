@@ -1,0 +1,207 @@
+{
+  "schema_version": "stage16_s2_splus_objective_resource_sweep_fp32_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_OBJECTIVE_RESOURCE_SWEEP",
+  "attempt_id": "s16_s2_splus_resource_gpu5_a2_fp32",
+  "config_sha256": "c0d18e8c33179d1091e8df332a5a0ad028cfa63177542ef5f656a60bdbc978c7",
+  "test_read": false,
+  "network_used": false,
+  "status": "completed",
+  "verdict": "PASS_S16_2_SPLUS_OBJECTIVE_RESOURCE_SWEEP",
+  "scientific_efficacy_metric_produced": false,
+  "physical_gpu": 5,
+  "visible_gpu": 0,
+  "holder_released": false,
+  "execution_precision": "fp32",
+  "train_transitions": 27659,
+  "train_catalog_items": 4799,
+  "measurements": [
+    {
+      "arm": "S-PLUS",
+      "stage": "pretrain",
+      "microsteps": 4,
+      "losses": [
+        {
+          "embedding": 1.571357011795044,
+          "generation": 0.6625882387161255
+        },
+        {
+          "embedding": 1.4381953477859497,
+          "generation": 2.2527990341186523
+        },
+        {
+          "embedding": 1.2322566509246826,
+          "generation": 1.5146273374557495
+        },
+        {
+          "embedding": 1.5493793487548828,
+          "generation": 1.3784726858139038
+        }
+      ],
+      "runtime_seconds": 3.321281151846051,
+      "microstep_seconds": [
+        0.3426904808729887,
+        0.1726822517812252,
+        0.1623645517975092,
+        0.16244453191757202
+      ],
+      "median_microstep_seconds": 0.1675633918493986,
+      "optimizer_step_seconds": 0.022234972566366196,
+      "peak_allocated_mib": 4731.5458984375,
+      "peak_reserved_mib": 4978.0,
+      "all_finite": true
+    },
+    {
+      "arm": "S-PLUS-CTRL",
+      "stage": "pretrain",
+      "microsteps": 4,
+      "losses": [
+        1.6093446016311646,
+        1.700368881225586,
+        1.6151533126831055,
+        1.0992774963378906
+      ],
+      "runtime_seconds": 3.284030957147479,
+      "microstep_seconds": [
+        0.20829137787222862,
+        0.055110568180680275,
+        0.05435907654464245,
+        0.059092238545417786
+      ],
+      "median_microstep_seconds": 0.05710140336304903,
+      "optimizer_step_seconds": 0.04617612808942795,
+      "peak_allocated_mib": 1443.14501953125,
+      "peak_reserved_mib": 1732.0,
+      "all_finite": true
+    },
+    {
+      "arm": "S-PLUS",
+      "stage": "finetune",
+      "microsteps": 2,
+      "item_index_items": 4799,
+      "item_index_build_seconds": 2.062322350218892,
+      "losses": [
+        {
+          "ranking": 7.84600830078125,
+          "generation": 1.8570178747177124
+        },
+        {
+          "ranking": 8.091545104980469,
+          "generation": 0.5695011019706726
+        }
+      ],
+      "runtime_seconds": 6.339878156781197,
+      "microstep_seconds": [
+        0.32617516070604324,
+        0.0810468252748251
+      ],
+      "median_microstep_seconds": 0.20361099299043417,
+      "optimizer_step_seconds": 0.02341475710272789,
+      "peak_allocated_mib": 2227.9873046875,
+      "peak_reserved_mib": 2482.0,
+      "all_finite": true
+    },
+    {
+      "arm": "S-PLUS-CTRL",
+      "stage": "finetune",
+      "microsteps": 2,
+      "losses": [
+        0.9748445153236389,
+        1.5120197534561157
+      ],
+      "runtime_seconds": 3.103557588532567,
+      "microstep_seconds": [
+        0.13025260716676712,
+        0.07224731147289276
+      ],
+      "median_microstep_seconds": 0.10124995931982994,
+      "optimizer_step_seconds": 0.025069808587431908,
+      "peak_allocated_mib": 1443.05810546875,
+      "peak_reserved_mib": 1734.0,
+      "all_finite": true
+    }
+  ],
+  "maximum_peak_reserved_mib": 4978.0,
+  "recommended_minimum_free_mib": 9216,
+  "recommended_headroom_basis": "ceil_to_1024(maximum_peak_reserved_mib + 4096 MiB)",
+  "budget_audit": {
+    "pretrain": {
+      "matched": true,
+      "fields": [
+        "dataset_manifest_sha256",
+        "epochs",
+        "gpu_count",
+        "gradient_accumulation",
+        "learning_rate",
+        "optimizer",
+        "optimizer_steps",
+        "physical_microbatch",
+        "timeout_seconds",
+        "transitions",
+        "warmup_steps",
+        "weight_decay"
+      ],
+      "budget": {
+        "dataset_manifest_sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471",
+        "transitions": 27659,
+        "epochs": 100,
+        "optimizer": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.05,
+        "warmup_steps": 10000,
+        "physical_microbatch": 1,
+        "gradient_accumulation": 256,
+        "optimizer_steps": 10900,
+        "gpu_count": 1,
+        "timeout_seconds": 259200
+      }
+    },
+    "finetune": {
+      "matched": true,
+      "fields": [
+        "dataset_manifest_sha256",
+        "epochs",
+        "gpu_count",
+        "gradient_accumulation",
+        "learning_rate",
+        "optimizer",
+        "optimizer_steps",
+        "physical_microbatch",
+        "timeout_seconds",
+        "transitions",
+        "warmup_steps",
+        "weight_decay"
+      ],
+      "budget": {
+        "dataset_manifest_sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471",
+        "transitions": 27659,
+        "epochs": 15,
+        "optimizer": "AdamW",
+        "learning_rate": 0.0001,
+        "weight_decay": 0.05,
+        "warmup_steps": 10000,
+        "physical_microbatch": 1,
+        "gradient_accumulation": 256,
+        "optimizer_steps": 1635,
+        "gpu_count": 1,
+        "timeout_seconds": 259200
+      }
+    }
+  },
+  "runtime_projection": {
+    "core_pair_gpu_hours": 207.9748913504874,
+    "conservative_pair_gpu_hours_lower": 259.96861418810926,
+    "conservative_pair_gpu_hours_upper": 415.9497827009748,
+    "component_gpu_hours": {
+      "S-PLUS:pretrain": 128.80720742145138,
+      "S-PLUS:finetune": 23.476525632513738,
+      "S-PLUS-CTRL:pretrain": 44.011136488342245,
+      "S-PLUS-CTRL:finetune": 11.680021808180026
+    },
+    "basis": "measured median objective-complete physical microstep plus measured AdamW step; conservative multipliers cover dataloading, internal-dev evaluation, checkpointing, and scheduler overhead"
+  },
+  "checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "checkpoint_sha256_after": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "checkpoint_unchanged": true,
+  "formal_training_started": false,
+  "validation_used": false
+}

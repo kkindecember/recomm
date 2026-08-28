@@ -1,0 +1,18 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "generated_at_utc": "2026-08-23T13:06:31.860381+00:00",
+  "test_read": false,
+  "network_used": false,
+  "exact_start_command": "bash experiment/phase16/run_stage16_s1_data_resource_preflight.sh",
+  "working_directory": "/mnt/18T/jiangtangyunzhi/projects/recomm",
+  "cpu_hard_timeout_seconds": 300,
+  "gpu_probe_hard_timeout_seconds": 600,
+  "automatic_retry": false,
+  "formal_commands": {
+    "S-AUX": "CUDA_VISIBLE_DEVICES=<USER_GPU> bash experiment/phase16/run_stage16_s2_saux_formal.sh",
+    "S-PLUS": "CUDA_VISIBLE_DEVICES=<USER_GPU> bash experiment/phase16/run_stage16_s2_splus_formal.sh",
+    "G-FULL": "CUDA_VISIBLE_DEVICES=<USER_GPU> bash experiment/phase16/run_stage16_s3_gfull_formal.sh"
+  }
+}

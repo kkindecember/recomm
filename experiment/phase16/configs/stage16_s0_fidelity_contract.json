@@ -1,0 +1,173 @@
+{
+  "schema_version": "stage16_s0_fidelity_contract_v1",
+  "audit_id": "GRAM_PHASE16_S0_FIDELITY_CONTRACT",
+  "output_dir": "artifacts/phase16/s0_fidelity_contract",
+  "seed": 1502,
+  "test_policy": "sealed_no_test_files_or_predictions_may_be_opened",
+  "network_policy": "local_commit_pinned_sources_only_no_fetch_no_download",
+  "classification_policy": {
+    "F0": "Official algorithm logic, objective, or decision rule is preserved.",
+    "F1": "Necessary interface adaptation from fixed-width TIGER/RQ-VAE IDs to frozen GRAM variable lexical paths, or device/batch/API adaptation.",
+    "F2": "Scaled or substituted diagnostic; never eligible for the faithful primary table.",
+    "F3": "Outcome-dependent method change; prohibited from formal Stage16 evidence."
+  },
+  "sources": [
+    {
+      "name": "SpecGR",
+      "path": ".runtime/phase15_sources/SpecGR",
+      "expected_remote": "https://github.com/Jamesding000/SpecGR.git",
+      "expected_commit": "f0ded8884b1df97b5f0599d4ec300bb20b5d1eff"
+    },
+    {
+      "name": "GenRecEdit",
+      "path": ".runtime/phase15_sources/GenRecEdit",
+      "expected_remote": "https://github.com/Starrylay/GenRecEdit.git",
+      "expected_commit": "e6878d9c7c6e57479e840ccb8c045b11a2bd69b5"
+    }
+  ],
+  "official_parameters": [
+    {"method":"SpecGR-Aux","name":"draft_size","value":50,"source":"SpecGR","path":"SpecGR_Aux/run.py","contains":"default=50, help=\"Draft size"},
+    {"method":"SpecGR-Aux","name":"acceptance_threshold","value":-1.8,"source":"SpecGR","path":"SpecGR_Aux/run.py","contains":"default=-1.8, help=\"Threshold"},
+    {"method":"SpecGR-Aux","name":"num_beams","value":20,"source":"SpecGR","path":"SpecGR_Aux/run.py","contains":"default=20, help=\"Number of beams"},
+    {"method":"SpecGR++","name":"draft_size","value":20,"source":"SpecGR","path":"SpecGR/run.py","contains":"default=20, help='Draft size"},
+    {"method":"SpecGR++","name":"acceptance_threshold","value":-1.8,"source":"SpecGR","path":"SpecGR/run.py","contains":"default=-1.8, help='Threshold"},
+    {"method":"SpecGR++","name":"num_beams","value":50,"source":"SpecGR","path":"SpecGR/run.py","contains":"default=50, help='Number of beams"},
+    {"method":"SpecGR++","name":"temperature","value":0.07,"source":"SpecGR","path":"configs/base.yaml","contains":"temperature: 0.07"},
+    {"method":"SpecGR++","name":"pretrain_lambda_emb","value":6.0,"source":"SpecGR","path":"configs/base.yaml","contains":"lambda_emb: 6.0"},
+    {"method":"SpecGR++","name":"pretrain_lambda_gen","value":1.0,"source":"SpecGR","path":"configs/base.yaml","contains":"lambda_gen: 1.0"},
+    {"method":"GenRecEdit","name":"v_lr","value":0.5,"source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"v_lr: float = 0.5"},
+    {"method":"GenRecEdit","name":"v_num_grad_steps","value":30,"source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"v_num_grad_steps: int = 30"},
+    {"method":"GenRecEdit","name":"v_weight_decay","value":0.2,"source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"v_weight_decay: float = 0.2"},
+    {"method":"GenRecEdit","name":"cov_lambda_dataclass_default","value":10000,"source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"cov_lambda: int = 10000"},
+    {"method":"GenRecEdit","name":"mom2_n_samples","value":400000,"source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"mom2_n_samples: int = 400000"},
+    {"method":"GenRecEdit","name":"z_vector_max","value":8000,"source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"z_vector_max: int = 8000"},
+    {"method":"GenRecEdit","name":"prob_threshold","value":0.3,"scope":"cache_hit_probe_only_not_optimizer_success_gate","source":"GenRecEdit","path":"genrecedit/hparams.py","contains":"prob_threshold: float = 0.3"},
+    {"method":"GenRecEdit","name":"official_script_cov_lambda","value":1000,"scope":"Scripts/edit.sh overrides the dataclass default of 10000","source":"GenRecEdit","path":"Scripts/edit.sh","contains":"COV_LAMBDAS=(1000)"},
+    {"method":"GenRecEdit","name":"official_script_number_knowledge","value":10,"scope":"Scripts/edit.sh overrides the dataclass default of 5","source":"GenRecEdit","path":"Scripts/edit.sh","contains":"NUMBER_KNOWLEDGES=(10)"},
+    {"method":"GenRecEdit","name":"official_script_pos2layer","value":[0,1,2,3],"source":"GenRecEdit","path":"Scripts/edit.sh","contains":"POS2LAYER=(0 1 2 3)"}
+  ],
+  "mappings": [
+    {
+      "id":"SAUX_UNISREC_ARCHITECTURE","method":"SpecGR-Aux","component":"Official UniSRec MoE-adapted content drafter","classification":"F0","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/draft/UniSRec/model.py","symbol":"UniSRec","contains":"self.moe_adaptor = MoEAdaptorLayer("},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::UniSRecDrafterGRAM","semantic_change":"Catalog content input is supplied by the frozen GRAM metadata encoder; architecture and CE objective remain official.","bridge_check":"saux_content_only_cold_access"}
+    },
+    {
+      "id":"SAUX_INDUCTIVE_DRAFT_SCORE","method":"SpecGR-Aux","component":"Normalized full-catalog dot-product drafting","classification":"F1","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/draft/UniSRec/model.py","symbol":"UniSRec.predict","contains":"scores = torch.matmul(seq_output, test_items_emb.transpose(0, 1))"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::draft_full_catalog","semantic_change":"Item rows map to strict unique catalog IDs; cold rows enter retrieval only through content representations.","bridge_check":"saux_content_only_cold_access"}
+    },
+    {
+      "id":"SPECGR_CONSTRAINED_DRAFT","method":"SpecGR shared","component":"Top-k draft with no repeated proposal","classification":"F0","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/utils.py","symbol":"constrained_draft","contains":"draft_logits[batch_indices, top_k_indices] = float('-inf')"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::constrained_draft","semantic_change":"None beyond strict item-ID tie handling.","bridge_check":"specgr_draft_without_replacement"}
+    },
+    {
+      "id":"SPECGR_TARGET_AWARE_SCORE","method":"SpecGR shared","component":"Mean target log-likelihood over identifiable prefix","classification":"F1","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/utils.py","symbol":"calculate_masked_score","contains":"masked_mean_losses = -(masked_losses.sum(dim=1) + 1e-9) / (prefix_lengths + 1e-10)"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::target_aware_score","semantic_change":"Per-item score length is derived from the variable lexical trie rather than a fixed SID width.","bridge_check":"specgr_fixed_width_score_parity"}
+    },
+    {
+      "id":"SPECGR_ACCEPTANCE_RULE","method":"SpecGR shared","component":"Strict threshold acceptance","classification":"F0","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/SpecGR_clean.py","symbol":"AbstractSpecGR.recommend","contains":"acceptance_mask = candidate_scores > self.threshold"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::accept_candidates","semantic_change":"No change; equality remains rejected.","bridge_check":"specgr_strict_acceptance"}
+    },
+    {
+      "id":"SPECGR_GUIDED_REDRAFT","method":"SpecGR shared","component":"Verifier-prefix-guided re-drafting","classification":"F1","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/SpecGR_clean.py","symbol":"AbstractSpecGR.recommend","contains":"valid_mask = torch_in(semantic_ids[:, :beam_seq_length], beam_sequences[:, 1:])"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::guided_redraft","semantic_change":"Prefix membership is evaluated on the variable lexical trie; complete paths are not extended.","bridge_check":"specgr_variable_trie_redraft"}
+    },
+    {
+      "id":"SPECGR_ADAPTIVE_EXIT","method":"SpecGR shared","component":"Exit after k accepted items or path-depth exhaustion","classification":"F1","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/SpecGR_clean.py","symbol":"AbstractSpecGR.recommend","contains":"while beam_seq_length < self.num_digits and not torch.all(num_recommended >= k):"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::adaptive_exit","semantic_change":"The maximum round count is the catalog trie maximum depth instead of fixed num_digits.","bridge_check":"specgr_adaptive_exit"}
+    },
+    {
+      "id":"SPECGR_FALLBACK","method":"SpecGR shared","component":"Beam fallback when accepted drafts are insufficient","classification":"F1","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/utils.py","symbol":"finalize_recommendation","contains":"if num_recommended < top_k:"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::finalize_recommendations","semantic_change":"Fallback paths are resolved through the strict unique item catalog and collisions hard-fail.","bridge_check":"specgr_unique_fallback"}
+    },
+    {
+      "id":"SPLUS_SELF_DRAFT","method":"SpecGR++","component":"GRAM encoder self-drafting with normalized item index","classification":"F1","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"models/SpecGR/SpecGR_clean.py","symbol":"SpecGRForRec.calculate_draft_logits","contains":"return torch.matmul(sequence_embeddings, item_embeddings_constrained.transpose(0, 1))"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::GRAMSelfDrafter","semantic_change":"TIGER encoder is replaced by the matched GRAM encoder and index construction is frozen before validation.","bridge_check":"splus_normalized_knn"}
+    },
+    {
+      "id":"SPLUS_PRETRAIN_OBJECTIVE","method":"SpecGR++","component":"Joint contrastive and generative pretraining","classification":"F0","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"SpecGR/lightning_modules/pretrain.py","symbol":"SpecGRPretrainLightningModule.training_step","contains":"loss = self.lambda_emb * emb_loss + self.lambda_gen * gen_loss"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::splus_pretrain_loss","semantic_change":"Dataset plumbing uses train-only internal-development; objective algebra is unchanged.","bridge_check":"splus_weighted_objective"}
+    },
+    {
+      "id":"SPLUS_FINETUNE_OBJECTIVE","method":"SpecGR++","component":"Learning-to-rank plus generative fine-tuning","classification":"F0","main_table_eligible":true,
+      "official":{"source":"SpecGR","path":"SpecGR/lightning_modules/finetune.py","symbol":"SpecGRFinetuneLightningModule.training_step","contains":"loss = self.lambda_emb * emb_loss + self.lambda_gen * gen_loss"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/specgr_faithful.py::splus_finetune_loss","semantic_change":"Same-budget S-PLUS-CTRL is a project causal control, not an algorithm substitution.","bridge_check":"splus_weighted_objective"}
+    },
+    {
+      "id":"GFULL_PREFIX_REQUESTS","method":"GenRecEdit","component":"Full-target prefix-to-next-token edit requests","classification":"F1","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_build_decoder_batch","contains":"for j in range(position):"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::build_full_target_requests","semantic_change":"Requests cover every frozen cold lexical token; EOS and padding are excluded, and no validation occurrence selects targets.","bridge_check":"genrecedit_variable_position_routing"}
+    },
+    {
+      "id":"GFULL_CACHE_PROBE","method":"GenRecEdit","component":"Cached z reuse after target probe","classification":"F1","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_try_cache_hits","contains":"ok, _ = self.genrecedit_probe_z_vector(mt, t, position, z, target_layer)"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::try_cache_hits","semantic_change":"The fixed 256-codebook competitor set is replaced by the legal lexical-trie children at the current prefix.","bridge_check":"genrecedit_fixed_width_probe_parity"}
+    },
+    {
+      "id":"GFULL_PROB_THRESHOLD_SCOPE","method":"GenRecEdit","component":"0.3 threshold belongs to cached-z probe","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_probe_z_vector","contains":"if self.hparams.use_prob_threshold and target_prob > self.hparams.prob_threshold:"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::probe_cached_z","semantic_change":"No additional global success gate is imposed on newly optimized z vectors.","bridge_check":"genrecedit_threshold_scope"}
+    },
+    {
+      "id":"GFULL_Z_OPTIMIZER","method":"GenRecEdit","component":"Adam z optimization with cosine scheduler","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_optimize_z_vectors","contains":"optimizer = torch.optim.Adam([deltas], lr=self.hparams.v_lr)"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::optimize_z_vectors","semantic_change":"Batch sizing/device plumbing only; all frozen edit targets are processed.","bridge_check":"genrecedit_optimizer_contract"}
+    },
+    {
+      "id":"GFULL_Z_LIFECYCLE","method":"GenRecEdit","component":"Active/satisfied lifecycle uses argmax equality","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_optimize_z_vectors","contains":"if pred == tgt:"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::update_z_lifecycle","semantic_change":"Argmax is evaluated in the frozen legal probability space selected by the bridge contract.","bridge_check":"genrecedit_threshold_scope"}
+    },
+    {
+      "id":"GFULL_NORM_CLIP","method":"GenRecEdit","component":"Absolute z-delta norm clipping","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_clip_delta_norm_","contains":"delta_tensor.mul_(max_norm / delta_norm)"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::clip_delta_norm_","semantic_change":"Preserve implemented z_vector_max behavior; do not substitute Stage15's gate or clipping rule.","bridge_check":"genrecedit_norm_clip"}
+    },
+    {
+      "id":"GFULL_COVARIANCE","method":"GenRecEdit","component":"Position-wise second moment covariance","classification":"F1","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_collect_layer_stats","contains":"stats_by_pos[pos] = CombinedStat(**{k: STAT_TYPES[k]() for k in [\"mean\", \"mom2\"]})"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::collect_covariance","semantic_change":"Primary sample count is min(400000, all legal train-only covariance rows); variable positions have separate moments.","bridge_check":"genrecedit_second_moment"}
+    },
+    {
+      "id":"GFULL_KEY_EXTRACTION","method":"GenRecEdit","component":"Decoder FFN input key extraction at target position","classification":"F1","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_extract_keys","contains":"key_vec = layer_input[:, -1, :]"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::extract_keys","semantic_change":"GRAM module names and variable lexical positions are validated before extraction.","bridge_check":"genrecedit_variable_position_routing"}
+    },
+    {
+      "id":"GFULL_VALID_Z_FILTER","method":"GenRecEdit","component":"Only non-null optimized z states enter the solve","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_run","contains":"if z is not None:"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::filter_valid_z","semantic_change":"Failed z rows remain counted and disclosed; no efficacy-based filtering is added.","bridge_check":"genrecedit_valid_z_filter"}
+    },
+    {
+      "id":"GFULL_CLOSED_FORM_DELTA","method":"GenRecEdit","component":"Closed-form preservation-aware deltaW","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_solve_weight_delta","contains":"dW = (delta.double() @ K.T.double()) @ torch.linalg.inv("},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::solve_weight_delta","semantic_change":"Use an algebraically equivalent linear solve for numerical stability; equation and lambda remain fixed.","bridge_check":"genrecedit_closed_form_parity"}
+    },
+    {
+      "id":"GFULL_DELTA_AGGREGATION","method":"GenRecEdit","component":"Additive aggregation for positions sharing a parameter","classification":"F0","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrecedit/editor.py","symbol":"genrecedit_run","contains":"all_updates[name] = all_updates.get(name, 0) + deltaW"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::aggregate_updates","semantic_change":"Preserve additive aggregation and report per-position contributions before materialization.","bridge_check":"genrecedit_additive_aggregation"}
+    },
+    {
+      "id":"GFULL_ONE_ONE_TRIGGER","method":"GenRecEdit","component":"Position-to-layer delta activation during generation","classification":"F1","main_table_eligible":true,
+      "official":{"source":"GenRecEdit","path":"genrec/models/TIGER/model.py","symbol":"TIGER.generate","contains":"position = decoder_input_ids.shape[1] - 1"},
+      "gram_mapping":{"implementation_target":"experiment/phase16/protocol/genrecedit_faithful.py::OneOneGenerationDeltaContext","semantic_change":"Route by live variable lexical prefix; EOS, padding, completed paths, and dead beams remain unedited; frozen base parameters are restored exactly.","bridge_check":"genrecedit_variable_position_routing"}
+    }
+  ],
+  "bridge_contract": {
+    "fixed_width": "A synthetic 4-position, 256-codebook SID is emulated with the official token offsets.",
+    "variable_lexical": "GRAM uses strict unique variable-length paths and legal next-token sets from the frozen trie.",
+    "probability_definition": "Match the official split semantics: compare target argmax only against the current position's legal competitor set, but compute the 0.3 cache-probe probability with full-vocabulary softmax. For GRAM, the legal competitor set is the frozen trie's legal next tokens; optimizer success is argmax and does not use 0.3.",
+    "eos_policy": "EOS and padding are never edit targets and never activate deltaW.",
+    "selection_policy": "This definition is frozen before efficacy and may not be selected based on validation outcomes."
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "generated_at_utc": "2026-08-23T13:06:09.602714+00:00",
+  "test_read": false,
+  "network_used": false,
+  "counting_semantics": {
+    "specgr_example": "one train-only next-item transition",
+    "genrecedit_target": "one frozen real-cold catalog item",
+    "genrecedit_context": "ten train-derived contexts per real-cold item",
+    "genrecedit_request": "one context times one non-EOS lexical-path position",
+    "covariance_row": "one train-only next-item transition, capped at 400000"
+  },
+  "domains": [
+    {
+      "domain": "Toys_cold50",
+      "seed": 1502,
+      "source_projected_users": 8789,
+      "source_train_items_after_validation_drop": 49133,
+      "catalog_items": 11924,
+      "real_cold_items": 5963,
+      "real_warm_items": 5961,
+      "eligible_pseudo_cold_items": 5810,
+      "pseudo_cold_items": 1162,
+      "pseudo_cold_held_events": 7435,
+      "train_users": 7487,
+      "internal_dev_users": 832,
+      "train_transitions": 27659,
+      "internal_dev_transitions": 3108,
+      "s_aux_training_examples": 27659,
+      "s_plus_pretrain_examples": 27659,
+      "s_plus_finetune_examples": 27659,
+      "g_full_edit_targets": 5963,
+      "g_full_contexts": 59630,
+      "g_full_prefix_next_token_requests": 302400,
+      "g_full_covariance_rows": 27659,
+      "lexical_path_length_counts_real_cold": {
+        "5": 5538,
+        "6": 425
+      },
+      "catalog_text_word_count_quintile_thresholds": [
+        50,
+        71,
+        94,
+        131
+      ],
+      "allocation": {
+        "target": 1162,
+        "selected": 1162,
+        "capacity_by_stratum": {
+          "path5_textq0": 1100,
+          "path5_textq1": 1118,
+          "path5_textq2": 1079,
+          "path5_textq3": 1052,
+          "path5_textq4": 1030,
+          "path6_textq0": 38,
+          "path6_textq1": 54,
+          "path6_textq2": 99,
+          "path6_textq3": 110,
+          "path6_textq4": 130
+        },
+        "reference_by_stratum": {
+          "path5_textq0": 1189,
+          "path5_textq1": 1140,
+          "path5_textq2": 1075,
+          "path5_textq3": 1093,
+          "path5_textq4": 1041,
+          "path6_textq0": 39,
+          "path6_textq1": 68,
+          "path6_textq2": 102,
+          "path6_textq3": 98,
+          "path6_textq4": 118
+        },
+        "selected_by_stratum": {
+          "path5_textq0": 232,
+          "path5_textq1": 222,
+          "path5_textq2": 209,
+          "path5_textq3": 213,
+          "path5_textq4": 203,
+          "path6_textq0": 8,
+          "path6_textq1": 13,
+          "path6_textq2": 20,
+          "path6_textq3": 19,
+          "path6_textq4": 23
+        }
+      },
+      "leakage_audit": {
+        "validation_target_values_logged": false,
+        "test_files_opened": false,
+        "real_cold_in_student_items": 0,
+        "pseudo_cold_in_student_items": 0,
+        "train_internal_dev_user_overlap": 0,
+        "pseudo_cold_adaptation_scope_only": true
+      },
+      "outputs": {
+        "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl": "11102f7e1b636eee9c350645fa14f060147cb2a9108ec9607f6597d007026492",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_internal_dev_sequences.jsonl": "cdcee5b02b2e7586500ed5407dcbba55351670d9c9cc9f2facf5dd727727fca0",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"
+      }
+    },
+    {
+      "domain": "Beauty_cold50",
+      "seed": 1502,
+      "source_projected_users": 10655,
+      "source_train_items_after_validation_drop": 60105,
+      "catalog_items": 12101,
+      "real_cold_items": 6052,
+      "real_warm_items": 6049,
+      "eligible_pseudo_cold_items": 5926,
+      "pseudo_cold_items": 1185,
+      "pseudo_cold_held_events": 9229,
+      "train_users": 9147,
+      "internal_dev_users": 1016,
+      "train_transitions": 33775,
+      "internal_dev_transitions": 3747,
+      "s_aux_training_examples": 33775,
+      "s_plus_pretrain_examples": 33775,
+      "s_plus_finetune_examples": 33775,
+      "g_full_edit_targets": 6052,
+      "g_full_contexts": 60520,
+      "g_full_prefix_next_token_requests": 425890,
+      "g_full_covariance_rows": 33775,
+      "lexical_path_length_counts_real_cold": {
+        "7": 5827,
+        "8": 225
+      },
+      "catalog_text_word_count_quintile_thresholds": [
+        41,
+        61,
+        84,
+        126
+      ],
+      "allocation": {
+        "target": 1185,
+        "selected": 1185,
+        "capacity_by_stratum": {
+          "path7_textq0": 1215,
+          "path7_textq1": 1157,
+          "path7_textq2": 1086,
+          "path7_textq3": 1125,
+          "path7_textq4": 1136,
+          "path8_textq0": 7,
+          "path8_textq1": 23,
+          "path8_textq2": 52,
+          "path8_textq3": 67,
+          "path8_textq4": 58
+        },
+        "reference_by_stratum": {
+          "path7_textq0": 1227,
+          "path7_textq1": 1196,
+          "path7_textq2": 1156,
+          "path7_textq3": 1138,
+          "path7_textq4": 1110,
+          "path8_textq0": 9,
+          "path8_textq1": 28,
+          "path8_textq2": 52,
+          "path8_textq3": 63,
+          "path8_textq4": 73
+        },
+        "selected_by_stratum": {
+          "path7_textq0": 240,
+          "path7_textq1": 234,
+          "path7_textq2": 227,
+          "path7_textq3": 223,
+          "path7_textq4": 217,
+          "path8_textq0": 2,
+          "path8_textq1": 6,
+          "path8_textq2": 10,
+          "path8_textq3": 12,
+          "path8_textq4": 14
+        }
+      },
+      "leakage_audit": {
+        "validation_target_values_logged": false,
+        "test_files_opened": false,
+        "real_cold_in_student_items": 0,
+        "pseudo_cold_in_student_items": 0,
+        "train_internal_dev_user_overlap": 0,
+        "pseudo_cold_adaptation_scope_only": true
+      },
+      "outputs": {
+        "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl": "ea8a106629482b4e1190c712cb02f1ecabf888631f84fce59d83a39c7d4be74f",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/pseudo_cold_items.txt": "b5735b20e5d44bbd04ea7276aba9962dbabc14662a7a0a70cb60b6aa69ad79b4",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/retained_warm_items.txt": "1ab6612bf41bd26727cb588e34a5cedac50ea08bf91a12c62a4b6eeb13b5b8ae",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/student_readable/interaction_internal_dev_sequences.jsonl": "4c15760af84be1061e9778b586315e8ab7a4387029230f717cf9f72b94a77fa5",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/student_readable/interaction_train_sequences.jsonl": "1d6d52eefc605eff9c801b011f8e334ec1a4dbab40c28be8d6c9b54942e3afd6",
+        "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/split_manifest.json": "a3d39033086bf9ae9f8f7828fa656f8364c557d71900413506be5ec58e592de0"
+      }
+    }
+  ]
+}

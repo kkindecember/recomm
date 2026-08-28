@@ -1,0 +1,15 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "generated_at_utc": "2026-08-23T13:06:09.602714+00:00",
+  "test_read": false,
+  "network_used": false,
+  "projection_origin": "Stage15 redacted train+validation projections; original user_sequence.txt remained sealed",
+  "stage16_transform": "drop validation position, select adaptation-level pseudo-cold, remove it from student data, user-disjoint train/dev split",
+  "pseudo_cold_scope": "Pseudo-cold means unseen by Stage16 adaptation. The inherited GRAM checkpoint may have seen these formerly-warm items.",
+  "domains": [
+    "Toys_cold50",
+    "Beauty_cold50"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": "stage16_s2_specgr_contract_smoke_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPECGR_CONTRACT_SMOKE",
+  "attempt_id": "s16_s2_contract_a1",
+  "output_dir": "artifacts/phase16/s2_specgr_contract_smoke",
+  "seed": 1502,
+  "test_policy": "sealed; train-only S16-1 student data and pseudo-cold held events only",
+  "sources": {
+    "SpecGR": {"path": ".runtime/phase15_sources/SpecGR", "commit": "f0ded8884b1df97b5f0599d4ec300bb20b5d1eff"},
+    "RecBole": {"path": ".runtime/phase16_sources/RecBole", "tag": "v1.2.0", "commit": "362d31f00af801d7d99bc635c902d1df1405e79d"}
+  },
+  "domain": {
+    "name": "Toys_cold50",
+    "train_sequences": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
+    "internal_dev_sequences": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_internal_dev_sequences.jsonl",
+    "pseudo_cold_events": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+    "split_manifest": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json",
+    "lexical_paths": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+    "metadata": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+    "cold_items": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+    "content_embeddings": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "gram_config": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+    "gram_checkpoint": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt"
+  },
+  "s_aux": {
+    "fidelity_class": "F0 architecture/objective plus F1 content-width and GRAM-verifier interfaces",
+    "content_input_dimension": 1024,
+    "hidden_size": 300,
+    "inner_size": 256,
+    "n_layers": 2,
+    "n_heads": 2,
+    "n_experts": 8,
+    "temperature": 0.07,
+    "epochs": 300,
+    "early_stopping_patience_epochs": 40,
+    "official_train_batch_size": 2048,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "smoke_batch_size": 64,
+    "smoke_optimizer_steps": 1
+  },
+  "s_plus": {
+    "projection_dimension": 64,
+    "temperature": 0.07,
+    "pretrain": {
+      "epochs": 100,
+      "lambda_embedding": 6.0,
+      "lambda_generation": 1.0,
+      "learning_rate": 0.001,
+      "weight_decay": 0.05,
+      "warmup_steps": 10000,
+      "official_embedding_batch_size": 1024,
+      "official_generation_batch_size": 256,
+      "physical_embedding_microbatch": 4,
+      "physical_generation_microbatch": 1,
+      "gradient_accumulation": 256,
+      "optimizer_steps_per_epoch": 109,
+      "optimizer_steps_total": 10900
+    },
+    "finetune": {
+      "epochs": 15,
+      "lambda_embedding": 6.0,
+      "lambda_generation": 1.0,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.05,
+      "warmup_steps": 10000,
+      "official_batch_size": 256,
+      "physical_microbatch": 1,
+      "gradient_accumulation": 256,
+      "optimizer_steps_per_epoch": 109,
+      "optimizer_steps_total": 1635
+    },
+    "smoke_batch_size": 2,
+    "smoke_optimizer_steps": 1
+  },
+  "s_plus_control": {
+    "same_start_checkpoint": true,
+    "same_train_manifest": true,
+    "same_optimizer_steps_batches_optimizer_gpu_timeout": true,
+    "objective": "GRAM generative loss only; no SpecGR contrastive, ranking, projection, or self-drafting objective"
+  },
+  "smoke_contract": {
+    "gpu_count": 1,
+    "minimum_free_mib": 10240,
+    "maximum_incremental_gpu_mib": 8192,
+    "hard_timeout_seconds": 600,
+    "automatic_retry": false,
+    "scientific_efficacy_metric": false,
+    "admission_checks": ["official_unisrec_finite_forward_backward", "cold_content_only", "splus_joint_loss_finite", "splus_ctrl_budget_match", "base_checkpoint_unchanged", "variable_lexical_inference_contract"]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "generated_at_utc": "2026-08-23T13:06:09.602714+00:00",
+  "test_read": false,
+  "network_used": false,
+  "opened_files": [
+    "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt",
+    "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/warm_items.txt",
+    "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+    "GRAM/rec_datasets/Beauty_cold50/item_plain_text.txt",
+    "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+    "GRAM/rec_datasets/Toys_cold50/cold_split_meta/warm_items.txt",
+    "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+    "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+    "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt",
+    "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/config.json",
+    "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+    "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "artifacts/phase15/s2_dual_domain_preflight/projected_data/Beauty_cold50/user_sequence_train_validation.txt",
+    "artifacts/phase15/s2_dual_domain_preflight/projected_data/Toys_cold50/user_sequence_train_validation.txt"
+  ],
+  "denylist": {
+    "exact_basenames": [
+      "user_sequence.txt"
+    ],
+    "path_substrings": [
+      "predictions_test",
+      "test_metrics",
+      "test_ground_truth",
+      "test_target"
+    ]
+  },
+  "note": "The last validation-position value in each safe projected row was discarded in memory and never serialized."
+}

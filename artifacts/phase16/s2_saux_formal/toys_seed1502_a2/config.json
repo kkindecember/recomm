@@ -1,0 +1,115 @@
+{
+  "schema_version": "stage16_s2_saux_formal_toys_v2",
+  "experiment_id": "GRAM_PHASE16_S2_SAUX_FORMAL_TOYS",
+  "attempt_id": "s16_s2_saux_toys_a2",
+  "output_dir": "artifacts/phase16/s2_saux_formal/toys_seed1502_a2",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "inputs": {
+    "train_sequences": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
+      "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
+    },
+    "pseudo_cold_events": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+      "sha256": "11102f7e1b636eee9c350645fa14f060147cb2a9108ec9607f6597d007026492"
+    },
+    "pseudo_cold_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt",
+      "sha256": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab"
+    },
+    "retained_warm_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt",
+      "sha256": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253"
+    },
+    "split_manifest": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json",
+      "sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"
+    },
+    "real_cold_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    },
+    "content_embeddings": {
+      "path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262"
+    }
+  },
+  "official_sources": {
+    "SpecGR": {
+      "path": ".runtime/phase15_sources/SpecGR",
+      "commit": "f0ded8884b1df97b5f0599d4ec300bb20b5d1eff"
+    },
+    "RecBole": {
+      "path": ".runtime/phase16_sources/RecBole",
+      "commit": "362d31f00af801d7d99bc635c902d1df1405e79d"
+    }
+  },
+  "model": {
+    "content_dimension": 1024,
+    "hidden_size": 300,
+    "inner_size": 256,
+    "layers": 2,
+    "heads": 2,
+    "experts": 8,
+    "temperature": 0.07
+  },
+  "training": {
+    "epochs": 300,
+    "early_stopping_patience_epochs": 40,
+    "evaluation_interval_epochs": 2,
+    "train_batch_size": 2048,
+    "evaluation_batch_size": 128,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "clip_grad_norm": null,
+    "selection_metric": "pseudo_cold_ndcg_at_10",
+    "maximum_history": 20,
+    "expected_train_transitions": 27659,
+    "expected_pseudo_cold_events": 7435,
+    "expected_pseudo_cold_items": 1162
+  },
+  "admission": {
+    "top_k": 50,
+    "requires_finite": true,
+    "requires_complete_pseudo_cold_universe": true,
+    "efficacy_gate": false
+  },
+  "resource_recalibration": {
+    "evidence_path": "artifacts/phase16/s2_saux_batch2048_sweep/gpu2_a1/summary.json",
+    "evidence_sha256": "9558264ae36a12385e488dda8b03f441c8487113f0071819d96ca0575aa82137",
+    "measured_peak_allocated_mib": 3440.6904296875,
+    "measured_peak_reserved_mib": 4314.0,
+    "safety_margin_mib": 4096,
+    "recommended_minimum_free_mib": 9216,
+    "verdict": "PASS_S16_2_SAUX_BATCH2048_MEMORY_SWEEP"
+  },
+  "resources": {
+    "physical_gpu": 5,
+    "gpu_count": 1,
+    "minimum_free_mib": 9216,
+    "expected_peak_reserved_mib": 4314,
+    "hard_timeout_seconds": 172800,
+    "heartbeat_seconds": 30,
+    "stall_advisory_seconds": 300,
+    "disk_reservation_mib": 8192
+  },
+  "execution": {
+    "runner_path": "experiment/phase16/run_stage16_s2_saux_formal_a2.sh",
+    "exact_start_command": "bash experiment/phase16/run_stage16_s2_saux_formal_a2.sh 5",
+    "tmux_session": "phase16_s2_saux_a2_gpu5",
+    "background_start_command": "tmux new-session -d -s phase16_s2_saux_a2_gpu5 'cd /mnt/18T/jiangtangyunzhi/projects/recomm && bash experiment/phase16/run_stage16_s2_saux_formal_a2.sh 5'"
+  },
+  "owned_holder_protocol": {
+    "controller": "tools/gram_ablation_scan.sh",
+    "session": "gram_ablation_scan_gpu5",
+    "state_root": ".runtime/gram_ablation_scan_gpu5",
+    "expected_initial_pid": 2083287,
+    "reserve_mib": 18263,
+    "restore_required_on_every_terminal_path": true,
+    "minimum_verified_restored_used_mib": 19000
+  },
+  "automatic_retry": false,
+  "test_read": false
+}

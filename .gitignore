@@ -93,6 +93,13 @@ artifacts/phase15/s2_contract_smoke/toys/b2_verifier_probe_smoke_attempt3/
 artifacts/phase15/s3_toys/admission/item_disjoint_b2_b3/
 artifacts/phase15/s3_toys/admission/item_disjoint_b2_b3_attempt2/
 
+# Phase 16 local split rows, training traces, progress, and one-shot guard
+# runtime state. Keep frozen source/configs and compact contracts/summaries.
+artifacts/phase16/**/*.jsonl
+artifacts/phase16/**/progress.json
+artifacts/phase16/**/armed.lock
+artifacts/phase16/**/preflight.log
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt

@@ -1,0 +1,194 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_formal_toys_fp32_v2",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_CTRL_FORMAL_TOYS",
+  "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32",
+  "parent_attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a1_fp32",
+  "parent_status_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a1_fp32/status.json",
+  "parent_status_sha256": "466557b16058f8497c79011a37eac5e069f4fc31819a8d8b3b41a58b278ff09a",
+  "parent_log_sha256": "a0a2d3a5bc493339ab848fd83bf34fd93186c33ac4d14680747c0545a1f002d8",
+  "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a2_fp32",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "arms": [
+    "S-PLUS",
+    "S-PLUS-CTRL"
+  ],
+  "arm_execution_order": [
+    "S-PLUS",
+    "S-PLUS-CTRL"
+  ],
+  "compatibility_patch": {
+    "failure_signature": "RuntimeError: Invalid device argument",
+    "failed_call": "torch.cuda.reset_peak_memory_stats(torch.device('cuda:0'))",
+    "disproved_preflight_candidate": "Passing integer device index without initializing CUDA still raises the same Invalid device argument.",
+    "replacement_call": "torch.cuda.init(); torch.cuda.reset_peak_memory_stats(device.index or 0)",
+    "reason": "The frozen PyTorch 1.11 CUDA allocator stats API requires an initialized CUDA context; an integer-only GPU5 probe failed and a context-init-then-reset GPU5 probe passed.",
+    "algorithm_objective_unchanged": true,
+    "data_budget_scheduler_optimizer_unchanged": true
+  },
+  "inputs": {
+    "train_sequences": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
+      "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
+    },
+    "internal_dev_sequences": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_internal_dev_sequences.jsonl",
+      "sha256": "cdcee5b02b2e7586500ed5407dcbba55351670d9c9cc9f2facf5dd727727fca0"
+    },
+    "pseudo_cold_events": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+      "sha256": "11102f7e1b636eee9c350645fa14f060147cb2a9108ec9607f6597d007026492"
+    },
+    "pseudo_cold_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt",
+      "sha256": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab"
+    },
+    "retained_warm_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt",
+      "sha256": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253"
+    },
+    "real_cold_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    },
+    "split_manifest": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json",
+      "sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"
+    },
+    "lexical_paths": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    },
+    "metadata": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+      "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"
+    },
+    "gram_config": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+      "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"
+    },
+    "gram_checkpoint": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"
+    },
+    "resource_sweep_summary": {
+      "path": "artifacts/phase16/s2_splus_objective_resource_sweep/gpu5_a2_fp32/summary.json",
+      "sha256": "8967353a912b120cc8b45c896e5908cbe662dcc821d2373a4461a5febc4439ef"
+    }
+  },
+  "model": {
+    "projection_dimension": 64,
+    "temperature": 0.07,
+    "execution_precision": "fp32",
+    "maximum_history": 20,
+    "maximum_passages": 21,
+    "maximum_passage_tokens": 128
+  },
+  "formal_budget": {
+    "train_transitions": 27659,
+    "internal_dev_transitions": 3108,
+    "train_catalog_items": 4799,
+    "full_catalog_items": 11924,
+    "pseudo_cold_events": 7435,
+    "optimizer": "AdamW",
+    "scheduler": "cosine",
+    "gradient_clip_norm": 1.0,
+    "pretrain": {
+      "epochs": 100,
+      "lambda_embedding": 6.0,
+      "lambda_generation": 1.0,
+      "learning_rate": 0.001,
+      "weight_decay": 0.05,
+      "official_warmup_steps_argument": 10000,
+      "scheduler_warmup_optimizer_steps": 39,
+      "scheduler_total_optimizer_steps": 10800,
+      "embedding_microbatch": 4,
+      "generation_microbatch": 1,
+      "gradient_accumulation": 256,
+      "effective_embedding_batch": 1024,
+      "effective_generation_batch": 256,
+      "optimizer_steps_per_epoch": 109,
+      "optimizer_steps": 10900,
+      "physical_microsteps": 2765900,
+      "checkpoint_interval_epochs": 2
+    },
+    "finetune": {
+      "epochs": 15,
+      "lambda_embedding": 6.0,
+      "lambda_generation": 1.0,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.05,
+      "official_warmup_steps_argument": 10000,
+      "scheduler_warmup_optimizer_steps": 39,
+      "scheduler_total_optimizer_steps": 1620,
+      "microbatch": 1,
+      "gradient_accumulation": 256,
+      "effective_batch": 256,
+      "optimizer_steps_per_epoch": 109,
+      "optimizer_steps": 1635,
+      "physical_microsteps": 414885,
+      "checkpoint_interval_epochs": 1,
+      "frozen_train_index_encode_batch": 64
+    },
+    "tail_accumulation_normalization": "actual_microsteps_in_epoch_tail_window",
+    "same_start_checkpoint_data_epochs_batches_optimizer_gpu_timeout": true,
+    "per_arm_hard_timeout_seconds": 1209600
+  },
+  "admission": {
+    "internal_dev_generation_events": 3108,
+    "pseudo_cold_events": 7435,
+    "evaluation_microbatch": 4,
+    "full_catalog_index_encode_batch": 64,
+    "top_k": 50,
+    "maximum_eligible_peak_reserved_mib": 8192,
+    "requires_all_finite": true,
+    "requires_complete_full_catalog_index": true,
+    "efficacy_gate": false
+  },
+  "resource_evidence": {
+    "attempt_id": "s16_s2_splus_resource_gpu5_a2_fp32",
+    "verdict": "PASS_S16_2_SPLUS_OBJECTIVE_RESOURCE_SWEEP",
+    "maximum_peak_reserved_mib": 4978,
+    "recommended_minimum_free_mib": 9216,
+    "engineering_minimum_free_mib": 10240,
+    "core_pair_gpu_hours": 207.9748913504874,
+    "conservative_pair_gpu_hours_lower": 259.96861418810926,
+    "conservative_pair_gpu_hours_upper": 415.9497827009748
+  },
+  "resources": {
+    "physical_gpu": 5,
+    "gpu_count": 1,
+    "minimum_free_mib": 10240,
+    "expected_peak_reserved_mib": 4978,
+    "per_arm_hard_timeout_seconds": 1209600,
+    "heartbeat_seconds": 60,
+    "stall_advisory_seconds": 3600,
+    "disk_reservation_mib": 8192,
+    "release_holder": false
+  },
+  "execution": {
+    "runner_path": "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32.sh",
+    "exact_start_command": "bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32.sh 5",
+    "tmux_session": "phase16_s2_splus_ctrl_formal_gpu5_a2",
+    "background_start_command": "tmux new-session -d -s phase16_s2_splus_ctrl_formal_gpu5_a2 'cd /mnt/18T/jiangtangyunzhi/projects/recomm && bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32.sh 5'"
+  },
+  "owned_holder_observation": {
+    "controller": "tools/gram_ablation_scan.sh",
+    "session": "gram_ablation_scan_gpu5",
+    "state_root": ".runtime/gram_ablation_scan_gpu5",
+    "expected_start_pid": 464054,
+    "reserve_mib": 18263,
+    "must_remain_active": true,
+    "release_or_modify_forbidden": true
+  },
+  "code_freeze": {
+    "experiment/phase16/protocol/splus_formal_train.py": "9e1c842b5638684e7082357d504a5921c926909a3a65ad79719b6af568fad4aa",
+    "experiment/phase16/protocol/finalize_splus_formal.py": "9959504a8b9925ad044b71cd8001801101e42432ff3de67976eab155db45957f",
+    "experiment/phase16/tests/test_splus_formal.py": "9b97858bf9ab345897f9490838ae5448f99951b60af71ca9e8ffab09e7652531",
+    "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a1_fp32.sh": "0c0158303b9b51e1632e605d2d7ef35ef8cfd230f4290b2c90b53debc27d4e1f",
+    "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu5_a2_fp32.sh": "b8075346a339550117fead742fd28caf6e142acba6405c426e95f264ef7381c1"
+  },
+  "automatic_retry": false,
+  "validation_used": false,
+  "test_read": false
+}

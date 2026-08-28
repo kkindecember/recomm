@@ -1,0 +1,25 @@
+{
+  "schema_version": "stage16_s1_data_resource_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S1_DATA_RESOURCE_PREFLIGHT",
+  "attempt_id": "s16_s1_a1",
+  "generated_at_utc": "2026-08-23T13:06:31.860381+00:00",
+  "test_read": false,
+  "network_used": false,
+  "verdict": "PASS_S16_1_DATA_LEAKAGE_RESOURCE_PREFLIGHT",
+  "domains": {
+    "Toys_cold50": {
+      "passed": true,
+      "manifest": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json"
+    },
+    "Beauty_cold50": {
+      "passed": true,
+      "manifest": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/split_manifest.json"
+    }
+  },
+  "unit_tests_passed": 12,
+  "resource_probe_verdict": "PASS_S16_1_RESOURCE_PROBE",
+  "scientific_results_produced": false,
+  "large_experiment_started": false,
+  "pseudo_cold_scope_warning": "Pseudo-cold means unseen by Stage16 adaptation. The inherited GRAM checkpoint may have seen these formerly-warm items.",
+  "next_stage": "S16-2_SPECGR_FAITHFUL_IMPLEMENTATION_AND_SMALL_SMOKE"
+}
