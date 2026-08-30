@@ -1,0 +1,39 @@
+{
+  "schema_version": "stage16_s3r_gridge_objective_resource_sweep_v1",
+  "experiment_id": "GRAM_PHASE16_S3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP",
+  "attempt_id": "s16_s3r_gridge_resource_r2_gpu5_fp64solve",
+  "generated_at_utc": "2026-08-29T03:16:46.130665+00:00",
+  "test_read": false,
+  "validation_used": false,
+  "automatic_retry": false,
+  "method": {
+    "name": "G-RIDGE",
+    "family": "GenRecEdit-inspired",
+    "faithful_reproduction": false,
+    "solve_variant": "condition_targeted_spectral_ridge_v1",
+    "target_condition_number": 1000000.0,
+    "ridge_safety_margin": 1e-06,
+    "ridge_rule": "mu=(1+safety_margin)*max(max_abs_eigenvalue/target_condition,(max_eigenvalue-target_condition*min_eigenvalue)/(target_condition-1));solve(A+mu*I) in FP64",
+    "ridge_selection_uses_validation_or_test": false,
+    "ridge_added": true,
+    "pseudoinverse_used": false,
+    "jitter_fallback_used": false,
+    "outcome_resampling_used": false,
+    "historical_faithful_gate_inherited": false,
+    "new_gate": "PASS_S16_3R_GRIDGE_CONTRACT_ADMISSION"
+  },
+  "domain": "Toys_cold50",
+  "context_source": "S16-1 student-readable interaction-train sequences only",
+  "context_neighbor_universe": "S16-1 retained-warm only",
+  "edit_target_source": "frozen real-cold catalog; no validation/test occurrence selection",
+  "item_disjoint_admission_source": "S16-1 train-derived pseudo-cold protocol only",
+  "stage15_context_artifact_reused": false,
+  "request_dataset_artifact": {
+    "manifest_path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/request_dataset/manifest.json",
+    "manifest_sha256": "ef2c021490c494aad505875be31e792b93b2aae16e1034e10033ee8a76dc1ce5",
+    "dataset_sha256": "e8d4052cec7a326eb2ebd4d3d92e0aa7462a8e7fb821329666eacaf18ab3e173",
+    "checkpoint_path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/request_dataset/checkpoint_manifest.json",
+    "checkpoint_sha256": "447fd951faf20b3cdd2efb2280c4ad45528ae810747ca8457b171cd8ca9d9323",
+    "completed_shards": 47
+  }
+}

@@ -3,9 +3,22 @@
   "experiment_id": "GRAM_PHASE16_S3_GFULL_OBJECTIVE_RESOURCE_SWEEP",
   "attempt_id": "s16_s3_gfull_resource_a1",
   "output_dir": "artifacts/phase16/s3_genrecedit/resource_sweep/toys_seed1502_a1",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep.sh",
   "seed": 1502,
   "domain": "Toys_cold50",
+  "tokenizer": {
+    "name": "t5-small",
+    "revision": "df1b051c49625cf57a3d0d8d3863ed4d13564fe4",
+    "class": "T5TokenizerFast",
+    "vocabulary_sha256": "5549578e592433565bd766d5e8caf0a94f6aa8ab1496927db3a5138138e13da6",
+    "sentencepiece_sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+    "local_files_only": true
+  },
   "inputs": {
+    "s1_preflight_config": {
+      "path": "experiment/phase16/configs/stage16_s1_data_resource_preflight.json",
+      "sha256": "036f47a5f14863c97a37ddaf29f1dddd9a60004bb4c5b127b01e74317ae3700f"
+    },
     "train_sequences": {
       "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
       "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
@@ -66,7 +79,8 @@
     "z_vector_max": 8000.0,
     "cache_probability_threshold": 0.3,
     "cache_probability_space": "full_vocabulary",
-    "argmax_competitors": "legal_lexical_trie_children",
+    "cache_probe_argmax_competitors": "legal_lexical_trie_children",
+    "new_z_optimizer_argmax_competitors": "full_vocabulary",
     "cache_population_policy": "formal cache remains empty because the pinned official code has no population path; cache-hit behavior is isolated diagnostic only",
     "new_z_probability_threshold": null,
     "satisfied_check_step_indices": [10, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
@@ -77,12 +91,17 @@
     "candidate_requests_per_position": 16,
     "candidate_positions": [0, 1, 2, 3, 4, 5],
     "candidate_total_cache_miss_requests": 96,
-    "candidate_subset_rule": "the first 16 rows of the same deterministic ordered train-only request manifest at every lexical position; identical 96 rows for every candidate; never resample on z outcome or probability",
+    "candidate_subset_rule": "the first deterministic train-only context from each of the first 16 lexically-long cold items at every position; 16 distinct items and identical 96 rows for every candidate; never resample on z outcome or probability",
     "full_z_steps_per_candidate": 30,
+    "linear_system_width": 2048,
     "covariance_rows": 64,
     "covariance_rows_by_position": {"0": 12, "1": 12, "2": 12, "3": 12, "4": 8, "5": 8},
     "covariance_long_path_minimum": 8,
     "covariance_batch_size": 16,
+    "generation_resource_events": 2,
+    "formal_item_disjoint_admission_events": 7435,
+    "formal_warm_preservation_events": 512,
+    "admission_beam_size": 50,
     "resource_covariance_convergence_checkpoints_by_position": {
       "0": [2, 4, 8, 12],
       "1": [2, 4, 8, 12],
@@ -108,7 +127,7 @@
   "resources": {
     "gpu_count": 1,
     "minimum_free_mib": 12288,
-    "hard_timeout_seconds": 600,
+    "hard_timeout_seconds": 360,
     "excluded_physical_gpus": [0, 5, 7],
     "selection_rule": "among non-excluded GPUs meeting admission, prefer largest free memory then lowest utilization",
     "release_or_modify_existing_process": false

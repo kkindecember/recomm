@@ -1,0 +1,29 @@
+{
+  "schema_version": "stage16_s3r_gridge_objective_resource_sweep_v1",
+  "experiment_id": "GRAM_PHASE16_S3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP",
+  "attempt_id": "s16_s3r_gridge_resource_r2_gpu5_fp64solve",
+  "generated_at_utc": "2026-08-29T03:16:46.130665+00:00",
+  "test_read": false,
+  "validation_used": false,
+  "automatic_retry": false,
+  "method": {
+    "name": "G-RIDGE",
+    "family": "GenRecEdit-inspired",
+    "faithful_reproduction": false,
+    "solve_variant": "condition_targeted_spectral_ridge_v1",
+    "target_condition_number": 1000000.0,
+    "ridge_safety_margin": 1e-06,
+    "ridge_rule": "mu=(1+safety_margin)*max(max_abs_eigenvalue/target_condition,(max_eigenvalue-target_condition*min_eigenvalue)/(target_condition-1));solve(A+mu*I) in FP64",
+    "ridge_selection_uses_validation_or_test": false,
+    "ridge_added": true,
+    "pseudoinverse_used": false,
+    "jitter_fallback_used": false,
+    "outcome_resampling_used": false,
+    "historical_faithful_gate_inherited": false,
+    "new_gate": "PASS_S16_3R_GRIDGE_CONTRACT_ADMISSION"
+  },
+  "exact_start_command": "bash experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r2_gpu5_fp64solve.sh",
+  "formal_command_template": null,
+  "formal_runner_status": "PENDING_RESOURCE_EVIDENCE_AND_USER_GPU_SELECTION",
+  "formal_launch_authorized": false
+}

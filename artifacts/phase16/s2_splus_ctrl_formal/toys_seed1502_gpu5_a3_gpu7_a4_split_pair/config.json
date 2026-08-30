@@ -1,0 +1,33 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_split_pair_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_CTRL_SPLIT_PAIR_TOYS",
+  "attempt_id": "s16_s2_splus_ctrl_split_pair_gpu5_a3_gpu7_a4",
+  "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair",
+  "sources": {
+    "S-PLUS": {
+      "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32",
+      "physical_gpu": 5,
+      "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32",
+      "resolved_config_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/resolved_config.json"
+    },
+    "S-PLUS-CTRL": {
+      "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32",
+      "physical_gpu": 7,
+      "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32",
+      "resolved_config_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32/resolved_config.json"
+    }
+  },
+  "execution": {
+    "runner_path": "experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize.sh",
+    "exact_start_command": "bash experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize.sh"
+  },
+  "code_freeze": {
+    "experiment/phase16/protocol/finalize_splus_ctrl_split.py": "a566cb4e28a2c745c22d14f416e4fa6fce3d96afeaef8f7ffa41fb874738ef4c",
+    "experiment/phase16/tests/test_splus_ctrl_split.py": "9a8004a49969fd9f0eb68ff8b4b048ef5d5690feced7ef737238b02d2a3641a7",
+    "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32.sh": "a575c2aef683466bb5c194d43ca4635faec865dd1abf02c172e4129d3176818e",
+    "experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize.sh": "a9ed5be33df538b01d43bd0dd6dd05fc2f0816cedda5cbd4bf0d119d65c9f233"
+  },
+  "automatic_retry": false,
+  "validation_used": false,
+  "test_read": false
+}

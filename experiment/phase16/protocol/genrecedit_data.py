@@ -106,9 +106,31 @@ def _resolve_repo_path(value: str | Path) -> Path:
     if not path.is_absolute():
         path = ROOT / path
     path = path.resolve()
-    if path != ROOT and ROOT not in path.parents:
+    allowed_roots = [ROOT.resolve()]
+    for relative in ("artifacts", "GRAM/rec_datasets"):
+        shared = ROOT / relative
+        if shared.is_symlink():
+            allowed_roots.append(shared.resolve())
+    if not any(path == root or root in path.parents for root in allowed_roots):
         raise ValueError(f"Input escapes repository root: {value}")
     return path
+
+
+def repo_relative_path(path: Path) -> str:
+    """Return the logical repo path, including allowlisted parent symlinks."""
+
+    resolved = path.resolve()
+    root = ROOT.resolve()
+    if resolved == root or root in resolved.parents:
+        return str(resolved.relative_to(root))
+    for relative in (Path("artifacts"), Path("GRAM/rec_datasets")):
+        shared = ROOT / relative
+        if not shared.is_symlink():
+            continue
+        target = shared.resolve()
+        if resolved == target or target in resolved.parents:
+            return str(relative / resolved.relative_to(target))
+    raise ValueError(f"Input escapes repository root: {path}")
 
 
 def _regular_input(path: Path, label: str) -> Path:
@@ -1026,7 +1048,7 @@ def resolve_stage16_toys_inputs(
     pseudo = split_root / "pseudo_cold_items.txt"
 
     def output_sha(path: Path) -> str:
-        relative = str(path.relative_to(ROOT))
+        relative = repo_relative_path(path)
         expected = outputs.get(relative)
         if not isinstance(expected, str):
             raise ValueError(f"S16-1 manifest does not freeze output {relative}")

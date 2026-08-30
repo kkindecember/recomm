@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -u -o pipefail
+
+export PHASE16_FORMAL_CONFIG=experiment/phase16/configs/stage16_s3r_gridge_formal_admission_gpu5_f3.json
+export PHASE16_FORMAL_ATTEMPT_ID=s16_s3r_gridge_formal_gpu5_f3
+export PHASE16_FORMAL_ATTEMPT_LABEL=f3
+export PHASE16_FORMAL_OUTPUT_REL=artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f3
+export PHASE16_FORMAL_STATUS_REL="$PHASE16_FORMAL_OUTPUT_REL/status.json"
+export PHASE16_FORMAL_EXACT_COMMAND="bash experiment/phase16/run_stage16_s3r_gridge_formal_admission_gpu5_f3.sh"
+export PHASE16_ISOLATED_RUNTIME_ROOT=.runtime/phase16_s3r_gridge_f3_runtime
+export PHASE16_REPEAT_SESSION=phase16_s3r_gridge_repeat_gpu5_f3
+export PHASE16_REPEAT_STATUS_REL=artifacts/phase16/s3_genrecedit/inspired_ridge/stability/toys_seed1502_gpu5_f3/status.json
+export PHASE16_REPEAT_SCRIPT=experiment/phase16/run_stage16_s3r_gridge_repeat_gpu5_f3.sh
+
+exec bash experiment/phase16/run_stage16_s3r_gridge_formal_admission_gpu5_f2_inner.sh

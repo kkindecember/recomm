@@ -1,23 +1,23 @@
 # Stage16 S16-2 Faithful SpecGR→GRAM 合约与 Admission 报告
 
-> 日期：2026-08-24
-> 当前状态：`IN_PROGRESS_SAUX_FORMAL_PASS_SPLUS_ACCEL_BATCH_PASS_SPLUS_CTRL_FORMAL_GPU5_A3_ACCEL_RUNNING_GPU7_A4_SPLIT_RUNNING_DUPLICATE_CTRL_GUARD_ARMED_RUNNING_HOLDER_RELEASED`
-> 已通过：`PASS_S16_2_SPECGR_IMPLEMENTATION_CONTRACT_SMALL_SMOKE`、`PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION`、`PASS_S16_2_SPLUS_OBJECTIVE_RESOURCE_SWEEP`
-> 尚未通过：S-PLUS formal faithful Gate 与 S-PLUS-CTRL formal budget execution Gate
+> 日期：2026-08-29
+> 当前状态：`COMPLETED_SAUX_PASS_SPLUS_PASS_SPLUS_CTRL_MATCHED_EXECUTION_PASS`
+> 已通过：`PASS_S16_2_SPECGR_IMPLEMENTATION_CONTRACT_SMALL_SMOKE`、`PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION`、`PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION`、`PASS_S16_2_SPLUS_CTRL_MATCHED_FORMAL_EXECUTION`
+> 尚未通过：无；S16-2 contract/admission 已收口。standalone efficacy 属于 S16-4，不在本报告晋升。
 
 ## Material Passport
 
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: run
 - Origin Date: 2026-08-23
-- Verification Status: VERIFIED（实现、固定源码、one-step smoke、S-AUX formal training/admission 与 S-PLUS/CTRL FP32 objective-complete 资源标定）
-- Version Label: stage16_s2_specgr_faithful_in_progress_v1
+- Verification Status: VERIFIED（实现、固定源码、one-step smoke、S-AUX formal training/admission、S-PLUS formal execution、matched CTRL formal execution与跨 attempt artifact contract）
+- Version Label: stage16_s2_specgr_faithful_completed_v1
 
 ## 1. 当前结论
 
-S16-2 已完成固定版本官方 UniSRec/RecBole 运行链、SpecGR→GRAM clean-room adapters、40 项合约/正式执行/拆分配对测试，以及不超过 10 分钟的 train-only one-step smoke。上一步 S16-1 的 S-AUX 资源代理已被正式源码执行取代：本次实际执行的类来自固定 SpecGR commit 的 `models/draft/UniSRec/model.py`，TransformerEncoder 来自 RecBole v1.2.0 的 `recbole/model/layers.py`。
+S16-2 已完成固定版本官方 UniSRec/RecBole 运行链、SpecGR→GRAM clean-room adapters、初期 40 项合约/正式执行/拆分配对测试，以及不超过 10 分钟的 train-only one-step smoke；纳入后续 recovery 与 S16-3 回归后，Stage16 最终全量 `118/118` CPU tests PASS。上一步 S16-1 的 S-AUX 资源代理已被正式源码执行取代：本次实际执行的类来自固定 SpecGR commit 的 `models/draft/UniSRec/model.py`，TransformerEncoder 来自 RecBole v1.2.0 的 `recbole/model/layers.py`。
 
-随后 S-AUX formal a2 已完成 train-only internal-dev 选模与固定规模 admission，晋升 `PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION`。S-PLUS/CTRL 的独立 FP32 objective-complete 资源标定已 PASS；释放 holder 后的加速 batch sweep 又确定 `embedding/generation/accumulation=16/4/64`，峰值 reserved 17,466 MiB。a3 已在 GPU5 以有效 batch 1024/256 启动，holder 运行期完全释放、终态强制恢复。2026-08-28 完成 GPU7 CTRL 隔离 a4 与跨 attempt finalizer 的准备和 CPU-only preflight后，用户又明确确认启动；a4 已在 GPU7 独立运行。所有 admission/internal-dev 数值均不是 source validation/test efficacy 结论，S-PLUS 与 S-PLUS-CTRL formal execution 仍为 PENDING。
+随后 S-AUX formal a2 完成 train-only internal-dev 选模与固定规模 admission，晋升 `PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION`。S-PLUS/CTRL 的独立 FP32 objective-complete 资源标定 PASS；释放 holder 后的加速 batch sweep 确定 `embedding/generation/accumulation=16/4/64`，峰值 reserved 17,466 MiB。GPU5 a3 完成 S-PLUS 全部 12,535 optimizer steps，GPU7 a4 完成 matched S-PLUS-CTRL 全部 12,535 optimizer steps；one-shot guard 在重复 CTRL 启动后只终止 a3 runner，并由原 terminal trap 恢复 holder。独立 CPU finalizer a2 完成两臂 full-checkpoint SHA、科学配置、起始 checkpoint、预算、finite/admission、防泄漏与 artifact contract 配对，最终晋升 `PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION` 与 `PASS_S16_2_SPLUS_CTRL_MATCHED_FORMAL_EXECUTION`。所有 admission/internal-dev 数值均不是 source validation/test efficacy 结论；S16-2 已完成，后续 efficacy 只在 S16-4 打开。
 
 ## 2. 官方运行链
 
@@ -83,8 +83,8 @@ Toys S-PLUS 使用 27,659 条 train transitions。按官方 Video Games 配置�
 |---|---|---|
 | `PASS_S16_2_SPECGR_IMPLEMENTATION_CONTRACT_SMALL_SMOKE` | PASS | 官方源码链、26 tests、三路 finite smoke 与资源 Gate 均通过 |
 | `PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION` | PASS | a2 完成 50 epochs/700 steps、train-only internal-dev early stopping、7,435-event fixed admission、零 cold-label leak 与完整 artifact contract |
-| `PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION` | resource PASS / formal PENDING | FP32 objective-complete 四路径资源 sweep 已通过；尚未执行 100+15 epochs matched formal run |
-| `S-PLUS-CTRL` formal budget match | contract PASS / resource PASS / execution PENDING | 全字段预算一致，CTRL pretrain/finetune 均 finite；尚无 formal execution artifact |
+| `PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION` | PASS | GPU5 a3 S-PLUS 与 GPU7 a4 matched CTRL 各完成 12,535 optimizer steps；跨 attempt a2 配对合约、完整 checkpoint SHA 与 artifact contract 全部通过 |
+| `PASS_S16_2_SPLUS_CTRL_MATCHED_FORMAL_EXECUTION` | PASS | seed、数据、起点、100+15 epochs、effective/physical batch、optimizer、scheduler、steps 与 timeout 一致；仅 physical GPU/artifact root 不同 |
 
 ## 7. 工件
 
@@ -104,8 +104,14 @@ Toys S-PLUS 使用 27,659 条 train transitions。按官方 Video Games 配置�
 - `artifacts/phase16/s2_splus_objective_resource_sweep/gpu5_a2_fp32/status.json`
 - `artifacts/phase16/s2_splus_objective_resource_sweep/gpu5_a2_fp32/summary.json`
 - `artifacts/phase16/s2_splus_objective_resource_sweep/gpu5_a2_fp32/code_sha256.json`
+- `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/arms/S-PLUS/summary.json`
+- `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32/summary.json`
+- `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_duplicate_guard/summary.json`
+- `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair/status.json`
+- `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair_a2/summary.json`
+- `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair_a2/artifact_contract.json`
 
-本文件是 S16-2 唯一报告，当前保持 `IN_PROGRESS`；formal attempts 完成后在同一文件追加，不另建第二份 S16-2 report。
+本文件是 S16-2 唯一报告，当前为 `COMPLETED`；所有失败、阻塞、中断、恢复与最终 PASS attempt 均保留在本文件和各自独立 artifact root，不另建第二份 S16-2 report。
 
 ## 8. Formal S-AUX attempt 1：GPU admission failure
 
@@ -259,7 +265,7 @@ FP32 是旧 PyTorch 1.11/CUDA 11.3 软件栈的披露性执行适配；它解决
 
 最终 verdict 为 `PASS_S16_2_SPLUS_ACCELERATED_BATCH_SWEEP`。这只支持 F1 batching adaptation，不是 a2 的逐位续跑：物理 batch 变化会改变 dropout 分组；数据、epochs、effective batch、objective、optimizer、scheduler 和 optimizer-step 总数保持不变。
 
-## 17. S-PLUS/CTRL formal GPU5 attempt 3：加速 batch、holder 全释放后运行中
+## 17. S-PLUS/CTRL formal GPU5 attempt 3：加速 batch、holder 全释放（历史启动记录）
 
 a3 使用独立 overlay/resolved config、runner 和输出目录，不覆盖 a1/a2。加速入口将 27,659 个 epoch 样本切为 6,915 个 generation microsteps；每 64 个 microsteps 刷新一次，仍为每 epoch 109 optimizer steps。尾窗为 3 microsteps/11 samples，generation/ranking loss 按样本数加权；embedding microbatch 通过确定性循环保持 16 条满 batch，并按实际 microstep 数归一。4 项新增 batching/tail tests 与全部 35 项 Stage16 tests PASS，9 个 code-freeze SHA 一致。
 
@@ -271,15 +277,15 @@ a3 使用独立 overlay/resolved config、runner 和输出目录，不覆盖 a1/
 - runner 的 EXIT terminal controller 覆盖 completed、failed、timeout、TERM/INT/HUP 和 preflight terminal paths；恢复目标固定 session/state/controller 与 `reserve_mib=18263`，恢复失败会写 `HOLDER_RESTORE_FAILED`；
 - 每臂 14 天 hard timeout；`test_read=false`、`validation_used=false`、`automatic_retry=false`。
 
-本节只记录已核验的启动、资源释放和批处理合约。formal Gate 仍为 PENDING，后续以 a3 两臂 summary、paired artifact contract 与 holder terminal status 为准。
+本节只记录当时已核验的启动、资源释放和批处理合约；本节形成时 formal Gate 为 PENDING。最终 arm、guard 与 paired artifact contract 终态见第 19 节。
 
-## 18. GPU7 S-PLUS-CTRL 并行拆分：已启动、运行中
+## 18. GPU7 S-PLUS-CTRL 并行拆分（历史启动记录）
 
 用户于 2026-08-28 先明确同意准备 GPU7 并行 `S-PLUS-CTRL` 拆分方案，随后又明确确认“在 GPU7 启动 a4”。启动前实时闸门确认 GPU7 free 48,568 MiB、利用率 0%，a3 仍为 `S-PLUS/running` 且原串行 CTRL 未创建 checkpoint/summary；GPU5 a3、holder 及其 artifacts 均未修改、暂停或终止。
 
 拆分的科学边界固定为：GPU5 a3 继续产生 `S-PLUS` arm；GPU7 a4 从 a3 已冻结的 `resolved_config.json` 派生，只产生 `S-PLUS-CTRL` arm。seed、GRAM checkpoint、train/internal-dev manifests、100+15 epochs、effective batch 1024/256、physical batch 16/4、accumulation 64、AdamW、cosine scheduler、optimizer steps 与每臂 14 天 timeout 必须 exact match。唯一允许差异是同型号 RTX A6000 的 physical GPU `5→7` 和隔离 artifact root；这属于 F1 execution-layout adaptation，不改变算法 objective。
 
-Running a4：
+a4 启动配置：
 
 - exact foreground command：`bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32.sh 7`；
 - executed tmux command：`tmux new-session -d -s phase16_s2_splus_ctrl_formal_gpu7_a4_split 'cd /mnt/18T/jiangtangyunzhi/projects/recomm && bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32.sh 7'`；
@@ -291,13 +297,13 @@ Running a4：
 
 跨 attempt 配对命令冻结为 `bash experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize.sh`。它只在 a3 `S-PLUS` arm summary 与 a4 `S-PLUS-CTRL` arm summary 均 PASS 后执行，将配对结果写入独立目录 `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair/`。finalizer 逐字段比较 scientific config、pretrain/finetune budget、起始 checkpoint、step count、finite/internal-dev admission、pseudo-cold full-catalog admission、peak memory ceiling、sealed-data flags 与恢复 checkpoint；两侧 source artifacts 全程只读。
 
-启动结果：Stage16 全量 `40/40` tests PASS，GPU7 resolved config 与 GPU5 a3 scientific core exact match，split preflight 返回 `PASS_S16_2_SPLUS_CTRL_SPLIT_PREFLIGHT`。a4 于 `2026-08-28T10:33:33+08:00` 启动，tmux `phase16_s2_splus_ctrl_formal_gpu7_a4_split`、runner/workload PID `1708057/1708947`；admission free 48,568 MiB。10:35 复核时两个 PID 均存活，`status=running`、`current_arm=S-PLUS-CTRL`、progress `0/12,535`，处于 CPU preprocessing，尚未创建 checkpoint/summary；`test_read=false`、`validation_used=false`、`automatic_retry=false`。GPU5 a3 同时仍为 S-PLUS，已推进至至少 epoch 94 / 10,247 paired optimizer steps。权威状态为 `RUNNING`，formal Gate 仍为 PENDING。
+启动结果：Stage16 全量 `40/40` tests PASS，GPU7 resolved config 与 GPU5 a3 scientific core exact match，split preflight 返回 `PASS_S16_2_SPLUS_CTRL_SPLIT_PREFLIGHT`。a4 于 `2026-08-28T10:33:33+08:00` 启动，tmux `phase16_s2_splus_ctrl_formal_gpu7_a4_split`、runner/workload PID `1708057/1708947`；admission free 48,568 MiB。10:35 复核时两个 PID 均存活，`status=running`、`current_arm=S-PLUS-CTRL`、progress `0/12,535`，处于 CPU preprocessing，尚未创建 checkpoint/summary；`test_read=false`、`validation_used=false`、`automatic_retry=false`。GPU5 a3 同时仍为 S-PLUS，已推进至至少 epoch 94 / 10,247 paired optimizer steps。该启动快照当时为 `RUNNING`、formal Gate 为 PENDING；最终终态见第 19 节。
 
 10:37:35 首步复核时 a4 已从 preprocessing 进入 pretrain，`progress.json` 达到 14/12,535 CTRL optimizer steps；runner/workload PID 均存活。同期 GPU5 a3 达到至少 10,250/25,070 paired optimizer steps，仍为 S-PLUS。`status.json` 的 4-step 心跳快照早于 progress 文件，不构成进度倒退。
 
 原 a3 runner 仍保留其串行 CTRL 逻辑，本次不会自动终止它。若 a3 的 S-PLUS arm 先完成并准备进入重复 CTRL，必须先核验 S-PLUS arm checkpoint/summary 完整性，再取得用户明确授权后才能中断该重复 arm；a4 与跨 attempt finalizer 不承担自动 kill。
 
-### 18.1 GPU5 重复 CTRL one-shot guard：已 armed、运行中
+### 18.1 GPU5 重复 CTRL one-shot guard（历史启动记录）
 
 用户询问能否将重复 CTRL 去重写成自动脚本后，新增 `splus_ctrl_duplicate_guard.py`、冻结配置、8 项定向测试与 exact runner。守卫为 fail-closed one-shot：只有以下条件同时成立才向 a3 runner PID 发送一次 SIGTERM，而不直接 signal workload：
 
@@ -309,4 +315,54 @@ Running a4：
 
 纯 CPU 定向测试 `8/8`、Stage16 全量 `66/66` PASS；真实无 armed `check` 返回 `WAIT / a3 S-PLUS is still running`，`signal_sent=false`。exact foreground command 冻结为 `bash experiment/phase16/run_stage16_s2_splus_ctrl_duplicate_guard_gpu5_a3_gpu7_a4.sh`；background command 冻结为 `tmux new-session -d -s phase16_s2_splus_ctrl_duplicate_guard_gpu5_a3_gpu7_a4 'cd /mnt/18T/jiangtangyunzhi/projects/recomm && bash experiment/phase16/run_stage16_s2_splus_ctrl_duplicate_guard_gpu5_a3_gpu7_a4.sh'`。
 
-用户随后明确确认启动自动守卫。最终闸门确认 a3/a4 分别仍为健康的 S-PLUS/S-PLUS-CTRL、目标 guard session/summary/armed.lock 均不存在、所有冻结 SHA 与主机 `/proc` 身份匹配后，background command 于 `2026-08-28T11:04:58+08:00` 执行。tmux `phase16_s2_splus_ctrl_duplicate_guard_gpu5_a3_gpu7_a4`、guard PID `1807506`、`armed.lock` 均已建立，启动 8/8 tests PASS；跨多个 20 秒轮询周期状态持续为 `WAIT / a3 S-PLUS is still running`、`signal_sent=false`。11:26 复核时 a3/a4 已分别推进至至少 10,331/25,070 paired steps 与 527/12,535 CTRL steps，训练未受守卫影响。权威状态为 `ARMED_RUNNING`。
+用户随后明确确认启动自动守卫。最终闸门确认 a3/a4 分别仍为健康的 S-PLUS/S-PLUS-CTRL、目标 guard session/summary/armed.lock 均不存在、所有冻结 SHA 与主机 `/proc` 身份匹配后，background command 于 `2026-08-28T11:04:58+08:00` 执行。tmux `phase16_s2_splus_ctrl_duplicate_guard_gpu5_a3_gpu7_a4`、guard PID `1807506`、`armed.lock` 均已建立，启动 8/8 tests PASS；跨多个 20 秒轮询周期状态持续为 `WAIT / a3 S-PLUS is still running`、`signal_sent=false`。11:26 复核时 a3/a4 已分别推进至至少 10,331/25,070 paired steps 与 527/12,535 CTRL steps，训练未受守卫影响。该时点状态为 `ARMED_RUNNING`；最终 guard PASS 见第 19 节。
+
+## 19. S-PLUS/CTRL 最终配对与 S16-2 收口
+
+### 19.1 两臂正式终态
+
+GPU5 a3 的 S-PLUS arm 完成全部 100-epoch pretrain 与 15-epoch finetune：
+
+- optimizer steps：10,900 + 1,635 = `12,535/12,535`；
+- physical microsteps：691,500 + 103,725；
+- internal-dev generation events：3,108，mean loss `3.0295813084`，全部 finite；
+- fixed pseudo-cold admission：7,435 events、11,924 candidates，全部 finite，cold interaction label leak 为 0；
+- peak CUDA reserved：`17,506 MiB`；起始/终态 GRAM checkpoint SHA 均为 `d71fcf5...3048550`；
+- verdict：`PASS_S16_2_S_PLUS_FORMAL_EXECUTION`；`test_read=false`、`validation_used=false`。
+
+a3 随后进入原 runner 的重复 CTRL 路径。one-shot guard 在 S-PLUS summary/checkpoints、a3/a4 进程身份与 GPU7 CTRL 健康性全部 fail-closed 通过后，只向 a3 runner 发送一次 SIGTERM；a3 原 EXIT trap 终止其 child 并恢复同一 `reserve_mib=18263` holder。a3 顶层 status 因受控去重保持 `INTERRUPTED`，但已经完成且不可变的 S-PLUS arm summary 保留为配对权威来源。guard 终态为 `PASS_S16_2_DUPLICATE_CTRL_GUARD`，GPU7 a4 未被修改。
+
+GPU7 a4 的 S-PLUS-CTRL arm 于 2026-08-29 15:19:06+08:00 正常完成：
+
+- optimizer steps：10,900 + 1,635 = `12,535/12,535`；
+- physical microsteps：691,500 + 103,725；
+- internal-dev generation events：3,108，mean loss `2.9443118572`，全部 finite；
+- 按冻结 matched-control 合约不生成 pseudo-cold efficacy admission；
+- peak CUDA reserved：`4,536 MiB`；起始/终态 GRAM checkpoint SHA 均为 `d71fcf5...3048550`；
+- verdict：`PASS_S16_2_S_PLUS_CTRL_FORMAL_EXECUTION`；exit code 0；`test_read=false`、`validation_used=false`。
+
+### 19.2 CPU-only 配对 recovery
+
+第一次 exact command `bash experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize.sh` 于 2026-08-29 18:47:15+08:00 启动。5/5 tests PASS 后，finalizer 对 8 个共约 3.7 GiB 的 source checkpoints 做完整 SHA-256；存储读取在 600 秒原 hard timeout 内未结束，于 18:57:15 由 `timeout` 终止，exit code 3。runner 的通用状态码为 `SOURCE_OR_PAIR_CONTRACT_FAILED`，但精确 600 秒边界、已写出的前置 manifests、缺失 recovery/summary/artifact contract 与空日志 traceback 共同定位为 CPU hash timeout，不是 source/scientific contract failure。该 blocked attempt 原样保留，未修改 source artifacts，也未自动重跑。
+
+用户确认后建立独立 a2，只做如下工程恢复：
+
+- 新 attempt/output root，不覆盖 blocked attempt；
+- full checkpoint SHA-256 保持，CPU pair-finalizer timeout `600→1800` 秒；
+- 两臂 source attempts、科学配置、数据、checkpoint、Gate 与 finalizer Python 实现全部不变；
+- timeout 与 source-contract failure 分开写机器状态；定向 `8/8`、Stage16 全量 `118/118` CPU tests PASS。
+
+a2 exact command：
+
+`bash experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize_a2.sh`
+
+a2 于 2026-08-29 19:03:47–19:05:41+08:00 完成，exit code 0。finalizer 逐项确认：
+
+- S-PLUS 与 CTRL scientific core 完全相同，仅同型号 RTX A6000 的 physical GPU 5/7 与隔离 artifact root 不同；
+- 两臂 dataset manifest、100+15 epochs、effective batch 1024/256、physical batch 16/4、accumulation 64、AdamW、learning rate、weight decay、scheduler、warmup、optimizer steps、GPU count 与 timeout 完全匹配；
+- 同一起始 GRAM checkpoint，base checkpoint 均未修改；所有 stage loss/admission finite；
+- S-PLUS 完整 pseudo-cold full-catalog admission、CTRL 禁止 efficacy admission、零 cold-label leak 与 sealed-data flags 均通过；
+- 8 个 source recovery checkpoints 存在且完成 SHA-256；source artifacts 未修改；
+- artifact contract：`PASS_SPLUS_CTRL_SPLIT_PAIR_ARTIFACT_CONTRACT`。
+
+最终 paired verdict 为 `PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION`，matched-control execution verdict 为 `PASS_S16_2_SPLUS_CTRL_MATCHED_FORMAL_EXECUTION`。连同既有 `PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION`，S16-2 的 implementation、contract 与 admission 完整收口。本步骤没有读取 source validation/test，也没有产生或宣称 standalone efficacy；S-PLUS 与 S-AUX 是否改善 cold recommendation 只能由后续 S16-4 frozen validation 判定。

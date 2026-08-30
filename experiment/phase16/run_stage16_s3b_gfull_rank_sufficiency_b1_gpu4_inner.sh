@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -u -o pipefail
+
+export S16_S3B_CONFIG=experiment/phase16/configs/stage16_s3b_gfull_rank_sufficiency_b1_gpu4.json
+export S16_S3B_ATTEMPT_ID=s16_s3b_gfull_rank_sufficiency_b1_gpu4
+export S16_S3B_OUTPUT_REL=artifacts/phase16/s3_genrecedit/rank_sufficiency/toys_seed1502_b1_gpu4
+export S16_S3B_EXACT_COMMAND="bash experiment/phase16/run_stage16_s3b_gfull_rank_sufficiency_b1_gpu4.sh"
+export S16_S3B_FIXED_GPU=4
+export S16_S3B_MINIMUM_FREE=18432
+export S16_S3B_EXPECTED_PEAK=12288
+export S16_S3B_HARD_TIMEOUT=10800
+
+exec bash experiment/phase16/run_stage16_s3b_gfull_rank_sufficiency.sh

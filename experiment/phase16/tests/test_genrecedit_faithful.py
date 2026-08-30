@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 import torch
@@ -29,12 +30,17 @@ from genrecedit_faithful import (  # noqa: E402
     collect_covariance,
     extract_keys,
     filter_valid_z,
+    form_weight_delta_system,
     linear_system_diagnostics,
     optimize_z_vectors,
     official_position_to_layer,
+    optimizer_satisfied,
+    prepare_weight_delta_covariance,
     probe_cached_z,
     snapshot_base_parameters,
     solve_weight_delta,
+    solve_weight_delta_system,
+    form_weight_delta_request_products,
     try_cache_hits,
     update_z_lifecycle,
     validate_admission_diagnostics,
@@ -121,6 +127,21 @@ class GenRecEditFaithfulTests(unittest.TestCase):
         self.assertTrue(torch.equal(hits[0].delta_vector, torch.tensor([2.0, 3.0])))
         self.assertTrue(hits[0].probe.cache_hit)
 
+    def test_new_z_optimizer_uses_full_vocab_argmax_not_cache_competitors(self) -> None:
+        logits = torch.tensor([0.0, 5.0, 4.0, 9.0])
+        cache = probe_cached_z(
+            logits,
+            target_token_id=1,
+            legal_token_ids=(1, 2),
+            probability_threshold=0.0,
+        )
+        self.assertTrue(cache.cache_hit)
+        self.assertFalse(
+            optimizer_satisfied(
+                logits, target_token_id=1, legal_token_ids=(1, 2)
+            )
+        )
+
     def test_official_adam_cosine_lifecycle_and_failed_z_count(self) -> None:
         rows = [request for request in _requests() if request.position == 1][:2]
         # Both rows target token 4.  The first remains a legal argmax, while
@@ -164,7 +185,34 @@ class GenRecEditFaithfulTests(unittest.TestCase):
         self.assertAlmostEqual(result.scheduler_lrs_by_batch[0][0], expected_lr_1)
         self.assertAlmostEqual(result.scheduler_lrs_by_batch[0][1], expected_lr_2)
         self.assertEqual(len(result.scheduler_lrs_by_batch[0]), 3)
+        self.assertEqual(len(result.step_elapsed_seconds_by_batch[0]), 3)
+        self.assertEqual(len(result.terminal_delta_vectors), 2)
         self.assertEqual(call_count, 3)
+
+    def test_official_softmax_clamp_negative_log_loss_path(self) -> None:
+        row = [request for request in _requests() if request.position == 0][0]
+        target = row.target_token_id
+        competitor = next(token for token in range(7) if token != target)
+
+        def forward(batch, deltas, active):
+            logits = deltas[:, :1] * 0.0 + torch.zeros(len(batch), 7)
+            logits[:, target] = deltas[:, 0] - 1000.0
+            logits[:, competitor] = 0.0
+            return ZForwardBatch(logits=logits, target_inits=torch.ones_like(deltas))
+
+        result = optimize_z_vectors(
+            requests=[row],
+            vector_dimension=2,
+            device="cpu",
+            forward_batch=forward,
+            config=ZOptimizationConfig(
+                v_lr=0.5,
+                v_num_grad_steps=1,
+                v_weight_decay=0.0,
+                batch_size=1,
+            ),
+        )
+        self.assertTrue(torch.equal(result.terminal_delta_vectors[0], torch.zeros(2)))
 
     def test_absolute_norm_clip(self) -> None:
         delta = torch.tensor([3.0, 4.0])
@@ -180,8 +228,9 @@ class GenRecEditFaithfulTests(unittest.TestCase):
         result = collect_covariance({0: p0, 1: p1}, mom2_n_samples=2)
         self.assertEqual(result.available_rows_by_position, {0: 3, 1: 2})
         self.assertEqual(result.used_rows_by_position, {0: 2, 1: 2})
-        self.assertTrue(torch.allclose(result.covariance_by_position[0], p0[:2].double().T @ p0[:2].double() / 2))
-        self.assertTrue(torch.allclose(result.covariance_by_position[1], p1.double().T @ p1.double() / 2))
+        self.assertEqual(result.covariance_by_position[0].dtype, torch.float32)
+        self.assertTrue(torch.allclose(result.covariance_by_position[0], (p0[:2].double().T @ p0[:2].double() / 2).float()))
+        self.assertTrue(torch.allclose(result.covariance_by_position[1], (p1.double().T @ p1.double() / 2).float()))
 
     def test_key_extraction_uses_last_decoder_position(self) -> None:
         rows = [request for request in _requests() if request.position == 1]
@@ -224,10 +273,46 @@ class GenRecEditFaithfulTests(unittest.TestCase):
             covariance=covariance,
             covariance_lambda=4.0,
         )
+        system, rhs = form_weight_delta_system(
+            residuals=residuals,
+            keys=keys,
+            covariance=covariance,
+            covariance_lambda=4.0,
+        )
+        preformed = solve_weight_delta_system(
+            system=system,
+            rhs=rhs,
+            output_like=residuals,
+        )
         expected = (residuals.double().T @ keys.double()) @ torch.linalg.inv(
             keys.double().T @ keys.double() + 4.0 * covariance.double()
         )
         self.assertTrue(torch.allclose(actual.double(), expected))
+        self.assertTrue(torch.equal(actual, preformed))
+        key_gram, split_rhs = form_weight_delta_request_products(
+            residuals=residuals,
+            keys=keys,
+        )
+        scaled_covariance = prepare_weight_delta_covariance(
+            covariance=covariance,
+            key_width=keys.shape[1],
+            covariance_lambda=4.0,
+        )
+        self.assertTrue(torch.equal(system, key_gram + scaled_covariance))
+        self.assertTrue(torch.equal(rhs, split_rhs))
+
+    def test_closed_form_solve_does_not_mislabel_oom_as_singular(self) -> None:
+        with patch(
+            "genrecedit_faithful.torch.linalg.solve",
+            side_effect=RuntimeError("CUDA out of memory"),
+        ):
+            with self.assertRaisesRegex(RuntimeError, "out of memory"):
+                solve_weight_delta(
+                    residuals=torch.ones(1, 2),
+                    keys=torch.ones(1, 2),
+                    covariance=torch.eye(2),
+                    covariance_lambda=1000.0,
+                )
 
     def test_additive_aggregation_shares_parameters_across_positions(self) -> None:
         shared = "decoder.block.0.layer.2.DenseReluDense.wo.weight"
@@ -345,6 +430,13 @@ class GenRecEditFaithfulTests(unittest.TestCase):
             triggered = module(hidden)
             self.assertTrue(torch.equal(triggered[0], baseline[0]))
             self.assertTrue(torch.equal(triggered[1], 3 * hidden[1]))
+            for inactive_prefix in (
+                torch.tensor([[0, 1], [0, 1]]),
+                torch.tensor([[0, 0], [0, 0]]),
+                torch.tensor([[0, 99], [0, 99]]),
+            ):
+                model.prepare_inputs_for_generation(inactive_prefix)
+                self.assertTrue(torch.equal(module(hidden), baseline))
             self.assertTrue(assert_base_parameter_parity(model, snapshot)["exact"])
 
         self.assertTrue(assert_base_parameter_parity(model, snapshot)["exact"])

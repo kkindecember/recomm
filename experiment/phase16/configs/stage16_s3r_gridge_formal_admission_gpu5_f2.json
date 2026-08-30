@@ -1,0 +1,195 @@
+{
+  "schema_version": "stage16_s3r_gridge_formal_admission_v2_isolated_runtime",
+  "experiment_id": "GRAM_PHASE16_S3R_GRIDGE_FORMAL_ADMISSION",
+  "attempt_id": "s16_s3r_gridge_formal_gpu5_f2",
+  "run_role": "authoritative_formal",
+  "output_dir": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f2",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s3r_gridge_formal_admission_gpu5_f2.sh",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "method": {
+    "name": "G-RIDGE",
+    "family": "GenRecEdit-inspired",
+    "faithful_reproduction": false,
+    "solve_variant": "condition_targeted_spectral_ridge_v1",
+    "target_condition_number": 1000000.0,
+    "ridge_safety_margin": 0.000001,
+    "ridge_rule": "mu=(1+safety_margin)*max(max_abs_eigenvalue/target_condition,(max_eigenvalue-target_condition*min_eigenvalue)/(target_condition-1));solve(A+mu*I) in FP64",
+    "ridge_selection_uses_validation_or_test": false,
+    "ridge_added": true,
+    "pseudoinverse_used": false,
+    "jitter_fallback_used": false,
+    "outcome_resampling_used": false,
+    "historical_faithful_gate_inherited": false,
+    "new_gate": "PASS_S16_3R_GRIDGE_CONTRACT_ADMISSION"
+  },
+  "tokenizer": {
+    "name": "t5-small",
+    "revision": "df1b051c49625cf57a3d0d8d3863ed4d13564fe4",
+    "class": "T5TokenizerFast",
+    "vocabulary_sha256": "5549578e592433565bd766d5e8caf0a94f6aa8ab1496927db3a5138138e13da6",
+    "sentencepiece_sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+    "local_files_only": true
+  },
+  "inputs": {
+    "s1_preflight_config": {
+      "path": "experiment/phase16/configs/stage16_s1_data_resource_preflight.json",
+      "sha256": "036f47a5f14863c97a37ddaf29f1dddd9a60004bb4c5b127b01e74317ae3700f"
+    },
+    "train_sequences": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
+      "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
+    },
+    "split_manifest": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json",
+      "sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"
+    },
+    "retained_warm_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt",
+      "sha256": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253"
+    },
+    "pseudo_cold_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt",
+      "sha256": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab"
+    },
+    "cold_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    },
+    "lexical_paths": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    },
+    "metadata": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+      "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"
+    },
+    "content_embeddings": {
+      "path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262"
+    },
+    "gram_config": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+      "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"
+    },
+    "gram_checkpoint": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"
+    },
+    "resource_r2_summary": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/summary.json",
+      "sha256": "58f605e5fcb6472a3c86d5b97d4d7c38bb719aa76be535d16134f2a30870c759"
+    },
+    "resource_r2_raw": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/resource_sweep_summary.json",
+      "sha256": "f353a457474ab92961b4a0083e5a7f61af2a00b6ebaae2e5e356dcfa87df9439"
+    },
+    "resource_r2_status": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/status.json",
+      "sha256": "1d662e30d54b6bc891c0bf1d215fbb568f0017678df1eb91e99f8401a0cd9b04"
+    },
+    "resource_r2_identity": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/execution_identity.json",
+      "sha256": "b32f3206d85fc9513af9b410d96aa4d04fcb34cec0573b65eeb4204660be41df"
+    },
+    "resource_request_manifest": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/request_dataset/manifest.json",
+      "sha256": "ef2c021490c494aad505875be31e792b93b2aae16e1034e10033ee8a76dc1ce5"
+    },
+    "resource_request_checkpoint": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/resource_sweep/toys_seed1502_r2_gpu5_fp64solve/request_dataset/checkpoint_manifest.json",
+      "sha256": "447fd951faf20b3cdd2efb2280c4ad45528ae810747ca8457b171cd8ca9d9323"
+    },
+    "pseudo_cold_admission_events": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+      "sha256": "11102f7e1b636eee9c350645fa14f060147cb2a9108ec9607f6597d007026492"
+    },
+    "failed_f1_status": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f1/status.json",
+      "sha256": "a923a9108c3216a23a560fd5e8cec81927bbf530184f38b3139c81f1e841881d"
+    },
+    "failed_f1_identity": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f1/execution_identity.json",
+      "sha256": "83935a476e115f34ec8d3cfb1cac4948083a4d5860a33aeaa32d905aef7eb5bd"
+    },
+    "failed_f1_checkpoint_manifest": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f1/checkpoints/manifest.json",
+      "sha256": "659c0cbf315dda1213adb02923efde7203f5664671226f3466d52657d0b8612c"
+    },
+    "official_genrecedit": {
+      "path": ".runtime/phase15_sources/GenRecEdit",
+      "commit": "e6878d9c7c6e57479e840ccb8c045b11a2bd69b5"
+    }
+  },
+  "frozen_workload": {
+    "edit_targets": 5963,
+    "contexts_per_target": 10,
+    "contexts": 59630,
+    "prefix_next_token_requests": 302400,
+    "request_counts_by_position": {"0": 59630, "1": 59630, "2": 59630, "3": 59630, "4": 59630, "5": 4250},
+    "covariance_rows": 27659,
+    "covariance_rows_by_position": {"0": 27659, "1": 27659, "2": 27659, "3": 27659, "4": 27659, "5": 2036},
+    "position_to_layer_cycle": [0, 1, 2, 3],
+    "cov_lambda": 1000,
+    "z_learning_rate": 0.5,
+    "z_steps": 30,
+    "z_weight_decay": 0.2,
+    "z_vector_max": 8000.0,
+    "selected_request_microbatch": 16,
+    "key_extraction_batch_size": 16,
+    "covariance_batch_size": 64,
+    "linear_system_width": 2048,
+    "rank_tolerance_rule": "max(matrix_shape)*float64_eps*max_abs_eigenvalue",
+    "maximum_solve_relative_residual": 0.000001,
+    "formal_covariance_convergence_checkpoints": [64, 256, 1024, 4096, 16384, "full"],
+    "precision": "fp32"
+  },
+  "admission": {
+    "item_disjoint_events": 7435,
+    "warm_preservation_events": 512,
+    "beam_size": 50,
+    "pseudo_cold_open_policy": "open only after all six position deltas, aggregation, and state-freeze hashes are complete",
+    "warm_event_selection_rule": "first 512 train transitions after SHA256(seed|g-ridge-warm|user|source_position|target) ordering",
+    "metrics_scope": "engineering contract/admission only; never efficacy promotion",
+    "minimum_position_trigger_rows": 1
+  },
+  "resources": {
+    "gpu_count": 1,
+    "fixed_physical_gpu": 5,
+    "minimum_free_mib": 13312,
+    "expected_peak_reserved_mib": 8668,
+    "disk_reservation_mib": 32768,
+    "hard_timeout_seconds": 604800,
+    "stall_advisory_seconds": 3600,
+    "excluded_physical_gpus": [0, 4, 7],
+    "release_or_modify_existing_process": false
+  },
+  "resource_parent": {
+    "attempt_id": "s16_s3r_gridge_resource_r2_gpu5_fp64solve",
+    "required_verdict": "PASS_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP",
+    "required_status": "COMPLETED",
+    "selected_request_microbatch": 16,
+    "projection_lower_gpu_hours": 16.85902549249004,
+    "projection_upper_gpu_hours": 26.974440787984065
+  },
+  "runtime_isolation": {
+    "snapshot_root": ".runtime/phase16_s3r_gridge_f2_runtime",
+    "gram_source": "git HEAD immutable export",
+    "required_gram_py_sha256": "275f10a94fdcfac9dd7323b43ba1932563bc21b4647906a2d7a0f70a75516466",
+    "main_worktree_mutations_visible": false,
+    "shared_artifacts_are_parent_symlink_only": true
+  },
+  "post_terminal_repeat_policy": {
+    "enabled_by_user": true,
+    "launch_after_any_formal_terminal": true,
+    "affects_scientific_results": false,
+    "promotion_eligible": false,
+    "normal_experiment_priority": true,
+    "new_gpu5_process_causes_repeat_cycle_yield": true,
+    "repeat_root": "artifacts/phase16/s3_genrecedit/inspired_ridge/stability/toys_seed1502_gpu5_f2"
+  },
+  "automatic_retry": false,
+  "validation_used": false,
+  "test_read": false,
+  "scientific_efficacy_metric": false
+}

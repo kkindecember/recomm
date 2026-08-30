@@ -4,15 +4,16 @@
 The implementation follows the function-level S16-0 fidelity matrix while
 keeping model- and dataset-specific plumbing outside this module.  It reuses
 the project-internal Stage15 GRAM hook/second-moment foundations (and does not
-import or copy third-party GenRecEdit code).  In particular, optimizer
-satisfaction is legal-lexical argmax equality, whereas the frozen ``0.3``
-probability threshold is used only when probing a cached z vector and is
-computed in the full vocabulary.
+import or copy third-party GenRecEdit code).  New-z optimizer satisfaction is
+official full-vocabulary argmax equality.  The GRAM legal-trie competitor set
+and frozen ``0.3`` full-vocabulary probability threshold belong only to the
+distinct cached-z probe bridge.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+import time
 from typing import Callable, Mapping, Sequence
 
 import torch
@@ -234,7 +235,12 @@ def try_cache_hits(
 def optimizer_satisfied(
     logits: torch.Tensor, *, target_token_id: int, legal_token_ids: Sequence[int]
 ) -> bool:
-    """Optimizer success is legal-set argmax equality and has no 0.3 gate."""
+    """New-z success is official full-vocabulary argmax with no 0.3 gate.
+
+    ``legal_token_ids`` is still validated because the same request object is
+    used by the distinct cache-probe bridge.  It does not narrow the official
+    new-z optimizer comparison set.
+    """
 
     if logits.ndim != 1 or not bool(torch.isfinite(logits).all()):
         raise ValueError("Optimizer logits must be a finite vector")
@@ -243,8 +249,7 @@ def optimizer_satisfied(
         raise ValueError("Optimizer target must belong to a unique legal token set")
     if min(legal) < 0 or max(legal) >= logits.numel():
         raise ValueError("Optimizer legal token is outside the vocabulary")
-    local = logits[torch.tensor(legal, device=logits.device)]
-    return int(torch.argmax(local).item()) == legal.index(int(target_token_id))
+    return int(torch.argmax(logits).item()) == int(target_token_id)
 
 
 @dataclass(frozen=True)
@@ -259,7 +264,7 @@ def update_z_lifecycle(
     requests: Sequence[FullTargetRequest],
     active_indices: Sequence[int],
 ) -> ZLifecycleUpdate:
-    """Remove legal-argmax-satisfied rows from the active optimizer set."""
+    """Remove full-vocabulary-argmax-satisfied rows from the active set."""
 
     if logits.ndim != 2 or logits.shape[0] != len(requests):
         raise ValueError("Lifecycle logits and request batch do not align")
@@ -329,6 +334,8 @@ class ZOptimizationResult:
     failed_indices: tuple[int, ...]
     scheduler_lrs_by_batch: tuple[tuple[float, ...], ...]
     lifecycle_check_steps_by_batch: tuple[tuple[int, ...], ...]
+    step_elapsed_seconds_by_batch: tuple[tuple[float, ...], ...]
+    terminal_delta_vectors: tuple[torch.Tensor, ...]
 
     @property
     def valid_count(self) -> int:
@@ -353,6 +360,7 @@ def optimize_z_vectors(
     ],
     config: ZOptimizationConfig = ZOptimizationConfig(),
     cache_hits: Mapping[int, CachedZHit] | None = None,
+    progress_callback: Callable[[int, int], None] | None = None,
 ) -> ZOptimizationResult:
     """Run official Adam+cosine z optimization over every supplied request.
 
@@ -377,6 +385,8 @@ def optimize_z_vectors(
     optimizer_satisfied_indices: list[int] = []
     scheduler_traces: list[tuple[float, ...]] = []
     lifecycle_traces: list[tuple[int, ...]] = []
+    step_elapsed_traces: list[tuple[float, ...]] = []
+    terminal_delta_vectors: list[torch.Tensor | None] = [None] * len(requests)
 
     for start in range(0, len(requests), config.batch_size):
         end = min(start + config.batch_size, len(requests))
@@ -396,6 +406,9 @@ def optimize_z_vectors(
         for local_index, hit in batch_hits.items():
             z_vectors[start + local_index] = hit.z_vector.detach().to(batch_device).clone()
             delta_vectors[start + local_index] = hit.delta_vector.detach().to(batch_device).clone()
+            terminal_delta_vectors[start + local_index] = (
+                hit.delta_vector.detach().to(batch_device).clone()
+            )
 
         optimizer = torch.optim.Adam([deltas], lr=config.v_lr)
         scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
@@ -403,10 +416,14 @@ def optimize_z_vectors(
         )
         batch_lrs: list[float] = []
         lifecycle_steps: list[int] = []
+        step_elapsed_seconds: list[float] = []
 
         for step in range(config.v_num_grad_steps):
             if not active:
                 break
+            if batch_device.type == "cuda":
+                torch.cuda.synchronize(batch_device)
+            step_started = time.perf_counter()
             observation = forward_batch(batch, deltas, tuple(active))
             if observation.logits.ndim != 2 or observation.logits.shape[0] != batch_count:
                 raise ValueError("z forward logits do not align with the request batch")
@@ -427,9 +444,12 @@ def optimize_z_vectors(
             )
             if int(target_ids.min()) < 0 or int(target_ids.max()) >= observation.logits.shape[1]:
                 raise ValueError("z target token is outside the forward vocabulary")
-            per_request_loss = F.cross_entropy(
-                observation.logits, target_ids, reduction="none"
-            )
+            probabilities = F.softmax(observation.logits, dim=-1)
+            hard_targets = torch.zeros_like(probabilities)
+            hard_targets.scatter_(1, target_ids.view(-1, 1), 1.0)
+            per_request_loss = (
+                hard_targets * (-torch.log(probabilities.clamp_min(1e-12)))
+            ).sum(dim=-1)
             total_loss = torch.zeros((), device=deltas.device)
             for index in active:
                 initial = target_inits[index]
@@ -466,11 +486,25 @@ def optimize_z_vectors(
                     delta_vectors[start + index] = deltas[index].detach().clone()
                     optimizer_satisfied_indices.append(start + index)
                 active = list(lifecycle.active_indices)
+            if batch_device.type == "cuda":
+                torch.cuda.synchronize(batch_device)
+            step_elapsed_seconds.append(time.perf_counter() - step_started)
+
+        for local_index in range(batch_count):
+            if local_index not in batch_hits:
+                terminal_delta_vectors[start + local_index] = (
+                    deltas[local_index].detach().clone()
+                )
 
         scheduler_traces.append(tuple(batch_lrs))
         lifecycle_traces.append(tuple(lifecycle_steps))
+        step_elapsed_traces.append(tuple(step_elapsed_seconds))
+        if progress_callback is not None:
+            progress_callback(end, len(requests))
 
     failed = tuple(index for index, vector in enumerate(z_vectors) if vector is None)
+    if any(vector is None for vector in terminal_delta_vectors):
+        raise RuntimeError("z optimization lost a terminal diagnostic delta")
     return ZOptimizationResult(
         z_vectors=tuple(z_vectors),
         delta_vectors=tuple(delta_vectors),
@@ -479,6 +513,10 @@ def optimize_z_vectors(
         failed_indices=failed,
         scheduler_lrs_by_batch=tuple(scheduler_traces),
         lifecycle_check_steps_by_batch=tuple(lifecycle_traces),
+        step_elapsed_seconds_by_batch=tuple(step_elapsed_traces),
+        terminal_delta_vectors=tuple(
+            vector for vector in terminal_delta_vectors if vector is not None
+        ),
     )
 
 
@@ -523,7 +561,9 @@ def collect_covariance(
         count = min(int(rows.shape[0]), int(mom2_n_samples))
         accumulator = SecondMomentAccumulator(dimension)
         accumulator.update(rows[:count])
-        covariance[position] = accumulator.moment()
+        # Official GenRecEdit accumulates the raw moment in FP64, then rounds
+        # the finalized covariance to FP32 before moving it into the solve.
+        covariance[position] = accumulator.moment().float()
         available[position] = int(rows.shape[0])
         used[position] = count
     return PositionCovarianceResult(covariance, available, used, int(mom2_n_samples))
@@ -535,6 +575,7 @@ def extract_keys(
     requests: Sequence[FullTargetRequest],
     forward_batch: Callable[[Sequence[FullTargetRequest]], object],
     batch_size: int = 2048,
+    progress_callback: Callable[[int, int], None] | None = None,
 ) -> torch.Tensor:
     """Extract the selected decoder FFN input at each request's final token."""
 
@@ -559,6 +600,7 @@ def extract_keys(
 
     handle = module.register_forward_pre_hook(capture)
     try:
+        completed = 0
         for batch in batches:
             captured.clear()
             with torch.no_grad():
@@ -566,6 +608,9 @@ def extract_keys(
             if len(captured) != 1 or captured[0].shape[0] != len(batch):
                 raise ValueError("Edited FFN module must run exactly once for each key batch")
             all_keys.append(captured[0])
+            completed += len(batch)
+            if progress_callback is not None:
+                progress_callback(completed, len(requests))
     finally:
         handle.remove()
     result = torch.cat(all_keys, dim=0)
@@ -615,6 +660,92 @@ def filter_valid_z(
     return ValidZSelection(valid_indices, failed_indices, tuple(valid_z), tuple(valid_delta))
 
 
+def prepare_weight_delta_covariance(
+    *,
+    covariance: torch.Tensor,
+    key_width: int,
+    covariance_lambda: float,
+) -> torch.Tensor:
+    """Validate and scale the fixed per-position FP64 covariance term."""
+
+    if covariance.ndim != 2 or key_width < 1:
+        raise ValueError("Covariance preparation requires a matrix and positive key width")
+    if covariance.shape != (key_width, key_width):
+        raise ValueError("Covariance shape does not match the key width")
+    if covariance_lambda <= 0:
+        raise ValueError("Covariance preservation lambda must be positive")
+    if not bool(torch.isfinite(covariance).all()):
+        raise ValueError("Closed-form covariance must be finite")
+    return float(covariance_lambda) * covariance.double()
+
+
+def form_weight_delta_request_products(
+    *,
+    residuals: torch.Tensor,
+    keys: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Form the valid-z-dependent FP64 K^T K and R^T K products."""
+
+    if residuals.ndim != 2 or keys.ndim != 2:
+        raise ValueError("Residuals and keys must be matrices")
+    if residuals.shape[0] < 1 or residuals.shape[0] != keys.shape[0]:
+        raise ValueError("Residuals and keys must describe the same non-empty requests")
+    if not bool(torch.isfinite(residuals).all()) or not bool(torch.isfinite(keys).all()):
+        raise ValueError("Closed-form request products must be finite")
+    key64 = keys.double()
+    residual64 = residuals.double()
+    return key64.T @ key64, residual64.T @ key64
+
+
+def form_weight_delta_system(
+    *,
+    residuals: torch.Tensor,
+    keys: torch.Tensor,
+    covariance: torch.Tensor,
+    covariance_lambda: float,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Form the faithful FP64 normal system and right-hand side exactly once."""
+
+    key_gram, rhs = form_weight_delta_request_products(
+        residuals=residuals,
+        keys=keys,
+    )
+    scaled_covariance = prepare_weight_delta_covariance(
+        covariance=covariance,
+        key_width=int(keys.shape[1]),
+        covariance_lambda=covariance_lambda,
+    )
+    return key_gram + scaled_covariance, rhs
+
+
+def solve_weight_delta_system(
+    *,
+    system: torch.Tensor,
+    rhs: torch.Tensor,
+    output_like: torch.Tensor,
+) -> torch.Tensor:
+    """Solve a preformed faithful system without inverse, ridge, or fallback."""
+
+    if system.ndim != 2 or rhs.ndim != 2 or output_like.ndim != 2:
+        raise ValueError("Preformed solve inputs must be matrices")
+    if system.shape[0] < 1 or system.shape[0] != system.shape[1]:
+        raise ValueError("Preformed GenRecEdit system must be non-empty and square")
+    if rhs.shape[1] != system.shape[0]:
+        raise ValueError("Preformed GenRecEdit right-hand side width is invalid")
+    if rhs.shape[0] != output_like.shape[1]:
+        raise ValueError("Preformed GenRecEdit output shape is invalid")
+    if not bool(torch.isfinite(system).all()) or not bool(torch.isfinite(rhs).all()):
+        raise ValueError("Preformed GenRecEdit solve inputs must be finite")
+    try:
+        return torch.linalg.solve(system.T, rhs.T).T.to(output_like)
+    except RuntimeError as error:
+        if "out of memory" in str(error).lower():
+            raise
+        raise ValueError(
+            "GenRecEdit linear-system solve failed without fallback"
+        ) from error
+
+
 def solve_weight_delta(
     *,
     residuals: torch.Tensor,
@@ -624,24 +755,17 @@ def solve_weight_delta(
 ) -> torch.Tensor:
     """Solve dW = R^T K (K^T K + lambda C)^-1 without an inverse."""
 
-    if residuals.ndim != 2 or keys.ndim != 2 or covariance.ndim != 2:
-        raise ValueError("Residuals, keys, and covariance must be matrices")
-    if residuals.shape[0] < 1 or residuals.shape[0] != keys.shape[0]:
-        raise ValueError("Residuals and keys must describe the same non-empty requests")
-    if covariance.shape != (keys.shape[1], keys.shape[1]):
-        raise ValueError("Covariance shape does not match the key width")
-    if covariance_lambda <= 0:
-        raise ValueError("Covariance preservation lambda must be positive")
-    if not all(bool(torch.isfinite(value).all()) for value in (residuals, keys, covariance)):
-        raise ValueError("Closed-form solve inputs must be finite")
-    key64 = keys.double()
-    residual64 = residuals.double()
-    system = key64.T @ key64 + float(covariance_lambda) * covariance.double()
-    rhs = residual64.T @ key64
-    try:
-        return torch.linalg.solve(system.T, rhs.T).T.to(residuals)
-    except RuntimeError as error:
-        raise ValueError("GenRecEdit linear system is singular or invalid") from error
+    system, rhs = form_weight_delta_system(
+        residuals=residuals,
+        keys=keys,
+        covariance=covariance,
+        covariance_lambda=covariance_lambda,
+    )
+    return solve_weight_delta_system(
+        system=system,
+        rhs=rhs,
+        output_like=residuals,
+    )
 
 
 @dataclass(frozen=True)
@@ -879,6 +1003,37 @@ class OneOneGenerationDeltaContext(_Stage15OneOneGenerationDeltaContext):
     unedited.  ``assert_base_parameter_parity`` provides the explicit restore
     contract used by Stage16 admission.
     """
+
+    def _set_decoder_prefixes(self, decoder_input_ids: torch.Tensor) -> None:
+        if decoder_input_ids.ndim != 2 or decoder_input_ids.size(1) < 1:
+            raise ValueError("Generation decoder prefixes must be a non-empty matrix")
+        active: list[bool] = []
+        positions: set[int] = set()
+        for raw in decoder_input_ids.detach().cpu().tolist():
+            if int(raw[0]) != self.decoder_start_token_id:
+                raise ValueError("Unexpected decoder start token during One-One generation")
+            suffix = tuple(int(token) for token in raw[1:])
+            if self.eos_token_id in suffix or (
+                suffix and suffix[-1] == self.pad_token_id
+            ):
+                active.append(False)
+                continue
+            position = len(suffix)
+            if suffix in self.complete_paths:
+                active.append(False)
+            elif suffix in self.valid_prefixes:
+                is_active = position in self.position_to_layer
+                active.append(is_active)
+                if is_active:
+                    positions.add(position)
+            else:
+                active.append(False)
+                self.dead_prefix_rows += 1
+        if len(positions) > 1:
+            raise ValueError("Beam rows disagree on the current lexical position")
+        self._active_position = next(iter(positions)) if positions else None
+        self._active_mask = torch.tensor(active, dtype=torch.bool)
+        self.prepare_calls += 1
 
 
 __all__ = [

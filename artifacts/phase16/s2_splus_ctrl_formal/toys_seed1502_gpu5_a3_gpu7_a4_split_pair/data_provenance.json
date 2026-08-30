@@ -1,0 +1,179 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_split_pair_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_CTRL_SPLIT_PAIR_TOYS",
+  "attempt_id": "s16_s2_splus_ctrl_split_pair_gpu5_a3_gpu7_a4",
+  "config_sha256": "35b97f60fee490a018c9a3bc278c34cf0c8c862041502ce9dde3e8a970b77fe3",
+  "generated_at_utc": "2026-08-29T10:47:15.690274+00:00",
+  "test_read": false,
+  "validation_used": false,
+  "scientific_config_identity": {
+    "seed": 1502,
+    "domain": "Toys_cold50",
+    "inputs": {
+      "train_sequences": {
+        "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
+        "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
+      },
+      "internal_dev_sequences": {
+        "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_internal_dev_sequences.jsonl",
+        "sha256": "cdcee5b02b2e7586500ed5407dcbba55351670d9c9cc9f2facf5dd727727fca0"
+      },
+      "pseudo_cold_events": {
+        "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+        "sha256": "11102f7e1b636eee9c350645fa14f060147cb2a9108ec9607f6597d007026492"
+      },
+      "pseudo_cold_items": {
+        "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt",
+        "sha256": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab"
+      },
+      "retained_warm_items": {
+        "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt",
+        "sha256": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253"
+      },
+      "real_cold_items": {
+        "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+        "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+      },
+      "split_manifest": {
+        "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json",
+        "sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"
+      },
+      "lexical_paths": {
+        "path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+        "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+      },
+      "metadata": {
+        "path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+        "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"
+      },
+      "gram_config": {
+        "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+        "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"
+      },
+      "gram_checkpoint": {
+        "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+        "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"
+      },
+      "resource_sweep_summary": {
+        "path": "artifacts/phase16/s2_splus_objective_resource_sweep/gpu5_a2_fp32/summary.json",
+        "sha256": "8967353a912b120cc8b45c896e5908cbe662dcc821d2373a4461a5febc4439ef"
+      },
+      "accelerated_batch_sweep_summary": {
+        "path": "artifacts/phase16/s2_splus_accelerated_batch_sweep/gpu5_a2_recovery/summary.json",
+        "sha256": "954c131ef302017840a5a0469bf18624481c9a6db17ab5fcc0589decbc3810a8"
+      }
+    },
+    "model": {
+      "projection_dimension": 64,
+      "temperature": 0.07,
+      "execution_precision": "fp32",
+      "maximum_history": 20,
+      "maximum_passages": 21,
+      "maximum_passage_tokens": 128
+    },
+    "formal_budget": {
+      "train_transitions": 27659,
+      "internal_dev_transitions": 3108,
+      "train_catalog_items": 4799,
+      "full_catalog_items": 11924,
+      "pseudo_cold_events": 7435,
+      "optimizer": "AdamW",
+      "scheduler": "cosine",
+      "gradient_clip_norm": 1.0,
+      "pretrain": {
+        "epochs": 100,
+        "lambda_embedding": 6.0,
+        "lambda_generation": 1.0,
+        "learning_rate": 0.001,
+        "weight_decay": 0.05,
+        "official_warmup_steps_argument": 10000,
+        "scheduler_warmup_optimizer_steps": 39,
+        "scheduler_total_optimizer_steps": 10800,
+        "embedding_microbatch": 16,
+        "generation_microbatch": 4,
+        "gradient_accumulation": 64,
+        "effective_embedding_batch": 1024,
+        "effective_generation_batch": 256,
+        "optimizer_steps_per_epoch": 109,
+        "optimizer_steps": 10900,
+        "physical_microsteps": 691500,
+        "checkpoint_interval_epochs": 2
+      },
+      "finetune": {
+        "epochs": 15,
+        "lambda_embedding": 6.0,
+        "lambda_generation": 1.0,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.05,
+        "official_warmup_steps_argument": 10000,
+        "scheduler_warmup_optimizer_steps": 39,
+        "scheduler_total_optimizer_steps": 1620,
+        "microbatch": 4,
+        "gradient_accumulation": 64,
+        "effective_batch": 256,
+        "optimizer_steps_per_epoch": 109,
+        "optimizer_steps": 1635,
+        "physical_microsteps": 103725,
+        "checkpoint_interval_epochs": 1,
+        "frozen_train_index_encode_batch": 64
+      },
+      "tail_accumulation_normalization": "sample-count weighted generation/ranking losses; actual-microstep weighted full embedding batches",
+      "same_start_checkpoint_data_epochs_batches_optimizer_gpu_timeout": true,
+      "per_arm_hard_timeout_seconds": 1209600
+    },
+    "admission": {
+      "internal_dev_generation_events": 3108,
+      "pseudo_cold_events": 7435,
+      "evaluation_microbatch": 4,
+      "full_catalog_index_encode_batch": 64,
+      "top_k": 50,
+      "maximum_eligible_peak_reserved_mib": 28672,
+      "requires_all_finite": true,
+      "requires_complete_full_catalog_index": true,
+      "efficacy_gate": false
+    },
+    "resource_evidence": {
+      "attempt_id": "s16_s2_splus_accelerated_batch_sweep_gpu5_a2_recovery",
+      "verdict": "PASS_S16_2_SPLUS_OBJECTIVE_RESOURCE_SWEEP",
+      "maximum_peak_reserved_mib": 17466,
+      "recommended_minimum_free_mib": 28672,
+      "engineering_minimum_free_mib": 28672,
+      "core_pair_gpu_hours": 207.9748913504874,
+      "conservative_pair_gpu_hours_lower": 259.96861418810926,
+      "conservative_pair_gpu_hours_upper": 415.9497827009748,
+      "accelerated_batch_verdict": "PASS_S16_2_SPLUS_ACCELERATED_BATCH_SWEEP",
+      "selected_candidate": "e16_g4_a64",
+      "measured_splus_pretrain_microstep_seconds": 0.4853170895949006,
+      "measured_optimizer_step_seconds": 0.1526213362812996,
+      "projected_splus_pretrain_core_gpu_hours": 93.579,
+      "pair_runtime_projection_status": "requires first full optimizer-window calibration; no linear speedup promise"
+    },
+    "batching_adaptation": {
+      "classification": "F1 engineering batching adaptation; not a bitwise continuation of a2",
+      "selected_candidate": "e16_g4_a64",
+      "embedding_microbatch": 16,
+      "generation_microbatch": 4,
+      "gradient_accumulation": 64,
+      "effective_embedding_batch": 1024,
+      "effective_generation_batch": 256,
+      "matched_between_arms": true,
+      "optimizer_steps_unchanged": true,
+      "epochs_data_objective_optimizer_scheduler_checkpoint_unchanged": true,
+      "dropout_grouping_may_differ_from_a2": true,
+      "tail_generation_normalization": "sample-count weighted within each accumulation window",
+      "tail_embedding_normalization": "microstep-count weighted because every embedding microbatch remains full via deterministic cycling"
+    },
+    "compatibility_patch": {
+      "failure_signature": "RuntimeError: Invalid device argument",
+      "failed_call": "torch.cuda.reset_peak_memory_stats(torch.device('cuda:0'))",
+      "disproved_preflight_candidate": "Passing integer device index without initializing CUDA still raises the same Invalid device argument.",
+      "replacement_call": "torch.cuda.init(); torch.cuda.reset_peak_memory_stats(device.index or 0)",
+      "reason": "The frozen PyTorch 1.11 CUDA allocator stats API requires an initialized CUDA context; an integer-only GPU5 probe failed and a context-init-then-reset GPU5 probe passed.",
+      "algorithm_objective_unchanged": true,
+      "data_budget_scheduler_optimizer_unchanged": true
+    }
+  },
+  "same_seed_data_epochs_batches_optimizer_timeout": true,
+  "only_allowed_execution_difference": "physical GPU and isolated artifact root",
+  "source_artifacts_modified": false
+}

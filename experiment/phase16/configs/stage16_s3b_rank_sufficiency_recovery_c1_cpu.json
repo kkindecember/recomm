@@ -1,0 +1,95 @@
+{
+  "schema_version": "stage16_s3b_rank_sufficiency_recovery_v1",
+  "experiment_id": "GRAM_PHASE16_S3B_RANK_SUFFICIENCY_RECOVERY_ADJUDICATION",
+  "attempt_id": "s16_s3b_rank_sufficiency_b1_recovery_c1_cpu",
+  "output_dir": "artifacts/phase16/s3_genrecedit/rank_sufficiency_recovery/toys_seed1502_b1_recovery_c1_cpu",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s3b_rank_sufficiency_recovery_c1_cpu.sh",
+  "frozen_inputs": {
+    "source_b1_config": {
+      "path": "experiment/phase16/configs/stage16_s3b_gfull_rank_sufficiency_b1_gpu4.json",
+      "sha256": "6d9b37f0941c184279c75ccf1144b0ae2a6df2b5bd449c51959334a38af54199"
+    },
+    "source_b1_raw": {
+      "path": "artifacts/phase16/s3_genrecedit/rank_sufficiency/toys_seed1502_b1_gpu4/rank_diagnostic_raw.json",
+      "sha256": "c68dda9bd88dcca21b4bbc24551f8ddb2ca0a90ed2f079156766228265b4dc08"
+    },
+    "source_b1_status": {
+      "path": "artifacts/phase16/s3_genrecedit/rank_sufficiency/toys_seed1502_b1_gpu4/status.json",
+      "sha256": "f8fda8eb745e89fe86c3bf2deecf270f5ef35e65cdee58777f5ca42d366e81fc"
+    },
+    "source_b1_checkpoint": {
+      "path": "artifacts/phase16/s3_genrecedit/rank_sufficiency/toys_seed1502_b1_gpu4/rank_stage_checkpoint.json",
+      "sha256": "30ccd5cd65fc1a5d431dd0976908cf24c05ec0d9b5b69697f4e1ea024b18b72f"
+    },
+    "source_b1_identity": {
+      "path": "artifacts/phase16/s3_genrecedit/rank_sufficiency/toys_seed1502_b1_gpu4/execution_identity.json",
+      "sha256": "3946cfddeea2f20137e6f0340a4f2bbbd989fb2cf14eb11e9aabc52aa7447c50"
+    }
+  },
+  "source_b1_contract": {
+    "attempt_id": "s16_s3b_gfull_rank_sufficiency_b1_gpu4",
+    "raw_verdict": "FAIL_S16_3B_RANK_DIAGNOSTIC_RAW",
+    "expected_failed_raw_checks": [
+      "positive_semidefinite_evidence"
+    ],
+    "expected_request_total": 302400,
+    "summary_path": "artifacts/phase16/s3_genrecedit/rank_sufficiency/toys_seed1502_b1_gpu4/summary.json",
+    "source_status_must_remain": "FAILED"
+  },
+  "adjudication": {
+    "question": "Does at least one complete, numerical-PSD-eligible all-request position remain rank-deficient, independently of any ineligible position or intermediate prefix diagnostic?",
+    "linear_system_width": 2048,
+    "rank_tolerance_rule": "max(matrix_shape)*float64_eps*max_abs_eigenvalue",
+    "proof_eligibility_rule": "Require zero significant negative eigenvalues for the complete covariance, final all-request key Gram, and final full system under the frozen b1 tolerance. Intermediate prefix systems remain diagnostic only.",
+    "sufficiency_rule": "Any one proof-eligible final all-request system with rank below 2048 proves every faithful valid-z subset at that position singular.",
+    "full_request_counts_by_position": {
+      "0": 59630,
+      "1": 59630,
+      "2": 59630,
+      "3": 59630,
+      "4": 59630,
+      "5": 4250
+    },
+    "full_covariance_rows_by_position": {
+      "0": 27659,
+      "1": 27659,
+      "2": 27659,
+      "3": 27659,
+      "4": 27659,
+      "5": 2036
+    },
+    "request_key_checkpoints": [
+      16,
+      64,
+      256,
+      1024,
+      4096,
+      16384,
+      "full"
+    ],
+    "recompute_covariance": false,
+    "recompute_keys": false,
+    "recompute_eigenvalues": false,
+    "recompute_ranks": false,
+    "z_optimization": false,
+    "solve": false,
+    "ridge": false,
+    "pseudoinverse": false,
+    "jitter": false,
+    "resample": false,
+    "faithful_gate_promotion_allowed": false
+  },
+  "resources": {
+    "cpu_only": true,
+    "gpu_count": 0,
+    "hard_timeout_seconds": 120,
+    "expected_wall_seconds": 10,
+    "disk_reservation_mib": 4
+  },
+  "scientific_efficacy_metric": false,
+  "faithful_gate_promoted": false,
+  "validation_used": false,
+  "test_read": false,
+  "automatic_retry": false,
+  "automatic_resume": false
+}

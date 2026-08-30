@@ -99,6 +99,24 @@ artifacts/phase16/**/*.jsonl
 artifacts/phase16/**/progress.json
 artifacts/phase16/**/armed.lock
 artifacts/phase16/**/preflight.log
+artifacts/phase16/**/gpu*_baseline_compute_pids.txt
+
+# Stage16 non-promotional occupancy/repeat cycles are local runtime evidence.
+# Their formal parent contracts and summaries remain eligible for Git.
+artifacts/phase16/s3_genrecedit/inspired_ridge/stability/
+
+# Phase 17 is still being developed by a separate agent. Keep its compact
+# contracts/results visible, but exclude machine-local training payloads,
+# replicated dataset views, logs, predictions, locks, and attempt journals.
+artifacts/phase17/runtime/
+artifacts/phase17/**/gram_logs*/
+artifacts/phase17/**/predictions/
+artifacts/phase17/**/profile_data/
+artifacts/phase17/**/shadow_data/
+artifacts/phase17/**/*.log
+artifacts/phase17/**/*.tsv
+artifacts/phase17/**/*.jsonl
+artifacts/phase17/**/*.lock
 
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started

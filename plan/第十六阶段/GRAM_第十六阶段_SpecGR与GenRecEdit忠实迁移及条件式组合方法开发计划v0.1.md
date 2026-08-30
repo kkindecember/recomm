@@ -1,8 +1,8 @@
-# GRAM 第十六阶段：SpecGR 与 GenRecEdit 忠实迁移、互补性验证及条件式组合方法开发计划 v0.1
+# GRAM 第十六阶段：SpecGR 忠实迁移、GenRecEdit-inspired→GRAM、互补性验证及条件式组合方法开发计划 v0.1
 
 > **建立日期**：2026-08-23
-> **当前状态**：`S16_0_COMPLETED / S16_1_COMPLETED / S16_2_SAUX_FORMAL_A2_PASS / S16_2_SPLUS_ACCEL_BATCH_16_4_64_PASS / S16_2_SPLUS_CTRL_FORMAL_GPU5_A2_USER_INTERRUPTED_PRESERVED / S16_2_SPLUS_CTRL_FORMAL_GPU5_A3_ACCEL_RUNNING / S16_2_SPLUS_CTRL_GPU7_A4_SPLIT_RUNNING / S16_2_DUPLICATE_CTRL_GUARD_ARMED_RUNNING / GPU5_HOLDER_RELEASED_DURING_A3_TERMINAL_RESTORE_ARMED / STAGE15_ARTIFACTS_NOT_MODIFIED / TEST_SEALED`
-> **阶段定位**：在 GRAM backbone 与 hierarchical lexical ID 上忠实重实现 SpecGR 和 GenRecEdit 核心算法；分别验证后，再用可归因四臂实验决定是否开发条件式组合方法
+> **当前状态**：`S16_0_COMPLETED / S16_1_COMPLETED / S16_2_COMPLETED_SAUX_SPLUS_CTRL_PASS / S16_2_SPLIT_PAIR_A1_CPU_HASH_TIMEOUT_PRESERVED / S16_2_SPLIT_PAIR_A2_PASS / S16_3F_RESOURCE_A3_TIMEOUT_PRESERVED / S16_3F_RESOURCE_A4_LINEAR_SYSTEM_BLOCKED / S16_3B_B1_FAILED_PRESERVED / S16_3B_RECOVERY_C1_STRUCTURAL_BLOCKED_PASS / S16_3R_RESOURCE_R1_GPU5_FP32_CAST_BLOCKED_PRESERVED / S16_3R_RESOURCE_R2_FP64_SOLVE_PASS / S16_3R_FORMAL_F1_CODE_IDENTITY_FAILED_PRESERVED / S16_3R_FORMAL_F2_ISOLATED_PATH_FAILED_PRESERVED / S16_3R_F2_REPEAT_INTERRUPTED_FOR_FORMAL_PRIORITY / S16_3R_FORMAL_F3_GPU5_RUNNING / STAGE15_ARTIFACTS_NOT_MODIFIED / TEST_SEALED`
+> **阶段定位**：在 GRAM backbone 与 hierarchical lexical ID 上忠实重实现 SpecGR；保留 faithful GenRecEdit 不可行性证据，并以明确非 faithful 的 G-RIDGE 完成 GenRecEdit-inspired→GRAM；分别验证后，再用可归因四臂实验决定是否开发条件式组合方法
 > **历史边界**：Stage15 B2/B3 永久保留为 `lightweight/budgeted mechanism pilot`，不覆盖、不改名为 faithful reproduction，不用于否定官方方法
 
 ---
@@ -12,7 +12,7 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: plan
 - Origin Date: 2026-08-23
-- Verification Status: VERIFIED（S16-0、S16-1 已完成；S16-2–S16-9 尚未执行）
+- Verification Status: VERIFIED（S16-0、S16-1 已完成；S16-2 的 S-AUX、S-PLUS 与 matched CTRL contract/admission 已全部 PASS，split-pair a1 CPU hash timeout 保留、独立 a2 已通过完整 checkpoint SHA 与 artifact contract；faithful S16-3F resource a4 因 no-ridge 线性系统秩不足终态 BLOCKED，S16-3B recovery c1 从 immutable b1 证据正式裁决 `PROVEN_STRUCTURAL_RANK_BLOCKED`；非 faithful S16-3R/G-RIDGE GPU5 resource r1 的 FP32-cast 工程失败保持 immutable，独立 FP64-solve r2 已 `PASS_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP`；formal f1 因运行期共享代码漂移 FAILED，独立 f2 因隔离快照只读父路径 guard 在 GPU 计算前 FAILED，两者均不可晋升；f2 非权威 repeat cycle 4 已按正常实验优先级受控中断，独立 immutable f3 已在 GPU5 进入 authoritative full computation，任意 f3 终态后才启动新的隔离 repeat queue；Stage16 主仓与 f3 快照全量 `123/123` CPU tests PASS；S16-4–S16-9 尚未执行）
 - Version Label: phase16_faithful_transplant_and_composition_v0.1
 
 ---
@@ -21,14 +21,14 @@
 
 Stage16 回答的不是“论文原始 TIGER 结果能否在本地逐位复现”，而是：
 
-> **在保留 GRAM backbone、冻结 lexical ID 和项目 cold50 协议的前提下，将 SpecGR 与 GenRecEdit 的官方核心算法尽可能忠实地迁移到 GRAM，它们能否单独改善 cold recommendation；若能，两者是否存在可重复的互补交互，并足以支撑一个新的条件式方法？**
+> **在保留 GRAM backbone、冻结 lexical ID 和项目 cold50 协议的前提下，faithful SpecGR 与明确标注的 GenRecEdit-inspired G-RIDGE 能否单独改善 cold recommendation；若能，两者是否存在可重复的互补交互，并足以支撑一个新的条件式方法？**
 
 总顺序固定为：
 
 1. 官方源码→算法组件→GRAM 接口的 fidelity mapping；
 2. 冻结 train-only internal-development 协议，继续封存 test；
 3. 忠实迁移 SpecGR-Aux 和 SpecGR++，严格分名；
-4. 忠实迁移 GenRecEdit，不再使用 Stage15 的 4 requests/position 与 256 covariance 近似作为主方法；
+4. 保留 faithful GenRecEdit→GRAM 的失败证据，以相同全量语义和 train-only workload 开发只替换 singular solve 的 GenRecEdit-inspired G-RIDGE；
 5. 单方法 contract→admission→Toys validation→Beauty validation；
 6. 固定 `2×2` 四臂实验，分离 SpecGR、GenRecEdit 和交互项；
 7. 只在存在稳定互补证据时开发条件式方法；
@@ -125,9 +125,9 @@ S16-0 必须生成 function-level `fidelity_matrix.json`，对每个官方组件
 - 因 GRAM 参数被训练，必须同时训练 `S-PLUS-CTRL`：相同起点、数据、step、batch、optimizer 和 GPU 预算，不使用 SpecGR-specific contrastive/self-drafting 目标；
 - `S-PLUS` 的因果对照是 `S-PLUS-CTRL`，不是未继续训练的 B0。
 
-### 3.4 GenRecEdit 必须保留的核心
+### 3.4 GenRecEdit-inspired G-RIDGE 必须保留的核心
 
-`G-FULL`必须：
+`G-RIDGE` 必须：
 
 - 对全部预冻结 cold catalog edit targets 构造 train-only contexts，不先看 validation/test occurrence；
 - 对全部 edit targets 分批执行 z optimization，不再每位置只选 4 条；
@@ -136,10 +136,12 @@ S16-0 必须生成 function-level `fidelity_matrix.json`，对每个官方组件
 - 官方 `0.3` 仅按官方源码所属 probe/cache 语义映射，不再像 Stage15 一样额外作为所有 z 的全局成功 Gate；
 - 不额外加入“edited probability 必须严格高于 baseline”，除非官方路径的对应位置本就有该规则；
 - fixed 256-codebook 与 full-vocabulary probability 在 GRAM constrained lexical decoding 中的替代定义，必须在 S16-0 通过 fixed-width emulation 和推理概率一致性测试冻结，禁止依 efficacy 选择定义。
+- 唯一允许偏离 faithful `G-FULL` 的位置是 closed-form solve：用预注册的 condition-targeted spectral ridge 形成 `A+mu·I`；`mu` 只依 train-only system spectrum 与固定 condition target，不使用 validation/test 或 outcome 搜索。
+- 必须显式记录 `faithful_reproduction=false`，并保留 ridge 前后 spectrum/rank/condition、Cholesky、solve residual；禁止 pinv、额外 jitter fallback、outcome resampling 和自动 retry。
 
 ### 3.5 组合主路的固定选择
 
-主四臂组合使用 `S-AUX + G-FULL`，不依单方法结果事后在 `S-AUX/S-PLUS` 中挑更好者，理由是：
+主四臂组合使用 `S-AUX + G-RIDGE`，不依单方法结果事后在 `S-AUX/S-PLUS` 中挑更好者，理由是：
 
 - `S-AUX` 保持 GRAM base 冻结，与 parameter editing 的干预位置清晰正交；
 - `S-PLUS` 已改变 GRAM backbone，若再组合 editing，需要新的 trained-base factorial control，不在主四臂中静默替换。
@@ -204,7 +206,8 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 | `S-AUX` | 官方 UniSRec + frozen GRAM SpecGR loop | F0/R2 | faithful primary SpecGR transplant |
 | `S-PLUS-CTRL` | 同预算 continued-training GRAM control | F0 | S-PLUS 因果对照 |
 | `S-PLUS` | GRAM encoder self-drafting + SpecGR++ two-stage objective | S-PLUS-CTRL | faithful secondary SpecGR transplant |
-| `G-FULL` | full-target GenRecEdit → GRAM | F0/R2 | faithful GenRecEdit transplant |
+| `G-FULL` | faithful full-target GenRecEdit → GRAM | F0/R2 | 历史不可行性证据；不进入后续 efficacy |
+| `G-RIDGE` | full-target GenRecEdit-inspired ridge edit → GRAM | F0/R2 | S16-3 新 primary；明确非 faithful |
 
 ### 5.2 组合四臂
 
@@ -212,7 +215,7 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 |---|---:|---:|---|
 | `C00` | 否 | 否 | 未编辑 frozen GRAM |
 | `C10` | 是 | 否 | `S-AUX` |
-| `C01` | 否 | 是 | `G-FULL` |
+| `C01` | 否 | 是 | `G-RIDGE` |
 | `C11` | 是 | 是 | 同一 frozen GRAM 上 drafter + edited verifier/generation |
 
 `C11` 必须重新核对编辑参数 materialization、One-One trigger、candidate verification、guided redrafting、fallback beam 与 base restore；禁止简单把两份 ranking 后处理融合却声称算法组合。
@@ -249,7 +252,7 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 
 - 核对 Stage15 可复用输入 SHA，生成 Stage16 input allowlist/denylist；
 - 构造 train-only interaction/internal-dev 和 item-disjoint pseudo-cold；
-- 对 S-AUX/S-PLUS/G-FULL 统计完整训练条数、edit targets、contexts、path positions 和 covariance rows；
+- 对 S-AUX/S-PLUS/G-FULL/G-RIDGE 统计完整训练条数、edit targets、contexts、path positions 和 covariance rows；G-RIDGE 与 G-FULL 的非 solve workload 必须相同；
 - 为每个大实验先做可控小样本的显存/速度试跑，换算 GPU 数、每卡最小空闲显存、wall time、hard timeout 和磁盘；
 - 冻结后续 exact commands 和 status schema，但不启动大实验。
 
@@ -261,9 +264,9 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 
 - exact command：`bash experiment/phase16/run_stage16_s1_data_resource_preflight.sh`；attempt `s16_s1_a1`，exit code `0`，12/12 Stage16 unit tests 通过；
 - Toys/Beauty 分别冻结 27,659/33,775 条 train transitions、3,108/3,747 条 internal-dev transitions；pseudo-cold 分别为 1,162/1,185 个；student-readable real-cold/pseudo-cold 泄漏与 train/dev user overlap 均为 0；
-- G-FULL 完整计数分别为 5,963/6,052 targets、59,630/60,520 contexts、302,400/425,890 prefix-next-token requests、27,659/33,775 covariance rows；
+- G-FULL/G-RIDGE 的完整计数分别为 5,963/6,052 targets、59,630/60,520 contexts、302,400/425,890 prefix-next-token requests、27,659/33,775 covariance rows；
 - 小型资源探针自动选择物理 GPU 7（admission free 15,609 MiB，utilization 23%），18.54 秒完成，最高进程内 allocated 峰值 1,457.58 MiB；无正式训练、完整 editing 或 validation；
-- S-AUX 探针因当前缺 RecBole 明确标为 resource proxy；S-PLUS/G-FULL 使用真实冻结 Beauty GRAM checkpoint，但仅作 bounded resource smoke；
+- S-AUX 探针因当前缺 RecBole 明确标为 resource proxy；S-PLUS/G-FULL/G-RIDGE 使用真实冻结 Beauty GRAM checkpoint，但仅作 bounded resource smoke；
 - Gate：`PASS_S16_1_DATA_LEAKAGE_RESOURCE_PREFLIGHT`；完整证据见该步骤唯一 report 与 `artifacts/phase16/s1_data_resource_preflight/`；
 - 第一个大实验 S-AUX 冻结为单 GPU、每卡至少 24,576 MiB 空闲、20,480 MiB 保守显存预留、约 18–48 h、48 h hard timeout、8 GiB 磁盘；启动前由用户指定 GPU。
 
@@ -319,23 +322,39 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 - a4 exact command `bash experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32.sh 7` 已于 2026-08-28 10:33:33+08:00 在 tmux `phase16_s2_splus_ctrl_formal_gpu7_a4_split` 启动；输出 `artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32/`，启动 admission free 48,568 MiB，minimum 28,672 MiB、expected peak reserved 17,466 MiB、14 天 hard timeout、8 GiB disk、无 holder 操作、无自动 retry/resume。Stage16 `40/40` tests 与 split preflight PASS；runner/workload PID `1708057/1708947`，初始状态 `RUNNING` / `S-PLUS-CTRL` preprocessing、0/12,535 CTRL optimizer steps。
 - 跨 attempt 配对使用只读 finalizer `bash experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize.sh`，只在 GPU5 a3 的 S-PLUS arm 与 GPU7 a4 CTRL arm 各自 PASS 后运行；它比较 scientific config、两阶段预算、起始 checkpoint、finite/admission、防泄漏与 checkpoint 合约，不修改两侧 source artifacts。新增 5 项 split tests 后 Stage16 `40/40` CPU tests PASS；a3 已冻结的 7 个相关代码 SHA 保持原值。
 - 为避免 a3 在 S-PLUS PASS 后继续重复 CTRL，2026-08-28 新增 fail-closed one-shot guard；它仅在 S-PLUS summary/admission/checkpoints 完整 PASS、a3 已进入 `S-PLUS-CTRL`、GPU7 a4 健康或已 PASS、runner PID/start-ticks/exact-cmdline 与 CTRL child PPID/cmdline 全部匹配时，向 a3 runner 发送唯一一次 SIGTERM，由 a3 原 EXIT trap 终止子进程并恢复 holder。a4 失败/失联、摘要不完整、身份漂移或任何竞态均不发信号并保留 GPU5 CTRL 后备。dry-run 返回 `WAIT`、`signal_sent=false`，Stage16 全量 `66/66` tests PASS；用户随后确认 exact command，guard 于 2026-08-28 11:04:58+08:00 在 tmux `phase16_s2_splus_ctrl_duplicate_guard_gpu5_a3_gpu7_a4` armed，PID 1807506，当前 `ARMED_RUNNING/WAIT`。
+- GPU5 a3 的 S-PLUS arm 随后完成 100+15 epochs、`12,535/12,535` optimizer steps、3,108-event internal-dev 与 7,435-event/11,924-candidate fixed admission，verdict `PASS_S16_2_S_PLUS_FORMAL_EXECUTION`；one-shot guard 在 a3 进入重复 CTRL 后通过全部身份/产物闸门，只终止 a3 runner，并由原 terminal trap 恢复同一 `reserve_mib=18263` holder。guard 终态 `PASS_S16_2_DUPLICATE_CTRL_GUARD`，已完成的 S-PLUS arm artifact 保留且 GPU7 a4 未被修改。
+- GPU7 a4 于 2026-08-29 15:19:06+08:00 完成 matched CTRL 全部 `12,535/12,535` optimizer steps，exit 0，peak reserved 4,536 MiB，verdict `PASS_S16_2_S_PLUS_CTRL_FORMAL_EXECUTION`；两臂同一冻结 checkpoint、数据、100+15 epochs、effective/physical batch、optimizer/scheduler/steps/timeout，均未读 validation/test。
+- 首次 CPU-only pair finalizer 的 5/5 tests PASS，但对 8 个约 3.7 GiB source checkpoints 做完整 SHA 时恰好触发原 600 秒 timeout；blocked a1 原样保留，无 summary/artifact contract、无 source 修改、无自动重跑。用户确认独立 a2 后，只把 CPU hash timeout `600→1800` 秒，保持 full SHA 与全部 source/scientific contract；定向 8/8、Stage16 全量 `118/118` tests PASS。a2 于 2026-08-29 19:03:47–19:05:41+08:00 exit 0，`PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION`、`PASS_S16_2_SPLUS_CTRL_MATCHED_FORMAL_EXECUTION` 与 `PASS_SPLUS_CTRL_SPLIT_PAIR_ARTIFACT_CONTRACT` 全部通过。S16-2 唯一 report 已更新为 `COMPLETED`。
+- S16-3 resource a3 于 2026-08-28 14:44:01+08:00 按用户确认命令启动，物理 GPU4→logical CUDA0，admission free 19,735 MiB，`79/79` CPU tests 与 full train-only `5963/59630/302400` dataset build PASS；三个 z-batch candidate 完成并选择 16。positions 0–4 的 4,096-row covariance 完成，worker 在 position 5 前耗尽 360 秒预注册预算，于 14:50:09+08:00 以 `TIMEOUT / RESOURCE_BLOCKED_BOUNDED_TIMEOUT / exit 124` 终止。partial checkpoint/status/progress/log/telemetry/identity/request shards 完整保留，无 summary、无 Gate 晋升、无自动 retry；validation/test 未读。若继续 a4，因实测超出小实验时间/显存假设，必须使用新 attempt root，重新披露资源并等待用户指定 GPU/授权。
+- 用户已指定 S16-3 resource a4 使用物理 GPU4。a4 冻结为独立 config/output/tmux attempt；科学 workload 与 a3 完全一致，candidate cap 仍为 8,192 MiB，整次 attempt 资源边界单独冻结为 expected peak 12,288 MiB、minimum free 18,432 MiB、worker timeout 900s。用户看到 exact command 后最终确认，a4 于 2026-08-28 15:13:22+08:00 在后台 session `phase16_s3_gfull_resource_a4_gpu4` 启动；GPU4 admission free 19,735 MiB，runner/workload PID `2690300/2691233`，execution identity 内 Stage16 `80/80` tests PASS，test/validation 封存、automatic retry=false。
+- a4 于 15:20:18 正常结束，worker 400.769 秒，未 timeout；终态 `BLOCKED / RESOURCE_BLOCKED_FAITHFUL_LINEAR_SYSTEM / exit 10`。三个 candidate 完成并选择 z-microbatch 16；全六位置 covariance resource/convergence、trigger、generation 与 base-checkpoint parity 完成，peak allocated/reserved `6895.492/8668 MiB`，低于 attempt cap。六个 2,048 维 faithful no-ridge system 的 rank 分别为 `71/1058/1813/1982/2043/1741`，全部不足 2,048，且无 ridge/pinv/jitter/resample fallback；所以没有 completed delta/aggregate/formal projection，S16-3 Gate 未通过，formal G-FULL 与 S16-4 G-FULL arm 不解锁。raw 的非权威 `solve_status` 标签与其 56 valid-z diagnostics 不一致；顶层 verdict/失败 checks/status 正确，后续代码仅修复未来标签并使当前回归达到 `81/81 PASS`，a4 原始 artifact/identity 未改写。
+- 用户明确要求不等待 S-PLUS、直接开发 S16-3B。该 diagnostic 使用 full train-only covariance 与全部 `302400` request keys 构造每位置 all-request upper-bound system。GPU4 b1 于 16:01:35 启动并于 17:38:58 完成全部六位置，raw elapsed `5830.412s`、peak reserved `8648 MiB`，不是 timeout/OOM/admission failure。终态因唯一 contract check `positive_semidefinite_evidence` 失败而为 `FAILED / exit 3`：position 5 FP32-finalized covariance 有 2 个超过冻结 tolerance 的负特征值。原 artifact 保留且不自动重跑。用户随后确认 CPU-only recovery c1；c1 于 18:07:35 exit 0，positions 0–4 proof-eligible、position 5 ineligible，positions 0–3 rank `74/1216/1938/2033 < 2048`，正式裁决 `PASS_S16_3B_RECOVERY_ADJUDICATION_COMPLETE / PROVEN_STRUCTURAL_RANK_BLOCKED`。b1 五类 input SHA 前后不变，S16-3 Gate 不晋升。
+- 用户决定将 S16-3 后续方向改为 `GenRecEdit-inspired → GRAM`。新方法 `G-RIDGE` 不继承 faithful Gate，只把 A4 的 singular no-ridge solve 替换为预注册的 condition-targeted spectral ridge；其余数据、z/covariance/key/aggregation/trigger、资源 sweep 与 sealed-set contract 保持一致。独立实现/config/runner/finalizer 已完成，Stage16 全量 `104/104` CPU tests PASS；GPU4 resource r1 已准备、尚未启动。
 
-### S16-3：Faithful GenRecEdit→GRAM 实现、contract 与 admission
+### S16-3：GenRecEdit-inspired G-RIDGE→GRAM 实现、contract 与 admission
 
 **任务**：
 
+- 保留 S16-3F faithful G-FULL 与 S16-3B 的 immutable 失败/结构性阻断证据，不覆盖、不重命名为 PASS；
 - 实现 full-target request batching、official z lifecycle/scheduler/cache、covariance、key extraction、valid-z filtering、delta aggregation 和 trigger；
 - 保存每位置 request 总数、cache hit、valid/failed z、概率/排名诊断、delta norm/rank/condition、未编辑 parity 和 warm-preservation 证据；
-- 进行 covariance 资源/数值收敛诊断，但 faithful primary 仍用官方口径；
+- 保持 A4 的全量工作量和 covariance 数值路径，只以 `condition_targeted_spectral_ridge_v1` 替换 faithful no-ridge solve；固定 condition target `1e6` 和 safety margin `1e-6`，ridge 仅由 train-only system spectrum 决定；
+- 保存 ridge 前/后 spectrum、rank/nullity、condition、ridge relative scale、Cholesky 与 solve residual，禁止 pinv/jitter fallback/outcome resampling；
 - 在 Toys train-only item-disjoint 上做固定规模 admission，不使用 validation target 判 edit success。
 
-**Gate**：`PASS_S16_3_GFULL_FAITHFUL_CONTRACT_ADMISSION`。若全量计算仅因资源不可行，记 `RESOURCE_BLOCKED_FAITHFUL_PRIMARY`；可报 scaled diagnostic，但不替代 G-FULL。
+**Gate**：resource 先通过 `PASS_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP`，再以独立 `PASS_S16_3R_GRIDGE_CONTRACT_ADMISSION` 作为 formal Gate。faithful `PASS_S16_3_GFULL_FAITHFUL_CONTRACT_ADMISSION` 保持未通过且不可继承；resource sweep 不能替代 formal G-RIDGE admission。
+
+**faithful 历史终态（2026-08-28）**：resource a4 完成全部冻结组件，但六个 faithful no-ridge resource systems 均秩不足，裁决为 `RESOURCE_BLOCKED_FAITHFUL_LINEAR_SYSTEM`；faithful Gate 未通过。
+
+**S16-3B 独立 diagnostic（不改 faithful Gate）**：只验证必要条件 `rank(1000·C_full + K_allᵀK_all)=2048`。b1 已完成全部 `302400` keys，但因 position-5 numerical-PSD evidence 失败而保持 artifact `FAILED`；CPU-only recovery c1 已在不改写 b1 的前提下完成机器可读裁决，positions 0–4 proof-eligible、position 5 ineligible，positions 0–3 结构性秩亏，verdict/classification 为 `PASS_S16_3B_RECOVERY_ADJUDICATION_COMPLETE / PROVEN_STRUCTURAL_RANK_BLOCKED`。该结果关闭当前 faithful no-ridge G-FULL 路径，也是 G-RIDGE 必须显式正则化而不能冒充 faithful 的方法动机。
+
+**S16-3R 当前状态**：GPU5 resource r1 的 position-0 residual `3.920733e-6 > 1e-6` 工程失败与 artifact 保持不变；独立 r2 已 `COMPLETED / PASS_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP`。formal f1 因运行期共享代码漂移 FAILED，独立 immutable f2 因 allowlisted artifact 父路径未映射而在 GPU 前 FAILED；两者原 artifact 均保留，formal Gate 未晋升。用户授权继续 f3 后，先将正在真实计算的非权威 f2 repeat cycle 4 以 `INTERRUPTED / exit 143` 封存，只释放本项目 repeat 的 `10,634 MiB`，未向 GPU5 既有 PID 发信号。f3 机械保持 f2 的 seed/data/method/workload/Gate/resource，只新增 f2 失败谱系并从一开始冻结已修复的 parent-link path mapping；主仓与 `.runtime/phase16_s3r_gridge_f3_runtime` 均 `123/123` tests PASS。f3 于 2026-08-30 15:00:28+08:00 在 tmux `phase16_s3r_gridge_formal_gpu5_f3` 启动，admission free `28,998 MiB`，15:11:12 状态为 `RUNNING / full_covariance_positions 2/6`，Python PID `70827` 占用 `10,634 MiB`；validation/test 封存、automatic retry=false。只有 f3 任意终态后才启动 f3 非权威 repeat queue，且它继续遵守正常实验优先与不可晋升约束。
 
 **唯一 report**：`report/第十六阶段/Stage16_S3_FaithfulGenRecEdit_GRAM合约与Admission报告.md`
 
 ### S16-4：Toys standalone frozen validation
 
-**前提**：只运行 S16-2/S16-3 contract+admission PASS 的 faithful arms；带 F0、R2 和对应 matched control。
+**前提**：只运行 S16-2 faithful SpecGR arm 与 S16-3R G-RIDGE 中各自 contract+admission PASS 的 arms；带 F0、R2 和对应 matched control。faithful G-FULL 不进入 efficacy。
 
 **任务**：
 
@@ -357,7 +376,7 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 - 不因 Beauty state construction 或 efficacy 改回 Toys；
 - 记录跨域稳定性与方法失效位置。
 
-**Gate**：冻结单方法双域证据。主四臂是预注册分析，仅在 `S-AUX` 与 `G-FULL` 均 contract-pass 且至少一个在任一域达 `PASS_STANDALONE_COLD_SIGNAL` 时进入完整 validation；若两者双域均无任何 cold signal，只做 internal-dev 组合机制检查，不预付双域 full combination。
+**Gate**：冻结单方法双域证据。主四臂是预注册分析，仅在 `S-AUX` 与 `G-RIDGE` 均 contract-pass 且至少一个在任一域达 `PASS_STANDALONE_COLD_SIGNAL` 时进入完整 validation；若两者双域均无任何 cold signal，只做 internal-dev 组合机制检查，不预付双域 full combination。
 
 **唯一 report**：`report/第十六阶段/Stage16_S5_BeautyFaithfulStandalone冻结确认报告.md`
 
@@ -366,7 +385,7 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 **任务**：
 
 - 实现 C00/C10/C01/C11 同路径 evaluator；
-- 验证 C10=S-AUX、C01=G-FULL 的数值 parity，C00=F0 exact parity；
+- 验证 C10=S-AUX、C01=G-RIDGE 的数值 parity，C00=F0 exact parity；
 - 证明 C11 真正在 edited GRAM 上完成 candidate verification/redrafting/generation；
 - 在 train-only internal-dev 上估计交互项与互补子群，只允许分析预注册特征：prefix depth、draft confidence、verifier score、edit success/cache status、warm/cold membership；
 - 冻结 validation 前的四臂代码与 feature schema。
@@ -674,7 +693,7 @@ command_manifest.json
 | 1 | S16-0 | fidelity matrix、bridge tests、参数/语义冻结、Gate verdict | 1 |
 | 2 | S16-1 | data/internal-dev/test guard/resource estimates 冻结 | 1 |
 | 3 | S16-2 | S-AUX/S-PLUS/CTRL contract+admission verdict | 1 |
-| 4 | S16-3 | G-FULL contract+admission verdict | 1 |
+| 4 | S16-3 | G-RIDGE contract+admission verdict；faithful G-FULL 历史证据保留 | 1 |
 | 5 | S16-4 | Toys standalone full validation 和 promotion label | 1 |
 | 6 | S16-5 | Beauty standalone frozen transfer evidence | 1 |
 | 7 | S16-6 | 四臂数值合约与 internal-dev 互补诊断 | 1 |
@@ -685,13 +704,10 @@ command_manifest.json
 **当前唯一下一步**：
 
 1. 不干扰 Stage15 Beauty B2 的既有状态与 artifact；
-2. S16-2 implementation、26 tests、one-step smoke 与 S-AUX formal Gate 已完成；S-PLUS/CTRL formal Gates 仍为 PENDING；
-3. 官方 batch-2048 单步资源 sweep 已 PASS：实测 peak reserved 4,314 MiB，按预注册安全规则将新 attempt 建议最低空闲显存修订为 9,216 MiB；
-4. S-PLUS resource a1 的 bf16 non-finite 失败保留；独立 FP32 a2 已 PASS，未产生 efficacy metric；
-5. formal GPU5 a1 的 PyTorch 1.11 telemetry compatibility failure与 a2 用户授权中断均保留，分别为 progress 0/25,070 与 15/25,070，无自动 retry；
-6. holder 全释放 batch sweep 已选择 `embedding/generation/accumulation=16/4/64`，保持 effective batch `1024/256`；64/16 与 32/8 的 OOM 证据保留；
-7. 独立 a3 已获确认并在 GPU5 后台运行；holder 运行期完全释放，所有受控终态恢复同一 `reserve_mib=18263`。GPU7 CTRL a4 已获明确确认，于 2026-08-28 10:33:33+08:00 在隔离 tmux/artifact 中启动；40/40 tests 与 split preflight PASS，启动时 a3 serial CTRL 尚未创建 checkpoint/summary。
-8. 当前并行等待 GPU5 a3 的 S-PLUS arm 与 GPU7 a4 的 S-PLUS-CTRL arm 各自终态。重复 CTRL one-shot guard 已获用户确认并于 11:04:58 armed，20 秒轮询、最长 48 小时、当前 WAIT 且未 signal；触发后仍由 a3 terminal trap 恢复 holder。不自动 retry/resume、不启动 S16-3 GPU job、不打开 validation/test。
+2. S16-2 implementation、S-AUX、S-PLUS 与 matched CTRL contract/admission 已全部完成；pair a1 CPU hash timeout 与 a2 PASS recovery 均保留，唯一 S16-2 report 已收口为 `COMPLETED`；
+3. faithful S16-3F 与 S16-3B 证据保持不变，no-ridge G-FULL 路径关闭；G-RIDGE resource r1 的 FP32-cast BLOCKED artifact/SHA 原样保留，独立 FP64-solve r2 已 PASS resource Gate；
+4. 当前唯一运行中的 Stage16 正式任务是 GPU5 G-RIDGE formal f3；继续由其 immutable runner/status 自主运行，不中断、不自动 retry/resume、不打开 validation/test。2026-08-30 15:11:12+08:00 快照为 `RUNNING / full_covariance_positions 2/6`；f2 repeat 已让路并终态封存；
+5. 只有 f3 形成 `PASS_S16_3R_GRIDGE_CONTRACT_ADMISSION` 后，才按 S16-4 前提准备 Toys standalone frozen validation；f3 任意终态后按用户授权启动全新的非权威 repeat queue，但不把任何 repeat/stability 计算晋升为 formal 证据。
 
 ---
 
@@ -730,3 +746,17 @@ command_manifest.json
 | 2026-08-28 | 用户明确确认在 GPU7 启动 S-PLUS-CTRL a4 | 启动闸门确认 GPU7 free 48,568 MiB、a3 仍为 S-PLUS 且 serial CTRL 无 checkpoint/summary；a4 于 10:33:33+08:00 进入 RUNNING，runner/workload PID 1708057/1708947，不修改 GPU5 a3、holder 或 sealed data |
 | 2026-08-28 | 准备但不部署 GPU5 重复 CTRL one-shot guard | fail-closed 条件同时要求 S-PLUS arm PASS、GPU7 a4 健康/完成、a3 runner 与 CTRL child 身份精确匹配；只 SIGTERM runner 以复用其 holder terminal contract。dry-run WAIT、signal_sent=false、66/66 tests PASS；armed 启动仍需用户确认 exact command |
 | 2026-08-28 | 用户确认启动 GPU5 重复 CTRL one-shot guard | exact tmux command 于 11:04:58+08:00 执行；guard PID 1807506、armed.lock 与 session 均存在，8/8 启动预检 PASS，跨 20 秒轮询保持 WAIT/signal_sent=false；a3/a4 未受影响并继续推进 |
+| 2026-08-28 | S16-3 a4 完成但 faithful no-ridge system 六位置均秩亏 | worker 400.769s、peak reserved 8,668 MiB，无 timeout/OOM；system rank `71/1058/1813/1982/2043/1741 < 2048`，不使用 fallback，S16-3 Gate 不通过且 G-FULL 不解锁 |
+| 2026-08-28 | 用户授权不等待 S-PLUS，直接开发独立 S16-3B all-request rank diagnostic | 以 full covariance + 全 train-only request-key Gram 建立 valid-z system 的 PSD 最有利上界，区分 resource subset 不足与结构性 nullspace；不运行 z/solve/ridge/efficacy，不覆盖 A4，89/89 CPU tests PASS，GPU4 启动仍按精确命令确认 |
+| 2026-08-28 | 用户确认在 GPU4 启动 S16-3B b1 | exact command 于 16:01:35+08:00 在 tmux `phase16_s3b_gfull_rank_b1_gpu4` 启动；GPU4 admission free 25,525 MiB，identity 与 89/89 tests PASS，runner/workload/Python PID `2843623/2844400/2844403`，test/validation 封存且无自动 retry/resume |
+| 2026-08-28 | S16-3B b1 完成计算但 artifact contract FAILED；不自动重跑 | 302,400/302,400 keys 与六位置均完成，elapsed 5,830.412s、peak reserved 8,648 MiB；唯一失败 check 为 position-5 numerical-PSD evidence。positions 0–3 的 proof-eligible full-system rank `74/1216/1938/2033 < 2048` 足以形成 structural blockage 证据；原 b1 FAILED 与 immutable SHA 保留，正式 adjudication 只能另建 CPU-only recovery artifact |
+| 2026-08-28 | 用户确认并完成 S16-3B CPU-only recovery c1 | exact command 于 18:07:35+08:00 exit 0；6/6 recovery tests、终态全量 95/95 tests 与 15/15 final checks PASS。positions 0–4 proof-eligible、position 5 明确 ineligible，positions 0–3 rank-blocked，正式分类 `PROVEN_STRUCTURAL_RANK_BLOCKED`；b1 FAILED、无 summary 与五个 frozen input SHA 全部保留，S16-3 Gate 不晋升、S16-4 G-FULL 不解锁 |
+| 2026-08-28 | 用户决定将 S16-3 后续主线改为 `GenRecEdit-inspired → GRAM`，方法名冻结为 `G-RIDGE` | faithful G-FULL/S16-3B 历史证据原样保留；只以 train-only、scale-relative condition-targeted spectral ridge 替换 singular no-ridge solve，明确 `faithful_reproduction=false`，建立独立 resource/formal Gates。实现后 Stage16 `104/104` CPU tests PASS，GPU4 resource r1 待精确命令确认 |
+| 2026-08-29 | 用户指定并确认在 GPU5 启动 G-RIDGE resource r1；r1 单一 residual Gate BLOCKED 后准备最小 FP64-solve r2 | r1 六位置 full-rank/Cholesky/condition 均通过，但 solver 在 residual/aggregation 前提前 cast FP32，position 0 residual `3.920733e-6 > 1e-6`；合成复现隔离为工程 dtype 错误。r1 artifact/SHA 保留；r2 不改 ridge、数据、threshold 或 Gate，`107/107` tests PASS，等待精确命令确认 |
+| 2026-08-29 | 用户确认并完成 GPU5 G-RIDGE resource r2；资源 Gate PASS | r2 elapsed 317.274s、peak reserved 8,668 MiB，六位置 FP64 residual `3.56e-15–5.52e-14`，终态 `PASS_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP`；冻结 formal 单卡 16.859–26.974 GPU·h、minimum free 13,312 MiB、32 GiB disk、7 天 timeout，不把 resource 冒充 formal Gate |
+| 2026-08-29 | 用户确认并启动 formal GPU5 f1；完成后 full-compute stability queue 保持独立 | formal 只读 r2 的 47 shards/父证据，执行全量 z/covariance/ridge/aggregation/trigger 与 7,435+512 admission；held events 只在 edit-state freeze 后打开。f1 于 11:50:07+08:00 启动，正式 status 明确 authoritative completion；后续每个 stability cycle 独立重算、独立目录、`affects_scientific_results=false`、失败即停且不 retry。19:06:23 快照为 38,144/59,630 requests，test/validation sealed |
+| 2026-08-29 | GPU5 a3 S-PLUS 与 GPU7 a4 matched CTRL 分别完成，duplicate guard PASS | 两臂各完成 12,535 optimizer steps；a3 已完成 S-PLUS arm 保留，guard 仅去重其后续 CTRL 并恢复 holder；a4 exit 0，源 artifact 未改，validation/test 未读 |
+| 2026-08-29 | split-pair a1 CPU hash timeout 保留；用户确认独立 a2 后完成 S16-2 | a1 的 5/5 tests PASS，但 8 个 checkpoint 完整 SHA 触发 600 秒 timeout；a2 只把 CPU finalizer 上限提高至 1,800 秒，保持 source/scientific config/full SHA 不变。定向 8/8、Stage16 118/118 tests、paired Gate 与 artifact contract 全 PASS；S16-2 唯一 report 收口为 COMPLETED |
+| 2026-08-30 | formal f1 因 code identity drift FAILED；用户确认独立隔离 f2 | f1 的六位置 state 与 7,435+512 admission 已执行，但 Stage17 于运行期修改 `GRAM/src/model/gram.py`，最终 SHA Gate fail-closed；f2 使用独立 runtime、原 GRAM SHA、相同科学配置与新 artifact root，禁止覆盖 f1 |
+| 2026-08-30 | f2 在 GPU 前因隔离路径 guard FAILED；按用户授权继续非权威 full-compute repeats | f2 `121/121` tests PASS 后，S16-1 artifact 父目录 symlink 被 `_resolve_repo_path` 拒绝，未加载模型；repeat 1–3 同样在 GPU 前失败。仅对非权威 repeat runtime 修复 allowlisted parent-link 与 snapshot-local config，cycle 4 已真实占用 GPU5；repeat 永不晋升、失败仍新建独立 cycle、检测到新 GPU5 PID 即只让出自身进程 |
+| 2026-08-30 | 用户确认继续 formal f3；f2 repeat 让卡后 f3 在 immutable runtime 启动 | 先核验并仅 TERM f2 repeat runner PID `4173017`，cycle 4 以 `INTERRUPTED / exit 143` 封存，GPU5 项目占用释放且外部 PID `1648062` 未修改。f3 与 f2 科学字段完全相同，冻结 f2 status/identity SHA 与修复后的 allowlisted parent-link 映射；主仓/快照 `123/123` tests PASS，config SHA `672739e9…b2ca`。15:00:28 启动后进入 `full_covariance_positions 0/6`，Python PID `70827`、项目显存 `10,634 MiB`；任意终态后再启动隔离 f3 repeats。 |

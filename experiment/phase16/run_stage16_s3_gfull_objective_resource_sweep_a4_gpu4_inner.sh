@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -u -o pipefail
+
+export S16_S3_CONFIG=experiment/phase16/configs/stage16_s3_gfull_objective_resource_sweep_a4_gpu4.json
+export S16_S3_ATTEMPT_ID=s16_s3_gfull_resource_a4_gpu4
+export S16_S3_OUTPUT_REL=artifacts/phase16/s3_genrecedit/resource_sweep/toys_seed1502_a4_gpu4
+export S16_S3_EXACT_COMMAND="bash experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep_a4_gpu4.sh"
+export S16_S3_FIXED_GPU=4
+export S16_S3_MINIMUM_FREE=18432
+export S16_S3_EXPECTED_PEAK=12288
+export S16_S3_HARD_TIMEOUT=900
+
+exec bash experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep.sh

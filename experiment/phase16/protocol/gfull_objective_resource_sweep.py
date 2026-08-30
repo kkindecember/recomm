@@ -8,24 +8,61 @@ import gc
 import hashlib
 import json
 import math
+import os
 import resource
 import subprocess
 import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Mapping, Sequence
+from typing import Any, Callable, Mapping, Sequence
 
 import torch
+import transformers
 from transformers import AutoTokenizer
 from transformers.modeling_outputs import BaseModelOutput
 
 
 ROOT = Path(__file__).resolve().parents[3]
 
+EXECUTED_CODE_PATHS = (
+    "experiment/phase16/protocol/genrecedit_faithful.py",
+    "experiment/phase16/protocol/genrecedit_inspired.py",
+    "experiment/phase16/protocol/genrecedit_data.py",
+    "experiment/phase16/protocol/gfull_objective_resource_sweep.py",
+    "experiment/phase16/protocol/finalize_s3_gfull_resource_sweep.py",
+    "experiment/phase16/protocol/resource_probe.py",
+    "experiment/phase16/protocol/specgr_contract_smoke.py",
+    "experiment/phase16/protocol/official_specgr_runtime.py",
+    "experiment/phase16/protocol/specgr_faithful.py",
+    "experiment/phase16/tests/test_genrecedit_faithful.py",
+    "experiment/phase16/tests/test_genrecedit_inspired.py",
+    "experiment/phase16/tests/test_genrecedit_data.py",
+    "experiment/phase16/tests/test_gfull_resource_contract.py",
+    "experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep.sh",
+    "experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep_a2.sh",
+    "experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep_a3.sh",
+    "experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep_a4_gpu4.sh",
+    "experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep_a4_gpu4_inner.sh",
+    "experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r1_gpu4.sh",
+    "experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r1_gpu4_inner.sh",
+    "experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r1_gpu5.sh",
+    "experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r1_gpu5_inner.sh",
+    "experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r2_gpu5_fp64solve.sh",
+    "experiment/phase16/run_stage16_s3r_gridge_resource_sweep_r2_gpu5_fp64solve_inner.sh",
+    "experiment/phase15/protocol/genrecedit_gram_adapter.py",
+    "GRAM/src/model/__init__.py",
+    "GRAM/src/model/gram.py",
+    "GRAM/src/model/gram_t5.py",
+    "GRAM/src/model/gram_t5_config.py",
+    "GRAM/src/model/gram_t5_modeling.py",
+    "GRAM/src/model/gram_t5_outputs.py",
+)
+
 from experiment.phase16.protocol.genrecedit_data import (  # noqa: E402
     build_sharded_dataset,
     read_lexical_paths,
+    repo_relative_path,
     read_train_sequences,
     resolve_stage16_toys_inputs,
 )
@@ -41,12 +78,23 @@ from experiment.phase16.protocol.genrecedit_faithful import (  # noqa: E402
     edited_parameter_name,
     extract_keys,
     filter_valid_z,
+    form_weight_delta_request_products,
     official_position_to_layer,
     OneOneGenerationDeltaContext,
+    PositionCovarianceResult,
     optimize_z_vectors,
     probe_cached_z,
+    prepare_weight_delta_covariance,
     snapshot_base_parameters,
-    solve_weight_delta,
+    solve_weight_delta_system,
+)
+from experiment.phase16.protocol.genrecedit_inspired import (  # noqa: E402
+    GRIDGE_METHOD_NAME,
+    GRIDGE_RIDGE_RULE,
+    GRIDGE_SOLVE_VARIANT,
+    form_condition_targeted_ridge_system,
+    solve_condition_targeted_ridge_system,
+    validate_gridge_method_config,
 )
 from experiment.phase16.protocol.resource_probe import load_gram  # noqa: E402
 from experiment.phase16.protocol.specgr_contract_smoke import (  # noqa: E402
@@ -69,11 +117,114 @@ def sha256(path: Path) -> str:
 
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_name(path.name + ".tmp")
+    # ProgressReporter has a heartbeat thread and a foreground writer.  A
+    # fixed .tmp name lets the two atomic replacements steal one another's
+    # temporary file, which is exactly what happened near the end of f1.
+    temporary = path.with_name(
+        f"{path.name}.tmp.{os.getpid()}.{threading.get_ident()}"
+    )
     temporary.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     temporary.replace(path)
+
+
+def execution_identity_payload(
+    config_path: Path, loaded_config_sha256: str
+) -> dict[str, Any]:
+    resolved_config = config_path.resolve()
+    if sha256(resolved_config) != loaded_config_sha256:
+        raise ValueError("S16-3 config changed between load and identity capture")
+    return {
+        "captured_at_utc": utc_now(),
+        "config_path": str(resolved_config.relative_to(ROOT)),
+        "config_sha256": loaded_config_sha256,
+        "code_sha256": {
+            path: sha256(ROOT / path) for path in EXECUTED_CODE_PATHS
+        },
+    }
+
+
+def capture_execution_identity(
+    config_path: Path, loaded_config_sha256: str, output: Path
+) -> tuple[dict[str, Any], str]:
+    """Freeze the shared-worktree bytes before CPU preflight and GPU work."""
+
+    identity = execution_identity_payload(config_path, loaded_config_sha256)
+    identity_path = output / "execution_identity.json"
+    write_json(identity_path, identity)
+    return identity, sha256(identity_path)
+
+
+def verify_execution_identity(
+    config_path: Path, loaded_config_sha256: str, identity_path: Path
+) -> tuple[dict[str, Any], str]:
+    if not identity_path.is_file() or identity_path.is_symlink():
+        raise ValueError("Missing regular preflight execution identity")
+    identity = json.loads(identity_path.read_text(encoding="utf-8"))
+    current = execution_identity_payload(config_path, loaded_config_sha256)
+    for key in ("config_path", "config_sha256", "code_sha256"):
+        if identity.get(key) != current[key]:
+            raise ValueError(f"Execution identity drift after CPU preflight: {key}")
+    if not isinstance(identity.get("captured_at_utc"), str):
+        raise ValueError("Execution identity lacks its capture time")
+    return identity, sha256(identity_path)
+
+
+def verify_s1_resolved_inputs(
+    config: Mapping[str, Any], inputs: Any, counts: Mapping[str, int], max_history: int
+) -> dict[str, Any]:
+    """Prove that S16-1 resolution selected exactly the S16-3 frozen files."""
+
+    resolved = {
+        "train_sequences": inputs.train_sequences,
+        "split_manifest": inputs.split_manifest,
+        "retained_warm_items": inputs.retained_warm_items,
+        "pseudo_cold_items": inputs.pseudo_cold_items,
+        "cold_items": inputs.real_cold_items,
+        "lexical_paths": inputs.lexical_paths,
+        "metadata": inputs.metadata,
+        "content_embeddings": inputs.content_embeddings,
+    }
+    s1_sha_labels = {
+        "train_sequences": "train_sequences",
+        "retained_warm_items": "retained_warm_items",
+        "pseudo_cold_items": "pseudo_cold_items",
+        "cold_items": "real_cold_items",
+        "lexical_paths": "lexical_paths",
+        "metadata": "metadata",
+        "content_embeddings": "content_embeddings",
+    }
+    files: dict[str, dict[str, str]] = {}
+    for label, path in resolved.items():
+        if path is None:
+            raise ValueError(f"S16-1 did not resolve required S16-3 input: {label}")
+        relative = repo_relative_path(path)
+        declared = config["inputs"][label]
+        actual_sha = sha256(path)
+        if relative != declared["path"] or actual_sha != declared["sha256"]:
+            raise ValueError(f"S16-1/S16-3 resolved input mismatch: {label}")
+        s1_label = s1_sha_labels.get(label)
+        if s1_label is not None and inputs.expected_sha256.get(s1_label) != actual_sha:
+            raise ValueError(f"S16-1 manifest SHA disagrees with S16-3: {label}")
+        files[label] = {"path": relative, "sha256": actual_sha}
+    expected_counts = {
+        "targets": int(config["frozen_workload"]["edit_targets"]),
+        "contexts": int(config["frozen_workload"]["contexts"]),
+        "requests": int(config["frozen_workload"]["prefix_next_token_requests"]),
+    }
+    if dict(counts) != expected_counts:
+        raise ValueError("S16-1/S16-3 full-universe counts disagree")
+    return {
+        "preflight_config": {
+            "path": config["inputs"]["s1_preflight_config"]["path"],
+            "sha256": config["inputs"]["s1_preflight_config"]["sha256"],
+        },
+        "files": files,
+        "counts": expected_counts,
+        "maximum_history_items": int(max_history),
+        "pass": True,
+    }
 
 
 class ProgressReporter:
@@ -166,6 +317,39 @@ def encode_catalog_paths(
     if len(set(encoded.values())) != len(encoded):
         raise ValueError("Encoded lexical catalog has a collision")
     return encoded
+
+
+def load_frozen_tokenizer(config: Mapping[str, Any]):
+    spec = config["tokenizer"]
+    tokenizer = AutoTokenizer.from_pretrained(
+        spec["name"],
+        revision=spec["revision"],
+        local_files_only=spec["local_files_only"],
+    )
+    vocabulary_sha = hashlib.sha256(
+        json.dumps(
+            tokenizer.get_vocab(), sort_keys=True, separators=(",", ":")
+        ).encode()
+    ).hexdigest()
+    vocab_file = Path(tokenizer.vocab_file)
+    if (
+        tokenizer.__class__.__name__ != spec["class"]
+        or vocabulary_sha != spec["vocabulary_sha256"]
+        or not vocab_file.is_file()
+        or sha256(vocab_file) != spec["sentencepiece_sha256"]
+    ):
+        raise ValueError("Frozen t5-small tokenizer provenance drift")
+    return tokenizer, {
+        "name": spec["name"],
+        "revision": spec["revision"],
+        "class": tokenizer.__class__.__name__,
+        "vocabulary_sha256": vocabulary_sha,
+        "sentencepiece_sha256": sha256(vocab_file),
+        "vocab_size": int(tokenizer.vocab_size),
+        "eos_token_id": int(tokenizer.eos_token_id),
+        "pad_token_id": int(tokenizer.pad_token_id),
+        "unk_token_id": int(tokenizer.unk_token_id),
+    }
 
 
 def clear_cuda(device: torch.device) -> None:
@@ -382,6 +566,7 @@ def request_subset_sha256(
             "cold_item": request.cold_item,
             "source_warm_item": request.source_warm_item,
             "context_items": list(request.context_items),
+            "full_target_path": list(request.full_target_path),
             "prefix_token_ids": list(request.prefix_token_ids),
             "target_token_id": request.target_token_id,
             "legal_token_ids": list(request.legal_token_ids),
@@ -392,6 +577,35 @@ def request_subset_sha256(
     return hashlib.sha256(
         json.dumps(rows, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
     ).hexdigest()
+
+
+def request_subset_manifest(
+    requests_by_position: Mapping[int, Sequence[FullTargetRequest]],
+) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for position in sorted(requests_by_position):
+        for request in requests_by_position[position]:
+            identity = {
+                "position": position,
+                "cold_item": request.cold_item,
+                "source_warm_item": request.source_warm_item,
+                "context_items": list(request.context_items),
+                "full_target_path": list(request.full_target_path),
+                "prefix_token_ids": list(request.prefix_token_ids),
+                "target_token_id": request.target_token_id,
+                "legal_token_ids": list(request.legal_token_ids),
+            }
+            rows.append(
+                {
+                    **identity,
+                    "row_id": hashlib.sha256(
+                        json.dumps(
+                            identity, sort_keys=True, separators=(",", ":")
+                        ).encode()
+                    ).hexdigest(),
+                }
+            )
+    return rows
 
 
 def run_z_candidate(
@@ -454,17 +668,18 @@ def run_z_candidate(
         )
         if len(runtime.forward_seconds_by_batch) != len(result.lifecycle_check_steps_by_batch):
             raise RuntimeError("Observed z runtime batches do not align with lifecycle traces")
-        for batch_index, (times, batch_count, trace, lrs) in enumerate(
+        for batch_index, (times, step_times, batch_count, trace, lrs) in enumerate(
             zip(
                 runtime.forward_seconds_by_batch,
+                result.step_elapsed_seconds_by_batch,
                 runtime.request_count_by_batch,
                 result.lifecycle_check_steps_by_batch,
                 result.scheduler_lrs_by_batch,
             )
         ):
-            if len(times) < 10:
+            if len(times) < 10 or len(step_times) < 10:
                 raise RuntimeError("Official lifecycle did not execute its first ten steps")
-            first_ten_seconds += sum(times[:10])
+            first_ten_seconds += sum(step_times[:10])
             first_ten_request_steps += batch_count * 10
             batch_records.append(
                 {
@@ -473,11 +688,14 @@ def run_z_candidate(
                     "request_count": batch_count,
                     "forward_calls": len(times),
                     "first_ten_forward_seconds": times[:10],
+                    "first_ten_objective_step_seconds": list(step_times[:10]),
                     "lifecycle_check_steps": list(trace),
                     "scheduler_step_count": len(lrs),
                     "scheduler_lr_first": lrs[0] if lrs else None,
                     "scheduler_lr_last": lrs[-1] if lrs else None,
                     "observed_step_29": tuple(trace) == expected_trace,
+                    "official_lifecycle_prefix": tuple(trace)
+                    == expected_trace[: len(trace)],
                 }
             )
         total_valid += result.valid_count
@@ -510,8 +728,10 @@ def run_z_candidate(
             "identical_fixed_request_count": sum(len(rows) for rows in fixed_requests.values())
             == expected_request_count,
             "full_30_step_budget_configured": config["frozen_workload"]["z_steps"] == 30,
-            "full_30_step_path_observed": bool(batch_records)
-            and all(row["observed_step_29"] for row in batch_records),
+            "official_lifecycle_prefix": bool(batch_records)
+            and all(row["official_lifecycle_prefix"] for row in batch_records),
+            "first_ten_outcome_independent_objective_timing": bool(batch_records)
+            and all(len(row["first_ten_objective_step_seconds"]) == 10 for row in batch_records),
             "scheduler_finite": bool(batch_records)
             and all(
                 row["scheduler_step_count"] > 0
@@ -527,7 +747,11 @@ def run_z_candidate(
     }
     payload["eligible"] = (
         all(payload["semantic_checks"].values())
-        and peak_reserved <= config["sweep"]["maximum_eligible_peak_reserved_mib"]
+        and peak_reserved
+        <= config["sweep"].get(
+            "maximum_candidate_peak_reserved_mib",
+            config["sweep"]["maximum_eligible_peak_reserved_mib"],
+        )
     )
     del model
     clear_cuda(device)
@@ -546,6 +770,68 @@ def choose_candidate(rows: Sequence[Mapping[str, Any]]) -> Mapping[str, Any]:
         >= 0.98 * best["steady_request_steps_per_second"]
     ]
     return min(near, key=lambda row: (row["microbatch"], row["peak_reserved_mib"]))
+
+
+def solve_status_label(
+    position_metrics: Mapping[str, Mapping[str, Any]],
+    aggregated: Mapping[str, torch.Tensor],
+) -> str:
+    """Label solve coverage without conflating valid-z rows with solved updates."""
+
+    if aggregated:
+        return "SOLVE_AND_AGGREGATE_EXERCISED"
+    if any(int(row.get("valid_z_count", 0)) > 0 for row in position_metrics.values()):
+        return "VALID_Z_PRESENT_BUT_NO_POSITION_SOLVE_COMPLETED"
+    return "NO_VALID_Z_IN_PREREGISTERED_RESOURCE_SUBSET"
+
+
+def independent_full_lifecycle_probe(
+    request: FullTargetRequest, *, vector_dimension: int
+) -> dict[str, Any]:
+    """Exercise step 29 independently of real z success and batch selection."""
+
+    vocabulary = max(
+        max(request.legal_token_ids), request.target_token_id
+    ) + 2
+    competitor = next(
+        token for token in range(vocabulary) if token != request.target_token_id
+    )
+    calls = 0
+
+    def forward(batch, deltas, active):
+        nonlocal calls
+        calls += 1
+        logits = deltas[:, :1] * 0.0 + torch.zeros(len(batch), vocabulary)
+        logits[:, request.target_token_id] = 1.0
+        logits[:, competitor] = 2.0
+        return ZForwardBatch(logits=logits, target_inits=torch.ones_like(deltas))
+
+    result = optimize_z_vectors(
+        requests=[request],
+        vector_dimension=vector_dimension,
+        forward_batch=forward,
+        config=ZOptimizationConfig(
+            v_lr=0.5,
+            v_num_grad_steps=30,
+            v_weight_decay=0.2,
+            z_vector_max=8000.0,
+            batch_size=1,
+        ),
+        cache_hits={},
+        device="cpu",
+    )
+    expected = (10, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29)
+    return {
+        "scope": "synthetic_failure_row_not_used_for_candidate_selection_or_runtime",
+        "forward_calls": calls,
+        "lifecycle_check_steps": list(result.lifecycle_check_steps_by_batch[0]),
+        "scheduler_step_count": len(result.scheduler_lrs_by_batch[0]),
+        "failed_z_count": result.failed_count,
+        "pass": calls == 30
+        and result.lifecycle_check_steps_by_batch == (expected,)
+        and len(result.scheduler_lrs_by_batch[0]) == 30
+        and result.failed_count == 1,
+    }
 
 
 def select_covariance_transitions(
@@ -595,12 +881,19 @@ def covariance_resource_probe(
     tokenizer,
     device: torch.device,
     batch_size: int,
-) -> tuple[Any, float, dict[int, torch.Tensor]]:
+    progress_callback: Callable[[int, Mapping[int, float]], None] | None = None,
+) -> tuple[Any, float, dict[int, torch.Tensor], dict[int, float]]:
     position_layers = official_position_to_layer(range(6))
-    values: dict[int, list[torch.Tensor]] = {position: [] for position in range(6)}
-    started = time.perf_counter()
+    activations: dict[int, torch.Tensor] = {}
+    covariance_by_position: dict[int, torch.Tensor] = {}
+    available_rows_by_position: dict[int, int] = {}
+    used_rows_by_position: dict[int, int] = {}
+    elapsed_by_position: dict[int, float] = {}
     for position, rows in sorted(rows_by_position.items()):
+        torch.cuda.synchronize(device)
+        position_started = time.perf_counter()
         layer = position_layers[position]
+        captured_chunks: list[torch.Tensor] = []
         for start in range(0, len(rows), batch_size):
             batch_rows = list(rows[start : start + batch_size])
             context, _ = tokenize_passage_batch(
@@ -618,13 +911,26 @@ def covariance_resource_probe(
                 handle.remove()
             if len(captured) != 1 or captured[0].shape[0] != len(batch_rows):
                 raise RuntimeError("Covariance hook did not capture one aligned batch")
-            values[position].append(captured[0][:, position, :])
-    activations = {position: torch.cat(chunks, dim=0) for position, chunks in values.items()}
-    result = collect_covariance(
-        activations,
+            captured_chunks.append(captured[0][:, position, :])
+        position_activations = torch.cat(captured_chunks, dim=0)
+        position_result = collect_covariance(
+            {position: position_activations}, mom2_n_samples=len(rows)
+        )
+        torch.cuda.synchronize(device)
+        elapsed_by_position[position] = time.perf_counter() - position_started
+        activations[position] = position_activations
+        covariance_by_position.update(position_result.covariance_by_position)
+        available_rows_by_position.update(position_result.available_rows_by_position)
+        used_rows_by_position.update(position_result.used_rows_by_position)
+        if progress_callback is not None:
+            progress_callback(position, dict(elapsed_by_position))
+    result = PositionCovarianceResult(
+        covariance_by_position=covariance_by_position,
+        available_rows_by_position=available_rows_by_position,
+        used_rows_by_position=used_rows_by_position,
         mom2_n_samples=max(len(rows) for rows in rows_by_position.values()),
     )
-    return result, time.perf_counter() - started, activations
+    return result, sum(elapsed_by_position.values()), activations, elapsed_by_position
 
 
 def covariance_convergence_diagnostics(
@@ -642,8 +948,11 @@ def covariance_convergence_diagnostics(
         reference_norm = float(torch.linalg.matrix_norm(reference, ord="fro"))
         position_rows: list[dict[str, float | int]] = []
         for count in checkpoints:
-            moment = rows[:count].float().T @ rows[:count].float() / float(count)
-            drift = float(torch.linalg.matrix_norm(moment - reference, ord="fro"))
+            if count == rows.shape[0]:
+                drift = 0.0
+            else:
+                moment = rows[:count].float().T @ rows[:count].float() / float(count)
+                drift = float(torch.linalg.matrix_norm(moment - reference, ord="fro"))
             position_rows.append(
                 {
                     "rows": count,
@@ -653,6 +962,23 @@ def covariance_convergence_diagnostics(
             )
         diagnostics[str(position)] = position_rows
     return diagnostics
+
+
+def convergence_row_equivalents(
+    checkpoints_by_position: Mapping[int, Sequence[int | str]],
+    available_rows_by_position: Mapping[int, int],
+) -> int:
+    """Count row-moment work across all requested convergence checkpoints."""
+
+    total = 0
+    for position, checkpoints in checkpoints_by_position.items():
+        available = int(available_rows_by_position[int(position)])
+        effective = {
+            available if checkpoint == "full" else min(int(checkpoint), available)
+            for checkpoint in checkpoints
+        }
+        total += available + sum(count for count in effective if count < available)
+    return total
 
 
 def key_forward_factory(
@@ -676,6 +1002,337 @@ def key_forward_factory(
     return run
 
 
+def probe_final_z_logits(
+    *,
+    model,
+    requests: Sequence[FullTargetRequest],
+    result,
+    metadata: Mapping[str, str],
+    lexical_paths: Mapping[str, Sequence[str]],
+    tokenizer,
+    layer: int,
+    device: torch.device,
+    batch_size: int,
+) -> torch.Tensor:
+    """Re-probe satisfied z states and failed terminal deltas explicitly."""
+
+    diagnostic_deltas = [
+        result.delta_vectors[index]
+        if result.delta_vectors[index] is not None
+        else result.terminal_delta_vectors[index]
+        for index in range(len(requests))
+    ]
+    if any(value is None for value in diagnostic_deltas):
+        raise RuntimeError("Final z diagnostic lost a request delta")
+    logits: list[torch.Tensor] = []
+    for start in range(0, len(requests), batch_size):
+        batch = tuple(requests[start : start + batch_size])
+        deltas = torch.stack(
+            [value for value in diagnostic_deltas[start : start + batch_size] if value is not None]
+        ).to(device)
+        runtime = RealGRAMZRuntime(
+            model=model,
+            requests=batch,
+            metadata=metadata,
+            lexical_paths=lexical_paths,
+            tokenizer=tokenizer,
+            layer=layer,
+            device=device,
+        )
+        observation = runtime(batch, deltas, tuple(range(len(batch))))
+        logits.append(observation.logits.detach().cpu())
+        del runtime
+    return torch.cat(logits, dim=0)
+
+
+def trigger_parity_contract_probe(
+    *,
+    model,
+    requests_by_position: Mapping[int, Sequence[FullTargetRequest]],
+    catalog_ids: Mapping[str, Sequence[int]],
+    metadata: Mapping[str, str],
+    lexical_paths: Mapping[str, Sequence[str]],
+    tokenizer,
+    device: torch.device,
+) -> dict[str, Any]:
+    """Exercise every trigger position plus EOS/pad/dead inactive rows."""
+
+    position_to_layer = official_position_to_layer(range(6))
+    parameters = dict(model.named_parameters())
+    synthetic_aggregates: dict[str, torch.Tensor] = {}
+    for layer in sorted(set(position_to_layer.values())):
+        name = edited_parameter_name(layer)
+        delta = torch.zeros_like(parameters[name], device=device)
+        diagonal = min(delta.shape)
+        indices = torch.arange(diagonal)
+        delta[indices, indices] = 0.1
+        synthetic_aggregates[name] = delta
+    bundles = build_one_one_position_bundles(
+        position_to_layer=position_to_layer,
+        aggregated_updates=synthetic_aggregates,
+    )
+    if bundles[0][edited_parameter_name(0)] is not bundles[4][edited_parameter_name(0)]:
+        raise RuntimeError("Shared-layer trigger positions lost their aggregate tensor identity")
+    if bundles[1][edited_parameter_name(1)] is not bundles[5][edited_parameter_name(1)]:
+        raise RuntimeError("Shared-layer trigger positions lost their aggregate tensor identity")
+    snapshot = snapshot_base_parameters(model, sorted(synthetic_aggregates))
+
+    def logits_for(request: FullTargetRequest, decoder: torch.Tensor) -> torch.Tensor:
+        context, _ = tokenize_passage_batch(
+            request_rows([request]), metadata, lexical_paths, tokenizer, device
+        )
+        with torch.no_grad():
+            return model(
+                input_ids=context["input_ids"],
+                attention_mask=context["attention_mask"],
+                decoder_input_ids=decoder,
+                use_cache=False,
+                return_dict=True,
+            ).logits.detach().cpu()
+
+    position_cases = {
+        position: (
+            requests_by_position[position][0],
+            decoder_ids(
+                [requests_by_position[position][0]],
+                int(model.config.decoder_start_token_id),
+                device,
+            ),
+        )
+        for position in range(6)
+    }
+    reference_request = requests_by_position[5][0]
+    start = int(model.config.decoder_start_token_id)
+    root_children = {int(path[0]) for path in catalog_ids.values()}
+    dead_token = next(
+        token
+        for token in range(int(model.config.vocab_size))
+        if token not in root_children
+        and token not in {int(tokenizer.eos_token_id), int(tokenizer.pad_token_id)}
+    )
+    inactive_cases = {
+        "complete_path": torch.tensor(
+            [(start,) + tuple(reference_request.full_target_path)],
+            dtype=torch.long,
+            device=device,
+        ),
+        "eos": torch.tensor(
+            [[start, int(tokenizer.eos_token_id)]], dtype=torch.long, device=device
+        ),
+        "padding": torch.tensor(
+            [[start, int(tokenizer.pad_token_id)]], dtype=torch.long, device=device
+        ),
+        "dead_prefix": torch.tensor([[start, dead_token]], dtype=torch.long, device=device),
+    }
+    baseline_positions = {
+        position: logits_for(request, decoder)
+        for position, (request, decoder) in position_cases.items()
+    }
+    baseline_inactive = {
+        name: logits_for(reference_request, decoder)
+        for name, decoder in inactive_cases.items()
+    }
+    with OneOneGenerationDeltaContext(
+        model=model,
+        deltas_by_position=bundles,
+        position_to_layer=position_to_layer,
+        encoded_catalog_paths=catalog_ids.values(),
+        decoder_start_token_id=start,
+        eos_token_id=int(tokenizer.eos_token_id),
+        pad_token_id=int(tokenizer.pad_token_id),
+    ) as context:
+        edited_positions: dict[int, torch.Tensor] = {}
+        for position, (request, decoder) in position_cases.items():
+            model.prepare_inputs_for_generation(decoder)
+            edited_positions[position] = logits_for(request, decoder)
+        edited_inactive: dict[str, torch.Tensor] = {}
+        for name, decoder in inactive_cases.items():
+            model.prepare_inputs_for_generation(decoder)
+            edited_inactive[name] = logits_for(reference_request, decoder)
+        applied_rows = dict(context.applied_rows_by_position)
+        dead_rows = int(context.dead_prefix_rows)
+    restored_positions = {
+        position: logits_for(request, decoder)
+        for position, (request, decoder) in position_cases.items()
+    }
+    restored_inactive = {
+        name: logits_for(reference_request, decoder)
+        for name, decoder in inactive_cases.items()
+    }
+    parameter_parity = assert_base_parameter_parity(model, snapshot)
+    edited_changed = {
+        str(position): not torch.equal(
+            baseline_positions[position], edited_positions[position]
+        )
+        for position in range(6)
+    }
+    inactive_exact = {
+        name: torch.equal(baseline_inactive[name], edited_inactive[name])
+        for name in inactive_cases
+    }
+    restored_exact = {
+        str(position): torch.equal(
+            baseline_positions[position], restored_positions[position]
+        )
+        for position in range(6)
+    }
+    restored_inactive_exact = {
+        name: torch.equal(baseline_inactive[name], restored_inactive[name])
+        for name in inactive_cases
+    }
+    passed = (
+        all(edited_changed.values())
+        and all(inactive_exact.values())
+        and all(restored_exact.values())
+        and all(restored_inactive_exact.values())
+        and all(applied_rows[position] >= 1 for position in range(6))
+        and dead_rows >= 1
+        and parameter_parity.get("exact") is True
+    )
+    return {
+        "positions": list(range(6)),
+        "shared_aggregate_identity": {"0_4": True, "1_5": True},
+        "edited_output_changed": edited_changed,
+        "inactive_output_exact": inactive_exact,
+        "restored_output_exact": restored_exact,
+        "restored_inactive_output_exact": restored_inactive_exact,
+        "applied_rows_by_position": {str(key): value for key, value in applied_rows.items()},
+        "dead_prefix_rows": dead_rows,
+        "base_parameter_parity": parameter_parity,
+        "pass": passed,
+    }
+
+
+def generation_resource_probe(
+    *,
+    model,
+    rows: Sequence[dict[str, Any]],
+    catalog_ids: Mapping[str, Sequence[int]],
+    metadata: Mapping[str, str],
+    lexical_paths: Mapping[str, Sequence[str]],
+    tokenizer,
+    device: torch.device,
+    beam_size: int,
+) -> dict[str, Any]:
+    """Time the strict base+edited beam path used by formal admission."""
+
+    if not rows or beam_size < 1:
+        raise ValueError("Generation resource probe requires rows and a beam budget")
+    position_to_layer = official_position_to_layer(range(6))
+    parameters = dict(model.named_parameters())
+    aggregates: dict[str, torch.Tensor] = {}
+    for layer in sorted(set(position_to_layer.values())):
+        name = edited_parameter_name(layer)
+        delta = torch.zeros_like(parameters[name], device=device)
+        diagonal = min(delta.shape)
+        indices = torch.arange(diagonal)
+        delta[indices, indices] = 0.1
+        aggregates[name] = delta
+    bundles = build_one_one_position_bundles(
+        position_to_layer=position_to_layer, aggregated_updates=aggregates
+    )
+    complete_paths = {tuple(map(int, path)): item for item, path in catalog_ids.items()}
+    if len(complete_paths) != len(catalog_ids):
+        raise ValueError("Generation resource catalog paths collide")
+    children: dict[tuple[int, ...], set[int]] = {}
+    eos = int(tokenizer.eos_token_id)
+    pad = int(tokenizer.pad_token_id)
+    for path in complete_paths:
+        for depth, token in enumerate((*path, eos)):
+            children.setdefault(path[:depth], set()).add(int(token))
+
+    def allowed(_batch_id: int, input_ids: torch.Tensor) -> list[int]:
+        prefix = tuple(int(value) for value in input_ids.detach().cpu().tolist()[1:])
+        return sorted(children.get(prefix, ()))
+
+    def run_one(row: dict[str, Any]) -> tuple[float, list[tuple[int, ...]], bool]:
+        torch.cuda.synchronize(device)
+        started = time.perf_counter()
+        context, _ = tokenize_passage_batch(
+            [row], metadata, lexical_paths, tokenizer, device
+        )
+        generated = model.generate(
+            input_ids=context["input_ids"],
+            attention_mask=context["attention_mask"],
+            max_length=max(map(len, complete_paths)) + 2,
+            num_beams=beam_size,
+            num_return_sequences=beam_size,
+            prefix_allowed_tokens_fn=allowed,
+            output_scores=True,
+            return_dict_in_generate=True,
+            early_stopping=True,
+        )
+        torch.cuda.synchronize(device)
+        elapsed = time.perf_counter() - started
+        normalized: list[tuple[int, ...]] = []
+        for raw in generated.sequences.detach().cpu().tolist():
+            suffix: list[int] = []
+            for token in raw[1:]:
+                if token == eos:
+                    break
+                if token != pad:
+                    suffix.append(int(token))
+            normalized.append(tuple(suffix))
+        finite = bool(torch.isfinite(generated.sequences_scores).all().item())
+        if (
+            len(normalized) != beam_size
+            or len(set(normalized)) != beam_size
+            or any(path not in complete_paths for path in normalized)
+        ):
+            raise RuntimeError("Strict admission beam did not yield a unique catalog ranking")
+        return elapsed, normalized, finite
+
+    base_seconds: list[float] = []
+    edited_seconds: list[float] = []
+    digest_rows: list[dict[str, Any]] = []
+    for index, row in enumerate(rows):
+        elapsed, ranking, finite = run_one(row)
+        base_seconds.append(elapsed)
+        digest_rows.append(
+            {"event": index, "arm": "base", "ranking": ranking, "finite": finite}
+        )
+    with OneOneGenerationDeltaContext(
+        model=model,
+        deltas_by_position=bundles,
+        position_to_layer=position_to_layer,
+        encoded_catalog_paths=complete_paths,
+        decoder_start_token_id=int(model.config.decoder_start_token_id),
+        eos_token_id=eos,
+        pad_token_id=pad,
+    ) as context:
+        for index, row in enumerate(rows):
+            elapsed, ranking, finite = run_one(row)
+            edited_seconds.append(elapsed)
+            digest_rows.append(
+                {"event": index, "arm": "synthetic_edit", "ranking": ranking, "finite": finite}
+            )
+        applied_rows = dict(context.applied_rows_by_position)
+        dead_rows = int(context.dead_prefix_rows)
+    digest = hashlib.sha256(
+        json.dumps(digest_rows, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+    all_finite = all(row["finite"] for row in digest_rows)
+    return {
+        "events": len(rows),
+        "beam_size": beam_size,
+        "timer_scope": "tokenization_context_transfer_and_generation",
+        "catalog_items": len(complete_paths),
+        "base_elapsed_seconds": sum(base_seconds),
+        "edited_elapsed_seconds": sum(edited_seconds),
+        "base_seconds_per_event": sum(base_seconds) / len(rows),
+        "edited_seconds_per_event": sum(edited_seconds) / len(rows),
+        "base_plus_edited_seconds_per_event": (
+            sum(base_seconds) + sum(edited_seconds)
+        )
+        / len(rows),
+        "prediction_digest_sha256": digest,
+        "applied_rows_by_position": {str(key): value for key, value in applied_rows.items()},
+        "dead_prefix_rows": dead_rows,
+        "all_finite": all_finite,
+        "pass": all_finite and sum(applied_rows.values()) > 0,
+    }
+
+
 def ceil_to_1024(value: float) -> int:
     return int(math.ceil(value / 1024.0) * 1024)
 
@@ -683,17 +1340,51 @@ def ceil_to_1024(value: float) -> int:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
-    parser.add_argument("--physical-gpu", type=int, required=True)
-    parser.add_argument("--admission-free-mib", type=int, required=True)
-    parser.add_argument("--admission-util-percent", type=int, required=True)
+    parser.add_argument("--capture-identity-only", action="store_true")
+    parser.add_argument("--physical-gpu", type=int)
+    parser.add_argument("--admission-free-mib", type=int)
+    parser.add_argument("--admission-util-percent", type=int)
+    parser.add_argument("--worker-hard-timeout-seconds", type=int)
+    parser.add_argument("--expected-peak-mib", type=int)
     args = parser.parse_args()
-    config = json.loads(args.config.read_text(encoding="utf-8"))
-    if args.physical_gpu in config["resources"]["excluded_physical_gpus"]:
-        raise SystemExit("Refusing an explicitly excluded/reserved physical GPU")
+    config_bytes = args.config.read_bytes()
+    loaded_config_sha256 = hashlib.sha256(config_bytes).hexdigest()
+    config = json.loads(config_bytes)
+    gridge_method = (
+        validate_gridge_method_config(config) if "method" in config else None
+    )
+    ridge_enabled = gridge_method is not None
     output = ROOT / config["output_dir"]
     raw_path = output / "resource_sweep_summary.json"
+    identity_path = output / "execution_identity.json"
+    if args.capture_identity_only:
+        if raw_path.exists() or identity_path.exists():
+            raise SystemExit("Refusing to overwrite an existing S16-3 execution attempt")
+        output.mkdir(parents=True, exist_ok=True)
+        capture_execution_identity(args.config, loaded_config_sha256, output)
+        print("PASS_S16_3_EXECUTION_IDENTITY_CAPTURE")
+        return 0
+    if None in (
+        args.physical_gpu,
+        args.admission_free_mib,
+        args.admission_util_percent,
+        args.worker_hard_timeout_seconds,
+        args.expected_peak_mib,
+    ):
+        raise SystemExit("GPU workload arguments are required outside identity capture")
+    if args.physical_gpu in config["resources"]["excluded_physical_gpus"]:
+        raise SystemExit("Refusing an explicitly excluded/reserved physical GPU")
+    if (
+        config["resources"].get("fixed_physical_gpu") is not None
+        and int(args.physical_gpu)
+        != int(config["resources"]["fixed_physical_gpu"])
+    ):
+        raise SystemExit("Selected physical GPU disagrees with the fixed resource contract")
     if raw_path.exists():
         raise SystemExit("Refusing to overwrite an existing S16-3 raw resource summary")
+    execution_identity, execution_identity_sha = verify_execution_identity(
+        args.config, loaded_config_sha256, identity_path
+    )
     reporter = ProgressReporter(output / "progress.json")
     reporter.start()
     started = time.perf_counter()
@@ -703,14 +1394,20 @@ def main() -> int:
         opened = verify_inputs(config)
         opened.extend(
             [
+                str(args.config),
                 "experiment/phase16/configs/stage16_s1_data_resource_preflight.json",
                 config["inputs"]["official_genrecedit"]["path"],
+                f"hf://{config['tokenizer']['name']}@{config['tokenizer']['revision']}",
             ]
         )
         opened = sorted(set(opened))
         reporter.set("context_build", 0, 1, "full_target_dataset")
+        context_build_started = time.perf_counter()
         inputs, counts, max_history = resolve_stage16_toys_inputs(
-            ROOT / "experiment/phase16/configs/stage16_s1_data_resource_preflight.json"
+            ROOT / config["inputs"]["s1_preflight_config"]["path"]
+        )
+        s1_resolved_input_contract = verify_s1_resolved_inputs(
+            config, inputs, counts, max_history
         )
         dataset_root = output / "request_dataset"
         data_manifest = build_sharded_dataset(
@@ -725,13 +1422,20 @@ def main() -> int:
             required_covariance_position_counts={0: 27659, 1: 27659, 2: 27659, 3: 27659, 4: 27659, 5: 2036},
             minimum_long_path_resource_rows=config["sweep"]["covariance_long_path_minimum"],
         )
+        context_build_seconds = time.perf_counter() - context_build_started
         reporter.set("request_manifest", 1, 1, "full_target_dataset")
 
-        free_at_worker = gpu_readmission(
-            args.physical_gpu, config["resources"]["minimum_free_mib"]
-        )
+        try:
+            free_at_worker = gpu_readmission(
+                args.physical_gpu, config["resources"]["minimum_free_mib"]
+            )
+        except RuntimeError as error:
+            if str(error).startswith("GPU_READMISSION_FAILED"):
+                print(str(error))
+                return 9
+            raise
         device = torch.device("cuda:0")
-        tokenizer = AutoTokenizer.from_pretrained("t5-small", local_files_only=True)
+        tokenizer, tokenizer_provenance = load_frozen_tokenizer(config)
         lexical_paths = read_lexical_paths(ROOT / config["inputs"]["lexical_paths"]["path"])
         metadata = read_metadata(ROOT / config["inputs"]["metadata"]["path"])
         catalog_ids = encode_catalog_paths(tokenizer, lexical_paths)
@@ -742,7 +1446,21 @@ def main() -> int:
         }
         contexts = read_contexts(dataset_root, data_manifest)
         long_cold = sorted(item for item in cold_items if len(catalog_ids[item]) > 5)
-        sample_items = long_cold[: max(config["sweep"]["candidate_request_microbatches"])]
+        configured_position_counts = {
+            int(position): int(count)
+            for position, count in config["sweep"].get(
+                "position_contract_requests_by_position",
+                {
+                    str(position): config["sweep"]["candidate_requests_per_position"]
+                    for position in range(6)
+                },
+            ).items()
+        }
+        resource_pool_items = max(
+            int(config["sweep"]["candidate_requests_per_position"]),
+            max(configured_position_counts.values()),
+        )
+        sample_items = long_cold[:resource_pool_items]
         sample_requests = build_full_target_requests(
             catalog_paths=catalog_ids,
             cold_paths={item: catalog_ids[item] for item in sample_items},
@@ -750,16 +1468,51 @@ def main() -> int:
             eos_token_id=int(tokenizer.eos_token_id),
             pad_token_id=int(tokenizer.pad_token_id),
         )
-        requests_by_position = {
-            position: [row for row in sample_requests if row.position == position]
-            for position in range(6)
+        requests_by_position: dict[int, list[FullTargetRequest]] = {}
+        for position in range(6):
+            selected_rows: list[FullTargetRequest] = []
+            seen_items: set[str] = set()
+            for row in sample_requests:
+                if row.position == position and row.cold_item not in seen_items:
+                    selected_rows.append(row)
+                    seen_items.add(row.cold_item)
+            requests_by_position[position] = selected_rows
+        candidate_requests_by_position = {
+            position: rows[: int(config["sweep"]["candidate_requests_per_position"])]
+            for position, rows in requests_by_position.items()
         }
+        candidate_request_manifest = request_subset_manifest(
+            candidate_requests_by_position
+        )
+        position_contract_requests_by_position = {
+            position: rows[: configured_position_counts[position]]
+            for position, rows in requests_by_position.items()
+        }
+        position_contract_request_manifest = request_subset_manifest(
+            position_contract_requests_by_position
+        )
+        position_contract_subset_sha256 = request_subset_sha256(
+            position_contract_requests_by_position
+        )
+        if (
+            len(candidate_request_manifest)
+            != config["sweep"]["candidate_total_cache_miss_requests"]
+            or any(
+                len({row.cold_item for row in candidate_requests_by_position[position]})
+                != config["sweep"]["candidate_requests_per_position"]
+                for position in range(6)
+            )
+        ):
+            raise RuntimeError("Candidate request subset lost its distinct-item contract")
+        lifecycle_probe = independent_full_lifecycle_probe(
+            candidate_requests_by_position[0][0], vector_dimension=2
+        )
         candidates: list[dict[str, Any]] = []
         reporter.set("z_batch_sweep", 0, len(config["sweep"]["candidate_request_microbatches"]), "microbatch_candidates")
         for index, size in enumerate(config["sweep"]["candidate_request_microbatches"], 1):
             run = run_z_candidate(
                 size=size,
-                requests_by_position=requests_by_position,
+                requests_by_position=candidate_requests_by_position,
                 config=config,
                 metadata=metadata,
                 lexical_paths=lexical_paths,
@@ -769,6 +1522,18 @@ def main() -> int:
             candidates.append(run)
             reporter.set("z_batch_sweep", index, len(config["sweep"]["candidate_request_microbatches"]), "microbatch_candidates")
         selected = choose_candidate(candidates)
+        stage_checkpoint_path = output / "resource_stage_checkpoint.json"
+        write_json(
+            stage_checkpoint_path,
+            {
+                "attempt_id": config["attempt_id"],
+                "stage": "z_batch_sweep_complete",
+                "execution_identity_sha256": execution_identity_sha,
+                "candidates": candidates,
+                "selected_request_microbatch": selected["microbatch"],
+                "automatic_resume": False,
+            },
+        )
 
         reporter.set("covariance_resource", 0, 1, "resource_covariance")
         model = load_gram(
@@ -781,15 +1546,69 @@ def main() -> int:
             int(position): int(count)
             for position, count in config["sweep"]["covariance_rows_by_position"].items()
         }
+        position_contract_counts = {
+            int(position): int(count)
+            for position, count in config["sweep"].get(
+                "position_contract_requests_by_position",
+                {
+                    str(position): config["sweep"]["candidate_requests_per_position"]
+                    for position in range(6)
+                },
+            ).items()
+        }
+        if set(covariance_allocation) != set(range(6)) or set(
+            position_contract_counts
+        ) != set(range(6)):
+            raise ValueError("Covariance and position contracts must cover positions 0--5")
         if sum(covariance_allocation.values()) != config["sweep"]["covariance_rows"]:
             raise ValueError("Covariance position allocation does not sum to the frozen resource total")
+        if int(model.config.d_ff) != int(config["sweep"]["linear_system_width"]):
+            raise ValueError("Frozen linear-system width disagrees with the GRAM backbone")
+        if any(
+            covariance_allocation[position] + position_contract_counts[position]
+            < int(model.config.d_ff)
+            for position in range(6)
+        ):
+            raise ValueError("Resource covariance/key rank capacity cannot span the faithful solve")
         covariance_rows = select_covariance_transitions(
             train_rows,
             lexical_paths,
             rows_by_position=covariance_allocation,
             seed=config["seed"],
         )
-        covariance, covariance_seconds, covariance_activations = covariance_resource_probe(
+
+        def covariance_progress(
+            completed_position: int, elapsed: Mapping[int, float]
+        ) -> None:
+            reporter.set(
+                "covariance_resource_positions",
+                completed_position + 1,
+                6,
+                "lexical_positions",
+            )
+            write_json(
+                stage_checkpoint_path,
+                {
+                    "attempt_id": config["attempt_id"],
+                    "stage": "covariance_resource",
+                    "execution_identity_sha256": execution_identity_sha,
+                    "selected_request_microbatch": selected["microbatch"],
+                    "completed_positions": completed_position + 1,
+                    "covariance_elapsed_seconds_by_position": elapsed,
+                    "covariance_rows_by_position": {
+                        str(position): covariance_allocation[position]
+                        for position in range(completed_position + 1)
+                    },
+                    "automatic_resume": False,
+                },
+            )
+
+        (
+            covariance,
+            covariance_seconds,
+            covariance_activations,
+            covariance_seconds_by_position,
+        ) = covariance_resource_probe(
             model=model,
             rows_by_position=covariance_rows,
             metadata=metadata,
@@ -797,7 +1616,9 @@ def main() -> int:
             tokenizer=tokenizer,
             device=device,
             batch_size=config["sweep"]["covariance_batch_size"],
+            progress_callback=covariance_progress,
         )
+        convergence_started = time.perf_counter()
         covariance_convergence = covariance_convergence_diagnostics(
             covariance_activations,
             {
@@ -807,17 +1628,68 @@ def main() -> int:
                 ].items()
             },
         )
+        covariance_convergence_seconds = time.perf_counter() - convergence_started
+        write_json(
+            stage_checkpoint_path,
+            {
+                "attempt_id": config["attempt_id"],
+                "stage": "covariance_resource_complete",
+                "execution_identity_sha256": execution_identity_sha,
+                "candidates": candidates,
+                "selected_request_microbatch": selected["microbatch"],
+                "covariance_rows_by_position": covariance.used_rows_by_position,
+                "covariance_elapsed_seconds_by_position": covariance_seconds_by_position,
+                "covariance_convergence": covariance_convergence,
+                "automatic_resume": False,
+            },
+        )
         del covariance_activations
         reporter.set("covariance_resource", 1, 1, "resource_covariance")
+
+        reporter.set("trigger_contract", 0, 1, "real_model_contract_probe")
+        trigger_contract_started = time.perf_counter()
+        trigger_contract = trigger_parity_contract_probe(
+            model=model,
+            requests_by_position=requests_by_position,
+            catalog_ids=catalog_ids,
+            metadata=metadata,
+            lexical_paths=lexical_paths,
+            tokenizer=tokenizer,
+            device=device,
+        )
+        trigger_contract_seconds = time.perf_counter() - trigger_contract_started
+        reporter.set("trigger_contract", 1, 1, "real_model_contract_probe")
+
+        reporter.set("generation_resource", 0, 1, "strict_beam_event_pairs")
+        generation_resource = generation_resource_probe(
+            model=model,
+            rows=covariance_rows[0][: config["sweep"]["generation_resource_events"]],
+            catalog_ids=catalog_ids,
+            metadata=metadata,
+            lexical_paths=lexical_paths,
+            tokenizer=tokenizer,
+            device=device,
+            beam_size=config["sweep"]["admission_beam_size"],
+        )
+        reporter.set("generation_resource", 1, 1, "strict_beam_event_pairs")
 
         reporter.set("position_contract", 0, 6, "lexical_positions")
         position_metrics: dict[str, Any] = {}
         updates: dict[int, dict[str, torch.Tensor]] = {}
         position_contract_started = time.perf_counter()
-        fixed_per_position = int(config["sweep"]["candidate_requests_per_position"])
+        repeated_z_step_seconds = 0.0
+        final_z_probe_seconds = 0.0
+        post_z_filter_rank_seconds = 0.0
+        key_extraction_seconds = 0.0
+        system_fixed_setup_seconds = 0.0
+        valid_z_matrix_products_seconds = 0.0
+        system_formation_seconds = 0.0
+        solve_factorization_diagnostics_seconds = 0.0
+        solve_diagnostic_seconds = 0.0
         for position in range(6):
-            chosen = tuple(requests_by_position[position][:fixed_per_position])
-            if len(chosen) != fixed_per_position:
+            fixed_for_position = position_contract_counts[position]
+            chosen = tuple(position_contract_requests_by_position[position])
+            if len(chosen) != fixed_for_position:
                 raise RuntimeError("Objective-complete position contract lost its fixed request count")
             layer = official_position_to_layer([position])[position]
             runtime = BatchedRealGRAMZRuntime(
@@ -842,15 +1714,49 @@ def main() -> int:
                 cache_hits={},
                 device=device,
             )
-            last_logits = runtime.last_logits()
+            position_z_step_seconds = sum(
+                sum(trace) for trace in result.step_elapsed_seconds_by_batch
+            )
+            repeated_z_step_seconds += position_z_step_seconds
+            del runtime
+            final_probe_started = time.perf_counter()
+            last_logits = probe_final_z_logits(
+                model=model,
+                requests=chosen,
+                result=result,
+                metadata=metadata,
+                lexical_paths=lexical_paths,
+                tokenizer=tokenizer,
+                layer=layer,
+                device=device,
+                batch_size=int(selected["microbatch"]),
+            )
+            position_final_probe_seconds = time.perf_counter() - final_probe_started
+            final_z_probe_seconds += position_final_probe_seconds
+            post_z_started = time.perf_counter()
             probabilities: list[float] = []
             ranks: list[int] = []
+            full_vocabulary_ranks: list[int] = []
             for row_index, request in enumerate(chosen):
                 logits = last_logits[row_index].float()
                 probabilities.append(float(torch.softmax(logits, dim=-1)[request.target_token_id]))
                 legal = logits[torch.tensor(request.legal_token_ids)]
                 target_value = logits[request.target_token_id]
                 ranks.append(1 + int((legal > target_value).sum().item()))
+                vocabulary_order = torch.arange(logits.numel())
+                full_vocabulary_ranks.append(
+                    1
+                    + int((logits > target_value).sum().item())
+                    + int(
+                        ((logits == target_value) & (vocabulary_order < request.target_token_id))
+                        .sum()
+                        .item()
+                    )
+                )
+            valid = filter_valid_z(result.z_vectors, result.delta_vectors)
+            torch.cuda.synchronize(device)
+            position_post_z_seconds = time.perf_counter() - post_z_started
+            post_z_filter_rank_seconds += position_post_z_seconds
             position_metrics[str(position)] = {
                 "request_count": len(chosen),
                 "cache_hit_count": 0,
@@ -858,13 +1764,23 @@ def main() -> int:
                 "failed_z_count": result.failed_count,
                 "full_vocabulary_target_probabilities": probabilities,
                 "legal_target_ranks": ranks,
+                "full_vocabulary_target_ranks": full_vocabulary_ranks,
+                "diagnostic_logit_semantics": (
+                    "valid rows re-probed with satisfaction-time delta; failed rows "
+                    "re-probed with terminal optimizer delta"
+                ),
+                "z_objective_step_seconds": position_z_step_seconds,
+                "final_z_reprobe_seconds": position_final_probe_seconds,
+                "post_z_filter_rank_diagnostics_seconds": position_post_z_seconds,
+                "key_extraction_batch_size": int(selected["microbatch"]),
+                "key_extraction_layer": layer,
                 "lifecycle_check_steps_by_batch": [
                     list(trace) for trace in result.lifecycle_check_steps_by_batch
                 ],
             }
-            valid = filter_valid_z(result.z_vectors, result.delta_vectors)
             if valid.valid_count:
                 module = model.decoder.block[layer].layer[2].DenseReluDense.wo
+                key_started = time.perf_counter()
                 keys_all = extract_keys(
                     module=module,
                     requests=chosen,
@@ -877,31 +1793,238 @@ def main() -> int:
                     ),
                     batch_size=int(selected["microbatch"]),
                 )
-                valid_keys = keys_all[list(valid.valid_indices)]
-                residuals = torch.stack(valid.delta_vectors).cpu()
-                delta = solve_weight_delta(
-                    residuals=residuals,
-                    keys=valid_keys,
-                    covariance=covariance.covariance_by_position[position],
+                position_key_seconds = time.perf_counter() - key_started
+                key_extraction_seconds += position_key_seconds
+                fixed_covariance_started = time.perf_counter()
+                covariance_for_solve = covariance.covariance_by_position[position].to(
+                    device
+                )
+                covariance64 = covariance_for_solve.double()
+                scaled_covariance64 = prepare_weight_delta_covariance(
+                    covariance=covariance64,
+                    key_width=int(model.config.d_ff),
                     covariance_lambda=config["frozen_workload"]["cov_lambda"],
                 )
-                updates[position] = {edited_parameter_name(layer): delta}
-                system = valid_keys.double().T @ valid_keys.double() + float(
-                    config["frozen_workload"]["cov_lambda"]
-                ) * covariance.covariance_by_position[position].double()
-                position_metrics[str(position)]["delta_norm"] = float(delta.double().norm())
-                position_metrics[str(position)]["delta_rank"] = int(torch.linalg.matrix_rank(delta.double()))
-                position_metrics[str(position)]["system_condition"] = float(torch.linalg.cond(system))
-            del result, runtime, last_logits
+                torch.cuda.synchronize(device)
+                position_system_fixed_seconds = (
+                    time.perf_counter() - fixed_covariance_started
+                )
+                matrix_products_started = time.perf_counter()
+                valid_keys = keys_all[list(valid.valid_indices)].to(device)
+                residuals = torch.stack(valid.delta_vectors).to(device)
+                key64 = valid_keys.double()
+                residual64 = residuals.double()
+                key_gram, rhs = form_weight_delta_request_products(
+                    residuals=residual64,
+                    keys=key64,
+                )
+                torch.cuda.synchronize(device)
+                position_matrix_products_seconds = (
+                    time.perf_counter() - matrix_products_started
+                )
+                fixed_assembly_started = time.perf_counter()
+                unregularized_system = key_gram + scaled_covariance64
+                torch.cuda.synchronize(device)
+                position_system_fixed_seconds += (
+                    time.perf_counter() - fixed_assembly_started
+                )
+                position_system_formation_seconds = (
+                    position_system_fixed_seconds
+                    + position_matrix_products_seconds
+                )
+                system_fixed_setup_seconds += position_system_fixed_seconds
+                valid_z_matrix_products_seconds += position_matrix_products_seconds
+                system_formation_seconds += position_system_formation_seconds
+                factorization_started = time.perf_counter()
+                _, covariance_cholesky_info = torch.linalg.cholesky_ex(
+                    covariance64
+                )
+                if int(covariance_cholesky_info.item()) == 0:
+                    covariance_rank = int(covariance64.shape[0])
+                    covariance_rank_method = "cholesky_full_rank"
+                    covariance_tolerance_value = None
+                else:
+                    covariance_eigenvalues = torch.linalg.eigvalsh(covariance64)
+                    covariance_tolerance = (
+                        covariance64.shape[0]
+                        * torch.finfo(covariance64.dtype).eps
+                        * covariance_eigenvalues.abs().max()
+                    )
+                    covariance_rank = int(
+                        (covariance_eigenvalues.abs() > covariance_tolerance)
+                        .sum()
+                        .item()
+                    )
+                    covariance_rank_method = "symmetric_eigenvalue_tolerance"
+                    covariance_tolerance_value = float(covariance_tolerance)
+                unregularized_system_eigenvalues = torch.linalg.eigvalsh(
+                    unregularized_system
+                )
+                ridge_diagnostics: dict[str, Any] = {}
+                if ridge_enabled:
+                    system, ridge_result = form_condition_targeted_ridge_system(
+                        system=unregularized_system,
+                        eigenvalues=unregularized_system_eigenvalues,
+                        target_condition=float(
+                            gridge_method["target_condition_number"]
+                        ),
+                        safety_margin=float(gridge_method["ridge_safety_margin"]),
+                    )
+                    system_eigenvalues = (
+                        unregularized_system_eigenvalues + ridge_result.ridge_value
+                    )
+                    _, regularized_cholesky_info = torch.linalg.cholesky_ex(system)
+                    ridge_diagnostics = {
+                        **ridge_result.as_dict(),
+                        "regularized_system_cholesky_info": int(
+                            regularized_cholesky_info.item()
+                        ),
+                    }
+                else:
+                    system = unregularized_system
+                    system_eigenvalues = unregularized_system_eigenvalues
+                system_tolerance = (
+                    system.shape[0]
+                    * torch.finfo(system.dtype).eps
+                    * system_eigenvalues.abs().max()
+                )
+                system_rank = int(
+                    (system_eigenvalues.abs() > system_tolerance).sum().item()
+                )
+                positive_system = system_eigenvalues.abs()
+                system_min_abs_eigenvalue = float(positive_system.min())
+                system_max_abs_eigenvalue = float(positive_system.max())
+                system_condition = float(
+                    positive_system.max()
+                    / positive_system.clamp_min(torch.finfo(system.dtype).tiny).min()
+                )
+                key_gram_eigenvalues = torch.linalg.eigvalsh(key_gram)
+                key_rank_tolerance = (
+                    key_gram.shape[0]
+                    * torch.finfo(key_gram.dtype).eps
+                    * key_gram_eigenvalues.abs().max()
+                )
+                key_rank = int(
+                    (key_gram_eigenvalues.abs() > key_rank_tolerance).sum().item()
+                )
+                spectral_diagnostics = {
+                    "covariance_rank": covariance_rank,
+                    "covariance_rank_method": covariance_rank_method,
+                    "covariance_rank_tolerance": covariance_tolerance_value,
+                    "covariance_cholesky_info": int(covariance_cholesky_info.item()),
+                    "valid_key_rank": key_rank,
+                    "valid_key_rank_method": "symmetric_key_gram_eigenvalue_tolerance",
+                    "valid_key_rank_tolerance": float(key_rank_tolerance),
+                    "system_rank": system_rank,
+                    "system_rank_tolerance": float(system_tolerance),
+                    "system_min_abs_eigenvalue": system_min_abs_eigenvalue,
+                    "system_max_abs_eigenvalue": system_max_abs_eigenvalue,
+                    "system_condition": system_condition,
+                    "rank_tolerance_rule": config["sweep"]["rank_tolerance_rule"],
+                    "method_name": (
+                        GRIDGE_METHOD_NAME if ridge_enabled else "G-FULL"
+                    ),
+                    "method_family": (
+                        "GenRecEdit-inspired" if ridge_enabled else "GenRecEdit-faithful"
+                    ),
+                    "faithful_reproduction": not ridge_enabled,
+                    "solve_variant": (
+                        GRIDGE_SOLVE_VARIANT if ridge_enabled else "faithful_no_ridge"
+                    ),
+                    "ridge_added": ridge_enabled,
+                    "pseudoinverse_used": False,
+                    "jitter_fallback_used": False,
+                    "outcome_resampling_used": False,
+                    **ridge_diagnostics,
+                }
+                try:
+                    if ridge_enabled:
+                        delta = solve_condition_targeted_ridge_system(
+                            system=system,
+                            rhs=rhs,
+                            output_like=residuals,
+                        )
+                    else:
+                        delta = solve_weight_delta_system(
+                            system=system,
+                            rhs=rhs,
+                            output_like=residuals,
+                        )
+                except ValueError as error:
+                    position_factorization_seconds = (
+                        time.perf_counter() - factorization_started
+                    )
+                    solve_factorization_diagnostics_seconds += (
+                        position_factorization_seconds
+                    )
+                    position_solve_seconds = (
+                        position_system_formation_seconds
+                        + position_factorization_seconds
+                    )
+                    solve_diagnostic_seconds += position_solve_seconds
+                    position_metrics[str(position)].update(
+                        {
+                            "key_extraction_seconds": position_key_seconds,
+                            "solve_diagnostic_seconds": position_solve_seconds,
+                            "system_fixed_setup_seconds": position_system_fixed_seconds,
+                            "valid_z_matrix_products_seconds": position_matrix_products_seconds,
+                            "system_formation_seconds": position_system_formation_seconds,
+                            "solve_factorization_diagnostics_seconds": position_factorization_seconds,
+                            "solve_completed": False,
+                            "solve_error": str(error),
+                            **spectral_diagnostics,
+                        }
+                    )
+                else:
+                    updates[position] = {edited_parameter_name(layer): delta}
+                    relative_residual = float(
+                        torch.linalg.vector_norm(delta.double() @ system - rhs)
+                        / torch.linalg.vector_norm(rhs).clamp_min(1e-30)
+                    )
+                    position_metrics[str(position)]["delta_norm"] = float(delta.double().norm())
+                    position_metrics[str(position)]["delta_rank"] = int(torch.linalg.matrix_rank(delta.double()))
+                    position_factorization_seconds = (
+                        time.perf_counter() - factorization_started
+                    )
+                    solve_factorization_diagnostics_seconds += (
+                        position_factorization_seconds
+                    )
+                    position_solve_seconds = (
+                        position_system_formation_seconds
+                        + position_factorization_seconds
+                    )
+                    solve_diagnostic_seconds += position_solve_seconds
+                    position_metrics[str(position)].update(
+                        {
+                            "key_extraction_seconds": position_key_seconds,
+                            "solve_diagnostic_seconds": position_solve_seconds,
+                            "system_fixed_setup_seconds": position_system_fixed_seconds,
+                            "valid_z_matrix_products_seconds": position_matrix_products_seconds,
+                            "system_formation_seconds": position_system_formation_seconds,
+                            "solve_factorization_diagnostics_seconds": position_factorization_seconds,
+                            "solve_completed": True,
+                            **spectral_diagnostics,
+                            "solve_relative_residual": relative_residual,
+                        }
+                    )
+            del result, last_logits
+            write_json(
+                stage_checkpoint_path,
+                {
+                    "attempt_id": config["attempt_id"],
+                    "stage": "position_contract",
+                    "execution_identity_sha256": execution_identity_sha,
+                    "selected_request_microbatch": selected["microbatch"],
+                    "completed_positions": position + 1,
+                    "position_diagnostics": position_metrics,
+                    "automatic_resume": False,
+                },
+            )
             reporter.set("position_contract", position + 1, 6, "lexical_positions")
 
         aggregated = aggregate_updates(updates) if updates else {}
-        solve_status = (
-            "SOLVE_AND_AGGREGATE_EXERCISED"
-            if aggregated
-            else "NO_VALID_Z_IN_PREREGISTERED_RESOURCE_SUBSET"
-        )
-        trigger_exercised = False
+        solve_status = solve_status_label(position_metrics, aggregated)
+        actual_trigger_exercised = False
         parity_evidence: dict[str, Any] = {}
         trigger_rows_by_position: dict[str, int] = {}
         if aggregated:
@@ -913,7 +2036,9 @@ def main() -> int:
             }
             live_bundles = build_one_one_position_bundles(
                 position_to_layer=live_position_map,
-                aggregated_updates=aggregated,
+                aggregated_updates={
+                    name: delta.to(device) for name, delta in aggregated.items()
+                },
             )
             base_snapshot = snapshot_base_parameters(model, sorted(aggregated))
             trigger_position = min(live_position_map)
@@ -947,7 +2072,7 @@ def main() -> int:
                     for position, count in delta_context.applied_rows_by_position.items()
                 }
             parity_evidence = assert_base_parameter_parity(model, base_snapshot)
-            trigger_exercised = trigger_rows_by_position.get(str(trigger_position), 0) > 0
+            actual_trigger_exercised = trigger_rows_by_position.get(str(trigger_position), 0) > 0
         position_contract_seconds = time.perf_counter() - position_contract_started
         # Isolated cache probe only: the pinned official primary has no cache
         # population path, so formal cache hits remain exactly zero.
@@ -977,11 +2102,133 @@ def main() -> int:
             * config["frozen_workload"]["z_steps"]
             / float(selected["steady_request_steps_per_second"])
         )
-        covariance_formal_rows = sum(
-            data_manifest["covariance"]["position_counts"].values()
+        covariance_formal_counts = {
+            int(position): int(count)
+            for position, count in data_manifest["covariance"]["position_counts"].items()
+        }
+        covariance_formal_seconds = sum(
+            covariance_seconds_by_position[position]
+            * covariance_formal_counts[position]
+            / covariance_allocation[position]
+            for position in range(6)
         )
-        covariance_scale = covariance_formal_rows / config["sweep"]["covariance_rows"]
-        core_seconds = z_core_seconds + covariance_seconds * covariance_scale
+        resource_convergence_checkpoints = {
+            int(position): tuple(int(value) for value in checkpoints)
+            for position, checkpoints in config["sweep"][
+                "resource_covariance_convergence_checkpoints_by_position"
+            ].items()
+        }
+        formal_convergence_checkpoints = {
+            position: tuple(config["sweep"]["formal_covariance_convergence_checkpoints"])
+            for position in range(6)
+        }
+        resource_convergence_row_equivalents = convergence_row_equivalents(
+            resource_convergence_checkpoints, covariance_allocation
+        )
+        formal_convergence_row_equivalents = convergence_row_equivalents(
+            formal_convergence_checkpoints, covariance_formal_counts
+        )
+        covariance_convergence_formal_seconds = (
+            covariance_convergence_seconds
+            * formal_convergence_row_equivalents
+            / resource_convergence_row_equivalents
+        )
+        resource_valid = sum(
+            row["valid_z_count"] for row in position_metrics.values()
+        )
+        resource_requests = sum(
+            row["request_count"] for row in position_metrics.values()
+        )
+        solved_positions = sum(
+            row.get("solve_completed") is True for row in position_metrics.values()
+        )
+        valid_positions = sum(
+            int(row["valid_z_count"]) > 0 for row in position_metrics.values()
+        )
+        projection_objective_complete = (
+            resource_valid > 0
+            and solved_positions == valid_positions
+            and valid_positions == 6
+        )
+        projected_valid_by_position = {
+            position: counts_by_position[position]
+            * position_metrics[str(position)]["valid_z_count"]
+            / position_metrics[str(position)]["request_count"]
+            for position in range(6)
+        }
+        projected_valid = sum(projected_valid_by_position.values())
+        projected_key_seconds = sum(
+            position_metrics[str(position)].get("key_extraction_seconds", 0.0)
+            * counts_by_position[position]
+            / position_metrics[str(position)]["request_count"]
+            for position in range(6)
+        )
+        projected_post_z_seconds = sum(
+            position_metrics[str(position)][
+                "post_z_filter_rank_diagnostics_seconds"
+            ]
+            * counts_by_position[position]
+            / position_metrics[str(position)]["request_count"]
+            for position in range(6)
+        )
+        projected_matrix_products_seconds = sum(
+            position_metrics[str(position)].get(
+                "valid_z_matrix_products_seconds", 0.0
+            )
+            * projected_valid_by_position[position]
+            / position_metrics[str(position)]["valid_z_count"]
+            if position_metrics[str(position)]["valid_z_count"]
+            else math.inf
+            for position in range(6)
+        )
+        projected_system_fixed_seconds = (
+            system_fixed_setup_seconds * 6 / valid_positions
+            if valid_positions
+            else math.inf
+        )
+        projected_solve_factorization_seconds = (
+            solve_factorization_diagnostics_seconds * 6 / solved_positions
+            if solved_positions
+            else math.inf
+        )
+        projected_final_z_reprobe_seconds = sum(
+            position_metrics[str(position)]["final_z_reprobe_seconds"]
+            * counts_by_position[position]
+            / position_metrics[str(position)]["request_count"]
+            for position in range(6)
+        )
+        admission_seconds = (
+            generation_resource["edited_seconds_per_event"]
+            * config["sweep"]["formal_item_disjoint_admission_events"]
+        )
+        warm_preservation_seconds = (
+            generation_resource["base_plus_edited_seconds_per_event"]
+            * config["sweep"]["formal_warm_preservation_events"]
+        )
+        fixed_trigger_seconds = trigger_contract_seconds + max(
+            0.0,
+            position_contract_seconds
+            - repeated_z_step_seconds
+            - final_z_probe_seconds
+            - post_z_filter_rank_seconds
+            - key_extraction_seconds
+            - solve_diagnostic_seconds,
+        )
+        core_seconds = (
+            context_build_seconds
+            + z_core_seconds
+            + covariance_formal_seconds
+            + covariance_convergence_formal_seconds
+            + projected_final_z_reprobe_seconds
+            + projected_post_z_seconds
+            + projected_key_seconds
+            + projected_matrix_products_seconds
+            + projected_system_fixed_seconds
+            + projected_solve_factorization_seconds
+            + fixed_trigger_seconds
+            + admission_seconds
+            + warm_preservation_seconds
+        )
         lower_seconds = core_seconds * config["sweep"]["runtime_projection_lower_multiplier"]
         upper_seconds = core_seconds * config["sweep"]["runtime_projection_upper_multiplier"]
         admission = max(
@@ -999,6 +2246,69 @@ def main() -> int:
             "request_counts_by_position": {str(k): v for k, v in counts_by_position.items()},
             "covariance_counts_by_position": data_manifest["covariance"]["position_counts"],
         }
+        if ridge_enabled:
+            solve_contract_key = "inspired_ridge_solve_completed_for_every_valid_position"
+            solve_contract_pass = all(
+                row["valid_z_count"] > 0
+                and row.get("solve_completed") is True
+                and row.get("method_name") == GRIDGE_METHOD_NAME
+                and row.get("method_family") == "GenRecEdit-inspired"
+                and row.get("faithful_reproduction") is False
+                and row.get("solve_variant") == GRIDGE_SOLVE_VARIANT
+                and row.get("ridge_added") is True
+                and isinstance(row.get("ridge_value"), (int, float))
+                and math.isfinite(float(row["ridge_value"]))
+                and float(row["ridge_value"]) > 0.0
+                and row.get("ridge_rule") == GRIDGE_RIDGE_RULE
+                and row.get("target_condition")
+                == gridge_method["target_condition_number"]
+                and row.get("safety_margin") == gridge_method["ridge_safety_margin"]
+                and row.get("regularized_rank")
+                == config["sweep"]["linear_system_width"]
+                and row.get("regularized_nullity") == 0
+                and row.get("system_rank")
+                == config["sweep"]["linear_system_width"]
+                and row.get("regularized_system_cholesky_info") == 0
+                and isinstance(row.get("regularized_condition"), (int, float))
+                and math.isfinite(float(row["regularized_condition"]))
+                and float(row["regularized_condition"])
+                <= float(gridge_method["target_condition_number"]) * (1.0 + 1e-9)
+                and row.get("system_min_abs_eigenvalue", 0.0) > 0.0
+                and row.get("solve_relative_residual", math.inf)
+                <= config["sweep"]["maximum_solve_relative_residual"]
+                and row.get("rank_tolerance_rule")
+                == config["sweep"]["rank_tolerance_rule"]
+                and row.get("pseudoinverse_used") is False
+                and row.get("jitter_fallback_used") is False
+                and row.get("outcome_resampling_used") is False
+                for row in position_metrics.values()
+            )
+        else:
+            solve_contract_key = "faithful_solve_completed_for_every_valid_position"
+            solve_contract_pass = all(
+                row["valid_z_count"] > 0
+                and row.get("solve_completed") is True
+                and row.get("system_rank") == config["sweep"]["linear_system_width"]
+                and row.get("covariance_rank", 0) + row.get("valid_key_rank", 0)
+                >= config["sweep"]["linear_system_width"]
+                and row.get("valid_key_rank_method")
+                == "symmetric_key_gram_eigenvalue_tolerance"
+                and isinstance(row.get("valid_key_rank_tolerance"), (int, float))
+                and math.isfinite(float(row["valid_key_rank_tolerance"]))
+                and float(row["valid_key_rank_tolerance"]) >= 0.0
+                and isinstance(row.get("system_condition"), (int, float))
+                and math.isfinite(float(row["system_condition"]))
+                and row.get("system_min_abs_eigenvalue", 0.0) > 0.0
+                and row.get("solve_relative_residual", math.inf)
+                <= config["sweep"]["maximum_solve_relative_residual"]
+                and row.get("rank_tolerance_rule")
+                == config["sweep"]["rank_tolerance_rule"]
+                and row.get("ridge_added") is False
+                and row.get("pseudoinverse_used") is False
+                and row.get("jitter_fallback_used") is False
+                and row.get("outcome_resampling_used") is False
+                for row in position_metrics.values()
+            )
         contract_checks = {
             "full_universe_counts_match": full_universe["edit_targets"] == 5963
             and full_universe["contexts"] == 59630
@@ -1016,6 +2326,7 @@ def main() -> int:
             "all_candidate_semantics_pass": all(
                 all(row["semantic_checks"].values()) for row in candidates
             ),
+            "independent_full_lifecycle_probe_pass": lifecycle_probe["pass"],
             "candidate_workload_identical": len(
                 {row["candidate_subset_sha256"] for row in candidates}
             )
@@ -1030,72 +2341,270 @@ def main() -> int:
                 row["valid_z_count"] + row["failed_z_count"] == row["request_count"]
                 for row in position_metrics.values()
             ),
+            "position_contract_workload_exact": all(
+                row["request_count"] == position_contract_counts[int(position)]
+                for position, row in position_metrics.items()
+            )
+            and all(
+                len(
+                    {
+                        request.cold_item
+                        for request in position_contract_requests_by_position[position]
+                    }
+                )
+                == position_contract_counts[position]
+                for position in range(6)
+            ),
             "covariance_position_coverage_exact": data_manifest["covariance"]["position_counts"]
             == {"0": 27659, "1": 27659, "2": 27659, "3": 27659, "4": 27659, "5": 2036},
             "long_position_resource_rows_present": covariance.used_rows_by_position[5]
             >= config["sweep"]["covariance_long_path_minimum"],
             "covariance_resource_allocation_exact": covariance.used_rows_by_position
             == covariance_allocation,
+            "covariance_resource_rank_rule_exact": all(
+                covariance_allocation[position]
+                == min(
+                    int(data_manifest["covariance"]["position_counts"][str(position)]),
+                    2 * int(config["sweep"]["linear_system_width"]),
+                )
+                for position in range(6)
+            )
+            and config["sweep"]["covariance_resource_rule"]
+            == "min(formal_position_rows, 2 * linear_system_width), with deterministic seed-ranked train-only rows",
             "covariance_convergence_report_complete": set(covariance_convergence)
             == {str(i) for i in range(6)}
             and all(rows[-1]["relative_frobenius_drift_to_largest_resource_checkpoint"] == 0.0
                     for rows in covariance_convergence.values()),
             "formal_cache_empty": all(row["cache_hit_count"] == 0 for row in position_metrics.values()),
+            "key_extraction_engineering_contract_exact": config["sweep"].get(
+                "key_extraction_batch_policy"
+            )
+            == "selected_z_microbatch"
+            and config["sweep"].get("key_extraction_layer_policy")
+            == "position_selected_layer_only_output_equivalent_to_unused_official_key_bank_elision"
+            and all(
+                row.get("key_extraction_batch_size") == int(selected["microbatch"])
+                and row.get("key_extraction_layer")
+                == official_position_to_layer([int(position)])[int(position)]
+                for position, row in position_metrics.items()
+            ),
             "isolated_cache_probe_pass": isolated_cache.cache_hit,
+            "all_position_trigger_parity_contract_pass": trigger_contract["pass"],
+            "strict_generation_resource_path_pass": generation_resource["pass"],
             "valid_z_filter_complete": all(
                 row["valid_z_count"] + row["failed_z_count"] == row["request_count"]
                 for row in position_metrics.values()
             ),
             "solve_aggregate_trigger_exercised_if_valid": (
                 not any(row["valid_z_count"] for row in position_metrics.values())
-                or (bool(updates) and bool(aggregated) and trigger_exercised)
+                or (bool(updates) and bool(aggregated) and actual_trigger_exercised)
             ),
+            solve_contract_key: solve_contract_pass,
             "base_parameter_parity_after_trigger": not aggregated
             or parity_evidence.get("exact") is True,
             "base_checkpoint_unchanged": sha256(checkpoint) == checkpoint_before,
-            "peak_within_small_experiment_cap": maximum_peak_reserved
-            <= config["sweep"]["maximum_eligible_peak_reserved_mib"],
+            "peak_within_resource_attempt_cap": maximum_peak_reserved
+            <= config["sweep"].get(
+                "maximum_resource_peak_reserved_mib",
+                config["sweep"]["maximum_eligible_peak_reserved_mib"],
+            ),
+            "fixed_gpu_resource_contract_exact": (
+                config["resources"].get("fixed_physical_gpu") is None
+                or int(args.physical_gpu)
+                == int(config["resources"]["fixed_physical_gpu"])
+            )
+            and int(args.admission_free_mib)
+            >= int(config["resources"]["minimum_free_mib"])
+            and int(free_at_worker)
+            >= int(config["resources"]["minimum_free_mib"])
+            and int(args.worker_hard_timeout_seconds)
+            == int(config["resources"]["hard_timeout_seconds"])
+            and int(args.expected_peak_mib)
+            == int(config["resources"].get("expected_peak_mib", 8192))
+            == int(
+                config["sweep"].get(
+                    "maximum_resource_peak_reserved_mib",
+                    config["sweep"]["maximum_eligible_peak_reserved_mib"],
+                )
+            ),
+            "formal_projection_objective_complete": projection_objective_complete
+            and math.isfinite(core_seconds),
         }
+        valid_z_blocked = any(
+            row["valid_z_count"] == 0 for row in position_metrics.values()
+        )
+        linear_system_blocked = (
+            not valid_z_blocked
+            and not contract_checks[solve_contract_key]
+        )
+        pass_raw_verdict = (
+            "PASS_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP_RAW"
+            if ridge_enabled
+            else "PASS_S16_3_GFULL_OBJECTIVE_RESOURCE_SWEEP_RAW"
+        )
+        linear_blocked_verdict = (
+            "RESOURCE_BLOCKED_INSPIRED_RIDGE_LINEAR_SYSTEM"
+            if ridge_enabled
+            else "RESOURCE_BLOCKED_FAITHFUL_LINEAR_SYSTEM"
+        )
+        valid_z_blocked_verdict = (
+            "RESOURCE_BLOCKED_INSPIRED_VALID_Z"
+            if ridge_enabled
+            else "RESOURCE_BLOCKED_FAITHFUL_VALID_Z"
+        )
+        failure_verdict = (
+            "FAIL_S16_3R_GRIDGE_OBJECTIVE_RESOURCE_SWEEP_RAW"
+            if ridge_enabled
+            else "FAIL_S16_3_GFULL_OBJECTIVE_RESOURCE_SWEEP_RAW"
+        )
         raw = {
             "schema_version": config["schema_version"],
             "experiment_id": config["experiment_id"],
             "attempt_id": config["attempt_id"],
-            "verdict": "PASS_S16_3_GFULL_OBJECTIVE_RESOURCE_SWEEP_RAW"
-            if all(contract_checks.values())
-            else "FAIL_S16_3_GFULL_OBJECTIVE_RESOURCE_SWEEP_RAW",
+            "verdict": (
+                pass_raw_verdict
+                if all(contract_checks.values())
+                else (
+                    linear_blocked_verdict
+                    if linear_system_blocked
+                    else (
+                        valid_z_blocked_verdict
+                        if valid_z_blocked
+                        else failure_verdict
+                    )
+                )
+            ),
             "generated_at_utc": utc_now(),
             "physical_gpu": args.physical_gpu,
             "visible_gpu": 0,
             "admission_free_mib": args.admission_free_mib,
             "worker_readmission_free_mib": free_at_worker,
             "admission_util_percent": args.admission_util_percent,
+            "resource_attempt_hard_timeout_seconds": args.worker_hard_timeout_seconds,
+            "resource_attempt_expected_peak_mib": args.expected_peak_mib,
             "elapsed_seconds": time.perf_counter() - started,
             "maximum_peak_allocated_mib": maximum_peak_allocated,
             "maximum_peak_reserved_mib": maximum_peak_reserved,
             "z_steps_per_candidate": 30,
             "candidates": candidates,
+            "independent_full_lifecycle_probe": lifecycle_probe,
             "selected_request_microbatch": selected["microbatch"],
             "selected_candidate_subset_sha256": selected["candidate_subset_sha256"],
+            "candidate_request_manifest": candidate_request_manifest,
+            "position_contract_request_manifest": position_contract_request_manifest,
+            "position_contract_subset_sha256": position_contract_subset_sha256,
+            "request_dataset_artifact": {
+                "manifest_path": str((dataset_root / "manifest.json").relative_to(ROOT)),
+                "manifest_sha256": sha256(dataset_root / "manifest.json"),
+                "dataset_sha256": data_manifest["dataset_sha256"],
+                "checkpoint_path": str(
+                    (dataset_root / data_manifest["resume_contract"]["checkpoint_manifest"])
+                    .relative_to(ROOT)
+                ),
+                "checkpoint_sha256": data_manifest["resume_contract"][
+                    "checkpoint_sha256"
+                ],
+                "completed_shards": data_manifest["resume_contract"]["completed_shards"],
+            },
+            "execution_identity": execution_identity,
+            "execution_identity_artifact": {
+                "path": str(identity_path.relative_to(ROOT)),
+                "sha256": execution_identity_sha,
+            },
+            "s1_resolved_input_contract": s1_resolved_input_contract,
             "selection_rule": config["sweep"]["candidate_selection_rule"],
+            "method": (
+                dict(config["method"])
+                if ridge_enabled
+                else {
+                    "name": "G-FULL",
+                    "family": "GenRecEdit-faithful",
+                    "faithful_reproduction": True,
+                    "solve_variant": "faithful_no_ridge",
+                }
+            ),
             "position_diagnostics": position_metrics,
             "aggregated_parameters": sorted(aggregated),
             "solve_status": solve_status,
-            "trigger_exercised": trigger_exercised,
+            "all_position_trigger_parity_contract": trigger_contract,
+            "generation_resource_probe": generation_resource,
+            "actual_aggregate_trigger_exercised": actual_trigger_exercised,
             "trigger_rows_by_position": trigger_rows_by_position,
             "base_parameter_parity": parity_evidence,
             "covariance_resource": {
                 "rows_by_position": {str(key): value for key, value in covariance_allocation.items()},
+                "linear_system_width": int(model.config.d_ff),
+                "row_selection_rule": config["sweep"]["covariance_resource_rule"],
+                "algebraic_rank_capacity_by_position": {
+                    str(position): covariance_allocation[position]
+                    + position_contract_counts[position]
+                    for position in range(6)
+                },
                 "elapsed_seconds": covariance_seconds,
+                "elapsed_seconds_by_position": {
+                    str(key): value for key, value in covariance_seconds_by_position.items()
+                },
+                "convergence_elapsed_seconds": covariance_convergence_seconds,
+                "resource_convergence_row_equivalents": resource_convergence_row_equivalents,
+                "formal_convergence_row_equivalents": formal_convergence_row_equivalents,
                 "convergence": covariance_convergence,
                 "formal_convergence_checkpoints": config["sweep"][
                     "formal_covariance_convergence_checkpoints"
                 ],
                 "primary_formal_estimator": "full train-only raw E[x x^T] moment without ridge",
+                "system_solve_variant": (
+                    GRIDGE_SOLVE_VARIANT if ridge_enabled else "faithful_no_ridge"
+                ),
             },
             "position_contract_seconds": position_contract_seconds,
+            "projection_measurements": {
+                "context_build_seconds": context_build_seconds,
+                "trigger_contract_seconds": trigger_contract_seconds,
+                "repeated_z_step_seconds": repeated_z_step_seconds,
+                "final_z_probe_seconds": final_z_probe_seconds,
+                "post_z_filter_rank_diagnostics_seconds": post_z_filter_rank_seconds,
+                "key_extraction_seconds": key_extraction_seconds,
+                "solve_diagnostic_seconds": solve_diagnostic_seconds,
+                "system_fixed_setup_seconds": system_fixed_setup_seconds,
+                "valid_z_matrix_products_seconds": valid_z_matrix_products_seconds,
+                "system_formation_seconds": system_formation_seconds,
+                "solve_factorization_diagnostics_seconds": solve_factorization_diagnostics_seconds,
+            },
             "full_universe": full_universe,
             "formal_projection": {
                 "measured_core_seconds": core_seconds,
+                "component_seconds": {
+                    "full_context_and_request_manifest": context_build_seconds,
+                    "full_z_optimization": z_core_seconds,
+                    "full_position_covariance": covariance_formal_seconds,
+                    "formal_covariance_convergence_diagnostics": covariance_convergence_formal_seconds,
+                    "full_final_z_reprobe_diagnostics": projected_final_z_reprobe_seconds,
+                    "full_post_z_filter_and_rank_diagnostics": projected_post_z_seconds,
+                    "full_request_key_extraction": projected_key_seconds,
+                    "projected_valid_z_matrix_products": projected_matrix_products_seconds,
+                    "six_position_system_fixed_setup": projected_system_fixed_seconds,
+                    "six_position_solve_factorization_and_diagnostics": (
+                        projected_solve_factorization_seconds
+                    ),
+                    "aggregation_and_trigger_contract": fixed_trigger_seconds,
+                    "fixed_7435_event_item_disjoint_admission": admission_seconds,
+                    "fixed_512_event_warm_preservation_base_plus_edit": warm_preservation_seconds,
+                },
+                "resource_valid_z_count": resource_valid,
+                "resource_request_count": resource_requests,
+                "projected_valid_z_count": projected_valid,
+                "projected_valid_z_count_by_position": {
+                    str(position): value
+                    for position, value in projected_valid_by_position.items()
+                },
+                "key_extraction_batch_policy": config["sweep"][
+                    "key_extraction_batch_policy"
+                ],
+                "key_extraction_layer_policy": config["sweep"][
+                    "key_extraction_layer_policy"
+                ],
+                "key_extraction_batch_size": int(selected["microbatch"]),
+                "projection_objective_complete": projection_objective_complete,
                 "lower_wall_seconds": lower_seconds,
                 "upper_wall_seconds": upper_seconds,
                 "lower_gpu_hours": lower_seconds / 3600,
@@ -1110,6 +2619,22 @@ def main() -> int:
             "contract_checks": contract_checks,
             "base_checkpoint_unchanged": sha256(checkpoint) == checkpoint_before,
             "opened_files": opened,
+            "declared_external_input_scope": (
+                "explicit frozen data/config/source/tokenizer identities only; generated "
+                "request shards are output artifacts covered by their manifest SHA; this is "
+                "not an OS-level syscall open audit"
+            ),
+            "tokenizer_provenance": tokenizer_provenance,
+            "runtime_provenance": {
+                "torch_version": torch.__version__,
+                "transformers_version": transformers.__version__,
+                "cuda_runtime_version": torch.version.cuda,
+                "model_config_sha256": hashlib.sha256(
+                    json.dumps(
+                        model.config.to_dict(), sort_keys=True, separators=(",", ":"), default=str
+                    ).encode()
+                ).hexdigest(),
+            },
             "scientific_efficacy_metric_produced": False,
             "validation_used": False,
             "test_read": False,
@@ -1117,6 +2642,16 @@ def main() -> int:
         }
         write_json(raw_path, raw)
         print(raw["verdict"])
+        if raw["verdict"] in {
+            "RESOURCE_BLOCKED_FAITHFUL_LINEAR_SYSTEM",
+            "RESOURCE_BLOCKED_INSPIRED_RIDGE_LINEAR_SYSTEM",
+        }:
+            return 10
+        if raw["verdict"] in {
+            "RESOURCE_BLOCKED_FAITHFUL_VALID_Z",
+            "RESOURCE_BLOCKED_INSPIRED_VALID_Z",
+        }:
+            return 11
         return 0 if raw["verdict"].startswith("PASS") else 3
     finally:
         reporter.close()

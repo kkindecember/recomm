@@ -1,0 +1,18 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_split_toys_accel_fp32_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_CTRL_SPLIT_TOYS",
+  "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32",
+  "config_sha256": "d3b185e99763e4fc421368dbed4b222f92de637af9bdf1facd11c2d8d3706920",
+  "generated_at_utc": "2026-08-29T07:19:02.162271+00:00",
+  "test_read": false,
+  "validation_used": false,
+  "automatic_resume": false,
+  "user_authorization_required": true,
+  "checkpoints": {
+    "arms/S-PLUS-CTRL/checkpoints/pretrain/last_state.pt": "07d7be4c9dd59abc477b3bfd6e457dcbbcff7f59b2c6310d13317b32706af904",
+    "arms/S-PLUS-CTRL/checkpoints/pretrain/final_model.pt": "8364ce5bf520cc159acfc3481ff9c567fc0b6c6ad21e281bf8f0313bd9e215b8",
+    "arms/S-PLUS-CTRL/checkpoints/finetune/last_state.pt": "2dbec92d34615c99f91e8bdc30db667c11b3cfc1101e2e1134a3fcd958e1618a",
+    "arms/S-PLUS-CTRL/checkpoints/finetune/final_model.pt": "81914f2818ea7f163d18d8ed2ebc4ba19c9a66907ee9ff22608b431b16b7c347"
+  },
+  "resume_command_template": "CUDA_VISIBLE_DEVICES=7 /home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python experiment/phase16/protocol/splus_formal_train_accel.py --config experiment/phase16/configs/stage16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32_overlay.json --arm S-PLUS-CTRL --resume"
+}

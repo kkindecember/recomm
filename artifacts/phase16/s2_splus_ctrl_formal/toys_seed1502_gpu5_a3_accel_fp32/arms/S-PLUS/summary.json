@@ -1,0 +1,132 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_formal_toys_accel_fp32_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_CTRL_FORMAL_TOYS",
+  "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32",
+  "config_sha256": "638dc32c78d40c7a40add5890e241ebaefc10c145b8b02ed5136f1b36a5c7893",
+  "test_read": false,
+  "validation_used": false,
+  "network_used": false,
+  "status": "completed",
+  "verdict": "PASS_S16_2_S_PLUS_FORMAL_EXECUTION",
+  "arm": "S-PLUS",
+  "execution_precision": "fp32",
+  "formal_training_started": true,
+  "stage_results": [
+    {
+      "stage": "pretrain",
+      "epochs_completed": 100,
+      "physical_microsteps": 691500,
+      "optimizer_steps": 10900,
+      "scheduler_total_optimizer_steps": 10800,
+      "scheduler_warmup_optimizer_steps": 39,
+      "runtime_seconds": 397287.3105342388,
+      "final_checkpoint": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/arms/S-PLUS/checkpoints/pretrain/final_model.pt",
+      "all_finite": true
+    },
+    {
+      "stage": "finetune",
+      "epochs_completed": 15,
+      "physical_microsteps": 103725,
+      "optimizer_steps": 1635,
+      "scheduler_total_optimizer_steps": 1620,
+      "scheduler_warmup_optimizer_steps": 39,
+      "runtime_seconds": 18831.84600663185,
+      "final_checkpoint": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/arms/S-PLUS/checkpoints/finetune/final_model.pt",
+      "all_finite": true
+    }
+  ],
+  "arm_optimizer_steps": 12535,
+  "expected_arm_optimizer_steps": 12535,
+  "budget_audit": {
+    "pretrain": {
+      "matched": true,
+      "fields": [
+        "dataset_manifest_sha256",
+        "epochs",
+        "gpu_count",
+        "gradient_accumulation",
+        "learning_rate",
+        "optimizer",
+        "optimizer_steps",
+        "physical_microbatch",
+        "timeout_seconds",
+        "transitions",
+        "warmup_steps",
+        "weight_decay"
+      ],
+      "budget": {
+        "dataset_manifest_sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471",
+        "transitions": 27659,
+        "epochs": 100,
+        "optimizer": "AdamW",
+        "learning_rate": 0.001,
+        "weight_decay": 0.05,
+        "warmup_steps": 10000,
+        "physical_microbatch": 4,
+        "gradient_accumulation": 64,
+        "optimizer_steps": 10900,
+        "gpu_count": 1,
+        "timeout_seconds": 1209600
+      }
+    },
+    "finetune": {
+      "matched": true,
+      "fields": [
+        "dataset_manifest_sha256",
+        "epochs",
+        "gpu_count",
+        "gradient_accumulation",
+        "learning_rate",
+        "optimizer",
+        "optimizer_steps",
+        "physical_microbatch",
+        "timeout_seconds",
+        "transitions",
+        "warmup_steps",
+        "weight_decay"
+      ],
+      "budget": {
+        "dataset_manifest_sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471",
+        "transitions": 27659,
+        "epochs": 15,
+        "optimizer": "AdamW",
+        "learning_rate": 0.0001,
+        "weight_decay": 0.05,
+        "warmup_steps": 10000,
+        "physical_microbatch": 4,
+        "gradient_accumulation": 64,
+        "optimizer_steps": 1635,
+        "gpu_count": 1,
+        "timeout_seconds": 1209600
+      }
+    }
+  },
+  "internal_dev_generation_admission": {
+    "events": 3108,
+    "mean_generation_loss": 3.029581308364868,
+    "all_finite": true
+  },
+  "pseudo_cold_full_catalog_admission": {
+    "events": 7435,
+    "candidate_items": 11924,
+    "pseudo_cold_hit_at_50": 0.08406186953597848,
+    "pseudo_cold_ndcg_at_10": 0.01298943375611193,
+    "pseudo_cold_mrr": 0.011697863444378887,
+    "all_finite": true,
+    "efficacy_gate": false
+  },
+  "train_transitions": 27659,
+  "internal_dev_transitions": 3108,
+  "train_catalog_items": 4799,
+  "full_catalog_items": 11924,
+  "pseudo_cold_events": 7435,
+  "cold_interaction_label_leaks": 0,
+  "base_checkpoint_sha256_before": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "base_checkpoint_sha256_after": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550",
+  "base_checkpoint_unchanged": true,
+  "peak_cuda_allocated_mib": 17345.2216796875,
+  "peak_cuda_reserved_mib": 17506.0,
+  "runtime_seconds": 416329.8128173351,
+  "scientific_scope": "train-only contract/admission; no source validation or test; admission metrics are not efficacy promotion",
+  "scientific_efficacy_metric_produced": false
+}

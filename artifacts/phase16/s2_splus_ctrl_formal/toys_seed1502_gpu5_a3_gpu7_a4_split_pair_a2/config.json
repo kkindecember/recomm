@@ -1,0 +1,49 @@
+{
+  "schema_version": "stage16_s2_splus_ctrl_split_pair_recovery_v1",
+  "experiment_id": "GRAM_PHASE16_S2_SPLUS_CTRL_SPLIT_PAIR_TOYS",
+  "attempt_id": "s16_s2_splus_ctrl_split_pair_gpu5_a3_gpu7_a4_a2",
+  "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair_a2",
+  "sources": {
+    "S-PLUS": {
+      "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu5_a3_accel_fp32",
+      "physical_gpu": 5,
+      "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32",
+      "resolved_config_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/resolved_config.json"
+    },
+    "S-PLUS-CTRL": {
+      "attempt_id": "s16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32",
+      "physical_gpu": 7,
+      "output_dir": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32",
+      "resolved_config_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32/resolved_config.json"
+    }
+  },
+  "execution": {
+    "runner_path": "experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize_a2.sh",
+    "exact_start_command": "bash experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize_a2.sh"
+  },
+  "engineering_recovery": {
+    "parent_attempt_id": "s16_s2_splus_ctrl_split_pair_gpu5_a3_gpu7_a4",
+    "parent_status_path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair/status.json",
+    "parent_terminal_status": "blocked",
+    "parent_status_code": "SOURCE_OR_PAIR_CONTRACT_FAILED",
+    "root_cause": "CPU checkpoint SHA-256 finalization reached the original 600-second hard timeout after all five regression tests passed",
+    "previous_timeout_seconds": 600,
+    "pair_finalizer_timeout_seconds": 1800,
+    "full_checkpoint_hashing_preserved": true,
+    "scientific_configuration_modified": false,
+    "source_artifacts_modified": false,
+    "validation_used": false,
+    "test_read": false,
+    "automatic_retry": false
+  },
+  "code_freeze": {
+    "experiment/phase16/protocol/finalize_splus_ctrl_split.py": "a566cb4e28a2c745c22d14f416e4fa6fce3d96afeaef8f7ffa41fb874738ef4c",
+    "experiment/phase16/tests/test_splus_ctrl_split.py": "9a8004a49969fd9f0eb68ff8b4b048ef5d5690feced7ef737238b02d2a3641a7",
+    "experiment/phase16/tests/test_splus_ctrl_split_pair_recovery.py": "ddbdc9891f3ed5cdc8f333cde21a7ad6b88857f09761a76651b8c836d2de8bcc",
+    "experiment/phase16/run_stage16_s2_splus_ctrl_formal_toys_gpu7_a4_split_fp32.sh": "a575c2aef683466bb5c194d43ca4635faec865dd1abf02c172e4129d3176818e",
+    "experiment/phase16/run_stage16_s2_splus_ctrl_split_pair_finalize_a2.sh": "35708c11d86d3b8301ff6d92481ac3daca811649d2a0802521934304def171bf"
+  },
+  "automatic_retry": false,
+  "validation_used": false,
+  "test_read": false
+}

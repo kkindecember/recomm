@@ -1,0 +1,148 @@
+{
+  "schema_version": "stage16_s3_gfull_objective_resource_sweep_v1",
+  "experiment_id": "GRAM_PHASE16_S3_GFULL_OBJECTIVE_RESOURCE_SWEEP",
+  "attempt_id": "s16_s3_gfull_resource_a4_gpu4",
+  "output_dir": "artifacts/phase16/s3_genrecedit/resource_sweep/toys_seed1502_a4_gpu4",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s3_gfull_objective_resource_sweep_a4_gpu4.sh",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "tokenizer": {
+    "name": "t5-small",
+    "revision": "df1b051c49625cf57a3d0d8d3863ed4d13564fe4",
+    "class": "T5TokenizerFast",
+    "vocabulary_sha256": "5549578e592433565bd766d5e8caf0a94f6aa8ab1496927db3a5138138e13da6",
+    "sentencepiece_sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+    "local_files_only": true
+  },
+  "inputs": {
+    "s1_preflight_config": {
+      "path": "experiment/phase16/configs/stage16_s1_data_resource_preflight.json",
+      "sha256": "036f47a5f14863c97a37ddaf29f1dddd9a60004bb4c5b127b01e74317ae3700f"
+    },
+    "train_sequences": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/student_readable/interaction_train_sequences.jsonl",
+      "sha256": "0d975b25ab572a529d5da81661d88441bfc5d1cc60eb464440fe2ecacc13643e"
+    },
+    "split_manifest": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/split_manifest.json",
+      "sha256": "4e37f1d50696586eed251715ee64c2020ae2769c5bff822790d629252d518471"
+    },
+    "retained_warm_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/retained_warm_items.txt",
+      "sha256": "b0283cdede4d3a1b10358c1f18da91864da5c010fa7ddac7ed15c23d6e275253"
+    },
+    "pseudo_cold_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Toys_cold50/pseudo_cold_items.txt",
+      "sha256": "cb64e9b51cc87de022e687beda049042dd19f710cb112308a62f2777d64115ab"
+    },
+    "cold_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    },
+    "lexical_paths": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    },
+    "metadata": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+      "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"
+    },
+    "content_embeddings": {
+      "path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262"
+    },
+    "gram_config": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+      "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"
+    },
+    "gram_checkpoint": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"
+    },
+    "official_genrecedit": {
+      "path": ".runtime/phase15_sources/GenRecEdit",
+      "commit": "e6878d9c7c6e57479e840ccb8c045b11a2bd69b5"
+    }
+  },
+  "frozen_workload": {
+    "edit_targets": 5963,
+    "contexts_per_target": 10,
+    "contexts": 59630,
+    "prefix_next_token_requests": 302400,
+    "covariance_rows": 27659,
+    "mom2_n_samples_cap": 400000,
+    "position_to_layer_cycle": [0, 1, 2, 3],
+    "cov_lambda": 1000,
+    "z_learning_rate": 0.5,
+    "z_steps": 30,
+    "z_weight_decay": 0.2,
+    "z_vector_max": 8000.0,
+    "cache_probability_threshold": 0.3,
+    "cache_probability_space": "full_vocabulary",
+    "cache_probe_argmax_competitors": "legal_lexical_trie_children",
+    "new_z_optimizer_argmax_competitors": "full_vocabulary",
+    "cache_population_policy": "formal cache remains empty because the pinned official code has no population path; cache-hit behavior is isolated diagnostic only",
+    "new_z_probability_threshold": null,
+    "satisfied_check_step_indices": [10, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+    "precision": "fp32"
+  },
+  "sweep": {
+    "candidate_request_microbatches": [4, 8, 16],
+    "candidate_requests_per_position": 16,
+    "candidate_positions": [0, 1, 2, 3, 4, 5],
+    "candidate_total_cache_miss_requests": 96,
+    "key_extraction_batch_policy": "selected_z_microbatch",
+    "key_extraction_layer_policy": "position_selected_layer_only_output_equivalent_to_unused_official_key_bank_elision",
+    "candidate_subset_rule": "the first deterministic train-only context from each of the first 16 lexically-long cold items at every position; 16 distinct items and identical 96 rows for every candidate; never resample on z outcome or probability",
+    "full_z_steps_per_candidate": 30,
+    "linear_system_width": 2048,
+    "rank_tolerance_rule": "max(matrix_shape)*float64_eps*max_abs_eigenvalue",
+    "maximum_solve_relative_residual": 1e-6,
+    "position_contract_requests_by_position": {"0": 16, "1": 16, "2": 16, "3": 16, "4": 16, "5": 64},
+    "covariance_rows": 22516,
+    "covariance_rows_by_position": {"0": 4096, "1": 4096, "2": 4096, "3": 4096, "4": 4096, "5": 2036},
+    "covariance_resource_rule": "min(formal_position_rows, 2 * linear_system_width), with deterministic seed-ranked train-only rows",
+    "covariance_long_path_minimum": 8,
+    "covariance_batch_size": 64,
+    "generation_resource_events": 2,
+    "formal_item_disjoint_admission_events": 7435,
+    "formal_warm_preservation_events": 512,
+    "admission_beam_size": 50,
+    "resource_covariance_convergence_checkpoints_by_position": {
+      "0": [512, 2048, 4096],
+      "1": [512, 2048, 4096],
+      "2": [512, 2048, 4096],
+      "3": [512, 2048, 4096],
+      "4": [512, 2048, 4096],
+      "5": [512, 1024, 2036]
+    },
+    "formal_covariance_convergence_checkpoints": [64, 256, 1024, 4096, 16384, "full"],
+    "covariance_convergence_metric": "relative Frobenius drift to the largest resource checkpoint; primary formal covariance remains the full raw E[x x^T] moment",
+    "exercise_positions": [0, 1, 2, 3, 4, 5],
+    "exercise_formal_empty_cache_and_isolated_cache_probe": true,
+    "cache_hit_excluded_from_throughput_projection": true,
+    "exercise_key_extract_valid_z_solve_aggregation_trigger": true,
+    "maximum_eligible_peak_reserved_mib": 8192,
+    "maximum_candidate_peak_reserved_mib": 8192,
+    "maximum_resource_peak_reserved_mib": 12288,
+    "candidate_selection_rule": "among candidates with all semantic checks PASS and peak_reserved_mib <= 8192, choose maximum cache-miss requests_per_second; if throughput differs by <=2%, choose the smaller microbatch and lower peak; never select on z success or probability",
+    "candidate_reset_contract": "reload frozen model and reset RNG/cache for each candidate; every candidate processes the identical deterministic 96-request subset across all six positions",
+    "runtime_projection_lower_multiplier": 1.25,
+    "runtime_projection_upper_multiplier": 2.0,
+    "formal_admission_recalibration_rule": "max(8192, ceil_to_1024(peak_reserved_mib + max(4096, 0.5 * peak_reserved_mib)))",
+    "scientific_efficacy_metric": false
+  },
+  "resources": {
+    "gpu_count": 1,
+    "fixed_physical_gpu": 4,
+    "minimum_free_mib": 18432,
+    "expected_peak_mib": 12288,
+    "hard_timeout_seconds": 900,
+    "excluded_physical_gpus": [0, 5, 7],
+    "selection_rule": "use only physical GPU4 if it meets the frozen 18432 MiB admission; never auto-switch",
+    "release_or_modify_existing_process": false
+  },
+  "automatic_retry": false,
+  "validation_used": false,
+  "test_read": false
+}
