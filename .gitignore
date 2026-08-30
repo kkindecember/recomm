@@ -106,8 +106,8 @@ artifacts/phase16/**/gpu*_baseline_compute_pids.txt
 artifacts/phase16/s3_genrecedit/inspired_ridge/stability/
 
 # Phase 17 is still being developed by a separate agent. Keep its compact
-# contracts/results visible, but exclude machine-local training payloads,
-# replicated dataset views, logs, predictions, locks, and attempt journals.
+# contracts/results, status, and attempt ledgers visible, but exclude
+# machine-local training payloads, replicated data, and execution logs.
 artifacts/phase17/runtime/
 artifacts/phase17/**/gram_logs*/
 artifacts/phase17/**/predictions/
@@ -117,6 +117,13 @@ artifacts/phase17/**/*.log
 artifacts/phase17/**/*.tsv
 artifacts/phase17/**/*.jsonl
 artifacts/phase17/**/*.lock
+!artifacts/phase17/attempts/*.jsonl
+
+# Run snapshots duplicate the frozen source/configuration recorded by hashes.
+# Generated input views can be rebuilt; keep their adjacent manifests visible.
+artifacts/phase17/snapshots/
+artifacts/phase17/s2r_preflight/data/**/*.txt
+artifacts/phase17/**/preflight/data/
 
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
