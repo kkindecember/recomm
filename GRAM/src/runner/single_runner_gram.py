@@ -1,5 +1,7 @@
 import os
 import logging
+import sys
+from pathlib import Path
 import torch
 import numpy as np
 from torch.utils.data import DataLoader
@@ -10,8 +12,13 @@ from transformers import (
 from tqdm import tqdm
 from time import time
 
+_REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+if str(_REPOSITORY_ROOT) not in sys.path:
+    sys.path.append(str(_REPOSITORY_ROOT))
+
 import utils.generation_trie as gt
 import utils.evaluate as evaluate
+from experiment.phase17.core.item_aggregation import aggregate_item_scores, ranked_items
 
 from data import TestDatasetGRAM
 from utils import get_loader_gram_train
@@ -236,7 +243,7 @@ class SingleRunnerGRAM:
                     self.train_loader_rec.sampler.set_epoch(global_epoch)
 
                     losses = []
-                    component_sums = {"generation": 0.0, "cf0_item": 0.0, "total": 0.0}
+                    component_sums = {}
                     component_count = 0
                     for step, batch in enumerate(
                         tqdm(self.train_loader_rec, dynamic_ncols=True)
@@ -261,10 +268,8 @@ class SingleRunnerGRAM:
                         )[0]
 
                         if self.model_rec.last_loss_components is not None:
-                            for name in component_sums:
-                                component_sums[name] += float(
-                                    self.model_rec.last_loss_components[name]
-                                )
+                            for name, value in self.model_rec.last_loss_components.items():
+                                component_sums[name] = component_sums.get(name, 0.0) + float(value)
                             component_count += 1
 
                         loss = loss / self.args.gradient_accumulation_steps
@@ -297,11 +302,23 @@ class SingleRunnerGRAM:
                     )
                     if component_count:
                         logging.info(
-                            "CF0_LOSS_COMPONENTS "
+                            "LOSS_COMPONENTS "
                             f"epoch={rec_epoch + 1} "
                             + " ".join(
                                 f"{name}={component_sums[name] / component_count:.8f}"
-                                for name in ("generation", "cf0_item", "total")
+                                for name in sorted(component_sums)
+                            )
+                        )
+                    mechanism_metrics = (
+                        self.model_rec.encoder.migration_runtime.mechanism_metrics()
+                    )
+                    if mechanism_metrics:
+                        logging.info(
+                            "S17_MECHANISM_METRIC "
+                            f"epoch={rec_epoch + 1} "
+                            + " ".join(
+                                f"{name}={value:.8f}"
+                                for name, value in sorted(mechanism_metrics.items())
                             )
                         )
 
@@ -385,6 +402,7 @@ class SingleRunnerGRAM:
         debug_test_small_set=False,
     ):
         self.testloaders = []
+        effective_tokenizer = tokenizer or self.tokenizer
         datasets = self.args.datasets.split(",")  # 'Beauty'
         tasks = self.args.tasks.split(",")  # 'sequential'
         collator = CollatorGRAM(self.tokenizer, args=self.args, mode="test")
@@ -395,7 +413,7 @@ class SingleRunnerGRAM:
                     dataset,
                     task,
                     model_gen,
-                    tokenizer,
+                    effective_tokenizer,
                     regenerate,
                     phase,
                     debug_test_small_set=debug_test_small_set,
@@ -417,6 +435,7 @@ class SingleRunnerGRAM:
         debug_test_small_set=False,
     ):
         self.validloaders = []
+        effective_tokenizer = tokenizer or self.tokenizer
         datasets = self.args.datasets.split(",")  # 'Beauty'
         tasks = self.args.tasks.split(",")  # 'sequential'
         collator = CollatorGRAM(self.tokenizer, args=self.args, mode="valid")
@@ -427,7 +446,7 @@ class SingleRunnerGRAM:
                     dataset=dataset,
                     task=task,
                     model_gen=model_gen,
-                    tokenizer=tokenizer,
+                    tokenizer=effective_tokenizer,
                     regenerate=regenerate,
                     phase=phase,
                     debug_test_small_set=debug_test_small_set,
@@ -566,6 +585,7 @@ class SingleRunnerGRAM:
                 output_masks = batch["target_masks"].to(self.device)
                 history_item_ids = batch["history_item_ids"].to(self.device)
                 history_item_mask = batch["history_item_mask"].to(self.device)
+                target_item_ids = batch["target_item_ids"].to(self.device)
 
                 if self.args.item_id_type == "t5_token":
                     max_length = max(
@@ -609,6 +629,14 @@ class SingleRunnerGRAM:
                     testloader.dataset,
                     input_ids.size(0),
                 )
+                generated_sents, prediction_scores = self._s17_item_aggregate(
+                    generated_sents,
+                    prediction_scores,
+                    testloader.dataset,
+                    input_ids.size(0),
+                )
+                if getattr(testloader.dataset, "s17_multi_path_enabled", False):
+                    gold_sents = [str(int(value)) for value in target_item_ids]
 
                 rel_results = evaluate.rel_results(
                     generated_sents, gold_sents, prediction_scores, self.generate_num
@@ -669,6 +697,8 @@ class SingleRunnerGRAM:
         )
 
         test_total, cnt = 0, 0
+        self._s17_aggregate_paths = 0
+        self._s17_aggregate_unique_items = 0
         candidates = testloader.dataset.all_items
 
         total_time = 0
@@ -725,6 +755,7 @@ class SingleRunnerGRAM:
                 output_masks = batch["target_masks"].to(self.device)
                 history_item_ids = batch["history_item_ids"].to(self.device)
                 history_item_mask = batch["history_item_mask"].to(self.device)
+                target_item_ids = batch["target_item_ids"].to(self.device)
 
                 if self.args.item_id_type == "t5_token":
                     max_length = max(
@@ -768,6 +799,14 @@ class SingleRunnerGRAM:
                     testloader.dataset,
                     input_ids.size(0),
                 )
+                generated_sents, prediction_scores = self._s17_item_aggregate(
+                    generated_sents,
+                    prediction_scores,
+                    testloader.dataset,
+                    input_ids.size(0),
+                )
+                if getattr(testloader.dataset, "s17_multi_path_enabled", False):
+                    gold_sents = [str(int(value)) for value in target_item_ids]
 
                 rel_results = evaluate.rel_results(
                     generated_sents, gold_sents, prediction_scores, self.generate_num
@@ -817,6 +856,18 @@ class SingleRunnerGRAM:
                 if self.args.save_predictions:
                     pred_file.write(f"{self.metrics[i]}: {metrics_res[i]}\n")
 
+            if getattr(testloader.dataset, "s17_multi_path_enabled", False):
+                duplicate_rate = 1.0 - (
+                    self._s17_aggregate_unique_items
+                    / max(1, self._s17_aggregate_paths)
+                )
+                logging.info(
+                    "S17_MECHANISM_METRIC "
+                    f"track={testloader.dataset.s17_multi_path_module} "
+                    f"generated_duplicate_path_rate={duplicate_rate:.8f} "
+                    f"aggregated_paths={self._s17_aggregate_paths}"
+                )
+
             logging.info(
                 f"Total inference time: {total_time:.2f}s for {len(testloader)} samples. Average: {total_time/len(testloader):.4f}s"
             )
@@ -864,3 +915,42 @@ class SingleRunnerGRAM:
                 reranked_sents.append(generated_sents[base + rank])
                 reranked_scores.append(joint_scores[batch_idx, rank])
         return reranked_sents, torch.stack(reranked_scores)
+
+    def _s17_item_aggregate(
+        self, generated_sents, prediction_scores, dataset, batch_size
+    ):
+        """Collapse multiple legal identifier paths to one ranked item list."""
+
+        if not getattr(dataset, "s17_multi_path_enabled", False):
+            return generated_sents, prediction_scores
+        beam_count = self.generate_num
+        method = self.model_rec.encoder.migration_runtime.item_aggregation
+        output_items = []
+        output_scores = []
+        for batch_idx in range(batch_size):
+            start = batch_idx * beam_count
+            paths = generated_sents[start : start + beam_count]
+            scores = prediction_scores[start : start + beam_count]
+            item_ids = [dataset.lexid2cfid.get(path, 0) for path in paths]
+            if any(item_id == 0 for item_id in item_ids):
+                missing = [path for path, item_id in zip(paths, item_ids) if item_id == 0]
+                raise ValueError(
+                    f"S17 item aggregation could not map legal paths: {missing[:3]}"
+                )
+            aggregated = aggregate_item_scores(
+                [str(item_id) for item_id in item_ids], scores, method=method
+            )
+            ranking = ranked_items(aggregated)
+            self._s17_aggregate_paths = getattr(self, "_s17_aggregate_paths", 0) + len(
+                item_ids
+            )
+            self._s17_aggregate_unique_items = getattr(
+                self, "_s17_aggregate_unique_items", 0
+            ) + len(ranking)
+            for item_id in ranking:
+                output_items.append(item_id)
+                output_scores.append(aggregated[item_id])
+            for pad_index in range(beam_count - len(ranking)):
+                output_items.append(f"__s17_pad_{batch_idx}_{pad_index}")
+                output_scores.append(scores.new_tensor(-1e9))
+        return output_items, torch.stack(output_scores)

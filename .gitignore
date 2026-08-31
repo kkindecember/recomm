@@ -132,6 +132,14 @@ artifacts/phase17/snapshots/
 artifacts/phase17/s2r_preflight/data/**/*.txt
 artifacts/phase17/**/preflight/data/
 
+# Commit-pinned source manifests are durable; downloaded/extracted third-party
+# source trees are reproducible machine-local payloads.
+artifacts/phase17/fullport/sources/
+
+# Per-user metric rows are reproducible detail outputs. Keep aggregate
+# learning curves, summaries, configs, and canonical result manifests.
+artifacts/phase17/**/*_user_metrics.json
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt

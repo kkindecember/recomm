@@ -1,0 +1,41 @@
+{
+  "schema_version": "phase17.architecture_card.v1",
+  "candidate_id": "R2A_gryphon_item",
+  "display_name": "Gryphon-style joint Semantic-ID generation and item-level scoring",
+  "priority": "P0",
+  "source": {
+    "paper_url": "https://arxiv.org/abs/2606.08604",
+    "paper_version": "v2",
+    "repository_url": null,
+    "official_code_found": false,
+    "license_status": "NO_OFFICIAL_CODE_FOUND",
+    "verified_on": "2026-08-30"
+  },
+  "copy_policy": "INDEPENDENT_IMPLEMENTATION_FROM_PAPER_ONLY",
+  "architecture_changes": [
+    "semantic_id_generator",
+    "joint_item_tower_and_item_level_scorer",
+    "beam_likelihood_used_for_candidate_membership_only",
+    "collision_group_expansion_before_final_ranking"
+  ],
+  "matched_native_control": "same generator, same SID mapping and same beam candidates ranked by accumulated sequence likelihood; also report collision-resolved no-scorer control",
+  "mechanism_metrics": [
+    "candidate_recall_at_k",
+    "same_candidate_item_rank_gain",
+    "sid_collision_rate",
+    "collision_split_accuracy",
+    "item_scorer_gradient_norm"
+  ],
+  "data_fit": {
+    "toys": "ADAPTER_REQUIRED_BUT_ITEM_TEXT_AND_ITEM_IDS_AVAILABLE",
+    "beauty": "ADAPTER_REQUIRED_BUT_ITEM_TEXT_AND_ITEM_IDS_AVAILABLE",
+    "industrial_music_to_amazon_shift": "HIGH"
+  },
+  "prior_local_result_does_not_reject": "B0_mvi used multiple native lexical paths and S17-4 SetHead used an auxiliary token-set loss; neither jointly trained an item-level scorer on resolved beam candidates.",
+  "resource_risk": "MEDIUM_PROFILE_REQUIRED",
+  "promotion_blockers": [
+    "no official reference implementation",
+    "paper evidence is from an industrial music service",
+    "must freeze negative sampling and LogQ correction before performance screening"
+  ]
+}

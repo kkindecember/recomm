@@ -1,0 +1,44 @@
+schema_version: phase17.idea_registry.v1
+updated: 2026-08-29
+objective: migrate useful mechanisms into GRAM and improve normal-setting ranking
+not_objectives:
+  - faithful_1_to_1_reproduction
+  - immediate_paper_story
+  - novelty_gate_before_effect_screening
+tracks:
+  - id: A0
+    name: BEAR-GRAM
+    priority: P0
+    insertion_point: decoder_loss
+    status: S17_0_AUDITED
+  - id: A1
+    name: PrefixCurr-GRAM
+    priority: P0
+    insertion_point: training_schedule
+    status: S17_0_AUDITED
+  - id: B0
+    name: MVI-GRAM
+    priority: P0
+    insertion_point: identifier_and_item_aggregation
+    status: S17_0_AUDITED
+  - id: B1
+    name: Latte-GRAM-lite
+    priority: P0
+    insertion_point: identifier_root_and_trie
+    status: S17_0_PARTIAL_SOURCE_AUDIT
+  - id: C0
+    name: BiFlow-GRAM-lite
+    priority: P0
+    insertion_point: fid_encoder
+    status: S17_0_IDEA_ONLY_NO_OFFICIAL_CODE
+  - id: D0
+    name: TED-GRAM-lite
+    priority: P0
+    insertion_point: train_only_transition_teacher
+    status: S17_0_AUDITED_NO_LICENSE
+  - id: E0
+    name: Shortcut-FiD-GRAM
+    priority: P0
+    insertion_point: history_selection_and_extra_fid_branch
+    status: S17_0_AUDITED
+next_gate: S17_1_COMMON_CONTRACTS

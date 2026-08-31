@@ -1,0 +1,152 @@
+{
+  "schema_version": "phase17.s17_2r_architecture_reselection.v1",
+  "step_id": "S17-2R",
+  "status": "STATIC_PREFLIGHT_READY",
+  "authorization": {
+    "architecture_level_changes_allowed": true,
+    "tokenizer_replacement_allowed": true,
+    "identifier_replacement_allowed": true,
+    "decoder_replacement_allowed": true,
+    "backbone_replacement_allowed": true,
+    "training_from_scratch_allowed": true,
+    "s17_5_superseded_until_s2r_passes": true
+  },
+  "protected_contracts": {
+    "shadow_fold_causality": true,
+    "no_future_target_context": true,
+    "same_item_catalog": true,
+    "unified_item_level_evaluator": true,
+    "user_level_predictions_required": true,
+    "official_test_read": false,
+    "sports_read": false,
+    "d1_read_during_s2r": false
+  },
+  "forbidden_selection_evidence": [
+    "historical_s17_s0_1k_metric_as_matched_baseline",
+    "official_validation_or_test",
+    "sports_labels_predictions_or_metrics",
+    "runtime_occupancy_repeat_metrics",
+    "paper_reported_gain_without_local_predictions",
+    "unmatched_single_model_metric"
+  ],
+  "candidate_pool": [
+    {
+      "candidate_id": "R2A_gryphon_item",
+      "priority": "P0",
+      "card": "experiment/phase17/registry/architecture_cards/R2A_gryphon_item.json"
+    },
+    {
+      "candidate_id": "R2B_latte_full",
+      "priority": "P0",
+      "card": "experiment/phase17/registry/architecture_cards/R2B_latte_full.json"
+    },
+    {
+      "candidate_id": "R2C_diffgrm",
+      "priority": "P0_PROFILE_FIRST",
+      "card": "experiment/phase17/registry/architecture_cards/R2C_diffgrm.json"
+    },
+    {
+      "candidate_id": "R2D_setrec_full",
+      "priority": "P0",
+      "card": "experiment/phase17/registry/architecture_cards/R2D_setrec_full.json"
+    },
+    {
+      "candidate_id": "R2E_diger_jointsid",
+      "priority": "P1_STATIC_ONLY_UNTIL_GRADIENT_FIX_VALIDATED",
+      "card": "experiment/phase17/registry/architecture_cards/R2E_diger_jointsid.json"
+    }
+  ],
+  "caps": {
+    "maximum_p0_families": 4,
+    "maximum_full_d0_finalists": 2,
+    "maximum_diagnostic_revisions_per_family": 1
+  },
+  "r0_static_audit": {
+    "gpu_required": false,
+    "required_fields": [
+      "paper_url",
+      "repository_url",
+      "license_status",
+      "data_fit",
+      "matched_native_control",
+      "resource_risk",
+      "copy_policy"
+    ]
+  },
+  "r1_smoke": {
+    "dataset": "Toys_s17_d0_r1_100",
+    "data_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/r1_smoke_user_sequence.txt",
+    "formal_result_eligible": false,
+    "gpu_required": true,
+    "exclude_physical_gpu_ids": [1],
+    "checks": [
+      "no_future_context",
+      "catalog_item_resolution",
+      "collision_policy_deterministic",
+      "candidate_specific_gradient_nonzero",
+      "training_loss_decreases",
+      "prediction_file_nonempty",
+      "peak_memory_recorded",
+      "step_time_recorded"
+    ]
+  },
+  "r2_screen": {
+    "dataset": "Toys_s17_d0_3000",
+    "fold": "D0",
+    "seed": 2023,
+    "evaluation_cohorts": [
+      "Toys_s17_d0_eval_c0_1000",
+      "Toys_s17_d0_eval_c1_1000",
+      "Toys_s17_d0_eval_c2_1000"
+    ],
+    "native_control_required": true,
+    "same_training_users_within_family": true,
+    "same_seed_within_family": true,
+    "same_capacity_class_within_family": true,
+    "same_optimization_opportunity_within_family": true,
+    "convergence_or_preregistered_early_stop_required": true,
+    "fixed_one_epoch_for_all_architectures": false,
+    "primary_metric": "ndcg@10",
+    "secondary_metrics": ["hit@10", "hit@5", "ndcg@5", "hit@20", "hit@50"],
+    "paired_uncertainty_required": true,
+    "strong_promotion": {
+      "minimum_mean_absolute_delta_ndcg_at_10": 0.0015,
+      "minimum_positive_cohorts": 2,
+      "minimum_mean_delta_hit_at_10": 0.0,
+      "minimum_per_cohort_delta_hit_at_10": -0.002,
+      "mechanism_metric_must_move_as_preregistered": true
+    },
+    "borderline_policy": "positive mean with valid mechanism evidence may receive one diagnostic revision; no unlimited tuning"
+  },
+  "r3_full_d0": {
+    "dataset": "Toys_s17_d0_full",
+    "fold": "D0",
+    "maximum_candidates": 2,
+    "native_control_required": true,
+    "gram_continue_role": "external_absolute_anchor_only",
+    "paired_bootstrap_replicates": 2000,
+    "promotion": {
+      "minimum_absolute_delta_ndcg_at_10": 0.0015,
+      "paired_95ci_lower_bound_must_be_positive": true,
+      "minimum_delta_hit_at_10": 0.0,
+      "catastrophic_subgroup_regression_allowed": false
+    }
+  },
+  "resources": {
+    "gpu1_reserved_for_non_scientific_repeat": true,
+    "gpu1_repeat_must_not_be_stopped_for_preflight": true,
+    "gpu1_scientific_use_requires_explicit_handoff_authorization": true,
+    "additional_idle_gpus_preferred": true,
+    "useful_parallel_family_count": 4,
+    "one_family_per_gpu": true,
+    "global_gpu_count_hard_ceiling": null,
+    "per_candidate_profile_required_before_r2": true,
+    "resource_request_required_before_r1_or_r2_launch": true,
+    "unprofiled_peak_memory_mib": null,
+    "post_science_gpu1_repeat_policy": "resume_same_class_of_non_scientific_repeat_if_a_future_authorized_handoff_uses_gpu1"
+  },
+  "report_contract": {
+    "one_report_after_terminal_s17_2r": true,
+    "no_final_report_while_preflight_or_running": true
+  }
+}

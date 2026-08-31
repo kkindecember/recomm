@@ -1,0 +1,11 @@
+track_id: A0
+formal_proxy_module_id: A0_bear_proxy
+legacy_probe_module_id: A0_bear
+source: [BEAR]
+borrowed_mechanism: [top-K survival-aware token loss weighting]
+not_reproduced: [Llama backbone, original product-name identifier, original dataset scale]
+gram_insertion_point: [T5 lexical decoder loss]
+unchanged_contracts: [FiD encoder, native lexical target, legal trie, item evaluator]
+controls: [GRAM-B0, GRAM-Continue, CE temperature-only]
+primary_mechanism_metrics: [target_prefix_topB_survival, per_depth_target_rank]
+estimated_gpu: {class: small_probe, per_job_count: 1, formal_per_arm_count: 1, usable_memory_gib_per_job: 30, planning_baseline_concurrency: 2, portfolio_request_policy: dynamic_researcher_allocation, scheduling: available_gpu_waves, gram_probe_peak_reserved_mib: 21916}

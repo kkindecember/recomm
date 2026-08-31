@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "phase17.migration_card.schema.v1",
+  "type": "object",
+  "required": ["track_id", "source", "borrowed_mechanism", "not_reproduced", "gram_insertion_point", "controls", "primary_mechanism_metrics"],
+  "properties": {
+    "track_id": {"type": "string"},
+    "source": {"type": "array", "items": {"type": "string"}},
+    "borrowed_mechanism": {"type": "array", "items": {"type": "string"}},
+    "not_reproduced": {"type": "array", "items": {"type": "string"}},
+    "gram_insertion_point": {"type": "array", "items": {"type": "string"}},
+    "unchanged_contracts": {"type": "array", "items": {"type": "string"}},
+    "controls": {"type": "array", "items": {"type": "string"}},
+    "primary_mechanism_metrics": {"type": "array", "items": {"type": "string"}},
+    "estimated_gpu": {"type": "object"}
+  },
+  "additionalProperties": true
+}

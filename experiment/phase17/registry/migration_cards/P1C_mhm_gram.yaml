@@ -1,0 +1,14 @@
+track_id: P1-C-MHM
+priority: P1
+smoke_module_id: P1_mhm
+source: [BERT4Rec-style masked history]
+borrowed_mechanism: [train-only deterministic history masking]
+not_reproduced: [bidirectional target prediction, full masked-item recovery head]
+gram_insertion_point: [train-only history passage feature perturbation]
+unchanged_contracts: [causal validation, unmasked inference, native lexical target]
+controls: [zero mask gate, unmasked GRAM-Continue]
+primary_mechanism_metrics: [masked_history_fraction, mask_gate]
+s17_4_trigger: requires a material long-short or noise sensitivity gap; unavailable in S17-3 artifacts
+s17_4_smoke: {mode: tiny_model_train_eval_boundary, status: implemented}
+formal_screen_status: not_triggered
+estimated_gpu: {class: cpu_smoke_only_in_s17_4}

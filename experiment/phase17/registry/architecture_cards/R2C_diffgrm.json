@@ -1,0 +1,45 @@
+{
+  "schema_version": "phase17.architecture_card.v1",
+  "candidate_id": "R2C_diffgrm",
+  "display_name": "DiffGRM masked discrete diffusion generative recommender",
+  "priority": "P0_PROFILE_FIRST",
+  "source": {
+    "paper_url": "https://arxiv.org/abs/2510.21805",
+    "paper_version": "v2",
+    "venue": "The ACM Web Conference 2026",
+    "repository_url": "https://github.com/liuzhao09/DiffGRM",
+    "official_code_found": true,
+    "license_status": "NO_STANDARD_LICENSE_FILE_OBSERVED",
+    "verified_on": "2026-08-30"
+  },
+  "copy_policy": "READ_ONLY_REFERENCE; INDEPENDENT_IMPLEMENTATION_OR_LICENSE_CLEARANCE_REQUIRED",
+  "architecture_changes": [
+    "replace_autoregressive_decoder_with_masked_discrete_diffusion",
+    "parallel_semantic_encoding",
+    "on_policy_coherent_noising",
+    "confidence_guided_parallel_denoising"
+  ],
+  "matched_native_control": "autoregressive or uniform-objective control with identical PSE identifiers, capacity class, training users and evaluator",
+  "mechanism_metrics": [
+    "per_digit_entropy",
+    "per_digit_accuracy",
+    "valid_item_rate",
+    "denoising_steps",
+    "topk_diversity",
+    "generation_latency"
+  ],
+  "data_fit": {
+    "toys": "OFFICIAL_REPO_HAS_TOYS_AND_GAMES_COMMAND",
+    "beauty": "OFFICIAL_REPO_HAS_BEAUTY_COMMAND",
+    "phase17_adapter_required": true
+  },
+  "prior_local_result_does_not_reject": "All S17-2 through S17-4 science retained left-to-right autoregressive decoding; no masked diffusion decoder was tested.",
+  "resource_risk": "HIGH_PROFILE_REQUIRED",
+  "resource_evidence": "Official Toys example uses hidden size 1024, 8 heads and train batch size 1024; no Phase17 30-GiB fit evidence exists.",
+  "promotion_blockers": [
+    "license clearance or independent implementation",
+    "single-card memory profile",
+    "matched AR control must use the same PSE identifier",
+    "no downscaled configuration may be called faithful without a fidelity ledger"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "phase17.s17_2r_r2_latte_revision.v1",
+  "step_id": "S17-2R",
+  "family": "latte",
+  "revision_index": 1,
+  "maximum_revisions_for_family": 1,
+  "revision_consumed_after_formal_evaluation": true,
+  "diagnostic_basis": {
+    "original_decision": "BORDERLINE_ONE_REVISION",
+    "original_delta_ndcg_at_10": 0.0007773391355420684,
+    "original_delta_hit_at_10": 0.0016666666666666668,
+    "positive_cohorts": 2,
+    "latte_mean_unique_candidates_at_beam_50": 14.330333333333334,
+    "psid_mean_unique_candidates_at_beam_50": 50.0,
+    "latte_multi_path_item_rate": 0.6062431671745249,
+    "hypothesis": "additional equal beam budget restores item coverage lost to valid multi-path duplication"
+  },
+  "change_scope": {
+    "training_changed": false,
+    "checkpoint_changed": false,
+    "identifier_changed": false,
+    "aggregation_changed": false,
+    "num_beams_before": 50,
+    "num_beams_after": 200,
+    "top_k": 50,
+    "evaluation_batch_size": 8,
+    "same_beam_budget_for_treatment_and_control": true
+  },
+  "arms": {
+    "latte_full": {
+      "checkpoint": "artifacts/phase17/s2r_r2/screen/run-0001/latte/latte_full/best_checkpoint.pt",
+      "checkpoint_sha256": "b96e795b2395be1fca9d3a346591b8a791c2224b9f2947b3274d86e65bd906d1",
+      "best_epoch": 3
+    },
+    "psid_control": {
+      "checkpoint": "artifacts/phase17/s2r_r2/screen/run-0001/latte/psid_control/best_checkpoint.pt",
+      "checkpoint_sha256": "290960745af88d499c762bffeedbe631d971f9b8ad4dadbca35b1f2cb75d3cf3",
+      "best_epoch": 3
+    }
+  },
+  "source_screen_summary": "artifacts/phase17/s2r_r2/screen/run-0001/latte/summary.json",
+  "source_screen_summary_sha256": "918e2c2ac586a872f055b304ea7bd1ba224bedde7956b4f23a3504d43a3d3368",
+  "capacity_profile": {
+    "users": 8,
+    "split": "internal train-prefix early-stop only",
+    "required_before_formal_revision": true,
+    "minimum_free_mib": 12288
+  },
+  "revision_mechanism_gate": {
+    "valid_item_rate": 1.0,
+    "multi_path_item_rate_min_exclusive": 0.0,
+    "mean_unique_candidates_min": 45.0
+  },
+  "promotion": {
+    "minimum_mean_delta_ndcg_at_10": 0.0015,
+    "minimum_positive_cohorts": 2,
+    "minimum_mean_delta_hit_at_10": 0.0,
+    "minimum_per_cohort_delta_hit_at_10": -0.002,
+    "mechanism_gate_required": true,
+    "no_further_revision": true
+  },
+  "forbidden_reads": {
+    "official_test": true,
+    "sports": true,
+    "d1": true
+  },
+  "gpu1_excluded": true
+}

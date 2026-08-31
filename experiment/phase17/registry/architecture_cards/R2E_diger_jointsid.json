@@ -1,0 +1,46 @@
+{
+  "schema_version": "phase17.architecture_card.v1",
+  "candidate_id": "R2E_diger_jointsid",
+  "display_name": "DIGER differentiable Semantic ID joint optimization",
+  "priority": "P1_STATIC_ONLY_UNTIL_GRADIENT_FIX_VALIDATED",
+  "source": {
+    "paper_url": "https://arxiv.org/abs/2601.19711",
+    "paper_version": "v3",
+    "venue": "SIGIR 2026",
+    "repository_url": "https://github.com/junchen-fu/DIGER",
+    "official_code_found": true,
+    "required_branch": "gradient-fix",
+    "license_status": "NO_STANDARD_LICENSE_FILE_OBSERVED",
+    "verified_on": "2026-08-30"
+  },
+  "copy_policy": "READ_ONLY_REFERENCE; INDEPENDENT_IMPLEMENTATION_OR_LICENSE_CLEARANCE_REQUIRED",
+  "architecture_changes": [
+    "differentiable_rqvae_assignments",
+    "recommendation_gradient_to_semantic_id_codebooks",
+    "gumbel_exploration",
+    "uncertainty_decay"
+  ],
+  "matched_native_control": "same RQ-VAE initialization and recommender with frozen Semantic IDs and identical capacity/training users/evaluator",
+  "mechanism_metrics": [
+    "recommendation_gradient_reaches_codebooks",
+    "codebook_utilization",
+    "per_level_perplexity",
+    "code_collapse_rate",
+    "identifier_churn"
+  ],
+  "data_fit": {
+    "toys": "NOT_IN_RELEASED_DATASETS; NEW_ADAPTER_REQUIRED",
+    "beauty": "OFFICIAL_REPO_SUPPORTS_BEAUTY_BUT_PHASE17_SPLIT_ADAPTER_REQUIRED",
+    "released_datasets": ["Beauty", "Instruments", "Yelp"]
+  },
+  "prior_local_result_does_not_reject": "No S17 arm allowed recommendation gradients to update the identifier tokenizer/codebooks.",
+  "resource_risk": "HIGH_PROFILE_REQUIRED",
+  "repository_integrity_warning": "The official README states that the historical main-branch reproduction path accidentally detached the recommendation loss before RQ-VAE assignments/codebooks; corrected code is on gradient-fix, while paper-table parity of the corrected path is not established by that statement.",
+  "promotion_blockers": [
+    "gradient reachability unit test",
+    "gradient-fix branch pin and independent diff audit",
+    "corrected-path parity evidence",
+    "Toys data adapter",
+    "license clearance or independent implementation"
+  ]
+}

@@ -1,0 +1,14 @@
+track_id: P1-C-LSFID
+priority: P1
+smoke_module_id: P1_ls_fid
+source: [BlossomRec]
+borrowed_mechanism: [separate recent and long-history summaries, learned normalized fusion]
+not_reproduced: [block-level sparse attention, source backbone, full sparse selector]
+gram_insertion_point: [FiD global prompt feature hook]
+unchanged_contracts: [causal cutoff, native identifier, full parent history branch]
+controls: [recent-only, long-only, GRAM-Continue]
+primary_mechanism_metrics: [recent_gate, long_gate, long_history_available]
+s17_4_trigger: requires a material long-short subgroup gap; unavailable in S17-3 canonical artifacts
+s17_4_smoke: {mode: tiny_model_gradient, status: implemented}
+formal_screen_status: not_triggered_due_missing_subgroup_evidence
+estimated_gpu: {class: cpu_smoke_only_in_s17_4}

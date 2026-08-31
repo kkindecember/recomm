@@ -1,0 +1,14 @@
+track_id: P1-A-PAWA
+priority: P1
+formal_module_id: P1_pawa_lite
+source: [NCI]
+borrowed_mechanism: [prefix-aware weight adaptation, depth-specific decoder emphasis]
+not_reproduced: [NCI semantic identifiers, original PAWA decoder, legal-candidate rank during training]
+gram_insertion_point: [native lexical decoder loss]
+unchanged_contracts: [native lexical identifier, FiD encoder, legal catalog Trie at generation, item evaluator]
+controls: [GRAM-Continue, A0 full-vocabulary survival proxy]
+primary_mechanism_metrics: [early_target_rank, late_target_rank, early_depth_weight, late_depth_weight, target_prefix_topB_survival]
+s17_4_trigger: early prefix pruning exposed by A0 and A1
+s17_4_smoke: {mode: tiny_model_gradient, status: implemented}
+naming_boundary: PAWA-lite transfer; not an NCI or legal-Trie PAWA reproduction
+estimated_gpu: {class: one_epoch_d0_screen, per_job_count: 1, expected_peak_mib: 25500}

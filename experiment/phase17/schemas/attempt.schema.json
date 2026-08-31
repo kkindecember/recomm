@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "phase17.attempt.schema.v1",
+  "type": "object",
+  "required": ["attempt_id", "step_id", "kind", "started_at", "state", "scientific_result_eligible"],
+  "properties": {
+    "attempt_id": {"type": "string"},
+    "step_id": {"type": "string"},
+    "track_id": {"type": ["string", "null"]},
+    "kind": {"enum": ["audit", "contract", "smoke", "probe", "formal", "recovery"]},
+    "started_at": {"type": "string"},
+    "ended_at": {"type": ["string", "null"]},
+    "state": {"enum": ["RUNNING", "COMPLETED", "FAILED", "STOPPED", "BLOCKED"]},
+    "config_sha256": {"type": ["string", "null"]},
+    "data_manifest_sha256": {"type": ["string", "null"]},
+    "source_sha256": {"type": ["string", "null"]},
+    "scientific_result_eligible": {"type": "boolean"},
+    "failure_reason": {"type": ["string", "null"]},
+    "artifact_dir": {"type": "string"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "phase17.s17_3_confirmation_budget.v1",
+  "step_id": "S17-3-confirmation-deferred",
+  "dataset": "Toys_s17_d0",
+  "fold": "D0-discovery",
+  "seed": 2023,
+  "backbone": "t5-small",
+  "beam_size": 50,
+  "primary_metric": "ndcg@10",
+  "secondary_metrics": ["hit@5", "hit@10", "ndcg@5", "hit@20", "hit@50"],
+  "test_read": false,
+  "sports_read": false,
+  "activation": "deferred_until_winner_confirmation_or_paper_preparation",
+  "parent_stage": {
+    "arm_id": "gram_b0_parent",
+    "module_id": "",
+    "initialization": "clean_t5_small",
+    "rec_epochs": 30,
+    "validation_count": 1,
+    "estimated_wall_seconds": 88970.81061380333,
+    "produces_parent_checkpoint": true
+  },
+  "post_parent_stage": {
+    "initialization": "frozen_gram_b0_parent_checkpoint",
+    "optimizer_state": "fresh_and_matched_across_arms",
+    "rec_epochs": 10,
+    "validation_count": 1,
+    "arms": [
+      {"priority": 1, "arm_id": "gram_continue", "track_id": "CONTROL", "module_id": ""},
+      {"priority": 2, "arm_id": "b1_latte", "track_id": "B1", "module_id": "B1_latte"},
+      {"priority": 3, "arm_id": "b0_mvi", "track_id": "B0", "module_id": "B0_mvi"},
+      {"priority": 4, "arm_id": "c0_biflow", "track_id": "C0", "module_id": "C0_biflow"},
+      {"priority": 5, "arm_id": "a0_bear_proxy", "track_id": "A0", "module_id": "A0_bear_proxy"},
+      {"priority": 6, "arm_id": "a1_prefixcurr", "track_id": "A1", "module_id": "A1_prefixcurr"},
+      {"priority": 7, "arm_id": "d0_ted", "track_id": "D0", "module_id": "D0_ted"},
+      {"priority": 8, "arm_id": "e0_semantic", "track_id": "E0", "module_id": "E0_shortcut_fid"},
+      {"priority": 9, "arm_id": "e0_full_control", "track_id": "E0", "module_id": "E0_shortcut_fid_full_control"},
+      {"priority": 10, "arm_id": "e0_random_control", "track_id": "E0", "module_id": "E0_shortcut_fid_random_control"}
+    ]
+  },
+  "resources": {
+    "one_gpu_per_arm": true,
+    "usable_memory_mib_per_gpu": 30720,
+    "minimum_free_mib_at_admission": 27648,
+    "estimated_total_gpu_hours": 117.65
+  },
+  "execution_contract": {
+    "background_required": true,
+    "stable_status_required": true,
+    "no_automatic_retry": true,
+    "one_report_after_confirmation_step": true,
+    "large_experiment_post_success_runtime_cycle": true,
+    "runtime_cycle_result_selection_eligible": false
+  }
+}

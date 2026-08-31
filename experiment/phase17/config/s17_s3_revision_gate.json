@@ -1,0 +1,39 @@
+{
+  "schema_version": "phase17.s17_3_revision_gate.v1",
+  "step_id": "S17-3",
+  "dataset": "Toys_s17_d0_100",
+  "seed": 2023,
+  "epochs": 1,
+  "beam_size": 50,
+  "official_result_claim": false,
+  "test_read": false,
+  "sports_read": false,
+  "e0_revision": {
+    "similarity_quantile": 0.75,
+    "maximum_selected_ratio": 0.5,
+    "parent_history": "full",
+    "target_read": false
+  },
+  "arms": [
+    {"arm_id": "a0_proxy", "track_id": "A0", "module_id": "A0_bear_proxy"},
+    {"arm_id": "a1_prefixcurr", "track_id": "A1", "module_id": "A1_prefixcurr"},
+    {"arm_id": "e0_semantic", "track_id": "E0", "module_id": "E0_shortcut_fid"},
+    {"arm_id": "e0_full", "track_id": "E0", "module_id": "E0_shortcut_fid_full_control"},
+    {"arm_id": "e0_random", "track_id": "E0", "module_id": "E0_shortcut_fid_random_control"}
+  ],
+  "gates": {
+    "all_arms_exit_zero": true,
+    "a0_a1_validation_completed": true,
+    "a0_a1_mechanism_metric_present": true,
+    "e0_semantic_selected_ratio_strictly_between_zero_and_one": true,
+    "e0_full_selected_ratio_equals_one": true,
+    "e0_random_selected_ratio_matches_its_adaptive_target": true
+  },
+  "resources": {
+    "scheduler_concurrency": 1,
+    "expected_peak_mib": 23000,
+    "safety_margin_mib": 4096,
+    "usable_memory_ceiling_mib": 30720,
+    "eligible_gpu_policy": "current idle card only; never preempt unrelated processes"
+  }
+}

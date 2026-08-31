@@ -1,0 +1,72 @@
+{
+  "schema_version": "phase17.s17_4_targeted_budget.v1",
+  "step_id": "S17-4",
+  "purpose": "diagnosis-triggered P1 salvage screen on an isolated Toys D0 shadow fold",
+  "dataset": "Toys_s17_d0_full",
+  "fold": "D0",
+  "seed": 2023,
+  "backbone": "t5-small",
+  "beam_size": 50,
+  "rec_epochs": 1,
+  "primary_metric": "ndcg@10",
+  "secondary_metrics": ["hit@5", "hit@10", "ndcg@5", "hit@20", "hit@50"],
+  "paired_bootstrap_replicates": 2000,
+  "test_read": false,
+  "sports_read": false,
+  "parent": {
+    "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "size_bytes": 242132665,
+    "optimizer_state": "fresh_and_matched_across_all_arms"
+  },
+  "smoke": {
+    "dataset": "Toys_s17_d0_100",
+    "epochs": 1,
+    "formal_result_eligible": false,
+    "exclude_physical_gpu_ids": [1],
+    "arms": [
+      {"arm_id": "pawa_lite", "track_id": "P1-A", "module_id": "P1_pawa_lite"},
+      {"arm_id": "latte_sethead", "track_id": "P1-B", "module_id": "B1_latte,P1_sethead"},
+      {"arm_id": "biflow_s2g", "track_id": "P1-C0", "module_id": "P1_biflow_s2g"}
+    ]
+  },
+  "formal_arms": [
+    {"priority": 1, "arm_id": "gram_continue", "track_id": "CONTROL", "module_id": ""},
+    {"priority": 2, "arm_id": "pawa_lite", "track_id": "P1-A", "module_id": "P1_pawa_lite"},
+    {"priority": 3, "arm_id": "latte_sethead", "track_id": "P1-B", "module_id": "B1_latte,P1_sethead"},
+    {"priority": 4, "arm_id": "biflow_s2g", "track_id": "P1-C0", "module_id": "P1_biflow_s2g"}
+  ],
+  "comparison_contract": {
+    "matched_control": "gram_continue",
+    "same_shadow_fold": true,
+    "same_parent_checkpoint": true,
+    "same_fresh_optimizer": true,
+    "same_training_epoch_count": true,
+    "user_level_predictions_required": true,
+    "paired_uncertainty_required": true,
+    "subgroups": ["history_length", "target_train_frequency"],
+    "admission_rule": "a treatment must have positive mean delta versus matched GRAM-Continue; uncertainty and subgroup consistency remain explicit evidence grades"
+  },
+  "stop_rule": "if no treatment beats matched GRAM-Continue, stop this P1 wave; do not unlock S17-5, stacking, PCRF, official test, Beauty, or Sports",
+  "resources": {
+    "gpu1_guaranteed": true,
+    "additional_idle_gpus_allowed": true,
+    "global_gpu_count_hard_ceiling": null,
+    "expected_peak_mib": 25500,
+    "extra_gpu_safety_margin_mib": 3000,
+    "gpu1_minimum_free_after_handoff_mib": 27000,
+    "usable_memory_ceiling_mib": 30720,
+    "arm_hard_timeout_seconds": 43200,
+    "monitor_seconds": 30,
+    "post_science_occupancy_gpu_ids": [1],
+    "post_science_extra_gpu_policy": "release"
+  },
+  "execution_contract": {
+    "background_required": true,
+    "no_automatic_retry": true,
+    "s3_gpu1_runtime_handoff_only_after_smoke_pass": true,
+    "one_report_after_entire_s17_4": true,
+    "runtime_cycle_result_selection_eligible": false,
+    "runtime_source_arm": "biflow_s2g"
+  }
+}

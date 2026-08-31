@@ -1,0 +1,15 @@
+track_id: P1-C0-ONEWAY
+priority: targeted_control
+formal_module_id: P1_biflow_s2g
+smoke_module_ids: [P1_biflow_s2g, P1_biflow_g2s]
+source: [S17-3 BiFlow mechanism diagnostic]
+borrowed_mechanism: [single-direction history-to-global exchange, opposite direction blocked]
+not_reproduced: [full OneTrans, layer-wise exchange, industrial feature schema]
+gram_insertion_point: [post-FiD passage states]
+unchanged_contracts: [causal cutoff, target-free inputs, native lexical identifier, legal Trie]
+controls: [GRAM-Continue as both-directions-blocked control, S17-3 bidirectional bridge]
+primary_mechanism_metrics: [sequence_to_global_gate, global_to_sequence_gate, active_delta_norm, blocked_direction_count]
+s17_4_trigger: S17-3 bidirectional gates activated but accuracy was negative
+s17_4_smoke: {mode: tiny_model_direction_blocking, status: implemented}
+naming_boundary: one-way BiFlow ablation; not OneTrans
+estimated_gpu: {class: one_epoch_d0_screen, per_job_count: 1, expected_peak_mib: 25500}

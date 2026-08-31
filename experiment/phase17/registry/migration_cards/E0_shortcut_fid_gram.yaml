@@ -1,0 +1,11 @@
+track_id: E0
+source: [LISRec]
+borrowed_mechanism: [adaptive semantic-connectivity shortcut selection for noisy histories]
+not_reproduced: [full multi-domain T5 pretraining, original dataset conversion, original recommender]
+gram_insertion_point: [extra shortcut FiD branch selected from observed history only]
+unchanged_contracts: [native lexical target, full-history parent, fold-local text and graph]
+preregistered_s17_3_revision: {similarity_quantile: 0.75, maximum_selected_ratio: 0.5, parent_history: full, target_read: false}
+module_ids: {treatment: E0_shortcut_fid, full_control: E0_shortcut_fid_full_control, random_same_size_control: E0_shortcut_fid_random_control}
+controls: [full history, random same-size subset]
+primary_mechanism_metrics: [selected_history_ratio, noise_sensitivity, long_history_delta]
+estimated_gpu: {class: small_lite_probe, per_job_count: 1, formal_per_arm_count: 1, usable_memory_gib_per_job: 30, planning_baseline_concurrency: 2, portfolio_request_policy: dynamic_researcher_allocation, scheduling: available_gpu_waves, gram_probe_peak_reserved_mib: 21916, full_variant_requires_reprofile: true}

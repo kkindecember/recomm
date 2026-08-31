@@ -1,0 +1,14 @@
+track_id: P1-E-SPRINT
+priority: P1
+smoke_module_id: P1_sprint
+source: [SPRINT]
+borrowed_mechanism: [batch-level output concentration penalty as popularity-amplification proxy]
+not_reproduced: [attention column-sum regularizer, FFN spectral regularizer, source scale study]
+gram_insertion_point: [decoder-logit auxiliary loss feasibility hook]
+unchanged_contracts: [native lexical identifier, legal Trie, item evaluator]
+controls: [zero-weight penalty, GRAM-Continue]
+primary_mechanism_metrics: [output_concentration_penalty, topk_output_entropy]
+s17_4_trigger: requires head-tail or popularity amplification evidence; unavailable because S17-3 saved no predictions
+s17_4_smoke: {mode: tiny_model_gradient, status: implemented}
+formal_screen_status: not_triggered_and_full_sprint_not_implemented
+estimated_gpu: {class: cpu_smoke_only_in_s17_4}

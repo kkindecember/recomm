@@ -1,0 +1,20 @@
+{
+  "schema_version": "phase17.s17_2r_r2_latte_revision_profile_recovery.v1",
+  "attempt_id": "r2-latte-revision-profile-recovery-0002",
+  "recovery_of": "r2-latte-revision-profile-0001",
+  "failure_class": "MISSING_TERMINAL_ARTIFACT_AFTER_GPU_WORKER_EXIT",
+  "probable_root_cause": "shared GPU free-memory contraction during beam-200 generation",
+  "scientific_configuration_changed": false,
+  "engineering_change": {
+    "evaluation_batch_size_before": 8,
+    "evaluation_batch_size_after": 4,
+    "num_beams": 200,
+    "top_k": 50,
+    "checkpoints_unchanged": true,
+    "ranking_is_batch_invariant": true,
+    "persistent_failure_artifact_added": true
+  },
+  "minimum_free_mib": 12288,
+  "gpu1_excluded": true,
+  "automatic_retry": false
+}

@@ -71,6 +71,8 @@ def configure_hi_gram(config, args):
     config.hi_gram_dropout = float(args.hi_gram_dropout)
     config.hi_gram_fusion_scale_init = float(args.hi_gram_fusion_scale_init)
     config.hi_gram_include_user_prompt = bool(args.hi_gram_include_user_prompt)
+    config.s17_modules = args.s17_modules
+    config.s17_transition_map = args.s17_transition_map
 
 
 def run_with_resource_metrics(label, operation, device, enabled):

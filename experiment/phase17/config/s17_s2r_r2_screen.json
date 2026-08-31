@@ -1,0 +1,88 @@
+{
+  "schema_version": "phase17.s17_2r_r2_screen.v1",
+  "step_id": "S17-2R",
+  "gate": "R2",
+  "dataset": "Toys_s17_d0_3000",
+  "seed": 2023,
+  "formal_result_eligible": true,
+  "families": {
+    "latte": ["psid_control", "latte_full"],
+    "gryphon": ["gryphon_item", "same_checkpoint_beam_control"],
+    "diffgrm": ["diffgrm_ar_control", "diffgrm_masked"],
+    "setrec": ["setrec_ar_control", "setrec_full"]
+  },
+  "data": {
+    "sequence_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/user_sequence.txt",
+    "item_text_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/item_plain_text.txt",
+    "internal_early_stop_users": 300,
+    "internal_target": "last train-prefix item",
+    "internal_target_removed_from_supervised_examples_for_selected_user": true,
+    "external_target": "shadow validation target",
+    "external_cohort_evaluation_frequency": "once after best checkpoint is frozen",
+    "evaluation_cohort_paths": [
+      "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c0_user_ids.txt",
+      "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c1_user_ids.txt",
+      "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c2_user_ids.txt"
+    ]
+  },
+  "tokenizer": {
+    "semantic_embedding_path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "semantic_embedding_sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262",
+    "semantic_embedding_method": "BAAI/bge-large-en-v1.5_cls_l2",
+    "semantic_codebooks": 3,
+    "semantic_codebook_size": 256,
+    "semantic_quantizer_fit": "train-prefix catalog only",
+    "collision_resolution": "append deterministic within-code ordinal suffix",
+    "set_cf_codebook_size": 32,
+    "set_cf_quantizer_fit": "train-prefix transitions only"
+  },
+  "optimization": {
+    "maximum_epochs": 10,
+    "minimum_epochs": 3,
+    "early_stop_patience": 2,
+    "early_stop_min_delta_ndcg_at_10": 0.0001,
+    "train_batch_size": 64,
+    "evaluation_batch_size": 16,
+    "learning_rate": 0.0005,
+    "gradient_clip_norm": 1.0,
+    "num_beams": 50,
+    "top_k": 50,
+    "semantic_capacity": "r2",
+    "parallel_capacity": "r2",
+    "same_seed_and_batch_order_within_family": true,
+    "best_checkpoint_required": true
+  },
+  "uncertainty": {
+    "method": "paired_user_bootstrap",
+    "replicates": 1000,
+    "confidence": 0.95,
+    "seed": 2023
+  },
+  "promotion": {
+    "primary_metric": "ndcg@10",
+    "minimum_mean_delta_ndcg_at_10": 0.0015,
+    "minimum_positive_cohorts": 2,
+    "minimum_mean_delta_hit_at_10": 0.0,
+    "minimum_per_cohort_delta_hit_at_10": -0.002,
+    "mechanism_gate_required": true,
+    "borderline_policy": "positive mean and valid mechanism may receive one preregistered diagnostic revision"
+  },
+  "mechanism_gates": {
+    "latte": "multi_path_item_rate > 0 and valid_item_rate == 1",
+    "gryphon": "candidate_sets_identical and mean_target_rank_gain > 0",
+    "diffgrm": "valid_item_rate == 1 and masked generation latency < AR latency",
+    "setrec": "valid_item_rate == 1 and simultaneous generation latency < AR latency and set_token_recovery > 0"
+  },
+  "resources": {
+    "gpu1_reserved_for_non_scientific_repeat": true,
+    "gpu1_excluded": true,
+    "one_family_per_gpu": true,
+    "profile_r2_capacity_before_full_screen": true,
+    "maximum_usable_memory_mib_per_job": 30720
+  },
+  "forbidden_reads": {
+    "official_test": true,
+    "sports": true,
+    "d1": true
+  }
+}

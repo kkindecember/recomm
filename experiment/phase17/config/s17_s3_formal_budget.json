@@ -1,0 +1,98 @@
+{
+  "schema_version": "phase17.s17_3_exploration_budget.v2",
+  "step_id": "S17-3",
+  "purpose": "broad mechanism discovery before paper-grade confirmation",
+  "dataset": "Toys",
+  "fold": "official_validation_exploration_only",
+  "seed": 2023,
+  "backbone": "t5-small",
+  "beam_size": 50,
+  "primary_metric": "ndcg@10",
+  "secondary_metrics": ["hit@5", "hit@10", "ndcg@5", "hit@20", "hit@50"],
+  "test_read": false,
+  "sports_read": false,
+  "historical_baseline": {
+    "arm_id": "gram_phase2_toys_epoch30",
+    "training_rerun_required": false,
+    "checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "checkpoint_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "source_report": "artifacts/phase2_toys/REPRODUCTION_REPORT.md",
+    "source_commit": "7ac4d9272a57beed9df35c27ea34221f6e4a8fb1",
+    "rec_epochs": 30,
+    "validation_metrics": {
+      "hit@5": 0.090923,
+      "ndcg@5": 0.067135,
+      "hit@10": 0.119411,
+      "ndcg@10": 0.07627451426000033
+    },
+    "usage": "initialization and historical zero-extra-step reference; never claim as a fresh fold-specific confirmation baseline"
+  },
+  "exploration_stage": {
+    "initialization": "historical_baseline.checkpoint",
+    "optimizer_state": "fresh_and_matched_across_arms",
+    "rec_epochs": 1,
+    "validation_count": 1,
+    "estimated_wall_seconds_per_arm": 6000,
+    "arms": [
+      {"priority": 1, "arm_id": "gram_continue", "track_id": "CONTROL", "module_id": ""},
+      {"priority": 2, "arm_id": "b1_latte", "track_id": "B1", "module_id": "B1_latte"},
+      {"priority": 3, "arm_id": "b0_mvi", "track_id": "B0", "module_id": "B0_mvi"},
+      {"priority": 4, "arm_id": "c0_biflow", "track_id": "C0", "module_id": "C0_biflow"},
+      {"priority": 5, "arm_id": "a0_bear_proxy", "track_id": "A0", "module_id": "A0_bear_proxy"},
+      {"priority": 6, "arm_id": "a1_prefixcurr", "track_id": "A1", "module_id": "A1_prefixcurr"},
+      {"priority": 7, "arm_id": "d0_ted", "track_id": "D0", "module_id": "D0_ted"},
+      {"priority": 8, "arm_id": "e0_semantic", "track_id": "E0", "module_id": "E0_shortcut_fid"},
+      {"priority": 9, "arm_id": "e0_full_control", "track_id": "E0", "module_id": "E0_shortcut_fid_full_control"},
+      {"priority": 10, "arm_id": "e0_random_control", "track_id": "E0", "module_id": "E0_shortcut_fid_random_control"}
+    ]
+  },
+  "control_rationale": {
+    "gram_continue": "same historical checkpoint and one extra epoch as every migrated arm",
+    "e0_full_control": "isolates the effect of filtering from an extra full-history shortcut branch",
+    "e0_random_control": "isolates semantic selection from subset cardinality",
+    "other_track_specific_ablations": "deferred until a treatment is positive or mechanism-only under the formal screen"
+  },
+  "naming_boundary": {
+    "A0_bear_proxy": "full-vocabulary top-B survival proxy inspired by BEAR; not a legal-Trie BEAR reproduction",
+    "legal_trie_variant": "deferred; proxy results must not be labeled as the full BEAR method"
+  },
+  "comparison_contract": {
+    "primary_screen": "compare every migrated arm against gram_continue after one matched extra epoch",
+    "secondary_context": "also show change from the historical epoch-30 validation metrics",
+    "official_test": "do not rerun for screening",
+    "interpretation": "one-epoch direction screen only; longer-budget confirmation remains required"
+  },
+  "confirmation_deferred": {
+    "budget": "experiment/phase17/config/s17_s3_confirmation_budget.json",
+    "trigger": "winner confirmation, cross-fold admission, or paper preparation",
+    "requirements": [
+      "fresh fold-specific GRAM baseline",
+      "fresh matched controls",
+      "independent folds",
+      "multiple seeds"
+    ]
+  },
+  "resources": {
+    "one_gpu_per_arm": true,
+    "usable_memory_mib_per_gpu": 30720,
+    "minimum_free_mib_at_admission": 27648,
+    "global_gpu_count_hard_ceiling": null,
+    "preferred_gpu_count": 4,
+    "arm_count": 10,
+    "four_gpu_waves": 3,
+    "two_gpu_waves": 5,
+    "one_gpu_waves": 10,
+    "estimated_total_gpu_hours": 16.67,
+    "estimated_wall_hours_with_four_gpus": 5.0,
+    "estimated_wall_hours_with_two_gpus": 8.34,
+    "estimated_wall_hours_with_one_gpu": 16.67
+  },
+  "execution_contract": {
+    "background_required": true,
+    "stable_status_required": true,
+    "no_automatic_retry": true,
+    "one_report_after_entire_s17_3": true,
+    "large_experiment_post_success_runtime_cycle": true,
+    "runtime_cycle_result_selection_eligible": false
+  }
+}

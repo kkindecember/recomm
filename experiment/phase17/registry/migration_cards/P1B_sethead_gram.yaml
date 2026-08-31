@@ -1,0 +1,15 @@
+track_id: P1-B-SETHEAD
+priority: P1
+formal_module_id: P1_sethead
+paired_module_ids: [B1_latte, P1_sethead]
+source: [SETRec]
+borrowed_mechanism: [order-agnostic target-token coverage, item-level path scoring support]
+not_reproduced: [replacement of autoregressive decoding, original SETRec architecture]
+gram_insertion_point: [auxiliary token-set loss plus existing multi-path item aggregation]
+unchanged_contracts: [native lexical suffix, legal Trie, autoregressive inference, item evaluator]
+controls: [B1-Latte without SetHead, GRAM-Continue]
+primary_mechanism_metrics: [token_set_loss, target_token_set_recall, generated_duplicate_path_rate]
+s17_4_trigger: B1 retained item coverage but duplicate paths and weak ranking
+s17_4_smoke: {mode: tiny_model_gradient_and_composition, status: implemented}
+naming_boundary: SetHead-lite auxiliary; not a SETRec reproduction
+estimated_gpu: {class: one_epoch_d0_screen, per_job_count: 1, expected_peak_mib: 25500}

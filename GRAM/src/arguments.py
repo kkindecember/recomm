@@ -387,6 +387,18 @@ def create_parser() -> argparse.ArgumentParser:
         default=0,
         help="If 1, passage 0 (user prompt) participates in cross-item attention as an extra token. Default 0 keeps user prompt untouched.",
     )
+    parser.add_argument(
+        "--s17_modules",
+        type=str,
+        default="",
+        help="Comma-separated Stage17 registry module IDs. Empty preserves parent GRAM exactly.",
+    )
+    parser.add_argument(
+        "--s17_transition_map",
+        type=str,
+        default="",
+        help="Fold-train-only dense transition teacher JSON used by D0_ted.",
+    )
     return parser
 
 

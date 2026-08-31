@@ -1,0 +1,14 @@
+track_id: P1-A-TREECL
+priority: P1
+smoke_module_id: P1_treecl_lite
+source: [SEATER]
+borrowed_mechanism: [prefix-overlap hierarchy, positive-negative prefix contrast]
+not_reproduced: [SEATER tree encoder, full hierarchical ranking objective, source implementation]
+gram_insertion_point: [decoder-distribution auxiliary loss]
+unchanged_contracts: [native lexical identifier, legal Trie, FiD encoder]
+controls: [zero-weight auxiliary, GRAM-Continue]
+primary_mechanism_metrics: [prefix_positive_pair_fraction, prefix_negative_pair_fraction, tree_contrastive_loss]
+s17_4_trigger: early prefix pruning exposed by A0 and A1
+s17_4_smoke: {mode: tiny_model_gradient, status: implemented}
+formal_screen_status: deferred_after_pawa_to_avoid_two_simultaneous_decoder_revisions
+estimated_gpu: {class: cpu_smoke_only_in_s17_4}

@@ -1,0 +1,9 @@
+track_id: D0
+source: [MQSA-TED]
+borrowed_mechanism: [global item-transition distillation, multi-query preference pooling]
+not_reproduced: [TensorFlow backbone, original sequential ranking head]
+gram_insertion_point: [fold-train transition teacher and history/item auxiliary loss]
+unchanged_contracts: [native lexical decoder, no future events, fold-local statistics]
+controls: [GRAM-B0, shuffled transition teacher, frequency-only teacher]
+primary_mechanism_metrics: [transition_neighbor_recall, distillation_loss, short_history_delta]
+estimated_gpu: {class: small_probe, per_job_count: 1, formal_per_arm_count: 1, usable_memory_gib_per_job: 30, planning_baseline_concurrency: 2, portfolio_request_policy: dynamic_researcher_allocation, scheduling: available_gpu_waves, gram_probe_peak_reserved_mib: 21916}

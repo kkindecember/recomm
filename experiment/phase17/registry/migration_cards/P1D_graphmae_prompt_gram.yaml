@@ -1,0 +1,14 @@
+track_id: P1-D-GRAPHMAE
+priority: P1
+smoke_module_id: P1_graphmae_prompt
+source: [MAERec]
+borrowed_mechanism: [fold-train graph-neighbor prompt interface, masked-graph direction]
+not_reproduced: [graph masked autoencoder, graph reconstruction pretraining, source model]
+gram_insertion_point: [train-only graph prompt feature hook]
+unchanged_contracts: [causal cutoff, native lexical target, no heldout graph edges]
+controls: [permuted neighbor, zero teacher gate, GRAM-Continue]
+primary_mechanism_metrics: [transition_teacher_coverage, teacher_gate, short_history_fraction]
+s17_4_trigger: requires short-history or collaborative-sparsity degradation; not available at user level in S17-3
+s17_4_smoke: {mode: tiny_model_fold_train_teacher_interface, status: implemented}
+formal_screen_status: not_triggered_and_full_graphmae_not_implemented
+estimated_gpu: {class: cpu_smoke_only_in_s17_4}

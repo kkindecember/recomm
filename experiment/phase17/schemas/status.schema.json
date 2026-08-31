@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "phase17.status.schema.v1",
+  "type": "object",
+  "required": [
+    "experiment_id", "step_id", "scientific_state", "execution_state",
+    "status_code", "started_at", "updated_at", "test_read", "sports_read",
+    "result_selection_eligible", "occupancy_mode", "repeat_iteration",
+    "repeat_metrics_ignored", "affects_scientific_result"
+  ],
+  "properties": {
+    "experiment_id": {"type": "string", "pattern": "^s17_[a-z0-9_]+$"},
+    "step_id": {"type": "string", "pattern": "^S17-[0-9]+R?$"},
+    "track_id": {"type": ["string", "null"]},
+    "scientific_state": {"enum": ["PENDING", "PREFLIGHT", "RUNNING", "COMPLETED", "FAILED", "STOPPED", "BLOCKED"]},
+    "execution_state": {"enum": ["PENDING", "PREFLIGHT", "WAITING_FOR_GPU", "BACKGROUND_STARTED", "RUNNING_SCIENTIFIC", "SCIENTIFIC_COMPLETED", "SCIENTIFIC_FAILED", "STOPPED", "BLOCKED", "RUNNING_OCCUPANCY_REPEAT"]},
+    "status_code": {"type": "string"},
+    "started_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "heartbeat_at": {"type": "string"},
+    "launcher_pid": {"type": "integer"},
+    "workload_pid": {"type": "integer"},
+    "process_alive": {"type": "boolean"},
+    "tmux_session": {"type": ["string", "null"]},
+    "gpu_ids": {"type": "array", "items": {"type": "integer"}},
+    "gpu_snapshot": {"type": "object"},
+    "command_sha256": {"type": "string"},
+    "stage": {"type": "string"},
+    "progress": {"type": "object"},
+    "canonical_result_dir": {"type": "string"},
+    "log_path": {"type": ["string", "null"]},
+    "test_read": {"const": false},
+    "sports_read": {"const": false},
+    "result_selection_eligible": {"type": "boolean"},
+    "occupancy_mode": {"type": "string"},
+    "repeat_iteration": {"type": "integer", "minimum": 0},
+    "repeat_metrics_ignored": {"type": "boolean"},
+    "affects_scientific_result": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

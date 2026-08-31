@@ -1,0 +1,44 @@
+{
+  "schema_version": "phase17.architecture_card.v1",
+  "candidate_id": "R2D_setrec_full",
+  "display_name": "Full SETRec order-agnostic identifier and simultaneous decoder",
+  "priority": "P0",
+  "source": {
+    "paper_url": "https://arxiv.org/abs/2502.10833",
+    "paper_version": "v2",
+    "venue": "SIGIR 2025",
+    "repository_url": "https://github.com/Linxyhaha/SETRec",
+    "official_code_found": true,
+    "license_status": "NUS_COPYRIGHT_NOTICE_WITHOUT_STANDARD_OPEN_SOURCE_LICENSE",
+    "verified_on": "2026-08-30"
+  },
+  "copy_policy": "READ_ONLY_REFERENCE; INDEPENDENT_IMPLEMENTATION_OR_LICENSE_CLEARANCE_REQUIRED",
+  "architecture_changes": [
+    "cf_tokenizer",
+    "semantic_tokenizer",
+    "order_agnostic_set_identifier",
+    "sparse_attention_history_encoding",
+    "query_guided_simultaneous_token_generation"
+  ],
+  "matched_native_control": "ordered autoregressive decoder using the same CF and semantic tokens, capacity class, training users and evaluator",
+  "mechanism_metrics": [
+    "set_token_recovery",
+    "token_order_sensitivity",
+    "simultaneous_generation_valid_item_rate",
+    "generation_latency",
+    "warm_tail_breakdown"
+  ],
+  "data_fit": {
+    "toys": "OFFICIAL_REPO_INCLUDES_TOYS_DATA_AND_T5_COMMAND",
+    "beauty": "OFFICIAL_REPO_INCLUDES_BEAUTY_DATA",
+    "phase17_adapter_required": true
+  },
+  "prior_local_result_does_not_reject": "S17 P1_sethead was an auxiliary target-token-set loss composed with the local Latte root; it did not replace AR decoding or use CF+semantic set identifiers.",
+  "resource_risk": "MEDIUM_TO_HIGH_PROFILE_REQUIRED",
+  "promotion_blockers": [
+    "license clearance or independent implementation",
+    "CF tokenizer must be trained from Phase17 train-only interactions",
+    "semantic representation extraction must be fold-safe",
+    "ordered matched control must use identical item tokens"
+  ]
+}

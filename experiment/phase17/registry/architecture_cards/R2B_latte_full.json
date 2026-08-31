@@ -1,0 +1,42 @@
+{
+  "schema_version": "phase17.architecture_card.v1",
+  "candidate_id": "R2B_latte_full",
+  "display_name": "Full Latte with trained Semantic IDs and latent-token-conditioned trees",
+  "priority": "P0",
+  "source": {
+    "paper_url": "https://arxiv.org/abs/2605.06331",
+    "paper_version": "v1",
+    "repository_url": "https://github.com/hyp1231/Latte",
+    "official_code_found": true,
+    "license_status": "MIT",
+    "verified_on": "2026-08-30"
+  },
+  "copy_policy": "MIT_CODE_MAY_BE_ADAPTED_WITH_ATTRIBUTION_AND_LICENSE_PRESERVATION",
+  "architecture_changes": [
+    "replace_native_lexical_ids_with_trained_semantic_ids",
+    "insert_multiple_trainable_latent_tokens",
+    "latent_token_conditioned_decoding_trees",
+    "multi_path_item_level_aggregation",
+    "train_fresh_psid_and_latte_models"
+  ],
+  "matched_native_control": "PSID/single-tree model with identical Semantic IDs, backbone, train steps, beam and item evaluator",
+  "mechanism_metrics": [
+    "tree_probability_coupling",
+    "multi_path_coverage",
+    "duplicate_path_rate",
+    "item_aggregation_gain",
+    "valid_item_rate"
+  ],
+  "data_fit": {
+    "toys": "AMAZON_2014_ADAPTER_REQUIRED",
+    "beauty": "AMAZON_2014_ADAPTER_REQUIRED",
+    "official_repo_categories": ["Musical_Instruments", "Industrial_and_Scientific", "Video_Games"]
+  },
+  "prior_local_result_does_not_reject": "S17 B1 added one deterministic hash root before an unchanged native lexical suffix; it did not train Semantic IDs or multiple latent-token-conditioned trees.",
+  "resource_risk": "MEDIUM_PROFILE_REQUIRED",
+  "promotion_blockers": [
+    "data adapter must preserve Phase17 fold hashes",
+    "semantic-ID cache must not read official test or Sports",
+    "PSID control must finish before Latte delta is eligible"
+  ]
+}

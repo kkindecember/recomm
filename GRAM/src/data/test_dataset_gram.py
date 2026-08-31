@@ -3,15 +3,28 @@ import os
 import random
 import re
 import copy
+import sys
+from pathlib import Path
 
 from time import time
 from torch.utils.data import Dataset
+
+_REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+if str(_REPOSITORY_ROOT) not in sys.path:
+    sys.path.append(str(_REPOSITORY_ROOT))
 
 from utils import indexing
 from utils.prompt import (
     load_prompt_template,
     get_info_from_prompt,
     check_task_prompt,
+)
+from experiment.phase17.core.identifier_views import (
+    MULTI_PATH_MODULES,
+    build_identifier_views,
+    decoded_identifier,
+    enabled_module_names,
+    flatten_views,
 )
 
 
@@ -60,14 +73,32 @@ class TestDatasetGRAM(Dataset):
             user_id_without_target_item=self.user_id_without_target_item,
             id_linking=self.id_linking,
         )
-        self.all_items = list(self.item2lexid.values())
         self.item2cfid = {
             item_id: idx + 1 for idx, item_id in enumerate(sorted(self.item2lexid))
         }
+        selected_multi_path = sorted(
+            enabled_module_names(getattr(args, "s17_modules", "")) & MULTI_PATH_MODULES
+        )
+        if len(selected_multi_path) > 1:
+            raise ValueError("only one S17 multi-path identifier module may be active")
+        self.s17_multi_path_module = selected_multi_path[0] if selected_multi_path else ""
+        self.s17_multi_path_enabled = bool(self.s17_multi_path_module)
+        self.item2views = build_identifier_views(
+            self.item2lexid, self.s17_multi_path_module
+        )
+        self.all_items = flatten_views(self.item2views)
         self.lexid2cfid = {
-            self.item2lexid[item_id]: cf_id
-            for item_id, cf_id in self.item2cfid.items()
+            decoded_identifier(self.tokenizer, view): self.item2cfid[item_id]
+            for item_id, views in self.item2views.items()
+            for view in views
         }
+        if self.s17_multi_path_enabled and self.args.rank == 0:
+            logging.info(
+                "S17_MECHANISM_METRIC "
+                f"track={self.s17_multi_path_module} "
+                f"path_multiplicity={len(self.all_items) / len(self.item2views):.6f} "
+                f"unique_item_coverage={len(self.item2views) / len(self.item2lexid):.6f}"
+            )
 
         # load data
         if self.mode == "test":

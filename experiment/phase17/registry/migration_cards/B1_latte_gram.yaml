@@ -1,0 +1,9 @@
+track_id: B1
+source: [Latte]
+borrowed_mechanism: [latent root, multiple paths per item, item-level aggregation]
+not_reproduced: [original semantic-ID tree, method-only automatic beam expansion]
+gram_insertion_point: [root token before unchanged native lexical suffix]
+unchanged_contracts: [item catalog, lexical suffix, FiD encoder]
+controls: [Root-1, random root, max aggregation, logsumexp aggregation]
+primary_mechanism_metrics: [lexical_coupling_gap, unique_item_coverage, duplicate_path_rate]
+estimated_gpu: {class: small_probe_then_large_full, per_job_count: 1, formal_per_arm_count: 1, usable_memory_gib_per_job: 30, planning_baseline_concurrency: 2, portfolio_request_policy: dynamic_researcher_allocation, scheduling: available_gpu_waves, gram_probe_peak_reserved_mib: 21916, full_variant_requires_reprofile: true}

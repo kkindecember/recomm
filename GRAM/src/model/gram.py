@@ -4,10 +4,18 @@ Model design code refers to FID code:https://github.com/facebookresearch/FiD/blo
 """
 
 import torch
+import sys
+from pathlib import Path
 from torch import nn
 from torch.nn import functional as F
 from .gram_t5 import T5ForConditionalGeneration_GRAM
 from .gram_t5_outputs import BaseModelOutputWithPastAndCrossAttentions
+
+_REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
+if str(_REPOSITORY_ROOT) not in sys.path:
+    sys.path.append(str(_REPOSITORY_ROOT))
+from experiment.phase17.core.loss_hooks import LossContext
+from experiment.phase17.registry.module_registry import build_runtime
 
 
 class GRAM(T5ForConditionalGeneration_GRAM):
@@ -69,8 +77,8 @@ class GRAM(T5ForConditionalGeneration_GRAM):
                 attention_mask.size(0), -1
             )  # B x N x L -> B x (N * L)
 
-        if getattr(self.config, "cf0_enabled", False) and input_ids is not None:
-            self.encoder.set_cf0_context(history_item_ids, history_item_mask)
+        if input_ids is not None:
+            self.encoder.set_migration_context(history_item_ids, history_item_mask)
 
         # encoder_outputs -> beam_search()에서 forward()를 사용하기 때문에 추가
         outputs = super().forward(
@@ -96,6 +104,28 @@ class GRAM(T5ForConditionalGeneration_GRAM):
                 outputs = (total_loss,) + outputs[1:]
             else:
                 outputs.loss = total_loss
+        migration_runtime = self.encoder.migration_runtime
+        labels = kwargs.get("labels")
+        # Stage17 decoder-loss replacements are training objectives.  Hugging
+        # Face generation repeatedly calls forward without labels, so inference
+        # must retain the parent model output instead of trying to rebuild a
+        # token-level training loss.
+        if not migration_runtime.loss_hooks.is_identity and labels is not None:
+            base_loss = outputs[0] if isinstance(outputs, tuple) else outputs.loss
+            logits = outputs[1] if isinstance(outputs, tuple) else outputs.logits
+            total_loss, components = migration_runtime.loss_hooks.apply(
+                base_loss,
+                LossContext(
+                    labels=labels,
+                    logits=logits,
+                    target_item_ids=target_item_ids,
+                ),
+            )
+            self.last_loss_components = components
+            if isinstance(outputs, tuple):
+                outputs = (total_loss,) + outputs[1:]
+            else:
+                outputs.loss = total_loss
         return outputs
 
     # We need to resize the inputs here, as the generate method expect 2D tensors
@@ -109,8 +139,7 @@ class GRAM(T5ForConditionalGeneration_GRAM):
         **kwargs,
     ):
         self.encoder.n_passages = input_ids.size(1)
-        if getattr(self.config, "cf0_enabled", False):
-            self.encoder.set_cf0_context(history_item_ids, history_item_mask)
+        self.encoder.set_migration_context(history_item_ids, history_item_mask)
         if input_ids != None:
             # inputs might have already be resized in the generate method
             if input_ids.dim() == 3:
@@ -187,6 +216,9 @@ class GRAM(T5ForConditionalGeneration_GRAM):
             config=self.config,
             use_checkpoint=use_checkpoint,
             position_embedding=self.position_embedding,
+            migration_runtime=build_runtime(
+                getattr(self.config, "s17_modules", ""), config=self.config
+            ),
         )
 
     def unwrap_encoder(self):
@@ -228,7 +260,12 @@ class EncoderWrapper(nn.Module):
     """
 
     def __init__(
-        self, encoder, config=None, use_checkpoint=False, position_embedding=None
+        self,
+        encoder,
+        config=None,
+        use_checkpoint=False,
+        position_embedding=None,
+        migration_runtime=None,
     ):
         super().__init__()
         # print(f"> WARN: main_input_name not found in encoder, transformer version might be too old")
@@ -236,10 +273,13 @@ class EncoderWrapper(nn.Module):
         self.encoder = encoder
         self.config = config
         self.position_embedding = position_embedding
+        self.migration_runtime = migration_runtime or build_runtime()
         self.cf0_enabled = bool(getattr(config, "cf0_enabled", False))
         self.cf0_arm = getattr(config, "cf0_arm", "A")
         self.cf0_history_item_ids = None
         self.cf0_history_item_mask = None
+        self.migration_history_item_ids = None
+        self.migration_history_item_mask = None
         self.last_cf0_user_state = None
         self.last_cf0_gate_mean = None
         if self.cf0_enabled:
@@ -323,6 +363,14 @@ class EncoderWrapper(nn.Module):
         self.cf0_history_item_mask = history_item_mask
         self.last_cf0_user_state = None
         self.last_cf0_gate_mean = None
+
+    def set_migration_context(self, history_item_ids, history_item_mask=None):
+        """Expose target-free history context regardless of the CF0 arm."""
+
+        self.migration_history_item_ids = history_item_ids
+        self.migration_history_item_mask = history_item_mask
+        if self.cf0_enabled:
+            self.set_cf0_context(history_item_ids, history_item_mask)
 
     @staticmethod
     def _reverse_valid_prefix(values, valid_mask):
@@ -636,6 +684,17 @@ class EncoderWrapper(nn.Module):
         if self.hi_gram_enabled:
             last_hidden_states = self._apply_hi_gram(
                 last_hidden_states, attention_mask, bsz, passage_length
+            )
+        if not self.migration_runtime.feature_hooks.is_identity:
+            last_hidden_states = self.migration_runtime.apply_features(
+                last_hidden_states,
+                attention_mask=attention_mask,
+                history_item_ids=self.migration_history_item_ids,
+                history_item_mask=self.migration_history_item_mask,
+                extras={
+                    "n_passages": self.n_passages,
+                    "passage_length": passage_length,
+                },
             )
         # tuple ( (B * N) x L x D, ) -> (B x (N * L) x D, )
         outputs = (

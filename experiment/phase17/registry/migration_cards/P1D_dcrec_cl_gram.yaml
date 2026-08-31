@@ -1,0 +1,14 @@
+track_id: P1-D-DCREC
+priority: P1
+smoke_module_id: P1_dcrec_cl
+source: [DCRec]
+borrowed_mechanism: [sequence-global graph dual-view interface, frequency-aware contrastive direction]
+not_reproduced: [DCRec graph encoder, debiased contrastive objective, source training recipe]
+gram_insertion_point: [fold-train graph-state feature hook feasibility boundary]
+unchanged_contracts: [causal cutoff, native lexical identifier, no heldout graph]
+controls: [sequence-only, graph permutation, GRAM-Continue]
+primary_mechanism_metrics: [transition_teacher_coverage, teacher_gate, short_history_fraction]
+s17_4_trigger: requires short-history or collaborative-sparsity degradation; unavailable in S17-3 canonical artifacts
+s17_4_smoke: {mode: tiny_model_fold_train_teacher_interface, status: implemented}
+formal_screen_status: not_triggered_and_contrastive_objective_not_implemented
+estimated_gpu: {class: cpu_smoke_only_in_s17_4}
