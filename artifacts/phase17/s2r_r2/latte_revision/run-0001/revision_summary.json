@@ -1,0 +1,152 @@
+{
+  "arm_summaries": {
+    "latte_full": "artifacts/phase17/s2r_r2/latte_revision/run-0001/latte_full/summary.json",
+    "psid_control": "artifacts/phase17/s2r_r2/latte_revision/run-0001/psid_control/summary.json"
+  },
+  "comparison": {
+    "cohorts": [
+      {
+        "cohort_id": "c0",
+        "control": {
+          "hit@10": 0.012,
+          "hit@20": 0.022,
+          "hit@5": 0.007,
+          "hit@50": 0.038,
+          "ndcg@10": 0.00552941308760578,
+          "ndcg@20": 0.007994498178442742,
+          "ndcg@5": 0.003879135676952785,
+          "ndcg@50": 0.011127474753458346
+        },
+        "delta": {
+          "hit@10": -0.0010000000000000009,
+          "hit@20": -0.0019999999999999983,
+          "hit@5": 0.0,
+          "hit@50": -0.008999999999999998,
+          "ndcg@10": 4.211812275163422e-05,
+          "ndcg@20": -0.0001269580890919976,
+          "ndcg@5": 0.00033118294906952193,
+          "ndcg@50": -0.0015099730209614214
+        },
+        "treatment": {
+          "hit@10": 0.011,
+          "hit@20": 0.02,
+          "hit@5": 0.007,
+          "hit@50": 0.029,
+          "ndcg@10": 0.005571531210357414,
+          "ndcg@20": 0.007867540089350745,
+          "ndcg@5": 0.004210318626022307,
+          "ndcg@50": 0.009617501732496925
+        },
+        "users": 1000
+      },
+      {
+        "cohort_id": "c1",
+        "control": {
+          "hit@10": 0.007,
+          "hit@20": 0.014,
+          "hit@5": 0.006,
+          "hit@50": 0.032,
+          "ndcg@10": 0.0035377155058758094,
+          "ndcg@20": 0.005293950943271233,
+          "ndcg@5": 0.0032043821725424764,
+          "ndcg@50": 0.008869965294819123
+        },
+        "delta": {
+          "hit@10": 0.001999999999999999,
+          "hit@20": -0.002,
+          "hit@5": 0.002,
+          "hit@50": -0.0010000000000000009,
+          "ndcg@10": 0.0019009619941996207,
+          "ndcg@20": 0.0009526124481064567,
+          "ndcg@5": 0.001918830450747225,
+          "ndcg@50": 0.001143853986719746
+        },
+        "treatment": {
+          "hit@10": 0.009,
+          "hit@20": 0.012,
+          "hit@5": 0.008,
+          "hit@50": 0.031,
+          "ndcg@10": 0.00543867750007543,
+          "ndcg@20": 0.00624656339137769,
+          "ndcg@5": 0.005123212623289701,
+          "ndcg@50": 0.010013819281538869
+        },
+        "users": 1000
+      },
+      {
+        "cohort_id": "c2",
+        "control": {
+          "hit@10": 0.013,
+          "hit@20": 0.02,
+          "hit@5": 0.005,
+          "hit@50": 0.031,
+          "ndcg@10": 0.004937075260092804,
+          "ndcg@20": 0.006636233798429832,
+          "ndcg@5": 0.0023175293653079345,
+          "ndcg@50": 0.008824344902661943
+        },
+        "delta": {
+          "hit@10": -0.0009999999999999992,
+          "hit@20": -0.0010000000000000009,
+          "hit@5": 0.003,
+          "hit@50": -0.004,
+          "ndcg@10": 0.0011102369809332414,
+          "ndcg@20": 0.0011890208373734118,
+          "ndcg@5": 0.00246211270264098,
+          "ndcg@50": 0.0006292110505944862
+        },
+        "treatment": {
+          "hit@10": 0.012,
+          "hit@20": 0.019,
+          "hit@5": 0.008,
+          "hit@50": 0.027,
+          "ndcg@10": 0.0060473122410260455,
+          "ndcg@20": 0.007825254635803244,
+          "ndcg@5": 0.0047796420679489145,
+          "ndcg@50": 0.00945355595325643
+        },
+        "users": 1000
+      }
+    ],
+    "decision": "BORDERLINE_ONE_REVISION",
+    "family": "latte",
+    "mechanism_failures": [],
+    "mechanism_metrics": {
+      "mean_unique_candidates": 48.001333333333335,
+      "multi_path_item_rate": 0.7094039054470709,
+      "valid_item_rate": 1.0
+    },
+    "mechanism_pass": true,
+    "overall_paired_hit@10": {
+      "ci95_high": 0.0036666666666666666,
+      "ci95_low": -0.0033333333333333335,
+      "delta": 0.0,
+      "positive_user_fraction": 0.004666666666666667,
+      "replicates": 1000,
+      "zero_user_fraction": 0.9906666666666667
+    },
+    "overall_paired_ndcg@10": {
+      "ci95_high": 0.0027082292705640698,
+      "ci95_low": -0.0005692087776713317,
+      "delta": 0.0010177723659614986,
+      "positive_user_fraction": 0.007666666666666666,
+      "replicates": 1000,
+      "zero_user_fraction": 0.986
+    },
+    "positive_ndcg_cohorts": 3
+  },
+  "completed_at": "2026-08-31T01:52:11.651921+00:00",
+  "coverage_gate_pass": true,
+  "d1_read": false,
+  "family": "latte",
+  "final_decision": "REJECT_AFTER_ONE_REVISION",
+  "gpu1_repeat_preserved": true,
+  "no_further_revision": true,
+  "official_test_read": false,
+  "r3_eligible": false,
+  "revision_budget_consumed": true,
+  "revision_index": 1,
+  "schema_version": "phase17.s17_2r_r2_latte_revision_closeout.v1",
+  "sports_read": false,
+  "state": "COMPLETED"
+}

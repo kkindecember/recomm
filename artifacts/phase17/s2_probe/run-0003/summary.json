@@ -1,0 +1,813 @@
+{
+  "baseline_reference": {
+    "interpretation": "diagnostic reference only",
+    "source": "S17-0 Toys_s17_d0_1000 one-epoch GRAM-B0 resource probe",
+    "validation_ndcg@10": 0.045911074355879856
+  },
+  "completed_at": "2026-08-29T08:08:49.127589+00:00",
+  "completed_probe_count": 10,
+  "cpu_contracts": {
+    "log_path": "artifacts/phase17/s2_probe/run-0003/preflight/cpu_contract_tests.log",
+    "log_sha256": "463ca45d7b722cdb620c54206b1f38c90fd207dd232f648df30931ced2674b05",
+    "return_code": 0
+  },
+  "experiment_id": "s17_s2_p0_probe_matrix_r2",
+  "official_result_claim": false,
+  "schema_version": "phase17.s17_2_summary.v1",
+  "sports_read": false,
+  "step_id": "S17-2",
+  "test_read": false,
+  "tracks": {
+    "A0": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "A0_bear",
+      "overfit": {
+        "attempt_id": "a0_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "A0_bear",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "a8da9c24dae12b90d54ea678c57fe9c9f6fccd141652958dc1ee18db7a655a59",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 A0_bear/mean_survival_weight=1.41842175 A0_bear/mean_target_rank=2740.93798828 A0_bear/target_prefix_topB_survival=0.43298969",
+            "S17_MECHANISM_METRIC epoch=2 A0_bear/mean_survival_weight=1.38644111 A0_bear/mean_target_rank=3187.97949219 A0_bear/target_prefix_topB_survival=0.38775510",
+            "S17_MECHANISM_METRIC epoch=3 A0_bear/mean_survival_weight=1.34791172 A0_bear/mean_target_rank=2867.71411133 A0_bear/target_prefix_topB_survival=0.34693879",
+            "S17_MECHANISM_METRIC epoch=4 A0_bear/mean_survival_weight=1.41919732 A0_bear/mean_target_rank=2343.15307617 A0_bear/target_prefix_topB_survival=0.41836736"
+          ],
+          "peak_reserved_mib": 15870.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15811.248,
+              "peak_reserved_mib": 15870.0,
+              "phase": "training",
+              "wall_time_seconds": 88.564568
+            }
+          ],
+          "traceback": true,
+          "training_losses": [
+            6.634301528334618,
+            5.029336079955101,
+            4.754091277718544,
+            4.663394004106522
+          ],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A0",
+        "wall_seconds": 119.35062601417303,
+        "workload_pid": 2608963
+      },
+      "short": {
+        "attempt_id": "a0_short_r2_001",
+        "kind": "short",
+        "module_id": "A0_bear",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "1fa2a76f8d3996d1bdd742db59da90ade26c9cf465192938d7c82c0532bd3094",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 A0_bear/mean_survival_weight=1.45455682 A0_bear/mean_target_rank=2234.11230469 A0_bear/target_prefix_topB_survival=0.44897959"
+          ],
+          "peak_reserved_mib": 15870.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15811.248,
+              "peak_reserved_mib": 15870.0,
+              "phase": "training",
+              "wall_time_seconds": 189.932036
+            }
+          ],
+          "traceback": true,
+          "training_losses": [
+            5.430017881533679
+          ],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A0",
+        "wall_seconds": 221.9313185866922,
+        "workload_pid": 2617197
+      }
+    },
+    "A1": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "A1_prefixcurr",
+      "overfit": {
+        "attempt_id": "a1_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "A1_prefixcurr",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "9eeecac8c767002d9fea87a04f84edd46ae00da5e1c5aaaee6d73d6d51e16dc1",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 A1_prefixcurr/active_identifier_depth=4.00000000 A1_prefixcurr/active_token_fraction=0.65979379 A1_prefixcurr/mean_per_depth_token_accuracy=0.08035715",
+            "S17_MECHANISM_METRIC epoch=2 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.34821430",
+            "S17_MECHANISM_METRIC epoch=3 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.33035716",
+            "S17_MECHANISM_METRIC epoch=4 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.33928573"
+          ],
+          "peak_reserved_mib": 15814.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15767.538,
+              "peak_reserved_mib": 15814.0,
+              "phase": "training",
+              "wall_time_seconds": 92.017771
+            }
+          ],
+          "traceback": true,
+          "training_losses": [
+            9.200850263237953,
+            6.9679848700761795,
+            6.193979740142822,
+            6.091820448637009
+          ],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A1",
+        "wall_seconds": 121.60824155062437,
+        "workload_pid": 2630013
+      },
+      "short": {
+        "attempt_id": "a1_short_r2_001",
+        "kind": "short",
+        "module_id": "A1_prefixcurr",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "0ee8fb42dc374aac3ecfb5db3b93c2886cf113163a976d344da786f010ca7cb0",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.35714287"
+          ],
+          "peak_reserved_mib": 15814.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15767.538,
+              "peak_reserved_mib": 15814.0,
+              "phase": "training",
+              "wall_time_seconds": 188.633715
+            }
+          ],
+          "traceback": true,
+          "training_losses": [
+            7.058886585866704
+          ],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A1",
+        "wall_seconds": 220.5209027417004,
+        "workload_pid": 2634610
+      }
+    },
+    "B0": {
+      "diagnostic_labels": [
+        "PROBE_PASS"
+      ],
+      "module_id": "B0_mvi",
+      "overfit": {
+        "attempt_id": "b0_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "B0_mvi",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "a0045d880da30f9f25513b76c5e3d81bef421d6743bcf28de43c1d4330f3c58b",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi generated_duplicate_path_rate=0.08600000 aggregated_paths=5000"
+          ],
+          "peak_reserved_mib": 21652.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15750.987,
+              "peak_reserved_mib": 15800.0,
+              "phase": "training",
+              "wall_time_seconds": 93.980445
+            },
+            {
+              "peak_allocated_mib": 7845.292,
+              "peak_reserved_mib": 21652.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 45.953202
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            8.06208835542202,
+            6.575292751193047,
+            6.227964088320732,
+            6.138185009360313
+          ],
+          "validation_metrics": {
+            "hit@1": 0.01,
+            "hit@10": 0.1,
+            "hit@20": 0.11,
+            "hit@3": 0.04,
+            "hit@5": 0.07,
+            "hit@50": 0.13,
+            "ndcg@1": 0.01,
+            "ndcg@10": 0.048224488667934134,
+            "ndcg@20": 0.05085098401830607,
+            "ndcg@3": 0.026309297535714572,
+            "ndcg@5": 0.03835311926113934,
+            "ndcg@50": 0.054679900851927477
+          }
+        },
+        "physical_gpu": 0,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "B0",
+        "wall_seconds": 176.40978370048106,
+        "workload_pid": 2642382
+      },
+      "short": {
+        "attempt_id": "b0_short_r2_001",
+        "kind": "short",
+        "module_id": "B0_mvi",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "8459611ca8f88d424cdd670fd86d990e6138d663649ec3b40b5e4ff5a9386a1a",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi generated_duplicate_path_rate=0.10558000 aggregated_paths=50000"
+          ],
+          "peak_reserved_mib": 21916.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15750.987,
+              "peak_reserved_mib": 15800.0,
+              "phase": "training",
+              "wall_time_seconds": 189.721288
+            },
+            {
+              "peak_allocated_mib": 7846.314,
+              "peak_reserved_mib": 21916.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 400.465855
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            7.026219808003482
+          ],
+          "validation_metrics": {
+            "hit@1": 0.021,
+            "hit@10": 0.084,
+            "hit@20": 0.104,
+            "hit@3": 0.044,
+            "hit@5": 0.055,
+            "hit@50": 0.136,
+            "ndcg@1": 0.021,
+            "ndcg@10": 0.0484803668543921,
+            "ndcg@20": 0.053532786429167596,
+            "ndcg@3": 0.03459487605714332,
+            "ndcg@5": 0.03924467069427295,
+            "ndcg@50": 0.06004683408773452
+          }
+        },
+        "physical_gpu": 0,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "B0",
+        "wall_seconds": 621.6683114077896,
+        "workload_pid": 2649820
+      }
+    },
+    "B1": {
+      "diagnostic_labels": [
+        "PROBE_PASS"
+      ],
+      "module_id": "B1_latte",
+      "overfit": {
+        "attempt_id": "b1_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "B1_latte",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "e75cabb81c11f9eeb4ef41d6c31428d9ec208d69c8877b1d1066cd1a53381b66",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte generated_duplicate_path_rate=0.16800000 aggregated_paths=5000"
+          ],
+          "peak_reserved_mib": 21706.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15809.99,
+              "peak_reserved_mib": 15864.0,
+              "phase": "training",
+              "wall_time_seconds": 76.397513
+            },
+            {
+              "peak_allocated_mib": 7877.108,
+              "peak_reserved_mib": 21706.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 38.86631
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            7.436886951327324,
+            6.06765241920948,
+            5.765369206666946,
+            5.676358282566071
+          ],
+          "validation_metrics": {
+            "hit@1": 0.01,
+            "hit@10": 0.09,
+            "hit@20": 0.11,
+            "hit@3": 0.04,
+            "hit@5": 0.06,
+            "hit@50": 0.12,
+            "ndcg@1": 0.01,
+            "ndcg@10": 0.046366569931697264,
+            "ndcg@20": 0.05161956063244113,
+            "ndcg@3": 0.027618595071429147,
+            "ndcg@5": 0.036232126232897004,
+            "ndcg@50": 0.05369970660920623
+          }
+        },
+        "physical_gpu": 7,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "B1",
+        "wall_seconds": 146.45931379310787,
+        "workload_pid": 2677257
+      },
+      "short": {
+        "attempt_id": "b1_short_r2_001",
+        "kind": "short",
+        "module_id": "B1_latte",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "ce54ea9d1b41edae5f25c3a2c04fc7d8d8408d42d92f92853100087fd513a756",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte generated_duplicate_path_rate=0.15220000 aggregated_paths=50000"
+          ],
+          "peak_reserved_mib": 21970.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15809.99,
+              "peak_reserved_mib": 15864.0,
+              "phase": "training",
+              "wall_time_seconds": 180.981236
+            },
+            {
+              "peak_allocated_mib": 7877.866,
+              "peak_reserved_mib": 21970.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 416.69176
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            6.397432348307441
+          ],
+          "validation_metrics": {
+            "hit@1": 0.022,
+            "hit@10": 0.083,
+            "hit@20": 0.098,
+            "hit@3": 0.046,
+            "hit@5": 0.059,
+            "hit@50": 0.11,
+            "ndcg@1": 0.022,
+            "ndcg@10": 0.04956875021229125,
+            "ndcg@20": 0.053406248130261715,
+            "ndcg@3": 0.03622580581071478,
+            "ndcg@5": 0.0418246010656689,
+            "ndcg@50": 0.05586684390470108
+          }
+        },
+        "physical_gpu": 0,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "B1",
+        "wall_seconds": 634.4787643309683,
+        "workload_pid": 2686058
+      }
+    },
+    "C0": {
+      "diagnostic_labels": [
+        "PROBE_PASS"
+      ],
+      "module_id": "C0_biflow",
+      "overfit": {
+        "attempt_id": "c0_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "C0_biflow",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "a1a768da25916d8f9f071b59d194503eb816de96a9ccff944fc28adc60803346",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 C0_biflow/global_to_sequence_delta_norm=0.21997131 C0_biflow/global_to_sequence_gate=0.11948308 C0_biflow/representation_alignment=0.74478137 C0_biflow/sequence_to_global_delta_norm=0.18643114 C0_biflow/sequence_to_global_gate=0.11897328",
+            "S17_MECHANISM_METRIC epoch=2 C0_biflow/global_to_sequence_delta_norm=0.22160727 C0_biflow/global_to_sequence_gate=0.11955320 C0_biflow/representation_alignment=0.71752334 C0_biflow/sequence_to_global_delta_norm=0.19662869 C0_biflow/sequence_to_global_gate=0.11878799",
+            "S17_MECHANISM_METRIC epoch=3 C0_biflow/global_to_sequence_delta_norm=0.22426289 C0_biflow/global_to_sequence_gate=0.11954501 C0_biflow/representation_alignment=0.73859417 C0_biflow/sequence_to_global_delta_norm=0.19936836 C0_biflow/sequence_to_global_gate=0.11870101",
+            "S17_MECHANISM_METRIC epoch=4 C0_biflow/global_to_sequence_delta_norm=0.22287700 C0_biflow/global_to_sequence_gate=0.11954232 C0_biflow/representation_alignment=0.75690681 C0_biflow/sequence_to_global_delta_norm=0.19806102 C0_biflow/sequence_to_global_gate=0.11869545"
+          ],
+          "peak_reserved_mib": 21390.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15751.223,
+              "peak_reserved_mib": 15802.0,
+              "phase": "training",
+              "wall_time_seconds": 85.058368
+            },
+            {
+              "peak_allocated_mib": 7845.294,
+              "peak_reserved_mib": 21390.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 29.925083
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            7.507366389036179,
+            6.216697677969933,
+            5.920632213354111,
+            5.821903273463249
+          ],
+          "validation_metrics": {
+            "hit@1": 0.01,
+            "hit@10": 0.09,
+            "hit@20": 0.11,
+            "hit@3": 0.02,
+            "hit@5": 0.08,
+            "hit@50": 0.15,
+            "ndcg@1": 0.01,
+            "ndcg@10": 0.04384547845159242,
+            "ndcg@20": 0.048473042714787605,
+            "ndcg@3": 0.016309297535714574,
+            "ndcg@5": 0.04083517849495261,
+            "ndcg@50": 0.056246635840825884
+          }
+        },
+        "physical_gpu": 7,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "C0",
+        "wall_seconds": 140.14515387266874,
+        "workload_pid": 2713176
+      },
+      "short": {
+        "attempt_id": "c0_short_r2_001",
+        "kind": "short",
+        "module_id": "C0_biflow",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "364c7471f4241317331d0e320af98caa9368e6460987d58a79470694950558ed",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 C0_biflow/global_to_sequence_delta_norm=0.22613373 C0_biflow/global_to_sequence_gate=0.11950788 C0_biflow/representation_alignment=0.72444922 C0_biflow/sequence_to_global_delta_norm=0.19745050 C0_biflow/sequence_to_global_gate=0.11851764"
+          ],
+          "peak_reserved_mib": 21918.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15751.223,
+              "peak_reserved_mib": 15802.0,
+              "phase": "training",
+              "wall_time_seconds": 192.933847
+            },
+            {
+              "peak_allocated_mib": 7846.318,
+              "peak_reserved_mib": 21918.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 357.885758
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            6.623873768483891
+          ],
+          "validation_metrics": {
+            "hit@1": 0.013,
+            "hit@10": 0.089,
+            "hit@20": 0.113,
+            "hit@3": 0.04,
+            "hit@5": 0.063,
+            "hit@50": 0.146,
+            "ndcg@1": 0.013,
+            "ndcg@10": 0.04613450385837813,
+            "ndcg@20": 0.052154128546119845,
+            "ndcg@3": 0.028463946303571866,
+            "ndcg@5": 0.037931269630871386,
+            "ndcg@50": 0.05874643059256739
+          }
+        },
+        "physical_gpu": 0,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "C0",
+        "wall_seconds": 578.4748982153833,
+        "workload_pid": 2719951
+      }
+    },
+    "D0": {
+      "diagnostic_labels": [
+        "PROBE_PASS",
+        "ACCURACY_NEGATIVE"
+      ],
+      "module_id": "D0_ted",
+      "overfit": {
+        "attempt_id": "d0_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "D0_ted",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "217620b8a13a3f982ec06c9474a5b14bfbcc5efa10d696259a61bec17acd1692",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 D0_ted/long_query_gate=0.50057930 D0_ted/recent_query_gate=0.50057310 D0_ted/short_history_fraction=0.25000000 D0_ted/teacher_gate=0.26845011 D0_ted/transition_teacher_coverage=1.00000000",
+            "S17_MECHANISM_METRIC epoch=2 D0_ted/long_query_gate=0.50111401 D0_ted/recent_query_gate=0.50110435 D0_ted/short_history_fraction=0.37500000 D0_ted/teacher_gate=0.26800689 D0_ted/transition_teacher_coverage=1.00000000",
+            "S17_MECHANISM_METRIC epoch=3 D0_ted/long_query_gate=0.50131583 D0_ted/recent_query_gate=0.50130475 D0_ted/short_history_fraction=0.37500000 D0_ted/teacher_gate=0.26782033 D0_ted/transition_teacher_coverage=1.00000000",
+            "S17_MECHANISM_METRIC epoch=4 D0_ted/long_query_gate=0.50132954 D0_ted/recent_query_gate=0.50131840 D0_ted/short_history_fraction=0.18750000 D0_ted/teacher_gate=0.26780719 D0_ted/transition_teacher_coverage=1.00000000"
+          ],
+          "peak_reserved_mib": 21760.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15848.256,
+              "peak_reserved_mib": 15908.0,
+              "phase": "training",
+              "wall_time_seconds": 75.806405
+            },
+            {
+              "peak_allocated_mib": 7939.973,
+              "peak_reserved_mib": 21760.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 26.78217
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            7.869356915354729,
+            6.31174710392952,
+            5.982178881764412,
+            5.882968187332153
+          ],
+          "validation_metrics": {
+            "hit@1": 0.02,
+            "hit@10": 0.09,
+            "hit@20": 0.1,
+            "hit@3": 0.03,
+            "hit@5": 0.05,
+            "hit@50": 0.14,
+            "ndcg@1": 0.02,
+            "ndcg@10": 0.047952368220927515,
+            "ndcg@20": 0.050350492886608825,
+            "ndcg@3": 0.026309297535714572,
+            "ndcg@5": 0.03448459118879392,
+            "ndcg@50": 0.058118382097867745
+          }
+        },
+        "physical_gpu": 7,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "D0",
+        "wall_seconds": 126.31777174398303,
+        "workload_pid": 2745253
+      },
+      "short": {
+        "attempt_id": "d0_short_r2_001",
+        "kind": "short",
+        "module_id": "D0_ted",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "fd7815346940f6e675e2badb5a07a7bf760a839b611d88d4d5320eeb138f452f",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 D0_ted/long_query_gate=0.50276721 D0_ted/recent_query_gate=0.50274247 D0_ted/short_history_fraction=0.50000000 D0_ted/teacher_gate=0.26651433 D0_ted/transition_teacher_coverage=1.00000000"
+          ],
+          "peak_reserved_mib": 22024.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15848.256,
+              "peak_reserved_mib": 15908.0,
+              "phase": "training",
+              "wall_time_seconds": 206.168983
+            },
+            {
+              "peak_allocated_mib": 7940.994,
+              "peak_reserved_mib": 22024.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 383.483353
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            6.755047952427583
+          ],
+          "validation_metrics": {
+            "hit@1": 0.013,
+            "hit@10": 0.085,
+            "hit@20": 0.108,
+            "hit@3": 0.041,
+            "hit@5": 0.063,
+            "hit@50": 0.143,
+            "ndcg@1": 0.013,
+            "ndcg@10": 0.04556284378054605,
+            "ndcg@20": 0.0514997417546278,
+            "ndcg@3": 0.02935673556428624,
+            "ndcg@5": 0.03848102983519008,
+            "ndcg@50": 0.05858377783412061
+          }
+        },
+        "physical_gpu": 0,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "D0",
+        "wall_seconds": 619.2874563708901,
+        "workload_pid": 2752160
+      }
+    },
+    "E0": {
+      "diagnostic_labels": [
+        "PROBE_PASS",
+        "ACCURACY_NEGATIVE"
+      ],
+      "module_id": "E0_shortcut_fid",
+      "overfit": {
+        "attempt_id": "e0_overfit_r2_001",
+        "kind": "overfit",
+        "module_id": "E0_shortcut_fid",
+        "overfit_loss_decreased": true,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "47da1352382028c93884f58347b7044254313ac016e75bad09069b543a2cd3c9",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid/long_history_fraction=0.43750000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18211107",
+            "S17_MECHANISM_METRIC epoch=2 E0_shortcut_fid/long_history_fraction=0.37500000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18184282",
+            "S17_MECHANISM_METRIC epoch=3 E0_shortcut_fid/long_history_fraction=0.50000000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18170922",
+            "S17_MECHANISM_METRIC epoch=4 E0_shortcut_fid/long_history_fraction=0.43750000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18170100"
+          ],
+          "peak_reserved_mib": 21390.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15751.181,
+              "peak_reserved_mib": 15800.0,
+              "phase": "training",
+              "wall_time_seconds": 80.852927
+            },
+            {
+              "peak_allocated_mib": 7845.3,
+              "peak_reserved_mib": 21390.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 24.916038
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            7.730094626545906,
+            6.228638738393784,
+            5.915411174297333,
+            5.8148418217897415
+          ],
+          "validation_metrics": {
+            "hit@1": 0.01,
+            "hit@10": 0.09,
+            "hit@20": 0.11,
+            "hit@3": 0.03,
+            "hit@5": 0.08,
+            "hit@50": 0.16,
+            "ndcg@1": 0.01,
+            "ndcg@10": 0.0445387128708585,
+            "ndcg@20": 0.049887722575467947,
+            "ndcg@3": 0.021309297535714575,
+            "ndcg@5": 0.04152841291421869,
+            "ndcg@50": 0.05927209594253948
+          }
+        },
+        "physical_gpu": 7,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "E0",
+        "wall_seconds": 128.21222066693008,
+        "workload_pid": 2784700
+      },
+      "short": {
+        "attempt_id": "e0_short_r2_001",
+        "kind": "short",
+        "module_id": "E0_shortcut_fid",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "86d0085d1090c90c52a6175f7f3f3bda9edbbc4557c2a30a528b6ed037b9d463",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid/long_history_fraction=0.25000000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18101811"
+          ],
+          "peak_reserved_mib": 21390.0,
+          "resource_metrics": [
+            {
+              "peak_allocated_mib": 15751.181,
+              "peak_reserved_mib": 15800.0,
+              "phase": "training",
+              "wall_time_seconds": 188.753809
+            },
+            {
+              "peak_allocated_mib": 7845.557,
+              "peak_reserved_mib": 21390.0,
+              "phase": "automatic_last_checkpoint_validation",
+              "wall_time_seconds": 242.045012
+            }
+          ],
+          "traceback": false,
+          "training_losses": [
+            6.684426730169969
+          ],
+          "validation_metrics": {
+            "hit@1": 0.011,
+            "hit@10": 0.086,
+            "hit@20": 0.113,
+            "hit@3": 0.04,
+            "hit@5": 0.059,
+            "hit@50": 0.143,
+            "ndcg@1": 0.011,
+            "ndcg@10": 0.044171765325718655,
+            "ndcg@20": 0.05095487133431654,
+            "ndcg@3": 0.02746394630357186,
+            "ndcg@5": 0.03542768215277209,
+            "ndcg@50": 0.05696476212051385
+          }
+        },
+        "physical_gpu": 0,
+        "return_code": 0,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "COMPLETED",
+        "test_read": false,
+        "track_id": "E0",
+        "wall_seconds": 458.9759366232902,
+        "workload_pid": 2791546
+      }
+    }
+  },
+  "verdict": "S17_2_SEVEN_TRACK_PROBES_COMPLETE"
+}

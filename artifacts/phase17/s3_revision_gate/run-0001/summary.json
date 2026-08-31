@@ -1,0 +1,332 @@
+{
+  "arms": [
+    {
+      "arm_id": "a0_proxy",
+      "attempt_id": "s3pf_a0_proxy_001",
+      "checks": {
+        "exit_zero": true,
+        "mechanism_metric_present": true,
+        "no_forbidden_test_evidence": true,
+        "no_traceback": true,
+        "validation_completed": true,
+        "within_memory_ceiling": true
+      },
+      "module_id": "A0_bear_proxy",
+      "parsed": {
+        "forbidden_test_evidence": [],
+        "log_sha256": "f323a3081df6b0e2ec4e1cbb1d9923980bdeacc9a6343d4ee7d278a98550054d",
+        "mechanism_metric_lines": [
+          "S17_MECHANISM_METRIC epoch=1 A0_bear_proxy/mean_survival_weight=1.40566385 A0_bear_proxy/mean_target_rank=2893.65966797 A0_bear_proxy/target_prefix_topB_survival=0.40206185"
+        ],
+        "peak_reserved_mib": 21194.0,
+        "resource_metrics": [
+          {
+            "peak_allocated_mib": 15811.248,
+            "peak_reserved_mib": 15870.0,
+            "phase": "training",
+            "wall_time_seconds": 74.767612
+          },
+          {
+            "peak_allocated_mib": 7845.923,
+            "peak_reserved_mib": 21194.0,
+            "phase": "automatic_last_checkpoint_validation",
+            "wall_time_seconds": 26.281363
+          }
+        ],
+        "traceback": false,
+        "training_losses": [
+          6.6557034105062485
+        ],
+        "validation_metrics": {
+          "hit@1": 0.0,
+          "hit@10": 0.08,
+          "hit@20": 0.09,
+          "hit@3": 0.02,
+          "hit@5": 0.06,
+          "hit@50": 0.13,
+          "ndcg@1": 0.0,
+          "ndcg@10": 0.03437660548081078,
+          "ndcg@20": 0.03673069461447716,
+          "ndcg@3": 0.011309297535714573,
+          "ndcg@5": 0.027659884841873268,
+          "ndcg@50": 0.044404751095719626
+        }
+      },
+      "physical_gpu": 1,
+      "return_code": 0,
+      "schema_version": "phase17.s17_3_revision_gate_result.v1",
+      "sports_read": false,
+      "state": "COMPLETED",
+      "test_read": false,
+      "track_id": "A0",
+      "wall_seconds": 130.16107439436018,
+      "workload_pid": 3201743
+    },
+    {
+      "arm_id": "a1_prefixcurr",
+      "attempt_id": "s3pf_a1_prefixcurr_001",
+      "checks": {
+        "exit_zero": true,
+        "mechanism_metric_present": true,
+        "no_forbidden_test_evidence": true,
+        "no_traceback": true,
+        "validation_completed": true,
+        "within_memory_ceiling": true
+      },
+      "module_id": "A1_prefixcurr",
+      "parsed": {
+        "forbidden_test_evidence": [],
+        "log_sha256": "6555d97b0c34e000a98efc30bfdeee2deb6bbef543dd993c860cfb92e06c65c1",
+        "mechanism_metric_lines": [
+          "S17_MECHANISM_METRIC epoch=1 A1_prefixcurr/active_identifier_depth=4.00000000 A1_prefixcurr/active_token_fraction=0.65979379 A1_prefixcurr/mean_per_depth_token_accuracy=0.08035715"
+        ],
+        "peak_reserved_mib": 21666.0,
+        "resource_metrics": [
+          {
+            "peak_allocated_mib": 15767.538,
+            "peak_reserved_mib": 15814.0,
+            "phase": "training",
+            "wall_time_seconds": 40.230664
+          },
+          {
+            "peak_allocated_mib": 7846.053,
+            "peak_reserved_mib": 21666.0,
+            "phase": "automatic_last_checkpoint_validation",
+            "wall_time_seconds": 27.368576
+          }
+        ],
+        "traceback": false,
+        "training_losses": [
+          9.257205113768578
+        ],
+        "validation_metrics": {
+          "hit@1": 0.0,
+          "hit@10": 0.08,
+          "hit@20": 0.11,
+          "hit@3": 0.02,
+          "hit@5": 0.05,
+          "hit@50": 0.12,
+          "ndcg@1": 0.0,
+          "ndcg@10": 0.033199089252219524,
+          "ndcg@20": 0.040349154118884796,
+          "ndcg@3": 0.01,
+          "ndcg@5": 0.022920296742201796,
+          "ndcg@50": 0.04222817236597587
+        }
+      },
+      "physical_gpu": 1,
+      "return_code": 0,
+      "schema_version": "phase17.s17_3_revision_gate_result.v1",
+      "sports_read": false,
+      "state": "COMPLETED",
+      "test_read": false,
+      "track_id": "A1",
+      "wall_seconds": 96.27373632229865,
+      "workload_pid": 3209186
+    },
+    {
+      "arm_id": "e0_semantic",
+      "attempt_id": "s3pf_e0_semantic_001",
+      "checks": {
+        "exit_zero": true,
+        "mechanism_metric_present": true,
+        "no_forbidden_test_evidence": true,
+        "no_traceback": true,
+        "semantic_selection_non_degenerate": true,
+        "validation_completed": true,
+        "within_memory_ceiling": true
+      },
+      "module_id": "E0_shortcut_fid",
+      "parsed": {
+        "forbidden_test_evidence": [],
+        "log_sha256": "b9bd2ecab748e34a31d04c84789cfde07f08a89ffcfd867880eba221a5b2cbe3",
+        "mechanism_metric_lines": [
+          "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid/adaptive_target_ratio=0.58719993 E0_shortcut_fid/long_history_fraction=0.43750000 E0_shortcut_fid/noise_filtered_ratio=0.41280004 E0_shortcut_fid/selected_history_ratio=0.58719993 E0_shortcut_fid/shortcut_gate=0.18218224"
+        ],
+        "peak_reserved_mib": 21390.0,
+        "resource_metrics": [
+          {
+            "peak_allocated_mib": 15751.181,
+            "peak_reserved_mib": 15800.0,
+            "phase": "training",
+            "wall_time_seconds": 40.947769
+          },
+          {
+            "peak_allocated_mib": 7845.295,
+            "peak_reserved_mib": 21390.0,
+            "phase": "automatic_last_checkpoint_validation",
+            "wall_time_seconds": 26.066384
+          }
+        ],
+        "traceback": false,
+        "training_losses": [
+          7.779773697257042
+        ],
+        "validation_metrics": {
+          "hit@1": 0.0,
+          "hit@10": 0.08,
+          "hit@20": 0.09,
+          "hit@3": 0.03,
+          "hit@5": 0.05,
+          "hit@50": 0.13,
+          "ndcg@1": 0.0,
+          "ndcg@10": 0.03651091874291474,
+          "ndcg@20": 0.03878762122988427,
+          "ndcg@3": 0.017618595071429145,
+          "ndcg@5": 0.026232126232897005,
+          "ndcg@50": 0.04653165209198537
+        }
+      },
+      "physical_gpu": 1,
+      "return_code": 0,
+      "schema_version": "phase17.s17_3_revision_gate_result.v1",
+      "sports_read": false,
+      "state": "COMPLETED",
+      "test_read": false,
+      "track_id": "E0",
+      "wall_seconds": 94.34449099749327,
+      "workload_pid": 3214439
+    },
+    {
+      "arm_id": "e0_full",
+      "attempt_id": "s3pf_e0_full_001",
+      "checks": {
+        "exit_zero": true,
+        "full_control_selects_all": true,
+        "mechanism_metric_present": true,
+        "no_forbidden_test_evidence": true,
+        "no_traceback": true,
+        "validation_completed": true,
+        "within_memory_ceiling": true
+      },
+      "module_id": "E0_shortcut_fid_full_control",
+      "parsed": {
+        "forbidden_test_evidence": [],
+        "log_sha256": "e5742ab44fcb69b37b27419b213149a4a2e32129a2cbd5c160ed7d1f36caa68f",
+        "mechanism_metric_lines": [
+          "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid_full_control/adaptive_target_ratio=0.58719993 E0_shortcut_fid_full_control/long_history_fraction=0.43750000 E0_shortcut_fid_full_control/noise_filtered_ratio=0.00000000 E0_shortcut_fid_full_control/selected_history_ratio=1.00000000 E0_shortcut_fid_full_control/shortcut_gate=0.18218189"
+        ],
+        "peak_reserved_mib": 21390.0,
+        "resource_metrics": [
+          {
+            "peak_allocated_mib": 15751.181,
+            "peak_reserved_mib": 15800.0,
+            "phase": "training",
+            "wall_time_seconds": 45.453203
+          },
+          {
+            "peak_allocated_mib": 7845.295,
+            "peak_reserved_mib": 21390.0,
+            "phase": "automatic_last_checkpoint_validation",
+            "wall_time_seconds": 29.660025
+          }
+        ],
+        "traceback": false,
+        "training_losses": [
+          7.779270529747009
+        ],
+        "validation_metrics": {
+          "hit@1": 0.0,
+          "hit@10": 0.08,
+          "hit@20": 0.1,
+          "hit@3": 0.03,
+          "hit@5": 0.05,
+          "hit@50": 0.13,
+          "ndcg@1": 0.0,
+          "ndcg@10": 0.03782021627862931,
+          "ndcg@20": 0.04245100789926523,
+          "ndcg@3": 0.018927892607143722,
+          "ndcg@5": 0.027541423768611583,
+          "ndcg@50": 0.047965201952355985
+        }
+      },
+      "physical_gpu": 1,
+      "return_code": 0,
+      "schema_version": "phase17.s17_3_revision_gate_result.v1",
+      "sports_read": false,
+      "state": "COMPLETED",
+      "test_read": false,
+      "track_id": "E0",
+      "wall_seconds": 103.691681323573,
+      "workload_pid": 3219938
+    },
+    {
+      "arm_id": "e0_random",
+      "attempt_id": "s3pf_e0_random_001",
+      "checks": {
+        "exit_zero": true,
+        "mechanism_metric_present": true,
+        "no_forbidden_test_evidence": true,
+        "no_traceback": true,
+        "random_control_same_size": true,
+        "validation_completed": true,
+        "within_memory_ceiling": true
+      },
+      "module_id": "E0_shortcut_fid_random_control",
+      "parsed": {
+        "forbidden_test_evidence": [],
+        "log_sha256": "e13ee02c0897bcd0966cfcf7b964007f2f8dbc00e5e8dadb0c131f63a2e8c91a",
+        "mechanism_metric_lines": [
+          "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid_random_control/adaptive_target_ratio=0.58719993 E0_shortcut_fid_random_control/long_history_fraction=0.43750000 E0_shortcut_fid_random_control/noise_filtered_ratio=0.41280004 E0_shortcut_fid_random_control/selected_history_ratio=0.58719993 E0_shortcut_fid_random_control/shortcut_gate=0.18218307"
+        ],
+        "peak_reserved_mib": 21390.0,
+        "resource_metrics": [
+          {
+            "peak_allocated_mib": 15751.181,
+            "peak_reserved_mib": 15802.0,
+            "phase": "training",
+            "wall_time_seconds": 50.278529
+          },
+          {
+            "peak_allocated_mib": 7845.295,
+            "peak_reserved_mib": 21390.0,
+            "phase": "automatic_last_checkpoint_validation",
+            "wall_time_seconds": 29.178416
+          }
+        ],
+        "traceback": false,
+        "training_losses": [
+          7.77970826625824
+        ],
+        "validation_metrics": {
+          "hit@1": 0.0,
+          "hit@10": 0.08,
+          "hit@20": 0.09,
+          "hit@3": 0.03,
+          "hit@5": 0.05,
+          "hit@50": 0.12,
+          "ndcg@1": 0.0,
+          "ndcg@10": 0.03651091874291474,
+          "ndcg@20": 0.03878762122988427,
+          "ndcg@3": 0.017618595071429145,
+          "ndcg@5": 0.026232126232897005,
+          "ndcg@50": 0.044735475157863386
+        }
+      },
+      "physical_gpu": 1,
+      "return_code": 0,
+      "schema_version": "phase17.s17_3_revision_gate_result.v1",
+      "sports_read": false,
+      "state": "COMPLETED",
+      "test_read": false,
+      "track_id": "E0",
+      "wall_seconds": 110.04107681848109,
+      "workload_pid": 3225535
+    }
+  ],
+  "completed_at": "2026-08-29T10:14:56.626634+00:00",
+  "cpu_contracts": {
+    "log_path": "artifacts/phase17/s3_revision_gate/run-0001/preflight/cpu_contract_tests.log",
+    "log_sha256": "6311610ee734d07052dfa4e1b1a443006280cc502800b3b8eb97bbcf0ab59be6",
+    "return_code": 0
+  },
+  "experiment_id": "s17_s3_revision_gate_a1",
+  "formal_result_eligible": false,
+  "official_result_claim": false,
+  "schema_version": "phase17.s17_3_revision_gate_summary.v1",
+  "sports_read": false,
+  "step_id": "S17-3",
+  "substep": "pre_formal_revision_gate",
+  "test_read": false,
+  "verdict": "S17_3_REVISION_GATE_PASS"
+}

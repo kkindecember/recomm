@@ -1,0 +1,52 @@
+{
+  "schema_version": "phase17.lexical_contract.v1",
+  "generated_at_utc": "2026-08-29T03:29:54.799916+00:00",
+  "domains": {
+    "Beauty": {
+      "items": 12101,
+      "unique_paths": 12101,
+      "path_length_counts": {
+        "7": 11668,
+        "8": 433
+      },
+      "variable_length": true,
+      "duplicate_item_count": 0,
+      "duplicate_path_count": 0,
+      "strict_prefix_path_count": 0,
+      "t5_special_token_collision_count": 0,
+      "eos_serialized_in_path": false,
+      "eos_appended_by_collator": true,
+      "path_file": "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "path_file_sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+      "metadata_file": "GRAM/rec_datasets/Beauty/item_plain_text.txt",
+      "metadata_file_sha256": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc",
+      "catalog_matches_metadata": true,
+      "trie_legality_precondition": true
+    },
+    "Toys": {
+      "items": 11924,
+      "unique_paths": 11924,
+      "path_length_counts": {
+        "5": 11062,
+        "6": 862
+      },
+      "variable_length": true,
+      "duplicate_item_count": 0,
+      "duplicate_path_count": 0,
+      "strict_prefix_path_count": 0,
+      "t5_special_token_collision_count": 0,
+      "eos_serialized_in_path": false,
+      "eos_appended_by_collator": true,
+      "path_file": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "path_file_sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+      "metadata_file": "GRAM/rec_datasets/Toys/item_plain_text.txt",
+      "metadata_file_sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+      "catalog_matches_metadata": true,
+      "trie_legality_precondition": true
+    }
+  },
+  "collator_path": "GRAM/src/processor/Collator.py",
+  "collator_sha256": "49a35955d0f952e4015d8e87935c05b8138489d1ed60b4d30cc865dcf7bcc949",
+  "generation_trie_path": "GRAM/src/utils/generation_trie.py",
+  "generation_trie_sha256": "eb244f1e79a9e80334d147fdbffcad2ebe4fd4be6e96c9d00a4fa46d828af7af"
+}

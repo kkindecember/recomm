@@ -1,0 +1,42 @@
+{
+  "attempt_id": "a1_overfit_r2_001",
+  "kind": "overfit",
+  "module_id": "A1_prefixcurr",
+  "overfit_loss_decreased": true,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "9eeecac8c767002d9fea87a04f84edd46ae00da5e1c5aaaee6d73d6d51e16dc1",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 A1_prefixcurr/active_identifier_depth=4.00000000 A1_prefixcurr/active_token_fraction=0.65979379 A1_prefixcurr/mean_per_depth_token_accuracy=0.08035715",
+      "S17_MECHANISM_METRIC epoch=2 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.34821430",
+      "S17_MECHANISM_METRIC epoch=3 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.33035716",
+      "S17_MECHANISM_METRIC epoch=4 A1_prefixcurr/active_identifier_depth=7.00000000 A1_prefixcurr/active_token_fraction=1.00000000 A1_prefixcurr/mean_per_depth_token_accuracy=0.33928573"
+    ],
+    "peak_reserved_mib": 15814.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15767.538,
+        "peak_reserved_mib": 15814.0,
+        "phase": "training",
+        "wall_time_seconds": 92.017771
+      }
+    ],
+    "traceback": true,
+    "training_losses": [
+      9.200850263237953,
+      6.9679848700761795,
+      6.193979740142822,
+      6.091820448637009
+    ],
+    "validation_metrics": {}
+  },
+  "physical_gpu": 0,
+  "return_code": 1,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "FAILED",
+  "test_read": false,
+  "track_id": "A1",
+  "wall_seconds": 121.60824155062437,
+  "workload_pid": 2630013
+}

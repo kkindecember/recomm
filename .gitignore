@@ -140,6 +140,13 @@ artifacts/phase17/fullport/sources/
 # learning curves, summaries, configs, and canonical result manifests.
 artifacts/phase17/**/*_user_metrics.json
 
+# Large item/user-level frozen views are reproducible from the committed
+# protocol/config and adjacent compact manifests/summaries.
+artifacts/phase17/**/portfolio_config.json
+artifacts/phase17/**/transition_teacher*.json
+artifacts/phase17/s2r_preflight/sid/
+artifacts/phase17/**/*_user_ids.txt
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt

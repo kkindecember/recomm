@@ -1,0 +1,66 @@
+{
+  "arm_id": "biflow_s2g",
+  "checkpoint": "artifacts/phase17/s4_p1_targeted/run-0001/smoke/biflow_s2g/gram_logs/Toys_s17_d0_100/0_20260830_1503/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "prediction_contract": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "formal_result_eligible": false,
+  "module_id": "P1_biflow_s2g",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "2c0f36bcdb0d4ebdb75d4628d7918367e9c17e36a6957bcdf1b2942b4da0ced9",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 P1_biflow_s2g/active_delta_norm=0.08091795 P1_biflow_s2g/blocked_direction_count=1.00000000 P1_biflow_s2g/global_to_sequence_gate=0.00000000 P1_biflow_s2g/sequence_to_global_gate=0.11926679"
+    ],
+    "peak_reserved_mib": 21388.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.181,
+        "peak_reserved_mib": 15800.0,
+        "phase": "training",
+        "wall_time_seconds": 27.527805
+      },
+      {
+        "peak_allocated_mib": 7845.307,
+        "peak_reserved_mib": 21388.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 38.593524
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.0521055404096842
+    ],
+    "validation_metrics": {
+      "hit@1": 0.18,
+      "hit@10": 0.45,
+      "hit@20": 0.51,
+      "hit@3": 0.28,
+      "hit@5": 0.34,
+      "hit@50": 0.59,
+      "ndcg@1": 0.18,
+      "ndcg@10": 0.2993998009020725,
+      "ndcg@20": 0.31456867840756003,
+      "ndcg@3": 0.23916508275000203,
+      "ndcg@5": 0.2641292012176286,
+      "ndcg@50": 0.3305537312823094
+    }
+  },
+  "physical_gpu": 0,
+  "return_code": 0,
+  "schema_version": "phase17.s17_4_smoke_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "P1-C0",
+  "wall_seconds": 94.71031817793846,
+  "workload_pid": 80776
+}

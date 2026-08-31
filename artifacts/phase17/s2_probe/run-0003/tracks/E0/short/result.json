@@ -1,0 +1,55 @@
+{
+  "attempt_id": "e0_short_r2_001",
+  "kind": "short",
+  "module_id": "E0_shortcut_fid",
+  "overfit_loss_decreased": null,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "86d0085d1090c90c52a6175f7f3f3bda9edbbc4557c2a30a528b6ed037b9d463",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid/long_history_fraction=0.25000000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18101811"
+    ],
+    "peak_reserved_mib": 21390.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.181,
+        "peak_reserved_mib": 15800.0,
+        "phase": "training",
+        "wall_time_seconds": 188.753809
+      },
+      {
+        "peak_allocated_mib": 7845.557,
+        "peak_reserved_mib": 21390.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 242.045012
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      6.684426730169969
+    ],
+    "validation_metrics": {
+      "hit@1": 0.011,
+      "hit@10": 0.086,
+      "hit@20": 0.113,
+      "hit@3": 0.04,
+      "hit@5": 0.059,
+      "hit@50": 0.143,
+      "ndcg@1": 0.011,
+      "ndcg@10": 0.044171765325718655,
+      "ndcg@20": 0.05095487133431654,
+      "ndcg@3": 0.02746394630357186,
+      "ndcg@5": 0.03542768215277209,
+      "ndcg@50": 0.05696476212051385
+    }
+  },
+  "physical_gpu": 0,
+  "return_code": 0,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "E0",
+  "wall_seconds": 458.9759366232902,
+  "workload_pid": 2791546
+}

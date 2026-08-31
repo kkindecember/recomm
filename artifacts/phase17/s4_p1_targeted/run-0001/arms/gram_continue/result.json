@@ -1,0 +1,70 @@
+{
+  "arm_id": "gram_continue",
+  "checkpoint": "artifacts/phase17/s4_p1_targeted/run-0001/arms/gram_continue/gram_logs/Toys_s17_d0_full/0_20260830_1505/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checkpoint_sha256": "3b60a0cbff21e75988e5e779d841fe853589ef1d859695259d76d6bd545c2d1c",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "prediction_contract": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "ended_at": "2026-08-30T08:59:15.630724+00:00",
+  "module_id": "",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "f0f6f57dd0b883b2e323a4312bfdebce03410ced7c6c3e3fde3b861a764425e0",
+    "mechanism_metric_lines": [],
+    "peak_reserved_mib": 20596.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15750.987,
+        "peak_reserved_mib": 15804.0,
+        "phase": "training",
+        "wall_time_seconds": 2658.015375
+      },
+      {
+        "peak_allocated_mib": 7848.308,
+        "peak_reserved_mib": 20596.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 4141.37315
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.194738570955931
+    ],
+    "validation_metrics": {
+      "hit@1": 0.10348320735603522,
+      "hit@10": 0.30343645289488036,
+      "hit@20": 0.3826073404504013,
+      "hit@3": 0.18904387126938363,
+      "hit@5": 0.2342398503857243,
+      "hit@50": 0.49824670770669366,
+      "ndcg@1": 0.10348320735603522,
+      "ndcg@10": 0.19389916782934127,
+      "ndcg@20": 0.21388596852642278,
+      "ndcg@3": 0.1530992702324396,
+      "ndcg@5": 0.17158403507244674,
+      "ndcg@50": 0.23696321222094321
+    }
+  },
+  "physical_gpu": 1,
+  "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/gram_continue/predictions/20260830_155012_Toys_s17_d0_full_sequential_pred_validation.tsv",
+  "prediction_sha256": "bd4a0ab79a597ed3790ccaf9ecaa074400f2bbaab52f71b5691d95bc90fa4530",
+  "priority": 1,
+  "return_code": 0,
+  "schema_version": "phase17.s17_4_formal_result.v1",
+  "scientific_result_eligible": true,
+  "sports_read": false,
+  "started_at": "2026-08-30T07:05:05.977530+00:00",
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "CONTROL",
+  "wall_seconds": 6849.653300056234,
+  "workload_pid": 85755
+}

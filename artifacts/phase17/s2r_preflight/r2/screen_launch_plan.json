@@ -1,0 +1,55 @@
+{
+  "cpu_smoke_sha256": "8c888efc99fd0a00fa6bf471efe9dc6e30b0e805225afa6b5f0a85a98fecf650",
+  "d1_read": false,
+  "early_stop_may_reduce_runtime": true,
+  "external_evaluation_after_checkpoint_freeze_only": true,
+  "families": [
+    "latte",
+    "gryphon",
+    "diffgrm",
+    "setrec"
+  ],
+  "four_gpu_wall_upper_minutes": 75.52683753175661,
+  "gpu1_excluded": true,
+  "maximum_epochs": 10,
+  "official_test_read": false,
+  "one_family_per_gpu": true,
+  "prepared_at": "2026-08-30T15:07:13.090854+00:00",
+  "profile_maximum_peak_allocated_mib": 2401.30712890625,
+  "profile_summary_sha256": "d93a3884263ba533b33837bd53bdba22bc069f8239d2f263fd7f593cf5c218cb",
+  "recommended_parallel_gpus": 4,
+  "runtime_estimates": {
+    "diffgrm": {
+      "contention_adjusted_upper_minutes": 29.985977451580887,
+      "external_batches_once": 188,
+      "internal_batches_per_epoch": 19,
+      "profile_scaled_raw_upper_minutes": 14.277701400903364,
+      "train_batches_per_epoch": 202
+    },
+    "gryphon": {
+      "contention_adjusted_upper_minutes": 56.78748355982825,
+      "external_batches_once": 188,
+      "internal_batches_per_epoch": 19,
+      "profile_scaled_raw_upper_minutes": 29.592847748473286,
+      "train_batches_per_epoch": 202
+    },
+    "latte": {
+      "contention_adjusted_upper_minutes": 71.53575619772697,
+      "external_batches_once": 188,
+      "internal_batches_per_epoch": 19,
+      "profile_scaled_raw_upper_minutes": 38.020432112986846,
+      "train_batches_per_epoch": 202
+    },
+    "setrec": {
+      "contention_adjusted_upper_minutes": 75.52683753175661,
+      "external_batches_once": 188,
+      "internal_batches_per_epoch": 19,
+      "profile_scaled_raw_upper_minutes": 40.30105001814663,
+      "train_batches_per_epoch": 202
+    }
+  },
+  "schema_version": "phase17.s17_2r_r2_screen_launch_plan.v1",
+  "screen_admission_free_mib": 7168,
+  "sports_read": false,
+  "state": "READY"
+}

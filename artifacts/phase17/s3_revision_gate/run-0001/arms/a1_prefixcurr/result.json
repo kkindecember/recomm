@@ -1,0 +1,62 @@
+{
+  "arm_id": "a1_prefixcurr",
+  "attempt_id": "s3pf_a1_prefixcurr_001",
+  "checks": {
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "module_id": "A1_prefixcurr",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "6555d97b0c34e000a98efc30bfdeee2deb6bbef543dd993c860cfb92e06c65c1",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 A1_prefixcurr/active_identifier_depth=4.00000000 A1_prefixcurr/active_token_fraction=0.65979379 A1_prefixcurr/mean_per_depth_token_accuracy=0.08035715"
+    ],
+    "peak_reserved_mib": 21666.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15767.538,
+        "peak_reserved_mib": 15814.0,
+        "phase": "training",
+        "wall_time_seconds": 40.230664
+      },
+      {
+        "peak_allocated_mib": 7846.053,
+        "peak_reserved_mib": 21666.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 27.368576
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      9.257205113768578
+    ],
+    "validation_metrics": {
+      "hit@1": 0.0,
+      "hit@10": 0.08,
+      "hit@20": 0.11,
+      "hit@3": 0.02,
+      "hit@5": 0.05,
+      "hit@50": 0.12,
+      "ndcg@1": 0.0,
+      "ndcg@10": 0.033199089252219524,
+      "ndcg@20": 0.040349154118884796,
+      "ndcg@3": 0.01,
+      "ndcg@5": 0.022920296742201796,
+      "ndcg@50": 0.04222817236597587
+    }
+  },
+  "physical_gpu": 1,
+  "return_code": 0,
+  "schema_version": "phase17.s17_3_revision_gate_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "A1",
+  "wall_seconds": 96.27373632229865,
+  "workload_pid": 3209186
+}

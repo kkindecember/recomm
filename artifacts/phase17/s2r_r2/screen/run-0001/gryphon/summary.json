@@ -1,0 +1,185 @@
+{
+  "comparison": {
+    "cohorts": [
+      {
+        "cohort_id": "c0",
+        "control": {
+          "hit@10": 0.012,
+          "hit@20": 0.022,
+          "hit@5": 0.008,
+          "hit@50": 0.039,
+          "ndcg@10": 0.005112561229639156,
+          "ndcg@20": 0.0076869041996159475,
+          "ndcg@5": 0.003795617152319494,
+          "ndcg@50": 0.011097747646810017
+        },
+        "delta": {
+          "hit@10": -0.003000000000000001,
+          "hit@20": 0.0010000000000000009,
+          "hit@5": -0.006,
+          "hit@50": 0.0,
+          "ndcg@10": -0.001824924945213894,
+          "ndcg@20": -0.0008644586364456499,
+          "ndcg@5": -0.0027340108406746434,
+          "ndcg@50": -0.0011072008410429254
+        },
+        "treatment": {
+          "hit@10": 0.009,
+          "hit@20": 0.023,
+          "hit@5": 0.002,
+          "hit@50": 0.039,
+          "ndcg@10": 0.0032876362844252616,
+          "ndcg@20": 0.006822445563170298,
+          "ndcg@5": 0.0010616063116448506,
+          "ndcg@50": 0.009990546805767091
+        },
+        "users": 1000
+      },
+      {
+        "cohort_id": "c1",
+        "control": {
+          "hit@10": 0.009,
+          "hit@20": 0.017,
+          "hit@5": 0.007,
+          "hit@50": 0.032,
+          "ndcg@10": 0.004695969640642165,
+          "ndcg@20": 0.006663064437127023,
+          "ndcg@5": 0.00406160631164485,
+          "ndcg@50": 0.009593563074876603
+        },
+        "delta": {
+          "hit@10": -0.003999999999999999,
+          "hit@20": -0.003000000000000001,
+          "hit@5": -0.005,
+          "hit@50": 0.0,
+          "ndcg@10": -0.0022975964202381237,
+          "ndcg@20": -0.0020092369624635856,
+          "ndcg@5": -0.002630929753571457,
+          "ndcg@50": -0.0013847556743296543
+        },
+        "treatment": {
+          "hit@10": 0.005,
+          "hit@20": 0.014,
+          "hit@5": 0.002,
+          "hit@50": 0.032,
+          "ndcg@10": 0.002398373220404041,
+          "ndcg@20": 0.004653827474663437,
+          "ndcg@5": 0.0014306765580733931,
+          "ndcg@50": 0.008208807400546948
+        },
+        "users": 1000
+      },
+      {
+        "cohort_id": "c2",
+        "control": {
+          "hit@10": 0.012,
+          "hit@20": 0.019,
+          "hit@5": 0.004,
+          "hit@50": 0.035,
+          "ndcg@10": 0.005004007597660802,
+          "ndcg@20": 0.006658844950243967,
+          "ndcg@5": 0.002517782560805999,
+          "ndcg@50": 0.009818296308030487
+        },
+        "delta": {
+          "hit@10": -0.003000000000000001,
+          "hit@20": 0.0010000000000000009,
+          "hit@5": -0.001,
+          "hit@50": 0.0,
+          "ndcg@10": -0.001846136937664878,
+          "ndcg@20": -0.0007898651337670832,
+          "ndcg@5": -0.0012440769463369157,
+          "ndcg@50": -0.000984886392671391
+        },
+        "treatment": {
+          "hit@10": 0.009,
+          "hit@20": 0.02,
+          "hit@5": 0.003,
+          "hit@50": 0.035,
+          "ndcg@10": 0.0031578706599959244,
+          "ndcg@20": 0.005868979816476884,
+          "ndcg@5": 0.0012737056144690832,
+          "ndcg@50": 0.008833409915359096
+        },
+        "users": 1000
+      }
+    ],
+    "decision": "REJECT",
+    "family": "gryphon",
+    "mechanism_failures": [
+      "nonpositive_same_candidate_rank_gain"
+    ],
+    "mechanism_metrics": {
+      "candidate_sets_identical": true,
+      "comparable_target_users": 106,
+      "mean_target_rank_gain": -1.1603773584905661,
+      "valid_item_rate": 1.0
+    },
+    "mechanism_pass": false,
+    "overall_paired_hit@10": {
+      "ci95_high": 0.0003333333333333333,
+      "ci95_low": -0.007333333333333333,
+      "delta": -0.0033333333333333335,
+      "positive_user_fraction": 0.004333333333333333,
+      "replicates": 1000,
+      "zero_user_fraction": 0.988
+    },
+    "overall_paired_ndcg@10": {
+      "ci95_high": -6.018430520881815e-05,
+      "ci95_low": -0.0037484910348987896,
+      "delta": -0.001989552767705632,
+      "positive_user_fraction": 0.005666666666666667,
+      "replicates": 1000,
+      "zero_user_fraction": 0.9846666666666667
+    },
+    "positive_ndcg_cohorts": 0
+  },
+  "completed_at": "2026-08-30T15:25:59.681990+00:00",
+  "d1_read": false,
+  "device_name": "NVIDIA RTX A6000",
+  "external_evaluations": {
+    "gryphon_item": {
+      "diagnostics": {},
+      "external_evaluation_count": 1,
+      "generation_seconds": 374.9486095365137,
+      "mean_unique_candidates": 50,
+      "multi_path_item_rate": 0.0,
+      "prediction_path": "artifacts/phase17/s2r_r2/screen/run-0001/gryphon/gryphon_item/external_predictions.jsonl",
+      "prediction_rows": 3000,
+      "prediction_sha256": "6a09d08246194e83a9c1b3ea5e1d857ec55394ac171f4de403073bbf6d8c09c3",
+      "same_checkpoint_beam_control": {
+        "prediction_path": "artifacts/phase17/s2r_r2/screen/run-0001/gryphon/gryphon_item/same_checkpoint_beam_control_predictions.jsonl",
+        "prediction_sha256": "b4e786dcac407875779fc9fd9c365bfb594d5aa3989495106a1112c7b38df1be",
+        "user_metrics_path": "artifacts/phase17/s2r_r2/screen/run-0001/gryphon/gryphon_item/same_checkpoint_beam_control_user_metrics.json",
+        "user_metrics_sha256": "e391ca53be6b4a862b885bddcd7405c2d19f39a076ae8930697f7eabb8a12bd6"
+      },
+      "user_metrics_path": "artifacts/phase17/s2r_r2/screen/run-0001/gryphon/gryphon_item/external_user_metrics.json",
+      "user_metrics_sha256": "5a9fa5981a8ff5fd5c9d9954bc5d2e9e52a977e9fd72f605cfd3cc3bd5672cd2",
+      "valid_item_rate": 1.0
+    }
+  },
+  "external_target_materialized_after_all_best_checkpoints": true,
+  "family": "gryphon",
+  "formal_result_eligible": true,
+  "official_test_read": false,
+  "physical_gpu": 6,
+  "result_selection_eligible": true,
+  "schema_version": "phase17.s17_2r_r2_family_screen.v1",
+  "sports_read": false,
+  "training": {
+    "gryphon_item": {
+      "arm": "gryphon_item",
+      "best_epoch": 3,
+      "best_internal_ndcg@10": 0.007400620468559583,
+      "candidate_gradient_norm_max": 0.026813316317400842,
+      "checkpoint": "artifacts/phase17/s2r_r2/screen/run-0001/gryphon/gryphon_item/best_checkpoint.pt",
+      "checkpoint_sha256": "243659ad04b90fba7f235c63919855b63f9c44bdf1a9e1c8c83b8d2934380e16",
+      "early_stop_triggered": true,
+      "epochs_completed": 5,
+      "external_target_read_during_checkpoint_selection": false,
+      "learning_curve": "artifacts/phase17/s2r_r2/screen/run-0001/gryphon/gryphon_item/learning_curve.json",
+      "peak_allocated_mib": 2357.80078125,
+      "training_wall_seconds": 267.12766393087804
+    }
+  }
+}

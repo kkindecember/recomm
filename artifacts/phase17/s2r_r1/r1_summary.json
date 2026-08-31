@@ -1,0 +1,83 @@
+{
+  "attempt_chain": [
+    {
+      "attempt_id": "run-0001",
+      "completed_families": [
+        "latte",
+        "gryphon"
+      ],
+      "partial_failure": "missing persistent stderr for second wave"
+    },
+    {
+      "attempt_id": "run-0002",
+      "completed_families": [],
+      "failure": "Latte-only aggregation keyword crossed parallel decoder interface"
+    },
+    {
+      "attempt_id": "run-0003",
+      "completed_families": [
+        "diffgrm",
+        "setrec"
+      ],
+      "recovery_scope": "interface dispatch only; science configuration unchanged"
+    }
+  ],
+  "checks": {
+    "all_prediction_files_have_100_users": true,
+    "all_predictions_resolve_to_catalog_items": true,
+    "all_training_losses_decreased": true,
+    "d1_read": false,
+    "official_test_read": false,
+    "sports_read": false,
+    "treatment_specific_gradients": {
+      "diffgrm_masked": true,
+      "gryphon_item": true,
+      "latte_full": true,
+      "setrec_full": true
+    }
+  },
+  "completed_at": "2026-08-30T13:08:50.207270+00:00",
+  "effect_metrics_used_for_selection": false,
+  "family_summaries": {
+    "diffgrm": "artifacts/phase17/s2r_r1/run-0003/diffgrm/summary.json",
+    "gryphon": "artifacts/phase17/s2r_r1/run-0001/gryphon/summary.json",
+    "latte": "artifacts/phase17/s2r_r1/run-0001/latte/summary.json",
+    "setrec": "artifacts/phase17/s2r_r1/run-0003/setrec/summary.json"
+  },
+  "formal_result_eligible": false,
+  "gate": "R1",
+  "mechanism_warnings": [
+    "R1 effect metrics are intentionally ignored for architecture selection",
+    "base SID needed collision reassignment for 11653 of 11924 catalog items",
+    "Latte produced 56.46% duplicate paths and 21.77 mean unique candidates from beam 50",
+    "Gryphon same-candidate target rank gain was negative on the two covered users",
+    "DiffGRM masked validation Hit@50 was zero in the non-selection smoke",
+    "SETRec simultaneous set-token recovery was zero in the non-selection smoke"
+  ],
+  "r2_preflight_eligible": true,
+  "resource_profile": {
+    "maximum_peak_allocated_mib": 100.578125,
+    "mean_generation_batch_seconds": {
+      "diffgrm_ar_control": 0.7920134541179452,
+      "diffgrm_masked": 0.04431783567581858,
+      "gryphon_item": 4.23365167288908,
+      "latte_full": 2.9187743546707288,
+      "psid_control": 2.306387608604772,
+      "setrec_ar_control": 0.8479300423392228,
+      "setrec_full": 0.0364636347762176
+    },
+    "parameter_counts": {
+      "diffgrm_ar_control": 1242348,
+      "diffgrm_masked": 1242348,
+      "gryphon_item": 2113280,
+      "latte_full": 2113280,
+      "psid_control": 2113280,
+      "setrec_ar_control": 1254796,
+      "setrec_full": 1254796
+    },
+    "profile_scope": "scaled R1 models only; not faithful-scale memory evidence"
+  },
+  "schema_version": "phase17.s17_2r_r1_closeout.v1",
+  "state": "PASS",
+  "step_id": "S17-2R"
+}

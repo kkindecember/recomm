@@ -1,0 +1,66 @@
+{
+  "arm_id": "pawa_lite",
+  "checkpoint": "artifacts/phase17/s4_p1_targeted/run-0001/smoke/pawa_lite/gram_logs/Toys_s17_d0_100/0_20260830_1500/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "prediction_contract": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "formal_result_eligible": false,
+  "module_id": "P1_pawa_lite",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "ff1eb73aee49d68cdeb8841331ad7996c4e9d13b71b3dfede28883fb628d1595",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 P1_pawa_lite/early_depth_weight=0.99855769 P1_pawa_lite/early_target_rank=4.95833349 P1_pawa_lite/late_depth_weight=1.00144243 P1_pawa_lite/late_target_rank=1.18367350 P1_pawa_lite/mean_prune_risk=0.00000204 P1_pawa_lite/target_prefix_topB_survival=1.00000000"
+    ],
+    "peak_reserved_mib": 21198.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15811.254,
+        "peak_reserved_mib": 15870.0,
+        "phase": "training",
+        "wall_time_seconds": 29.842746
+      },
+      {
+        "peak_allocated_mib": 7845.941,
+        "peak_reserved_mib": 21198.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 32.750347
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.0645767226815224
+    ],
+    "validation_metrics": {
+      "hit@1": 0.18,
+      "hit@10": 0.45,
+      "hit@20": 0.51,
+      "hit@3": 0.28,
+      "hit@5": 0.34,
+      "hit@50": 0.59,
+      "ndcg@1": 0.18,
+      "ndcg@10": 0.29957848546754856,
+      "ndcg@20": 0.31465881493182146,
+      "ndcg@3": 0.23916508275000203,
+      "ndcg@5": 0.2641292012176286,
+      "ndcg@50": 0.3306022348252145
+    }
+  },
+  "physical_gpu": 0,
+  "return_code": 0,
+  "schema_version": "phase17.s17_4_smoke_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "P1-A",
+  "wall_seconds": 97.24299901165068,
+  "workload_pid": 68130
+}

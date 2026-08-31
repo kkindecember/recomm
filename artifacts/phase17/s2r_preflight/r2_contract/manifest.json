@@ -1,0 +1,44 @@
+{
+  "cohorts": [
+    {
+      "cohort_id": "c0",
+      "path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c0_user_ids.txt",
+      "sha256": "cd5acc3a45cdb96c9fbcaf4a58310d639e2606d3815df58d1efd1d39cecaa16d",
+      "users": 1000
+    },
+    {
+      "cohort_id": "c1",
+      "path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c1_user_ids.txt",
+      "sha256": "6cb4f30dd23e39854949cd19b36220dd0fd0d4650a43f868c44ae007ae80cb2b",
+      "users": 1000
+    },
+    {
+      "cohort_id": "c2",
+      "path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c2_user_ids.txt",
+      "sha256": "74cdec75821f24970a8d34d35eba17f51c8c6b17bd9bcd72f73c5895a649f1c0",
+      "users": 1000
+    }
+  ],
+  "cohorts_disjoint": true,
+  "cohorts_partition_selected_users": true,
+  "created_at": "2026-08-31T05:51:45.646185+00:00",
+  "d1_read": false,
+  "early_stop_target_position": "last train-prefix item",
+  "early_stop_target_removed_from_selected_user_supervised_examples": true,
+  "early_stop_user_ids_path": "artifacts/phase17/s2r_preflight/r2_contract/early_stop_user_ids.txt",
+  "early_stop_user_ids_sha256": "082a12302482a8f499eff699d19d1b2d85636f0d1a8cf36ede6c46ccf41b5dd9",
+  "external_evaluation_examples": 3000,
+  "external_target_position": "shadow validation target",
+  "external_target_read_during_early_stop": false,
+  "gate": "R2",
+  "internal_early_stop_examples": 300,
+  "official_test_read": false,
+  "schema_version": "phase17.s17_2r_r2_contract.v1",
+  "seed": 2023,
+  "selected_users": 3000,
+  "sequence_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/user_sequence.txt",
+  "sequence_sha256": "cca3cf765604bca974c712b7340aab6aec2e3f7f8935a9f8ad0e94e04126e5eb",
+  "sports_read": false,
+  "step_id": "S17-2R",
+  "supervised_train_examples": 12885
+}

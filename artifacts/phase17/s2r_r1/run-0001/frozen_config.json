@@ -1,0 +1,72 @@
+{
+  "arms": [
+    "diffgrm_ar_control",
+    "diffgrm_masked",
+    "gryphon_item",
+    "psid_control",
+    "latte_full",
+    "setrec_ar_control",
+    "setrec_full"
+  ],
+  "attempt_id": "run-0001",
+  "batch_size": 16,
+  "capacity": "r1",
+  "catalog_items": 11924,
+  "created_at": "2026-08-30T12:29:30.832861+00:00",
+  "dataset": "Toys_s17_d0_r1_100",
+  "epochs": 2,
+  "families": [
+    "diffgrm",
+    "gryphon",
+    "latte",
+    "setrec"
+  ],
+  "formal_result_eligible": false,
+  "item_text_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/item_plain_text.txt",
+  "item_text_sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+  "learning_rate": 0.001,
+  "model_fidelity": {
+    "common": "scaled R1 contract model; not paper-level reproduction",
+    "diffgrm_ar_control": "same encoder/decoder parameters and IDs with causal objective",
+    "diffgrm_masked": "scaled masked parallel denoising; not official PSE/OCN/CPD fidelity",
+    "gryphon_beam_control": "derived from identical Gryphon checkpoint and candidates",
+    "gryphon_item": "joint item-level CE and same-candidate item reranking active",
+    "latte_full": "native latent-token paths and item aggregation active",
+    "psid_control": "same SID codec, backbone capacity, steps, beam and evaluator",
+    "setrec_ar_control": "same CF+semantic tokens and parameters with ordered causal loss",
+    "setrec_full": "train-prefix CF+semantic token set with simultaneous set loss"
+  },
+  "num_beams": 50,
+  "protected_contracts": {
+    "d1_read": false,
+    "guard_item_used_for_training": false,
+    "official_test_read": false,
+    "sports_read": false,
+    "train_only_quantizer_fit": true,
+    "validation_target_used_for_training": false
+  },
+  "purpose": "architecture contract and resource profile only",
+  "schema_version": "phase17.s17_2r_r1_profile.v1",
+  "seed": 2023,
+  "sequence_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/r1_smoke_user_sequence.txt",
+  "sequence_sha256": "49309db8b2383ecbf33519a7a6412e026ab326c9863979875e19d22d8f5a2380",
+  "set_sid_path": "artifacts/phase17/s2r_preflight/sid/r1_cf32_tfidf_rq32x3.json",
+  "set_sid_sha256": "186433f3c34cdb0dd0d4c0002a18d415480853de5041a4cdc92cb499db94f7a6",
+  "sid_path": "artifacts/phase17/s2r_preflight/sid/r1_tfidf_rq32x3.json",
+  "sid_sha256": "269462e26c76febaa35ce451207738ab5ee7ba99d69f66f5de9b02f12bf709b2",
+  "step_id": "S17-2R",
+  "top_k": 50,
+  "train_examples": 361,
+  "users": 100,
+  "validation_examples": 100,
+  "worker_template": [
+    "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+    "-m",
+    "experiment.phase17.protocol.s2r_r1_sid_runtime",
+    "worker",
+    "--family",
+    "<diffgrm|gryphon|latte|setrec>",
+    "--physical-gpu",
+    "<gpu-id-not-1>"
+  ]
+}

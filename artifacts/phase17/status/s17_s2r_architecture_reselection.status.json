@@ -1,0 +1,173 @@
+{
+  "affects_scientific_result": true,
+  "attempt_id": "preflight-0001",
+  "budget_path": "experiment/phase17/config/s17_s2r_architecture_reselection_budget.json",
+  "candidate_count": 5,
+  "canonical_result_dir": "artifacts/phase17/s2r_r2",
+  "completed_families": [
+    "latte",
+    "gryphon",
+    "diffgrm",
+    "setrec"
+  ],
+  "cpu_contract_tests": {
+    "failed": 0,
+    "passed": 114
+  },
+  "cpu_smoke": "artifacts/phase17/s2r_r1/run-0001/cpu_smoke.json",
+  "d1_read": false,
+  "data_manifest": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/manifest.json",
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "expected_peak_mib": 6000,
+  "experiment_id": "s17_s2r_architecture_reselection",
+  "failure_root_cause": "Latte-only latte_aggregation keyword passed to parallel decoder generate_ranked",
+  "gpu1_repeat_preserved": true,
+  "gpu_ids": [],
+  "gpu_selection_reason": "GPU4 is the only low-utilization card; GPU3 supplies a second wave with enough memory headroom; GPU1 remains excluded",
+  "gpu_snapshot": {
+    "records": [
+      {
+        "free_mib": 18938,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29633,
+        "utilization_percent": 93
+      },
+      {
+        "free_mib": 26258,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 22313,
+        "utilization_percent": 52
+      },
+      {
+        "free_mib": 7643,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 40928,
+        "utilization_percent": 70
+      },
+      {
+        "free_mib": 21960,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 26610,
+        "utilization_percent": 42
+      },
+      {
+        "free_mib": 29069,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 19502,
+        "utilization_percent": 0
+      },
+      {
+        "free_mib": 23748,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 24822,
+        "utilization_percent": 74
+      },
+      {
+        "free_mib": 13033,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 35538,
+        "utilization_percent": 45
+      },
+      {
+        "free_mib": 11666,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 36904,
+        "utilization_percent": 16
+      }
+    ]
+  },
+  "latte_revision_final_decision": "REJECT_AFTER_ONE_REVISION",
+  "latte_revision_profile_failure": "artifacts/phase17/s2r_r2/latte_revision/profile/run-0001/failure.json",
+  "latte_revision_profile_pass": true,
+  "latte_revision_profile_summary": "artifacts/phase17/s2r_r2/latte_revision/profile/run-0002/summary.json",
+  "latte_revision_summary": "artifacts/phase17/s2r_r2/latte_revision/run-0001/revision_summary.json",
+  "launcher_pid": 2,
+  "log_path": null,
+  "missing_families": [],
+  "occupancy_mode": "none",
+  "official_test_read": false,
+  "p0_candidate_count": 4,
+  "partial_failure": "artifacts/phase17/s2r_r1/run-0001/partial_failure.json",
+  "plan_path": "plan/第十七阶段/GRAM_第十七阶段_S17-2R架构级候选重选与大改实验计划v0.1.md",
+  "process_alive": false,
+  "progress": {
+    "current": 3,
+    "total": 3,
+    "unit": "executed_gate"
+  },
+  "r1_pass": true,
+  "r1_summary": "artifacts/phase17/s2r_r1/r1_summary.json",
+  "r2_preflight_eligible": true,
+  "r2_profile_pass": true,
+  "r2_profile_summary": "artifacts/phase17/s2r_r2/profile/run-0001/profile_summary.json",
+  "r2_screen_gpu_started": true,
+  "r2_screen_summary": "artifacts/phase17/s2r_r2/screen/run-0001/screen_summary.json",
+  "r3_eligible": [],
+  "recovery_command": [
+    "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+    "-m",
+    "experiment.phase17.protocol.s2r_r1_sid_runtime",
+    "recover",
+    "--gpu-a",
+    "4",
+    "--gpu-b",
+    "3",
+    "--attempt-id",
+    "run-0003",
+    "--recovery-of",
+    "run-0002"
+  ],
+  "regression_tests": {
+    "failed": 0,
+    "passed": 131
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "report_path": "report/第十七阶段/Stage17_S2R_架构级候选重选与大改筛选报告.md",
+  "requested_gpu_ids": [
+    4,
+    3
+  ],
+  "result_selection_eligible": true,
+  "run_0002_failures": [
+    "artifacts/phase17/s2r_r1/run-0002/diffgrm/failure.json",
+    "artifacts/phase17/s2r_r1/run-0002/setrec/failure.json"
+  ],
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_s2r_architecture_reselection/r2-latte-revision-0001/manifest.json",
+  "s17_5_state": "HOLD_NO_S2R_PROMOTION",
+  "schema_version": "phase17.status.v2",
+  "scientific_completed_at": "2026-08-31T01:54:52.069470+00:00",
+  "scientific_state": "COMPLETED",
+  "sid_artifacts": [
+    "artifacts/phase17/s2r_preflight/sid/r1_tfidf_rq32x3.json",
+    "artifacts/phase17/s2r_preflight/sid/r1_cf32_tfidf_rq32x3.json"
+  ],
+  "source_audit": "artifacts/phase17/s2r_preflight/source_audit.json",
+  "sports_read": false,
+  "stage": "terminal_closeout",
+  "started_at": "2026-08-30T11:43:12.861785+00:00",
+  "status_code": "S17_2R_COMPLETED_NO_R3_CANDIDATE",
+  "step_id": "S17-2R",
+  "terminal_decision": "ALL_R2_CANDIDATES_REJECTED",
+  "test_read": false,
+  "tmux_session": null,
+  "track_id": "ARCHITECTURE_RESELECTION",
+  "updated_at": "2026-08-31T01:57:18.589741+00:00",
+  "workload_pid": 0
+}

@@ -1,0 +1,12 @@
+{
+  "error": "generate_ranked() got an unexpected keyword argument 'latte_aggregation'",
+  "error_type": "TypeError",
+  "failed_at": "2026-08-30T12:57:45.225053+00:00",
+  "family": "diffgrm",
+  "formal_result_eligible": false,
+  "physical_gpu": 4,
+  "schema_version": "phase17.s17_2r_r1_failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/protocol/s2r_r1_sid_runtime.py\", line 958, in worker\n    evaluation = evaluate_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/protocol/s2r_r1_sid_runtime.py\", line 823, in evaluate_arm\n    model.generate_ranked(\nTypeError: generate_ranked() got an unexpected keyword argument 'latte_aggregation'\n"
+}

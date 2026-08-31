@@ -1,0 +1,103 @@
+{
+  "arms": {
+    "setrec_ar_control": {
+      "evaluation": {
+        "arm": "setrec_ar_control",
+        "catalog_item_resolution": true,
+        "metrics": {
+          "duplicate_path_rate": 0.0,
+          "hit@10": 0.03,
+          "hit@20": 0.03,
+          "hit@5": 0.02,
+          "hit@50": 0.03,
+          "mean_digit_accuracy": 0.06473214285714286,
+          "mean_generation_batch_seconds": 0.8479300423392228,
+          "mean_token_entropy": 3.097916160311018,
+          "mean_unique_candidates": 50,
+          "multi_path_item_rate": 0.0,
+          "ndcg@10": 0.023333333333333334,
+          "ndcg@20": 0.023333333333333334,
+          "ndcg@5": 0.02,
+          "ndcg@50": 0.023333333333333334,
+          "valid_item_rate": 1.0
+        },
+        "prediction_file_nonempty": true,
+        "prediction_rows": 100,
+        "prediction_sha256": "e1ec8587db0cd307da6ff237c045d18b67866ce51c330e84f2125fee184a43fa",
+        "predictions": "artifacts/phase17/s2r_r1/run-0003/setrec/setrec_ar_control/predictions.tsv"
+      },
+      "training": {
+        "candidate_specific_gradient_nonzero": null,
+        "candidate_specific_gradient_norm_max": 1.957990735813717,
+        "epoch_losses": [
+          4.266814418461012,
+          3.231762222621752
+        ],
+        "epochs": 2,
+        "item_scorer_gradient_nonzero": null,
+        "item_scorer_gradient_norm_max": 0.0,
+        "loss_decreased": true,
+        "max_step_seconds": 0.131969902664423,
+        "mean_step_seconds": 0.04110536809362795,
+        "optimizer_steps": 46,
+        "parameter_count": 1254796,
+        "peak_allocated_mib": 68.9951171875
+      }
+    },
+    "setrec_full": {
+      "evaluation": {
+        "arm": "setrec_full",
+        "catalog_item_resolution": true,
+        "metrics": {
+          "duplicate_path_rate": 0.0,
+          "hit@10": 0.02,
+          "hit@20": 0.03,
+          "hit@5": 0.02,
+          "hit@50": 0.03,
+          "mean_digit_accuracy": 0.015625,
+          "mean_generation_batch_seconds": 0.0364636347762176,
+          "mean_token_entropy": 3.6515683446611678,
+          "mean_unique_candidates": 50,
+          "multi_path_item_rate": 0.0,
+          "ndcg@10": 0.010616063116448506,
+          "ndcg@20": 0.013242558466820441,
+          "ndcg@5": 0.010616063116448506,
+          "ndcg@50": 0.013242558466820441,
+          "set_token_recovery": 0.0,
+          "valid_item_rate": 1.0
+        },
+        "prediction_file_nonempty": true,
+        "prediction_rows": 100,
+        "prediction_sha256": "3865707be7d7d98f1c224a755fa4404041102a33f9b342e329b926847f1e3b26",
+        "predictions": "artifacts/phase17/s2r_r1/run-0003/setrec/setrec_full/predictions.tsv"
+      },
+      "training": {
+        "candidate_specific_gradient_nonzero": true,
+        "candidate_specific_gradient_norm_max": 1.8892197845874492,
+        "epoch_losses": [
+          4.363048926643703,
+          3.8874360478442647
+        ],
+        "epochs": 2,
+        "item_scorer_gradient_nonzero": null,
+        "item_scorer_gradient_norm_max": 0.0,
+        "loss_decreased": true,
+        "max_step_seconds": 0.12764540314674377,
+        "mean_step_seconds": 0.053498912967093616,
+        "optimizer_steps": 46,
+        "parameter_count": 1254796,
+        "peak_allocated_mib": 68.9951171875
+      }
+    }
+  },
+  "completed_at": "2026-08-30T13:04:20.191854+00:00",
+  "d1_read": false,
+  "device_name": "NVIDIA RTX A6000",
+  "family": "setrec",
+  "formal_result_eligible": false,
+  "physical_gpu": 3,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.s17_2r_r1_family.v1",
+  "sports_read": false,
+  "test_read": false
+}

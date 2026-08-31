@@ -1,0 +1,61 @@
+{
+  "attempt_id": "attempt_001",
+  "code_manifest_path": "artifacts/phase17/s1_contract/code_manifest.json",
+  "code_manifest_sha256": "12236684a9eed3f6d049c01b4a6ff22088203fdbc643b56f832ddb688295f2f2",
+  "contract_tests": {
+    "failed": 0,
+    "final_current_passed": 43,
+    "postrun_log_path": "artifacts/phase17/s1_contract/postrun_contract_tests.log",
+    "snapshot_passed": 39
+  },
+  "cpu_contract_tests": {
+    "log_path": "artifacts/phase17/s1_contract/attempt_001/cpu_contract_tests.log",
+    "return_code": 0
+  },
+  "effect_comparison_performed": false,
+  "experiment_id": "s17_s1_public_framework",
+  "finalized_at": "2026-08-29T05:38:28.078434+00:00",
+  "gpu_smoke": {
+    "forbidden_test_evidence": [],
+    "log_path": "artifacts/phase17/s1_contract/attempt_001/gpu_smoke.log",
+    "log_sha256": "7e35635e092fcff2f6ae634f5ae75c95c618999a6e7c1e62686e30424f482ef4",
+    "physical_gpu": 4,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15750.987,
+        "peak_reserved_mib": 15800.0,
+        "phase": "training",
+        "wall_time_seconds": 26.6338
+      },
+      {
+        "peak_allocated_mib": 7845.292,
+        "peak_reserved_mib": 21652.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 33.357153
+      }
+    ],
+    "return_code": 0,
+    "wall_seconds": 84.037975,
+    "workload_pid": 2355454
+  },
+  "official_test_metrics_used": false,
+  "parameter_count": {
+    "enabled_stage17_module_numel": 0,
+    "parent_checkpoint_numel": 109876736
+  },
+  "report_path": "report/第十七阶段/Stage17_S1_公共迁移框架与运行合约报告.md",
+  "report_sha256": "b4003a5ef026f9b274086dfd94ee19b46a42100ec52f01a19e902f7925b84971",
+  "resource_contract": {
+    "end_to_end_gpu_hours": 0.023343881944444447,
+    "headroom_mib": 9068.0,
+    "peak_reserved_mib": 21652.0,
+    "usable_memory_ceiling_mib": 30720
+  },
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_s1_public_framework/attempt_001/manifest.json",
+  "run_snapshot_sha256": "e114cedbc9a2a403b0562f5d19f03c3404214ecd3865a4d5827260ff93d9e9fe",
+  "schema_version": "phase17.s1_contract_summary.v1",
+  "scientific_result_eligible": false,
+  "sports_read": false,
+  "test_read": false,
+  "verdict": "PASS_S17_1_CONTRACT_AND_GPU_SMOKE"
+}

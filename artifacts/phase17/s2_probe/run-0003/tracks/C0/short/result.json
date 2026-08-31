@@ -1,0 +1,55 @@
+{
+  "attempt_id": "c0_short_r2_001",
+  "kind": "short",
+  "module_id": "C0_biflow",
+  "overfit_loss_decreased": null,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "364c7471f4241317331d0e320af98caa9368e6460987d58a79470694950558ed",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 C0_biflow/global_to_sequence_delta_norm=0.22613373 C0_biflow/global_to_sequence_gate=0.11950788 C0_biflow/representation_alignment=0.72444922 C0_biflow/sequence_to_global_delta_norm=0.19745050 C0_biflow/sequence_to_global_gate=0.11851764"
+    ],
+    "peak_reserved_mib": 21918.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.223,
+        "peak_reserved_mib": 15802.0,
+        "phase": "training",
+        "wall_time_seconds": 192.933847
+      },
+      {
+        "peak_allocated_mib": 7846.318,
+        "peak_reserved_mib": 21918.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 357.885758
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      6.623873768483891
+    ],
+    "validation_metrics": {
+      "hit@1": 0.013,
+      "hit@10": 0.089,
+      "hit@20": 0.113,
+      "hit@3": 0.04,
+      "hit@5": 0.063,
+      "hit@50": 0.146,
+      "ndcg@1": 0.013,
+      "ndcg@10": 0.04613450385837813,
+      "ndcg@20": 0.052154128546119845,
+      "ndcg@3": 0.028463946303571866,
+      "ndcg@5": 0.037931269630871386,
+      "ndcg@50": 0.05874643059256739
+    }
+  },
+  "physical_gpu": 0,
+  "return_code": 0,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "C0",
+  "wall_seconds": 578.4748982153833,
+  "workload_pid": 2719951
+}

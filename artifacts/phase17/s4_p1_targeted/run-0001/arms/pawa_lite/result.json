@@ -1,0 +1,72 @@
+{
+  "arm_id": "pawa_lite",
+  "checkpoint": "artifacts/phase17/s4_p1_targeted/run-0001/arms/pawa_lite/gram_logs/Toys_s17_d0_full/0_20260830_1505/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checkpoint_sha256": "4c0455688fcb29c0c0d5fc30df9a3874fb167ddea81e66841dfa2f7fcc9b297b",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "prediction_contract": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "ended_at": "2026-08-30T09:08:28.115573+00:00",
+  "module_id": "P1_pawa_lite",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "45d044c074a38675024f4c341aa5ce9606c9131c3ddaa5edfd8bad4d077a8697",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 P1_pawa_lite/early_depth_weight=0.83982921 P1_pawa_lite/early_target_rank=6.18750000 P1_pawa_lite/late_depth_weight=1.16017091 P1_pawa_lite/late_target_rank=1.08333337 P1_pawa_lite/mean_prune_risk=0.00148985 P1_pawa_lite/target_prefix_topB_survival=1.00000000"
+    ],
+    "peak_reserved_mib": 20422.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15812.924,
+        "peak_reserved_mib": 15894.0,
+        "phase": "training",
+        "wall_time_seconds": 2482.58336
+      },
+      {
+        "peak_allocated_mib": 7847.102,
+        "peak_reserved_mib": 20422.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 4845.308107
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.1053868221932663
+    ],
+    "validation_metrics": {
+      "hit@1": 0.10363905555988467,
+      "hit@10": 0.30367022520065456,
+      "hit@20": 0.38619184913893867,
+      "hit@3": 0.18997896049248034,
+      "hit@5": 0.23564248422036935,
+      "hit@50": 0.4963765292605003,
+      "ndcg@1": 0.10363905555988467,
+      "ndcg@10": 0.19438849987511325,
+      "ndcg@20": 0.21522348063033772,
+      "ndcg@3": 0.1536753466962995,
+      "ndcg@5": 0.1723922063781976,
+      "ndcg@50": 0.23717862282403643
+    }
+  },
+  "physical_gpu": 0,
+  "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/pawa_lite/predictions/20260830_154714_Toys_s17_d0_full_sequential_pred_validation.tsv",
+  "prediction_sha256": "7c2d053d639f71b1a21c09c713f44e49ed84610e56e14c151afb83aaeb8637ab",
+  "priority": 2,
+  "return_code": 0,
+  "schema_version": "phase17.s17_4_formal_result.v1",
+  "scientific_result_eligible": true,
+  "sports_read": false,
+  "started_at": "2026-08-30T07:05:06.404636+00:00",
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "P1-A",
+  "wall_seconds": 7401.710986560211,
+  "workload_pid": 85763
+}

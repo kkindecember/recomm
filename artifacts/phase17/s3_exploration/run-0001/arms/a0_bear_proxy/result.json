@@ -1,0 +1,84 @@
+{
+  "admission_free_mib": 30483,
+  "arm_id": "a0_bear_proxy",
+  "attempt_id": "s3_a0_bear_proxy_001",
+  "checkpoint": "artifacts/phase17/s3_exploration/run-0001/arms/a0_bear_proxy/gram_logs/Toys/0_20260830_0224/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checkpoint_sha256": "8cee98c4e11fa9753557a666cffd8bb5f81eb4cab132105a3c63967e2df0df59",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "delta_vs_historical": {
+    "hit@10": 0.0001542173913043482,
+    "hit@5": -0.000721063053781168,
+    "ndcg@10": -0.00027303802746024564,
+    "ndcg@5": -0.0005950110772056372
+  },
+  "ended_at": "2026-08-29T21:09:16.818658+00:00",
+  "execution_topology": "dual_gpu_handoff",
+  "historical_validation": {
+    "hit@10": 0.119411,
+    "hit@5": 0.090923,
+    "ndcg@10": 0.07627451426000033,
+    "ndcg@5": 0.067135
+  },
+  "module_id": "A0_bear_proxy",
+  "official_result_claim": false,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "97ee895f95bc067a8edaacc7e5d81864bf9232c33b0f7da3d72c8df1d010b91f",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 A0_bear_proxy/mean_survival_weight=1.99857438 A0_bear_proxy/mean_target_rank=3.34020615 A0_bear_proxy/target_prefix_topB_survival=1.00000000"
+    ],
+    "peak_reserved_mib": 25020.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15811.248,
+        "peak_reserved_mib": 15876.0,
+        "phase": "training",
+        "wall_time_seconds": 4149.912241
+      },
+      {
+        "peak_allocated_mib": 7846.887,
+        "peak_reserved_mib": 25020.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 5683.790463
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.215343357247916
+    ],
+    "validation_metrics": {
+      "hit@1": 0.0418297960024727,
+      "hit@10": 0.11956521739130435,
+      "hit@20": 0.15485266845250362,
+      "hit@3": 0.0711930764475582,
+      "hit@5": 0.09020193694621884,
+      "hit@50": 0.21100350298784257,
+      "ndcg@1": 0.0418297960024727,
+      "ndcg@10": 0.07600147623254008,
+      "ndcg@20": 0.08487946814048616,
+      "ndcg@3": 0.0587641941939453,
+      "ndcg@5": 0.06653998892279436,
+      "ndcg@50": 0.09597839249909185
+    }
+  },
+  "physical_gpu": 0,
+  "priority": 5,
+  "return_code": 0,
+  "schema_version": "phase17.s17_3_one_epoch_result.v1",
+  "sports_read": false,
+  "started_at": "2026-08-29T18:24:39.324088+00:00",
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "A0",
+  "wall_seconds": 9877.4145982638,
+  "workload_pid": 1260507
+}

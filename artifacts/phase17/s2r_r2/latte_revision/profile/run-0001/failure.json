@@ -1,0 +1,23 @@
+{
+  "attempt_id": "r2-latte-revision-profile-0001",
+  "d1_read": false,
+  "error": "tmux worker exited after allocating GPU memory without summary or traceback",
+  "error_type": "MissingTerminalArtifactAfterWorkerExit",
+  "evidence": {
+    "automatic_retry": false,
+    "cpu_equivalent_interface_survived_seconds_before_manual_stop": 660,
+    "observed_gpu_free_mib_after_launch": 10541,
+    "observed_worker_memory_mib": 6776,
+    "tmux_alive_after_exit": false,
+    "worker_pid": 2554273
+  },
+  "external_target_read": false,
+  "failed_at": "2026-08-30T16:47:05.326562+00:00",
+  "official_test_read": false,
+  "probable_root_cause": "shared GPU free-memory contraction during beam-200 generation",
+  "root_cause_certainty": "PROBABLE_NOT_PROVEN",
+  "schema_version": "phase17.s17_2r_r2_latte_revision_profile_failure.v1",
+  "scientific_result_eligible": false,
+  "sports_read": false,
+  "state": "ENGINEERING_FAILURE"
+}

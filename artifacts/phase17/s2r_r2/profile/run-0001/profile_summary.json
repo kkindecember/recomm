@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "all_losses_and_gradients_finite": true,
+    "all_prediction_batches_nonempty": true,
+    "forbidden_read_safe": true,
+    "treatment_specific_gradients": {
+      "diffgrm_masked": true,
+      "gryphon_item": true,
+      "latte_full": true,
+      "setrec_full": true
+    }
+  },
+  "completed_at": "2026-08-30T14:57:23.325563+00:00",
+  "effect_metrics_used_for_selection": false,
+  "family_summaries": {
+    "diffgrm": "artifacts/phase17/s2r_r2/profile/run-0001/diffgrm/summary.json",
+    "gryphon": "artifacts/phase17/s2r_r2/profile/run-0001/gryphon/summary.json",
+    "latte": "artifacts/phase17/s2r_r2/profile/run-0001/latte/summary.json",
+    "setrec": "artifacts/phase17/s2r_r2/profile/run-0001/setrec/summary.json"
+  },
+  "formal_result_eligible": false,
+  "gate": "R2_CAPACITY_PROFILE",
+  "gpu1_repeat_preserved": true,
+  "mechanism_profile": {
+    "diffgrm_generation_speedup": 29.0622286769446,
+    "setrec_generation_speedup": 8.08725235414727
+  },
+  "resources": {
+    "arms": {
+      "diffgrm_ar_control": {
+        "generation_batch_seconds": 1.1912204418331385,
+        "parameter_count": 8099440,
+        "peak_allocated_mib": 517.73291015625,
+        "train_step_seconds": 0.1202503852546215
+      },
+      "diffgrm_masked": {
+        "generation_batch_seconds": 0.04098861292004585,
+        "parameter_count": 8099440,
+        "peak_allocated_mib": 552.9130859375,
+        "train_step_seconds": 0.07325806096196175
+      },
+      "gryphon_item": {
+        "generation_batch_seconds": 4.065472479909658,
+        "parameter_count": 5359104,
+        "peak_allocated_mib": 2361.08984375,
+        "train_step_seconds": 0.11822884529829025
+      },
+      "latte_full": {
+        "generation_batch_seconds": 2.3150428496301174,
+        "parameter_count": 5359104,
+        "peak_allocated_mib": 2401.30712890625,
+        "train_step_seconds": 0.1311226338148117
+      },
+      "psid_control": {
+        "generation_batch_seconds": 1.9618866965174675,
+        "parameter_count": 5359104,
+        "peak_allocated_mib": 2361.08984375,
+        "train_step_seconds": 0.19786081090569496
+      },
+      "setrec_ar_control": {
+        "generation_batch_seconds": 2.794853152707219,
+        "parameter_count": 8124304,
+        "peak_allocated_mib": 649.98095703125,
+        "train_step_seconds": 0.36274605989456177
+      },
+      "setrec_full": {
+        "generation_batch_seconds": 0.3455874789506197,
+        "parameter_count": 8124304,
+        "peak_allocated_mib": 685.0380859375,
+        "train_step_seconds": 0.24664821848273277
+      }
+    },
+    "maximum_peak_allocated_mib": 2401.30712890625,
+    "recommended_admission_free_mib": 6498
+  },
+  "schema_version": "phase17.s17_2r_r2_profile_closeout.v1",
+  "state": "PASS"
+}

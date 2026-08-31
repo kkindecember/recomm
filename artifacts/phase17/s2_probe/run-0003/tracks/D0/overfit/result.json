@@ -1,0 +1,61 @@
+{
+  "attempt_id": "d0_overfit_r2_001",
+  "kind": "overfit",
+  "module_id": "D0_ted",
+  "overfit_loss_decreased": true,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "217620b8a13a3f982ec06c9474a5b14bfbcc5efa10d696259a61bec17acd1692",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 D0_ted/long_query_gate=0.50057930 D0_ted/recent_query_gate=0.50057310 D0_ted/short_history_fraction=0.25000000 D0_ted/teacher_gate=0.26845011 D0_ted/transition_teacher_coverage=1.00000000",
+      "S17_MECHANISM_METRIC epoch=2 D0_ted/long_query_gate=0.50111401 D0_ted/recent_query_gate=0.50110435 D0_ted/short_history_fraction=0.37500000 D0_ted/teacher_gate=0.26800689 D0_ted/transition_teacher_coverage=1.00000000",
+      "S17_MECHANISM_METRIC epoch=3 D0_ted/long_query_gate=0.50131583 D0_ted/recent_query_gate=0.50130475 D0_ted/short_history_fraction=0.37500000 D0_ted/teacher_gate=0.26782033 D0_ted/transition_teacher_coverage=1.00000000",
+      "S17_MECHANISM_METRIC epoch=4 D0_ted/long_query_gate=0.50132954 D0_ted/recent_query_gate=0.50131840 D0_ted/short_history_fraction=0.18750000 D0_ted/teacher_gate=0.26780719 D0_ted/transition_teacher_coverage=1.00000000"
+    ],
+    "peak_reserved_mib": 21760.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15848.256,
+        "peak_reserved_mib": 15908.0,
+        "phase": "training",
+        "wall_time_seconds": 75.806405
+      },
+      {
+        "peak_allocated_mib": 7939.973,
+        "peak_reserved_mib": 21760.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 26.78217
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      7.869356915354729,
+      6.31174710392952,
+      5.982178881764412,
+      5.882968187332153
+    ],
+    "validation_metrics": {
+      "hit@1": 0.02,
+      "hit@10": 0.09,
+      "hit@20": 0.1,
+      "hit@3": 0.03,
+      "hit@5": 0.05,
+      "hit@50": 0.14,
+      "ndcg@1": 0.02,
+      "ndcg@10": 0.047952368220927515,
+      "ndcg@20": 0.050350492886608825,
+      "ndcg@3": 0.026309297535714572,
+      "ndcg@5": 0.03448459118879392,
+      "ndcg@50": 0.058118382097867745
+    }
+  },
+  "physical_gpu": 7,
+  "return_code": 0,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "D0",
+  "wall_seconds": 126.31777174398303,
+  "workload_pid": 2745253
+}

@@ -1,0 +1,98 @@
+{
+  "arms": {
+    "latte_full": {
+      "evaluation": {
+        "arm": "latte_full",
+        "catalog_item_resolution": true,
+        "metrics": {
+          "duplicate_path_rate": 0.5646,
+          "hit@10": 0.02,
+          "hit@20": 0.02,
+          "hit@5": 0.02,
+          "hit@50": 0.02,
+          "mean_generation_batch_seconds": 2.9187743546707288,
+          "mean_unique_candidates": 21.77,
+          "multi_path_item_rate": 0.4887459807073955,
+          "ndcg@10": 0.02,
+          "ndcg@20": 0.02,
+          "ndcg@5": 0.02,
+          "ndcg@50": 0.02,
+          "valid_item_rate": 1.0
+        },
+        "prediction_file_nonempty": true,
+        "prediction_rows": 100,
+        "prediction_sha256": "7ae4327c56b2b7be28e3c9cfb30f679426ccb87eff8f07ee95640ecae8cf4dc4",
+        "predictions": "artifacts/phase17/s2r_r1/run-0001/latte/latte_full/predictions.tsv"
+      },
+      "training": {
+        "candidate_specific_gradient_nonzero": false,
+        "candidate_specific_gradient_norm_max": 0.0,
+        "epoch_losses": [
+          3.925492763519287,
+          3.2073647146639614
+        ],
+        "epochs": 2,
+        "item_scorer_gradient_nonzero": null,
+        "item_scorer_gradient_norm_max": 0.0,
+        "loss_decreased": true,
+        "max_step_seconds": 0.06639408506453037,
+        "mean_step_seconds": 0.039038182843638504,
+        "optimizer_steps": 46,
+        "parameter_count": 2113280,
+        "peak_allocated_mib": 100.578125
+      }
+    },
+    "psid_control": {
+      "evaluation": {
+        "arm": "psid_control",
+        "catalog_item_resolution": true,
+        "metrics": {
+          "duplicate_path_rate": 0.0,
+          "hit@10": 0.02,
+          "hit@20": 0.02,
+          "hit@5": 0.02,
+          "hit@50": 0.03,
+          "mean_generation_batch_seconds": 2.306387608604772,
+          "mean_unique_candidates": 50,
+          "multi_path_item_rate": 0.0,
+          "ndcg@10": 0.02,
+          "ndcg@20": 0.02,
+          "ndcg@5": 0.02,
+          "ndcg@50": 0.021879018247091077,
+          "valid_item_rate": 1.0
+        },
+        "prediction_file_nonempty": true,
+        "prediction_rows": 100,
+        "prediction_sha256": "3f0db42f4380278223c29d25259df9055881bb9f84d1e3517e0f0b434da76c2e",
+        "predictions": "artifacts/phase17/s2r_r1/run-0001/latte/psid_control/predictions.tsv"
+      },
+      "training": {
+        "candidate_specific_gradient_nonzero": false,
+        "candidate_specific_gradient_norm_max": 0.0,
+        "epoch_losses": [
+          3.815739279207976,
+          3.1317180343296216
+        ],
+        "epochs": 2,
+        "item_scorer_gradient_nonzero": null,
+        "item_scorer_gradient_norm_max": 0.0,
+        "loss_decreased": true,
+        "max_step_seconds": 0.1123596839606762,
+        "mean_step_seconds": 0.035913416913346104,
+        "optimizer_steps": 46,
+        "parameter_count": 2113280,
+        "peak_allocated_mib": 99.767578125
+      }
+    }
+  },
+  "completed_at": "2026-08-30T12:40:44.006056+00:00",
+  "d1_read": false,
+  "device_name": "NVIDIA RTX A6000",
+  "family": "latte",
+  "formal_result_eligible": false,
+  "physical_gpu": 4,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.s17_2r_r1_family.v1",
+  "sports_read": false,
+  "test_read": false
+}

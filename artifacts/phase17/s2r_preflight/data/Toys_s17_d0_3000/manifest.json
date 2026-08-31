@@ -1,0 +1,48 @@
+{
+  "cohorts_disjoint": true,
+  "d1_read": false,
+  "evaluation_cohorts": [
+    {
+      "cohort_id": "Toys_s17_d0_eval_c0_1000",
+      "path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c0_user_ids.txt",
+      "sha256": "cd5acc3a45cdb96c9fbcaf4a58310d639e2606d3815df58d1efd1d39cecaa16d",
+      "users": 1000
+    },
+    {
+      "cohort_id": "Toys_s17_d0_eval_c1_1000",
+      "path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c1_user_ids.txt",
+      "sha256": "6cb4f30dd23e39854949cd19b36220dd0fd0d4650a43f868c44ae007ae80cb2b",
+      "users": 1000
+    },
+    {
+      "cohort_id": "Toys_s17_d0_eval_c2_1000",
+      "path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c2_user_ids.txt",
+      "sha256": "74cdec75821f24970a8d34d35eba17f51c8c6b17bd9bcd72f73c5895a649f1c0",
+      "users": 1000
+    }
+  ],
+  "formal_result_eligible": false,
+  "item_catalog_items": 11924,
+  "item_catalog_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/item_plain_text.txt",
+  "item_catalog_sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+  "item_catalog_source": "GRAM/rec_datasets/Toys/item_plain_text.txt",
+  "item_catalog_source_sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+  "official_test_read": false,
+  "purpose": "S17-2R architecture screening data contract",
+  "r1_smoke_dataset": "Toys_s17_d0_r1_100",
+  "r1_smoke_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/r1_smoke_user_sequence.txt",
+  "r1_smoke_sha256": "49309db8b2383ecbf33519a7a6412e026ab326c9863979875e19d22d8f5a2380",
+  "r1_smoke_users": 100,
+  "schema_version": "phase17.s17_2r_data_contract.v1",
+  "seed": 2023,
+  "selected_dataset": "Toys_s17_d0_3000",
+  "selected_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/user_sequence.txt",
+  "selected_sha256": "cca3cf765604bca974c712b7340aab6aec2e3f7f8935a9f8ad0e94e04126e5eb",
+  "selected_users": 3000,
+  "selection": "lowest sha256(s17-2r:<seed>:<user_id>) values",
+  "source": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+  "source_sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+  "source_users": 12833,
+  "sports_read": false,
+  "step_id": "S17-2R"
+}

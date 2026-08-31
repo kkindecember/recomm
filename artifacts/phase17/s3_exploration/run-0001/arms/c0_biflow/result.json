@@ -1,0 +1,84 @@
+{
+  "admission_free_mib": 28812,
+  "arm_id": "c0_biflow",
+  "attempt_id": "s3_c0_biflow_001",
+  "checkpoint": "artifacts/phase17/s3_exploration/run-0001/arms/c0_biflow/gram_logs/Toys/0_20260830_0029/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checkpoint_sha256": "336a40208ab2e0bea06189d77de8bd2d98cc3076ab07d0003c82c8fedd48a1d8",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "delta_vs_historical": {
+    "hit@10": -0.0011336457861116922,
+    "hit@5": -0.0013392373789408718,
+    "ndcg@10": -0.0010256903509133775,
+    "ndcg@5": -0.0011957162835870977
+  },
+  "ended_at": "2026-08-29T19:13:47.283368+00:00",
+  "execution_topology": "dual_gpu_handoff",
+  "historical_validation": {
+    "hit@10": 0.119411,
+    "hit@5": 0.090923,
+    "ndcg@10": 0.07627451426000033,
+    "ndcg@5": 0.067135
+  },
+  "module_id": "C0_biflow",
+  "official_result_claim": false,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "475a7163143047af7f9961de2d25761ab48af132a35a8d18bfd854187ba88762",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 C0_biflow/global_to_sequence_delta_norm=0.11506417 C0_biflow/global_to_sequence_gate=0.09923530 C0_biflow/representation_alignment=0.16256711 C0_biflow/sequence_to_global_delta_norm=0.06856967 C0_biflow/sequence_to_global_gate=0.11158803"
+    ],
+    "peak_reserved_mib": 25216.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.223,
+        "peak_reserved_mib": 15806.0,
+        "phase": "training",
+        "wall_time_seconds": 4102.058794
+      },
+      {
+        "peak_allocated_mib": 7846.892,
+        "peak_reserved_mib": 25216.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 5698.870216
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.239850694324538
+    ],
+    "validation_metrics": {
+      "hit@1": 0.04085101998763652,
+      "hit@10": 0.11827735421388831,
+      "hit@20": 0.15536781372347003,
+      "hit@3": 0.07170822171852462,
+      "hit@5": 0.08958376262105913,
+      "hit@50": 0.21131259015042242,
+      "ndcg@1": 0.04085101998763652,
+      "ndcg@10": 0.07524882390908695,
+      "ndcg@20": 0.08458725702728376,
+      "ndcg@3": 0.05864029537142024,
+      "ndcg@5": 0.0659392837164129,
+      "ndcg@50": 0.09569031846676623
+    }
+  },
+  "physical_gpu": 1,
+  "priority": 4,
+  "return_code": 0,
+  "schema_version": "phase17.s17_3_one_epoch_result.v1",
+  "sports_read": false,
+  "started_at": "2026-08-29T16:29:42.745519+00:00",
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "C0",
+  "wall_seconds": 9844.445241129026,
+  "workload_pid": 617756
+}

@@ -1,0 +1,62 @@
+{
+  "attempt_id": "b1_overfit_r2_001",
+  "kind": "overfit",
+  "module_id": "B1_latte",
+  "overfit_loss_decreased": true,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "e75cabb81c11f9eeb4ef41d6c31428d9ec208d69c8877b1d1066cd1a53381b66",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+      "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+      "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+      "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+      "S17_MECHANISM_METRIC track=B1_latte generated_duplicate_path_rate=0.16800000 aggregated_paths=5000"
+    ],
+    "peak_reserved_mib": 21706.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15809.99,
+        "peak_reserved_mib": 15864.0,
+        "phase": "training",
+        "wall_time_seconds": 76.397513
+      },
+      {
+        "peak_allocated_mib": 7877.108,
+        "peak_reserved_mib": 21706.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 38.86631
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      7.436886951327324,
+      6.06765241920948,
+      5.765369206666946,
+      5.676358282566071
+    ],
+    "validation_metrics": {
+      "hit@1": 0.01,
+      "hit@10": 0.09,
+      "hit@20": 0.11,
+      "hit@3": 0.04,
+      "hit@5": 0.06,
+      "hit@50": 0.12,
+      "ndcg@1": 0.01,
+      "ndcg@10": 0.046366569931697264,
+      "ndcg@20": 0.05161956063244113,
+      "ndcg@3": 0.027618595071429147,
+      "ndcg@5": 0.036232126232897004,
+      "ndcg@50": 0.05369970660920623
+    }
+  },
+  "physical_gpu": 7,
+  "return_code": 0,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "B1",
+  "wall_seconds": 146.45931379310787,
+  "workload_pid": 2677257
+}

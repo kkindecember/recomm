@@ -1,0 +1,57 @@
+{
+  "schema_version": "phase17.s17_2r_source_audit.v1",
+  "verified_on": "2026-08-30",
+  "third_party_code_executed": false,
+  "setrec_download_complete": false,
+  "setrec_incomplete_archive_used": false,
+  "transport": "GitHub codeload tarballs after git TLS failure",
+  "sources": [
+    {
+      "candidate_id": "R2B_latte_full",
+      "repository_url": "https://github.com/hyp1231/Latte",
+      "archive_ref": "main",
+      "archive_sha256": "43ead8c1dd7dacf8a06c4bc4b6bce7b7f7645451f3733140f4aada05cf68f242",
+      "license_status": "MIT",
+      "license_sha256": "0f5372dd36270083fb778c288460104353aaf5412fa5d461188de5bac2650670",
+      "copy_policy": "MIT code may be adapted only with attribution and license preservation",
+      "native_control": "PSID: same Semantic IDs without latent token paths",
+      "r1_policy": "independent scaled contract implementation; no official code executed"
+    },
+    {
+      "candidate_id": "R2C_diffgrm",
+      "repository_url": "https://github.com/liuzhao09/DiffGRM",
+      "archive_ref": "main",
+      "archive_sha256": "1a0b3b1f400fd937e16330f0ec49e5dda07b913d2186ec4e6b4c0d96c5980ec5",
+      "license_status": "NO_ROOT_LICENSE_FOUND",
+      "copy_policy": "inspect interfaces only; do not copy source",
+      "native_control": "official repository contains AR_GRM",
+      "r1_policy": "independent interface/profile implementation required"
+    },
+    {
+      "candidate_id": "R2E_diger_jointsid",
+      "repository_url": "https://github.com/junchen-fu/DIGER",
+      "archive_ref": "gradient-fix",
+      "archive_sha256": "5da4083654e1bc7dbcb07eb5aa984796151b283582cae5e3245da7c22315b0c7",
+      "license_status": "NO_ROOT_LICENSE_FOUND",
+      "copy_policy": "inspect gradient contract only; do not copy source",
+      "gradient_test_sha256": "553a7a7b43e4174a60965ed6bc29532881898a60c07cc8d38695e4cd6082ac1c",
+      "r1_policy": "P1 static-only until an independent gradient test passes"
+    },
+    {
+      "candidate_id": "R2D_setrec_full",
+      "repository_url": "https://github.com/Linxyhaha/SETRec",
+      "archive_ref": "main",
+      "license_status": "NOT_AUDITED_DOWNLOAD_INCOMPLETE",
+      "copy_policy": "do not extract, inspect, copy, or execute the truncated archive",
+      "r1_policy": "independent interface remains blocked pending a complete auditable source"
+    },
+    {
+      "candidate_id": "R2A_gryphon_item",
+      "repository_url": null,
+      "license_status": "NO_OFFICIAL_CODE_FOUND",
+      "copy_policy": "independent implementation from paper-level mechanism only",
+      "native_control": "same checkpoint and same beam candidates ranked by sequence likelihood",
+      "r1_policy": "joint item CE plus item-level reranking contract"
+    }
+  ]
+}

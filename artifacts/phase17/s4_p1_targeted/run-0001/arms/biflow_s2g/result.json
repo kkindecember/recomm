@@ -1,0 +1,72 @@
+{
+  "arm_id": "biflow_s2g",
+  "checkpoint": "artifacts/phase17/s4_p1_targeted/run-0001/arms/biflow_s2g/gram_logs/Toys_s17_d0_full/0_20260830_1520/id_0_rec_1/model_rec_phase_1_epoch_1.pt",
+  "checkpoint_sha256": "5fa12aa7e5dac4623c0e0c44b88ae0f3ff57d088223676f83f3506a2eaa6f378",
+  "checks": {
+    "checkpoint_present": true,
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "one_training_epoch": true,
+    "prediction_contract": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "ended_at": "2026-08-30T08:59:47.282524+00:00",
+  "module_id": "P1_biflow_s2g",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "dd534dcd5c31539f141b9e0c348a5dd82bdbf3526ebd89edafbe1d54d4cae13f",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 P1_biflow_s2g/active_delta_norm=0.07547943 P1_biflow_s2g/blocked_direction_count=1.00000000 P1_biflow_s2g/global_to_sequence_gate=0.00000000 P1_biflow_s2g/sequence_to_global_gate=0.11469842"
+    ],
+    "peak_reserved_mib": 20606.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15752.181,
+        "peak_reserved_mib": 15814.0,
+        "phase": "training",
+        "wall_time_seconds": 2479.861791
+      },
+      {
+        "peak_allocated_mib": 7849.006,
+        "peak_reserved_mib": 20606.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 3413.264552
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      1.1949240538867774
+    ],
+    "validation_metrics": {
+      "hit@1": 0.10418452427335775,
+      "hit@10": 0.3032806046910309,
+      "hit@20": 0.3844775188965947,
+      "hit@3": 0.18748538923088912,
+      "hit@5": 0.2329930647549287,
+      "hit@50": 0.4939608821008338,
+      "ndcg@1": 0.10418452427335775,
+      "ndcg@10": 0.19362566892050598,
+      "ndcg@20": 0.21411933319706364,
+      "ndcg@3": 0.15230339466721132,
+      "ndcg@5": 0.1709189849168233,
+      "ndcg@50": 0.2359587531148744
+    }
+  },
+  "physical_gpu": 4,
+  "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/biflow_s2g/predictions/20260830_160246_Toys_s17_d0_full_sequential_pred_validation.tsv",
+  "prediction_sha256": "3cd2aa93dc661c508c9ee0edb94ab15bcf692b4adf0b9e5918e18ea03892961d",
+  "priority": 4,
+  "return_code": 0,
+  "schema_version": "phase17.s17_4_formal_result.v1",
+  "scientific_result_eligible": true,
+  "sports_read": false,
+  "started_at": "2026-08-30T07:20:49.412397+00:00",
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "P1-C0",
+  "wall_seconds": 5937.870194375515,
+  "workload_pid": 139397
+}

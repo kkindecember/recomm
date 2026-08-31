@@ -1,0 +1,61 @@
+{
+  "attempt_id": "c0_overfit_r2_001",
+  "kind": "overfit",
+  "module_id": "C0_biflow",
+  "overfit_loss_decreased": true,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "a1a768da25916d8f9f071b59d194503eb816de96a9ccff944fc28adc60803346",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 C0_biflow/global_to_sequence_delta_norm=0.21997131 C0_biflow/global_to_sequence_gate=0.11948308 C0_biflow/representation_alignment=0.74478137 C0_biflow/sequence_to_global_delta_norm=0.18643114 C0_biflow/sequence_to_global_gate=0.11897328",
+      "S17_MECHANISM_METRIC epoch=2 C0_biflow/global_to_sequence_delta_norm=0.22160727 C0_biflow/global_to_sequence_gate=0.11955320 C0_biflow/representation_alignment=0.71752334 C0_biflow/sequence_to_global_delta_norm=0.19662869 C0_biflow/sequence_to_global_gate=0.11878799",
+      "S17_MECHANISM_METRIC epoch=3 C0_biflow/global_to_sequence_delta_norm=0.22426289 C0_biflow/global_to_sequence_gate=0.11954501 C0_biflow/representation_alignment=0.73859417 C0_biflow/sequence_to_global_delta_norm=0.19936836 C0_biflow/sequence_to_global_gate=0.11870101",
+      "S17_MECHANISM_METRIC epoch=4 C0_biflow/global_to_sequence_delta_norm=0.22287700 C0_biflow/global_to_sequence_gate=0.11954232 C0_biflow/representation_alignment=0.75690681 C0_biflow/sequence_to_global_delta_norm=0.19806102 C0_biflow/sequence_to_global_gate=0.11869545"
+    ],
+    "peak_reserved_mib": 21390.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.223,
+        "peak_reserved_mib": 15802.0,
+        "phase": "training",
+        "wall_time_seconds": 85.058368
+      },
+      {
+        "peak_allocated_mib": 7845.294,
+        "peak_reserved_mib": 21390.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 29.925083
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      7.507366389036179,
+      6.216697677969933,
+      5.920632213354111,
+      5.821903273463249
+    ],
+    "validation_metrics": {
+      "hit@1": 0.01,
+      "hit@10": 0.09,
+      "hit@20": 0.11,
+      "hit@3": 0.02,
+      "hit@5": 0.08,
+      "hit@50": 0.15,
+      "ndcg@1": 0.01,
+      "ndcg@10": 0.04384547845159242,
+      "ndcg@20": 0.048473042714787605,
+      "ndcg@3": 0.016309297535714574,
+      "ndcg@5": 0.04083517849495261,
+      "ndcg@50": 0.056246635840825884
+    }
+  },
+  "physical_gpu": 7,
+  "return_code": 0,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "C0",
+  "wall_seconds": 140.14515387266874,
+  "workload_pid": 2713176
+}

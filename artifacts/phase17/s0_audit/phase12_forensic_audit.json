@@ -1,0 +1,156 @@
+{
+  "schema_version": "phase17.phase12_forensic.v1",
+  "generated_at_utc": "2026-08-29T03:29:53.559181+00:00",
+  "scope": "read-only audit of Phase12 statuses, logs, checkpoints, and prediction filenames",
+  "runs": [
+    {
+      "run": "beauty_v1",
+      "status_path": "artifacts/phase12/hi_gram/beauty_v1/status.json",
+      "status_sha256": "4e02db9869581b723a43d568ef6e88e2dd610b367cf28a0aa0f740c814cf1a04",
+      "log_path": "artifacts/phase12/hi_gram/beauty_v1/run.log",
+      "log_sha256": "bf20cdd4f916bcf188462b7afdbb7c0d18a0c6e82e04fa050a2926158591a55e",
+      "declared_status": "succeeded",
+      "declared_test_read": false,
+      "recorded_runner_pid_alive_now": false,
+      "planned_epochs": 30,
+      "last_started_epoch": 20,
+      "last_completed_epoch": 19,
+      "last_completed_loss": "1.035577554854237",
+      "nan_loss_observed": false,
+      "checkpoint_epochs": [
+        5,
+        10,
+        15
+      ],
+      "validation_prediction_count": 3,
+      "test_prediction_count": 0,
+      "test_prediction_paths": [],
+      "latest_validation": {
+        "hit@10": 0.10472655725975942,
+        "ndcg@10": 0.06245704364155513
+      },
+      "latest_test": {
+        "hit@10": null,
+        "ndcg@10": null
+      },
+      "contradictions": [
+        "STATUS_SUCCEEDED_BUT_PLANNED_EPOCHS_INCOMPLETE",
+        "STATUS_SUCCEEDED_WITH_INTERRUPTED_FINAL_EPOCH"
+      ],
+      "evidence_grade": "HISTORICAL_UNVERIFIED_SIGNAL"
+    },
+    {
+      "run": "beauty_v1_nan_bug_20260805",
+      "status_path": "artifacts/phase12/hi_gram/beauty_v1_nan_bug_20260805/status.json",
+      "status_sha256": "441b5212db2da8e6400b910e625b0f9a71d5d8c9a7d9bf6bb85d30a529b07b07",
+      "log_path": "artifacts/phase12/hi_gram/beauty_v1_nan_bug_20260805/run.log",
+      "log_sha256": "5bc1788602eb2a3b64eacdc20338b1430c04ed3823f0b56fdfb0c790de733a57",
+      "declared_status": "failed",
+      "declared_test_read": false,
+      "recorded_runner_pid_alive_now": false,
+      "planned_epochs": 30,
+      "last_started_epoch": 18,
+      "last_completed_epoch": 17,
+      "last_completed_loss": "nan",
+      "nan_loss_observed": true,
+      "checkpoint_epochs": [
+        5,
+        10,
+        15
+      ],
+      "validation_prediction_count": 3,
+      "test_prediction_count": 0,
+      "test_prediction_paths": [],
+      "latest_validation": {
+        "hit@10": 0.0,
+        "ndcg@10": 0.0
+      },
+      "latest_test": {
+        "hit@10": null,
+        "ndcg@10": null
+      },
+      "contradictions": [],
+      "evidence_grade": "HISTORICAL_AUDITED_ONLY"
+    },
+    {
+      "run": "smoke_beauty",
+      "status_path": "artifacts/phase12/hi_gram/smoke_beauty/status.json",
+      "status_sha256": "6e13478bb3ed30078260d9db1f5d8bad9695efa30ee5f64636e2375d7f54a5a1",
+      "log_path": "artifacts/phase12/hi_gram/smoke_beauty/run.log",
+      "log_sha256": "1d1312faf49fdbd5af4e4f410cda3102e8394a62b83071628854ba49e9e482ae",
+      "declared_status": "succeeded",
+      "declared_test_read": false,
+      "recorded_runner_pid_alive_now": false,
+      "planned_epochs": 1,
+      "last_started_epoch": 1,
+      "last_completed_epoch": 1,
+      "last_completed_loss": "10.046815276145935",
+      "nan_loss_observed": true,
+      "checkpoint_epochs": [
+        1
+      ],
+      "validation_prediction_count": 0,
+      "test_prediction_count": 2,
+      "test_prediction_paths": [
+        "artifacts/phase12/hi_gram/smoke_beauty/predictions/20260805_190503_Beauty_sequential_pred_test.tsv",
+        "artifacts/phase12/hi_gram/smoke_beauty/predictions/20260806_172229_Beauty_sequential_pred_test.tsv"
+      ],
+      "latest_validation": {
+        "hit@10": null,
+        "ndcg@10": null
+      },
+      "latest_test": {
+        "hit@10": 0.0,
+        "ndcg@10": 0.0
+      },
+      "contradictions": [
+        "STATUS_TEST_READ_FALSE_BUT_TEST_EVIDENCE_EXISTS"
+      ],
+      "evidence_grade": "HISTORICAL_UNVERIFIED_SIGNAL"
+    },
+    {
+      "run": "toys_v1_light",
+      "status_path": "artifacts/phase12/hi_gram/toys_v1_light/status.json",
+      "status_sha256": "b796e8f3cfbda8bc34f4a9fbf75b7de6f1d1a2a6701b641426f85daa5abb7922",
+      "log_path": "artifacts/phase12/hi_gram/toys_v1_light/run.log",
+      "log_sha256": "7d2b0dea52e3a0efeca11549d2318790109b64418ac48f457646e0d1a804bebf",
+      "declared_status": "running",
+      "declared_test_read": false,
+      "recorded_runner_pid_alive_now": false,
+      "planned_epochs": 30,
+      "last_started_epoch": 30,
+      "last_completed_epoch": 30,
+      "last_completed_loss": "1.1700385614445334",
+      "nan_loss_observed": false,
+      "checkpoint_epochs": [
+        5,
+        10,
+        15,
+        20,
+        25,
+        30
+      ],
+      "validation_prediction_count": 6,
+      "test_prediction_count": 1,
+      "test_prediction_paths": [
+        "artifacts/phase12/hi_gram/toys_v1_light/predictions/20260808_171503_Toys_sequential_pred_test.tsv"
+      ],
+      "latest_validation": {
+        "hit@10": 0.11977127549969091,
+        "ndcg@10": 0.0762649836024072
+      },
+      "latest_test": {
+        "hit@10": 0.09710488357716876,
+        "ndcg@10": 0.05973366315184436
+      },
+      "contradictions": [
+        "STATUS_RUNNING_BUT_RECORDED_RUNNER_DEAD",
+        "STATUS_TEST_READ_FALSE_BUT_TEST_EVIDENCE_EXISTS"
+      ],
+      "evidence_grade": "HISTORICAL_UNVERIFIED_SIGNAL"
+    }
+  ],
+  "overall_verdict": "PHASE12_HI_GRAM_NOT_ADMISSIBLE_AS_CONFIRMED_BASELINE",
+  "retrain_required_for_phase17_baseline": true,
+  "sports_read": false
+}

@@ -1,0 +1,167 @@
+{
+  "schema_version": "phase17.shadow_data_manifest.v1",
+  "generated_at_utc": "2026-08-29T03:29:54.799885+00:00",
+  "projection_rule": "train-prefix + shadow validation target + train-prefix guard item",
+  "folds": {
+    "D0": {
+      "target_from_end": 5,
+      "purpose": "discovery"
+    },
+    "D1": {
+      "target_from_end": 4,
+      "purpose": "independent_admission"
+    },
+    "D2": {
+      "target_from_end": 3,
+      "purpose": "fresh_confirmation"
+    }
+  },
+  "domains": {
+    "Beauty": {
+      "source": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+      "source_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+      "folds": {
+        "D0": {
+          "source_path": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+          "source_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+          "output_path": "artifacts/phase17/s0_audit/shadow_data/Beauty/D0/user_sequence.txt",
+          "output_sha256": "aa3301afe220f5625e546667da795ffc38dba23fb0474bd2fbe0c13a6f4e0c80",
+          "source_users": 22363,
+          "output_users": 15201,
+          "excluded_users_without_train_history": 7162,
+          "train_prefix_item_occurrences": 86687,
+          "target_from_original_end": 5,
+          "loader_train_slice": "shadow_items[:-2]",
+          "loader_validation_position": "shadow_items[-2]",
+          "loader_test_position": "train-prefix guard item; forbidden for evaluation",
+          "guard_source_position": 0,
+          "official_validation_position_serialized": false,
+          "official_test_position_serialized": false,
+          "official_heldout_values_logged": false,
+          "target_in_train_by_position": false,
+          "minimum_train_history": 1,
+          "maximum_original_source_position_serialized": 199
+        },
+        "D1": {
+          "source_path": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+          "source_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+          "output_path": "artifacts/phase17/s0_audit/shadow_data/Beauty/D1/user_sequence.txt",
+          "output_sha256": "ba787ef0eddadf7c357ed7d42aabc62c9266d1f06162a3b49f8edb8d88718d69",
+          "source_users": 22363,
+          "output_users": 22363,
+          "excluded_users_without_train_history": 0,
+          "train_prefix_item_occurrences": 109050,
+          "target_from_original_end": 4,
+          "loader_train_slice": "shadow_items[:-2]",
+          "loader_validation_position": "shadow_items[-2]",
+          "loader_test_position": "train-prefix guard item; forbidden for evaluation",
+          "guard_source_position": 0,
+          "official_validation_position_serialized": false,
+          "official_test_position_serialized": false,
+          "official_heldout_values_logged": false,
+          "target_in_train_by_position": false,
+          "minimum_train_history": 1,
+          "maximum_original_source_position_serialized": 200
+        },
+        "D2": {
+          "source_path": "GRAM/rec_datasets/Beauty/user_sequence.txt",
+          "source_sha256": "47197cbee7bdc1896926e10d96b807dce0aecb9a1f0c2ccc887c21090237c9b7",
+          "output_path": "artifacts/phase17/s0_audit/shadow_data/Beauty/D2/user_sequence.txt",
+          "output_sha256": "df240e2a5d42630407194775a3780eab8a7f4821437f4d085a551d48e4b59936",
+          "source_users": 22363,
+          "output_users": 22363,
+          "excluded_users_without_train_history": 0,
+          "train_prefix_item_occurrences": 131413,
+          "target_from_original_end": 3,
+          "loader_train_slice": "shadow_items[:-2]",
+          "loader_validation_position": "shadow_items[-2]",
+          "loader_test_position": "train-prefix guard item; forbidden for evaluation",
+          "guard_source_position": 0,
+          "official_validation_position_serialized": false,
+          "official_test_position_serialized": false,
+          "official_heldout_values_logged": false,
+          "target_in_train_by_position": false,
+          "minimum_train_history": 1,
+          "maximum_original_source_position_serialized": 201
+        }
+      },
+      "projection_only_job_opened_original_monolithic_sequence": true,
+      "downstream_jobs_must_deny_original_monolithic_sequence": true,
+      "sports_read": false
+    },
+    "Toys": {
+      "source": "GRAM/rec_datasets/Toys/user_sequence.txt",
+      "source_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "folds": {
+        "D0": {
+          "source_path": "GRAM/rec_datasets/Toys/user_sequence.txt",
+          "source_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+          "output_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+          "output_sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+          "source_users": 19412,
+          "output_users": 12833,
+          "excluded_users_without_train_history": 6579,
+          "train_prefix_item_occurrences": 70537,
+          "target_from_original_end": 5,
+          "loader_train_slice": "shadow_items[:-2]",
+          "loader_validation_position": "shadow_items[-2]",
+          "loader_test_position": "train-prefix guard item; forbidden for evaluation",
+          "guard_source_position": 0,
+          "official_validation_position_serialized": false,
+          "official_test_position_serialized": false,
+          "official_heldout_values_logged": false,
+          "target_in_train_by_position": false,
+          "minimum_train_history": 1,
+          "maximum_original_source_position_serialized": 545
+        },
+        "D1": {
+          "source_path": "GRAM/rec_datasets/Toys/user_sequence.txt",
+          "source_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+          "output_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D1/user_sequence.txt",
+          "output_sha256": "0831619b4715093ad57c7cb23e474d69e639e3fef747f84f24766952a3de77da",
+          "source_users": 19412,
+          "output_users": 19412,
+          "excluded_users_without_train_history": 0,
+          "train_prefix_item_occurrences": 89949,
+          "target_from_original_end": 4,
+          "loader_train_slice": "shadow_items[:-2]",
+          "loader_validation_position": "shadow_items[-2]",
+          "loader_test_position": "train-prefix guard item; forbidden for evaluation",
+          "guard_source_position": 0,
+          "official_validation_position_serialized": false,
+          "official_test_position_serialized": false,
+          "official_heldout_values_logged": false,
+          "target_in_train_by_position": false,
+          "minimum_train_history": 1,
+          "maximum_original_source_position_serialized": 546
+        },
+        "D2": {
+          "source_path": "GRAM/rec_datasets/Toys/user_sequence.txt",
+          "source_sha256": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+          "output_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D2/user_sequence.txt",
+          "output_sha256": "65482cc4cb4e7585cdc4540e2a2f43e77c0bfc6de225afb4ab9ea1fd108c7748",
+          "source_users": 19412,
+          "output_users": 19412,
+          "excluded_users_without_train_history": 0,
+          "train_prefix_item_occurrences": 109361,
+          "target_from_original_end": 3,
+          "loader_train_slice": "shadow_items[:-2]",
+          "loader_validation_position": "shadow_items[-2]",
+          "loader_test_position": "train-prefix guard item; forbidden for evaluation",
+          "guard_source_position": 0,
+          "official_validation_position_serialized": false,
+          "official_test_position_serialized": false,
+          "official_heldout_values_logged": false,
+          "target_in_train_by_position": false,
+          "minimum_train_history": 1,
+          "maximum_original_source_position_serialized": 547
+        }
+      },
+      "projection_only_job_opened_original_monolithic_sequence": true,
+      "downstream_jobs_must_deny_original_monolithic_sequence": true,
+      "sports_read": false
+    }
+  },
+  "official_test_values_logged": false,
+  "sports_opened": false
+}

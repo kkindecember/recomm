@@ -1,0 +1,164 @@
+{
+  "affects_scientific_result": false,
+  "allocated_gpu_ids": [
+    1
+  ],
+  "arm_states": {
+    "a0_bear_proxy": "COMPLETED",
+    "a1_prefixcurr": "COMPLETED",
+    "b0_mvi": "COMPLETED",
+    "b1_latte": "COMPLETED",
+    "c0_biflow": "COMPLETED",
+    "d0_ted": "COMPLETED",
+    "e0_full_control": "COMPLETED",
+    "e0_random_control": "COMPLETED",
+    "e0_semantic": "COMPLETED",
+    "gram_continue": "COMPLETED"
+  },
+  "attempt_id": "run-0001",
+  "budget_path": "experiment/phase17/config/s17_s3_formal_budget.json",
+  "canonical_result_dir": "artifacts/phase17/s3_exploration/run-0001",
+  "canonical_result_manifest": "artifacts/phase17/manifests/s17_s3_one_epoch_portfolio_seed2023.run-0001.canonical_results.json",
+  "canonical_result_manifest_sha256": "9c1e6370f86ce442be9950c7aea450c79c411a8563104a50485e5fae0f891c68",
+  "canonical_result_sha256": "561ce4bb91d4a5b79bcb3c9d4c6c81cc50266b1e964a76f13cfc940376797228",
+  "completed_arms": [
+    "gram_continue",
+    "b1_latte",
+    "b0_mvi",
+    "c0_biflow",
+    "a0_bear_proxy",
+    "a1_prefixcurr",
+    "d0_ted",
+    "e0_semantic",
+    "e0_full_control",
+    "e0_random_control"
+  ],
+  "current_arm": null,
+  "current_arm_log": "artifacts/phase17/runtime/s17_s3_one_epoch_portfolio_seed2023/run-0002/run.log",
+  "current_arms": {},
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s17_s3_one_epoch_portfolio_seed2023",
+  "failed_arms": [],
+  "gpu0_post_science": "release",
+  "gpu0_state": "released_after_science",
+  "gpu1_post_science": "runtime_cycle",
+  "gpu1_state": "runtime_cycle_active",
+  "gpu_ids": [
+    1
+  ],
+  "gpu_snapshot": {
+    "captured_at": "2026-08-30T03:51:46.491148+00:00",
+    "devices": [
+      {
+        "free_mib": 19423,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29147,
+        "utilization_percent": 98
+      },
+      {
+        "free_mib": 1069,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 47502,
+        "utilization_percent": 57
+      },
+      {
+        "free_mib": 7441,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 41129,
+        "utilization_percent": 42
+      },
+      {
+        "free_mib": 8271,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 40300,
+        "utilization_percent": 100
+      },
+      {
+        "free_mib": 20380,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 28191,
+        "utilization_percent": 92
+      },
+      {
+        "free_mib": 25297,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 23274,
+        "utilization_percent": 94
+      },
+      {
+        "free_mib": 7812,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 40759,
+        "utilization_percent": 33
+      },
+      {
+        "free_mib": 1848,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 46722,
+        "utilization_percent": 70
+      }
+    ]
+  },
+  "handoff_active": false,
+  "handoff_record": "artifacts/phase17/s3_exploration/run-0001/preflight/dual_gpu_handoff.json",
+  "handoff_successor_experiment": "s17_s4_p1_targeted_d0_seed2023",
+  "heartbeat_at": "2026-08-30T07:04:44.358392+00:00",
+  "launcher_pid": 137155,
+  "log_path": "artifacts/phase17/s3_exploration/run-0001/portfolio.log",
+  "minimum_free_mib_at_admission": 27648,
+  "occupancy_mode": "handed_off_to_s17_4",
+  "predicted_peak_mib": 27000,
+  "process_alive": false,
+  "progress": {
+    "current": 10,
+    "elapsed_seconds": 1743.9,
+    "runtime_iteration": 3,
+    "source_arm": "e0_random_control",
+    "total": 10,
+    "unit": "arm"
+  },
+  "queue_mode": "dynamic_dual_gpu",
+  "repeat_iteration": 3,
+  "repeat_metrics_ignored": true,
+  "repeat_result_dir": "artifacts/phase17/runtime/s17_s3_one_epoch_portfolio_seed2023/run-0003",
+  "report_path": "report/第十七阶段/Stage17_S3_P0独立正式筛选报告.md",
+  "report_sha256": "d4411648675e53e4399a7b925573601737458c891d8e9b55afcf1a1730d37764",
+  "result_selection_eligible": false,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_s3_one_epoch_portfolio_seed2023/run-0001/manifest.json",
+  "runtime_return_code": -15,
+  "schema_version": "phase17.status.v2",
+  "scientific_closeout_state": "ARTIFACTS_FROZEN_REPORT_PUBLISHED",
+  "scientific_completed_at": "2026-08-30T03:52:17.081698+00:00",
+  "scientific_state": "COMPLETED",
+  "serial_parent_pid": 3446328,
+  "serial_parent_state": "retired_after_zero_restart_handoff",
+  "sports_read": false,
+  "stage": "runtime_handed_off_to_s17_4",
+  "started_at": "2026-08-29T11:20:21.714858+00:00",
+  "status_code": "S17_3_GPU1_RUNTIME_HANDED_OFF_TO_S17_4",
+  "step_id": "S17-3",
+  "summary_path": "artifacts/phase17/s3_exploration/run-0001/summary.json",
+  "test_read": false,
+  "tmux_session": "s17_s3_dual_lane_seed2023",
+  "track_id": "P0-PORTFOLIO",
+  "updated_at": "2026-08-30T07:05:05.843948+00:00",
+  "usable_memory_ceiling_mib": 30720,
+  "workload_pid": 0,
+  "workload_pids": {}
+}

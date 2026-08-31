@@ -1,0 +1,65 @@
+{
+  "components": [
+    {
+      "component": "official config and source identity",
+      "evidence": "setrec_source_manifest.json",
+      "required": true,
+      "state": "FROZEN"
+    },
+    {
+      "component": "fold-train SASRec CF embedding and projection",
+      "existing_proxy": "hashed transition code is not faithful",
+      "required": true,
+      "state": "IMPLEMENTATION_PENDING"
+    },
+    {
+      "component": "continuous semantic AE with four tokens",
+      "existing_proxy": "discrete codes are forbidden",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    },
+    {
+      "component": "five-token item history representation",
+      "existing_proxy": "permutation set loss is not faithful",
+      "required": true,
+      "state": "IMPLEMENTATION_PENDING"
+    },
+    {
+      "component": "paper sparse intra-item visibility",
+      "existing_proxy": "public T5 commit groups position ids but does not explicitly mask encoder visibility",
+      "required": true,
+      "state": "PAPER_REQUIRED_REPO_GAP_CONTRACT_PASS"
+    },
+    {
+      "component": "public-repository shared-within-item position ids",
+      "existing_proxy": "must remain a separate arm from paper-faithful sparse attention",
+      "required": true,
+      "state": "REPO_PARITY_CONTRACT_PASS"
+    },
+    {
+      "component": "five learnable independent queries",
+      "existing_proxy": "masked token positions are not faithful",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    },
+    {
+      "component": "per-dimension full-catalog grounding",
+      "existing_proxy": "beam candidate scoring is forbidden",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    },
+    {
+      "component": "joint recommendation plus alpha*AE loss",
+      "existing_proxy": "set permutation CE is not faithful",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    }
+  ],
+  "copy_policy": "CLEAN_ROOM_ONLY",
+  "existing_s17_2r_is_full": false,
+  "family": "SETRec",
+  "full_name_allowed_before_components_pass": false,
+  "implementation_ready": false,
+  "schema_version": "phase17.s17_fp0_fidelity_matrix.v1",
+  "source_commit": "2ed9a75ad1ad3784c61bba3c68cbedbe3cfce2d7"
+}

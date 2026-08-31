@@ -1,0 +1,59 @@
+{
+  "components": [
+    {
+      "component": "official config and source identity",
+      "evidence": "latte_source_manifest.json",
+      "required": true,
+      "state": "FROZEN"
+    },
+    {
+      "component": "SentenceT5-base 768 -> PCA192",
+      "existing_proxy": "BGE/fixed feature path is not faithful",
+      "required": true,
+      "state": "IMPLEMENTATION_PENDING"
+    },
+    {
+      "component": "train-only rqkmeans 3x256",
+      "existing_proxy": "scaled MiniBatchKMeans is not faithful",
+      "required": true,
+      "state": "IMPLEMENTATION_PENDING"
+    },
+    {
+      "component": "PSID conflict-free reassignment",
+      "existing_proxy": "collision suffix is forbidden",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    },
+    {
+      "component": "uniform random latent path per exposure",
+      "existing_proxy": "fixed/hash root is forbidden",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    },
+    {
+      "component": "latent-conditioned forest decoding",
+      "existing_proxy": "scaled contract only",
+      "required": true,
+      "state": "FOUNDATION_CONTRACT_PASS_MODEL_INTEGRATION_PENDING"
+    },
+    {
+      "component": "item-level agg_max and agg_sum diagnostic",
+      "existing_proxy": "reusable only after official parity test",
+      "required": true,
+      "state": "SYNTHETIC_PARITY_PASS_OFFICIAL_BATCH_PARITY_PENDING"
+    },
+    {
+      "component": "150-epoch native budget and final beam500",
+      "existing_proxy": "3k/5-epoch result is not reusable efficacy evidence",
+      "required": true,
+      "state": "CONFIG_FROZEN"
+    }
+  ],
+  "copy_policy": "MIT_WITH_ATTRIBUTION",
+  "existing_s17_2r_is_full": false,
+  "family": "LATTE",
+  "full_name_allowed_before_components_pass": false,
+  "implementation_ready": false,
+  "schema_version": "phase17.s17_fp0_fidelity_matrix.v1",
+  "source_commit": "05e4e6d983225bcb7172f148a076890e80c524d1"
+}

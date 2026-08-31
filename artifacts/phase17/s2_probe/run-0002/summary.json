@@ -1,0 +1,430 @@
+{
+  "affects_scientific_result": false,
+  "baseline_reference": {
+    "interpretation": "diagnostic reference only",
+    "source": "S17-0 Toys_s17_d0_1000 one-epoch GRAM-B0 resource probe",
+    "validation_ndcg@10": 0.045911074355879856
+  },
+  "completed_at": "2026-08-29T06:34:29.600752+00:00",
+  "completed_probe_count": 0,
+  "cpu_contracts": {
+    "log_path": "artifacts/phase17/s2_probe/run-0002/preflight/cpu_contract_tests.log",
+    "log_sha256": "83046b6bb02c46a8f1cf337a6c4c0f0ca9742c962c7aa16efe448e391b8307f1",
+    "return_code": 0
+  },
+  "experiment_id": "s17_s2_p0_probe_matrix_r1",
+  "invalidation_reason": "all 14 processes exited during shared validation-loader construction before training",
+  "official_result_claim": false,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.s17_2_summary.v1",
+  "sports_read": false,
+  "step_id": "S17-2",
+  "test_read": false,
+  "tracks": {
+    "A0": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "A0_bear",
+      "overfit": {
+        "attempt_id": "a0_overfit_001",
+        "kind": "overfit",
+        "module_id": "A0_bear",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "68347a4025a1118a37e22396a8c3dea587295f882692aee2b975b57f4666d96a",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A0",
+        "wall_seconds": 29.13352276943624,
+        "workload_pid": 2511841
+      },
+      "short": {
+        "attempt_id": "a0_short_001",
+        "kind": "short",
+        "module_id": "A0_bear",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "fb91dcbe87f5182693a459d1de0148bdddfe83427d1a2805fee46c306f145613",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A0",
+        "wall_seconds": 31.617785276845098,
+        "workload_pid": 2513407
+      }
+    },
+    "A1": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "A1_prefixcurr",
+      "overfit": {
+        "attempt_id": "a1_overfit_001",
+        "kind": "overfit",
+        "module_id": "A1_prefixcurr",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "87aab1810f4851c95b26b984637568ffb2ee8a5dc07a985bf5edd98fbec96bda",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A1",
+        "wall_seconds": 30.453748889267445,
+        "workload_pid": 2515042
+      },
+      "short": {
+        "attempt_id": "a1_short_001",
+        "kind": "short",
+        "module_id": "A1_prefixcurr",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "857f82ff0e2eb2699fb19100a76efc406bada4112cc157feb0607804ae20a1ca",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "A1",
+        "wall_seconds": 30.862456304952502,
+        "workload_pid": 2516643
+      }
+    },
+    "B0": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "B0_mvi",
+      "overfit": {
+        "attempt_id": "b0_overfit_001",
+        "kind": "overfit",
+        "module_id": "B0_mvi",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "2fb8ddd7f5d3cd88a3326ef99d6dc7df6fe2142bb99be823d9534c3f9603ffa6",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000"
+          ],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "B0",
+        "wall_seconds": 36.07644232735038,
+        "workload_pid": 2518327
+      },
+      "short": {
+        "attempt_id": "b0_short_001",
+        "kind": "short",
+        "module_id": "B0_mvi",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "35010cbf06d42b9cb89c32ae9a57db0702b707aee4c7179a9666b0e6bfc2d2ec",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B0_mvi path_multiplicity=2.000000 unique_item_coverage=1.000000"
+          ],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "B0",
+        "wall_seconds": 34.57910228148103,
+        "workload_pid": 2520335
+      }
+    },
+    "B1": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "B1_latte",
+      "overfit": {
+        "attempt_id": "b1_overfit_001",
+        "kind": "overfit",
+        "module_id": "B1_latte",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "4c86333d89b1a043aba6d261efc235069272ba64f37466b6de9c11ffd16bc7c5",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000"
+          ],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "B1",
+        "wall_seconds": 31.61392756551504,
+        "workload_pid": 2522171
+      },
+      "short": {
+        "attempt_id": "b1_short_001",
+        "kind": "short",
+        "module_id": "B1_latte",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "34c5eafb3ce71efaefc2e8921212061f2b92b94793cd9f7bb24a557ffbfd133e",
+          "mechanism_metric_lines": [
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000",
+            "S17_MECHANISM_METRIC track=B1_latte path_multiplicity=2.000000 unique_item_coverage=1.000000"
+          ],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "B1",
+        "wall_seconds": 28.233174238353968,
+        "workload_pid": 2524067
+      }
+    },
+    "C0": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "C0_biflow",
+      "overfit": {
+        "attempt_id": "c0_overfit_001",
+        "kind": "overfit",
+        "module_id": "C0_biflow",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "81013289d5be0cc74effea191240bbbaf4efb0074a9144088be3a4fde934e972",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "C0",
+        "wall_seconds": 26.981129117310047,
+        "workload_pid": 2525886
+      },
+      "short": {
+        "attempt_id": "c0_short_001",
+        "kind": "short",
+        "module_id": "C0_biflow",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "e0e1c1fd5f4606748f5a7407d3d38867b91026fb538c3a77d50089e5a83b8695",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "C0",
+        "wall_seconds": 25.960120618343353,
+        "workload_pid": 2527329
+      }
+    },
+    "D0": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "D0_ted",
+      "overfit": {
+        "attempt_id": "d0_overfit_001",
+        "kind": "overfit",
+        "module_id": "D0_ted",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "ac59690764fcfe610410bced99caf525fe76e0eb78aff3fdab4798624d4b8c1f",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "D0",
+        "wall_seconds": 22.41004240512848,
+        "workload_pid": 2528842
+      },
+      "short": {
+        "attempt_id": "d0_short_001",
+        "kind": "short",
+        "module_id": "D0_ted",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "24fb3b08946f05082b0637d16710f01fad557588e683a9c890b29ffbb586ac59",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "D0",
+        "wall_seconds": 26.601988265290856,
+        "workload_pid": 2530132
+      }
+    },
+    "E0": {
+      "diagnostic_labels": [
+        "INTERFACE_FAILED"
+      ],
+      "module_id": "E0_shortcut_fid",
+      "overfit": {
+        "attempt_id": "e0_overfit_001",
+        "kind": "overfit",
+        "module_id": "E0_shortcut_fid",
+        "overfit_loss_decreased": false,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "f426b000c986506fde6f561bb125281f4dc830ca0700d23b6b282a2d1fb21065",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "E0",
+        "wall_seconds": 26.355742989107966,
+        "workload_pid": 2531676
+      },
+      "short": {
+        "attempt_id": "e0_short_001",
+        "kind": "short",
+        "module_id": "E0_shortcut_fid",
+        "overfit_loss_decreased": null,
+        "parsed": {
+          "forbidden_test_evidence": [],
+          "log_sha256": "d046bc91f9e79ee436bdf3a154bd236ac0323a503b7bbdce33a4414f7c3429ce",
+          "mechanism_metric_lines": [],
+          "peak_reserved_mib": null,
+          "resource_metrics": [],
+          "traceback": true,
+          "training_losses": [],
+          "validation_metrics": {}
+        },
+        "physical_gpu": 0,
+        "return_code": 1,
+        "schema_version": "phase17.s17_2_probe_result.v1",
+        "sports_read": false,
+        "state": "FAILED",
+        "test_read": false,
+        "track_id": "E0",
+        "wall_seconds": 29.681452909484506,
+        "workload_pid": 2533160
+      }
+    }
+  },
+  "verdict": "S17_2_SHARED_INTERFACE_FAILURE_ZERO_COMPLETED_PROBES"
+}

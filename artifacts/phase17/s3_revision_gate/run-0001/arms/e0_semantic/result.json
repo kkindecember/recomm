@@ -1,0 +1,63 @@
+{
+  "arm_id": "e0_semantic",
+  "attempt_id": "s3pf_e0_semantic_001",
+  "checks": {
+    "exit_zero": true,
+    "mechanism_metric_present": true,
+    "no_forbidden_test_evidence": true,
+    "no_traceback": true,
+    "semantic_selection_non_degenerate": true,
+    "validation_completed": true,
+    "within_memory_ceiling": true
+  },
+  "module_id": "E0_shortcut_fid",
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "b9bd2ecab748e34a31d04c84789cfde07f08a89ffcfd867880eba221a5b2cbe3",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid/adaptive_target_ratio=0.58719993 E0_shortcut_fid/long_history_fraction=0.43750000 E0_shortcut_fid/noise_filtered_ratio=0.41280004 E0_shortcut_fid/selected_history_ratio=0.58719993 E0_shortcut_fid/shortcut_gate=0.18218224"
+    ],
+    "peak_reserved_mib": 21390.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.181,
+        "peak_reserved_mib": 15800.0,
+        "phase": "training",
+        "wall_time_seconds": 40.947769
+      },
+      {
+        "peak_allocated_mib": 7845.295,
+        "peak_reserved_mib": 21390.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 26.066384
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      7.779773697257042
+    ],
+    "validation_metrics": {
+      "hit@1": 0.0,
+      "hit@10": 0.08,
+      "hit@20": 0.09,
+      "hit@3": 0.03,
+      "hit@5": 0.05,
+      "hit@50": 0.13,
+      "ndcg@1": 0.0,
+      "ndcg@10": 0.03651091874291474,
+      "ndcg@20": 0.03878762122988427,
+      "ndcg@3": 0.017618595071429145,
+      "ndcg@5": 0.026232126232897005,
+      "ndcg@50": 0.04653165209198537
+    }
+  },
+  "physical_gpu": 1,
+  "return_code": 0,
+  "schema_version": "phase17.s17_3_revision_gate_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "E0",
+  "wall_seconds": 94.34449099749327,
+  "workload_pid": 3214439
+}

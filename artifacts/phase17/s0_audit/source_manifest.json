@@ -1,0 +1,496 @@
+{
+  "schema_version": "phase17.source_manifest.v1",
+  "generated_at_utc": "2026-08-29T04:46:53.952228+00:00",
+  "registry_path": "experiment/phase17/registry/source_registry.json",
+  "registry_sha256": "9ce586e525f695019d47ed955e8d5d37f4618e1438ad838065b27519126b467f",
+  "sources": [
+    {
+      "id": "bear",
+      "paper": "https://arxiv.org/abs/2601.22925",
+      "code": "https://github.com/Tiny-Snow/BEAR-SIGIR-2026",
+      "official_code": true,
+      "priority": "P0",
+      "mechanism": "token-level top-K/beam-survival-aware loss weighting",
+      "gram_target": "decoder training loss",
+      "local_audit_dir": "/tmp/phase17-source-audit-20260829/BEAR-SIGIR-2026",
+      "expected_commit": "9df41d3a61158c8b4f4266f693831883b906ff63",
+      "license_expected": "MIT",
+      "key_files": [
+        "train_bear.py",
+        "README.md",
+        "LICENSE"
+      ],
+      "audit": {
+        "verification": "LOCAL_COMMIT_AND_FILES_AUDITED",
+        "local_commit": "9df41d3a61158c8b4f4266f693831883b906ff63",
+        "expected_commit": "9df41d3a61158c8b4f4266f693831883b906ff63",
+        "commit_matches_expected": true,
+        "license": {
+          "state": "LOCAL_FILE_VERIFIED",
+          "file": "LICENSE",
+          "sha256": "a75a331d3f5654995e046addf9523376eda467b524549375bc8a89c8ddac4e6f",
+          "detected": "MIT"
+        },
+        "key_files": {
+          "train_bear.py": {
+            "present": true,
+            "sha256": "152a6a25f50ce81c1193e86733c8c78f91782f269f33e081bb1ca11516e3fdd4"
+          },
+          "README.md": {
+            "present": true,
+            "sha256": "5d0f3bc873e402e5be12368a2d0588d9b21ae75901113e9d2644cae7f034040a"
+          },
+          "LICENSE": {
+            "present": true,
+            "sha256": "a75a331d3f5654995e046addf9523376eda467b524549375bc8a89c8ddac4e6f"
+          }
+        },
+        "code_copy_allowed_by_s17": true,
+        "license_reuse_action": "COPY_WITH_ATTRIBUTION",
+        "independent_implementation_required": false
+      }
+    },
+    {
+      "id": "genret",
+      "paper": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/91228b942a4528cdae031c1b68b127e8-Abstract-Conference.html",
+      "code": "https://github.com/sunnweiwei/GenRet",
+      "official_code": true,
+      "priority": "P0",
+      "mechanism": "progressive autoregressive identifier training",
+      "gram_target": "lexical-prefix curriculum",
+      "local_audit_dir": null,
+      "expected_commit": "a1d80e1506de7e4d5b21afa7c10e08ebff8c104e",
+      "license_expected": "UNVERIFIED_NO_ROOT_LICENSE_SEEN",
+      "key_files": [
+        "run.py",
+        "README.md"
+      ],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "a1d80e1506de7e4d5b21afa7c10e08ebff8c104e",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "UNVERIFIED_NO_ROOT_LICENSE_SEEN"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "minder",
+      "paper": "https://aclanthology.org/2023.acl-long.366/",
+      "code": "https://github.com/liyongqi67/MINDER",
+      "official_code": true,
+      "priority": "P0",
+      "mechanism": "multiple identifier views and item-level evidence aggregation",
+      "gram_target": "multi-view native lexical identifiers",
+      "local_audit_dir": "/tmp/phase17-source-audit-20260829/MINDER",
+      "expected_commit": "3ea5a0fe9c39e3b9aaca74cc9213c520d26e82b6",
+      "license_expected": "GPL-3.0",
+      "key_files": [
+        "seal/retrieval.py",
+        "seal/keys.py",
+        "LICENSE"
+      ],
+      "audit": {
+        "verification": "LOCAL_COMMIT_AND_FILES_AUDITED",
+        "local_commit": "3ea5a0fe9c39e3b9aaca74cc9213c520d26e82b6",
+        "expected_commit": "3ea5a0fe9c39e3b9aaca74cc9213c520d26e82b6",
+        "commit_matches_expected": true,
+        "license": {
+          "state": "LOCAL_FILE_VERIFIED",
+          "file": "LICENSE",
+          "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+          "detected": "GPL-3.0"
+        },
+        "key_files": {
+          "seal/retrieval.py": {
+            "present": true,
+            "sha256": "b2ac33094cd12b12b631bc74c590b9134481728d84d3b199f3c54534c05c30dc"
+          },
+          "seal/keys.py": {
+            "present": true,
+            "sha256": "4b06dc9a85e190c513cecd5454f39d92f44161fab94003ecada91ab43d4c1d56"
+          },
+          "LICENSE": {
+            "present": true,
+            "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+          }
+        },
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "EXPLICIT_GPL_COMPATIBILITY_DECISION_REQUIRED",
+        "independent_implementation_required": false
+      }
+    },
+    {
+      "id": "latte",
+      "paper": "https://arxiv.org/abs/2605.06331",
+      "code": "https://github.com/hyp1231/Latte",
+      "official_code": true,
+      "priority": "P0",
+      "mechanism": "latent root, multiple paths per item, item-level aggregation",
+      "gram_target": "native-lexical-suffix latent forest",
+      "local_audit_dir": null,
+      "expected_commit": "05e4e6d983225bcb7172f148a076890e80c524d1",
+      "license_expected": "MIT_WEB_VERIFIED",
+      "key_files": [
+        "train_latte.py",
+        "config.yaml",
+        "LICENSE"
+      ],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "05e4e6d983225bcb7172f148a076890e80c524d1",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "MIT_WEB_VERIFIED"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "onetrans",
+      "paper": "https://arxiv.org/abs/2510.26104",
+      "code": null,
+      "official_code": false,
+      "priority": "P0",
+      "mechanism": "layer-wise bidirectional sequential/non-sequential feature interaction",
+      "gram_target": "history-passage bus and global-field bus cross-exchange",
+      "local_audit_dir": null,
+      "expected_commit": null,
+      "license_expected": "NO_OFFICIAL_COMPLETE_CODE_VERIFIED",
+      "key_files": [],
+      "audit": {
+        "verification": "PAPER_IDEA_ONLY_NO_OFFICIAL_CODE",
+        "local_commit": null,
+        "expected_commit": null,
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "NO_OFFICIAL_COMPLETE_CODE_VERIFIED"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "mqsa_ted",
+      "paper": "https://arxiv.org/abs/2311.01056",
+      "code": "https://github.com/zhuty16/MQSA-TED",
+      "official_code": true,
+      "priority": "P0",
+      "mechanism": "multi-query preference modeling and transition-aware embedding distillation",
+      "gram_target": "train-only transition teacher and multi-window pooling",
+      "local_audit_dir": "/tmp/phase17-source-audit-20260829/MQSA-TED",
+      "expected_commit": "91c9001e9d3396d2762006772eac3c9833930606",
+      "license_expected": "UNVERIFIED_NO_ROOT_LICENSE_SEEN",
+      "key_files": [
+        "MQSA_TED.py",
+        "README.md"
+      ],
+      "audit": {
+        "verification": "LOCAL_COMMIT_AND_FILES_AUDITED",
+        "local_commit": "91c9001e9d3396d2762006772eac3c9833930606",
+        "expected_commit": "91c9001e9d3396d2762006772eac3c9833930606",
+        "commit_matches_expected": true,
+        "license": {
+          "state": "NO_ROOT_LICENSE_FILE",
+          "file": null,
+          "sha256": null,
+          "detected": null
+        },
+        "key_files": {
+          "MQSA_TED.py": {
+            "present": true,
+            "sha256": "2930f5cfcf6ab578e89972cf53e065d32141c82518b60ce612f2211ad6f775ca"
+          },
+          "README.md": {
+            "present": true,
+            "sha256": "a2cffa718d0b170e8cd85b99d5e821e2f46f25fa92faf4de26c5a68f8c88517c"
+          }
+        },
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "lisrec",
+      "paper": "https://arxiv.org/abs/2505.22130",
+      "code": "https://github.com/NEUIR/LISRec",
+      "official_code": true,
+      "priority": "P0",
+      "mechanism": "semantic item shortcuts filtering noisy history",
+      "gram_target": "shortcut FiD branch",
+      "local_audit_dir": "/tmp/phase17-source-audit-20260829/LISRec",
+      "expected_commit": "b4d0b1a0db4d1c9fcb9eae949cde533564cfb6dd",
+      "license_expected": "MIT",
+      "key_files": [
+        "src/build_graph.py",
+        "src/model.py",
+        "README.md",
+        "LICENSE"
+      ],
+      "audit": {
+        "verification": "LOCAL_COMMIT_AND_FILES_AUDITED",
+        "local_commit": "b4d0b1a0db4d1c9fcb9eae949cde533564cfb6dd",
+        "expected_commit": "b4d0b1a0db4d1c9fcb9eae949cde533564cfb6dd",
+        "commit_matches_expected": true,
+        "license": {
+          "state": "LOCAL_FILE_VERIFIED",
+          "file": "LICENSE",
+          "sha256": "d304ba033ef071dd17d2ae77a95727d2207db40f4a20104f6c3d9ab5e92dea37",
+          "detected": "MIT"
+        },
+        "key_files": {
+          "src/build_graph.py": {
+            "present": true,
+            "sha256": "4c6c5fa43a500dd2c1319701fcbde606c6695bc4ad13253c0f1e8aecd5b73589"
+          },
+          "src/model.py": {
+            "present": true,
+            "sha256": "3d6d0c9daf34a93391100bc81eade80ebbb0ee0364a1e4daafd9b89cf09e7138"
+          },
+          "README.md": {
+            "present": true,
+            "sha256": "8003197a86edbb47f17f079414c5024e7208bdee9de56cbdca7e93efc85d765b"
+          },
+          "LICENSE": {
+            "present": true,
+            "sha256": "d304ba033ef071dd17d2ae77a95727d2207db40f4a20104f6c3d9ab5e92dea37"
+          }
+        },
+        "code_copy_allowed_by_s17": true,
+        "license_reuse_action": "COPY_WITH_ATTRIBUTION",
+        "independent_implementation_required": false
+      }
+    },
+    {
+      "id": "pctx",
+      "paper": "https://arxiv.org/abs/2510.21276",
+      "code": "https://github.com/YoungZ365/Pctx",
+      "official_code": true,
+      "priority": "P1",
+      "mechanism": "context-dependent item tokenization",
+      "gram_target": "fixed context root control",
+      "local_audit_dir": null,
+      "expected_commit": "1e9f101d97a153734c7286d693e822d20fa16a47",
+      "license_expected": "MIT_WEB_VERIFIED",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "1e9f101d97a153734c7286d693e822d20fa16a47",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "MIT_WEB_VERIFIED"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "setrec",
+      "paper": "https://arxiv.org/abs/2502.10833",
+      "code": "https://github.com/Linxyhaha/SETRec",
+      "official_code": true,
+      "priority": "P1",
+      "mechanism": "order-agnostic identifier token set",
+      "gram_target": "parallel set auxiliary head and item-level score",
+      "local_audit_dir": null,
+      "expected_commit": "2ed9a75ad1ad3784c61bba3c68cbedbe3cfce2d7",
+      "license_expected": "UNVERIFIED_NO_STANDARD_LICENSE_SEEN",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "2ed9a75ad1ad3784c61bba3c68cbedbe3cfce2d7",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "UNVERIFIED_NO_STANDARD_LICENSE_SEEN"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "maerec",
+      "paper": "https://arxiv.org/abs/2305.04619",
+      "code": "https://github.com/HKUDS/MAERec",
+      "official_code": true,
+      "priority": "P1",
+      "mechanism": "graph masked autoencoding of global item transitions",
+      "gram_target": "train-only graph prompt or reconstruction target",
+      "local_audit_dir": null,
+      "expected_commit": "bd92f2c7776d52a83361ef5c4ca5dc6635ccec00",
+      "license_expected": "UNVERIFIED_NO_ROOT_LICENSE_SEEN",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "bd92f2c7776d52a83361ef5c4ca5dc6635ccec00",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "UNVERIFIED_NO_ROOT_LICENSE_SEEN"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "dcrec",
+      "paper": "https://arxiv.org/abs/2303.11780",
+      "code": "https://github.com/hkuds/dcrec",
+      "official_code": true,
+      "priority": "P1",
+      "mechanism": "debiased contrast between sequential and global graph views",
+      "gram_target": "frequency-aware encoder contrastive loss",
+      "local_audit_dir": null,
+      "expected_commit": "23382332f79351b1340033946982b4dd93ae46ae",
+      "license_expected": "MIT_WEB_VERIFIED",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "23382332f79351b1340033946982b4dd93ae46ae",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "MIT_WEB_VERIFIED"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "blossomrec",
+      "paper": "https://doi.org/10.1145/3774904.3792408",
+      "code": "https://github.com/Applied-Machine-Learning-Lab/WWW2026_BlossomRec",
+      "official_code": true,
+      "priority": "P1",
+      "mechanism": "long/short sparse attention with learned fusion",
+      "gram_target": "dual-window FiD history encoding",
+      "local_audit_dir": null,
+      "expected_commit": "807dad1b4f95df6e330bb706a2d46bf36b7f6c66",
+      "license_expected": "UNVERIFIED",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "807dad1b4f95df6e330bb706a2d46bf36b7f6c66",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "UNVERIFIED"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "sprint",
+      "paper": "https://arxiv.org/abs/2606.21911",
+      "code": "https://github.com/Tiny-Snow/GenRec",
+      "official_code": true,
+      "priority": "P1",
+      "mechanism": "attention column-sum and FFN spectral regularization",
+      "gram_target": "encoder/decoder popularity regularization",
+      "local_audit_dir": null,
+      "expected_commit": "e69d13371a5042c4dcb1bb3259cd7298cdd8a15b",
+      "license_expected": "UNVERIFIED_PER_SUBDIRECTORY",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "e69d13371a5042c4dcb1bb3259cd7298cdd8a15b",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "UNVERIFIED_PER_SUBDIRECTORY"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    },
+    {
+      "id": "ugr",
+      "paper": "https://arxiv.org/abs/2602.11719",
+      "code": "https://github.com/cxfann/UGR",
+      "official_code": true,
+      "priority": "P2",
+      "mechanism": "confidence tokens and uncertainty-aware optimization",
+      "gram_target": "confidence/calibration auxiliary head before any RL",
+      "local_audit_dir": null,
+      "expected_commit": "7e134d1e468f61fab2a270189623c21837d3aaef",
+      "license_expected": "UNVERIFIED",
+      "key_files": [],
+      "audit": {
+        "verification": "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING",
+        "local_commit": null,
+        "expected_commit": "7e134d1e468f61fab2a270189623c21837d3aaef",
+        "commit_matches_expected": false,
+        "license": {
+          "state": "NOT_LOCALLY_AUDITED",
+          "file": null,
+          "sha256": null,
+          "detected": "UNVERIFIED"
+        },
+        "key_files": {},
+        "code_copy_allowed_by_s17": false,
+        "license_reuse_action": "INDEPENDENT_REIMPLEMENTATION_ONLY",
+        "independent_implementation_required": true
+      }
+    }
+  ],
+  "counts": {
+    "LOCAL_COMMIT_AND_FILES_AUDITED": 4,
+    "PRIMARY_URL_AND_REMOTE_HEAD_FROZEN_LOCAL_FILES_PENDING": 9,
+    "PAPER_IDEA_ONLY_NO_OFFICIAL_CODE": 1
+  },
+  "network_used_for_source_discovery": true,
+  "third_party_code_executed": false
+}

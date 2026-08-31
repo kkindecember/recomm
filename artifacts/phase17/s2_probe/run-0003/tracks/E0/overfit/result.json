@@ -1,0 +1,61 @@
+{
+  "attempt_id": "e0_overfit_r2_001",
+  "kind": "overfit",
+  "module_id": "E0_shortcut_fid",
+  "overfit_loss_decreased": true,
+  "parsed": {
+    "forbidden_test_evidence": [],
+    "log_sha256": "47da1352382028c93884f58347b7044254313ac016e75bad09069b543a2cd3c9",
+    "mechanism_metric_lines": [
+      "S17_MECHANISM_METRIC epoch=1 E0_shortcut_fid/long_history_fraction=0.43750000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18211107",
+      "S17_MECHANISM_METRIC epoch=2 E0_shortcut_fid/long_history_fraction=0.37500000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18184282",
+      "S17_MECHANISM_METRIC epoch=3 E0_shortcut_fid/long_history_fraction=0.50000000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18170922",
+      "S17_MECHANISM_METRIC epoch=4 E0_shortcut_fid/long_history_fraction=0.43750000 E0_shortcut_fid/noise_filtered_ratio=0.00000000 E0_shortcut_fid/selected_history_ratio=1.00000000 E0_shortcut_fid/shortcut_gate=0.18170100"
+    ],
+    "peak_reserved_mib": 21390.0,
+    "resource_metrics": [
+      {
+        "peak_allocated_mib": 15751.181,
+        "peak_reserved_mib": 15800.0,
+        "phase": "training",
+        "wall_time_seconds": 80.852927
+      },
+      {
+        "peak_allocated_mib": 7845.3,
+        "peak_reserved_mib": 21390.0,
+        "phase": "automatic_last_checkpoint_validation",
+        "wall_time_seconds": 24.916038
+      }
+    ],
+    "traceback": false,
+    "training_losses": [
+      7.730094626545906,
+      6.228638738393784,
+      5.915411174297333,
+      5.8148418217897415
+    ],
+    "validation_metrics": {
+      "hit@1": 0.01,
+      "hit@10": 0.09,
+      "hit@20": 0.11,
+      "hit@3": 0.03,
+      "hit@5": 0.08,
+      "hit@50": 0.16,
+      "ndcg@1": 0.01,
+      "ndcg@10": 0.0445387128708585,
+      "ndcg@20": 0.049887722575467947,
+      "ndcg@3": 0.021309297535714575,
+      "ndcg@5": 0.04152841291421869,
+      "ndcg@50": 0.05927209594253948
+    }
+  },
+  "physical_gpu": 7,
+  "return_code": 0,
+  "schema_version": "phase17.s17_2_probe_result.v1",
+  "sports_read": false,
+  "state": "COMPLETED",
+  "test_read": false,
+  "track_id": "E0",
+  "wall_seconds": 128.21222066693008,
+  "workload_pid": 2784700
+}

@@ -1,0 +1,209 @@
+{
+  "comparison": {
+    "cohorts": [
+      {
+        "cohort_id": "c0",
+        "control": {
+          "hit@10": 0.007,
+          "hit@20": 0.016,
+          "hit@5": 0.003,
+          "hit@50": 0.044,
+          "ndcg@10": 0.0030993789551459518,
+          "ndcg@20": 0.005279292912721465,
+          "ndcg@5": 0.0018927892607143726,
+          "ndcg@50": 0.010613022668647368
+        },
+        "delta": {
+          "hit@10": -0.006,
+          "hit@20": -0.009000000000000001,
+          "hit@5": -0.002,
+          "hit@50": -0.027999999999999997,
+          "ndcg@10": -0.0027125261479114104,
+          "ndcg@20": -0.0033545807150932947,
+          "ndcg@5": -0.001505936453479831,
+          "ndcg@50": -0.007001524379917978
+        },
+        "treatment": {
+          "hit@10": 0.001,
+          "hit@20": 0.007,
+          "hit@5": 0.001,
+          "hit@50": 0.016,
+          "ndcg@10": 0.0003868528072345416,
+          "ndcg@20": 0.00192471219762817,
+          "ndcg@5": 0.0003868528072345416,
+          "ndcg@50": 0.003611498288729391
+        },
+        "users": 1000
+      },
+      {
+        "cohort_id": "c1",
+        "control": {
+          "hit@10": 0.012,
+          "hit@20": 0.023,
+          "hit@5": 0.008,
+          "hit@50": 0.043,
+          "ndcg@10": 0.0049950692006116345,
+          "ndcg@20": 0.007854076361698794,
+          "ndcg@5": 0.0036711653511729645,
+          "ndcg@50": 0.011738688962980085
+        },
+        "delta": {
+          "hit@10": -0.009000000000000001,
+          "hit@20": -0.018,
+          "hit@5": -0.006,
+          "hit@50": -0.030999999999999996,
+          "ndcg@10": -0.003752009206269071,
+          "ndcg@20": -0.006112957918952398,
+          "ndcg@5": -0.0027843125439384227,
+          "ndcg@50": -0.008642474322918868
+        },
+        "treatment": {
+          "hit@10": 0.003,
+          "hit@20": 0.005,
+          "hit@5": 0.002,
+          "hit@50": 0.012,
+          "ndcg@10": 0.0012430599943425637,
+          "ndcg@20": 0.0017411184427463956,
+          "ndcg@5": 0.0008868528072345416,
+          "ndcg@50": 0.003096214640061218
+        },
+        "users": 1000
+      },
+      {
+        "cohort_id": "c2",
+        "control": {
+          "hit@10": 0.006,
+          "hit@20": 0.015,
+          "hit@5": 0.003,
+          "hit@50": 0.03,
+          "ndcg@10": 0.0024994693480818006,
+          "ndcg@20": 0.0047469541286542785,
+          "ndcg@5": 0.0015616063116448507,
+          "ndcg@50": 0.007682278883665493
+        },
+        "delta": {
+          "hit@10": -0.005,
+          "hit@20": -0.009999999999999998,
+          "hit@5": -0.003,
+          "hit@50": -0.020999999999999998,
+          "ndcg@10": -0.002184004471296072,
+          "ndcg@20": -0.003377980721560595,
+          "ndcg@5": -0.0015616063116448507,
+          "ndcg@50": -0.005534848113537086
+        },
+        "treatment": {
+          "hit@10": 0.001,
+          "hit@20": 0.005,
+          "hit@5": 0.0,
+          "hit@50": 0.009,
+          "ndcg@10": 0.00031546487678572877,
+          "ndcg@20": 0.0013689734070936833,
+          "ndcg@5": 0.0,
+          "ndcg@50": 0.0021474307701284064
+        },
+        "users": 1000
+      }
+    ],
+    "decision": "REJECT",
+    "family": "diffgrm",
+    "mechanism_failures": [],
+    "mechanism_metrics": {
+      "control_generation_seconds": 344.8892012592405,
+      "treatment_generation_seconds": 7.22575263492763,
+      "valid_item_rate": 1.0
+    },
+    "mechanism_pass": true,
+    "overall_paired_hit@10": {
+      "ci95_high": -0.0033333333333333335,
+      "ci95_low": -0.010333333333333333,
+      "delta": -0.006666666666666667,
+      "positive_user_fraction": 0.0013333333333333333,
+      "replicates": 1000,
+      "zero_user_fraction": 0.9906666666666667
+    },
+    "overall_paired_ndcg@10": {
+      "ci95_high": -0.0015003504899538619,
+      "ci95_low": -0.004284686533805993,
+      "delta": -0.0028828466084921843,
+      "positive_user_fraction": 0.0013333333333333333,
+      "replicates": 1000,
+      "zero_user_fraction": 0.9903333333333333
+    },
+    "positive_ndcg_cohorts": 0
+  },
+  "completed_at": "2026-08-30T15:28:06.578755+00:00",
+  "d1_read": false,
+  "device_name": "NVIDIA RTX A6000",
+  "external_evaluations": {
+    "diffgrm_ar_control": {
+      "diagnostics": {
+        "mean_digit_accuracy": 0.3785833333333333,
+        "mean_token_entropy": 2.341034600575765
+      },
+      "external_evaluation_count": 1,
+      "generation_seconds": 344.8892012592405,
+      "mean_unique_candidates": 50,
+      "multi_path_item_rate": 0.0,
+      "prediction_path": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_ar_control/external_predictions.jsonl",
+      "prediction_rows": 3000,
+      "prediction_sha256": "2d9f5d3b7a1052c27a425107423878bee3473945f8c03280b8fc803325eacfae",
+      "user_metrics_path": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_ar_control/external_user_metrics.json",
+      "user_metrics_sha256": "6d1c985a259131730c4783807b8e96718153471a1ad355f6c1234a2246e640dc",
+      "valid_item_rate": 1.0
+    },
+    "diffgrm_masked": {
+      "diagnostics": {
+        "mean_digit_accuracy": 0.3159166666666667,
+        "mean_token_entropy": 2.532789985656738
+      },
+      "external_evaluation_count": 1,
+      "generation_seconds": 7.22575263492763,
+      "mean_unique_candidates": 50,
+      "multi_path_item_rate": 0.0,
+      "prediction_path": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_masked/external_predictions.jsonl",
+      "prediction_rows": 3000,
+      "prediction_sha256": "527e677b13409e0cd6d756d1c8ac73d4fc31ea1381907e737a89ae7666eb352f",
+      "user_metrics_path": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_masked/external_user_metrics.json",
+      "user_metrics_sha256": "dfa09817f48ec4827c4ff324d5e087945e1b03dca49d274f8c49bf1d9f98cbd2",
+      "valid_item_rate": 1.0
+    }
+  },
+  "external_target_materialized_after_all_best_checkpoints": true,
+  "family": "diffgrm",
+  "formal_result_eligible": true,
+  "official_test_read": false,
+  "physical_gpu": 5,
+  "result_selection_eligible": true,
+  "schema_version": "phase17.s17_2r_r2_family_screen.v1",
+  "sports_read": false,
+  "training": {
+    "diffgrm_ar_control": {
+      "arm": "diffgrm_ar_control",
+      "best_epoch": 3,
+      "best_internal_ndcg@10": 0.006735904600184207,
+      "candidate_gradient_norm_max": 4.580683738765134,
+      "checkpoint": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_ar_control/best_checkpoint.pt",
+      "checkpoint_sha256": "7952dbbf21e093947f21d3595a0417b2a16862625884af9a3b09be50d850ebee",
+      "early_stop_triggered": true,
+      "epochs_completed": 5,
+      "external_target_read_during_checkpoint_selection": false,
+      "learning_curve": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_ar_control/learning_curve.json",
+      "peak_allocated_mib": 578.6376953125,
+      "training_wall_seconds": 289.44650229252875
+    },
+    "diffgrm_masked": {
+      "arm": "diffgrm_masked",
+      "best_epoch": 3,
+      "best_internal_ndcg@10": 0.0021509067114197002,
+      "candidate_gradient_norm_max": 5.072617231979572,
+      "checkpoint": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_masked/best_checkpoint.pt",
+      "checkpoint_sha256": "822922748196607d337a6c1bf5feeb7cfed712d576286235b7885470777618b4",
+      "early_stop_triggered": true,
+      "epochs_completed": 5,
+      "external_target_read_during_checkpoint_selection": false,
+      "learning_curve": "artifacts/phase17/s2r_r2/screen/run-0001/diffgrm/diffgrm_masked/learning_curve.json",
+      "peak_allocated_mib": 578.6376953125,
+      "training_wall_seconds": 121.84766782447696
+    }
+  }
+}

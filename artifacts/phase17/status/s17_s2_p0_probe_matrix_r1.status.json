@@ -1,0 +1,110 @@
+{
+  "affects_scientific_result": false,
+  "attempt_id": "run-0002",
+  "budget_path": "experiment/phase17/config/s17_s2_probe_budget.json",
+  "canonical_result_dir": "artifacts/phase17/s2_probe/run-0002",
+  "execution_state": "SCIENTIFIC_FAILED",
+  "experiment_id": "s17_s2_p0_probe_matrix_r1",
+  "gpu_ids": [
+    0
+  ],
+  "gpu_snapshot": {
+    "captured_at": "2026-08-29T06:33:59.736782+00:00",
+    "devices": [
+      {
+        "free_mib": 29918,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 18653,
+        "utilization_percent": 46
+      },
+      {
+        "free_mib": 17318,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 31252,
+        "utilization_percent": 100
+      },
+      {
+        "free_mib": 7401,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 41169,
+        "utilization_percent": 96
+      },
+      {
+        "free_mib": 8269,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 40302,
+        "utilization_percent": 28
+      },
+      {
+        "free_mib": 10182,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 38389,
+        "utilization_percent": 92
+      },
+      {
+        "free_mib": 24386,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 24185,
+        "utilization_percent": 86
+      },
+      {
+        "free_mib": 8600,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 39970,
+        "utilization_percent": 60
+      },
+      {
+        "free_mib": 21858,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 26713,
+        "utilization_percent": 67
+      }
+    ],
+    "selected_gpu": 0,
+    "selection_reason": "lowest-utilization eligible card at admission"
+  },
+  "heartbeat_at": "2026-08-29T06:34:29.517123+00:00",
+  "launcher_pid": 2510946,
+  "log_path": "artifacts/phase17/s2_probe/run-0002/portfolio.log",
+  "occupancy_mode": "none",
+  "predicted_peak_mib": 23000,
+  "process_alive": false,
+  "progress": {
+    "current": 14,
+    "total": 14
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "result_selection_eligible": false,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_s2_p0_probe_matrix_r1/run-0002/manifest.json",
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "FAILED",
+  "sports_read": false,
+  "stage": "shared_interface_failure",
+  "started_at": "2026-08-29T06:27:20.968705+00:00",
+  "status_code": "S17_2_SHARED_INTERFACE_FAILURE_ZERO_COMPLETED_PROBES",
+  "step_id": "S17-2",
+  "summary_path": "artifacts/phase17/s2_probe/run-0002/summary.json",
+  "test_read": false,
+  "tmux_session": "s17_s2_p0_probe_matrix_r1",
+  "track_id": null,
+  "updated_at": "2026-08-29T06:55:28.099025+00:00",
+  "usable_memory_ceiling_mib": 30720,
+  "workload_pid": 0
+}

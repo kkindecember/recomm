@@ -1,0 +1,118 @@
+{
+  "contract_path": "artifacts/phase17/s2r_preflight/r2_contract/manifest.json",
+  "contract_sha256": "6c5aece320bb645d6f0bbe721ea6297416f3616114ce6da4dc9666d59e365136",
+  "data": {
+    "evaluation_cohort_paths": [
+      "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c0_user_ids.txt",
+      "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c1_user_ids.txt",
+      "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/eval_cohort_c2_user_ids.txt"
+    ],
+    "external_cohort_evaluation_frequency": "once after best checkpoint is frozen",
+    "external_target": "shadow validation target",
+    "internal_early_stop_users": 300,
+    "internal_target": "last train-prefix item",
+    "internal_target_removed_from_supervised_examples_for_selected_user": true,
+    "item_text_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/item_plain_text.txt",
+    "sequence_path": "artifacts/phase17/s2r_preflight/data/Toys_s17_d0_3000/user_sequence.txt"
+  },
+  "dataset": "Toys_s17_d0_3000",
+  "families": {
+    "diffgrm": [
+      "diffgrm_ar_control",
+      "diffgrm_masked"
+    ],
+    "gryphon": [
+      "gryphon_item",
+      "same_checkpoint_beam_control"
+    ],
+    "latte": [
+      "psid_control",
+      "latte_full"
+    ],
+    "setrec": [
+      "setrec_ar_control",
+      "setrec_full"
+    ]
+  },
+  "forbidden_reads": {
+    "d1": true,
+    "official_test": true,
+    "sports": true
+  },
+  "formal_result_eligible": true,
+  "gate": "R2",
+  "mechanism_gates": {
+    "diffgrm": "valid_item_rate == 1 and masked generation latency < AR latency",
+    "gryphon": "candidate_sets_identical and mean_target_rank_gain > 0",
+    "latte": "multi_path_item_rate > 0 and valid_item_rate == 1",
+    "setrec": "valid_item_rate == 1 and simultaneous generation latency < AR latency and set_token_recovery > 0"
+  },
+  "optimization": {
+    "best_checkpoint_required": true,
+    "early_stop_min_delta_ndcg_at_10": 0.0001,
+    "early_stop_patience": 2,
+    "evaluation_batch_size": 16,
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.0005,
+    "maximum_epochs": 10,
+    "minimum_epochs": 3,
+    "num_beams": 50,
+    "parallel_capacity": "r2",
+    "same_seed_and_batch_order_within_family": true,
+    "semantic_capacity": "r2",
+    "top_k": 50,
+    "train_batch_size": 64
+  },
+  "parameter_counts": {
+    "diffgrm_ar_control": 8099440,
+    "diffgrm_masked": 8099440,
+    "gryphon_item": 5359104,
+    "latte_full": 5359104,
+    "psid_control": 5359104,
+    "setrec_ar_control": 8124304,
+    "setrec_full": 8124304
+  },
+  "prepared_at": "2026-08-30T13:59:12.238125+00:00",
+  "profile_required": true,
+  "promotion": {
+    "borderline_policy": "positive mean and valid mechanism may receive one preregistered diagnostic revision",
+    "mechanism_gate_required": true,
+    "minimum_mean_delta_hit_at_10": 0.0,
+    "minimum_mean_delta_ndcg_at_10": 0.0015,
+    "minimum_per_cohort_delta_hit_at_10": -0.002,
+    "minimum_positive_cohorts": 2,
+    "primary_metric": "ndcg@10"
+  },
+  "resources": {
+    "gpu1_excluded": true,
+    "gpu1_reserved_for_non_scientific_repeat": true,
+    "maximum_usable_memory_mib_per_job": 30720,
+    "one_family_per_gpu": true,
+    "profile_r2_capacity_before_full_screen": true
+  },
+  "schema_version": "phase17.s17_2r_r2_screen.v1",
+  "screen_gpu_started": false,
+  "seed": 2023,
+  "set_sid_path": "artifacts/phase17/s2r_preflight/sid/r2_cf32_bge_rq256x3_ci.json",
+  "set_sid_sha256": "4779936c4a5276290ce57c443bca96fa7790e05b97c32d151c49b539b1bb6d42",
+  "sid_path": "artifacts/phase17/s2r_preflight/sid/r2_bge_rq256x3_ci.json",
+  "sid_sha256": "c6ed8bbbf833223cac70db9d795a64e34a49aa606c5b35775f4bc03d2d15d562",
+  "step_id": "S17-2R",
+  "tokenizer": {
+    "collision_resolution": "append deterministic within-code ordinal suffix",
+    "semantic_codebook_size": 256,
+    "semantic_codebooks": 3,
+    "semantic_embedding_method": "BAAI/bge-large-en-v1.5_cls_l2",
+    "semantic_embedding_path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+    "semantic_embedding_sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262",
+    "semantic_quantizer_fit": "train-prefix catalog only",
+    "set_cf_codebook_size": 32,
+    "set_cf_quantizer_fit": "train-prefix transitions only"
+  },
+  "uncertainty": {
+    "confidence": 0.95,
+    "method": "paired_user_bootstrap",
+    "replicates": 1000,
+    "seed": 2023
+  }
+}

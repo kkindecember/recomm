@@ -1,0 +1,37 @@
+{
+  "dataset": "Toys_s17_d0_full",
+  "expected_users": 12833,
+  "files": [
+    {
+      "destination": "artifacts/phase17/s4_p1_targeted/run-0001/preflight/data/Toys_s17_d0_full/user_sequence.txt",
+      "sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+      "size_bytes": 1247396,
+      "source": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt"
+    },
+    {
+      "destination": "artifacts/phase17/s4_p1_targeted/run-0001/preflight/data/Toys_s17_d0_full/item_plain_text.txt",
+      "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+      "size_bytes": 7595045,
+      "source": "GRAM/rec_datasets/Toys/item_plain_text.txt"
+    },
+    {
+      "destination": "artifacts/phase17/s4_p1_targeted/run-0001/preflight/data/Toys_s17_d0_full/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+      "size_bytes": 643301,
+      "source": "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt"
+    },
+    {
+      "destination": "artifacts/phase17/s4_p1_targeted/run-0001/preflight/data/Toys_s17_d0_full/similar_item_sasrec.txt",
+      "sha256": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1",
+      "size_bytes": 2754562,
+      "source": "GRAM/rec_datasets/Toys/similar_item_sasrec.txt"
+    }
+  ],
+  "fold": "D0",
+  "official_test_position_serialized": false,
+  "official_validation_position_serialized": false,
+  "schema_version": "phase17.s17_4_d0_dataset.v1",
+  "source_shadow_manifest": "artifacts/phase17/s0_audit/shadow_data_manifest.json",
+  "source_shadow_manifest_sha256": "db8673822062534e58060c711116bfed7bdf552c3cbd7c1c7ca13ca25d594f95",
+  "sports_read": false
+}

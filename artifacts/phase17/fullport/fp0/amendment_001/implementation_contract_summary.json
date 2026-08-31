@@ -1,0 +1,49 @@
+{
+  "schema_version": "phase17.s17_fp0_implementation_contract_summary.v1",
+  "step_id": "S17-FP0",
+  "amendment_id": "amendment_001",
+  "generated_at": "2026-08-31T03:24:52+00:00",
+  "verdict": "PASS_S17_FP0_FOUNDATION_CONTRACTS",
+  "repo_paper_gap": {
+    "paper": "history tokens see themselves and prior item identifiers, but not other dimensions in the same identifier",
+    "public_t5_commit": "same-item tokens share position ids; encoder visibility is not explicitly masked",
+    "decision": "run repository-parity and paper-faithful arms separately"
+  },
+  "latte_contracts": [
+    "RQ-kmeans PSID collision reassignment without suffix",
+    "uniform random latent root per target exposure",
+    "latent-conditioned legal decoding forest",
+    "item-level agg_max and log-sum aggregation"
+  ],
+  "setrec_contracts": [
+    "repository shared-within-item position ids",
+    "paper-faithful sparse history visibility",
+    "independent decoder query mask",
+    "unified AE producing four continuous semantic tokens",
+    "per-dimension full-catalog grounding",
+    "dimension-wise CE plus alpha-weighted AE loss"
+  ],
+  "focused_tests": {
+    "passed": 9,
+    "failed": 0,
+    "wall_seconds": 0.193
+  },
+  "phase17_regression_tests": {
+    "passed": 149,
+    "failed": 0,
+    "wall_seconds": 29.127,
+    "exit_code": 0
+  },
+  "previous_manifest_hashes": {
+    "latte_fidelity_matrix": "14a1fa51cf098b19df034c29ce5f3aa093d02c6c91769b1a58a742d5e813a7cc",
+    "setrec_fidelity_matrix": "0ecc3781c75102deba50918f4fd63117abd3874291b510c82cad19faf2c0515a"
+  },
+  "effect_experiment_started": false,
+  "gpu_used": false,
+  "gpu1_touched": false,
+  "official_test_read": false,
+  "sports_read": false,
+  "d1_read": false,
+  "d2_read": false,
+  "next_gate": "S17-FP0-TOKENIZER-MODEL-INTEGRATION"
+}

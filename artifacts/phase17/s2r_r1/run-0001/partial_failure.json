@@ -1,0 +1,26 @@
+{
+  "schema_version": "phase17.s17_2r_r1_partial_failure.v1",
+  "attempt_id": "run-0001",
+  "observed_at": "2026-08-30T12:42:00+00:00",
+  "formal_result_eligible": false,
+  "completed_families": [
+    "latte",
+    "gryphon"
+  ],
+  "missing_families": [
+    "diffgrm",
+    "setrec"
+  ],
+  "failure_boundary": "both family directories were created, but no arm artifact or summary was written",
+  "root_cause": "UNKNOWN_STDERR_NOT_PERSISTED",
+  "post_failure_diagnostics": {
+    "r1_capacity_single_batch_forward_backward_on_gpu4": "PASS",
+    "r1_capacity_full_two_epoch_training_segment_on_gpu4": "PASS",
+    "r1_capacity_16_user_beam50_generation_on_gpu4": "PASS",
+    "snapshot_verification_after_failure": "PASS"
+  },
+  "recovery_policy": "isolated run-0002; only missing families; unchanged scientific configuration; persistent failure.json on exception",
+  "test_read": false,
+  "sports_read": false,
+  "d1_read": false
+}
