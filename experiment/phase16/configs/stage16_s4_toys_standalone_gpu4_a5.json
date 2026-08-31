@@ -1,0 +1,120 @@
+{
+  "schema_version": "stage16_s4_toys_standalone_v1",
+  "experiment_id": "GRAM_PHASE16_S4_TOYS_STANDALONE_FROZEN_VALIDATION",
+  "attempt_id": "s16_s4_toys_standalone_gpu4_a5",
+  "output_dir": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a5",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s4_toys_standalone_gpu4_a5.sh",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "split": "validation",
+  "physical_gpu": 4,
+  "visible_gpu": 0,
+  "formal_arms": [
+    "S-AUX",
+    "S-PLUS-CTRL",
+    "S-PLUS",
+    "G-RIDGE"
+  ],
+  "controls": {
+    "S-AUX": "F0",
+    "S-PLUS-CTRL": "F0",
+    "S-PLUS": "S-PLUS-CTRL",
+    "G-RIDGE": "F0"
+  },
+  "preflight": {
+    "config": {
+      "path": "experiment/phase16/configs/stage16_s4_toys_frozen_preflight.json",
+      "sha256": "4eef64c8c1d90b190b4437d0d9101bd05bb2d4cb51a40de73f43d6a6e650f4c6"
+    },
+    "status": {
+      "path": "artifacts/phase16/s4_toys_standalone/preflight/a1/status.json",
+      "sha256": "5fde9629d858a5e6aa8326f8b2d65b6f9cbcea0f47f07fd8a099c9e66cbcb129"
+    },
+    "summary": {
+      "path": "artifacts/phase16/s4_toys_standalone/preflight/a1/summary.json",
+      "sha256": "f888a34c836a7dad3a92b6a18588d51044de87f42cc4fb76e77713736b996625"
+    }
+  },
+  "validation_events": 8789,
+  "beam_size": 50,
+  "faithful_inference": {
+    "draft_size": {
+      "S-AUX": 50,
+      "S-PLUS": 20
+    },
+    "threshold": -1.8,
+    "acceptance": "strict_gt",
+    "guided_redraft": "current_live_verifier_beam_prefixes",
+    "candidate_chunk_size": 10,
+    "projection_dimension": 64,
+    "index_batch_size": 64,
+    "target_aware_prefix_length": {
+      "S-AUX": "max_2_and_longest_warm_prefix",
+      "S-PLUS": "max_path_length_minus_1_and_longest_warm_prefix"
+    },
+    "fallback": "official_rejected_plus_nonduplicated_live_verifier_beam",
+    "adaptive_exit": "accepted_at_least_50_or_maximum_lexical_depth",
+    "stage15_b2_reused_as_faithful": false
+  },
+  "statistics": {
+    "metrics": [
+      "hit@50",
+      "ndcg@10"
+    ],
+    "subsets": [
+      "overall",
+      "cold",
+      "warm"
+    ],
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_confidence": 0.95,
+    "paired_bootstrap_seed": 20260822,
+    "cold_signal": "correct_control_cold_hit50_paired_ci_low_gt_0",
+    "pareto": "cold_signal_and_not_strictly_dominated_by_R2_or_correct_control"
+  },
+  "control_cost": {
+    "source_summary_path": "artifacts/phase13/explore/v1_r2_toys_p0/summary.json",
+    "source_summary_sha256": "a8edaaaf70e7e82b10efa12cbc39213edd15e28a068b80bdd454c817b7ffd713",
+    "shared_f0_r2_source_runtime_seconds": 118.26354646682739,
+    "r2_state_path": "artifacts/phase13/explore/v1_r2_toys_p0/resolver.pt",
+    "r2_state_sha256": "f203044d56c32da03971b3ce18b17ae695ef1acff50ab059b1a0cb977428b96d",
+    "r2_extra_state_bytes": 4202331,
+    "comparability_note": "F0/R2 retain their shared frozen Phase13 source wall time; S16 methods report current isolated inference wall time, so cost dominance is conservative but not hardware-normalized."
+  },
+  "resources": {
+    "gpu_count": 1,
+    "minimum_free_mib": 19000,
+    "expected_peak_reserved_mib_upper_bound": 20000,
+    "bounded_smoke_events_per_arm": 1,
+    "per_arm_hard_timeout_seconds": 172800,
+    "formal_hard_timeout_seconds": 604800,
+    "disk_reservation_mib": 16384,
+    "heartbeat_seconds": 30,
+    "stall_advisory_seconds": 1800,
+    "existing_processes_modified": false
+  },
+  "runtime_isolation": {
+    "snapshot_root": ".runtime/phase16_s4_toys_gpu4_a5_runtime",
+    "source_runtime": ".runtime/phase16_s3r_gridge_f3_runtime",
+    "main_worktree_mutations_visible": false,
+    "shared_artifacts_read_only_by_contract": true
+  },
+  "post_terminal_repeat": {
+    "enabled_by_user": true,
+    "launch_only_after_formal_completed": true,
+    "physical_gpu": 4,
+    "discard_output": true,
+    "formal_output_read_only": true,
+    "affects_scientific_results": false,
+    "promotion_eligible": false,
+    "repeat_artifacts_saved": false,
+    "yield_to_new_gpu4_process": true,
+    "automatic_retry_of_formal": false,
+    "runtime_status_path": ".runtime/phase16_s4_gpu4_repeat/status.json"
+  },
+  "progress_interval_events": 16,
+  "validation_used_for_state_selection_or_tuning": false,
+  "scientific_efficacy_metric": true,
+  "test_read": false,
+  "automatic_retry": false
+}

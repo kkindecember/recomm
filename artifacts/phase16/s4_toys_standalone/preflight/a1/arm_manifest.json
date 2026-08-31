@@ -1,0 +1,51 @@
+{
+  "F0": {
+    "control": null,
+    "faithful_reproduction": null,
+    "ranking_source": "v0_top50",
+    "role": "frozen_base_control"
+  },
+  "G-RIDGE": {
+    "control": "F0",
+    "faithful_reproduction": false,
+    "inference": "standard_GRAM_beam_50_with_frozen_aggregate_deltas",
+    "role": "primary_genrecedit_inspired",
+    "solve_variant": "condition_targeted_spectral_ridge_v1"
+  },
+  "R2": {
+    "control": "F0",
+    "faithful_reproduction": null,
+    "ranking_source": "r2_top50",
+    "role": "frozen_strong_nonparametric_control"
+  },
+  "S-AUX": {
+    "acceptance": "strict_score_greater_than_threshold",
+    "control": "F0",
+    "draft_size": 50,
+    "drafter": "official_UniSRec",
+    "faithful_reproduction": true,
+    "fallback": "accepted_then_rejected_and_standard_verifier_beam",
+    "guided_redraft": "current_live_verifier_beam_prefixes",
+    "role": "primary_faithful_specgr",
+    "threshold": -1.8,
+    "verifier": "frozen_GRAM_F0"
+  },
+  "S-PLUS": {
+    "acceptance": "strict_score_greater_than_threshold",
+    "control": "S-PLUS-CTRL",
+    "draft_size": 20,
+    "drafter": "GRAM_self_drafter",
+    "faithful_reproduction": true,
+    "fallback": "accepted_then_rejected_and_standard_verifier_beam",
+    "guided_redraft": "current_live_verifier_beam_prefixes",
+    "role": "secondary_faithful_specgr_plus",
+    "threshold": -1.8,
+    "verifier": "jointly_trained_GRAM"
+  },
+  "S-PLUS-CTRL": {
+    "control": "F0",
+    "faithful_reproduction": false,
+    "inference": "standard_GRAM_beam_50",
+    "role": "matched_continued_training_control"
+  }
+}

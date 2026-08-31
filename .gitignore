@@ -100,6 +100,13 @@ artifacts/phase16/**/progress.json
 artifacts/phase16/**/armed.lock
 artifacts/phase16/**/preflight.log
 artifacts/phase16/**/gpu*_baseline_compute_pids.txt
+artifacts/phase16/**/formal_admission_summary.json
+
+# S16-4 formal roots copy the committed source config and immutable-runtime
+# manifest for local execution identity. The source configs/protocols and
+# compact terminal summaries remain eligible for Git.
+artifacts/phase16/s4_toys_standalone/formal/**/config.json
+artifacts/phase16/s4_toys_standalone/formal/**/runtime_snapshot_manifest.json
 
 # Stage16 non-promotional occupancy/repeat cycles are local runtime evidence.
 # Their formal parent contracts and summaries remain eligible for Git.

@@ -1,0 +1,239 @@
+{
+  "schema_version": "stage16_s4_toys_frozen_preflight_v1",
+  "experiment_id": "GRAM_PHASE16_S4_TOYS_FROZEN_PREFLIGHT",
+  "attempt_id": "s16_s4_toys_preflight_a1",
+  "output_dir": "artifacts/phase16/s4_toys_standalone/preflight/a1",
+  "seed": 1502,
+  "domain": "Toys_cold50",
+  "split": "validation",
+  "scope": "input, state, source-gate, arm, metric, and launch-contract freeze only; no efficacy metric",
+  "inputs": {
+    "projected_train_validation_sequences": {
+      "path": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Toys_cold50/user_sequence_train_validation.txt",
+      "sha256": "839ff2b3944b95b0d5fdb78e45660a21e026c04642159fee95ac9f504a1318b0"
+    },
+    "frozen_f0_r2_validation_predictions": {
+      "path": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl",
+      "sha256": "c8f29872f7490ca58ab6000001b92b76520cbe43de801b01112f0a45ed81ed51"
+    },
+    "frozen_f0_r2_summary": {
+      "path": "artifacts/phase13/explore/v1_r2_toys_p0/summary.json",
+      "sha256": "a8edaaaf70e7e82b10efa12cbc39213edd15e28a068b80bdd454c817b7ffd713"
+    },
+    "lexical_paths": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt",
+      "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e"
+    },
+    "item_metadata": {
+      "path": "GRAM/rec_datasets/Toys_cold50/item_plain_text.txt",
+      "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507"
+    },
+    "historical_similar_items_diagnostic_only": {
+      "path": "GRAM/rec_datasets/Toys_cold50/similar_item_sasrec.txt",
+      "sha256": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1"
+    },
+    "cold_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    },
+    "warm_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/warm_items.txt",
+      "sha256": "7041604505ea91abf3ab27dfa218d1e62b0ceea3e7aded5cf7926d46b72912e0"
+    },
+    "content_embeddings": {
+      "path": "artifacts/phase13/embeddings/Toys_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "e094f20a44e3f9a96d0c6597235dee23166202397979ea04fbb317471a6f1262"
+    },
+    "gram_config": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/config.json",
+      "sha256": "2a1c8a37e4f052595adab2702b9f3bbcf932a64ba06a38babb4a17290bda5303"
+    },
+    "gram_f0_checkpoint": {
+      "path": "artifacts/phase13/explore/v0_toys/gram_logs/Toys_cold50/0_20260808_2256/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "sha256": "d71fcf5a09057a6cda22d1f682b036b9174742d3c78a92a52ec0921dd3048550"
+    },
+    "saux_summary": {
+      "path": "artifacts/phase16/s2_saux_formal/toys_seed1502_a2/summary.json",
+      "sha256": "fa38dfe4bc45e36bbe0e1c9734f70124a4793bb57e823330f152e0de662ed2f1"
+    },
+    "saux_status": {
+      "path": "artifacts/phase16/s2_saux_formal/toys_seed1502_a2/status.json",
+      "sha256": "a9b4da7ec7c54db8252f03a4899cbcc5e508b6603e81537fadc0f9654618252a"
+    },
+    "saux_artifact_contract": {
+      "path": "artifacts/phase16/s2_saux_formal/toys_seed1502_a2/artifact_contract.json",
+      "sha256": "b1a3bac964fb9feef62c009bd4d2ee48e2f38973e2f4decd59776faa641fd197"
+    },
+    "saux_checkpoint": {
+      "path": "artifacts/phase16/s2_saux_formal/toys_seed1502_a2/checkpoints/best_model.pt",
+      "sha256": "1d748be69f115ca3659f6a283a8dd556e0544227b0d926029056a63d63bb218f"
+    },
+    "splus_ctrl_pair_summary": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair_a2/summary.json",
+      "sha256": "4ec6c279ae015ec17260c90a235063e12ab29ebb55d1bc52072717b84adb143f"
+    },
+    "splus_ctrl_pair_status": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair_a2/status.json",
+      "sha256": "9578c125d09de1241e982b0774c402c20de2d4f63b4a2f0acd3a26d50b5f3dac"
+    },
+    "splus_ctrl_pair_artifact_contract": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_gpu7_a4_split_pair_a2/artifact_contract.json",
+      "sha256": "f863d4a509c602e9f224cf97e3ba462c4517e132f9ffbc2a087781cffacdc831"
+    },
+    "splus_summary": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/arms/S-PLUS/summary.json",
+      "sha256": "2a14c71525f8dbb9f77fcdc2697b60a20bb645c811349b026c40e689bfdfecb1"
+    },
+    "splus_checkpoint": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu5_a3_accel_fp32/arms/S-PLUS/checkpoints/finetune/final_model.pt",
+      "sha256": "80e72edbb4fca4fa142947f035630af997c935b7c9d4b4e7f07bdd40e530b7fb"
+    },
+    "splus_ctrl_summary": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32/arms/S-PLUS-CTRL/summary.json",
+      "sha256": "7d5458bf6ab67f6f0aafcfa8db1c4b9bc759b9705bf5646c936095800266555d"
+    },
+    "splus_ctrl_checkpoint": {
+      "path": "artifacts/phase16/s2_splus_ctrl_formal/toys_seed1502_gpu7_a4_ctrl_split_fp32/arms/S-PLUS-CTRL/checkpoints/finetune/final_model.pt",
+      "sha256": "81914f2818ea7f163d18d8ed2ebc4ba19c9a66907ee9ff22608b431b16b7c347"
+    },
+    "gridge_status": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f3/status.json",
+      "sha256": "bfd304c522a81d6a811aca4c8fcd7ea73fe9e5f76160e7a8d11f1a6ad63f5920"
+    },
+    "gridge_formal_summary": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f3/formal_admission_summary.json",
+      "sha256": "5d2cfe96608e484e66c08be2a41581512ee183fb14a1bb1a3c0dae70db1f5e49"
+    },
+    "gridge_checkpoint_manifest": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f3/checkpoints/manifest.json",
+      "sha256": "cc804aeb5733eb41704ba4d457dc471d056b455f010bc755b37b32cf8a0b7329"
+    },
+    "gridge_aggregate_deltas": {
+      "path": "artifacts/phase16/s3_genrecedit/inspired_ridge/admission/toys_seed1502_gpu5_f3/checkpoints/aggregate_deltas.pt",
+      "sha256": "36d30d03afcacdd9affe13cfc591fbc8682a657bb1e5d37ccf87ce2675b0ea04"
+    },
+    "t5_config": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/config.json",
+      "sha256": "4e1e11591a7d9559328e1e5d2f5cfad32d807a8dc0a842ff83c6c641719ec69b"
+    },
+    "t5_generation_config": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/generation_config.json",
+      "sha256": "26ebd6030f82628a145fa6275301f48c650579df95107dd151358f2a306b2173"
+    },
+    "t5_model": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/pytorch_model.bin",
+      "sha256": "7cc541f7d54c29243b22f46a861e1834a7b4ed4ea9ad81d7f45bc088ed938002"
+    },
+    "t5_special_tokens": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/special_tokens_map.json",
+      "sha256": "5c87151ef0f72a99d1f766a4c418bd2a1f90aaa30a8e22fe5eca9641daebb64f"
+    },
+    "t5_tokenizer": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/tokenizer.json",
+      "sha256": "5f0ed8ab5b8cfa9812bb73752f1d80c292e52bcf5a87a144dc9ab2d251056cbb"
+    },
+    "t5_tokenizer_config": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/tokenizer_config.json",
+      "sha256": "9ad52682fa6eeb66766bb74df1fb8b8da9c784e7d3a4fe91261830955ec2cc15"
+    }
+  },
+  "expected_universe": {
+    "validation_events": 8789,
+    "cold_validation_events": 4367,
+    "warm_validation_events": 4422,
+    "catalog_items": 11924,
+    "cold_catalog_items": 5963,
+    "warm_catalog_items": 5961,
+    "ranking_size": 50
+  },
+  "arms": {
+    "F0": {
+      "role": "frozen_base_control",
+      "ranking_source": "v0_top50",
+      "control": null,
+      "faithful_reproduction": null
+    },
+    "R2": {
+      "role": "frozen_strong_nonparametric_control",
+      "ranking_source": "r2_top50",
+      "control": "F0",
+      "faithful_reproduction": null
+    },
+    "S-AUX": {
+      "role": "primary_faithful_specgr",
+      "control": "F0",
+      "faithful_reproduction": true,
+      "drafter": "official_UniSRec",
+      "verifier": "frozen_GRAM_F0",
+      "draft_size": 50,
+      "acceptance": "strict_score_greater_than_threshold",
+      "threshold": -1.8,
+      "guided_redraft": "current_live_verifier_beam_prefixes",
+      "fallback": "accepted_then_rejected_and_standard_verifier_beam"
+    },
+    "S-PLUS-CTRL": {
+      "role": "matched_continued_training_control",
+      "control": "F0",
+      "faithful_reproduction": false,
+      "inference": "standard_GRAM_beam_50"
+    },
+    "S-PLUS": {
+      "role": "secondary_faithful_specgr_plus",
+      "control": "S-PLUS-CTRL",
+      "faithful_reproduction": true,
+      "drafter": "GRAM_self_drafter",
+      "verifier": "jointly_trained_GRAM",
+      "draft_size": 20,
+      "acceptance": "strict_score_greater_than_threshold",
+      "threshold": -1.8,
+      "guided_redraft": "current_live_verifier_beam_prefixes",
+      "fallback": "accepted_then_rejected_and_standard_verifier_beam"
+    },
+    "G-RIDGE": {
+      "role": "primary_genrecedit_inspired",
+      "control": "F0",
+      "faithful_reproduction": false,
+      "inference": "standard_GRAM_beam_50_with_frozen_aggregate_deltas",
+      "solve_variant": "condition_targeted_spectral_ridge_v1"
+    }
+  },
+  "excluded_arms": {
+    "G-FULL": "faithful no-ridge contract/admission did not pass",
+    "Stage15-B2": "lightweight pilot only; not a faithful SpecGR arm",
+    "Stage15-B3": "budgeted mechanism pilot only; not G-RIDGE"
+  },
+  "evaluation_contract": {
+    "beam_size": 50,
+    "metrics": ["hit@50", "ndcg@10"],
+    "subsets": ["overall", "cold", "warm"],
+    "primary_benefit": "cold_hit@50",
+    "warm_safety": "warm_ndcg@10",
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_confidence": 0.95,
+    "paired_bootstrap_seed": 20260822,
+    "gate_cold_signal": "paired_bootstrap_95pct_ci_low_of_cold_hit50_gain_gt_0",
+    "gate_pareto": "cold_signal_and_not_strictly_dominated_by_R2_or_correct_control_on_cold_hit50,warm_ndcg10,update_cost,inference_cost,extra_state",
+    "report_costs": ["update_seconds", "inference_seconds", "peak_cuda_reserved_mib", "extra_state_bytes"],
+    "report_mechanisms": ["candidate_reachability", "acceptance", "redraft", "edit_coverage"],
+    "validation_may_not_change_method_or_threshold": true,
+    "test_read": false
+  },
+  "launch_contract": {
+    "gpu_launch_ready_after_this_preflight": false,
+    "remaining_requirements": [
+      "isolated immutable runtime",
+      "unified faithful evaluator implementation",
+      "targeted and full Stage16 CPU tests",
+      "evaluator code SHA freeze",
+      "resource admission and exact GPU command",
+      "explicit user confirmation before GPU launch"
+    ],
+    "minimum_free_mib": 24576,
+    "expected_peak_reserved_mib_upper_bound": 20000,
+    "gpu_count": 1,
+    "hard_timeout_seconds": 172800,
+    "disk_reservation_mib": 16384,
+    "automatic_retry": false,
+    "test_read": false
+  }
+}

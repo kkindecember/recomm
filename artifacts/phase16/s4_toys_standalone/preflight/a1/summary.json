@@ -1,0 +1,55 @@
+{
+  "arms": [
+    "F0",
+    "R2",
+    "S-AUX",
+    "S-PLUS-CTRL",
+    "S-PLUS",
+    "G-RIDGE"
+  ],
+  "attempt_id": "s16_s4_toys_preflight_a1",
+  "config_sha256": "4eef64c8c1d90b190b4437d0d9101bd05bb2d4cb51a40de73f43d6a6e650f4c6",
+  "excluded_arms": {
+    "G-FULL": "faithful no-ridge contract/admission did not pass",
+    "Stage15-B2": "lightweight pilot only; not a faithful SpecGR arm",
+    "Stage15-B3": "budgeted mechanism pilot only; not G-RIDGE"
+  },
+  "experiment_id": "GRAM_PHASE16_S4_TOYS_FROZEN_PREFLIGHT",
+  "generated_at_utc": "2026-08-31T02:16:31.215617+00:00",
+  "gpu_launch_ready": false,
+  "gpu_used": false,
+  "launch_gate": "LOCKED_PENDING_ISOLATED_EVALUATOR_CODE_AND_USER_GPU_CONFIRMATION",
+  "remaining_requirements": [
+    "isolated immutable runtime",
+    "unified faithful evaluator implementation",
+    "targeted and full Stage16 CPU tests",
+    "evaluator code SHA freeze",
+    "resource admission and exact GPU command",
+    "explicit user confirmation before GPU launch"
+  ],
+  "schema_version": "stage16_s4_toys_frozen_preflight_v1",
+  "scientific_efficacy_metric_produced": false,
+  "source_gates": {
+    "G-RIDGE": "PASS_S16_3R_GRIDGE_CONTRACT_ADMISSION",
+    "S-AUX": "PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION",
+    "S-PLUS": "PASS_S16_2_SPLUS_FAITHFUL_CONTRACT_ADMISSION",
+    "S-PLUS-CTRL": "PASS_S16_2_SPLUS_CTRL_MATCHED_FORMAL_EXECUTION",
+    "all_source_tests_sealed": true,
+    "all_source_validation_unused": true
+  },
+  "status": "completed",
+  "strict_specgr_contract_frozen": true,
+  "test_read": false,
+  "universe": {
+    "catalog_items": 11924,
+    "cold_catalog_items": 5963,
+    "cold_validation_events": 4367,
+    "ranking_size": 50,
+    "validation_events": 8789,
+    "warm_catalog_items": 5961,
+    "warm_validation_events": 4422
+  },
+  "validation_efficacy_metric_produced": false,
+  "validation_identity_opened": true,
+  "verdict": "PASS_S16_4_TOYS_INPUT_STATE_GATE_FREEZE"
+}
