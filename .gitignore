@@ -149,6 +149,11 @@ artifacts/phase17/s2r_preflight/sid/
 artifacts/phase17/**/*_user_ids.txt
 artifacts/phase17/fullport/fp0/tokenizer_profile/**/sample.json
 
+# Active post-success occupancy status is machine-local; canonical formal
+# results and attempt ledgers are committed separately.
+artifacts/phase17/status/phase17.index.json
+artifacts/phase17/status/s17_s4_p1_targeted_d0_seed2023.status.json
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt
