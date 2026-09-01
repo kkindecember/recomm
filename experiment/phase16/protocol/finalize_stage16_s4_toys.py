@@ -7,6 +7,7 @@ import argparse
 import json
 import math
 import os
+import re
 from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -98,6 +99,72 @@ def paired_bootstrap(
     }
 
 
+def exact_paired_binary_greater(
+    events: Sequence[Mapping[str, Any]],
+    treatment: str,
+    control: str,
+    *,
+    subset: str = "cold",
+) -> dict[str, Any]:
+    """One-sided exact McNemar test for paired binary hit@50 outcomes."""
+
+    selected = [
+        row
+        for row in events
+        if subset == "overall" or bool(row["is_cold"]) == (subset == "cold")
+    ]
+    treatment_only = sum(
+        row["metrics"][treatment]["hit@50"] == 1
+        and row["metrics"][control]["hit@50"] == 0
+        for row in selected
+    )
+    control_only = sum(
+        row["metrics"][treatment]["hit@50"] == 0
+        and row["metrics"][control]["hit@50"] == 1
+        for row in selected
+    )
+    discordant = treatment_only + control_only
+    if discordant == 0:
+        p_value = 1.0
+    else:
+        numerator = sum(
+            math.comb(discordant, successes)
+            for successes in range(treatment_only, discordant + 1)
+        )
+        p_value = float(numerator / (1 << discordant))
+    return {
+        "events": len(selected),
+        "treatment_only_hits": int(treatment_only),
+        "control_only_hits": int(control_only),
+        "discordant_pairs": int(discordant),
+        "alternative": "treatment_greater_than_control",
+        "raw_p_value": p_value,
+    }
+
+
+def holm_adjust(p_values: Mapping[str, float], *, alpha: float) -> dict[str, dict[str, Any]]:
+    """Return monotone Holm-adjusted p-values for one frozen comparison family."""
+
+    if not p_values or not 0.0 < alpha < 1.0:
+        raise ValueError("Holm adjustment requires p-values and alpha in (0, 1)")
+    if any(not math.isfinite(float(value)) or not 0.0 <= float(value) <= 1.0 for value in p_values.values()):
+        raise ValueError("Holm adjustment received an invalid p-value")
+    ordered = sorted(p_values, key=lambda key: (float(p_values[key]), key))
+    family_size = len(ordered)
+    running = 0.0
+    adjusted: dict[str, dict[str, Any]] = {}
+    for rank, key in enumerate(ordered, 1):
+        multiplier = family_size - rank + 1
+        running = max(running, min(1.0, multiplier * float(p_values[key])))
+        adjusted[key] = {
+            "family_rank": rank,
+            "raw_p_value": float(p_values[key]),
+            "holm_adjusted_p_value": running,
+            "reject_at_alpha": running < alpha,
+        }
+    return adjusted
+
+
 def strictly_dominates(left: Mapping[str, float], right: Mapping[str, float]) -> bool:
     benefits = ("cold_hit@50", "warm_ndcg@10")
     costs = ("update_seconds", "inference_seconds", "extra_state_bytes")
@@ -110,6 +177,56 @@ def strictly_dominates(left: Mapping[str, float], right: Mapping[str, float]) ->
     return weak and strict
 
 
+def verify_formal_runtime_identity(
+    config_path: Path,
+    config: Mapping[str, Any],
+    output: Path,
+) -> tuple[Path, dict[str, Any]]:
+    """Verify an immutable S16-4 runtime without hard-coding one attempt name."""
+
+    frozen_config_path = output / "config.json"
+    runtime_manifest_path = output / "runtime_snapshot_manifest.json"
+    if frozen_config_path.is_symlink() or not frozen_config_path.is_file():
+        raise ValueError("Missing formal-root frozen config")
+    if runtime_manifest_path.is_symlink() or not runtime_manifest_path.is_file():
+        raise ValueError("Missing formal-root isolated-runtime manifest")
+    config_sha = sha256_file(config_path)
+    if sha256_file(frozen_config_path) != config_sha:
+        raise ValueError("Formal-root config differs from the executed config")
+
+    runtime_manifest = load_json(runtime_manifest_path)
+    schema = runtime_manifest.get("schema_version")
+    snapshot_relative = config.get("runtime_isolation", {}).get("snapshot_root")
+    if not isinstance(snapshot_relative, str):
+        raise ValueError("S16-4 runtime snapshot root is not frozen")
+    snapshot_root = (ROOT / snapshot_relative).resolve()
+    if (
+        not isinstance(schema, str)
+        or re.fullmatch(r"stage16_s4_toys_[a-z0-9_]+_isolated_runtime_v1", schema) is None
+        or runtime_manifest.get("config_sha256") != config_sha
+        or Path(str(runtime_manifest.get("snapshot_root"))).resolve() != snapshot_root
+        or Path(str(runtime_manifest.get("source_repository_root"))).resolve() != ROOT.resolve()
+        or runtime_manifest.get("formal_output_write_scope") != config.get("output_dir")
+        or runtime_manifest.get("main_worktree_mutations_visible") is not False
+    ):
+        raise ValueError("Formal-root isolated-runtime identity drift")
+
+    code_sha = runtime_manifest.get("code_sha256")
+    if not isinstance(code_sha, dict) or not code_sha:
+        raise ValueError("Formal-root isolated-runtime code manifest is empty")
+    for relative, expected in code_sha.items():
+        path = snapshot_root / relative
+        if (
+            not isinstance(relative, str)
+            or not isinstance(expected, str)
+            or path.is_symlink()
+            or not path.is_file()
+            or sha256_file(path) != expected
+        ):
+            raise ValueError(f"Formal-root isolated-runtime code drift: {relative}")
+    return runtime_manifest_path, runtime_manifest
+
+
 def run(config_path: Path) -> dict[str, Any]:
     config = load_json(config_path)
     if config.get("schema_version") != "stage16_s4_toys_standalone_v1":
@@ -118,21 +235,9 @@ def run(config_path: Path) -> dict[str, Any]:
     summary_path = output / "summary.json"
     if summary_path.exists():
         raise FileExistsError("Refusing to overwrite completed S16-4 summary")
-    frozen_config_path = output / "config.json"
-    runtime_manifest_path = output / "runtime_snapshot_manifest.json"
-    if frozen_config_path.is_symlink() or not frozen_config_path.is_file():
-        raise ValueError("Missing formal-root frozen config")
-    if runtime_manifest_path.is_symlink() or not runtime_manifest_path.is_file():
-        raise ValueError("Missing formal-root isolated-runtime manifest")
-    if sha256_file(frozen_config_path) != sha256_file(config_path):
-        raise ValueError("Formal-root config differs from the executed config")
-    runtime_manifest = load_json(runtime_manifest_path)
-    if (
-        runtime_manifest.get("schema_version")
-        != "stage16_s4_toys_gpu0_a3_isolated_runtime_v1"
-        or runtime_manifest.get("config_sha256") != sha256_file(config_path)
-    ):
-        raise ValueError("Formal-root isolated-runtime identity drift")
+    runtime_manifest_path, runtime_manifest = verify_formal_runtime_identity(
+        config_path, config, output
+    )
 
     parent_path = verify_regular(ROOT, config["preflight"]["config"], "preflight_config")
     parent = load_json(parent_path)
@@ -232,6 +337,27 @@ def run(config_path: Path) -> dict[str, Any]:
             )
             seed_offset += 1
 
+    alpha = float(config["statistics"].get("familywise_alpha", 0.05))
+    primary_tests = {
+        arm: exact_paired_binary_greater(events, arm, EXPECTED_CONTROLS[arm])
+        for arm in FORMAL_ARMS
+    }
+    holm = holm_adjust(
+        {arm: test["raw_p_value"] for arm, test in primary_tests.items()},
+        alpha=alpha,
+    )
+    for arm in FORMAL_ARMS:
+        primary_tests[arm].update(holm[arm])
+    multiplicity = {
+        "method": "Holm",
+        "family": "four frozen formal-arm cold hit@50 comparisons against each correct control",
+        "family_size": len(FORMAL_ARMS),
+        "alpha": alpha,
+        "test": "one-sided exact McNemar on paired event hit@50",
+        "raw_bootstrap_ci_reported_separately": True,
+        "primary_tests": primary_tests,
+    }
+
     source_summaries = {
         "S-AUX": load_json(verify_regular(ROOT, parent["inputs"]["saux_summary"], "saux_summary")),
         "S-PLUS": load_json(verify_regular(ROOT, parent["inputs"]["splus_summary"], "splus_summary")),
@@ -279,7 +405,8 @@ def run(config_path: Path) -> dict[str, Any]:
     for arm in FORMAL_ARMS:
         control = EXPECTED_CONTROLS[arm]
         cold_interval = comparisons[f"{arm}_vs_{control}"]["cold_hit@50"]
-        cold_signal = cold_interval["ci_low"] > 0
+        corrected_test = primary_tests[arm]
+        cold_signal = cold_interval["ci_low"] > 0 and corrected_test["reject_at_alpha"]
         dominators = [
             comparator
             for comparator in dict.fromkeys((control, "R2"))
@@ -296,6 +423,7 @@ def run(config_path: Path) -> dict[str, Any]:
             "correct_control": control,
             "cold_signal": cold_signal,
             "cold_gain_interval": cold_interval,
+            "multiplicity_corrected_test": corrected_test,
             "strict_dominators": dominators,
             "vector": vectors[arm],
         }
@@ -309,6 +437,7 @@ def run(config_path: Path) -> dict[str, Any]:
         "events": len(events),
         "metrics": metrics,
         "paired_bootstrap": comparisons,
+        "multiplicity": multiplicity,
         "standalone_gates": gates,
         "costs": costs,
         "cost_comparability_note": control_cost["comparability_note"],

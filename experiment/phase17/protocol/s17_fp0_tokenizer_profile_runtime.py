@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded non-GPU1 SentenceT5 tokenizer profile for Stage17 FP0."""
+"""Bounded researcher-authorized GPU0 SentenceT5 tokenizer profile for Stage17 FP0."""
 
 from __future__ import annotations
 
@@ -31,12 +31,14 @@ from experiment.phase17.core.status_writer import AttemptLedger, StatusWriter, a
 ROOT = Path(__file__).resolve().parents[3]
 LAUNCH_PYTHON = Path("/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python")
 EXPERIMENT_ID = "s17_fp0_tokenizer_bounded_profile"
-ATTEMPT_ID = "attempt_005"
-PRIOR_ATTEMPT_ID = "attempt_004"
+ATTEMPT_ID = "attempt_010"
+PRIOR_ATTEMPT_ID = "attempt_009"
 STEP_ID = "S17-FP0-TOKENIZER-PROFILE"
 TMUX_SESSION = EXPERIMENT_ID
 DEPENDENCY_EXPERIMENT_ID = "s17_fp0_sentence_t5_cache"
 DEPENDENCY_PASS_CODE = "PASS_S17_FP0_SENTENCE_T5_CACHE_READY"
+ENV_DEPENDENCY_EXPERIMENT_ID = "s17_fp0_cuda_compat_env"
+ENV_DEPENDENCY_PASS_CODE = "PASS_S17_FP0_CUDA_COMPAT_ENV_READY"
 MODEL_REVISION = "fc5d4628481afbbaaacd7af6bb07cf9d3865f781"
 SAMPLE_SIZE = 512
 BATCH_SIZE = 32
@@ -46,8 +48,21 @@ SAFETY_MARGIN_MIB = 4096
 MAX_GPU_UTILIZATION_PERCENT = 5
 PROFILE_TIMEOUT_SECONDS = 600
 DEPENDENCY_WAIT_TIMEOUT_SECONDS = 21600
+GPU_ADMISSION_WAIT_TIMEOUT_SECONDS = 21600
+GPU_ADMISSION_POLL_SECONDS = 60
 HEARTBEAT_SECONDS = 30
 RESERVED_GPU_ID = 1
+TARGET_GPU_ID = 0
+GPU1_SHARED_AUTHORIZATION = (
+    "researcher_confirmed_2026-08-31_attempt004_smoke_and_attempt009_headroom_wait"
+)
+GPU0_SHARED_AUTHORIZATION = "researcher_directed_2026-08-31_attempt010_use_gpu0"
+GPU_QUERY_ATTEMPTS = 3
+GPU_QUERY_RETRY_SECONDS = 2
+
+
+class DependencyBlockedError(RuntimeError):
+    """A prerequisite is blocked, so this attempt must also be BLOCKED, not FAILED."""
 
 
 def paths(root: Path) -> dict[str, Path]:
@@ -60,9 +75,12 @@ def paths(root: Path) -> dict[str, Path]:
         "log": result / "run.log",
         "model": root
         / f"artifacts/phase17/fullport/models/sentence-t5-base_{MODEL_REVISION}",
-        "native_env": root / "artifacts/phase17/fullport/envs/latte_05e4e6d98322",
+        "native_env": root
+        / "artifacts/phase17/fullport/envs/latte_05e4e6d98322_torch_2_7_1_cu126",
         "dependency_status": root
         / f"artifacts/phase17/status/{DEPENDENCY_EXPERIMENT_ID}.status.json",
+        "env_dependency_status": root
+        / f"artifacts/phase17/status/{ENV_DEPENDENCY_EXPERIMENT_ID}.status.json",
         "status_dir": root / "artifacts/phase17/status",
         "ledger": root / "artifacts/phase17/attempts/S17-FP0-TOKENIZER-PROFILE.attempts.jsonl",
         "snapshot": root / f"artifacts/phase17/snapshots/{EXPERIMENT_ID}/{ATTEMPT_ID}/manifest.json",
@@ -125,6 +143,19 @@ def query_compute_processes() -> dict[int, list[dict[str, Any]]]:
     return processes
 
 
+def query_gpu_state_with_retries() -> tuple[list[Any], dict[int, list[dict[str, Any]]]]:
+    """Retry transient read-only NVML/nvidia-smi failures without retrying the profile."""
+    errors: list[str] = []
+    for attempt in range(1, GPU_QUERY_ATTEMPTS + 1):
+        try:
+            return query_gpus(), query_compute_processes()
+        except (OSError, subprocess.SubprocessError) as error:
+            errors.append(f"attempt_{attempt}={error!r}")
+            if attempt < GPU_QUERY_ATTEMPTS:
+                time.sleep(GPU_QUERY_RETRY_SECONDS)
+    raise RuntimeError("GPU state query failed after bounded read retries: " + "; ".join(errors))
+
+
 def choose_safe_non_gpu1(
     gpu_records: list[Any], compute_processes: dict[int, list[dict[str, Any]]]
 ) -> Any | None:
@@ -140,6 +171,33 @@ def choose_safe_non_gpu1(
     if not eligible:
         return None
     return min(eligible, key=lambda row: (row.utilization_percent, -row.free_mib, row.index))
+
+
+def choose_authorized_shared_gpu1(
+    gpu_records: list[Any], compute_processes: dict[int, list[dict[str, Any]]]
+) -> tuple[Any | None, str]:
+    """Admit GPU1 only when its existing workload is present and headroom is sufficient."""
+    matches = [row for row in gpu_records if row.index == RESERVED_GPU_ID]
+    if len(matches) != 1:
+        return None, "BLOCKED_GPU1_NOT_VISIBLE"
+    if not compute_processes.get(RESERVED_GPU_ID, []):
+        return None, "BLOCKED_GPU1_REPEAT_NOT_PRESENT"
+    needed = EXPECTED_PEAK_MIB + SAFETY_MARGIN_MIB
+    if matches[0].free_mib < needed:
+        return None, "BLOCKED_GPU1_SHARED_HEADROOM_INSUFFICIENT"
+    return matches[0], "GPU1_SHARED_AUTHORIZED_WITH_EXISTING_REPEAT_AND_MEMORY_MARGIN"
+
+
+def choose_authorized_shared_gpu0(gpu_records: list[Any]) -> tuple[Any | None, str]:
+    """Admit only researcher-selected GPU0 when bounded-profile headroom is sufficient."""
+
+    matches = [row for row in gpu_records if row.index == TARGET_GPU_ID]
+    if len(matches) != 1:
+        return None, "BLOCKED_GPU0_NOT_VISIBLE"
+    needed = EXPECTED_PEAK_MIB + SAFETY_MARGIN_MIB
+    if matches[0].free_mib < needed:
+        return None, "BLOCKED_GPU0_SHARED_HEADROOM_INSUFFICIENT"
+    return matches[0], "GPU0_SHARED_AUTHORIZED_WITH_MEMORY_MARGIN"
 
 
 def controlled_environment(root: Path, gpu_id: int) -> dict[str, str]:
@@ -207,24 +265,36 @@ def terminate_exact_process_group(process: subprocess.Popen[Any]) -> None:
         process.wait(timeout=30)
 
 
-def wait_for_dependency(writer: StatusWriter, resolved: dict[str, Path]) -> dict[str, Any]:
+def wait_for_dependency(
+    writer: StatusWriter,
+    status_path: Path,
+    *,
+    pass_code: str,
+    label: str,
+) -> dict[str, Any]:
     started = time.monotonic()
     while True:
-        dependency = json.loads(resolved["dependency_status"].read_text(encoding="utf-8"))
+        dependency = json.loads(status_path.read_text(encoding="utf-8"))
         if dependency["scientific_state"] == "COMPLETED":
-            if dependency["status_code"] != DEPENDENCY_PASS_CODE:
-                raise RuntimeError(f"SentenceT5 dependency completed without PASS: {dependency['status_code']}")
+            if dependency["status_code"] != pass_code:
+                raise RuntimeError(
+                    f"{label} dependency completed without PASS: {dependency['status_code']}"
+                )
             return dependency
-        if dependency["scientific_state"] in {"FAILED", "STOPPED", "BLOCKED"}:
+        if dependency["scientific_state"] == "BLOCKED":
+            raise DependencyBlockedError(
+                f"{label} dependency terminal: BLOCKED {dependency['status_code']}"
+            )
+        if dependency["scientific_state"] in {"FAILED", "STOPPED"}:
             raise RuntimeError(
-                f"SentenceT5 dependency terminal: {dependency['scientific_state']} "
+                f"{label} dependency terminal: {dependency['scientific_state']} "
                 f"{dependency['status_code']}"
             )
         elapsed = time.monotonic() - started
         if elapsed > DEPENDENCY_WAIT_TIMEOUT_SECONDS:
-            raise TimeoutError("timed out waiting for the SentenceT5 cache")
+            raise TimeoutError(f"timed out waiting for {label}")
         writer.heartbeat(
-            stage="waiting_for_sentence_t5_cache",
+            stage=f"waiting_for_{label.lower().replace(' ', '_')}",
             progress={
                 "current": min(int(elapsed), DEPENDENCY_WAIT_TIMEOUT_SECONDS),
                 "total": DEPENDENCY_WAIT_TIMEOUT_SECONDS,
@@ -232,6 +302,60 @@ def wait_for_dependency(writer: StatusWriter, resolved: dict[str, Path]) -> dict
             },
         )
         time.sleep(60)
+
+
+def wait_for_authorized_shared_gpu0(
+    writer: StatusWriter,
+) -> tuple[Any | None, dict[int, list[dict[str, Any]]], dict[str, Any], str]:
+    """Wait in the background for bounded GPU0 profile headroom without changing its jobs."""
+
+    started = time.monotonic()
+    while True:
+        gpu_records, compute_processes = query_gpu_state_with_retries()
+        selected, admission_code = choose_authorized_shared_gpu0(gpu_records)
+        gpu_snapshot = {
+            "captured_at": utc_now(),
+            "devices": snapshot(gpu_records),
+            "compute_processes": compute_processes,
+            "selection_rule": "researcher_selected_gpu0_free_gte_14336_mib",
+            "shared_gpu0_authorization": GPU0_SHARED_AUTHORIZATION,
+        }
+        if selected is not None:
+            return selected, compute_processes, gpu_snapshot, admission_code
+        elapsed = time.monotonic() - started
+        if elapsed >= GPU_ADMISSION_WAIT_TIMEOUT_SECONDS:
+            writer.transition(
+                "BLOCKED",
+                "BLOCKED",
+                "BLOCKED_GPU0_HEADROOM_WAIT_TIMEOUT",
+                process_alive=False,
+                workload_pid=0,
+                stage="gpu0_profile_headroom_wait_timeout",
+                gpu_ids=[],
+                gpu_snapshot=gpu_snapshot,
+                selection_block_reason=admission_code,
+                automatic_retry=False,
+                result_selection_eligible=False,
+                affects_scientific_result=False,
+            )
+            return None, compute_processes, gpu_snapshot, admission_code
+        writer.transition(
+            "RUNNING",
+            "WAITING_FOR_GPU",
+            "S17_FP0_TOKENIZER_PROFILE_WAITING_FOR_GPU0_HEADROOM",
+            process_alive=True,
+            workload_pid=os.getpid(),
+            stage="waiting_for_gpu0_profile_headroom",
+            gpu_ids=[],
+            gpu_snapshot=gpu_snapshot,
+            selection_block_reason=admission_code,
+            progress={
+                "current": min(int(elapsed), GPU_ADMISSION_WAIT_TIMEOUT_SECONDS),
+                "total": GPU_ADMISSION_WAIT_TIMEOUT_SECONDS,
+                "unit": "seconds_until_gpu_admission_timeout",
+            },
+        )
+        time.sleep(GPU_ADMISSION_POLL_SECONDS)
 
 
 def run_profile(
@@ -307,6 +431,8 @@ def prepare(root: Path) -> int:
             raise FileExistsError("unexpected prior tokenizer profile attempt id")
     if not resolved["dependency_status"].is_file():
         raise FileNotFoundError("SentenceT5 cache status must exist before profile preparation")
+    if not resolved["env_dependency_status"].is_file():
+        raise FileNotFoundError("CUDA compatibility status must exist before profile preparation")
     resolved["result"].mkdir(parents=True, exist_ok=False)
     sample = select_profile_sample(root)
     with resolved["sample"].open("w", encoding="utf-8") as handle:
@@ -321,6 +447,8 @@ def prepare(root: Path) -> int:
         "prepared_at": utc_now(),
         "dependency_experiment_id": DEPENDENCY_EXPERIMENT_ID,
         "dependency_pass_code": DEPENDENCY_PASS_CODE,
+        "env_dependency_experiment_id": ENV_DEPENDENCY_EXPERIMENT_ID,
+        "env_dependency_pass_code": ENV_DEPENDENCY_PASS_CODE,
         "model_revision": MODEL_REVISION,
         "sample_size": SAMPLE_SIZE,
         "sample_sha256": sha256(resolved["sample"]),
@@ -331,8 +459,14 @@ def prepare(root: Path) -> int:
         "max_gpu_utilization_percent": MAX_GPU_UTILIZATION_PERCENT,
         "profile_timeout_seconds": PROFILE_TIMEOUT_SECONDS,
         "dependency_wait_timeout_seconds": DEPENDENCY_WAIT_TIMEOUT_SECONDS,
+        "gpu_admission_wait_timeout_seconds": GPU_ADMISSION_WAIT_TIMEOUT_SECONDS,
+        "gpu_admission_poll_seconds": GPU_ADMISSION_POLL_SECONDS,
+        "gpu_admission_waits_in_background": True,
         "background_required": True,
-        "gpu_selection": "one_idle_no_compute_pid_non_gpu1_card",
+        "gpu_selection": "researcher_selected_shared_gpu0_free_gte_14336_mib",
+        "target_gpu_id": TARGET_GPU_ID,
+        "gpu0_shared_authorized": True,
+        "gpu0_shared_authorization": GPU0_SHARED_AUTHORIZATION,
         "gpu1_allowed": False,
         "full_data_tokenizer_started": False,
         "effect_experiment_started": False,
@@ -377,12 +511,16 @@ def prepare(root: Path) -> int:
             "progress": {"current": 0, "total": 3, "unit": "profile_gate"},
             "run_snapshot_manifest": str(manifest.relative_to(root)),
             "dependency_experiment_id": DEPENDENCY_EXPERIMENT_ID,
+            "env_dependency_experiment_id": ENV_DEPENDENCY_EXPERIMENT_ID,
             "sample_sha256": sha256(resolved["sample"]),
             "expected_peak_mib": EXPECTED_PEAK_MIB,
             "safety_margin_mib": SAFETY_MARGIN_MIB,
             "gpu_ids": [],
-            "gpu1_handoff_used": False,
-            "gpu1_repeat_restored": None,
+            "target_gpu_id": TARGET_GPU_ID,
+            "gpu0_shared_authorized": True,
+            "gpu0_shared_authorization": GPU0_SHARED_AUTHORIZATION,
+            "gpu0_preexisting_processes_preserved": None,
+            "gpu1_allowed": False,
             "automatic_retry": False,
             "full_data_tokenizer_started": False,
             "effect_experiment_started": False,
@@ -391,7 +529,7 @@ def prepare(root: Path) -> int:
             "d1_read": False,
             "d2_read": False,
             "prior_attempt_id": PRIOR_ATTEMPT_ID,
-            "prior_failure_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_004/run.log",
+            "prior_failure_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_009/run.log",
         },
     )
     writer.transition(
@@ -424,7 +562,7 @@ def launch(root: Path) -> int:
         tmux_session=session,
         launcher_pid=os.getpid(),
         process_alive=True,
-        stage="waiting_for_sentence_t5_cache",
+        stage="waiting_for_cuda_compat_env",
     )
     if not wait_for_tmux_startup(session):
         latest = StatusWriter(resolved["status_dir"], EXPERIMENT_ID).read()
@@ -446,6 +584,7 @@ def launch(root: Path) -> int:
 def worker(root: Path, snapshot_manifest: Path) -> int:
     resolved = paths(root)
     writer = StatusWriter(resolved["status_dir"], EXPERIMENT_ID)
+    preexisting_target_processes: list[dict[str, Any]] = []
     try:
         verify_run_snapshot(root, snapshot_manifest)
         frozen_config = json.loads(
@@ -453,37 +592,29 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
         )
         if sha256(resolved["sample"]) != frozen_config["sample_sha256"]:
             raise RuntimeError("bounded tokenizer sample changed after preflight")
-        dependency = wait_for_dependency(writer, resolved)
+        dependency = wait_for_dependency(
+            writer,
+            resolved["dependency_status"],
+            pass_code=DEPENDENCY_PASS_CODE,
+            label="SentenceT5 cache",
+        )
+        environment_dependency = wait_for_dependency(
+            writer,
+            resolved["env_dependency_status"],
+            pass_code=ENV_DEPENDENCY_PASS_CODE,
+            label="CUDA compatibility environment",
+        )
         if not resolved["model"].is_dir() or not (resolved["native_env"] / "bin/python").is_file():
             raise FileNotFoundError("profile dependencies are not materialized")
-        writer.heartbeat(
-            stage="read_only_gpu_admission",
-            progress={"current": 1, "total": 3, "unit": "profile_gate"},
+        selected, compute_processes, gpu_snapshot, admission_code = (
+            wait_for_authorized_shared_gpu0(writer)
         )
-        gpu_records = query_gpus()
-        compute_processes = query_compute_processes()
-        selected = choose_safe_non_gpu1(gpu_records, compute_processes)
-        gpu_snapshot = {
-            "captured_at": utc_now(),
-            "devices": snapshot(gpu_records),
-            "compute_processes": compute_processes,
-            "selection_rule": "non_gpu1_no_compute_pid_util_lte_5_free_gte_14336_mib",
-        }
         if selected is None:
-            writer.transition(
-                "BLOCKED",
-                "BLOCKED",
-                "BLOCKED_WAITING_IDLE_NON_GPU1_GPU",
-                process_alive=False,
-                workload_pid=0,
-                stage="no_safe_idle_non_gpu1_card",
-                gpu_ids=[],
-                gpu_snapshot=gpu_snapshot,
-                automatic_retry=False,
-                result_selection_eligible=False,
-                affects_scientific_result=False,
-            )
             return 0
+        preexisting_target_processes = [
+            dict(row) for row in compute_processes.get(TARGET_GPU_ID, [])
+        ]
+        preexisting_target_pids = sorted(row["pid"] for row in preexisting_target_processes)
         gpu_snapshot["selected_gpu"] = selected.index
         writer.transition(
             "RUNNING",
@@ -493,7 +624,10 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
             stage="gpu_admitted",
             gpu_ids=[selected.index],
             gpu_snapshot=gpu_snapshot,
-            selection_reason="idle_non_gpu1_no_compute_pid_with_memory_margin",
+            selection_reason=admission_code,
+            gpu0_preexisting_processes=preexisting_target_processes,
+            gpu0_preexisting_pids=preexisting_target_pids,
+            gpu0_preexisting_processes_preserved=None,
         )
         result, wall_seconds = run_profile(
             root=root,
@@ -508,6 +642,24 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
                 f"profile peak {result['peak_reserved_mib']:.1f} MiB exceeds "
                 f"pre-registered {EXPECTED_PEAK_MIB} MiB"
             )
+        post_gpu_records, post_compute_processes = query_gpu_state_with_retries()
+        post_target_pids = sorted(
+            row["pid"] for row in post_compute_processes.get(TARGET_GPU_ID, [])
+        )
+        missing_preexisting_target_pids = sorted(
+            set(preexisting_target_pids) - set(post_target_pids)
+        )
+        target_processes_preserved = not missing_preexisting_target_pids
+        if not target_processes_preserved:
+            raise RuntimeError(
+                "pre-existing GPU0 process disappeared during bounded profile: "
+                f"{missing_preexisting_target_pids}"
+            )
+        post_gpu_snapshot = {
+            "captured_at": utc_now(),
+            "devices": snapshot(post_gpu_records),
+            "compute_processes": post_compute_processes,
+        }
         estimated_full_seconds = result["encode_seconds"] * (11924 / SAMPLE_SIZE)
         summary = {
             "schema_version": "phase17.s17_fp0_tokenizer_profile_summary.v1",
@@ -515,6 +667,8 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
             "completed_at": utc_now(),
             "dependency_status_code": dependency["status_code"],
             "dependency_status_sha256": sha256(resolved["dependency_status"]),
+            "environment_dependency_status_code": environment_dependency["status_code"],
+            "environment_dependency_status_sha256": sha256(resolved["env_dependency_status"]),
             "physical_gpu": selected.index,
             "sample_sha256": sha256(resolved["sample"]),
             "profile": result,
@@ -523,7 +677,12 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
             "estimate_scope_warning": "encoding-only linear estimate; excludes PCA/RQ/conflict-resolution and startup",
             "full_data_tokenizer_started": False,
             "effect_experiment_started": False,
-            "gpu1_used": False,
+            "gpu0_used": True,
+            "gpu0_shared_authorization": GPU0_SHARED_AUTHORIZATION,
+            "gpu0_preexisting_processes": preexisting_target_processes,
+            "gpu0_preexisting_pids": preexisting_target_pids,
+            "gpu0_post_profile_snapshot": post_gpu_snapshot,
+            "gpu0_preexisting_processes_preserved": target_processes_preserved,
             "automatic_retry": False,
             "test_read": False,
             "sports_read": False,
@@ -546,9 +705,33 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
             profiled_physical_gpu=selected.index,
             profiled_peak_allocated_mib=result["peak_allocated_mib"],
             profiled_peak_reserved_mib=result["peak_reserved_mib"],
+            gpu0_shared_authorized=True,
+            gpu0_preexisting_pids=preexisting_target_pids,
+            gpu0_post_profile_snapshot=post_gpu_snapshot,
+            gpu0_preexisting_processes_preserved=target_processes_preserved,
             result_selection_eligible=False,
             affects_scientific_result=False,
         )
+        return 0
+    except DependencyBlockedError as error:
+        resolved["result"].mkdir(parents=True, exist_ok=True)
+        with resolved["log"].open("a", encoding="utf-8") as log:
+            log.write(f"\n[{utc_now()}] dependency_blocked={error!r}\n")
+        current = writer.read()
+        if current["scientific_state"] not in {"COMPLETED", "FAILED", "STOPPED", "BLOCKED"}:
+            writer.transition(
+                "BLOCKED",
+                "BLOCKED",
+                "BLOCKED_CUDA_COMPAT_ENV_DEPENDENCY",
+                process_alive=False,
+                workload_pid=0,
+                stage="dependency_blocked_no_profile",
+                dependency_block_reason=repr(error),
+                automatic_retry=False,
+                result_selection_eligible=False,
+                affects_scientific_result=False,
+                gpu_ids=[],
+            )
         return 0
     except BaseException as error:
         resolved["result"].mkdir(parents=True, exist_ok=True)
@@ -557,6 +740,26 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
             log.write(traceback.format_exc())
         current = writer.read()
         if current["scientific_state"] not in {"COMPLETED", "FAILED", "STOPPED", "BLOCKED"}:
+            preservation_fields: dict[str, Any] = {}
+            if preexisting_target_processes:
+                try:
+                    post_compute_processes = query_compute_processes()
+                    preexisting_pids = sorted(row["pid"] for row in preexisting_target_processes)
+                    post_pids = sorted(
+                        row["pid"] for row in post_compute_processes.get(TARGET_GPU_ID, [])
+                    )
+                    preservation_fields = {
+                        "gpu0_preexisting_pids": preexisting_pids,
+                        "gpu0_post_failure_compute_processes": post_compute_processes,
+                        "gpu0_preexisting_processes_preserved": set(preexisting_pids).issubset(
+                            post_pids
+                        ),
+                    }
+                except BaseException as preservation_error:
+                    preservation_fields = {
+                        "gpu0_preexisting_processes_preserved": None,
+                        "gpu0_preservation_check_error": repr(preservation_error),
+                    }
             writer.transition(
                 "FAILED",
                 "SCIENTIFIC_FAILED",
@@ -569,6 +772,7 @@ def worker(root: Path, snapshot_manifest: Path) -> int:
                 result_selection_eligible=False,
                 affects_scientific_result=False,
                 gpu_ids=[],
+                **preservation_fields,
             )
         return 1
 

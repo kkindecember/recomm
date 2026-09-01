@@ -1,0 +1,245 @@
+{
+  "automatic_retry": false,
+  "cpu_validation": {
+    "cuda_available": false,
+    "faiss": "1.12.0",
+    "numpy": "2.2.6",
+    "python": "3.12.12",
+    "sentence_transformers": "5.1.0",
+    "sklearn": "1.7.1",
+    "torch": "2.7.1+cu126",
+    "torch_cuda": "12.6",
+    "transformers": "4.56.1"
+  },
+  "cuda_smoke": {
+    "cuda_available": true,
+    "device_name": "NVIDIA RTX A6000",
+    "finite": true,
+    "peak_reserved_mib": 2.0,
+    "torch": "2.7.1+cu126",
+    "torch_cuda": "12.6",
+    "value": 5590357.0
+  },
+  "download_mirror": "aliyun_pytorch_wheels_cu126_direct",
+  "download_skipped": true,
+  "effect_experiment_started": false,
+  "environment_path": "artifacts/phase17/fullport/envs/latte_05e4e6d98322_torch_2_7_1_cu126",
+  "environment_reused": true,
+  "full_data_tokenizer_started": false,
+  "generated_at": "2026-08-31T09:51:31.148801+00:00",
+  "gpu1_post_smoke_snapshot": {
+    "captured_at": "2026-08-31T09:51:31.148522+00:00",
+    "compute_processes": {
+      "0": [
+        {
+          "pid": 3702810,
+          "process_name": "python",
+          "used_memory_mib": 2056
+        },
+        {
+          "pid": 3946679,
+          "process_name": "python",
+          "used_memory_mib": 3162
+        },
+        {
+          "pid": 4034118,
+          "process_name": "python",
+          "used_memory_mib": 5008
+        },
+        {
+          "pid": 4037111,
+          "process_name": "python",
+          "used_memory_mib": 15438
+        }
+      ],
+      "1": [
+        {
+          "pid": 2790130,
+          "process_name": "python",
+          "used_memory_mib": 20838
+        },
+        {
+          "pid": 3862550,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 18074
+        }
+      ],
+      "2": [
+        {
+          "pid": 1641452,
+          "process_name": "python",
+          "used_memory_mib": 19470
+        },
+        {
+          "pid": 3438548,
+          "process_name": "python",
+          "used_memory_mib": 2344
+        },
+        {
+          "pid": 3734948,
+          "process_name": "python",
+          "used_memory_mib": 9358
+        }
+      ],
+      "3": [
+        {
+          "pid": 3839384,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20074
+        },
+        {
+          "pid": 3862550,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 11502
+        }
+      ],
+      "4": [
+        {
+          "pid": 3438547,
+          "process_name": "python",
+          "used_memory_mib": 2342
+        },
+        {
+          "pid": 3596503,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20062
+        },
+        {
+          "pid": 3680431,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 4448
+        }
+      ],
+      "5": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 2787378,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19574
+        }
+      ],
+      "6": [
+        {
+          "pid": 1707703,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19632
+        },
+        {
+          "pid": 3358078,
+          "process_name": "python",
+          "used_memory_mib": 7958
+        },
+        {
+          "pid": 3636740,
+          "process_name": "python",
+          "used_memory_mib": 9358
+        }
+      ],
+      "7": [
+        {
+          "pid": 3438780,
+          "process_name": "python",
+          "used_memory_mib": 2344
+        },
+        {
+          "pid": 3467276,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20232
+        }
+      ]
+    },
+    "devices": [
+      {
+        "free_mib": 22888,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 25682,
+        "utilization_percent": 20
+      },
+      {
+        "free_mib": 9642,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 38929,
+        "utilization_percent": 21
+      },
+      {
+        "free_mib": 16011,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 32559,
+        "utilization_percent": 21
+      },
+      {
+        "free_mib": 16976,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 31594,
+        "utilization_percent": 95
+      },
+      {
+        "free_mib": 20437,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 28133,
+        "utilization_percent": 39
+      },
+      {
+        "free_mib": 9418,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 39153,
+        "utilization_percent": 13
+      },
+      {
+        "free_mib": 14118,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 34452,
+        "utilization_percent": 27
+      },
+      {
+        "free_mib": 24723,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 23848,
+        "utilization_percent": 7
+      }
+    ]
+  },
+  "gpu1_preexisting_processes": [
+    {
+      "pid": 2790130,
+      "process_name": "python",
+      "used_memory_mib": 20838
+    },
+    {
+      "pid": 3862550,
+      "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+      "used_memory_mib": 18074
+    }
+  ],
+  "gpu1_repeat_preserved": true,
+  "network_install_performed": false,
+  "official_source_commit": "05e4e6d983225bcb7172f148a076890e80c524d1",
+  "physical_gpu": 1,
+  "requirements_freeze_path": "artifacts/phase17/fullport/fp0/cuda_compat_env/attempt_004/requirements.freeze.txt",
+  "requirements_freeze_sha256": "4626766c6129a16591b297e0bb20ad6a11e8d61abfd4bc28347b29b90eaa672a",
+  "schema_version": "phase17.s17_fp0_cuda_compat_env_manifest.v1",
+  "sentence_t5_redownload": false,
+  "torch_wheel_sha256": "63bce0590bc540fc16139e2be0177847585182b8c5e68d7f9213789d1d96c978",
+  "torch_wheel_url": "https://mirrors.aliyun.com/pytorch-wheels/cu126/torch-2.7.1%2Bcu126-cp312-cp312-manylinux_2_28_x86_64.whl#sha256=63bce0590bc540fc16139e2be0177847585182b8c5e68d7f9213789d1d96c978",
+  "uv_http_timeout_seconds": 300
+}

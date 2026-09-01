@@ -1,0 +1,297 @@
+{
+  "affects_scientific_result": false,
+  "allocation_sha256": "2849be923fc634e8a443a09c9840141b4ba3bac2cc64d84094a8f1eb4d18f15c",
+  "attempt_id": "attempt_001",
+  "authorization_sha256": "757fb564678c6f2f1083b4d31e2b99feec361ebcadf5e7d048944680edf79163",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001",
+  "d1_read": false,
+  "d2_read": false,
+  "dependencies": {
+    "s17_fp0_cuda_compat_env": {
+      "status_code": "PASS_S17_FP0_CUDA_COMPAT_ENV_READY",
+      "status_sha256": "9289d692c2b0dbf1e6a5529f22beb7578885456853ec559c4f3804b4aade4608"
+    },
+    "s17_fp0_native_data_adapter_audit": {
+      "status_code": "PASS_S17_FP0_NATIVE_DATA_ADAPTER",
+      "status_sha256": "58e13a4bdaa34cd09ad8a252b1ee4721aeacbbc3d1cc3a716cd75da820cd47b2"
+    },
+    "s17_fp0_sentence_t5_cache": {
+      "status_code": "PASS_S17_FP0_SENTENCE_T5_CACHE_READY",
+      "status_sha256": "e6ac6ff6cb90048de9d584fc934015c9301793f895b434e2e6b1a3f5d4a94de0"
+    },
+    "s17_fp0_tokenizer_bounded_profile": {
+      "status_code": "PASS_S17_FP0_TOKENIZER_BOUNDED_PROFILE",
+      "status_sha256": "282fde05d7ee7c88a932d2fe9ffcc0982083c3a3448cb72400ee45a1b5d1d6dd"
+    }
+  },
+  "effect_experiment_started": false,
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s17_fp0_full_data_tokenizer",
+  "external_target_materialized": false,
+  "gpu0_preexisting_processes": [
+    {
+      "pid": 2409292,
+      "process_name": "python",
+      "used_memory_mib": 5598
+    },
+    {
+      "pid": 2450006,
+      "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+      "used_memory_mib": 11502
+    },
+    {
+      "pid": 2459194,
+      "process_name": "python",
+      "used_memory_mib": 1780
+    },
+    {
+      "pid": 2503400,
+      "process_name": "python",
+      "used_memory_mib": 3150
+    }
+  ],
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "captured_at": "2026-08-31T13:50:39.338804+00:00",
+    "compute_processes": {
+      "0": [
+        {
+          "pid": 2409292,
+          "process_name": "python",
+          "used_memory_mib": 5598
+        },
+        {
+          "pid": 2450006,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 11502
+        },
+        {
+          "pid": 2459194,
+          "process_name": "python",
+          "used_memory_mib": 1780
+        },
+        {
+          "pid": 2503400,
+          "process_name": "python",
+          "used_memory_mib": 3150
+        }
+      ],
+      "1": [
+        {
+          "pid": 2176499,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 2286553,
+          "process_name": "/home/chenchangzhe/enter/envs/test/bin/python",
+          "used_memory_mib": 7614
+        },
+        {
+          "pid": 2450006,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 18074
+        }
+      ],
+      "2": [
+        {
+          "pid": 1641452,
+          "process_name": "python",
+          "used_memory_mib": 19470
+        },
+        {
+          "pid": 2344114,
+          "process_name": "python",
+          "used_memory_mib": 9358
+        },
+        {
+          "pid": 2521022,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 15822
+        }
+      ],
+      "3": [
+        {
+          "pid": 3839384,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20082
+        },
+        {
+          "pid": 2521028,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 22828
+        }
+      ],
+      "4": [
+        {
+          "pid": 3596503,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20074
+        },
+        {
+          "pid": 2521033,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 22832
+        }
+      ],
+      "5": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 4152752,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20028
+        },
+        {
+          "pid": 2180340,
+          "process_name": "python",
+          "used_memory_mib": 560
+        }
+      ],
+      "6": [
+        {
+          "pid": 135618,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19574
+        },
+        {
+          "pid": 1919372,
+          "process_name": "python",
+          "used_memory_mib": 9356
+        },
+        {
+          "pid": 2039928,
+          "process_name": "python",
+          "used_memory_mib": 2826
+        }
+      ],
+      "7": [
+        {
+          "pid": 3467276,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20232
+        },
+        {
+          "pid": 2521038,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 18968
+        },
+        {
+          "pid": 2521044,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 7532
+        }
+      ]
+    },
+    "devices": [
+      {
+        "free_mib": 26233,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 22338,
+        "utilization_percent": 64
+      },
+      {
+        "free_mib": 22033,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 26538,
+        "utilization_percent": 78
+      },
+      {
+        "free_mib": 3889,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 44682,
+        "utilization_percent": 11
+      },
+      {
+        "free_mib": 5642,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 42928,
+        "utilization_percent": 0
+      },
+      {
+        "free_mib": 5643,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 42927,
+        "utilization_percent": 0
+      },
+      {
+        "free_mib": 8398,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 40172,
+        "utilization_percent": 21
+      },
+      {
+        "free_mib": 15227,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 33344,
+        "utilization_percent": 21
+      },
+      {
+        "free_mib": 1816,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 46754,
+        "utilization_percent": 0
+      }
+    ],
+    "minimum_free_mib": 5080,
+    "selected_gpu": 0,
+    "selection_rule": "researcher_allocated_physical_gpu0_with_free_mib_gate"
+  },
+  "heartbeat_at": "2026-08-31T13:52:28.702242+00:00",
+  "launch_authorized": true,
+  "launcher_pid": 2525005,
+  "log_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/run.log",
+  "minimum_free_mib": 5080,
+  "occupancy_mode": "none",
+  "peak_allocated_mib": 932.95166015625,
+  "peak_reserved_mib": 984.0,
+  "process_alive": false,
+  "profiled_physical_gpu": 0,
+  "progress": {
+    "current": 4,
+    "total": 4,
+    "unit": "tokenizer_gate"
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "result_selection_eligible": false,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp0_full_data_tokenizer/attempt_001/manifest.json",
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "COMPLETED",
+  "sports_read": false,
+  "stage": "full_data_tokenizer_complete",
+  "started_at": "2026-08-31T13:32:33.454478+00:00",
+  "status_code": "PASS_S17_FP0_FULL_DATA_TOKENIZER",
+  "step_id": "S17-FP0-FULL-DATA-TOKENIZER",
+  "summary_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/summary.json",
+  "summary_sha256": "09dae91ea3c6bf36a166bff0d7afd27f26e33af0cc1fe30e5dfef68912f5ea17",
+  "target_gpu_id": 0,
+  "test_read": false,
+  "tmux_session": "s17_fp0_full_data_tokenizer",
+  "tokenizer_manifest_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/manifest.json",
+  "tokenizer_manifest_sha256": "1878f9b6dbb890bf651a0d6a73960740bdb1db5f2c71fcd3f31a681f0369cb0d",
+  "track_id": "FP0-TOKENIZER",
+  "updated_at": "2026-08-31T13:52:29.518381+00:00",
+  "workload_pid": 0
+}

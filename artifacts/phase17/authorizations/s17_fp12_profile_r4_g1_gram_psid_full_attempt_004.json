@@ -1,0 +1,115 @@
+{
+  "arm_id": "G1_GRAM_PSID_FULL",
+  "attempt_id": "attempt_004",
+  "authorization_snapshot": {
+    "captured_at": "2026-08-31T16:19:54.181911+00:00",
+    "devices": [
+      {
+        "free_mib": 16367,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 32203,
+        "utilization_percent": 18
+      },
+      {
+        "free_mib": 20668,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 27902,
+        "utilization_percent": 21
+      },
+      {
+        "free_mib": 19716,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 28854,
+        "utilization_percent": 15
+      },
+      {
+        "free_mib": 22216,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 26355,
+        "utilization_percent": 0
+      },
+      {
+        "free_mib": 7207,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 41363,
+        "utilization_percent": 36
+      },
+      {
+        "free_mib": 28432,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 20139,
+        "utilization_percent": 19
+      },
+      {
+        "free_mib": 10717,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 37854,
+        "utilization_percent": 98
+      },
+      {
+        "free_mib": 13645,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 34925,
+        "utilization_percent": 84
+      }
+    ],
+    "selected": {
+      "free_mib": 22216,
+      "index": 3,
+      "name": "NVIDIA RTX A6000",
+      "total_mib": 49140,
+      "used_mib": 26355,
+      "utilization_percent": 0
+    },
+    "selected_compute_processes": [
+      {
+        "pid": 2831481,
+        "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+        "used_memory_mib": 26342
+      }
+    ]
+  },
+  "authorized": true,
+  "authorized_at": "2026-08-31T16:19:54.182208+00:00",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "effect_experiment_authorized": false,
+  "experiment_id": "s17_fp12_profile_r4_g1_gram_psid_full",
+  "external_target_materialized": false,
+  "memory_only_admission": true,
+  "minimum_free_mib": 20480,
+  "observed_preexisting_compute_pids": [
+    2831481
+  ],
+  "peak_reserved_cap_mib": 16384,
+  "physical_gpu": 3,
+  "preserve_all_preexisting_compute_processes": true,
+  "researcher_directed_retry": true,
+  "researcher_direction": "允许串行重试授权；有几张卡有20多g的可以启动G0/G1/G2，N0/N1见缝插针；只需保证不OOM并将状态写入artifacts",
+  "resource_profile_only": true,
+  "revision_id": "r4_exact_low_memory_beam_and_psid_probe_fix",
+  "safety_margin_mib": 4096,
+  "schema_version": "phase17.s17_fp12_profile_authorization.v4",
+  "shared_server_coexistence_authorized": true,
+  "sports_read": false,
+  "test_read": false,
+  "utilization_recorded_only": true
+}

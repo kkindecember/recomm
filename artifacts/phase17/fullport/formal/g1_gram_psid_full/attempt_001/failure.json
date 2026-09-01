@@ -1,0 +1,14 @@
+{
+  "arm_id": "G1_GRAM_PSID_FULL",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "error": "KeyboardInterrupt()",
+  "external_target_materialized": false,
+  "failed_at": "2026-08-31T17:36:08.922617+00:00",
+  "schema_version": "phase17.failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_formal_g1_gram_psid_full_seed2023/attempt_001/src/000_s17_fp12_formal_runtime.py\", line 556, in worker\n    training = train_formal_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 560, in train_formal_arm\n    return train_gram_formal(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 427, in train_gram_formal\n    batch = _move(collator(rows), device)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/processor/Collator.py\", line 205, in __call__\n    item_text_ids, item_text_masks = self.encode_texts(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/processor/Collator.py\", line 249, in encode_texts\n    p = tokenizer.batch_encode_plus(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/tokenization_utils_base.py\", line 2800, in batch_encode_plus\n    return self._batch_encode_plus(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/tokenization_utils_fast.py\", line 429, in _batch_encode_plus\n    encodings = self._tokenizer.encode_batch(\nKeyboardInterrupt\n"
+}

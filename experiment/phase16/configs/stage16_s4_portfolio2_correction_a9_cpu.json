@@ -1,0 +1,98 @@
+{
+  "schema_version": "stage16_s4_toys_portfolio2_correction_v1",
+  "experiment_id": "GRAM_PHASE16_S4_TOYS_PORTFOLIO2_COMPARATOR_CORRECTION",
+  "attempt_id": "s16_s4_toys_portfolio2_correction_a9_cpu",
+  "output_dir": "artifacts/phase16/s4_toys_standalone/correction/toys_seed1502_portfolio2_a9_cpu",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s4_portfolio2_correction_a9_cpu.sh",
+  "correction_scope": {
+    "plan_expected_comparator": "unconditional_portfolio2",
+    "a8_actual_comparator": "stage13_v1_r2_toys_p0_r2_top50",
+    "corrected_arm_id": "R2",
+    "corrected_arm_method": "stage13_v1_r2_unconditional_portfolio2",
+    "unchanged_gpu_arm_predictions": [
+      "S-AUX",
+      "S-PLUS-CTRL",
+      "S-PLUS",
+      "G-RIDGE"
+    ],
+    "source_attempt_modified": false,
+    "source_a8_modified": false
+  },
+  "portfolio2_contract": {
+    "candidate_exclusion_prefix": 7,
+    "ranking_anchor_count": 8,
+    "candidate_count": 3,
+    "portfolio_size": 2,
+    "ranking_size": 50,
+    "candidate_rule": "first three unique resolver_top50 catalog-cold items not in v0_top50[:7]",
+    "ranking_rule": "stable_unique(v0_top50[:8] + portfolio_candidates[:2] + v0_top50[8:] + resolver_top50)[:50]",
+    "phase13_metric_key": "unconditional_portfolio2"
+  },
+  "frozen_inputs": {
+    "a8_summary": {
+      "path": "artifacts/phase16/s4_toys_standalone/recovery/toys_seed1502_gpu4_a7_recovery_a8_cpu/summary.json",
+      "sha256": "a3413797626760196594f1c3f74bb456ad1152edac3fdb1949daee405044775b"
+    },
+    "a8_event_metrics": {
+      "path": "artifacts/phase16/s4_toys_standalone/recovery/toys_seed1502_gpu4_a7_recovery_a8_cpu/event_metrics.jsonl",
+      "sha256": "456b754e3a2497600b6b2ecd42b8bb6d8f6d7b07a0eb6e14dfd41b7cb8d5ea38"
+    },
+    "a8_status": {
+      "path": "artifacts/phase16/s4_toys_standalone/recovery/toys_seed1502_gpu4_a7_recovery_a8_cpu/status.json",
+      "sha256": "f950168bf8b91483668bc4ee90b0ce04bc50a411b25e671905cf95f01c4e7261"
+    },
+    "a8_artifact_contract": {
+      "path": "artifacts/phase16/s4_toys_standalone/recovery/toys_seed1502_gpu4_a7_recovery_a8_cpu/artifact_contract.json",
+      "sha256": "507566abec53aca29d66dd79296c4ab45d02e5379dcc878b3fa016c7e4492293"
+    },
+    "a8_config": {
+      "path": "artifacts/phase16/s4_toys_standalone/recovery/toys_seed1502_gpu4_a7_recovery_a8_cpu/config.json",
+      "sha256": "5a58e559cf99129bd52ccc744443b4f851410f4dfe788b8a2bde0e633c71efe7"
+    },
+    "phase13_p0_predictions": {
+      "path": "artifacts/phase13/explore/v1_r2_toys_p0/predictions_validation.jsonl",
+      "sha256": "c8f29872f7490ca58ab6000001b92b76520cbe43de801b01112f0a45ed81ed51"
+    },
+    "phase13_p0_summary": {
+      "path": "artifacts/phase13/explore/v1_r2_toys_p0/summary.json",
+      "sha256": "a8edaaaf70e7e82b10efa12cbc39213edd15e28a068b80bdd454c817b7ffd713"
+    },
+    "phase13_p6_predictions": {
+      "path": "artifacts/phase13/explore/v1_r2_toys_p6_candidate_portfolio/predictions_validation.jsonl",
+      "sha256": "77923d5bac753d9722be5df2db063f634dbe5fced436f4b127c2d48dcde9a000"
+    },
+    "phase13_p6_summary": {
+      "path": "artifacts/phase13/explore/v1_r2_toys_p6_candidate_portfolio/summary.json",
+      "sha256": "ef9b811553b8428954d64aa2c8d4a65c3592f20e614af1558790753b4b964e73"
+    },
+    "phase13_portfolio_code": {
+      "path": "experiment/phase13/protocol/b1_portfolio_confirmation.py",
+      "sha256": "7b3949a86c4817b507bcb815d8d8ec339c795995e0ec2a7cbd9ba88c7db5c409"
+    },
+    "cold_items": {
+      "path": "GRAM/rec_datasets/Toys_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "0cf83e3dbe8b1e2ada4b9cb476b858fa494e9b89278d498ec640b1ee76cb524e"
+    }
+  },
+  "statistics": {
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_confidence": 0.95,
+    "paired_bootstrap_seed": 20260822,
+    "familywise_alpha": 0.05,
+    "primary_family": "S-AUX_vs_F0,S-PLUS-CTRL_vs_F0,S-PLUS_vs_S-PLUS-CTRL,G-RIDGE_vs_F0 cold hit@50",
+    "multiplicity_test": "one-sided exact McNemar on paired hit@50 followed by Holm adjustment",
+    "cold_signal_rule": "raw paired-bootstrap ci_low > 0 and Holm-adjusted p < 0.05"
+  },
+  "resources": {
+    "cpu_only": true,
+    "gpu_count": 0,
+    "hard_timeout_seconds": 600,
+    "expected_wall_seconds": 30,
+    "disk_reservation_mib": 64
+  },
+  "gpu_scientific_inference_recompute": false,
+  "validation_used_for_tuning_or_state_selection": false,
+  "test_read": false,
+  "automatic_retry": false,
+  "automatic_resume": false
+}

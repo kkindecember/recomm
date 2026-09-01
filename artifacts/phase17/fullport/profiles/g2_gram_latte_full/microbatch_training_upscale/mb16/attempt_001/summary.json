@@ -1,0 +1,242 @@
+{
+  "affects_scientific_result": false,
+  "arm_id": "G2_GRAM_LATTE_FULL",
+  "automatic_retry": false,
+  "completed_at": "2026-08-31T18:01:53.843628+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "effective_batch": 128,
+  "external_target_materialized": false,
+  "gpu_snapshot": {
+    "after": {
+      "captured_at": "2026-08-31T18:01:53.843195+00:00",
+      "devices": [
+        {
+          "free_mib": 17579,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 30991,
+          "utilization_percent": 17
+        },
+        {
+          "free_mib": 11169,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 37402,
+          "utilization_percent": 98
+        },
+        {
+          "free_mib": 17269,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31302,
+          "utilization_percent": 31
+        },
+        {
+          "free_mib": 12720,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 35850,
+          "utilization_percent": 50
+        },
+        {
+          "free_mib": 7173,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 41397,
+          "utilization_percent": 91
+        },
+        {
+          "free_mib": 1417,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 47154,
+          "utilization_percent": 62
+        },
+        {
+          "free_mib": 8109,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 40462,
+          "utilization_percent": 22
+        },
+        {
+          "free_mib": 13637,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34933,
+          "utilization_percent": 82
+        }
+      ],
+      "selected": {
+        "free_mib": 1417,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 47154,
+        "utilization_percent": 62
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 2180340,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 3824861,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 9528
+        },
+        {
+          "pid": 3874120,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 17476
+        }
+      ]
+    },
+    "before": {
+      "captured_at": "2026-08-31T18:01:25.232219+00:00",
+      "devices": [
+        {
+          "free_mib": 17361,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31209,
+          "utilization_percent": 63
+        },
+        {
+          "free_mib": 11171,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 37400,
+          "utilization_percent": 100
+        },
+        {
+          "free_mib": 17269,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31302,
+          "utilization_percent": 25
+        },
+        {
+          "free_mib": 12720,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 35850,
+          "utilization_percent": 51
+        },
+        {
+          "free_mib": 7173,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 41397,
+          "utilization_percent": 95
+        },
+        {
+          "free_mib": 18898,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 29672,
+          "utilization_percent": 79
+        },
+        {
+          "free_mib": 8109,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 40462,
+          "utilization_percent": 30
+        },
+        {
+          "free_mib": 13637,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34933,
+          "utilization_percent": 79
+        }
+      ],
+      "selected": {
+        "free_mib": 18898,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29672,
+        "utilization_percent": 79
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 2180340,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 3824861,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 9528
+        }
+      ]
+    }
+  },
+  "gradient_accumulation": 8,
+  "margin_mib": 3072,
+  "measured": {
+    "backend": "project_GRAM_FiD",
+    "effective_batch": 128,
+    "end_allocated_mib": 1801.23193359375,
+    "end_reserved_mib": 15506.0,
+    "gradient_accumulation": 8,
+    "parameter_count": 60900352,
+    "peak_allocated_mib": 14928.71826171875,
+    "peak_reserved_mib": 15506.0,
+    "primary_generation_included": false,
+    "train_input_shape": [
+      16,
+      21,
+      128
+    ],
+    "train_microbatch": 16,
+    "train_target_shape": [
+      16,
+      5
+    ],
+    "training_loss_finite": true,
+    "training_only": true
+  },
+  "physical_gpu": 5,
+  "profile_peak_reserved_mib": 15506.0,
+  "recommended_minimum_free_mib": 18578,
+  "resource_only": true,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.s17_fp12_microbatch_profile.v1",
+  "sports_read": false,
+  "test_read": false,
+  "train_microbatch": 16,
+  "training_only": true,
+  "verdict": "PASS_S17_FP12_MICROBATCH_RESOURCE_PROFILE",
+  "wall_seconds": 28.56098090671003
+}

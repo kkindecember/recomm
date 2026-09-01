@@ -1,0 +1,14 @@
+{
+  "arm_id": "G0_GRAM_B0_FRESH",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "error": "KeyboardInterrupt()",
+  "external_target_materialized": false,
+  "failed_at": "2026-08-31T17:36:08.918093+00:00",
+  "schema_version": "phase17.failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_formal_g0_gram_b0_fresh_seed2023/attempt_001/src/000_s17_fp12_formal_runtime.py\", line 556, in worker\n    training = train_formal_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 560, in train_formal_arm\n    return train_gram_formal(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 428, in train_gram_formal\n    outputs = model(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram.py\", line 84, in forward\n    outputs = super().forward(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5.py\", line 225, in forward\n    decoder_outputs = self.decoder(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 1224, in forward\n    layer_outputs = layer_module(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 820, in forward\n    hidden_states = self.layer[-1](hidden_states)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1110, in _call_impl\n    return forward_call(*input, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5_modeling.py\", line 349, in forward\n    forwarded_states = self.DenseReluDense(forwarded_states)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/nn/modules/module.py\", line 1105, in _call_impl\n    forward_call = (self._slow_forward if torch._C._get_tracing_state() else self.forward)\nKeyboardInterrupt\n"
+}

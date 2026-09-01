@@ -1,0 +1,248 @@
+{
+  "affects_scientific_result": false,
+  "allocation_sha256": "9dda4d66076484aa3e908439c26774419dd8ca053bf9e4c4680333f402bef644",
+  "attempt_id": "attempt_003",
+  "authorization_failure": "nvidia-smi query returned exit status 9 during concurrent authorization snapshots",
+  "authorization_failure_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/attempt_003/authorization_failure.json",
+  "authorization_path": "artifacts/phase17/authorizations/s17_fp12_profile_r3_g2_gram_latte_full_attempt_003.json",
+  "authorization_sha256": "11d08b7d9b25e03ea5df799e277a5150ad9ce667cc32eba9e09e40520a6b1d70",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/attempt_003",
+  "cpu_preflight_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/attempt_003/cpu_preflight.json",
+  "cpu_preflight_sha256": "4db2969071855e616cadc133dceca731002052db2b4a3f5964fd01077d5f037c",
+  "d1_read": false,
+  "d2_read": false,
+  "dependencies": {
+    "allocation_sha256": "9dda4d66076484aa3e908439c26774419dd8ca053bf9e4c4680333f402bef644",
+    "arm_matrix_sha256": "ebc1a4d9aea8860bb966d8b115587b702ed2439ca3e25fe14e5652a0610d4f2f",
+    "complete_vocabulary_sha256": "16e57b50c6448d0106cab283a6d83f17568ec86fd196636041e3763c8b31bcf0",
+    "tokenizer_manifest_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/manifest.json",
+    "tokenizer_manifest_sha256": "1878f9b6dbb890bf651a0d6a73960740bdb1db5f2c71fcd3f31a681f0369cb0d",
+    "tokenizer_status_sha256": "4cd1eba3f0ca2e10e14dabd6bb49a928a1d8dcd03ab3ac82adea24cda9ecdc66",
+    "vocabulary_manifest_sha256": "ec212a58bf2d719633702955f9814c503b88c441a76de10519cf9d1a178b6ec7"
+  },
+  "effect_experiment_started": false,
+  "effect_metrics_forbidden": true,
+  "execution_state": "SCIENTIFIC_FAILED",
+  "experiment_id": "s17_fp12_profile_r3_g2_gram_latte_full",
+  "external_target_materialized": false,
+  "failure_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/attempt_003/failure.json",
+  "failure_sha256": "6841cd543ad75c63657ff5f0ebcb854ab8181bf4ef69ee30c164d0f1c351cbb0",
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "admission_policy": "two_snapshot_free_memory_only",
+    "automatic_process_termination": false,
+    "compute_pids_recorded_only": true,
+    "first": {
+      "captured_at": "2026-08-31T15:45:10.678803+00:00",
+      "devices": [
+        {
+          "free_mib": 15880,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 32691,
+          "utilization_percent": 100
+        },
+        {
+          "free_mib": 20668,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 27902,
+          "utilization_percent": 63
+        },
+        {
+          "free_mib": 19720,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 28850,
+          "utilization_percent": 13
+        },
+        {
+          "free_mib": 22216,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 26355,
+          "utilization_percent": 0
+        },
+        {
+          "free_mib": 4491,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 44079,
+          "utilization_percent": 6
+        },
+        {
+          "free_mib": 1860,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 46710,
+          "utilization_percent": 37
+        },
+        {
+          "free_mib": 14867,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 33704,
+          "utilization_percent": 41
+        },
+        {
+          "free_mib": 13661,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34909,
+          "utilization_percent": 100
+        }
+      ],
+      "selected": {
+        "free_mib": 22216,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 26355,
+        "utilization_percent": 0
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 2831481,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 26342
+        }
+      ]
+    },
+    "minimum_free_mib": 16384,
+    "observed_preexisting_compute_pids": [
+      2831481
+    ],
+    "peak_reserved_cap_mib": 12288,
+    "required_interval_seconds": 5,
+    "revision_id": "r3_dynamic_five_card_memory_only",
+    "safety_margin_mib": 4096,
+    "second": {
+      "captured_at": "2026-08-31T15:45:16.676396+00:00",
+      "devices": [
+        {
+          "free_mib": 15368,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 33203,
+          "utilization_percent": 35
+        },
+        {
+          "free_mib": 20668,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 27902,
+          "utilization_percent": 57
+        },
+        {
+          "free_mib": 19720,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 28850,
+          "utilization_percent": 10
+        },
+        {
+          "free_mib": 22216,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 26355,
+          "utilization_percent": 48
+        },
+        {
+          "free_mib": 4491,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 44079,
+          "utilization_percent": 13
+        },
+        {
+          "free_mib": 28432,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 20139,
+          "utilization_percent": 32
+        },
+        {
+          "free_mib": 10783,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 37788,
+          "utilization_percent": 8
+        },
+        {
+          "free_mib": 13661,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34909,
+          "utilization_percent": 92
+        }
+      ],
+      "selected": {
+        "free_mib": 22216,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 26355,
+        "utilization_percent": 48
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 2831481,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 26342
+        }
+      ]
+    },
+    "shared_server_post_snapshot_allocation_race_cannot_be_eliminated": true,
+    "utilization_recorded_only": true
+  },
+  "heartbeat_at": "2026-08-31T15:45:46.265072+00:00",
+  "launch_authorized": true,
+  "launcher_pid": 3083078,
+  "log_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/attempt_003/run.log",
+  "minimum_free_mib": 16384,
+  "occupancy_mode": "none",
+  "peak_reserved_cap_mib": 12288,
+  "process_alive": false,
+  "progress": {
+    "current": 2,
+    "total": 3,
+    "unit": "profile_phase"
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "resource_only": true,
+  "result_selection_eligible": false,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp12_profile_r3_g2_gram_latte_full/attempt_003/manifest.json",
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "FAILED",
+  "sports_read": false,
+  "stage": "terminal_failure_no_retry",
+  "started_at": "2026-08-31T15:33:08.630243+00:00",
+  "status_code": "S17_FP12_RESOURCE_PROFILE_FAILED_NO_RETRY",
+  "step_id": "S17-FP2-PROFILE",
+  "target_gpu_id": 3,
+  "terminal_error": "RuntimeError('CUDA out of memory. Tried to allocate 2.56 GiB (GPU 0; 47.43 GiB total capacity; 18.83 GiB already allocated; 879.62 MiB free; 18.91 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF')",
+  "test_read": false,
+  "tmux_session": "s17_fp12_profile_r3_g2_gram_latte_full",
+  "track_id": "G2_GRAM_LATTE_FULL",
+  "updated_at": "2026-08-31T15:45:46.641989+00:00",
+  "workload_pid": 0
+}

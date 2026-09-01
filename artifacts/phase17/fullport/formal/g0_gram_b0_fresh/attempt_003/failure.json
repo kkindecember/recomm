@@ -1,0 +1,14 @@
+{
+  "arm_id": "G0_GRAM_B0_FRESH",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "error": "KeyboardInterrupt()",
+  "external_target_materialized": false,
+  "failed_at": "2026-08-31T18:12:40.781860+00:00",
+  "schema_version": "phase17.failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_formal_g0_gram_b0_fresh_seed2023/attempt_003/src/000_s17_fp12_formal_runtime.py\", line 608, in worker\n    training = train_formal_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 564, in train_formal_arm\n    return train_gram_formal(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 425, in train_gram_formal\n    rows = [\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 426, in <listcomp>\n    render_gram_example(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_gram_backend.py\", line 226, in render_gram_example\n    unknown = (set(example.history) | {example.target}) - set(catalog.ordered_items)\nKeyboardInterrupt\n"
+}

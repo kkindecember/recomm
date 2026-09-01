@@ -1,0 +1,264 @@
+{
+  "affects_scientific_result": true,
+  "attempt_id": "attempt_003",
+  "authorization_path": "artifacts/phase17/authorizations/s17_fp12_formal_g2_gram_latte_full_seed2023_attempt_003.json",
+  "authorization_sha256": "777b8794cb08a03ea53cc8681e4e8a450d6b4a8c12b855bbde565dea127cf4bf",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/formal/g2_gram_latte_full/attempt_003",
+  "checkpoint_frozen": false,
+  "d1_read": false,
+  "d2_read": false,
+  "execution_state": "RUNNING_SCIENTIFIC",
+  "experiment_id": "s17_fp12_formal_g2_gram_latte_full_seed2023",
+  "external_target_materialized": false,
+  "gpu_ids": [
+    1
+  ],
+  "gpu_snapshot": {
+    "automatic_process_termination": false,
+    "first": {
+      "captured_at": "2026-08-31T18:08:28.160617+00:00",
+      "devices": [
+        {
+          "free_mib": 17293,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31277,
+          "utilization_percent": 100
+        },
+        {
+          "free_mib": 20664,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 27906,
+          "utilization_percent": 39
+        },
+        {
+          "free_mib": 17269,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31302,
+          "utilization_percent": 17
+        },
+        {
+          "free_mib": 22216,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 26355,
+          "utilization_percent": 0
+        },
+        {
+          "free_mib": 7173,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 41397,
+          "utilization_percent": 96
+        },
+        {
+          "free_mib": 27880,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 20690,
+          "utilization_percent": 46
+        },
+        {
+          "free_mib": 8197,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 40374,
+          "utilization_percent": 29
+        },
+        {
+          "free_mib": 13637,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34933,
+          "utilization_percent": 30
+        }
+      ],
+      "selected": {
+        "free_mib": 20664,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 27906,
+        "utilization_percent": 39
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 2176499,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 2286553,
+          "process_name": "/home/chenchangzhe/enter/envs/test/bin/python",
+          "used_memory_mib": 7614
+        },
+        {
+          "pid": 2933237,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19706
+        }
+      ]
+    },
+    "interval_seconds": 5,
+    "minimum_free_mib": 18968,
+    "policy": "two_snapshot_free_memory_only",
+    "preexisting_processes_preserved": true,
+    "second": {
+      "captured_at": "2026-08-31T18:08:34.241768+00:00",
+      "devices": [
+        {
+          "free_mib": 16817,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31753,
+          "utilization_percent": 81
+        },
+        {
+          "free_mib": 20664,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 27906,
+          "utilization_percent": 31
+        },
+        {
+          "free_mib": 17269,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31302,
+          "utilization_percent": 19
+        },
+        {
+          "free_mib": 22216,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 26355,
+          "utilization_percent": 0
+        },
+        {
+          "free_mib": 7173,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 41397,
+          "utilization_percent": 74
+        },
+        {
+          "free_mib": 27220,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 21350,
+          "utilization_percent": 62
+        },
+        {
+          "free_mib": 13655,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34916,
+          "utilization_percent": 31
+        },
+        {
+          "free_mib": 13637,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34933,
+          "utilization_percent": 100
+        }
+      ],
+      "selected": {
+        "free_mib": 20664,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 27906,
+        "utilization_percent": 31
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 2176499,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 2286553,
+          "process_name": "/home/chenchangzhe/enter/envs/test/bin/python",
+          "used_memory_mib": 7614
+        },
+        {
+          "pid": 2933237,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19706
+        }
+      ]
+    },
+    "utilization_recorded_only": true
+  },
+  "heartbeat_at": "2026-08-31T18:12:28.776529+00:00",
+  "launch_authorized": true,
+  "launcher_pid": 3913153,
+  "log_path": "artifacts/phase17/fullport/formal/g2_gram_latte_full/attempt_003/run.log",
+  "minimum_free_mib": 18968,
+  "occupancy_mode": "none",
+  "process_alive": true,
+  "profile_evidence": {
+    "formal_minimum_free_mib": 18968,
+    "microbatch_upscale": {
+      "effective_batch": 128,
+      "formal_minimum_free_mib": 18968,
+      "gradient_accumulation": 8,
+      "profile_peak_reserved_mib": 15506,
+      "profile_status_path": "artifacts/phase17/status/s17_fp12_microbatch_training_profile_g2_mb16.status.json",
+      "profile_status_sha256": "29e79d1759620c55ca2281f1b9e505a9aa38fa8e7968f7a29bb6229014d3f9d6",
+      "profile_summary_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/microbatch_training_upscale/mb16/attempt_001/summary.json",
+      "profile_summary_sha256": "743685117baeca93191b8adbc9005e76c33ea118d0e45e218d237b409be4211e",
+      "train_microbatch": 16
+    },
+    "profile_peak_reserved_mib": 15896,
+    "profile_status_path": "artifacts/phase17/status/s17_fp12_profile_r4_g2_gram_latte_full.status.json",
+    "profile_status_sha256": "c294c6998fe84354ee8fbc730520d4818ccd88132aafad54acdb0e3f10c88fc4",
+    "profile_summary_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/attempt_004/summary.json",
+    "profile_summary_sha256": "2171718d65a5d7ea190e395b4a44009db82e48bb367336bcc375279cb6a0f0bc"
+  },
+  "progress": {
+    "batch": 300,
+    "batches": 3527,
+    "current": 0,
+    "total": 50,
+    "unit": "epoch"
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "result_selection_eligible": true,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp12_formal_g2_gram_latte_full_seed2023/attempt_003/manifest.json",
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "RUNNING",
+  "sports_read": false,
+  "stage": "training",
+  "started_at": "2026-08-31T18:07:27.119475+00:00",
+  "status_code": "S17_FP12_FORMAL_TRAINING",
+  "step_id": "S17-FP2",
+  "target_gpu_id": 1,
+  "test_read": false,
+  "tmux_session": "s17_fp12_formal_g2_gram_latte_full_seed2023",
+  "track_id": "G2_GRAM_LATTE_FULL",
+  "updated_at": "2026-08-31T18:12:28.776743+00:00",
+  "workload_pid": 3913831
+}

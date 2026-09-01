@@ -1,0 +1,21 @@
+{
+  "arm_id": "G2_GRAM_LATTE_FULL",
+  "attempt_id": "attempt_004",
+  "authorized": true,
+  "authorized_at": "2026-08-31T18:17:16.854526+00:00",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "experiment_id": "s17_fp12_formal_g2_gram_latte_full_seed2023",
+  "external_target_evaluation_authorized": false,
+  "formal_checkpoint_selection_authorized": true,
+  "minimum_free_mib": 18968,
+  "observed_preexisting_compute_pids": [
+    2176499,
+    2286553,
+    2933237
+  ],
+  "physical_gpu": 1,
+  "preserve_all_preexisting_compute_processes": true,
+  "researcher_direction": "当前microbatch=2显存占用太少，提高后从头重跑；能提多高提多高，只要不OOM。正式实测确认GPU5:G0用16，GPU3:G1和GPU1:G2用8为逐卡最高安全档。",
+  "schema_version": "phase17.s17_fp12_formal_authorization.v1"
+}

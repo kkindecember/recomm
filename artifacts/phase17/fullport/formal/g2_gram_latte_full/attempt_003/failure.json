@@ -1,0 +1,14 @@
+{
+  "arm_id": "G2_GRAM_LATTE_FULL",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "error": "KeyboardInterrupt()",
+  "external_target_materialized": false,
+  "failed_at": "2026-08-31T18:12:41.226601+00:00",
+  "schema_version": "phase17.failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_formal_g2_gram_latte_full_seed2023/attempt_003/src/000_s17_fp12_formal_runtime.py\", line 608, in worker\n    training = train_formal_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 564, in train_formal_arm\n    return train_gram_formal(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 445, in train_gram_formal\n    (loss / accumulation).backward()\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/_tensor.py\", line 363, in backward\n    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/autograd/__init__.py\", line 173, in backward\n    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\nKeyboardInterrupt\n"
+}

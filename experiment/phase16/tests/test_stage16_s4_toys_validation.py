@@ -8,7 +8,11 @@ from unittest.mock import patch
 
 import torch
 
-from experiment.phase16.protocol.finalize_stage16_s4_toys import strictly_dominates
+from experiment.phase16.protocol.finalize_stage16_s4_toys import (
+    exact_paired_binary_greater,
+    holm_adjust,
+    strictly_dominates,
+)
 from experiment.phase16.protocol.stage16_s4_toys_validation import (
     FORMAL_ARMS,
     finite_unseen_constrained_draft,
@@ -163,6 +167,43 @@ class Stage16S4ToysValidationTests(unittest.TestCase):
         worse_warm = dict(left)
         worse_warm["warm_ndcg@10"] = 0.0
         self.assertFalse(strictly_dominates(worse_warm, right))
+
+    def test_exact_paired_binary_test_is_directional(self) -> None:
+        events = [
+            {
+                "is_cold": True,
+                "metrics": {
+                    "treatment": {"hit@50": treatment},
+                    "control": {"hit@50": control},
+                },
+            }
+            for treatment, control in ((1, 0), (1, 0), (1, 0), (0, 0))
+        ]
+        result = exact_paired_binary_greater(events, "treatment", "control")
+        self.assertEqual(result["treatment_only_hits"], 3)
+        self.assertEqual(result["control_only_hits"], 0)
+        self.assertEqual(result["discordant_pairs"], 3)
+        self.assertEqual(result["raw_p_value"], 0.125)
+
+    def test_holm_adjustment_is_monotone_and_familywise(self) -> None:
+        result = holm_adjust(
+            {"a": 0.001, "b": 0.01, "c": 0.04, "d": 0.5}, alpha=0.05
+        )
+        self.assertAlmostEqual(result["a"]["holm_adjusted_p_value"], 0.004)
+        self.assertAlmostEqual(result["b"]["holm_adjusted_p_value"], 0.03)
+        self.assertAlmostEqual(result["c"]["holm_adjusted_p_value"], 0.08)
+        self.assertAlmostEqual(result["d"]["holm_adjusted_p_value"], 0.5)
+        self.assertTrue(result["a"]["reject_at_alpha"])
+        self.assertTrue(result["b"]["reject_at_alpha"])
+        self.assertFalse(result["c"]["reject_at_alpha"])
+        self.assertFalse(result["d"]["reject_at_alpha"])
+
+    def test_finalizer_does_not_hardcode_an_obsolete_runtime_attempt(self) -> None:
+        finalizer = (
+            ROOT / "experiment/phase16/protocol/finalize_stage16_s4_toys.py"
+        ).read_text(encoding="utf-8")
+        self.assertNotIn("gpu0_a3_isolated_runtime_v1", finalizer)
+        self.assertIn("Holm", finalizer)
 
     def test_repeat_is_discard_only_and_nonpromotional(self) -> None:
         repeat = self.config["post_terminal_repeat"]

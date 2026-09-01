@@ -1,0 +1,57 @@
+{
+  "attempt_id": "attempt_001",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "background_required": true,
+  "d1_read": false,
+  "d2_read": false,
+  "dependencies": {
+    "s17_fp0_cuda_compat_env": {
+      "status_code": "PASS_S17_FP0_CUDA_COMPAT_ENV_READY",
+      "status_sha256": "9289d692c2b0dbf1e6a5529f22beb7578885456853ec559c4f3804b4aade4608"
+    },
+    "s17_fp0_native_data_adapter_audit": {
+      "status_code": "PASS_S17_FP0_NATIVE_DATA_ADAPTER",
+      "status_sha256": "58e13a4bdaa34cd09ad8a252b1ee4721aeacbbc3d1cc3a716cd75da820cd47b2"
+    },
+    "s17_fp0_sentence_t5_cache": {
+      "status_code": "PASS_S17_FP0_SENTENCE_T5_CACHE_READY",
+      "status_sha256": "e6ac6ff6cb90048de9d584fc934015c9301793f895b434e2e6b1a3f5d4a94de0"
+    },
+    "s17_fp0_tokenizer_bounded_profile": {
+      "status_code": "PASS_S17_FP0_TOKENIZER_BOUNDED_PROFILE",
+      "status_sha256": "282fde05d7ee7c88a932d2fe9ffcc0982083c3a3448cb72400ee45a1b5d1d6dd"
+    }
+  },
+  "effect_experiment_started": false,
+  "expected_catalog_items": 11924,
+  "expected_fit_items": 11138,
+  "experiment_id": "s17_fp0_full_data_tokenizer",
+  "external_target_materialized": false,
+  "fit_contract": {
+    "collision_resolution": "conflict_free_psid_top5",
+    "pca_fit": "train_prefix_mask_only",
+    "rqkmeans_fit": "same_train_prefix_mask_only",
+    "semantic_code_assignment": "complete_metadata_catalog",
+    "sentence_embedding_assignment": "complete_metadata_catalog"
+  },
+  "launch_requires_external_authorization_record": true,
+  "minimum_free_mib": 5080,
+  "official_cache_prewrite_required": true,
+  "physical_gpu": 0,
+  "prepared_at": "2026-08-31T13:32:33.317958+00:00",
+  "schema_version": "phase17.s17_fp0_full_data_tokenizer_config.v1",
+  "sports_read": false,
+  "test_read": false,
+  "tokenizer_spec": {
+    "codebook_count": 3,
+    "codebook_size": 256,
+    "conflict_top_k_per_digit": 5,
+    "faiss_threads": 32,
+    "model_revision": "fc5d4628481afbbaaacd7af6bb07cf9d3865f781",
+    "pca_components": 192,
+    "seed": 2023,
+    "sentence_batch_size": 32,
+    "sentence_embedding_dim": 768
+  }
+}

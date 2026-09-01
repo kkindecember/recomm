@@ -1,0 +1,143 @@
+{
+  "affects_scientific_result": false,
+  "attempt_id": "attempt_001",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/microbatch_training_upscale/mb8/attempt_001",
+  "d1_read": false,
+  "d2_read": false,
+  "effective_batch": 128,
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s17_fp12_microbatch_training_profile_g2_mb8",
+  "external_target_materialized": false,
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "before": {
+      "captured_at": "2026-08-31T18:00:05.127226+00:00",
+      "devices": [
+        {
+          "free_mib": 19421,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 29149,
+          "utilization_percent": 92
+        },
+        {
+          "free_mib": 11171,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 37400,
+          "utilization_percent": 100
+        },
+        {
+          "free_mib": 17269,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31302,
+          "utilization_percent": 13
+        },
+        {
+          "free_mib": 12720,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 35850,
+          "utilization_percent": 55
+        },
+        {
+          "free_mib": 7173,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 41397,
+          "utilization_percent": 49
+        },
+        {
+          "free_mib": 18982,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 29588,
+          "utilization_percent": 55
+        },
+        {
+          "free_mib": 9677,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 38894,
+          "utilization_percent": 37
+        },
+        {
+          "free_mib": 13639,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34931,
+          "utilization_percent": 29
+        }
+      ],
+      "selected": {
+        "free_mib": 18982,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29588,
+        "utilization_percent": 55
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 2180340,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 3824861,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 9444
+        }
+      ]
+    }
+  },
+  "gradient_accumulation": 16,
+  "heartbeat_at": "2026-08-31T18:00:32.588739+00:00",
+  "launcher_pid": 3866110,
+  "log_path": null,
+  "occupancy_mode": "none",
+  "process_alive": false,
+  "profile_peak_reserved_mib": 8088.0,
+  "progress": {
+    "current": 1,
+    "total": 1,
+    "unit": "profile"
+  },
+  "recommended_minimum_free_mib": 11160,
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "resource_only": true,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "COMPLETED",
+  "sports_read": false,
+  "stage": "microbatch_profile_complete",
+  "started_at": "2026-08-31T18:00:04.076639+00:00",
+  "status_code": "PASS_S17_FP12_MICROBATCH_RESOURCE_PROFILE",
+  "step_id": "S17-FP2",
+  "summary_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/microbatch_training_upscale/mb8/attempt_001/summary.json",
+  "target_gpu_id": 5,
+  "test_read": false,
+  "tmux_session": null,
+  "track_id": "G2_MICROBATCH_8",
+  "train_microbatch": 8,
+  "training_only": true,
+  "updated_at": "2026-08-31T18:00:34.341083+00:00",
+  "workload_pid": 0
+}

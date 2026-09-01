@@ -4,7 +4,7 @@
 
 - Origin Skill：`academic-research-suite / experiment-agent (plan mode)`
 - Created：2026-08-31
-- Status：`PLAN_ACTIVE / FP0_FREEZE_PASS / FOUNDATION_CONTRACTS_PASS / NATIVE_DATA_ADAPTER_PASS / NATIVE_ENV_ATTEMPT_003_PASS / T5_AND_PROFILE_ATTEMPT_005_BACKGROUND_RUNNING / NO_EFFECT_EXPERIMENT_STARTED`
+- Status：`PLAN_ACTIVE / T5_ATTEMPT_005_PASS / CUDA_ENV_ATTEMPT_004_PASS / TOKENIZER_ATTEMPT_010_GPU0_PASS / GPU_ALLOCATION_CONFIGURED_NOT_LAUNCHED / NO_EFFECT_EXPERIMENT_STARTED`
 - Scope：正常场景 GRAM 推荐提点；不包含 cold-start，不读取或修改 Stage16
 - Parent Evidence：S17-0～S17-4、S17-2R 已完成结果；全部保留，不重跑
 - Primary Direction：Full LATTE native parity → `GRAM-LATTE-Full`
@@ -617,6 +617,24 @@ FP1+FP2 理想申请 5 张卡并行：
 
 FP3 理想申请 4 张卡并行 S0/S1R/S1P/S2。FP4 根据 profile 申请 2–4 张卡；D2 按 dataset×seed 独立 job 并行，理想 6 张卡，资源不足时按 dataset 或 seed 分波。
 
+#### 11.5.1 2026-08-31 当前冻结分配
+
+机器可读配置：`experiment/phase17/config/s17_fp_resource_allocation.json`。
+
+- 当前 8 张 A6000 全部存在 compute PID；30,720 MiB 只是 preferred planning line，不是硬门槛。本次先冻结分配，不启动正式 FP1/FP2，也不停止任何现有进程；
+- full-data SentenceT5 tokenizer 固定 GPU0、batch 32，实测峰值 reserved 984 MiB，准入线 5,080 MiB；当前可执行，但仍等待单独启动指令；
+- 正式训练前按正式落卡做 arm-specific 短资源 profile：`GPU1:G0 / GPU0:G1 / GPU7:G2 / GPU4:N0,N1`。通过降低 per-device micro/eval batch、保持 effective global batch、beam、top-k、aggregation、模型与训练预算不变，把普通卡 peak reserved 目标压到不超过 20,480 MiB；GPU4 的 N0/N1 profile 以 16,384 MiB 为峰值上限，两臂串行；
+- profile 后每个 arm 的正式准入线改为 `实测 peak reserved + 3,072 MiB`，若达到 20 GiB 目标则约需 23,552 MiB free；不得为了适配显存降低 beam、模型容量、epoch 或改变科学协议；
+- 若 GPU1 完成资源 profile 后没有立即启动获批的正式 G0，必须用最后一个成功 profile 的冻结命令进入隔离重复轮占卡，直到下一次研究者批准的 handoff；
+- FP1+FP2 首选四卡两波：第一波 `GPU1:G0 / GPU0:G1 / GPU7:G2 / GPU4:N0`，第二波在 GPU4 上串行 `N1`；GPU4 只有在当时 free 满足 `N0/N1 各自实测 peak reserved + 3,072 MiB` 时才进入正式运行；
+- 若 GPU4 的 Native arm 无法在不改科学协议的前提下压到准入线，回退到三卡两波：第一波 `GPU1:G0 / GPU0:G1 / GPU7:G2`，第二波 `GPU0:N0 / GPU7:N1`；
+- 若五卡都满足准入，则升级为 `GPU1:G0 / GPU0:G1 / GPU7:G2 / GPU4:N0 / GPU3:N1`；
+- 两卡降级时先用 GPU0/GPU7 跑 N0/N1，再跑 G1/G2，最后 GPU1 跑 G0 并立即进入重复轮；
+- 研究者已明确授权 Stage17 共享 GPU4 剩余显存。2026-08-31 18:51 快照为 free 20,425 MiB，Stage16 PID `3680431` 占用 4,448 MiB 且仍在运行；GPU4 上全部既有 PID `3438547/3596503/3680431` 只共存、绝不停止/暂停/修改。初始 Native profile 需 free 至少 19,456 MiB（16,384 + 3,072），正式准入仍使用每臂实测值加 3,072 MiB；
+- GPU4 在启动前需两次间隔 5 秒的只读快照；如 free 跌破当前 arm 门槛则等待，不抢占、不换卡、不自动降科学配置。GPU4 的共租 contention 只影响 wall time，所以必须记录但不用耗时作科学比较；
+- GPU1 可用于正式大实验和上述资源 profile，但当前 PID `2790130/3862550` 不因本分配自动获得停止授权。启动前必须冻结 handoff 记录并获得精确 PID 处置授权，或等待其自然退出；
+- GPU1 科学任务无论成功、失败或中断，均须立即启动隔离重复轮持续占卡；重复轮不可选、指标忽略、不影响科学结论。
+
 同一 family 的 treatment/control 尽量同时间窗并行，减少服务器软件或数据缓存漂移。只有 official implementation 已支持且 profile 证明 wall-time 明显受益时，单 arm 才申请多卡 DDP/FSDP。
 
 ### 11.6 研究者已占用 GPU 的交接
@@ -713,7 +731,9 @@ artifacts/phase17/
 | 启动任何 >10 分钟任务 | 可启动但必须后台；若同时属于大实验仍需单独 GPU 申请 |
 | 使用空闲 GPU 跑大实验 | 未自动授权；必须先申请 |
 | 暂停/使用研究者已占用 GPU | 未自动授权；仅大实验逐卡申请 |
-| 使用 GPU1 | 未授权，除非资源申请明确获批 |
+| 使用 GPU1 | 已明确授权正式大实验使用；启动前必须完成精确 handoff，科学任务结束后必须立即进入隔离重复轮持续占卡；当前 PID 不自动获得停止授权 |
+| 使用 GPU0 | 研究者已明确指定 tokenizer `attempt_010` 使用 GPU0；bounded profile 已完成，不扩展到后续大实验 |
+| 共享 GPU4 剩余显存 | 已明确授权；优先用于 N0/N1 的 bounded resource profile 及符合实测显存门槛的正式大实验；全部既有 PID（含 Stage16）必须保留，不得发送任何信号 |
 | 停止 GPU1 重复轮 | 未授权，除非与获批 GPU1 大实验 handoff 同时发生 |
 | 读取 D1/D2、official test、Sports | 未授权或尚未解锁 |
 
@@ -721,11 +741,17 @@ artifacts/phase17/
 
 1. FP0：冻结 LATTE official commit/config 与 SETRec clean-room fidelity；`COMPLETED`；
 2. D0 full adapter、official parity tests、GRAM semantic-ID/latent forest 与 SETRec repo/paper 双合同已通过；`attempt_001` 因快照脚本缺少仓库根 `PYTHONPATH` 在导入期失败，已封存；修复后的 `attempt_002` 成功进入 worker，但 Native LATTE 环境在 `uv` 下载 CPython 3.12.12 时连续三次 TLS EOF，环境任务终止，SentenceT5 cache 与 tokenizer profile 随依赖失败退出；三项状态均由 `artifacts/phase17/status/` 提供；
-3. `attempt_003` 已显式复用服务器已有的同版本 uv-managed Python 3.12.12，并通过原生环境 gate；随后 SentenceT5 的 Hugging Face Python 下载在 revision API 处因 TLS EOF 失败，tokenizer profile 随依赖退出。`attempt_004` 改用固定 revision 的 curl 逐文件传输，但 tmux 未继承代理，5 次均在首文件以 TLS code 35 失败且 0 字节落盘。研究者已明确授权 `attempt_005`：仅恢复 T5 与 profile，并给 T5 worker 显式注入经独立 tmux 验证的本机代理；启动核验时前 9 个文件均首试成功，随后继续后台下载、离线完整性验证。profile 只允许无 compute PID 的非 GPU1 空卡，无安全卡即 `BLOCKED_WAITING_IDLE_NON_GPU1_GPU`；full-data tokenizer 生成属于大实验准备，profile 后先提交 GPU 申请，不自行启动；
-4. 运行 CPU tests 和 <=10 分钟 bounded smoke；
-5. 在安全空闲非 GPU1 卡做小规模单卡 memory/time profile；若超过 10 分钟则后台；
-6. 根据 profile 向研究者提交 FP1+FP2 的正式多卡申请，理想 5 卡并行、附 3/2 卡降级方案；
-7. 获批后才启动大实验；用户通过 `artifacts/phase17/status/` 查看，不启动 agent 实时监看。
+3. `attempt_003` 已显式复用服务器已有的同版本 uv-managed Python 3.12.12，并通过原生环境 gate；随后 SentenceT5 的 Hugging Face Python 下载在 revision API 处因 TLS EOF 失败，tokenizer profile 随依赖退出。`attempt_004` 改用固定 revision 的 curl 逐文件传输，但 tmux 未继承代理，5 次均在首文件以 TLS code 35 失败且 0 字节落盘。`attempt_005` 给 T5 worker 显式注入经独立 tmux 验证的本机代理，固定 revision 的 13 个文件已完整缓存并通过离线加载；tokenizer profile 因没有满足准入条件的非 GPU1 空卡而 `BLOCKED_WAITING_IDLE_NON_GPU1_GPU`，没有启动 profile；
+4. 研究者随后一次性授权 tokenizer `attempt_006` 与 GPU1 原重复轮共享剩余显存，禁止停止、暂停或接管原进程。准入时 GPU1 原 PID `2602227` 存在、空闲约 30.8 GiB，超过预注册的 `10,240 + 4,096 MiB` 门槛；worker 未触碰原进程，但冻结 LATTE 环境的未约束依赖解析到了 `torch 2.13.0+cu130`，服务器驱动仅支持 CUDA 12.6，profile 在任何模型计算前因 CUDA 初始化失败。终态为 `S17_FP0_TOKENIZER_BOUNDED_PROFILE_FAILED`，原 PID 结束核验仍存在，`gpu1_repeat_preserved=true`；没有效果实验、full-data tokenizer 或受保护数据读取；
+5. 下一次不得直接重跑 profile。先新建可复现的 CUDA 兼容环境，显式固定支持服务器驱动的 PyTorch wheel，并把 `torch.cuda.is_available()`、设备名和最小 CUDA tensor smoke 纳入环境 gate；环境修复与 `attempt_007` 均需研究者再次确认；
+6. 研究者已确认固定官方 `torch 2.7.1+cu126` Python 3.12 wheel（SHA256 `63bce0590bc540fc16139e2be0177847585182b8c5e68d7f9213789d1d96c978`）、GPU1 最小 smoke 与后续 profile。CUDA 环境 `attempt_001` 在创建空 venv 后因新增 execution-state 名称不属于现有 status schema 而退出，torch 安装和 GPU 均未开始；真实终态已封存为 `S17_FP0_CUDA_COMPAT_ENV_RUNNER_SCHEMA_FAILED`。修复后的 `attempt_002` 通过 175 项 tests 后从官方 PyTorch 索引下载，但约 19 分钟后因 `nvidia-nccl-cu12` 触发 uv 30 秒网络超时而失败；tokenizer `attempt_007` 只等待依赖，未运行 profile。研究者确认切换后，实测约快 50 倍的阿里云 `pytorch-wheels/cu126` 直连用于 `attempt_003`，torch 继续校验官方 SHA256，uv timeout 提高到 300 秒；完整环境和 114 个包的依赖检查实际已成功，但 runner 错把 tokenizer profile 的 14,336 MiB 门槛套到仅需极小显存的 CUDA smoke，故环境终态为 `BLOCKED_GPU1_SHARED_HEADROOM_INSUFFICIENT`；tokenizer `attempt_008` 仅因依赖 `BLOCKED` 被错误映射成 `FAILED`，没有执行模型计算；
+7. 经研究者再次确认，环境 `attempt_004` 直接复用上述 6 GiB 环境，不联网、不下载、不安装；175 项 Stage17 tests、114 包依赖检查、CPU 离线导入和 GPU1 极小 CUDA smoke 均通过。smoke 峰值保留显存仅 2 MiB，`torch=2.7.1+cu126`、`torch.version.cuda=12.6`，开始前已有 GPU1 PID `2790130/3862550`，结束后均保留。tokenizer `attempt_009` 在独立后台会话等待 GPU1 14,336 MiB 余量，未执行 profile；研究者随后明确要求改用 GPU0，因此该等待 worker 被精确停止并封存为 `S17_FP0_TOKENIZER_PROFILE_STOPPED_FOR_GPU0_SWITCH`，未生成 summary、未使用 GPU；
+8. GPU0 专用不可变 `attempt_010` 通过 8 项定向测试与全部 176 项 Stage17 tests 后启动。准入时 GPU0 空闲 28,859 MiB，未停止或修改其已有进程；512-item SentenceT5 profile 于物理 GPU0 完成，输出 shape `[512,768]`、全部 finite、编码 5.798 秒、88.30 items/s、峰值 allocated/reserved 为 932.95/984 MiB，原有 GPU0 PID 均保留。按线性 encoding-only 估计，Toys 全目录约 135.0 秒；终态 `PASS_S17_FP0_TOKENIZER_BOUNDED_PROFILE`；
+9. bounded profile 通过后，研究者单独批准物理 GPU0 上的 full-data tokenizer `attempt_001`。该任务以 984 MiB peak reserved 在 111.28 秒内完成：11,138 个 train-prefix 物品拟合 whitened PCA/RQ-KMeans，11,924 个目录物品全部赋码，1,337 个冲突重分配后 collision alias 为 0，官方 `.sem_ids` 与项目导出 byte-identical；终态 `PASS_S17_FP0_FULL_DATA_TOKENIZER`；
+10. tokenizer attempt 保持不可变。其 observed vocabulary 为 775 个；`amendment_001` 只补充合法但目录未观察到的 `<s17_sid1_236>`，冻结完整 `3x256 + 8 = 776` 个 G1/G2 新 token，并明确不修改 tokenizer manifest 或官方 `.sem_ids`；
+11. G0/G1/G2 leakage-safe GRAM backend、N0/N1 pinned-official backend、primary beam-500 resource workload、两次 GPU snapshot/PID 白名单/逐臂授权 gate 与统一 runner 已实现。五臂 CPU preflight 均 PASS，全部 immutable profile `attempt_001` 已进入 `PREFLIGHT / S17_FP12_RESOURCE_PROFILE_READY_AUTHORIZATION_REQUIRED`；211 项 Stage17 tests 通过（GRAM 环境跳过 1 项 native-only test），native 环境的该项 official test 单独通过；
+12. 2026-08-31 22:46:57+08:00 的只读快照显示指定 GPU1/GPU0/GPU7/GPU4 均未达到各自 23,552/19,456 MiB free 准入线，GPU1 同时超过 20% utilization gate；因此没有创建逐臂授权记录、没有查询外部 target、没有启动任何 GPU resource profile 或 FP1/FP2 effect experiment。精确 deficit/PID 集见 `artifacts/phase17/fullport/profiles/profile_authorization_request_001.json`；
+13. 下一步仅在指定卡满足门槛，或研究者明确批准重新落卡后，重新冻结 PID/handoff 并生成 attempt-specific profile authorization；先完成五臂 resource profile，再根据实测 peak 提交 FP1+FP2 正式多卡申请。正式大实验仍需新的研究者授权。
 
 ## 14. Primary Sources
 

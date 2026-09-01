@@ -1,0 +1,100 @@
+{
+  "artifacts": [
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/item_semantic_codes.json",
+      "sha256": "65141690ec9dfece444a83315268e1a0113d8e1754a0400e6d04059a3412aaa1",
+      "size_bytes": 569047
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/sentence_embeddings.npy",
+      "sha256": "b3a4323ce185152540c855cd2b7419afbd490cf68c462525d7bbae6e71e9800c",
+      "size_bytes": 36630656
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/pca_embeddings.npy",
+      "sha256": "13575c208fcbc67062509b248977ebd5085fe3a9c922d5c27da5c1728695501f",
+      "size_bytes": 9157760
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/rq_raw_codes.npy",
+      "sha256": "1248f858a83ff13f4e86100a7cd73c1435234b8b576b720057ed78e84a506ebe",
+      "size_bytes": 286304
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/rq_centroids.npy",
+      "sha256": "365d19a761b70dc6f5f0f17d7845d988d43e177e7989d04c2afbb4f3379f6046",
+      "size_bytes": 589952
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/tokenizer_fit_mask.npy",
+      "sha256": "9f7352f0510d22e1749d4a09173eda6697879b0a7ee2784979e814e97d733c2a",
+      "size_bytes": 12052
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/pca_state.npz",
+      "sha256": "96098a484a3dae89e0ac607f1fc924fe698dd96c2be12e35ebf53253877cffea",
+      "size_bytes": 1191734
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/gram_item_semantic_ids.txt",
+      "sha256": "5e329e6f01413771bd8f5e4c220c175add93c7308ff7a7139bbff317004ae002",
+      "size_bytes": 652512
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/gram_added_tokens.txt",
+      "sha256": "c823c82f129e67bf1187b82e74f26f1374d2724a1df4efb5ca8a0526b16a6e2b",
+      "size_bytes": 11295
+    },
+    {
+      "path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/cache/latte_native_toys_d0/processed/sentence-t5-base_rqkmeans_3x256_psid.sem_ids",
+      "sha256": "65141690ec9dfece444a83315268e1a0113d8e1754a0400e6d04059a3412aaa1",
+      "size_bytes": 569047
+    }
+  ],
+  "catalog_items": 11924,
+  "catalog_transform_scope": "metadata_only_no_external_targets",
+  "code_assignment_scope": "complete_frozen_metadata_catalog",
+  "collision_resolution": {
+    "catalog_items": 11924,
+    "codebook_size": 256,
+    "collision_groups": 829,
+    "collision_suffix_size": 0,
+    "collisions_after": 0,
+    "collisions_before": 1337,
+    "n_digit": 3,
+    "reassigned_items": 1337,
+    "top_k_per_digit": 5
+  },
+  "created_at": "2026-08-31T13:52:28.558631+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "effect_experiment_started": false,
+  "external_target_materialized": false,
+  "fit_catalog_items": 11138,
+  "fit_scope": "train_prefix_after_internal_dev_position_holdout",
+  "gram_added_token_count": 775,
+  "official_cache_filename": "sentence-t5-base_rqkmeans_3x256_psid.sem_ids",
+  "official_cache_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/cache/latte_native_toys_d0/processed/sentence-t5-base_rqkmeans_3x256_psid.sem_ids",
+  "official_cache_prevents_unmasked_pca_refit": true,
+  "pca_fit_scope": "fit_mask_only",
+  "provenance": {
+    "data_adapter": "experiment.phase17.core.full_latte_native_adapter",
+    "model_revision": "fc5d4628481afbbaaacd7af6bb07cf9d3865f781",
+    "sentence_model_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/models/sentence-t5-base_fc5d4628481afbbaaacd7af6bb07cf9d3865f781"
+  },
+  "rq_fit_scope": "fit_mask_only",
+  "schema_version": "phase17.s17_fp0_full_data_tokenizer.v1",
+  "spec": {
+    "codebook_count": 3,
+    "codebook_size": 256,
+    "conflict_top_k_per_digit": 5,
+    "faiss_threads": 32,
+    "model_revision": "fc5d4628481afbbaaacd7af6bb07cf9d3865f781",
+    "pca_components": 192,
+    "seed": 2023,
+    "sentence_batch_size": 32,
+    "sentence_embedding_dim": 768
+  },
+  "sports_read": false,
+  "test_read": false
+}

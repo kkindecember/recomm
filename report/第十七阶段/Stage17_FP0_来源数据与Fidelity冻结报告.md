@@ -64,8 +64,50 @@ Python 下载在 revision API 处因 TLS EOF 失败，未下载任何模型文�
 随依赖退出。研究者再次明确授权的 `attempt_004` 只恢复 T5 与 profile：T5 使用固定
 revision 的 curl 逐文件传输、最多 5 次传输层重连、断点续传，但 tmux 未继承代理，5 次
 均在首文件以 TLS code 35 失败且 0 字节落盘。研究者继续明确授权的 `attempt_005` 只为
-T5 worker 显式注入经独立 tmux 验证的本机无凭据代理；启动核验时前 9 个文件均首试成功
-并产生非零字节，随后继续后台下载，完成后执行离线加载与逐文件 SHA256 inventory；
-tokenizer profile 同步等待。启动核验时两项均为 `gpu_ids=[]`；没有启动效果实验，没有
-读取受保护数据，也没有使用 GPU/GPU1。后续 profile 仍只允许自动选择真正空闲的非
-GPU1 卡，无安全卡即阻塞。
+T5 worker 显式注入经独立 tmux 验证的本机无凭据代理。固定 revision 的 13 个文件共
+223,815,215 bytes 已完成缓存、逐文件 inventory 与离线加载，终态为
+`PASS_S17_FP0_SENTENCE_T5_CACHE_READY`；同步 tokenizer profile 因没有满足准入条件的
+非 GPU1 空卡而 `BLOCKED_WAITING_IDLE_NON_GPU1_GPU`，没有执行模型计算。
+
+研究者随后明确允许 tokenizer `attempt_006` 直接共享 GPU1 剩余显存，但要求原重复轮
+不停止、不暂停、不接管。准入时原 PID `2602227` 仍在，GPU1 空闲约 30.8 GiB，超过预注册
+的 14,336 MiB 门槛。profile 随后在 `torch.cuda.set_device(0)` 处立即失败：官方 LATTE
+`pyproject.toml` 没有固定 PyTorch，2026-08-31 的冻结解析得到 `torch 2.13.0+cu130`，而
+服务器驱动只支持 CUDA 12.6。该失败发生在 SentenceT5 加载和 encode 之前，不是 OOM，
+也不是科学结果；结束核验显示 PID `2602227` 仍存在，状态记录
+`gpu1_repeat_preserved=true`。没有启动 full-data tokenizer 或效果实验，也没有读取 D1、
+D2、official test 或 Sports。下一步必须先用新的冻结环境显式固定 CUDA 兼容 PyTorch，
+增加 GPU 初始化 smoke；不得把已完成的 T5 下载或 attempt_006 profile 自动重跑。
+
+研究者确认 CUDA 兼容修复后，官方 CUDA 12.6 索引中的 Python 3.12
+`torch 2.7.1+cu126` wheel 已固定到 SHA256
+`63bce0590bc540fc16139e2be0177847585182b8c5e68d7f9213789d1d96c978`。
+环境 `attempt_001` 只创建了空 venv，随后因 runner 使用了 status schema 未允许的
+execution-state 名称而退出；torch 安装、CUDA smoke 和 profile 均未开始，GPU1 未被触碰。
+该状态已修正并封存为 `S17_FP0_CUDA_COMPAT_ENV_RUNNER_SCHEMA_FAILED`。修复后的环境
+`attempt_002` 与 tokenizer `attempt_007` 均已通过 175 项 Stage17 tests 并冻结快照；经
+研究者再次确认后，前者从官方 PyTorch 索引下载 CUDA 12.6 依赖，但约 19 分钟后因
+`nvidia-nccl-cu12` 触发 uv 30 秒网络超时而失败，后者只等待依赖并随之退出，二者均未
+使用 GPU。测速显示官方代理约 0.15 MB/s，阿里云 PyTorch 镜像直连约 8.2 MB/s；研究者
+确认切换后，环境 `attempt_003` 使用阿里云 `pytorch-wheels/cu126` 直连、300 秒 timeout
+与同一官方 torch SHA256，完整安装、114 包依赖检查和 CPU 离线导入均已成功。但 runner
+错误地让极小 CUDA smoke 复用 tokenizer profile 的 14,336 MiB 准入门槛，因此环境被写为
+`BLOCKED_GPU1_SHARED_HEADROOM_INSUFFICIENT`；tokenizer `attempt_008` 又把依赖 `BLOCKED`
+错误映射为 `FAILED`。两者均未执行 SentenceT5 profile，这不是环境安装失败或科学失败。
+
+研究者确认恢复后，环境 `attempt_004` 只复用现有 6 GiB 环境，不联网、不下载、不安装。
+175 项 Stage17 tests、依赖检查、CPU 离线导入和 GPU1 CUDA smoke 全部通过；smoke 的
+`peak_reserved_mib=2.0`，确认 `torch 2.7.1+cu126`、CUDA 12.6 和 NVIDIA RTX A6000 可用。
+smoke 开始前 GPU1 已有 PID `2790130/3862550`，结束核验二者均保留，状态为
+`PASS_S17_FP0_CUDA_COMPAT_ENV_READY`。tokenizer `attempt_009` 在独立后台会话等待 GPU1，
+未启动 512-item profile；研究者明确要求改用 GPU0 后，该等待 worker 被精确停止并封存为
+`S17_FP0_TOKENIZER_PROFILE_STOPPED_FOR_GPU0_SWITCH`，没有 summary、GPU 计算或科学结果。
+
+新的不可变 GPU0 `attempt_010` 通过 8 项定向测试和全部 176 项 Stage17 tests。启动前 GPU0
+空闲 28,859 MiB，超过 14,336 MiB 门槛；worker 未停止或修改 GPU0 现有进程。profile 在
+物理 GPU0 正常完成：512 条输入得到 `[512,768]` float32 finite embeddings，模型加载
+1.450 秒、编码 5.798 秒、吞吐 88.30 items/s，峰值 allocated/reserved 显存分别为
+932.95/984 MiB；开始前记录的 GPU0 PID 在结束核验时均存在。encoding-only 线性外推 Toys
+全目录约 135.0 秒，不包含 PCA/RQ、冲突消解或启动开销。终态为
+`PASS_S17_FP0_TOKENIZER_BOUNDED_PROFILE`。当前仍没有 full-data tokenizer、效果实验或
+受保护数据读取；下一门是正式 full-data tokenizer/FP1+FP2 多卡资源申请。

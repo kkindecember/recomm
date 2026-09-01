@@ -108,6 +108,10 @@ artifacts/phase16/**/formal_admission_summary.json
 artifacts/phase16/s4_toys_standalone/formal/**/config.json
 artifacts/phase16/s4_toys_standalone/formal/**/runtime_snapshot_manifest.json
 
+# S16-5 Beauty is currently running. Its formal root is mutable runtime state;
+# freeze and commit compact terminal evidence only after the run completes.
+artifacts/phase16/s5_beauty_saux/formal/
+
 # Stage16 non-promotional occupancy/repeat cycles are local runtime evidence.
 # Their formal parent contracts and summaries remain eligible for Git.
 artifacts/phase16/s3_genrecedit/inspired_ridge/stability/
@@ -148,6 +152,26 @@ artifacts/phase17/**/transition_teacher*.json
 artifacts/phase17/s2r_preflight/sid/
 artifacts/phase17/**/*_user_ids.txt
 artifacts/phase17/fullport/fp0/tokenizer_profile/**/sample.json
+
+# Full-data tokenizer arrays, item-level assignments, and processed caches are
+# reproducible payloads. Keep their compact config, manifest, and summary JSON.
+artifacts/phase17/fullport/cache/
+artifacts/phase17/fullport/fp0/full_data_tokenizer/**/tokenizer/*.npy
+artifacts/phase17/fullport/fp0/full_data_tokenizer/**/tokenizer/*.npz
+artifacts/phase17/fullport/fp0/full_data_tokenizer/**/tokenizer/gram_added_tokens.txt
+artifacts/phase17/fullport/fp0/full_data_tokenizer/**/tokenizer/gram_item_semantic_ids.txt
+artifacts/phase17/fullport/fp0/full_data_tokenizer/**/tokenizer/item_semantic_codes.json
+
+# These attempt-004 roots and canonical status files are live at this commit.
+# Preserve stopped-attempt evidence; freeze terminal attempt-004 evidence later.
+artifacts/phase17/fullport/formal/g0_gram_b0_fresh/attempt_004/
+artifacts/phase17/fullport/formal/g1_gram_psid_full/attempt_004/
+artifacts/phase17/fullport/formal/g2_gram_latte_full/attempt_004/
+artifacts/phase17/fullport/runtime_guard/gpu1/attempt_004/
+artifacts/phase17/status/s17_fp12_formal_g0_gram_b0_fresh_seed2023.status.json
+artifacts/phase17/status/s17_fp12_formal_g1_gram_psid_full_seed2023.status.json
+artifacts/phase17/status/s17_fp12_formal_g2_gram_latte_full_seed2023.status.json
+artifacts/phase17/status/s17_fp12_gpu1_runtime_guard.status.json
 
 # Active post-success occupancy status is machine-local; canonical formal
 # results and attempt ledgers are committed separately.

@@ -1,0 +1,94 @@
+{
+  "schema_version": "stage16_s5_beauty_saux_train_v1",
+  "experiment_id": "GRAM_PHASE16_S5_BEAUTY_SAUX_STATE_FREEZE",
+  "attempt_id": "s16_s5_beauty_saux_gpu0_a1_train",
+  "output_dir": "artifacts/phase16/s5_beauty_saux/formal/beauty_seed1502_gpu0_a1/training",
+  "seed": 1502,
+  "domain": "Beauty_cold50",
+  "inputs": {
+    "train_sequences": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/student_readable/interaction_train_sequences.jsonl",
+      "sha256": "1d6d52eefc605eff9c801b011f8e334ec1a4dbab40c28be8d6c9b54942e3afd6"
+    },
+    "pseudo_cold_events": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/held_ground_truth_DO_NOT_USE_FOR_TRAINING/pseudo_cold_events.jsonl",
+      "sha256": "ea8a106629482b4e1190c712cb02f1ecabf888631f84fce59d83a39c7d4be74f"
+    },
+    "pseudo_cold_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/pseudo_cold_items.txt",
+      "sha256": "b5735b20e5d44bbd04ea7276aba9962dbabc14662a7a0a70cb60b6aa69ad79b4"
+    },
+    "retained_warm_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/retained_warm_items.txt",
+      "sha256": "1ab6612bf41bd26727cb588e34a5cedac50ea08bf91a12c62a4b6eeb13b5b8ae"
+    },
+    "split_manifest": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/split_manifest.json",
+      "sha256": "a3d39033086bf9ae9f8f7828fa656f8364c557d71900413506be5ec58e592de0"
+    },
+    "real_cold_items": {
+      "path": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "d7edea19e40ae42c0c848fe7185001d9a762ec747957bf3766bc787c7bc99f13"
+    },
+    "content_embeddings": {
+      "path": "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "f6fbc0527c3dfbe66a60388c84645357ea8c14d97c58fe66a02a75ffa4192090"
+    }
+  },
+  "official_sources": {
+    "SpecGR": {
+      "path": ".runtime/phase15_sources/SpecGR",
+      "commit": "f0ded8884b1df97b5f0599d4ec300bb20b5d1eff"
+    },
+    "RecBole": {
+      "path": ".runtime/phase16_sources/RecBole",
+      "commit": "362d31f00af801d7d99bc635c902d1df1405e79d"
+    }
+  },
+  "model": {
+    "content_dimension": 1024,
+    "hidden_size": 300,
+    "inner_size": 256,
+    "layers": 2,
+    "heads": 2,
+    "experts": 8,
+    "temperature": 0.07
+  },
+  "training": {
+    "epochs": 300,
+    "early_stopping_patience_epochs": 40,
+    "evaluation_interval_epochs": 2,
+    "train_batch_size": 2048,
+    "evaluation_batch_size": 128,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "clip_grad_norm": null,
+    "selection_metric": "pseudo_cold_ndcg_at_10",
+    "maximum_history": 20,
+    "expected_train_transitions": 33775,
+    "expected_pseudo_cold_events": 9229,
+    "expected_pseudo_cold_items": 1185
+  },
+  "admission": {
+    "top_k": 50,
+    "requires_finite": true,
+    "requires_complete_pseudo_cold_universe": true,
+    "efficacy_gate": false,
+    "pass_verdict": "PASS_S16_5_BEAUTY_SAUX_STATE_FREEZE",
+    "fail_verdict": "FAIL_S16_5_BEAUTY_SAUX_STATE_FREEZE"
+  },
+  "resources": {
+    "physical_gpu": 0,
+    "gpu_count": 1,
+    "minimum_free_mib": 9216,
+    "expected_peak_reserved_mib": 5120,
+    "hard_timeout_seconds": 172800,
+    "heartbeat_seconds": 30,
+    "stall_advisory_seconds": 900,
+    "disk_reservation_mib": 16384
+  },
+  "scientific_scope": "Beauty train-only internal-development state construction frozen before validation; no test",
+  "automatic_retry": false,
+  "test_read": false
+}

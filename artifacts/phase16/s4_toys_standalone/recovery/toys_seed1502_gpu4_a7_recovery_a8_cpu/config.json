@@ -1,0 +1,96 @@
+{
+  "schema_version": "stage16_s4_toys_recovery_v1",
+  "experiment_id": "GRAM_PHASE16_S4_TOYS_STANDALONE_FROZEN_VALIDATION_RECOVERY",
+  "attempt_id": "s16_s4_toys_gpu4_a7_recovery_a8_cpu",
+  "output_dir": "artifacts/phase16/s4_toys_standalone/recovery/toys_seed1502_gpu4_a7_recovery_a8_cpu",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s4_toys_recovery_gpu4_a7_cpu_a8.sh",
+  "source_attempt": {
+    "attempt_id": "s16_s4_toys_standalone_gpu4_a7",
+    "output_dir": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7",
+    "terminal_status": "FAILED",
+    "terminal_status_code": "ARTIFACT_CONTRACT_FAILED",
+    "terminal_exit_code": 1,
+    "progress_current": 8,
+    "progress_total": 9,
+    "expected_runtime_schema": "stage16_s4_toys_gpu4_a7_isolated_runtime_v1",
+    "expected_failure": "finalizer_runtime_schema_name_mismatch_after_all_four_formal_arms_completed",
+    "source_summary_must_be_absent": true,
+    "source_event_metrics_must_be_absent": true,
+    "source_artifact_contract_must_be_absent": true,
+    "source_attempt_modified": false
+  },
+  "frozen_inputs": {
+    "source_config": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/config.json",
+      "sha256": "a09eda03288eb2d04c38f925f471d061679827958b41063c7dbf98f76740168a"
+    },
+    "source_runtime_manifest": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/runtime_snapshot_manifest.json",
+      "sha256": "95e6ec9c2619ae232c6ba9ecb70311572aaf9750e6c717d9e07e750f47a7868a"
+    },
+    "source_status": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/status.json",
+      "sha256": "f51bfc1abc1fb80a61db5c952b872bb74f64c259bf07d5b2bb42c0b7fc1f2427"
+    },
+    "source_run_log": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/run.log",
+      "sha256": "c353be8fc2c2cef4c94a0e14ff732ddbefe505a71ada4a1eefa26e63033fef24"
+    },
+    "saux_summary": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/S-AUX/summary.json",
+      "sha256": "d991026c4562e756bc9a8d2c6b8324094aeb57bc2368bec6e6c67a98bdfdccea"
+    },
+    "saux_predictions": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/S-AUX/predictions_validation.jsonl",
+      "sha256": "33b99e42966bcfcaa44f46b9e0bffb271aee1ae52373bb043f1b11edb3b49433"
+    },
+    "splus_ctrl_summary": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/S-PLUS-CTRL/summary.json",
+      "sha256": "41b8198b0f9372a729e82b004fa18ef09304c1ac792a8d333a1a31f816f60653"
+    },
+    "splus_ctrl_predictions": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/S-PLUS-CTRL/predictions_validation.jsonl",
+      "sha256": "b8173b72e90664514dfe6a2ea943fcf3c43fc94dfc2ad6569f876644fc16b154"
+    },
+    "splus_summary": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/S-PLUS/summary.json",
+      "sha256": "0b63c4d0fd61ebde0816178a8ae2d7c824e377560f69037e9962fe5794ddc079"
+    },
+    "splus_predictions": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/S-PLUS/predictions_validation.jsonl",
+      "sha256": "b41c8d8d0b19b2d3e76d202bcea8c1a96b8728767b1a5705f8f9ddb5290116cb"
+    },
+    "gridge_summary": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/G-RIDGE/summary.json",
+      "sha256": "d3a2f286cc37fbbdc8823f4e7e6a53caa3e2741c6cb3aa6b6165a6852b77870c"
+    },
+    "gridge_predictions": {
+      "path": "artifacts/phase16/s4_toys_standalone/formal/toys_seed1502_gpu4_a7/arms/G-RIDGE/predictions_validation.jsonl",
+      "sha256": "8b28015e90524dcfbdc5fd2ef21545c06d1a77a46cbb41521ee2873c2d73a2bf"
+    }
+  },
+  "statistics": {
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_confidence": 0.95,
+    "paired_bootstrap_seed": 20260822,
+    "familywise_alpha": 0.05,
+    "primary_family": "S-AUX_vs_F0,S-PLUS-CTRL_vs_F0,S-PLUS_vs_S-PLUS-CTRL,G-RIDGE_vs_F0 cold hit@50",
+    "raw_interval": "paired percentile bootstrap",
+    "multiplicity_test": "one-sided exact McNemar on paired hit@50 followed by Holm adjustment",
+    "cold_signal_rule": "raw paired-bootstrap ci_low > 0 and Holm-adjusted p < 0.05"
+  },
+  "resources": {
+    "cpu_only": true,
+    "gpu_count": 0,
+    "hard_timeout_seconds": 600,
+    "expected_wall_seconds": 30,
+    "disk_reservation_mib": 32
+  },
+  "gpu_scientific_inference_recompute": false,
+  "derived_statistical_finalization_from_frozen_predictions": true,
+  "gpu_rerun": false,
+  "validation_used_for_tuning_or_state_selection": false,
+  "test_read": false,
+  "automatic_retry": false,
+  "automatic_resume": false
+}

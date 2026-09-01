@@ -1,54 +1,52 @@
 {
   "affects_scientific_result": false,
-  "attempt_id": "attempt_005",
+  "attempt_id": "attempt_010",
   "automatic_retry": false,
-  "canonical_result_dir": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_005",
+  "canonical_result_dir": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_010",
   "d1_read": false,
   "d2_read": false,
   "dependency_experiment_id": "s17_fp0_sentence_t5_cache",
   "effect_experiment_started": false,
-  "execution_state": "BLOCKED",
+  "env_dependency_experiment_id": "s17_fp0_cuda_compat_env",
+  "execution_state": "SCIENTIFIC_COMPLETED",
   "expected_peak_mib": 10240,
   "experiment_id": "s17_fp0_tokenizer_bounded_profile",
   "full_data_tokenizer_started": false,
-  "gpu1_handoff_used": false,
-  "gpu1_repeat_restored": null,
-  "gpu_ids": [],
-  "gpu_snapshot": {
-    "captured_at": "2026-08-31T05:53:55.585223+00:00",
+  "gpu0_post_profile_snapshot": {
+    "captured_at": "2026-08-31T10:21:03.853856+00:00",
     "compute_processes": {
       "0": [
         {
-          "pid": 1728384,
+          "pid": 3702810,
           "process_name": "python",
-          "used_memory_mib": 560
+          "used_memory_mib": 1208
         },
         {
-          "pid": 2452204,
+          "pid": 4140121,
           "process_name": "python",
-          "used_memory_mib": 1850
+          "used_memory_mib": 4558
         },
         {
-          "pid": 2483101,
+          "pid": 4193476,
           "process_name": "python",
           "used_memory_mib": 3160
         },
         {
-          "pid": 2598642,
+          "pid": 46485,
           "process_name": "python",
-          "used_memory_mib": 22220
-        },
-        {
-          "pid": 2635240,
-          "process_name": "python",
-          "used_memory_mib": 7046
+          "used_memory_mib": 9638
         }
       ],
       "1": [
         {
-          "pid": 2602227,
-          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
-          "used_memory_mib": 17770
+          "pid": 2790130,
+          "process_name": "python",
+          "used_memory_mib": 20838
+        },
+        {
+          "pid": 3862550,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 18074
         }
       ],
       "2": [
@@ -58,53 +56,43 @@
           "used_memory_mib": 19470
         },
         {
-          "pid": 2376576,
+          "pid": 3438548,
           "process_name": "python",
-          "used_memory_mib": 9354
+          "used_memory_mib": 2346
+        },
+        {
+          "pid": 4183957,
+          "process_name": "python",
+          "used_memory_mib": 9352
         }
       ],
       "3": [
         {
-          "pid": 1728588,
-          "process_name": "python",
-          "used_memory_mib": 560
+          "pid": 3839384,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20074
         },
         {
-          "pid": 2189245,
+          "pid": 3862550,
           "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
           "used_memory_mib": 11502
-        },
-        {
-          "pid": 2574561,
-          "process_name": "python",
-          "used_memory_mib": 8008
-        },
-        {
-          "pid": 2575106,
-          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
-          "used_memory_mib": 19394
         }
       ],
       "4": [
         {
-          "pid": 1617038,
+          "pid": 3438547,
           "process_name": "python",
-          "used_memory_mib": 2352
+          "used_memory_mib": 2346
         },
         {
-          "pid": 2184139,
-          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
-          "used_memory_mib": 4462
-        },
-        {
-          "pid": 2188620,
+          "pid": 3596503,
           "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
-          "used_memory_mib": 19736
+          "used_memory_mib": 20068
         },
         {
-          "pid": 2189245,
-          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
-          "used_memory_mib": 18074
+          "pid": 3680431,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 4448
         }
       ],
       "5": [
@@ -114,137 +102,370 @@
           "used_memory_mib": 19560
         },
         {
-          "pid": 464283,
+          "pid": 4152752,
           "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
-          "used_memory_mib": 19574
+          "used_memory_mib": 19708
         }
       ],
       "6": [
         {
           "pid": 1707703,
           "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
-          "used_memory_mib": 19452
+          "used_memory_mib": 19632
         },
         {
-          "pid": 2436331,
+          "pid": 3636740,
           "process_name": "python",
-          "used_memory_mib": 9358
+          "used_memory_mib": 9360
         },
         {
-          "pid": 2442079,
+          "pid": 4160004,
           "process_name": "python",
-          "used_memory_mib": 5690
+          "used_memory_mib": 8080
         }
       ],
       "7": [
         {
-          "pid": 1777665,
+          "pid": 3438780,
           "process_name": "python",
-          "used_memory_mib": 2348
+          "used_memory_mib": 2346
         },
         {
-          "pid": 1991071,
+          "pid": 3467276,
           "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
-          "used_memory_mib": 20192
+          "used_memory_mib": 20232
         }
       ]
     },
     "devices": [
       {
-        "free_mib": 13669,
+        "free_mib": 29984,
         "index": 0,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 34902,
-        "utilization_percent": 40
+        "used_mib": 18586,
+        "utilization_percent": 70
       },
       {
-        "free_mib": 30789,
+        "free_mib": 9642,
         "index": 1,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 17781,
-        "utilization_percent": 88
+        "used_mib": 38929,
+        "utilization_percent": 52
       },
       {
-        "free_mib": 19720,
+        "free_mib": 16015,
         "index": 2,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 28850,
-        "utilization_percent": 15
+        "used_mib": 32555,
+        "utilization_percent": 26
       },
       {
-        "free_mib": 9077,
+        "free_mib": 16976,
         "index": 3,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 39494,
-        "utilization_percent": 37
+        "used_mib": 31594,
+        "utilization_percent": 39
       },
       {
-        "free_mib": 2660,
+        "free_mib": 20427,
         "index": 4,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 45911,
-        "utilization_percent": 85
+        "used_mib": 28143,
+        "utilization_percent": 92
       },
       {
-        "free_mib": 9418,
+        "free_mib": 9284,
         "index": 5,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 39153,
-        "utilization_percent": 8
+        "used_mib": 39287,
+        "utilization_percent": 14
       },
       {
-        "free_mib": 13329,
+        "free_mib": 11474,
         "index": 6,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 35242,
-        "utilization_percent": 99
+        "used_mib": 37096,
+        "utilization_percent": 15
       },
       {
-        "free_mib": 24759,
+        "free_mib": 24721,
         "index": 7,
         "name": "NVIDIA RTX A6000",
         "total_mib": 49140,
-        "used_mib": 23812,
-        "utilization_percent": 7
+        "used_mib": 23850,
+        "utilization_percent": 6
+      }
+    ]
+  },
+  "gpu0_preexisting_pids": [
+    46485,
+    3702810,
+    4140121,
+    4193476
+  ],
+  "gpu0_preexisting_processes": [
+    {
+      "pid": 3702810,
+      "process_name": "python",
+      "used_memory_mib": 2018
+    },
+    {
+      "pid": 4140121,
+      "process_name": "python",
+      "used_memory_mib": 4252
+    },
+    {
+      "pid": 4193476,
+      "process_name": "python",
+      "used_memory_mib": 3160
+    },
+    {
+      "pid": 46485,
+      "process_name": "python",
+      "used_memory_mib": 9638
+    }
+  ],
+  "gpu0_preexisting_processes_preserved": true,
+  "gpu0_shared_authorization": "researcher_directed_2026-08-31_attempt010_use_gpu0",
+  "gpu0_shared_authorized": true,
+  "gpu1_allowed": false,
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "captured_at": "2026-08-31T10:20:46.787917+00:00",
+    "compute_processes": {
+      "0": [
+        {
+          "pid": 3702810,
+          "process_name": "python",
+          "used_memory_mib": 2018
+        },
+        {
+          "pid": 4140121,
+          "process_name": "python",
+          "used_memory_mib": 4252
+        },
+        {
+          "pid": 4193476,
+          "process_name": "python",
+          "used_memory_mib": 3160
+        },
+        {
+          "pid": 46485,
+          "process_name": "python",
+          "used_memory_mib": 9638
+        }
+      ],
+      "1": [
+        {
+          "pid": 2790130,
+          "process_name": "python",
+          "used_memory_mib": 20838
+        },
+        {
+          "pid": 3862550,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 18074
+        }
+      ],
+      "2": [
+        {
+          "pid": 1641452,
+          "process_name": "python",
+          "used_memory_mib": 19470
+        },
+        {
+          "pid": 3438548,
+          "process_name": "python",
+          "used_memory_mib": 2346
+        },
+        {
+          "pid": 4183957,
+          "process_name": "python",
+          "used_memory_mib": 9352
+        }
+      ],
+      "3": [
+        {
+          "pid": 3839384,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20074
+        },
+        {
+          "pid": 3862550,
+          "process_name": "/home/guozhihui/anaconda3/envs/attr/bin/python",
+          "used_memory_mib": 11502
+        }
+      ],
+      "4": [
+        {
+          "pid": 3438547,
+          "process_name": "python",
+          "used_memory_mib": 2346
+        },
+        {
+          "pid": 3596503,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20068
+        },
+        {
+          "pid": 3680431,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 4448
+        }
+      ],
+      "5": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 4152752,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19708
+        }
+      ],
+      "6": [
+        {
+          "pid": 1707703,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19632
+        },
+        {
+          "pid": 3636740,
+          "process_name": "python",
+          "used_memory_mib": 9360
+        },
+        {
+          "pid": 4160004,
+          "process_name": "python",
+          "used_memory_mib": 1788
+        }
+      ],
+      "7": [
+        {
+          "pid": 3438780,
+          "process_name": "python",
+          "used_memory_mib": 2346
+        },
+        {
+          "pid": 3467276,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20232
+        }
+      ]
+    },
+    "devices": [
+      {
+        "free_mib": 29450,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 19120,
+        "utilization_percent": 43
+      },
+      {
+        "free_mib": 9642,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 38929,
+        "utilization_percent": 91
+      },
+      {
+        "free_mib": 16015,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 32555,
+        "utilization_percent": 19
+      },
+      {
+        "free_mib": 16976,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 31594,
+        "utilization_percent": 0
+      },
+      {
+        "free_mib": 20427,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 28143,
+        "utilization_percent": 11
+      },
+      {
+        "free_mib": 9284,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 39287,
+        "utilization_percent": 52
+      },
+      {
+        "free_mib": 17767,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 30804,
+        "utilization_percent": 19
+      },
+      {
+        "free_mib": 24721,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 23850,
+        "utilization_percent": 6
       }
     ],
-    "selection_rule": "non_gpu1_no_compute_pid_util_lte_5_free_gte_14336_mib"
+    "selected_gpu": 0,
+    "selection_rule": "researcher_selected_gpu0_free_gte_14336_mib",
+    "shared_gpu0_authorization": "researcher_directed_2026-08-31_attempt010_use_gpu0"
   },
-  "heartbeat_at": "2026-08-31T05:53:54.598959+00:00",
-  "launcher_pid": 2632962,
-  "log_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_005/run.log",
+  "launcher_pid": 52257,
+  "log_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_010/run.log",
   "occupancy_mode": "none",
-  "prior_attempt_id": "attempt_004",
-  "prior_failure_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_004/run.log",
+  "prior_attempt_id": "attempt_009",
+  "prior_failure_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_009/run.log",
   "process_alive": false,
+  "profiled_peak_allocated_mib": 932.95166015625,
+  "profiled_peak_reserved_mib": 984.0,
+  "profiled_physical_gpu": 0,
   "progress": {
-    "current": 1,
+    "current": 3,
     "total": 3,
     "unit": "profile_gate"
   },
   "repeat_iteration": 0,
   "repeat_metrics_ignored": false,
   "result_selection_eligible": false,
-  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp0_tokenizer_bounded_profile/attempt_005/manifest.json",
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp0_tokenizer_bounded_profile/attempt_010/manifest.json",
   "safety_margin_mib": 4096,
   "sample_sha256": "4cb3d0e716d5fcd17703e75a8412fdd74694baf634616b85289e56894dbeae25",
   "schema_version": "phase17.status.v2",
-  "scientific_state": "BLOCKED",
+  "scientific_state": "COMPLETED",
+  "selection_reason": "GPU0_SHARED_AUTHORIZED_WITH_MEMORY_MARGIN",
   "sports_read": false,
-  "stage": "no_safe_idle_non_gpu1_card",
-  "started_at": "2026-08-31T05:51:44.248700+00:00",
-  "status_code": "BLOCKED_WAITING_IDLE_NON_GPU1_GPU",
+  "stage": "bounded_tokenizer_profile_complete",
+  "started_at": "2026-08-31T10:20:30.846640+00:00",
+  "status_code": "PASS_S17_FP0_TOKENIZER_BOUNDED_PROFILE",
   "step_id": "S17-FP0-TOKENIZER-PROFILE",
+  "summary_path": "artifacts/phase17/fullport/fp0/tokenizer_profile/attempt_010/summary.json",
+  "summary_sha256": "6813698bb12eaf52ec2c84a28a14879ad05bcebe05eab48044de00e98c3b6501",
+  "target_gpu_id": 0,
   "test_read": false,
   "tmux_session": "s17_fp0_tokenizer_bounded_profile",
   "track_id": "FP0-PROFILE",
-  "updated_at": "2026-08-31T05:53:55.585871+00:00",
+  "updated_at": "2026-08-31T10:21:03.883003+00:00",
   "workload_pid": 0
 }

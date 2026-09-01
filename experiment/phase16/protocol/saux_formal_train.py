@@ -241,9 +241,9 @@ def main() -> int:
         output / "data_provenance.json",
         {
             **common,
-            "training": "S16-1 Toys student-readable interaction train transitions only",
+            "training": f"S16-1 {config['domain']} student-readable interaction train transitions only",
             "selection_and_admission": "S16-1 train-derived item-disjoint pseudo-cold events only",
-            "candidate_universe": "complete frozen Toys catalog content embeddings",
+            "candidate_universe": f"complete frozen {config['domain']} catalog content embeddings",
             "cold_content_only": cold_audit,
             "validation_used": False,
             "test_read": False,
@@ -357,10 +357,16 @@ def main() -> int:
         device,
     )
     checkpoint_after = sha256(input_paths["content_embeddings"])
+    pass_verdict = config.get("admission", {}).get(
+        "pass_verdict", "PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION"
+    )
+    fail_verdict = config.get("admission", {}).get(
+        "fail_verdict", "FAIL_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION"
+    )
     verdict = (
-        "PASS_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION"
+        pass_verdict
         if final_admission["all_finite"] and checkpoint_before == checkpoint_after
-        else "FAIL_S16_2_SAUX_FAITHFUL_CONTRACT_ADMISSION"
+        else fail_verdict
     )
     summary = {
         **common,
@@ -384,7 +390,10 @@ def main() -> int:
         "peak_cuda_allocated_mib": torch.cuda.max_memory_allocated(device) / 1024**2,
         "peak_cuda_reserved_mib": torch.cuda.max_memory_reserved(device) / 1024**2,
         "runtime_seconds": time.time() - started,
-        "scientific_scope": "train-only internal-development contract/admission; no source validation or test",
+        "scientific_scope": config.get(
+            "scientific_scope",
+            "train-only internal-development contract/admission; no source validation or test",
+        ),
         "test_read": False,
     }
     atomic_json(output / "summary.json", summary)

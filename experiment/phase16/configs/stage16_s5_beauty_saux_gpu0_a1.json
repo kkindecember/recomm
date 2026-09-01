@@ -1,0 +1,166 @@
+{
+  "schema_version": "stage16_s5_beauty_saux_v1",
+  "experiment_id": "GRAM_PHASE16_S5_BEAUTY_SAUX_FROZEN_TRANSFER",
+  "attempt_id": "s16_s5_beauty_saux_gpu0_a1",
+  "output_dir": "artifacts/phase16/s5_beauty_saux/formal/beauty_seed1502_gpu0_a1",
+  "exact_start_command": "bash experiment/phase16/run_stage16_s5_beauty_saux_gpu0_a1.sh",
+  "seed": 1502,
+  "domain": "Beauty_cold50",
+  "split": "validation",
+  "physical_gpu": 0,
+  "visible_gpu": 0,
+  "training": {
+    "config_path": "experiment/phase16/configs/stage16_s5_beauty_saux_train_gpu0_a1.json",
+    "checkpoint_path": "artifacts/phase16/s5_beauty_saux/formal/beauty_seed1502_gpu0_a1/training/checkpoints/best_model.pt",
+    "summary_path": "artifacts/phase16/s5_beauty_saux/formal/beauty_seed1502_gpu0_a1/training/summary.json",
+    "frozen_before_validation": true
+  },
+  "toys_frozen_method_source": {
+    "path": "experiment/phase16/configs/stage16_s4_toys_standalone_gpu4_a7.json",
+    "sha256": "a09eda03288eb2d04c38f925f471d061679827958b41063c7dbf98f76740168a"
+  },
+  "inputs": {
+    "projected_train_validation_sequences": {
+      "path": "artifacts/phase15/s2_dual_domain_preflight/projected_data/Beauty_cold50/user_sequence_train_validation.txt",
+      "sha256": "b7b16f370df9e93423e9d4ac72d78177fc7833048e41828c895fa56495ef855e"
+    },
+    "phase13_p0_predictions": {
+      "path": "artifacts/phase13/explore/v1_r2_beauty_p0/predictions_validation.jsonl",
+      "sha256": "895b26b16fe176bbb311d41dbf2d3bf72d2aac12d423c9e06ee96e07ed4f63e1"
+    },
+    "phase13_portfolio2_summary": {
+      "path": "artifacts/phase13/explore/v1_r2_beauty_b1_portfolio_confirmation/summary.json",
+      "sha256": "308cb0356200d8d07f9c7f491fdc97177c6751b80266950d83af638923a61b56"
+    },
+    "phase13_resolver_state": {
+      "path": "artifacts/phase13/explore/v1_r2_beauty_p0/resolver.pt",
+      "sha256": "4febb0ff4fa2ab2998b05037387d7eca1be88fdb4f2c834eb1666601fd84dffc"
+    },
+    "lexical_paths": {
+      "path": "GRAM/rec_datasets/Beauty_cold50/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt",
+      "sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b"
+    },
+    "item_metadata": {
+      "path": "GRAM/rec_datasets/Beauty_cold50/item_plain_text.txt",
+      "sha256": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc"
+    },
+    "cold_items": {
+      "path": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/cold_items.txt",
+      "sha256": "d7edea19e40ae42c0c848fe7185001d9a762ec747957bf3766bc787c7bc99f13"
+    },
+    "warm_items": {
+      "path": "GRAM/rec_datasets/Beauty_cold50/cold_split_meta/warm_items.txt",
+      "sha256": "291b3b82d5d37c56e52157d6a14c5c06e4e10160a10e37173a9e313baeea2def"
+    },
+    "content_embeddings": {
+      "path": "artifacts/phase13/embeddings/Beauty_bge_large_en_v1_5_cls_l2.pt",
+      "sha256": "f6fbc0527c3dfbe66a60388c84645357ea8c14d97c58fe66a02a75ffa4192090"
+    },
+    "retained_warm_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/retained_warm_items.txt",
+      "sha256": "1ab6612bf41bd26727cb588e34a5cedac50ea08bf91a12c62a4b6eeb13b5b8ae"
+    },
+    "pseudo_cold_items": {
+      "path": "artifacts/phase16/s1_data_resource_preflight/splits/Beauty_cold50/pseudo_cold_items.txt",
+      "sha256": "b5735b20e5d44bbd04ea7276aba9962dbabc14662a7a0a70cb60b6aa69ad79b4"
+    },
+    "gram_config": {
+      "path": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/config.json",
+      "sha256": "61dfbb0d51ba65fe0b3af5f8985c0f7cff6314d30778af739859938becb9c2e7"
+    },
+    "gram_f0_checkpoint": {
+      "path": "artifacts/phase13/explore/v0_beauty/gram_logs/Beauty_cold50/0_20260810_1004/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+      "sha256": "6e5d43f2a3d51f02b351314bad31bff00249cee536731f105215883c022c27b8"
+    },
+    "t5_config": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/config.json",
+      "sha256": "4e1e11591a7d9559328e1e5d2f5cfad32d807a8dc0a842ff83c6c641719ec69b"
+    },
+    "t5_generation_config": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/generation_config.json",
+      "sha256": "26ebd6030f82628a145fa6275301f48c650579df95107dd151358f2a306b2173"
+    },
+    "t5_model": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/pytorch_model.bin",
+      "sha256": "7cc541f7d54c29243b22f46a861e1834a7b4ed4ea9ad81d7f45bc088ed938002"
+    },
+    "t5_special_tokens": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/special_tokens_map.json",
+      "sha256": "5c87151ef0f72a99d1f766a4c418bd2a1f90aaa30a8e22fe5eca9641daebb64f"
+    },
+    "t5_tokenizer": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/tokenizer.json",
+      "sha256": "5f0ed8ab5b8cfa9812bb73752f1d80c292e52bcf5a87a144dc9ab2d251056cbb"
+    },
+    "t5_tokenizer_config": {
+      "path": "artifacts/phase14/m2/pretrained/t5-small/tokenizer_config.json",
+      "sha256": "9ad52682fa6eeb66766bb74df1fb8b8da9c784e7d3a4fe91261830955ec2cc15"
+    }
+  },
+  "expected_universe": {
+    "validation_events": 10655,
+    "cold_validation_events": 5287,
+    "warm_validation_events": 5368,
+    "catalog_items": 12101,
+    "cold_catalog_items": 6052,
+    "warm_catalog_items": 6049,
+    "ranking_size": 50
+  },
+  "faithful_inference": {
+    "draft_size": 50,
+    "threshold": -1.8,
+    "acceptance": "strict_gt",
+    "guided_redraft": "current_live_verifier_beam_prefixes",
+    "underfilled_live_round": "draft_all_finite_unseen_then_advance_verifier_beam",
+    "candidate_chunk_size": 10,
+    "target_aware_prefix_length": "max_2_and_longest_warm_prefix",
+    "fallback": "official_rejected_plus_nonduplicated_live_verifier_beam",
+    "adaptive_exit": "accepted_at_least_50_or_maximum_lexical_depth",
+    "checkpoint_state_universe": "retained_warm_plus_padding",
+    "history_content_universe": "complete_catalog_plus_padding",
+    "official_predict_semantics": true,
+    "beam_size": 50
+  },
+  "portfolio2_contract": {
+    "candidate_exclusion_prefix": 7,
+    "ranking_anchor_count": 8,
+    "candidate_count": 3,
+    "portfolio_size": 2,
+    "ranking_size": 50,
+    "method": "stage13_v1_r2_unconditional_portfolio2"
+  },
+  "statistics": {
+    "paired_bootstrap_resamples": 10000,
+    "paired_bootstrap_confidence": 0.95,
+    "paired_bootstrap_seed": 20260822,
+    "exact_test": "one_sided_exact_mcnemar_treatment_greater",
+    "holm_family": ["S-AUX_vs_F0"],
+    "familywise_alpha": 0.05,
+    "item_bootstrap_resamples": 10000,
+    "item_bootstrap_seed": 20260901
+  },
+  "resources": {
+    "gpu_count": 1,
+    "minimum_free_mib": 9216,
+    "expected_training_peak_reserved_mib": 5120,
+    "expected_validation_peak_reserved_mib": 4096,
+    "hard_timeout_seconds": 604800,
+    "training_hard_timeout_seconds": 172800,
+    "validation_hard_timeout_seconds": 345600,
+    "disk_reservation_mib": 16384,
+    "heartbeat_seconds": 30,
+    "stall_advisory_seconds": 1800,
+    "existing_processes_modified": false
+  },
+  "runtime_isolation": {
+    "snapshot_root": ".runtime/phase16_s5_beauty_saux_gpu0_a1_runtime",
+    "source_runtime": ".runtime/phase16_s3r_gridge_f3_runtime",
+    "main_worktree_mutations_visible": false,
+    "shared_artifacts_read_only_except_attempt_root": true
+  },
+  "progress_interval_events": 16,
+  "validation_used_for_state_selection_or_tuning": false,
+  "scientific_efficacy_metric": true,
+  "test_read": false,
+  "automatic_retry": false
+}

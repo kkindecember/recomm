@@ -2,16 +2,27 @@
 
 Stage 17 is a mechanism-migration portfolio for improving normal-setting GRAM. It is not a 1:1 paper-reproduction track.
 
-Current gate: `S17-FP0` source/data/fidelity freeze, full-data native adapter,
-and the first full-port foundation contracts have passed. The isolated LATTE
-Python 3.12 environment and commit-pinned SentenceT5 cache run as CPU-only
-background preparation with stable status files. A dependent 512-item tokenizer
-profile is queued in the background and may use only a genuinely idle non-GPU1
-card for at most ten minutes; it blocks instead of taking a busy card. S17-2R remains closed and is
-not rerun. The active path is full-data Native-PSID/Native-LATTE plus
-GRAM-LATTE-Full, followed by separate SETRec repository-parity and
-paper-faithful sparse-attention arms. Official test, Sports, D1, and D2 remain
-sealed.
+Current gate: the `S17-FP0` source/data/fidelity freeze, native adapter, pinned
+CUDA 12.6 environment, offline SentenceT5 cache, bounded tokenizer profile, and
+full-data tokenizer have passed. Full-data tokenizer `attempt_001` ran once on
+the explicitly authorized physical GPU0 and completed in 111.28 seconds with a
+984 MiB peak reservation. Whitened PCA and RQ-KMeans fit only the frozen 11,138
+train-prefix items; all 11,924 metadata items received three 0--255 codes; 1,337
+collisions were reassigned and zero aliases remain. The generated semantic-ID
+JSON is byte-identical to the official LATTE `.sem_ids` cache. No FP1/FP2 effect
+experiment has run. The immutable tokenizer attempt exported 775 observed
+tokens; additive `amendment_001` supplies the one unobserved valid codebook
+token (`<s17_sid1_236>`) and freezes the complete 3x256+8 = 776-token G1/G2
+inventory without editing the tokenizer attempt or official `.sem_ids` cache.
+All five arm-specific resource-profile executors and CPU preflights are now
+prepared as `attempt_001`; readiness is
+`READY_FOR_ARM_SPECIFIC_PROFILE_AUTHORIZATION`. Their launch gates remain
+closed. The 2026-08-31 22:46:57+08:00 read-only resource snapshot found every
+assigned card below its frozen free-memory gate, so no GPU profile was started.
+The exact deficits and PID-preservation set are frozen in
+`artifacts/phase17/fullport/profiles/profile_authorization_request_001.json`.
+Formal FP1/FP2 launch remains unauthorized. S17-2R remains closed and is not
+rerun. Official test, Sports, D1, and D2 remain sealed.
 
 The active plan is
 `plan/第十七阶段/GRAM_第十七阶段_S17-FP完整论文机制迁移与架构级大实验计划v0.1.md`.
@@ -24,7 +35,7 @@ Safety rules:
 - Jobs expected to exceed ten minutes run in a persistent background session and expose a stable JSON status file.
 - Stage 17 has no fixed global GPU-count ceiling. Small probes use currently idle eligible cards; before a large experiment, the runner states the requested GPU count and per-card memory and waits for the researcher's allocation. The current planning baseline is usually one or two cards, not a hard cap. Each single-card job is still designed for about 30 GiB usable memory unless a later allocation says otherwise.
 - A terminal scientific step produces one consolidated report under `report/第十七阶段/`.
-- S17-4 canonical science is closed. Physical GPU1 continues the isolated
-  run-NNNN post-success workload and is excluded from S17-2R preflight/smoke.
-  S17-2R did not stop the GPU1 repeat, and its repeat metrics are excluded from
-  the architecture-selection evidence.
+- S17-4 canonical science is closed. Any GPU1 handoff for G0 requires a fresh
+  PID/state freeze and explicit authorization; Stage17 never signals an
+  existing process automatically. Runtime-maintenance metrics remain excluded
+  from architecture-selection evidence.

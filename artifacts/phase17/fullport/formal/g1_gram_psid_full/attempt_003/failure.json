@@ -1,0 +1,14 @@
+{
+  "arm_id": "G1_GRAM_PSID_FULL",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "error": "KeyboardInterrupt()",
+  "external_target_materialized": false,
+  "failed_at": "2026-08-31T18:12:40.791469+00:00",
+  "schema_version": "phase17.failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_formal_g1_gram_psid_full_seed2023/attempt_003/src/000_s17_fp12_formal_runtime.py\", line 608, in worker\n    training = train_formal_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 564, in train_formal_arm\n    return train_gram_formal(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_formal_executor.py\", line 431, in train_gram_formal\n    batch = _move(collator(rows), device)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/processor/Collator.py\", line 205, in __call__\n    item_text_ids, item_text_masks = self.encode_texts(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/processor/Collator.py\", line 296, in encode_texts\n    return item_text_ids, item_text_masks.bool()\nKeyboardInterrupt\n"
+}

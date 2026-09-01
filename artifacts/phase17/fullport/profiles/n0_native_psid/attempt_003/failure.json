@@ -1,0 +1,15 @@
+{
+  "arm_id": "N0_NATIVE_PSID",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "d1_read": false,
+  "d2_read": false,
+  "effect_metrics_computed": false,
+  "error": "AssertionError('official native prediction shape drifted: (1, 50, 2)')",
+  "external_target_materialized": false,
+  "failed_at": "2026-08-31T15:54:35.774238+00:00",
+  "schema_version": "phase17.failure.v1",
+  "sports_read": false,
+  "test_read": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/protocol/s17_fp12_resource_profile_runtime.py\", line 612, in worker\n    measurements = run_resource_profile(\n                   ^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_profile_executor.py\", line 306, in run_resource_profile\n    return run_native_resource_profile(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_profile_executor.py\", line 260, in run_native_resource_profile\n    raise AssertionError(\nAssertionError: official native prediction shape drifted: (1, 50, 2)\n"
+}

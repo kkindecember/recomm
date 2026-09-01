@@ -10,6 +10,9 @@ from experiment.phase17.protocol.s17_fp0_tokenizer_profile_runtime import (
     EXPECTED_PEAK_MIB,
     RESERVED_GPU_ID,
     SAMPLE_SIZE,
+    TARGET_GPU_ID,
+    choose_authorized_shared_gpu0,
+    choose_authorized_shared_gpu1,
     choose_safe_non_gpu1,
     profile_script,
     paths,
@@ -43,6 +46,33 @@ class S17FP0TokenizerProfileRuntimeTests(unittest.TestCase):
         self.assertIsNone(choose_safe_non_gpu1([gpu(0, 12000)], {0: []}))
         self.assertIsNone(choose_safe_non_gpu1([gpu(0, 40000, utilization=10)], {0: []}))
 
+    def test_shared_gpu1_requires_existing_repeat_and_headroom(self) -> None:
+        selected, code = choose_authorized_shared_gpu1([gpu(1, 40000, 99)], {1: []})
+        self.assertIsNone(selected)
+        self.assertEqual(code, "BLOCKED_GPU1_REPEAT_NOT_PRESENT")
+
+        selected, code = choose_authorized_shared_gpu1(
+            [gpu(1, 14000, 99)], {1: [{"pid": 123, "used_memory_mib": 18000}]}
+        )
+        self.assertIsNone(selected)
+        self.assertEqual(code, "BLOCKED_GPU1_SHARED_HEADROOM_INSUFFICIENT")
+
+    def test_shared_gpu1_allows_busy_card_with_sufficient_remaining_memory(self) -> None:
+        selected, code = choose_authorized_shared_gpu1(
+            [gpu(1, 30000, 99)], {1: [{"pid": 123, "used_memory_mib": 18000}]}
+        )
+        self.assertEqual(selected.index, 1)
+        self.assertEqual(code, "GPU1_SHARED_AUTHORIZED_WITH_EXISTING_REPEAT_AND_MEMORY_MARGIN")
+
+    def test_researcher_selected_gpu0_requires_profile_headroom(self) -> None:
+        selected, code = choose_authorized_shared_gpu0([gpu(TARGET_GPU_ID, 14000, 99)])
+        self.assertIsNone(selected)
+        self.assertEqual(code, "BLOCKED_GPU0_SHARED_HEADROOM_INSUFFICIENT")
+
+        selected, code = choose_authorized_shared_gpu0([gpu(TARGET_GPU_ID, 30000, 99)])
+        self.assertEqual(selected.index, TARGET_GPU_ID)
+        self.assertEqual(code, "GPU0_SHARED_AUTHORIZED_WITH_MEMORY_MARGIN")
+
     def test_profile_is_bounded_and_offline(self) -> None:
         self.assertEqual(SAMPLE_SIZE, 512)
         self.assertEqual(BATCH_SIZE, 32)
@@ -51,7 +81,7 @@ class S17FP0TokenizerProfileRuntimeTests(unittest.TestCase):
         self.assertIn("local_files_only=True", profile_script())
 
     def test_recovery_worker_bootstraps_project_imports(self) -> None:
-        self.assertEqual(ATTEMPT_ID, "attempt_005")
+        self.assertEqual(ATTEMPT_ID, "attempt_010")
         command = worker_command(ROOT, paths(ROOT))
         self.assertEqual(command[:2], ["/usr/bin/env", f"PYTHONPATH={ROOT}"])
 

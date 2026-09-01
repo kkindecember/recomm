@@ -1,0 +1,137 @@
+{
+  "affects_scientific_result": false,
+  "attempt_id": "attempt_001",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/microbatch_upscale/mb8/attempt_001",
+  "d1_read": false,
+  "d2_read": false,
+  "effective_batch": 128,
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s17_fp12_microbatch_profile_g2_mb8",
+  "external_target_materialized": false,
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "before": {
+      "captured_at": "2026-08-31T17:46:00.796635+00:00",
+      "devices": [
+        {
+          "free_mib": 18267,
+          "index": 0,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 30303,
+          "utilization_percent": 100
+        },
+        {
+          "free_mib": 20666,
+          "index": 1,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 27904,
+          "utilization_percent": 31
+        },
+        {
+          "free_mib": 17269,
+          "index": 2,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 31302,
+          "utilization_percent": 57
+        },
+        {
+          "free_mib": 22216,
+          "index": 3,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 26355,
+          "utilization_percent": 0
+        },
+        {
+          "free_mib": 7175,
+          "index": 4,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 41395,
+          "utilization_percent": 100
+        },
+        {
+          "free_mib": 28432,
+          "index": 5,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 20139,
+          "utilization_percent": 32
+        },
+        {
+          "free_mib": 8093,
+          "index": 6,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 40478,
+          "utilization_percent": 23
+        },
+        {
+          "free_mib": 13639,
+          "index": 7,
+          "name": "NVIDIA RTX A6000",
+          "total_mib": 49140,
+          "used_mib": 34931,
+          "utilization_percent": 15
+        }
+      ],
+      "selected": {
+        "free_mib": 28432,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 20139,
+        "utilization_percent": 32
+      },
+      "selected_compute_processes": [
+        {
+          "pid": 1648062,
+          "process_name": "python",
+          "used_memory_mib": 19560
+        },
+        {
+          "pid": 2180340,
+          "process_name": "python",
+          "used_memory_mib": 560
+        }
+      ]
+    }
+  },
+  "gradient_accumulation": 16,
+  "heartbeat_at": "2026-08-31T17:46:27.941128+00:00",
+  "launcher_pid": 3786080,
+  "log_path": null,
+  "occupancy_mode": "none",
+  "process_alive": false,
+  "profile_peak_reserved_mib": 21218.0,
+  "progress": {
+    "current": 1,
+    "total": 1,
+    "unit": "profile"
+  },
+  "recommended_minimum_free_mib": 24290,
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "resource_only": true,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "COMPLETED",
+  "sports_read": false,
+  "stage": "microbatch_profile_complete",
+  "started_at": "2026-08-31T17:45:59.389659+00:00",
+  "status_code": "PASS_S17_FP12_MICROBATCH_RESOURCE_PROFILE",
+  "step_id": "S17-FP2",
+  "summary_path": "artifacts/phase17/fullport/profiles/g2_gram_latte_full/microbatch_upscale/mb8/attempt_001/summary.json",
+  "target_gpu_id": 5,
+  "test_read": false,
+  "tmux_session": null,
+  "track_id": "G2_MICROBATCH_8",
+  "train_microbatch": 8,
+  "updated_at": "2026-08-31T17:46:30.049153+00:00",
+  "workload_pid": 0
+}

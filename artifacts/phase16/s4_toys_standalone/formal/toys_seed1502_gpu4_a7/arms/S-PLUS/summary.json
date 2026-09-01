@@ -1,0 +1,51 @@
+{
+  "arm": "S-PLUS",
+  "attempt_id": "s16_s4_toys_standalone_gpu4_a7",
+  "automatic_retry": false,
+  "discard_output": false,
+  "event_limit": null,
+  "events": 8789,
+  "experiment_id": "GRAM_PHASE16_S4_TOYS_STANDALONE_FROZEN_VALIDATION",
+  "extra_state_bytes": 242265013,
+  "inference_seconds": 8492.536221265793,
+  "mechanism_totals": {
+    "accepted": 305633,
+    "beam_decoder_rows": 2017859,
+    "candidate_verifier_forwards": 908686,
+    "draft_capacity_shortfall_rounds": 8636,
+    "drafted": 908686,
+    "rankings_different_from_f0": 8789,
+    "redraft_rounds": 34908,
+    "rounds": 52486,
+    "zero_finite_draft_rounds": 2549
+  },
+  "metrics": {
+    "cold": {
+      "events": 4367,
+      "hit@50": 0.011907487978016945,
+      "ndcg@10": 0.001556606758632815
+    },
+    "overall": {
+      "events": 8789,
+      "hit@50": 0.06530890886335192,
+      "ndcg@10": 0.014816461523930438
+    },
+    "warm": {
+      "events": 4422,
+      "hit@50": 0.11804613297150611,
+      "ndcg@10": 0.02791139272249551
+    }
+  },
+  "peak_cpu_rss_mib": 5609.8515625,
+  "peak_cuda_allocated_mib": 1368.2998046875,
+  "peak_cuda_reserved_mib": 2462.0,
+  "promotion_eligible": true,
+  "runtime_seconds": 8492.536221265793,
+  "schema_version": "stage16_s4_toys_standalone_v1",
+  "scientific_efficacy_metric_produced": true,
+  "status": "completed",
+  "test_read": false,
+  "update_seconds": 0.0,
+  "validation_target_used_for_state_selection_or_tuning": false,
+  "verdict": "COMPLETED_S16_4_TOYS_S_PLUS_FROZEN_VALIDATION"
+}
