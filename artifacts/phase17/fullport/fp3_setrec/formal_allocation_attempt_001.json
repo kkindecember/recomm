@@ -1,0 +1,209 @@
+{
+  "attempt_id": "attempt_001",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "captured_at": "2026-09-02T16:27:45.405354+00:00",
+  "formal_launch_authorized": false,
+  "gpu_by_arm": {
+    "S0_SETREC_ORDERED_CONTROL": 1,
+    "S1P_SETREC_PAPER_FAITHFUL": 6,
+    "S1R_SETREC_REPO_PARITY": 5,
+    "S2_GRAM_SETREC_PAPER_FULL": 7
+  },
+  "minimum_free_mib_by_arm": {
+    "S0_SETREC_ORDERED_CONTROL": 9326,
+    "S1P_SETREC_PAPER_FAITHFUL": 9330,
+    "S1R_SETREC_REPO_PARITY": 9322,
+    "S2_GRAM_SETREC_PAPER_FULL": 16366
+  },
+  "preserve_all_preexisting_processes": true,
+  "schema_version": "phase17.s17_fp3_formal_allocation.v1",
+  "selection_policy": "fastest_four_way_parallel_assignment_from_live_free_memory_after_upscale_profile",
+  "shared_server_coexistence": true,
+  "snapshot": {
+    "captured_at": "2026-09-02T16:27:45.405312+00:00",
+    "compute_processes": {
+      "0": [
+        {
+          "pid": 3260340,
+          "process_name": "/mnt/18T/baishilong/embody_ai/openpi/.venv/bin/python",
+          "used_memory_mib": 8516
+        },
+        {
+          "pid": 2042902,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19704
+        },
+        {
+          "pid": 2408135,
+          "process_name": "python",
+          "used_memory_mib": 8242
+        },
+        {
+          "pid": 2590900,
+          "process_name": "python",
+          "used_memory_mib": 2774
+        },
+        {
+          "pid": 2808235,
+          "process_name": "python",
+          "used_memory_mib": 1580
+        }
+      ],
+      "1": [
+        {
+          "pid": 3906305,
+          "process_name": "python",
+          "used_memory_mib": 560
+        },
+        {
+          "pid": 2607750,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20162
+        },
+        {
+          "pid": 2609511,
+          "process_name": "python",
+          "used_memory_mib": 2754
+        }
+      ],
+      "2": [
+        {
+          "pid": 1641452,
+          "process_name": "python",
+          "used_memory_mib": 19470
+        },
+        {
+          "pid": 2996951,
+          "process_name": "python",
+          "used_memory_mib": 9352
+        },
+        {
+          "pid": 3028690,
+          "process_name": "python",
+          "used_memory_mib": 9336
+        }
+      ],
+      "3": [
+        {
+          "pid": 2476479,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 26322
+        },
+        {
+          "pid": 2622642,
+          "process_name": "python",
+          "used_memory_mib": 2754
+        },
+        {
+          "pid": 2910450,
+          "process_name": "python",
+          "used_memory_mib": 3152
+        }
+      ],
+      "4": [
+        {
+          "pid": 73279,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 26564
+        },
+        {
+          "pid": 2969343,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 17862
+        },
+        {
+          "pid": 2506952,
+          "process_name": "python",
+          "used_memory_mib": 2774
+        }
+      ],
+      "5": [
+        {
+          "pid": 2354506,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 28462
+        }
+      ],
+      "6": [
+        {
+          "pid": 2036106,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19706
+        },
+        {
+          "pid": 2933792,
+          "process_name": "python",
+          "used_memory_mib": 9354
+        }
+      ],
+      "7": []
+    },
+    "devices": [
+      {
+        "free_mib": 6374,
+        "index": 0,
+        "total_mib": 49140,
+        "used_mib": 42197,
+        "utilization_percent": 2,
+        "uuid": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc"
+      },
+      {
+        "free_mib": 23913,
+        "index": 1,
+        "total_mib": 49140,
+        "used_mib": 24657,
+        "utilization_percent": 10,
+        "uuid": "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160"
+      },
+      {
+        "free_mib": 10380,
+        "index": 2,
+        "total_mib": 49140,
+        "used_mib": 38191,
+        "utilization_percent": 18,
+        "uuid": "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059"
+      },
+      {
+        "free_mib": 15203,
+        "index": 3,
+        "total_mib": 49140,
+        "used_mib": 33367,
+        "utilization_percent": 81,
+        "uuid": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640"
+      },
+      {
+        "free_mib": 191,
+        "index": 4,
+        "total_mib": 49140,
+        "used_mib": 48379,
+        "utilization_percent": 77,
+        "uuid": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09"
+      },
+      {
+        "free_mib": 20096,
+        "index": 5,
+        "total_mib": 49140,
+        "used_mib": 28475,
+        "utilization_percent": 0,
+        "uuid": "GPU-07374397-b213-09c1-2988-718acb6ed231"
+      },
+      {
+        "free_mib": 19492,
+        "index": 6,
+        "total_mib": 49140,
+        "used_mib": 29079,
+        "utilization_percent": 13,
+        "uuid": "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2"
+      },
+      {
+        "free_mib": 48568,
+        "index": 7,
+        "total_mib": 49140,
+        "used_mib": 2,
+        "utilization_percent": 0,
+        "uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253"
+      }
+    ]
+  }
+}

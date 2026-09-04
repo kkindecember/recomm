@@ -59,10 +59,19 @@ def _assert_approved_d0_path(path: Path, root: Path) -> None:
         )
 
 
-def _validated_fields(path: Path) -> list[list[str]]:
+def _validated_fields(
+    path: Path, *, expected_sha256: str | None = None
+) -> list[list[str]]:
     rows: list[list[str]] = []
     seen: set[str] = set()
-    for line_number, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    raw_bytes = path.read_bytes()
+    if expected_sha256 is not None:
+        observed = hashlib.sha256(raw_bytes).hexdigest()
+        if observed != expected_sha256:
+            raise RuntimeError(
+                f"Stage17 D0 projection hash drift: {observed} != {expected_sha256}"
+            )
+    for line_number, raw in enumerate(raw_bytes.decode("utf-8").splitlines(), 1):
         fields = raw.strip().split()
         if not fields:
             continue
@@ -170,14 +179,42 @@ def read_external_examples(
 ) -> list[FullportExternalExample]:
     """Open D0 external targets only after a family checkpoint is frozen."""
 
+    _users, examples = materialize_external_evaluation_view(
+        path,
+        root=root,
+        external_target_authorized=external_target_authorized,
+        max_history_items=max_history_items,
+    )
+    return examples
+
+
+def materialize_external_evaluation_view(
+    path: Path,
+    *,
+    root: Path,
+    external_target_authorized: bool = False,
+    max_history_items: int = 20,
+    expected_sha256: str | None = None,
+) -> tuple[list[FullportTrainUser], list[FullportExternalExample]]:
+    """Read train prefixes and external targets together in one authorized pass.
+
+    The family evaluator uses this API exactly once to build its immutable
+    shared bundle.  Returning both views avoids a second open of the D0 file
+    when target-frequency and memorization subgroups are computed later.
+    """
+
     if not external_target_authorized:
         raise PermissionError(
             "D0 external targets remain sealed until family checkpoint freeze"
         )
+    if max_history_items <= 0:
+        raise ValueError("max_history_items must be positive")
     _assert_approved_d0_path(path, root)
+    users: list[FullportTrainUser] = []
     examples: list[FullportExternalExample] = []
-    for fields in _validated_fields(path):
+    for fields in _validated_fields(path, expected_sha256=expected_sha256):
         train_items = tuple(fields[1:-2])
+        users.append(FullportTrainUser(user_id=fields[0], train_items=train_items))
         examples.append(
             FullportExternalExample(
                 user_id=fields[0],
@@ -185,4 +222,4 @@ def read_external_examples(
                 target=fields[-2],
             )
         )
-    return examples
+    return users, examples

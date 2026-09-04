@@ -1,0 +1,179 @@
+{
+  "affects_scientific_result": true,
+  "attempt_id": "attempt_001",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/external_d0/attempt_001/arms/g0_gram_b0_fresh",
+  "d1_read": false,
+  "d2_read": false,
+  "execution_state": "SCIENTIFIC_FAILED",
+  "experiment_id": "s17_fp12_external_d0_g0_gram_b0_fresh",
+  "external_target_materialized": true,
+  "failure_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/g0_gram_b0_fresh/failure.json",
+  "failure_sha256": "f62480b36915c4cb7277751b2158e891a14c4aecfb659eb10d3be00dbd103198",
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "first": [
+      {
+        "free_mib": 10308,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 38263,
+        "utilization_percent": 100
+      },
+      {
+        "free_mib": 12403,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 36167,
+        "utilization_percent": 100
+      },
+      {
+        "free_mib": 10360,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 38211,
+        "utilization_percent": 24
+      },
+      {
+        "free_mib": 18787,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29784,
+        "utilization_percent": 98
+      },
+      {
+        "free_mib": 10787,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 37784,
+        "utilization_percent": 16
+      },
+      {
+        "free_mib": 25003,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 23568,
+        "utilization_percent": 25
+      },
+      {
+        "free_mib": 19496,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29075,
+        "utilization_percent": 16
+      },
+      {
+        "free_mib": 13161,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 35409,
+        "utilization_percent": 0
+      }
+    ],
+    "minimum_free_mib": 18968,
+    "physical_gpu": 5,
+    "preserve_preexisting_processes": true,
+    "second": [
+      {
+        "free_mib": 11828,
+        "index": 0,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 36743,
+        "utilization_percent": 91
+      },
+      {
+        "free_mib": 12403,
+        "index": 1,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 36167,
+        "utilization_percent": 97
+      },
+      {
+        "free_mib": 10360,
+        "index": 2,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 38211,
+        "utilization_percent": 13
+      },
+      {
+        "free_mib": 18787,
+        "index": 3,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29784,
+        "utilization_percent": 7
+      },
+      {
+        "free_mib": 10787,
+        "index": 4,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 37784,
+        "utilization_percent": 48
+      },
+      {
+        "free_mib": 25003,
+        "index": 5,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 23568,
+        "utilization_percent": 11
+      },
+      {
+        "free_mib": 19496,
+        "index": 6,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 29075,
+        "utilization_percent": 15
+      },
+      {
+        "free_mib": 13161,
+        "index": 7,
+        "name": "NVIDIA RTX A6000",
+        "total_mib": 49140,
+        "used_mib": 35409,
+        "utilization_percent": 0
+      }
+    ],
+    "utilization_recorded_only": true
+  },
+  "launcher_pid": 2609564,
+  "log_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/g0_gram_b0_fresh/run.log",
+  "occupancy_mode": "none",
+  "process_alive": false,
+  "progress": {
+    "current": 0,
+    "total": 1
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "result_selection_eligible": false,
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "FAILED",
+  "single_materialization_count": 1,
+  "sports_read": false,
+  "stage": "external_inference",
+  "started_at": "2026-09-02T04:11:34.725564+00:00",
+  "status_code": "S17_FP12_EXTERNAL_ARM_FAILED_NO_RETRY",
+  "step_id": "S17-FP12-EXTERNAL-D0",
+  "target_gpu_id": 5,
+  "terminal_error": "TypeError(\"'weights_only' is an invalid keyword argument for Unpickler()\")",
+  "test_read": false,
+  "tmux_session": "s17_fp12_external_d0_g0_gram_b0_fresh",
+  "track_id": "G0_GRAM_B0_FRESH",
+  "updated_at": "2026-09-02T04:11:49.109749+00:00",
+  "workload_pid": 0
+}

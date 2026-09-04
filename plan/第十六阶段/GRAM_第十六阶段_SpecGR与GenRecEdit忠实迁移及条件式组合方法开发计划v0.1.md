@@ -1,7 +1,7 @@
 # GRAM 第十六阶段：SpecGR 忠实迁移、GenRecEdit-inspired→GRAM、互补性验证及条件式组合方法开发计划 v0.1
 
 > **建立日期**：2026-08-23
-> **当前状态**：`S16_0_COMPLETED / S16_1_COMPLETED / S16_2_COMPLETED_SAUX_SPLUS_CTRL_PASS / S16_3F_STRUCTURAL_BLOCKED_PRESERVED / S16_3R_FORMAL_F3_PASS / S16_4_GPU4_A7_FAILED_PRESERVED / S16_4_CPU_RECOVERY_A8_PRESERVED / S16_4_PORTFOLIO2_CORRECTION_A9_COMPLETED / S16_4_SAUX_PARETO / S16_4_GRIDGE_FAILED_NO_COMPLEMENTARITY / STOP_ORIGINAL_GRIDGE_COMPOSITION / NEXT_SAUX_FROZEN_BEAUTY_PENDING_USER_GPU_AUTHORIZATION / TEST_SEALED`
+> **当前状态**：`S16_0_COMPLETED / S16_1_COMPLETED / S16_2_COMPLETED_SAUX_SPLUS_CTRL_PASS / S16_3F_STRUCTURAL_BLOCKED_PRESERVED / S16_3R_FORMAL_F3_PASS / S16_4_GPU4_A7_FAILED_PRESERVED / S16_4_CPU_RECOVERY_A8_PRESERVED / S16_4_PORTFOLIO2_CORRECTION_A9_COMPLETED / S16_4_SAUX_PARETO / S16_4_GRIDGE_FAILED_NO_COMPLEMENTARITY / S16_5_BEAUTY_SAUX_COLD_SIGNAL_PASS_F0_BUT_BELOW_PORTFOLIO2 / STOP_ORIGINAL_GRIDGE_COMPOSITION / CONDITIONAL_PORTFOLIO2_PLUS_SAUX_PLAN_AMENDMENT_ELIGIBLE_NOT_AUTHORIZED / TEST_SEALED`
 > **阶段定位**：在 GRAM backbone 与 hierarchical lexical ID 上忠实重实现 SpecGR；保留 faithful GenRecEdit 不可行性证据，并以明确非 faithful 的 G-RIDGE 完成 GenRecEdit-inspired→GRAM；分别验证后，再用可归因四臂实验决定是否开发条件式组合方法
 > **历史边界**：Stage15 B2/B3 永久保留为 `lightweight/budgeted mechanism pilot`，不覆盖、不改名为 faithful reproduction，不用于否定官方方法
 
@@ -12,7 +12,7 @@
 - Origin Skill: academic-research-suite / experiment-agent
 - Origin Mode: plan
 - Origin Date: 2026-08-23
-- Verification Status: VERIFIED（S16-0–S16-3 既有证据保持不变；S16-4 GPU4 a7 四臂均完成 8,789/8,789 events，但旧 finalizer 的 GPU0 schema 硬编码导致 `ARTIFACT_CONTRACT_FAILED`，原失败与 SHA 保留。CPU-only a8 恢复了冻结 predictions 的统计裁决；后续审计发现其 `R2` 错读 Stage13 P0 `r2_top50`，而计划预注册的是 `unconditional portfolio@2`。CPU-only a9 对 8,789 个事件逐项重建正确比较器，candidate/F0 mismatch 均为 0、Phase13 P6 aggregate 最大误差 `5.55e-17`，targeted 29/29、Stage16 full 159/159 tests、9 个本地 SHA 与 11 个来源 SHA 全 PASS。S-AUX 纠正为 `PASS_STANDALONE_PARETO`；S-PLUS 仍仅通过 cold-signal Gate且被正确 R2 支配；G-RIDGE FAIL 且相对 F0/正确 R2/S-AUX unique cold hits 均为 0。停止原 G-RIDGE 组合方向，下一 Gate 为 S-AUX 冻结 Beauty transfer；S16-5–S16-9 尚未执行，test sealed）
+- Verification Status: ANALYZED（S16-0–S16-4 既有证据与历史失败均保持不变。S16-5 GPU0 a1 已完成 Beauty train-only state construction、comparator freeze 与 10,655/10,655 validation events；S-AUX−F0 cold H@50=`+0.008322`，95% CI=`[+0.004161,+0.012673]`、exact/Holm p=`6.268e-05`，通过 `PASS_S16_5_BEAUTY_SAUX_COLD_SIGNAL`。但相对正确 portfolio@2，cold H@50=`−0.011159`，cold/warm/overall NDCG 也均为负。artifact contract/SHA、全 event 独立聚合、定向 7/7 与 Stage16 full 166/166 tests PASS；未重跑 GPU 科学运行。原 G-RIDGE 组合继续停止，只允许先提交 portfolio@2-default + conditional S-AUX 新计划修订；S16-6–S16-9 未执行，test sealed）
 - Version Label: phase16_faithful_transplant_and_composition_v0.1
 
 ---
@@ -384,6 +384,8 @@ Stage16 已知道 Stage15 的部分 Toys/Beauty validation 结果，因此不再
 
 **唯一 report**：`report/第十六阶段/Stage16_S5_BeautyFaithfulStandalone冻结确认报告.md`
 
+**完成状态（2026-09-01）**：用户授权的 GPU0 a1 于 16:36:47–20:10:54 +08:00 完成 Beauty train-only state construction、validation 前 state/comparator freeze 与 `10,655/10,655` events 全量评测，exit 0，artifact contract PASS，`test_read=false`、validation 未用于 tuning/state selection、automatic retry=false。S-AUX−F0 cold H@50=`+0.008322`，event-level paired-bootstrap 95% CI=`[+0.004161,+0.012673]`，exact one-sided/Holm p=`6.268e-05`，item-cluster bootstrap CI=`[+0.001516,+0.015751]`，正式 Gate=`PASS_S16_5_BEAUTY_SAUX_COLD_SIGNAL`。但 S-AUX 相对正确 portfolio@2 的 cold H@50=`−0.011159`、cold NDCG@10=`−0.008083`、warm NDCG@10=`−0.040089`、overall NDCG@10=`−0.024208`，四项 CI 均全负；Toys 的强基线优势未迁移。补充逐事件诊断为 S-AUX-only/R2-only/both=`68/127/45`，oracle-union H@50=`0.045394`，只说明存在组合上限，不证明 selector 可学习。报告编写时独立聚合与 artifact SHA exact、定向 7/7、Stage16 full 166/166 tests PASS；科学 GPU run 未重跑。唯一 report 已完成。后续只解锁新 plan amendment 的提出资格，未授权任何 S16-6/S16-8 实验或 test-open。
+
 ### S16-6：原四臂组合 contract 与 internal-dev 互补性诊断（已停止，审计保留）
 
 **执行状态**：`NOT_UNLOCKED_STOP_GRIDGE_NO_COMPLEMENTARITY`。下列原始预注册设计只为审计保留，不得据此启动 C01/C11。若 S16-5 Beauty 复现 S-AUX signal，必须先形成新 plan amendment，将对照改为 portfolio@2 default + S-AUX conditional route，并重新取得用户授权。
@@ -711,11 +713,11 @@ command_manifest.json
 
 **当前唯一下一步**：
 
-1. S16-4 已由 GPU4 a7 全量 predictions、CPU-only a8 统计恢复和 CPU-only a9 comparator correction 完成；a7 原 `FAILED`、a8 错误 R2 身份的历史裁决与 a9 最终纠正裁决同时保留，禁止再启动重复 GPU 推理；
-2. 当前唯一推荐下一步是一次严格冻结的 S-AUX Beauty transfer check；这是对 Toys `PASS_STANDALONE_PARETO` 的跨域 Gate，需用户另行指定 GPU 后才执行，test 继续封存；
-3. 终止 G-RIDGE efficacy/组合主线：其 Toys cold H@50 明确低于 F0，且相对 F0、正确 R2、S-AUX 均没有 treatment-only cold hit，缺少最基本的 oracle complementarity；不把 G-RIDGE 带入 Beauty 或 S16-6/S16-7；
-4. Beauty 只允许沿用 Toys 前冻结的 S-AUX 算法、threshold、budget、seed 与 evaluator，并先冻结正确 `unconditional portfolio@2` comparator identity；不得据 Beauty 结果回 Toys 调参；
-5. 只有 S-AUX 在 Beauty 方向一致时，才修订 S16-6 之后为 `portfolio@2 default + S-AUX conditional selector + warm-risk abstention` 的 train-only internal-dev 可证伪 screen，冻结特征、对照、Gate 与 stop rule 并再次取得执行授权；不得在原 G-RIDGE 四臂名义下静默替换。
+1. S16-5 Beauty frozen transfer 已完成；S-AUX 相对 F0 的 cold H@50 信号同向复现并通过预注册 Gate，但相对正确 portfolio@2 的 cold H@50、cold/warm/overall NDCG 均显著更低。不得把 F0-relative Gate PASS 改写成强基线胜出；
+2. G-RIDGE efficacy/组合主线继续永久停止，不运行原 S16-6/S16-7；S16-4 的 a7/a8/a9 历史链和停止证据保持不变；
+3. 当前唯一可继续动作是先写一份新的 plan amendment：`portfolio@2 default + conditional S-AUX selector + warm-risk abstention`。该 amendment 必须把 Beauty 的 S-AUX-only/R2-only=`68/127` 视为 post-validation hypothesis evidence，而不是已验证方法增益；
+4. selector 只能使用 train-only internal-dev 可构造且预测时可得的 confidence/margin/prefix/redraft/acceptance 特征，预注册相对 R2 的 cold benefit、warm/overall loss cap、cost/state 上限和 stop rule；不得在已可见的 Toys/Beauty validation 上搜 threshold、seed、budget 或 ranking weight；
+5. 本次报告与计划同步不授权实现、GPU 运行或 test-open。若用户不批准 amendment，下一步应直接写 S16-8 `NOT_UNLOCKED_STOP` 收口报告；若批准，仍须先完成 internal-dev Gate 与全部冻结，再单独申请 S16-9 test-open 授权。
 
 ---
 
@@ -775,3 +777,4 @@ command_manifest.json
 | 2026-09-01 | 修复 S16-4 finalizer 并完成独立 CPU-only a8 recovery | 通用 runtime identity validator 取代设备/attempt 字面量；补齐预注册 Holm correction 与 exact paired binary test。a8 只读 12 个冻结 a7 输入 SHA，不重跑 GPU、不覆盖 a7；targeted 24/24、Stage16 154/154 tests 与重算/local/source SHA exact，终态 `PASS_S16_4_TOYS_CPU_RECOVERY_FINALIZATION`。 |
 | 2026-09-01 | 审计发现 a8 R2 comparator identity mismatch；完成独立 CPU-only a9 correction | 计划冻结的 R2 是 Stage13 `unconditional portfolio@2`，a8 却沿用了 P0 `r2_top50`。a9 只读冻结 a8/P0/P6/cold-manifest/code SHA，对 8,789 个事件重建 portfolio@2；candidate/F0 mismatch 均为 0，与 P6 aggregate 最大误差 `5.55e-17`，targeted 29/29、Stage16 159/159 tests、9 个本地与 11 个来源 SHA 全 PASS；未重跑 GPU、a7/a8 不覆盖。 |
 | 2026-09-01 | 纠正 S16-4 方向：停止 G-RIDGE 组合，S-AUX 进入冻结 Beauty Gate | S-AUX 对 F0 cold H@50 显著提升 `+0.049920`；相对正确 portfolio@2，cold H@50 高 `+0.030456`，但 cold NDCG、warm/overall 与成本更差，双方互不严格支配，故 S-AUX=`PASS_STANDALONE_PARETO`。G-RIDGE 对 F0 明确负增益，并且对 F0/正确 R2/S-AUX unique cold hits 均为 0，原 G-RIDGE 组合主线停止。先验证 S-AUX Beauty 迁移；仅在方向一致时再考虑 portfolio@2-default + S-AUX conditional route。 |
+| 2026-09-01 | S16-5 Beauty S-AUX frozen transfer 完成；只解锁条件式新计划修订资格 | GPU0 a1 完成 10,655/10,655 events；S-AUX−F0 cold H@50=`+0.008322`、CI=`[+0.004161,+0.012673]`、exact/Holm p=`6.268e-05`，Gate PASS，但相对正确 portfolio@2 的 cold H@50/cold NDCG/warm NDCG/overall NDCG 全部显著更低。S-AUX-only/R2-only=`68/127` 只构成 post-validation oracle ceiling，不证明 selector。原 G-RIDGE 路线仍停止；任何 portfolio@2-default + conditional S-AUX 开发必须先新建 amendment 并重新授权，test 继续封存。 |

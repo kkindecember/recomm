@@ -1,0 +1,9 @@
+{
+  "arm_id": "G2_GRAM_LATTE_FULL",
+  "automatic_retry": false,
+  "error": "TypeError(\"'weights_only' is an invalid keyword argument for Unpickler()\")",
+  "failed_at": "2026-09-02T04:11:52.342407+00:00",
+  "schema_version": "phase17.failure.v1",
+  "single_materialization_count": 1,
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_external_d0/attempt_001/src/000_s17_fp12_external_d0_runtime.py\", line 679, in worker\n    result = evaluate_external_arm(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_external_inference.py\", line 483, in evaluate_external_arm\n    rows = _evaluate_gram(root, arm_id, checkpoint, examples, heartbeat)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/core/full_latte_external_inference.py\", line 410, in _evaluate_gram\n    payload = torch.load(checkpoint, map_location=\"cpu\", weights_only=False)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/serialization.py\", line 712, in load\n    return _load(opened_zipfile, map_location, pickle_module, **pickle_load_args)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/serialization.py\", line 1044, in _load\n    unpickler = UnpicklerWrapper(data_file, **pickle_load_args)\nTypeError: 'weights_only' is an invalid keyword argument for Unpickler()\n"
+}

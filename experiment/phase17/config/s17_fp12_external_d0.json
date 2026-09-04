@@ -1,0 +1,151 @@
+{
+  "schema_version": "phase17.s17_fp12_external_d0_config.v1",
+  "experiment_id": "s17_fp12_external_d0",
+  "attempt_id": "attempt_001",
+  "step_id": "S17-FP12-EXTERNAL-D0",
+  "state": "PREPARED_NOT_AUTHORIZED",
+  "seed": 2023,
+  "data": {
+    "domain": "Toys",
+    "fold": "D0",
+    "projection_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+    "projection_sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+    "expected_users": 12833,
+    "max_history_items": 20,
+    "external_target_authorized": false,
+    "single_materialization_required": true,
+    "official_test_read": false,
+    "sports_read": false,
+    "d1_read": false,
+    "d2_read": false
+  },
+  "statistics": {
+    "primary_metric": "ndcg@10",
+    "cutoffs": [5, 10, 20, 50],
+    "secondary_metrics": [
+      "hit@5", "hit@10", "hit@20", "hit@50",
+      "ndcg@5", "ndcg@20", "ndcg@50", "mrr@10"
+    ],
+    "paired_bootstrap_replicates": 2000,
+    "paired_bootstrap_seed": 2023,
+    "confidence_interval": 0.95,
+    "user_outcomes": ["gain", "loss", "tie"],
+    "ranking_change_metrics": ["changed_ranking_rate", "changed_target_rank_rate"]
+  },
+  "subgroups": {
+    "history_length": {
+      "short_le3": "min(20, full_train_prefix_length) <= 3",
+      "medium_4_9": "4 <= min(20, full_train_prefix_length) <= 9",
+      "long_ge10": "min(20, full_train_prefix_length) >= 10"
+    },
+    "target_frequency": {
+      "frequency_source": "D0 train-prefix occurrences only",
+      "thresholds": "predeclared 1/3 and 2/3 quantiles of external-cohort target train-prefix frequency",
+      "labels": ["tail", "mid", "head"]
+    },
+    "memory": {
+      "memorization": "target item occurs in the same user's full D0 train prefix",
+      "generalization": "target item does not occur in the same user's full D0 train prefix"
+    },
+    "catastrophic_ndcg10_delta_threshold": -0.003,
+    "catastrophe_dimensions": ["history_length", "target_frequency"]
+  },
+  "psid_diagnostics": {
+    "summary_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/summary.json",
+    "summary_sha256": "09dae91ea3c6bf36a166bff0d7afd27f26e33af0cc1fe30e5dfef68912f5ea17",
+    "resolved_codes_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/item_semantic_codes.json",
+    "resolved_codes_sha256": "65141690ec9dfece444a83315268e1a0113d8e1754a0400e6d04059a3412aaa1",
+    "raw_codes_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/rq_raw_codes.npy",
+    "raw_codes_sha256": "1248f858a83ff13f4e86100a7cd73c1435234b8b576b720057ed78e84a506ebe",
+    "centroids_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/rq_centroids.npy",
+    "centroids_sha256": "365d19a761b70dc6f5f0f17d7845d988d43e177e7989d04c2afbb4f3379f6046"
+  },
+  "inference": {
+    "beam_sizes": [50, 500],
+    "top_k": 50,
+    "primary_beam": 500,
+    "diagnostic_beam": 50,
+    "primary_aggregation": "agg_max",
+    "frozen_checkpoint_ablation": "agg_sum",
+    "evaluation_batch_size": 1,
+    "automatic_retry": false,
+    "background_required": true
+  },
+  "primary_variants": {
+    "N0_NATIVE_PSID": "beam500_identity",
+    "N1_NATIVE_LATTE": "beam500_agg_max",
+    "G0_GRAM_B0_FRESH": "beam500_identity",
+    "G1_GRAM_PSID_FULL": "beam500_identity",
+    "G2_GRAM_LATTE_FULL": "beam500_agg_max"
+  },
+  "comparisons": {
+    "FP1_N1_MINUS_N0": ["N1_NATIVE_LATTE", "N0_NATIVE_PSID"],
+    "FP2_G2_MINUS_G1": ["G2_GRAM_LATTE_FULL", "G1_GRAM_PSID_FULL"],
+    "FP2_G2_MINUS_G0": ["G2_GRAM_LATTE_FULL", "G0_GRAM_B0_FRESH"],
+    "FP2_G1_MINUS_G0": ["G1_GRAM_PSID_FULL", "G0_GRAM_B0_FRESH"]
+  },
+  "checkpoints": {
+    "N0_NATIVE_PSID": {
+      "family": "native",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_n0_native_psid_seed2023.status.json",
+      "path": "artifacts/phase17/fullport/formal/n0_native_psid/attempt_001/best_checkpoint.pt",
+      "sha256": "96117bb9cdb3b0412dd06e554161256f160b1e4d3424831a9a9c3891051d1643"
+    },
+    "N1_NATIVE_LATTE": {
+      "family": "native",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_n1_native_latte_seed2023.status.json",
+      "path": "artifacts/phase17/fullport/formal/n1_native_latte/attempt_001/best_checkpoint.pt",
+      "sha256": "897af5f49598cda359bb635eae046e4cc60bde5a3a53aa820d3b78b00daf25fe"
+    },
+    "G0_GRAM_B0_FRESH": {
+      "family": "gram",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_g0_gram_b0_fresh_seed2023.status.json",
+      "path": "artifacts/phase17/fullport/formal/g0_gram_b0_fresh/attempt_004/best_checkpoint.pt",
+      "sha256": "52e55da3ebf9e505db12ea4c485e6cb0afb51098715809c8999741ea54d39a5b"
+    },
+    "G1_GRAM_PSID_FULL": {
+      "family": "gram",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_g1_gram_psid_full_seed2023.status.json",
+      "path": "artifacts/phase17/fullport/formal/g1_gram_psid_full/attempt_004/best_checkpoint.pt",
+      "sha256": "a36d90b41dce3f25e7e8013f2ad9c6efb468fb57c5f736cb4795040bcf27bc3f"
+    },
+    "G2_GRAM_LATTE_FULL": {
+      "family": "gram",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_g2_gram_latte_full_seed2023.status.json",
+      "path": "artifacts/phase17/fullport/formal/g2_gram_latte_full/attempt_004/best_checkpoint.pt",
+      "sha256": "df4be4a5b035abe59af5e3e693675b93fb1800cd517397c9141a1eec9e7c2151"
+    }
+  },
+  "gates": {
+    "FP1": {
+      "ndcg10_delta": "> 0",
+      "ndcg10_ci95_low": "> 0",
+      "hit10_delta": ">= 0",
+      "multi_path_item_rate": "> 0",
+      "latent_collapse": false,
+      "aggregate_item_valid": true,
+      "integrity_valid": true
+    },
+    "FP2": {
+      "g2_minus_g1_ndcg10_delta": ">= 0.0015",
+      "g2_minus_g1_ndcg10_ci95_low": "> 0",
+      "g2_minus_g0_ndcg10_delta": ">= 0.0015",
+      "g2_minus_g0_hit10_delta": ">= 0",
+      "large_subgroup_ndcg10_delta": "> -0.003",
+      "multi_path_item_rate": "> 0",
+      "latent_collapse": false,
+      "item_aggregation_gain_ndcg10": "> 0",
+      "tree_coupling": "abs(G2 correlation) < abs(G1 correlation)",
+      "target_path_survival_rate": "> 0",
+      "aggregate_item_valid": true,
+      "integrity_valid": true
+    }
+  },
+  "authorization": {
+    "external_d0_evaluation_authorized": false,
+    "gpu_execution_authorized": false,
+    "requires_future_explicit_researcher_direction": true,
+    "automatic_process_termination": false,
+    "automatic_retry": false
+  }
+}

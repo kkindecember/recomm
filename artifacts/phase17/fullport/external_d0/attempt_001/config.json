@@ -1,0 +1,193 @@
+{
+  "attempt_id": "attempt_001",
+  "authorization": {
+    "automatic_process_termination": false,
+    "automatic_retry": false,
+    "external_d0_evaluation_authorized": false,
+    "gpu_execution_authorized": false,
+    "requires_future_explicit_researcher_direction": true
+  },
+  "checkpoints": {
+    "G0_GRAM_B0_FRESH": {
+      "family": "gram",
+      "path": "artifacts/phase17/fullport/formal/g0_gram_b0_fresh/attempt_004/best_checkpoint.pt",
+      "sha256": "52e55da3ebf9e505db12ea4c485e6cb0afb51098715809c8999741ea54d39a5b",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_g0_gram_b0_fresh_seed2023.status.json"
+    },
+    "G1_GRAM_PSID_FULL": {
+      "family": "gram",
+      "path": "artifacts/phase17/fullport/formal/g1_gram_psid_full/attempt_004/best_checkpoint.pt",
+      "sha256": "a36d90b41dce3f25e7e8013f2ad9c6efb468fb57c5f736cb4795040bcf27bc3f",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_g1_gram_psid_full_seed2023.status.json"
+    },
+    "G2_GRAM_LATTE_FULL": {
+      "family": "gram",
+      "path": "artifacts/phase17/fullport/formal/g2_gram_latte_full/attempt_004/best_checkpoint.pt",
+      "sha256": "df4be4a5b035abe59af5e3e693675b93fb1800cd517397c9141a1eec9e7c2151",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_g2_gram_latte_full_seed2023.status.json"
+    },
+    "N0_NATIVE_PSID": {
+      "family": "native",
+      "path": "artifacts/phase17/fullport/formal/n0_native_psid/attempt_001/best_checkpoint.pt",
+      "sha256": "96117bb9cdb3b0412dd06e554161256f160b1e4d3424831a9a9c3891051d1643",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_n0_native_psid_seed2023.status.json"
+    },
+    "N1_NATIVE_LATTE": {
+      "family": "native",
+      "path": "artifacts/phase17/fullport/formal/n1_native_latte/attempt_001/best_checkpoint.pt",
+      "sha256": "897af5f49598cda359bb635eae046e4cc60bde5a3a53aa820d3b78b00daf25fe",
+      "status_path": "artifacts/phase17/status/s17_fp12_formal_n1_native_latte_seed2023.status.json"
+    }
+  },
+  "comparisons": {
+    "FP1_N1_MINUS_N0": [
+      "N1_NATIVE_LATTE",
+      "N0_NATIVE_PSID"
+    ],
+    "FP2_G1_MINUS_G0": [
+      "G1_GRAM_PSID_FULL",
+      "G0_GRAM_B0_FRESH"
+    ],
+    "FP2_G2_MINUS_G0": [
+      "G2_GRAM_LATTE_FULL",
+      "G0_GRAM_B0_FRESH"
+    ],
+    "FP2_G2_MINUS_G1": [
+      "G2_GRAM_LATTE_FULL",
+      "G1_GRAM_PSID_FULL"
+    ]
+  },
+  "data": {
+    "d1_read": false,
+    "d2_read": false,
+    "domain": "Toys",
+    "expected_users": 12833,
+    "external_target_authorized": false,
+    "fold": "D0",
+    "max_history_items": 20,
+    "official_test_read": false,
+    "projection_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+    "projection_sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+    "single_materialization_required": true,
+    "sports_read": false
+  },
+  "experiment_id": "s17_fp12_external_d0",
+  "gates": {
+    "FP1": {
+      "aggregate_item_valid": true,
+      "hit10_delta": ">= 0",
+      "integrity_valid": true,
+      "latent_collapse": false,
+      "multi_path_item_rate": "> 0",
+      "ndcg10_ci95_low": "> 0",
+      "ndcg10_delta": "> 0"
+    },
+    "FP2": {
+      "aggregate_item_valid": true,
+      "g2_minus_g0_hit10_delta": ">= 0",
+      "g2_minus_g0_ndcg10_delta": ">= 0.0015",
+      "g2_minus_g1_ndcg10_ci95_low": "> 0",
+      "g2_minus_g1_ndcg10_delta": ">= 0.0015",
+      "integrity_valid": true,
+      "item_aggregation_gain_ndcg10": "> 0",
+      "large_subgroup_ndcg10_delta": "> -0.003",
+      "latent_collapse": false,
+      "multi_path_item_rate": "> 0",
+      "target_path_survival_rate": "> 0",
+      "tree_coupling": "abs(G2 correlation) < abs(G1 correlation)"
+    }
+  },
+  "inference": {
+    "automatic_retry": false,
+    "background_required": true,
+    "beam_sizes": [
+      50,
+      500
+    ],
+    "diagnostic_beam": 50,
+    "evaluation_batch_size": 1,
+    "frozen_checkpoint_ablation": "agg_sum",
+    "primary_aggregation": "agg_max",
+    "primary_beam": 500,
+    "top_k": 50
+  },
+  "prepared_at": "2026-09-02T02:41:50.659771+00:00",
+  "primary_variants": {
+    "G0_GRAM_B0_FRESH": "beam500_identity",
+    "G1_GRAM_PSID_FULL": "beam500_identity",
+    "G2_GRAM_LATTE_FULL": "beam500_agg_max",
+    "N0_NATIVE_PSID": "beam500_identity",
+    "N1_NATIVE_LATTE": "beam500_agg_max"
+  },
+  "psid_diagnostics": {
+    "centroids_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/rq_centroids.npy",
+    "centroids_sha256": "365d19a761b70dc6f5f0f17d7845d988d43e177e7989d04c2afbb4f3379f6046",
+    "raw_codes_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/rq_raw_codes.npy",
+    "raw_codes_sha256": "1248f858a83ff13f4e86100a7cd73c1435234b8b576b720057ed78e84a506ebe",
+    "resolved_codes_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/tokenizer/item_semantic_codes.json",
+    "resolved_codes_sha256": "65141690ec9dfece444a83315268e1a0113d8e1754a0400e6d04059a3412aaa1",
+    "summary_path": "artifacts/phase17/fullport/fp0/full_data_tokenizer/attempt_001/summary.json",
+    "summary_sha256": "09dae91ea3c6bf36a166bff0d7afd27f26e33af0cc1fe30e5dfef68912f5ea17"
+  },
+  "schema_version": "phase17.s17_fp12_external_d0_config.v1",
+  "seed": 2023,
+  "source_config_sha256": "c61c1a3c3caa6aaa9e2937f01eb98e294c3bc16a303e05554c43643f40029f27",
+  "state": "PREPARED_NOT_AUTHORIZED",
+  "statistics": {
+    "confidence_interval": 0.95,
+    "cutoffs": [
+      5,
+      10,
+      20,
+      50
+    ],
+    "paired_bootstrap_replicates": 2000,
+    "paired_bootstrap_seed": 2023,
+    "primary_metric": "ndcg@10",
+    "ranking_change_metrics": [
+      "changed_ranking_rate",
+      "changed_target_rank_rate"
+    ],
+    "secondary_metrics": [
+      "hit@5",
+      "hit@10",
+      "hit@20",
+      "hit@50",
+      "ndcg@5",
+      "ndcg@20",
+      "ndcg@50",
+      "mrr@10"
+    ],
+    "user_outcomes": [
+      "gain",
+      "loss",
+      "tie"
+    ]
+  },
+  "step_id": "S17-FP12-EXTERNAL-D0",
+  "subgroups": {
+    "catastrophe_dimensions": [
+      "history_length",
+      "target_frequency"
+    ],
+    "catastrophic_ndcg10_delta_threshold": -0.003,
+    "history_length": {
+      "long_ge10": "min(20, full_train_prefix_length) >= 10",
+      "medium_4_9": "4 <= min(20, full_train_prefix_length) <= 9",
+      "short_le3": "min(20, full_train_prefix_length) <= 3"
+    },
+    "memory": {
+      "generalization": "target item does not occur in the same user's full D0 train prefix",
+      "memorization": "target item occurs in the same user's full D0 train prefix"
+    },
+    "target_frequency": {
+      "frequency_source": "D0 train-prefix occurrences only",
+      "labels": [
+        "tail",
+        "mid",
+        "head"
+      ],
+      "thresholds": "predeclared 1/3 and 2/3 quantiles of external-cohort target train-prefix frequency"
+    }
+  }
+}

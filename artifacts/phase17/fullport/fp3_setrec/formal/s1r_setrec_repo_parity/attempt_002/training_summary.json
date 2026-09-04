@@ -1,0 +1,119 @@
+{
+  "arm_id": "S1R_SETREC_REPO_PARITY",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "best_checkpoint_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/best_checkpoint.pt",
+  "best_checkpoint_sha256": "7e948a5d30434663c9205e3e703fe1a366826e1b14f4d66cd7a4979251efc282",
+  "completed_at": "2026-09-02T17:23:40.224271+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "external_evaluation_pending_all_four_checkpoint_freeze": true,
+  "external_target_materialized": false,
+  "latest_checkpoint_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/latest_checkpoint.pt",
+  "latest_checkpoint_sha256": "9e86297a0f1fc2873b32e1631732fdf9ff6ce5936bf3a8eba22115bd6e6b474d",
+  "learning_curve_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/learning_curve.json",
+  "learning_curve_sha256": "5f70ae89f8e9b6d9533abb319ed80b61744fa26d28f827cb385f3e514f1a15ca",
+  "peak_allocated_mib": 5553.5283203125,
+  "peak_reserved_mib": 5754.0,
+  "physical_gpu": 5,
+  "schema_version": "phase17.s17_fp3_setrec_formal_training_summary.v1",
+  "sports_read": false,
+  "test_read": false,
+  "training": {
+    "arm_id": "S1R_SETREC_REPO_PARITY",
+    "best_checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/best_checkpoint.pt",
+    "best_epoch": 28,
+    "best_eval_index": 15,
+    "best_global_step": 3000,
+    "best_internal_dev": {
+      "beta_metrics": {
+        "0.1": {
+          "hit@10": 0.042868277497897365,
+          "mean_grounding_target_rank": 3283.1706938769607,
+          "ndcg@10": 0.025105508016778078
+        },
+        "0.2": {
+          "hit@10": 0.043647700724709526,
+          "mean_grounding_target_rank": 3354.8472332378337,
+          "ndcg@10": 0.024331471704916386
+        },
+        "0.3": {
+          "hit@10": 0.03975058456742011,
+          "mean_grounding_target_rank": 3465.3484025629627,
+          "ndcg@10": 0.021894612167370292
+        },
+        "0.4": {
+          "hit@10": 0.03351519875292284,
+          "mean_grounding_target_rank": 3614.932969792783,
+          "ndcg@10": 0.016804228141172176
+        },
+        "0.5": {
+          "hit@10": 0.028838659392049885,
+          "mean_grounding_target_rank": 3801.704598787327,
+          "ndcg@10": 0.014340825709902673
+        },
+        "0.6": {
+          "hit@10": 0.02494154325798909,
+          "mean_grounding_target_rank": 4020.4957131722526,
+          "ndcg@10": 0.012388897100093303
+        },
+        "0.7": {
+          "hit@10": 0.025720966484801246,
+          "mean_grounding_target_rank": 4262.653156854358,
+          "ndcg@10": 0.012485314186717604
+        },
+        "0.8": {
+          "hit@10": 0.025720966484801246,
+          "mean_grounding_target_rank": 4516.152767333033,
+          "ndcg@10": 0.012086184133520743
+        },
+        "0.9": {
+          "hit@10": 0.024162120031176928,
+          "mean_grounding_target_rank": 4764.936866908917,
+          "ndcg@10": 0.011747294469262507
+        },
+        "1.0": {
+          "hit@10": 0.020265003897116135,
+          "mean_grounding_target_rank": 4992.353079102324,
+          "ndcg@10": 0.010651945208351034
+        }
+      },
+      "full_catalog_grounding": true,
+      "full_set_recovery_rate": 0.000779423226812159,
+      "generation_loss": 9.493339433023358,
+      "loss": 9.493489159891034,
+      "n": 1283,
+      "query_norm_max": 25.24005889892578,
+      "query_norm_min": 5.84214973449707,
+      "query_norms_finite_nonzero": true,
+      "reconstruction_loss": 0.00021349317103158683,
+      "selected_beta": 0.1,
+      "selected_hit@10": 0.042868277497897365,
+      "selected_mean_grounding_target_rank": 3283.1706938769607,
+      "selected_ndcg@10": 0.025105508016778078,
+      "semantic_reconstruction_finite": true,
+      "valid_item_rate": 1.0
+    },
+    "d1_read": false,
+    "d2_read": false,
+    "effective_global_batch": 512,
+    "epochs_completed": 30,
+    "eval_batch_size": 128,
+    "external_target_materialized": false,
+    "global_steps_completed": 3330,
+    "gradient_accumulation": 4,
+    "internal_dev_examples": 1283,
+    "latest_checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/latest_checkpoint.pt",
+    "learning_curve_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/learning_curve.json",
+    "seed": 2023,
+    "sports_read": false,
+    "stopped_early": false,
+    "test_read": false,
+    "total_planned_steps": 3330,
+    "train_examples": 56421,
+    "train_microbatch": 128,
+    "wall_seconds": 2791.87666025199
+  },
+  "verdict": "PASS_S17_FP3_FORMAL_CHECKPOINT_FROZEN",
+  "wall_seconds": 2802.6633708830923
+}

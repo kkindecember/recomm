@@ -1,0 +1,119 @@
+{
+  "arm_id": "S1P_SETREC_PAPER_FAITHFUL",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "best_checkpoint_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/best_checkpoint.pt",
+  "best_checkpoint_sha256": "5860d7801858675267c462f87ffdb11c6ea54098fc7c689b72f4a4090258deb8",
+  "completed_at": "2026-09-02T17:29:47.308372+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "external_evaluation_pending_all_four_checkpoint_freeze": true,
+  "external_target_materialized": false,
+  "latest_checkpoint_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/latest_checkpoint.pt",
+  "latest_checkpoint_sha256": "2e5f06054202437499c9c95df77350508dcf79264cef2aa4a580e9d33c5c63b0",
+  "learning_curve_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/learning_curve.json",
+  "learning_curve_sha256": "c95c89382b27f38346db193a30aee6cca4819075bb69918837cd9a00e7947145",
+  "peak_allocated_mib": 5553.5283203125,
+  "peak_reserved_mib": 5752.0,
+  "physical_gpu": 6,
+  "schema_version": "phase17.s17_fp3_setrec_formal_training_summary.v1",
+  "sports_read": false,
+  "test_read": false,
+  "training": {
+    "arm_id": "S1P_SETREC_PAPER_FAITHFUL",
+    "best_checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/best_checkpoint.pt",
+    "best_epoch": 24,
+    "best_eval_index": 13,
+    "best_global_step": 2600,
+    "best_internal_dev": {
+      "beta_metrics": {
+        "0.1": {
+          "hit@10": 0.03507404522977578,
+          "mean_grounding_target_rank": 3276.0841778987847,
+          "ndcg@10": 0.018334690809528622
+        },
+        "0.2": {
+          "hit@10": 0.037412314910212255,
+          "mean_grounding_target_rank": 3294.2946223603126,
+          "ndcg@10": 0.019699205958741025
+        },
+        "0.3": {
+          "hit@10": 0.03897116136383657,
+          "mean_grounding_target_rank": 3344.0483242400624,
+          "ndcg@10": 0.020376759586349096
+        },
+        "0.4": {
+          "hit@10": 0.038191738137024416,
+          "mean_grounding_target_rank": 3428.776305533905,
+          "ndcg@10": 0.019424383331813202
+        },
+        "0.5": {
+          "hit@10": 0.03195635229929852,
+          "mean_grounding_target_rank": 3551.5962587685112,
+          "ndcg@10": 0.016894135685145438
+        },
+        "0.6": {
+          "hit@10": 0.028838659392049885,
+          "mean_grounding_target_rank": 3711.5214343290263,
+          "ndcg@10": 0.015101182535116503
+        },
+        "0.7": {
+          "hit@10": 0.028059236165237724,
+          "mean_grounding_target_rank": 3902.0958690568978,
+          "ndcg@10": 0.013948133097713289
+        },
+        "0.8": {
+          "hit@10": 0.029618082618862042,
+          "mean_grounding_target_rank": 4119.233047735106,
+          "ndcg@10": 0.013732551088206766
+        },
+        "0.9": {
+          "hit@10": 0.02494154325798909,
+          "mean_grounding_target_rank": 4356.3398287171785,
+          "ndcg@10": 0.013196094372452746
+        },
+        "1.0": {
+          "hit@10": 0.025720966484801246,
+          "mean_grounding_target_rank": 4600.540140676759,
+          "ndcg@10": 0.013499487635686076
+        }
+      },
+      "full_catalog_grounding": true,
+      "full_set_recovery_rate": 0.0,
+      "generation_loss": 9.338009403909638,
+      "loss": 9.338161991800263,
+      "n": 1283,
+      "query_norm_max": 25.023740768432617,
+      "query_norm_min": 6.146891117095947,
+      "query_norms_finite_nonzero": true,
+      "reconstruction_loss": 0.00021757993090432137,
+      "selected_beta": 0.3,
+      "selected_hit@10": 0.03897116136383657,
+      "selected_mean_grounding_target_rank": 3344.0483242400624,
+      "selected_ndcg@10": 0.020376759586349096,
+      "semantic_reconstruction_finite": true,
+      "valid_item_rate": 1.0
+    },
+    "d1_read": false,
+    "d2_read": false,
+    "effective_global_batch": 512,
+    "epochs_completed": 30,
+    "eval_batch_size": 128,
+    "external_target_materialized": false,
+    "global_steps_completed": 3330,
+    "gradient_accumulation": 4,
+    "internal_dev_examples": 1283,
+    "latest_checkpoint_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/latest_checkpoint.pt",
+    "learning_curve_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/learning_curve.json",
+    "seed": 2023,
+    "sports_read": false,
+    "stopped_early": false,
+    "test_read": false,
+    "total_planned_steps": 3330,
+    "train_examples": 56421,
+    "train_microbatch": 128,
+    "wall_seconds": 3156.792512334883
+  },
+  "verdict": "PASS_S17_FP3_FORMAL_CHECKPOINT_FROZEN",
+  "wall_seconds": 3167.397859442979
+}

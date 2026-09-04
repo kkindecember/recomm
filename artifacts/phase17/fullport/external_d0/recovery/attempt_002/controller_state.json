@@ -1,0 +1,966 @@
+{
+  "analysis": {
+    "command": [
+      "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+      "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase17/snapshots/s17_fp12_external_d0_recovery_g1_parallel/attempt_003/src/000_s17_fp12_external_d0_g1_parallel_runtime.py",
+      "analyze",
+      "--root",
+      "/mnt/18T/jiangtangyunzhi/projects/recomm"
+    ],
+    "completed_at": "2026-09-02T13:17:07.246413+00:00",
+    "output": "{\n  \"ablations\": {\n    \"G2_AGG_SUM_MINUS_G1\": {\n      \"changed_ranking_rate\": 1.0,\n      \"changed_target_rank_rate\": 0.14883503467622536,\n      \"control\": \"G1_GRAM_PSID_FULL:beam500_identity\",\n      \"effects\": {\n        \"hit@10\": {\n          \"ci95_high\": -0.0051429907270318705,\n          \"ci95_low\": -0.011844463492558249,\n          \"mean_delta\": -0.00849372710979506,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 15236994256173533520\n        },\n        \"hit@20\": {\n          \"ci95_high\": -0.006779396867451102,\n          \"ci95_low\": -0.014571807059923635,\n          \"mean_delta\": -0.010597677861762644,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 10283985021727574049\n        },\n        \"hit@5\": {\n          \"ci95_high\": -0.001714330242343957,\n          \"ci95_low\": -0.007636561988623081,\n          \"mean_delta\": -0.004519597911634069,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 7517703065040431823\n        },\n        \"hit@50\": {\n          \"ci95_high\": -0.006933296968752446,\n          \"ci95_low\": -0.01613028909841814,\n          \"mean_delta\": -0.011532767084859346,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 13916632862662403851\n        },\n        \"mrr@10\": {\n          \"ci95_high\": -0.0012273355275770944,\n          \"ci95_low\": -0.004772259081559323,\n          \"mean_delta\": -0.0029903064890986655,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 10657552892464420987\n        },\n        \"ndcg@10\": {\n          \"ci95_high\": -0.0022492123582173763,\n          \"ci95_low\": -0.006166829131947016,\n          \"mean_delta\": -0.004228738199092309,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 1149155459127980278\n        },\n        \"ndcg@20\": {\n          \"ci95_high\": -0.002936545219392607,\n          \"ci95_low\": -0.006664397306306145,\n          \"mean_delta\": -0.004766149483844306,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 9235002783537725677\n        },\n        \"ndcg@5\": {\n          \"ci95_high\": -0.0009557569967683333,\n          \"ci95_low\": -0.00493550109091928,\n          \"mean_delta\": -0.0030243747635615727,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 13581120922658338978\n        },\n        \"ndcg@50\": {\n          \"ci95_high\": -0.003048367814658835,\n          \"ci95_low\": -0.006816646450692679,\n          \"mean_delta\": -0.004971486531687668,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 1222841804758560925\n        }\n      },\n      \"paired_users\": 12833,\n      \"primary_user_outcomes\": {\n        \"gain\": 339,\n        \"gain_rate\": 0.026416270552481882,\n        \"loss\": 444,\n        \"loss_rate\": 0.034598301254578044,\n        \"metric\": \"ndcg@10\",\n        \"tie\": 12050,\n        \"tie_rate\": 0.9389854281929401\n      },\n      \"treatment\": \"G2_GRAM_LATTE_FULL:beam500_agg_sum\"\n    },\n    \"N1_AGG_SUM_MINUS_N0\": {\n      \"changed_ranking_rate\": 1.0,\n      \"changed_target_rank_rate\": 0.19527779942336165,\n      \"control\": \"N0_NATIVE_PSID:beam500_identity\",\n      \"effects\": {\n        \"hit@10\": {\n          \"ci95_high\": 0.0032728122808384635,\n          \"ci95_low\": -0.005298838930881322,\n          \"mean_delta\": -0.0010909374269461544,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 7100967949391787181\n        },\n        \"hit@20\": {\n          \"ci95_high\": 0.0029630639756876697,\n          \"ci95_low\": -0.006623548663601652,\n          \"mean_delta\": -0.001714330242343957,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 14755544959184036643\n        },\n        \"hit@5\": {\n          \"ci95_high\": 0.0061560040520533,\n          \"ci95_low\": -0.0009350892230967038,\n          \"mean_delta\": 0.0025714953635159353,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 982256020155592970\n        },\n        \"hit@50\": {\n          \"ci95_high\": 0.0031968362814618454,\n          \"ci95_low\": -0.008104106600171433,\n          \"mean_delta\": -0.0023377230577417596,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 13984525832964278679\n        },\n        \"mrr@10\": {\n          \"ci95_high\": 0.004058396229215601,\n          \"ci95_low\": -0.00012494835982134345,\n          \"mean_delta\": 0.001977107630501225,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 11325853857433895600\n        },\n        \"ndcg@10\": {\n          \"ci95_high\": 0.003621048103210187,\n          \"ci95_low\": -0.0008990641585161228,\n          \"mean_delta\": 0.001313061193912684,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 8906403476342472998\n        },\n        \"ndcg@20\": {\n          \"ci95_high\": 0.003352262496402608,\n          \"ci95_low\": -0.0011248004949519492,\n          \"mean_delta\": 0.0011498275597208454,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 17662862905413989236\n        },\n        \"ndcg@5\": {\n          \"ci95_high\": 0.004831956643636863,\n          \"ci95_low\": 0.00015736066871592164,\n          \"mean_delta\": 0.002565118074231046,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 4663430226175418532\n        },\n        \"ndcg@50\": {\n          \"ci95_high\": 0.0031032127728016848,\n          \"ci95_low\": -0.0010681484317439558,\n          \"mean_delta\": 0.0010438169298450156,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 3231432265407135516\n        }\n      },\n      \"paired_users\": 12833,\n      \"primary_user_outcomes\": {\n        \"gain\": 529,\n        \"gain_rate\": 0.04122184991817969,\n        \"loss\": 511,\n        \"loss_rate\": 0.039819216083534635,\n        \"metric\": \"ndcg@10\",\n        \"tie\": 11793,\n        \"tie_rate\": 0.9189589339982857\n      },\n      \"treatment\": \"N1_NATIVE_LATTE:beam500_agg_sum\"\n    }\n  },\n  \"arm_artifact_sources\": {\n    \"G0_GRAM_B0_FRESH\": {\n      \"predictions_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/predictions.jsonl\",\n      \"predictions_sha256\": \"f7b2d327c3b1a1d33d29cd6c6497058b6d28b771c88ecb671b95d1e11f2301ea\",\n      \"status_experiment_id\": \"s17_fp12_external_d0_recovery_g0_gram_b0_fresh\",\n      \"summary_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/summary.json\",\n      \"summary_sha256\": \"08a884dd74ac6aed991b5963d222e842e10e23473eca533139a85974fbf7545f\"\n    },\n    \"G1_GRAM_PSID_FULL\": {\n      \"predictions_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_003/arms/g1_gram_psid_full/predictions.jsonl\",\n      \"predictions_sha256\": \"95c3ced8963a8c9e82caed439c44ba5c55ec6606f937da2d0aac215ba91017d7\",\n      \"status_experiment_id\": \"s17_fp12_external_d0_recovery_g1_parallel\",\n      \"summary_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_003/arms/g1_gram_psid_full/summary.json\",\n      \"summary_sha256\": \"418255d72d866e9606686c554505935daecfeafaf500bada1b16ebcf5cbd028e\"\n    },\n    \"G2_GRAM_LATTE_FULL\": {\n      \"predictions_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full/predictions.jsonl\",\n      \"predictions_sha256\": \"2f7dcd00d723dc4f17919008d6feaf9bb92dd540dc8de82d6490171abc2aa47d\",\n      \"status_experiment_id\": \"s17_fp12_external_d0_recovery_g2_gram_latte_full\",\n      \"summary_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full/summary.json\",\n      \"summary_sha256\": \"7ac9d8acd6a6641c2cdd1c2d1e836a1ab0df9e77c098fae061ba34a68340e8f9\"\n    },\n    \"N0_NATIVE_PSID\": {\n      \"predictions_path\": \"artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid/predictions.jsonl\",\n      \"predictions_sha256\": \"513eb0d9dcfafa2d4298ff639ea01b2cae8e815d8365ba911b9bfa9d3fe9fbe7\",\n      \"status_experiment_id\": \"s17_fp12_external_d0_n0_native_psid\",\n      \"summary_path\": \"artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid/summary.json\",\n      \"summary_sha256\": \"e0f841ce0402d615f7dbfcf5395234d5dc6acbe5cfbb419576d5a7e1f3d9cc90\"\n    },\n    \"N1_NATIVE_LATTE\": {\n      \"predictions_path\": \"artifacts/phase17/fullport/external_d0/attempt_001/arms/n1_native_latte/predictions.jsonl\",\n      \"predictions_sha256\": \"61df030582003cf273f44f4e54d54a47f9410fe34e40cb5ba7f835bb3d6b8c55\",\n      \"status_experiment_id\": \"s17_fp12_external_d0_n1_native_latte\",\n      \"summary_path\": \"artifacts/phase17/fullport/external_d0/attempt_001/arms/n1_native_latte/summary.json\",\n      \"summary_sha256\": \"21139d4fb11287febbc8dea30fcf918aeedeabbab23e9346f7338b42ff4eb3e2\"\n    }\n  },\n  \"automatic_retry\": false,\n  \"comparisons\": {\n    \"FP1_N1_MINUS_N0\": {\n      \"changed_ranking_rate\": 1.0,\n      \"changed_target_rank_rate\": 0.1963687368503078,\n      \"control\": \"N0_NATIVE_PSID\",\n      \"effects\": {\n        \"hit@10\": {\n          \"ci95_high\": 0.003194888178913738,\n          \"ci95_low\": -0.005220914828956596,\n          \"mean_delta\": -0.0010909374269461544,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 5849832493677745500\n        },\n        \"hit@20\": {\n          \"ci95_high\": 0.0033507363827631888,\n          \"ci95_low\": -0.006233928153978025,\n          \"mean_delta\": -0.0014026338346450557,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 3841834850328872853\n        },\n        \"hit@5\": {\n          \"ci95_high\": 0.006235876256526133,\n          \"ci95_low\": -0.0007032650198706458,\n          \"mean_delta\": 0.002649419465440661,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 560872663554022520\n        },\n        \"hit@50\": {\n          \"ci95_high\": 0.0048332424218810776,\n          \"ci95_low\": -0.005844307644354399,\n          \"mean_delta\": -0.0003896205096236266,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 6118947694350385909\n        },\n        \"mrr@10\": {\n          \"ci95_high\": 0.004212530566656648,\n          \"ci95_low\": 0.00011370579817162865,\n          \"mean_delta\": 0.0020852737053157844,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 10328297675517134664\n        },\n        \"ndcg@10\": {\n          \"ci95_high\": 0.0037527311588945603,\n          \"ci95_low\": -0.0008740131527303132,\n          \"mean_delta\": 0.0013939664490704596,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 8552366258648873059\n        },\n        \"ndcg@20\": {\n          \"ci95_high\": 0.003502310437413384,\n          \"ci95_low\": -0.0010186710998763575,\n          \"mean_delta\": 0.0013094392308392077,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 15575782598083630089\n        },\n        \"ndcg@5\": {\n          \"ci95_high\": 0.004940149521014246,\n          \"ci95_low\": 0.0003291737921376324,\n          \"mean_delta\": 0.0026691288610438597,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 18257611393388724300\n        },\n        \"ndcg@50\": {\n          \"ci95_high\": 0.0037046569831812727,\n          \"ci95_low\": -0.0006256770103973522,\n          \"mean_delta\": 0.0014862887869837556,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 16577914554254676856\n        }\n      },\n      \"paired_users\": 12833,\n      \"primary_user_outcomes\": {\n        \"gain\": 527,\n        \"gain_rate\": 0.041066001714330246,\n        \"loss\": 512,\n        \"loss_rate\": 0.03989714018545936,\n        \"metric\": \"ndcg@10\",\n        \"tie\": 11794,\n        \"tie_rate\": 0.9190368581002104\n      },\n      \"treatment\": \"N1_NATIVE_LATTE\"\n    },\n    \"FP2_G1_MINUS_G0\": {\n      \"changed_ranking_rate\": 1.0,\n      \"changed_target_rank_rate\": 0.22262915919894022,\n      \"control\": \"G0_GRAM_B0_FRESH\",\n      \"effects\": {\n        \"hit@10\": {\n          \"ci95_high\": -0.0397393438790618,\n          \"ci95_low\": -0.050027273435673654,\n          \"mean_delta\": -0.04488428270864178,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 8275123849823788165\n        },\n        \"hit@20\": {\n          \"ci95_high\": -0.045194031013792574,\n          \"ci95_low\": -0.05680667030312476,\n          \"mean_delta\": -0.05088443855684563,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 8739792465027385901\n        },\n        \"hit@5\": {\n          \"ci95_high\": -0.034206732642406305,\n          \"ci95_low\": -0.04363749707784618,\n          \"mean_delta\": -0.03896205096236266,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 10156301651141281390\n        },\n        \"hit@50\": {\n          \"ci95_high\": -0.047531754071534336,\n          \"ci95_low\": -0.060938595807683314,\n          \"mean_delta\": -0.05423517493960882,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 14869271380126772955\n        },\n        \"mrr@10\": {\n          \"ci95_high\": -0.0257789008743579,\n          \"ci95_low\": -0.03217036404161395,\n          \"mean_delta\": -0.028965038052936442,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 3152054102870127942\n        },\n        \"ndcg@10\": {\n          \"ci95_high\": -0.02930332876520041,\n          \"ci95_low\": -0.03627080243589766,\n          \"mean_delta\": -0.03278465898750081,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 11066118998397453568\n        },\n        \"ndcg@20\": {\n          \"ci95_high\": -0.031129018268254968,\n          \"ci95_low\": -0.0377671473601699,\n          \"mean_delta\": -0.03432573252903846,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 15449680697312297296\n        },\n        \"ndcg@5\": {\n          \"ci95_high\": -0.027199954264661142,\n          \"ci95_low\": -0.0342532633135424,\n          \"mean_delta\": -0.030773520236116157,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 9814054703527729113\n        },\n        \"ndcg@50\": {\n          \"ci95_high\": -0.031677518454492515,\n          \"ci95_low\": -0.038404067107305824,\n          \"mean_delta\": -0.03502122914675492,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 10689445797728716984\n        }\n      },\n      \"paired_users\": 12833,\n      \"primary_user_outcomes\": {\n        \"gain\": 415,\n        \"gain_rate\": 0.03233850229876101,\n        \"loss\": 1061,\n        \"loss_rate\": 0.08267747214213356,\n        \"metric\": \"ndcg@10\",\n        \"tie\": 11357,\n        \"tie_rate\": 0.8849840255591054\n      },\n      \"treatment\": \"G1_GRAM_PSID_FULL\"\n    },\n    \"FP2_G2_MINUS_G0\": {\n      \"changed_ranking_rate\": 1.0,\n      \"changed_target_rank_rate\": 0.2216161458739188,\n      \"control\": \"G0_GRAM_B0_FRESH\",\n      \"effects\": {\n        \"hit@10\": {\n          \"ci95_high\": -0.047611626276007166,\n          \"ci95_low\": -0.05828722823969454,\n          \"mean_delta\": -0.052832541104963764,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 3730197733054493362\n        },\n        \"hit@20\": {\n          \"ci95_high\": -0.0554040364684797,\n          \"ci95_low\": -0.0674043481648874,\n          \"mean_delta\": -0.0612483441128341,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 2671621955077803136\n        },\n        \"hit@5\": {\n          \"ci95_high\": -0.03841463414634147,\n          \"ci95_low\": -0.04737980207278111,\n          \"mean_delta\": -0.04285825605859892,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 16735126761830212603\n        },\n        \"hit@50\": {\n          \"ci95_high\": -0.05696251850697421,\n          \"ci95_low\": -0.07067910854827399,\n          \"mean_delta\": -0.06381983947635003,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 12571721082959284841\n        },\n        \"mrr@10\": {\n          \"ci95_high\": -0.028319385846756688,\n          \"ci95_low\": -0.034883156365224086,\n          \"mean_delta\": -0.03165917111019581,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 3302683769768853193\n        },\n        \"ndcg@10\": {\n          \"ci95_high\": -0.03320468718256618,\n          \"ci95_low\": -0.04002781698356952,\n          \"mean_delta\": -0.03665650939713389,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 17085417715513280802\n        },\n        \"ndcg@20\": {\n          \"ci95_high\": -0.03525490081093415,\n          \"ci95_low\": -0.04238413932916741,\n          \"mean_delta\": -0.03882967212442438,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 7344337029676341187\n        },\n        \"ndcg@5\": {\n          \"ci95_high\": -0.029845909465737657,\n          \"ci95_low\": -0.03681844745714497,\n          \"mean_delta\": -0.03340753234623901,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 9631031527709707930\n        },\n        \"ndcg@50\": {\n          \"ci95_high\": -0.03573977547237242,\n          \"ci95_low\": -0.042752664746980584,\n          \"mean_delta\": -0.039388014992107374,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 690395398967388005\n        }\n      },\n      \"paired_users\": 12833,\n      \"primary_user_outcomes\": {\n        \"gain\": 364,\n        \"gain_rate\": 0.028364373100600016,\n        \"loss\": 1090,\n        \"loss_rate\": 0.0849372710979506,\n        \"metric\": \"ndcg@10\",\n        \"tie\": 11379,\n        \"tie_rate\": 0.8866983558014494\n      },\n      \"treatment\": \"G2_GRAM_LATTE_FULL\"\n    },\n    \"FP2_G2_MINUS_G1\": {\n      \"changed_ranking_rate\": 1.0,\n      \"changed_target_rank_rate\": 0.14782202135120392,\n      \"control\": \"G1_GRAM_PSID_FULL\",\n      \"effects\": {\n        \"hit@10\": {\n          \"ci95_high\": -0.0043637497077846175,\n          \"ci95_low\": -0.011300942881633289,\n          \"mean_delta\": -0.007948258396321982,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 5360749133625501430\n        },\n        \"hit@20\": {\n          \"ci95_high\": -0.006545624561676927,\n          \"ci95_low\": -0.014260110652224734,\n          \"mean_delta\": -0.010363905555988467,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 9027707252325185109\n        },\n        \"hit@5\": {\n          \"ci95_high\": -0.0010130133250214291,\n          \"ci95_low\": -0.0067014727655263775,\n          \"mean_delta\": -0.0038962050962362657,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 13604132642742433118\n        },\n        \"hit@50\": {\n          \"ci95_high\": -0.00483129431933297,\n          \"ci95_low\": -0.014182186550300008,\n          \"mean_delta\": -0.009584664536741214,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 16510156023766772922\n        },\n        \"mrr@10\": {\n          \"ci95_high\": -0.0009776506254336854,\n          \"ci95_low\": -0.004534806253471024,\n          \"mean_delta\": -0.002694133057259372,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 1885154779069428950\n        },\n        \"ndcg@10\": {\n          \"ci95_high\": -0.0018819438856615643,\n          \"ci95_low\": -0.00589041820924497,\n          \"mean_delta\": -0.0038718504096330758,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 2802360460730019746\n        },\n        \"ndcg@20\": {\n          \"ci95_high\": -0.002704823900447356,\n          \"ci95_low\": -0.006343843573727917,\n          \"mean_delta\": -0.004503939595385933,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 17817004417133883344\n        },\n        \"ndcg@5\": {\n          \"ci95_high\": -0.0005900994020669049,\n          \"ci95_low\": -0.004694067128990148,\n          \"mean_delta\": -0.0026340121101228495,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 13977771260331523240\n        },\n        \"ndcg@50\": {\n          \"ci95_high\": -0.0026293511828063055,\n          \"ci95_low\": -0.006090345396544814,\n          \"mean_delta\": -0.004366785845352461,\n          \"paired_users\": 12833,\n          \"replicates\": 2000,\n          \"seed\": 13255941382330401526\n        }\n      },\n      \"paired_users\": 12833,\n      \"primary_user_outcomes\": {\n        \"gain\": 347,\n        \"gain_rate\": 0.027039663367879684,\n        \"loss\": 435,\n        \"loss_rate\": 0.03389698433725551,\n        \"metric\": \"ndcg@10\",\n        \"tie\": 12051,\n        \"tie_rate\": 0.9390633522948648\n      },\n      \"treatment\": \"G2_GRAM_LATTE_FULL\"\n    }\n  },\n  \"completed_at\": \"2026-09-02T13:17:05.257592+00:00\",\n  \"controlled_recovery\": true,\n  \"d1_read\": false,\n  \"d2_read\": false,\n  \"external_users\": 12833,\n  \"gates\": {\n    \"FP1\": {\n      \"checks\": {\n        \"aggregate_item_valid\": true,\n        \"hit_delta_nonnegative\": false,\n        \"integrity_valid\": true,\n        \"latent_not_collapsed\": true,\n        \"multi_path_item_rate_positive\": true,\n        \"ndcg_ci95_low_positive\": false,\n        \"ndcg_delta_positive\": true\n      },\n      \"verdict\": \"FP1_NOT_STRONG_PASS\"\n    },\n    \"FP2\": {\n      \"catastrophic_subgroups\": [\n        {\n          \"delta_ndcg@10\": -0.0383910954549066,\n          \"dimension\": \"history_length\",\n          \"label\": \"short_le3\",\n          \"users\": 7610\n        },\n        {\n          \"delta_ndcg@10\": -0.037743814936291406,\n          \"dimension\": \"history_length\",\n          \"label\": \"medium_4_9\",\n          \"users\": 3435\n        },\n        {\n          \"delta_ndcg@10\": -0.02718498007573771,\n          \"dimension\": \"history_length\",\n          \"label\": \"long_ge10\",\n          \"users\": 1788\n        },\n        {\n          \"delta_ndcg@10\": -0.054002242059570014,\n          \"dimension\": \"target_frequency\",\n          \"label\": \"tail\",\n          \"users\": 4746\n        },\n        {\n          \"delta_ndcg@10\": -0.04180989278893321,\n          \"dimension\": \"target_frequency\",\n          \"label\": \"mid\",\n          \"users\": 3921\n        },\n        {\n          \"delta_ndcg@10\": -0.012045548404534992,\n          \"dimension\": \"target_frequency\",\n          \"label\": \"head\",\n          \"users\": 4166\n        }\n      ],\n      \"checks\": {\n        \"aggregate_item_valid\": true,\n        \"g2_vs_g0_delta_ge_0.0015\": false,\n        \"g2_vs_g0_hit_delta_nonnegative\": false,\n        \"g2_vs_g1_ci95_low_positive\": false,\n        \"g2_vs_g1_delta_ge_0.0015\": false,\n        \"integrity_valid\": true,\n        \"item_aggregation_gain_positive\": true,\n        \"latent_not_collapsed\": true,\n        \"multi_path_item_rate_positive\": true,\n        \"no_catastrophic_large_subgroup\": false,\n        \"target_path_survival_positive\": true,\n        \"tree_coupling_reduced_vs_g1\": true\n      },\n      \"verdict\": \"FP2_NOT_STRONG_PASS\"\n    }\n  },\n  \"integrity\": {\n    \"all_g2_constrained_paths_legal\": true,\n    \"all_primary_rankings_nonempty\": {\n      \"G0_GRAM_B0_FRESH\": true,\n      \"G1_GRAM_PSID_FULL\": true,\n      \"G2_GRAM_LATTE_FULL\": true,\n      \"N0_NATIVE_PSID\": true,\n      \"N1_NATIVE_LATTE\": true\n    },\n    \"d1_read\": false,\n    \"d2_read\": false,\n    \"exact_user_alignment\": true,\n    \"guard_item_serialized\": false,\n    \"single_materialization_count\": 1,\n    \"sports_read\": false,\n    \"test_read\": false\n  },\n  \"next_action\": \"stop standalone LATTE migration; do not open D1 and do not tune on D0\",\n  \"overall\": {\n    \"G0_GRAM_B0_FRESH\": {\n      \"beam500_identity\": {\n        \"mechanisms\": {\n          \"available\": false,\n          \"users\": 0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.0975609756097561,\n          \"hit@20\": 0.12950985739889348,\n          \"hit@5\": 0.07363827631886542,\n          \"hit@50\": 0.18047222005766383,\n          \"mrr@10\": 0.05068517549620955,\n          \"ndcg@10\": 0.06170006251674858,\n          \"ndcg@20\": 0.0697206869534387,\n          \"ndcg@5\": 0.053931671956404525,\n          \"ndcg@50\": 0.0798214623436542\n        }\n      },\n      \"beam50_identity\": {\n        \"mechanisms\": {\n          \"available\": false,\n          \"users\": 0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.09732720330398192,\n          \"hit@20\": 0.12935400919504403,\n          \"hit@5\": 0.07348242811501597,\n          \"hit@50\": 0.1812514610769111,\n          \"mrr@10\": 0.05063396822923045,\n          \"ndcg@10\": 0.06160664776670361,\n          \"ndcg@20\": 0.06965257389749131,\n          \"ndcg@5\": 0.05386256474786136,\n          \"ndcg@50\": 0.07993113549696333\n        }\n      }\n    },\n    \"G1_GRAM_PSID_FULL\": {\n      \"beam500_identity\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": true,\n          \"latent_counts\": {},\n          \"latent_entropy\": 0,\n          \"latent_normalized_entropy\": 0.0,\n          \"latent_user_collapse_rate\": 1.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.0,\n          \"mean_duplicate_item_paths\": 0.0,\n          \"mean_duplicate_path_rate\": 0.0,\n          \"mean_generated_paths\": 500.0,\n          \"mean_post_aggregation_ndcg@10\": 0.028915403529247766,\n          \"mean_post_aggregation_target_rank\": 2.2582404737785398,\n          \"mean_pre_aggregation_ndcg@10\": 0.028915403529247766,\n          \"mean_pre_aggregation_target_rank\": 50.28224109717136,\n          \"mean_target_root_count\": 0.0,\n          \"mean_tree_distance_score_correlation\": 0.021173113230935185,\n          \"mean_unique_items\": 500.0,\n          \"mean_valid_paths\": 500.0,\n          \"multi_path_item_rate\": 0.0,\n          \"target_path_survival_rate\": 0.34730772227850076,\n          \"users\": 12833,\n          \"valid_path_rate\": 1.0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.05267669290111431,\n          \"hit@20\": 0.07862541884204785,\n          \"hit@5\": 0.03467622535650277,\n          \"hit@50\": 0.126237045118055,\n          \"mrr@10\": 0.02172013744327311,\n          \"ndcg@10\": 0.028915403529247766,\n          \"ndcg@20\": 0.03539495442440026,\n          \"ndcg@5\": 0.023158151720288372,\n          \"ndcg@50\": 0.04480023319689929\n        }\n      },\n      \"beam50_identity\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": true,\n          \"latent_counts\": {},\n          \"latent_entropy\": 0,\n          \"latent_normalized_entropy\": 0.0,\n          \"latent_user_collapse_rate\": 1.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.0,\n          \"mean_duplicate_item_paths\": 0.0,\n          \"mean_duplicate_path_rate\": 0.0,\n          \"mean_generated_paths\": 50.0,\n          \"mean_post_aggregation_ndcg@10\": 0.028528642071192552,\n          \"mean_post_aggregation_target_rank\": 2.0578196836281464,\n          \"mean_pre_aggregation_ndcg@10\": 0.028528642071192552,\n          \"mean_pre_aggregation_target_rank\": 2.0578196836281464,\n          \"mean_target_root_count\": 0.0,\n          \"mean_tree_distance_score_correlation\": 0.016491262085318297,\n          \"mean_unique_items\": 50.0,\n          \"mean_valid_paths\": 50.0,\n          \"multi_path_item_rate\": 0.0,\n          \"target_path_survival_rate\": 0.12015896516792644,\n          \"users\": 12833,\n          \"valid_path_rate\": 1.0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.05158575547416816,\n          \"hit@20\": 0.07730070910932751,\n          \"hit@5\": 0.03452037715265332,\n          \"hit@50\": 0.12015896516792644,\n          \"mrr@10\": 0.021537881627104724,\n          \"ndcg@10\": 0.028528642071192552,\n          \"ndcg@20\": 0.03495096445296879,\n          \"ndcg@5\": 0.02306896109164869,\n          \"ndcg@50\": 0.043452383982138264\n        }\n      }\n    },\n    \"G2_GRAM_LATTE_FULL\": {\n      \"beam500_agg_max\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"32868\": 735319,\n            \"32869\": 871180,\n            \"32870\": 924108,\n            \"32871\": 929024,\n            \"32872\": 824097,\n            \"32873\": 736329,\n            \"32874\": 739655,\n            \"32875\": 656788\n          },\n          \"latent_entropy\": 2.0726227043994307,\n          \"latent_normalized_entropy\": 0.9967208324236436,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.0124868918365721,\n          \"mean_duplicate_item_paths\": 423.9429595573911,\n          \"mean_duplicate_path_rate\": 0.8478859191147822,\n          \"mean_generated_paths\": 500.0,\n          \"mean_post_aggregation_ndcg@10\": 0.025043553119614693,\n          \"mean_post_aggregation_target_rank\": 2.2148367490064675,\n          \"mean_pre_aggregation_ndcg@10\": 0.012556661283042591,\n          \"mean_pre_aggregation_target_rank\": 22.392269929089068,\n          \"mean_target_root_count\": 1.0075586378866983,\n          \"mean_tree_distance_score_correlation\": 0.003184831846806029,\n          \"mean_unique_items\": 76.0570404426089,\n          \"mean_valid_paths\": 500.0,\n          \"multi_path_item_rate\": 0.9436270259563359,\n          \"target_path_survival_rate\": 0.13714641938751657,\n          \"users\": 12833,\n          \"valid_path_rate\": 1.0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.04472843450479233,\n          \"hit@20\": 0.06826151328605938,\n          \"hit@5\": 0.0307800202602665,\n          \"hit@50\": 0.1166523805813138,\n          \"mrr@10\": 0.019026004386013737,\n          \"ndcg@10\": 0.025043553119614693,\n          \"ndcg@20\": 0.030891014829014324,\n          \"ndcg@5\": 0.020524139610165523,\n          \"ndcg@50\": 0.040433447351546824\n        }\n      },\n      \"beam500_agg_sum\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"32868\": 735319,\n            \"32869\": 871180,\n            \"32870\": 924108,\n            \"32871\": 929024,\n            \"32872\": 824097,\n            \"32873\": 736329,\n            \"32874\": 739655,\n            \"32875\": 656788\n          },\n          \"latent_entropy\": 2.0726227043994307,\n          \"latent_normalized_entropy\": 0.9967208324236436,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.012130004047112865,\n          \"mean_duplicate_item_paths\": 423.9429595573911,\n          \"mean_duplicate_path_rate\": 0.8478859191147822,\n          \"mean_generated_paths\": 500.0,\n          \"mean_post_aggregation_ndcg@10\": 0.02468666533015546,\n          \"mean_post_aggregation_target_rank\": 2.1584196992129665,\n          \"mean_pre_aggregation_ndcg@10\": 0.012556661283042591,\n          \"mean_pre_aggregation_target_rank\": 22.392269929089068,\n          \"mean_target_root_count\": 1.0075586378866983,\n          \"mean_tree_distance_score_correlation\": 0.003184831846806029,\n          \"mean_unique_items\": 76.0570404426089,\n          \"mean_valid_paths\": 500.0,\n          \"multi_path_item_rate\": 0.9436270259563359,\n          \"target_path_survival_rate\": 0.13714641938751657,\n          \"users\": 12833,\n          \"valid_path_rate\": 1.0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.04418296579131926,\n          \"hit@20\": 0.0680277409802852,\n          \"hit@5\": 0.0301566274448687,\n          \"hit@50\": 0.11470427803319566,\n          \"mrr@10\": 0.018729830954174444,\n          \"ndcg@10\": 0.02468666533015546,\n          \"ndcg@20\": 0.03062880494055595,\n          \"ndcg@5\": 0.0201337769567268,\n          \"ndcg@50\": 0.03982874666521162\n        }\n      },\n      \"beam50_agg_max\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"32868\": 66873,\n            \"32869\": 93696,\n            \"32870\": 103320,\n            \"32871\": 106290,\n            \"32872\": 83116,\n            \"32873\": 66463,\n            \"32874\": 68312,\n            \"32875\": 53580\n          },\n          \"latent_entropy\": 2.053900676449737,\n          \"latent_normalized_entropy\": 0.9877174401308412,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.009785129135181377,\n          \"mean_duplicate_item_paths\": 41.01901348086963,\n          \"mean_duplicate_path_rate\": 0.8203802696173927,\n          \"mean_generated_paths\": 50.0,\n          \"mean_post_aggregation_ndcg@10\": 0.02236833371536151,\n          \"mean_post_aggregation_target_rank\": 0.1357437855528715,\n          \"mean_pre_aggregation_ndcg@10\": 0.012583204580180134,\n          \"mean_pre_aggregation_target_rank\": 0.6271331722901894,\n          \"mean_target_root_count\": 0.24748694771292762,\n          \"mean_tree_distance_score_correlation\": -0.017291247689839015,\n          \"mean_unique_items\": 8.980986519130367,\n          \"mean_valid_paths\": 50.0,\n          \"multi_path_item_rate\": 0.9120862793241133,\n          \"target_path_survival_rate\": 0.03763734122964233,\n          \"users\": 12833,\n          \"valid_path_rate\": 1.0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.03732564482194343,\n          \"hit@20\": 0.03763734122964233,\n          \"hit@5\": 0.028987765915997818,\n          \"hit@50\": 0.03763734122964233,\n          \"mrr@10\": 0.01770268615511349,\n          \"ndcg@10\": 0.02236833371536151,\n          \"ndcg@20\": 0.022455279229473914,\n          \"ndcg@5\": 0.019608822194793065,\n          \"ndcg@50\": 0.022455279229473914\n        }\n      },\n      \"beam50_agg_sum\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"32868\": 66873,\n            \"32869\": 93696,\n            \"32870\": 103320,\n            \"32871\": 106290,\n            \"32872\": 83116,\n            \"32873\": 66463,\n            \"32874\": 68312,\n            \"32875\": 53580\n          },\n          \"latent_entropy\": 2.053900676449737,\n          \"latent_normalized_entropy\": 0.9877174401308412,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.009252818178148865,\n          \"mean_duplicate_item_paths\": 41.01901348086963,\n          \"mean_duplicate_path_rate\": 0.8203802696173927,\n          \"mean_generated_paths\": 50.0,\n          \"mean_post_aggregation_ndcg@10\": 0.021836022758328997,\n          \"mean_post_aggregation_target_rank\": 0.14384789215304294,\n          \"mean_pre_aggregation_ndcg@10\": 0.012583204580180134,\n          \"mean_pre_aggregation_target_rank\": 0.6271331722901894,\n          \"mean_target_root_count\": 0.24748694771292762,\n          \"mean_tree_distance_score_correlation\": -0.017291247689839015,\n          \"mean_unique_items\": 8.980986519130367,\n          \"mean_valid_paths\": 50.0,\n          \"multi_path_item_rate\": 0.9120862793241133,\n          \"target_path_survival_rate\": 0.03763734122964233,\n          \"users\": 12833,\n          \"valid_path_rate\": 1.0\n        },\n        \"metrics\": {\n          \"hit@10\": 0.037013948414244525,\n          \"hit@20\": 0.03763734122964233,\n          \"hit@5\": 0.027429283877503312,\n          \"hit@50\": 0.03763734122964233,\n          \"mrr@10\": 0.01713353098843631,\n          \"ndcg@10\": 0.021836022758328997,\n          \"ndcg@20\": 0.022007965824125873,\n          \"ndcg@5\": 0.018663990945312268,\n          \"ndcg@50\": 0.022007965824125873\n        }\n      }\n    },\n    \"N0_NATIVE_PSID\": {\n      \"beam500_identity\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": true,\n          \"latent_counts\": {},\n          \"latent_entropy\": 0,\n          \"latent_normalized_entropy\": 0.0,\n          \"latent_user_collapse_rate\": 1.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.0,\n          \"mean_duplicate_item_paths\": 0.0,\n          \"mean_duplicate_path_rate\": 0.0,\n          \"mean_generated_paths\": 500.0,\n          \"mean_post_aggregation_ndcg@10\": 0.030133885690867678,\n          \"mean_post_aggregation_target_rank\": 2.8316060157406686,\n          \"mean_pre_aggregation_ndcg@10\": 0.030133885690867678,\n          \"mean_pre_aggregation_target_rank\": 51.24343489441284,\n          \"mean_target_root_count\": 0.0,\n          \"mean_tree_distance_score_correlation\": 0.03365576944072835,\n          \"mean_unique_items\": 476.52388373723994,\n          \"mean_valid_paths\": 476.52388373723994,\n          \"multi_path_item_rate\": 0.0,\n          \"target_path_survival_rate\": 0.387516558871659,\n          \"users\": 12833,\n          \"valid_path_rate\": 0.9530477674744798\n        },\n        \"metrics\": {\n          \"hit@10\": 0.05937816566664069,\n          \"hit@20\": 0.0926517571884984,\n          \"hit@5\": 0.03561131457959947,\n          \"hit@50\": 0.15226369516091326,\n          \"mrr@10\": 0.021340968658431447,\n          \"ndcg@10\": 0.030133885690867678,\n          \"ndcg@20\": 0.03850364918851772,\n          \"ndcg@5\": 0.0224382192184221,\n          \"ndcg@50\": 0.05025568175415581\n        }\n      },\n      \"beam50_identity\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": true,\n          \"latent_counts\": {},\n          \"latent_entropy\": 0,\n          \"latent_normalized_entropy\": 0.0,\n          \"latent_user_collapse_rate\": 1.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.0,\n          \"mean_duplicate_item_paths\": 0.0,\n          \"mean_duplicate_path_rate\": 0.0,\n          \"mean_generated_paths\": 50.0,\n          \"mean_post_aggregation_ndcg@10\": 0.030156410807856526,\n          \"mean_post_aggregation_target_rank\": 2.7159666484843763,\n          \"mean_pre_aggregation_ndcg@10\": 0.030156410807856526,\n          \"mean_pre_aggregation_target_rank\": 2.7159666484843763,\n          \"mean_target_root_count\": 0.0,\n          \"mean_tree_distance_score_correlation\": 0.020945270045438856,\n          \"mean_unique_items\": 49.57196290812748,\n          \"mean_valid_paths\": 49.57196290812748,\n          \"multi_path_item_rate\": 0.0,\n          \"target_path_survival_rate\": 0.14969219979739734,\n          \"users\": 12833,\n          \"valid_path_rate\": 0.9914392581625496\n        },\n        \"metrics\": {\n          \"hit@10\": 0.059456089768565416,\n          \"hit@20\": 0.09249590898464895,\n          \"hit@5\": 0.03561131457959947,\n          \"hit@50\": 0.14969219979739734,\n          \"mrr@10\": 0.021348761068623923,\n          \"ndcg@10\": 0.030156410807856526,\n          \"ndcg@20\": 0.0384695354688614,\n          \"ndcg@5\": 0.0224382192184221,\n          \"ndcg@50\": 0.04978934204339829\n        }\n      }\n    },\n    \"N1_NATIVE_LATTE\": {\n      \"beam500_agg_max\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"1\": 801169,\n            \"2\": 798236,\n            \"3\": 949110,\n            \"4\": 798406,\n            \"5\": 690222,\n            \"6\": 697726,\n            \"7\": 873882,\n            \"8\": 751961\n          },\n          \"latent_entropy\": 2.0743305219243444,\n          \"latent_normalized_entropy\": 0.997542119048289,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.01586046241454608,\n          \"mean_duplicate_item_paths\": 421.6929790384166,\n          \"mean_duplicate_path_rate\": 0.8508522572206443,\n          \"mean_generated_paths\": 500.0,\n          \"mean_post_aggregation_ndcg@10\": 0.03152785213993814,\n          \"mean_post_aggregation_target_rank\": 2.8511649653237745,\n          \"mean_pre_aggregation_ndcg@10\": 0.01566738972539206,\n          \"mean_pre_aggregation_target_rank\": 29.87399672718772,\n          \"mean_target_root_count\": 1.3308657367723837,\n          \"mean_tree_distance_score_correlation\": 0.020761949928359717,\n          \"mean_unique_items\": 73.95979116340685,\n          \"mean_valid_paths\": 495.65277020182344,\n          \"multi_path_item_rate\": 0.9226477390223051,\n          \"target_path_survival_rate\": 0.17969297903841658,\n          \"users\": 12833,\n          \"valid_path_rate\": 0.9913055404036468\n        },\n        \"metrics\": {\n          \"hit@10\": 0.05828722823969454,\n          \"hit@20\": 0.09124912335385335,\n          \"hit@5\": 0.03826073404504013,\n          \"hit@50\": 0.15187407465128963,\n          \"mrr@10\": 0.023426242363747234,\n          \"ndcg@10\": 0.03152785213993814,\n          \"ndcg@20\": 0.039813088419356935,\n          \"ndcg@5\": 0.025107348079465956,\n          \"ndcg@50\": 0.051741970541139576\n        }\n      },\n      \"beam500_agg_sum\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"1\": 801169,\n            \"2\": 798236,\n            \"3\": 949110,\n            \"4\": 798406,\n            \"5\": 690222,\n            \"6\": 697726,\n            \"7\": 873882,\n            \"8\": 751961\n          },\n          \"latent_entropy\": 2.0743305219243444,\n          \"latent_normalized_entropy\": 0.997542119048289,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.015779557159388304,\n          \"mean_duplicate_item_paths\": 421.6929790384166,\n          \"mean_duplicate_path_rate\": 0.8508522572206443,\n          \"mean_generated_paths\": 500.0,\n          \"mean_post_aggregation_ndcg@10\": 0.031446946884780363,\n          \"mean_post_aggregation_target_rank\": 2.7641237434738564,\n          \"mean_pre_aggregation_ndcg@10\": 0.01566738972539206,\n          \"mean_pre_aggregation_target_rank\": 29.87399672718772,\n          \"mean_target_root_count\": 1.3308657367723837,\n          \"mean_tree_distance_score_correlation\": 0.020761949928359717,\n          \"mean_unique_items\": 73.95979116340685,\n          \"mean_valid_paths\": 495.65277020182344,\n          \"multi_path_item_rate\": 0.9226477390223051,\n          \"target_path_survival_rate\": 0.17969297903841658,\n          \"users\": 12833,\n          \"valid_path_rate\": 0.9913055404036468\n        },\n        \"metrics\": {\n          \"hit@10\": 0.05828722823969454,\n          \"hit@20\": 0.09093742694615445,\n          \"hit@5\": 0.0381828099431154,\n          \"hit@50\": 0.14992597210317152,\n          \"mrr@10\": 0.023318076288932676,\n          \"ndcg@10\": 0.031446946884780363,\n          \"ndcg@20\": 0.039653476748238575,\n          \"ndcg@5\": 0.025003337292653145,\n          \"ndcg@50\": 0.05129949868400083\n        }\n      },\n      \"beam50_agg_max\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"1\": 80791,\n            \"2\": 79602,\n            \"3\": 113602,\n            \"4\": 81187,\n            \"5\": 57934,\n            \"6\": 60045,\n            \"7\": 97826,\n            \"8\": 69666\n          },\n          \"latent_entropy\": 2.0561911307937475,\n          \"latent_normalized_entropy\": 0.9888189158386699,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.013025669851095788,\n          \"mean_duplicate_item_paths\": 41.06989791942648,\n          \"mean_duplicate_path_rate\": 0.8226854169263469,\n          \"mean_generated_paths\": 50.0,\n          \"mean_post_aggregation_ndcg@10\": 0.028770241526464565,\n          \"mean_post_aggregation_target_rank\": 0.184680121561599,\n          \"mean_pre_aggregation_ndcg@10\": 0.015744571675368777,\n          \"mean_pre_aggregation_target_rank\": 0.8704122184991818,\n          \"mean_target_root_count\": 0.32696953167614745,\n          \"mean_tree_distance_score_correlation\": -0.007467163533561398,\n          \"mean_unique_items\": 8.85241175095457,\n          \"mean_valid_paths\": 49.92230967038105,\n          \"multi_path_item_rate\": 0.8741772087757181,\n          \"target_path_survival_rate\": 0.049637652926050026,\n          \"users\": 12833,\n          \"valid_path_rate\": 0.998446193407621\n        },\n        \"metrics\": {\n          \"hit@10\": 0.04940388062027585,\n          \"hit@20\": 0.049637652926050026,\n          \"hit@5\": 0.037715265331567056,\n          \"hit@50\": 0.049637652926050026,\n          \"mrr@10\": 0.02235608469731434,\n          \"ndcg@10\": 0.028770241526464565,\n          \"ndcg@20\": 0.02883238993334512,\n          \"ndcg@5\": 0.02488437970760071,\n          \"ndcg@50\": 0.02883238993334512\n        }\n      },\n      \"beam50_agg_sum\": {\n        \"mechanisms\": {\n          \"available\": true,\n          \"latent_collapsed\": false,\n          \"latent_counts\": {\n            \"1\": 80791,\n            \"2\": 79602,\n            \"3\": 113602,\n            \"4\": 81187,\n            \"5\": 57934,\n            \"6\": 60045,\n            \"7\": 97826,\n            \"8\": 69666\n          },\n          \"latent_entropy\": 2.0561911307937475,\n          \"latent_normalized_entropy\": 0.9888189158386699,\n          \"latent_user_collapse_rate\": 0.0,\n          \"mean_aggregation_gain_ndcg@10\": 0.012615529749560673,\n          \"mean_duplicate_item_paths\": 41.06989791942648,\n          \"mean_duplicate_path_rate\": 0.8226854169263469,\n          \"mean_generated_paths\": 50.0,\n          \"mean_post_aggregation_ndcg@10\": 0.02836010142492945,\n          \"mean_post_aggregation_target_rank\": 0.1941868619964155,\n          \"mean_pre_aggregation_ndcg@10\": 0.015744571675368777,\n          \"mean_pre_aggregation_target_rank\": 0.8704122184991818,\n          \"mean_target_root_count\": 0.32696953167614745,\n          \"mean_tree_distance_score_correlation\": -0.007467163533561398,\n          \"mean_unique_items\": 8.85241175095457,\n          \"mean_valid_paths\": 49.92230967038105,\n          \"multi_path_item_rate\": 0.8741772087757181,\n          \"target_path_survival_rate\": 0.049637652926050026,\n          \"users\": 12833,\n          \"valid_path_rate\": 0.998446193407621\n        },\n        \"metrics\": {\n          \"hit@10\": 0.04932595651835112,\n          \"hit@20\": 0.049637652926050026,\n          \"hit@5\": 0.03561131457959947,\n          \"hit@50\": 0.049637652926050026,\n          \"mrr@10\": 0.021893889637207647,\n          \"ndcg@10\": 0.02836010142492945,\n          \"ndcg@20\": 0.028443464780413118,\n          \"ndcg@5\": 0.02383812815061848,\n          \"ndcg@50\": 0.028443464780413118\n        }\n      }\n    }\n  },\n  \"primary_variants\": {\n    \"G0_GRAM_B0_FRESH\": \"beam500_identity\",\n    \"G1_GRAM_PSID_FULL\": \"beam500_identity\",\n    \"G2_GRAM_LATTE_FULL\": \"beam500_agg_max\",\n    \"N0_NATIVE_PSID\": \"beam500_identity\",\n    \"N1_NATIVE_LATTE\": \"beam500_agg_max\"\n  },\n  \"psid_collision_diagnostics\": {\n    \"catalog_items\": 11924,\n    \"collision_aliases_after\": 0,\n    \"max_reconstruction_l2_distortion\": 7.158188239845043,\n    \"mean_reassigned_digit_hamming\": 1.0867614061331339,\n    \"mean_reconstruction_l2_distortion\": 3.8664399577568256,\n    \"reassigned_items\": 1337,\n    \"reassigned_rate\": 0.11212680308621269\n  },\n  \"recovery_provenance\": {\n    \"attempt_001_arms\": [\n      \"N0_NATIVE_PSID\",\n      \"N1_NATIVE_LATTE\"\n    ],\n    \"attempt_002_arms\": [\n      \"G0_GRAM_B0_FRESH\",\n      \"G2_GRAM_LATTE_FULL\"\n    ],\n    \"attempt_003_arms\": [\n      \"G1_GRAM_PSID_FULL\"\n    ],\n    \"attempt_id\": \"attempt_003\",\n    \"authorization_path\": \"artifacts/phase17/authorizations/s17_fp12_external_d0_recovery_g1_parallel_attempt_003.json\",\n    \"authorization_sha256\": \"33d16a0625d88c2c1fc442ccbf98b0dcc7c1409d5b09c7fbd720a4187a0ff113\",\n    \"automatic_retry\": false,\n    \"bundle_sha256\": \"e677d5c5905e5298f4a51541f112765796d7e3599963ed8432d62191e5bcf2d6\",\n    \"raw_external_projection_reopened\": false,\n    \"recovery_provenance_path\": \"artifacts/phase17/fullport/external_d0/recovery/attempt_003/provenance.json\",\n    \"recovery_provenance_sha256\": \"4e49a8979c84167257c247ef819b92c01e653926d247cddc40ae571cc07f6f8f\",\n    \"researcher_direction\": \"找一张GPU运行G1；G1完成后在同卡启动隔离重复轮持续占用资源\",\n    \"single_materialization_count\": 1\n  },\n  \"schema_version\": \"phase17.s17_fp12_external_analysis.v1\",\n  \"single_materialization_count\": 1,\n  \"sports_read\": false,\n  \"subgroup_thresholds\": {\n    \"target_train_frequency_q1\": 4.0,\n    \"target_train_frequency_q2\": 12.0\n  },\n  \"subgroups\": {\n    \"FP1_N1_MINUS_N0\": {\n      \"history_length\": {\n        \"long_ge10\": {\n          \"control_hit@10\": 0.05704697986577181,\n          \"control_ndcg@10\": 0.025845569130208336,\n          \"delta_hit@10\": 0.0027964205816554816,\n          \"delta_ndcg@10\": 0.0035410416136582024,\n          \"treatment_hit@10\": 0.059843400447427295,\n          \"treatment_ndcg@10\": 0.02938661074386654,\n          \"users\": 1788\n        },\n        \"medium_4_9\": {\n          \"control_hit@10\": 0.06259097525473072,\n          \"control_ndcg@10\": 0.031317995381234844,\n          \"delta_hit@10\": 0.0014556040756914107,\n          \"delta_ndcg@10\": 0.00403083976760369,\n          \"treatment_hit@10\": 0.06404657933042213,\n          \"treatment_ndcg@10\": 0.035348835148838534,\n          \"users\": 3435\n        },\n        \"short_le3\": {\n          \"control_hit@10\": 0.05847568988173456,\n          \"control_ndcg@10\": 0.030606959701912052,\n          \"delta_hit@10\": -0.0031537450722733257,\n          \"delta_ndcg@10\": -0.000300728720895968,\n          \"treatment_hit@10\": 0.05532194480946123,\n          \"treatment_ndcg@10\": 0.030306230981016084,\n          \"users\": 7610\n        }\n      },\n      \"memory\": {\n        \"generalization\": {\n          \"control_hit@10\": 0.05937816566664069,\n          \"control_ndcg@10\": 0.030133885690867678,\n          \"delta_hit@10\": -0.0010909374269461522,\n          \"delta_ndcg@10\": 0.0013939664490704613,\n          \"treatment_hit@10\": 0.05828722823969454,\n          \"treatment_ndcg@10\": 0.03152785213993814,\n          \"users\": 12833\n        },\n        \"memorization\": {\n          \"state\": \"EMPTY\",\n          \"users\": 0\n        }\n      },\n      \"target_frequency\": {\n        \"head\": {\n          \"control_hit@10\": 0.10825732117138742,\n          \"control_ndcg@10\": 0.05687058728669455,\n          \"delta_hit@10\": -0.002160345655304846,\n          \"delta_ndcg@10\": 0.001362886165040128,\n          \"treatment_hit@10\": 0.10609697551608258,\n          \"treatment_ndcg@10\": 0.05823347345173468,\n          \"users\": 4166\n        },\n        \"mid\": {\n          \"control_hit@10\": 0.05789339454220862,\n          \"control_ndcg@10\": 0.029332540209052682,\n          \"delta_hit@10\": -0.003825554705432284,\n          \"delta_ndcg@10\": 0.0008191362632835666,\n          \"treatment_hit@10\": 0.054067839836776335,\n          \"treatment_ndcg@10\": 0.03015167647233625,\n          \"users\": 3921\n        },\n        \"tail\": {\n          \"control_hit@10\": 0.017699115044247787,\n          \"control_ndcg@10\": 0.007326674731318977,\n          \"delta_hit@10\": 0.0021070375052675942,\n          \"delta_ndcg@10\": 0.0018961555813377896,\n          \"treatment_hit@10\": 0.01980615254951538,\n          \"treatment_ndcg@10\": 0.009222830312656766,\n          \"users\": 4746\n        }\n      }\n    },\n    \"FP2_G1_MINUS_G0\": {\n      \"history_length\": {\n        \"long_ge10\": {\n          \"control_hit@10\": 0.08277404921700224,\n          \"control_ndcg@10\": 0.04764442759190807,\n          \"delta_hit@10\": -0.03691275167785235,\n          \"delta_ndcg@10\": -0.024834602638171947,\n          \"treatment_hit@10\": 0.04586129753914989,\n          \"treatment_ndcg@10\": 0.02280982495373612,\n          \"users\": 1788\n        },\n        \"medium_4_9\": {\n          \"control_hit@10\": 0.10480349344978165,\n          \"control_ndcg@10\": 0.06664299112220558,\n          \"delta_hit@10\": -0.04716157205240174,\n          \"delta_ndcg@10\": -0.034699867728821734,\n          \"treatment_hit@10\": 0.05764192139737991,\n          \"treatment_ndcg@10\": 0.03194312339338384,\n          \"users\": 3435\n        },\n        \"short_le3\": {\n          \"control_hit@10\": 0.09776609724047307,\n          \"control_ndcg@10\": 0.06277135233092336,\n          \"delta_hit@10\": -0.045729303547963215,\n          \"delta_ndcg@10\": -0.03378807012103073,\n          \"treatment_hit@10\": 0.05203679369250985,\n          \"treatment_ndcg@10\": 0.028983282209892627,\n          \"users\": 7610\n        }\n      },\n      \"memory\": {\n        \"generalization\": {\n          \"control_hit@10\": 0.0975609756097561,\n          \"control_ndcg@10\": 0.06170006251674858,\n          \"delta_hit@10\": -0.04488428270864179,\n          \"delta_ndcg@10\": -0.03278465898750081,\n          \"treatment_hit@10\": 0.05267669290111431,\n          \"treatment_ndcg@10\": 0.028915403529247766,\n          \"users\": 12833\n        },\n        \"memorization\": {\n          \"state\": \"EMPTY\",\n          \"users\": 0\n        }\n      },\n      \"target_frequency\": {\n        \"head\": {\n          \"control_hit@10\": 0.11185789726356217,\n          \"control_ndcg@10\": 0.06672632079074077,\n          \"delta_hit@10\": -0.008161305808929431,\n          \"delta_ndcg@10\": -0.009227523102452284,\n          \"treatment_hit@10\": 0.10369659145463274,\n          \"treatment_ndcg@10\": 0.057498797688288486,\n          \"users\": 4166\n        },\n        \"mid\": {\n          \"control_hit@10\": 0.09104820198928845,\n          \"control_ndcg@10\": 0.06140224777435826,\n          \"delta_hit@10\": -0.04412139760265239,\n          \"delta_ndcg@10\": -0.03526258053791766,\n          \"treatment_hit@10\": 0.04692680438663606,\n          \"treatment_ndcg@10\": 0.026139667236440598,\n          \"users\": 3921\n        },\n        \"tail\": {\n          \"control_hit@10\": 0.09039190897597978,\n          \"control_ndcg@10\": 0.057534099523798926,\n          \"delta_hit@10\": -0.07774968394437422,\n          \"delta_ndcg@10\": -0.05141573730564824,\n          \"treatment_hit@10\": 0.012642225031605562,\n          \"treatment_ndcg@10\": 0.00611836221815069,\n          \"users\": 4746\n        }\n      }\n    },\n    \"FP2_G2_MINUS_G0\": {\n      \"history_length\": {\n        \"long_ge10\": {\n          \"control_hit@10\": 0.08277404921700224,\n          \"control_ndcg@10\": 0.04764442759190807,\n          \"delta_hit@10\": -0.04697986577181208,\n          \"delta_ndcg@10\": -0.02718498007573771,\n          \"treatment_hit@10\": 0.035794183445190156,\n          \"treatment_ndcg@10\": 0.02045944751617036,\n          \"users\": 1788\n        },\n        \"medium_4_9\": {\n          \"control_hit@10\": 0.10480349344978165,\n          \"control_ndcg@10\": 0.06664299112220558,\n          \"delta_hit@10\": -0.05152838427947598,\n          \"delta_ndcg@10\": -0.037743814936291406,\n          \"treatment_hit@10\": 0.05327510917030567,\n          \"treatment_ndcg@10\": 0.028899176185914168,\n          \"users\": 3435\n        },\n        \"short_le3\": {\n          \"control_hit@10\": 0.09776609724047307,\n          \"control_ndcg@10\": 0.06277135233092336,\n          \"delta_hit@10\": -0.05479632063074902,\n          \"delta_ndcg@10\": -0.0383910954549066,\n          \"treatment_hit@10\": 0.04296977660972405,\n          \"treatment_ndcg@10\": 0.024380256876016762,\n          \"users\": 7610\n        }\n      },\n      \"memory\": {\n        \"generalization\": {\n          \"control_hit@10\": 0.0975609756097561,\n          \"control_ndcg@10\": 0.06170006251674858,\n          \"delta_hit@10\": -0.05283254110496377,\n          \"delta_ndcg@10\": -0.036656509397133885,\n          \"treatment_hit@10\": 0.04472843450479233,\n          \"treatment_ndcg@10\": 0.025043553119614693,\n          \"users\": 12833\n        },\n        \"memorization\": {\n          \"state\": \"EMPTY\",\n          \"users\": 0\n        }\n      },\n      \"target_frequency\": {\n        \"head\": {\n          \"control_hit@10\": 0.11185789726356217,\n          \"control_ndcg@10\": 0.06672632079074077,\n          \"delta_hit@10\": -0.015122419587133937,\n          \"delta_ndcg@10\": -0.012045548404534992,\n          \"treatment_hit@10\": 0.09673547767642823,\n          \"treatment_ndcg@10\": 0.05468077238620578,\n          \"users\": 4166\n        },\n        \"mid\": {\n          \"control_hit@10\": 0.09104820198928845,\n          \"control_ndcg@10\": 0.06140224777435826,\n          \"delta_hit@10\": -0.05661820964039786,\n          \"delta_ndcg@10\": -0.04180989278893321,\n          \"treatment_hit@10\": 0.03442999234889059,\n          \"treatment_ndcg@10\": 0.01959235498542505,\n          \"users\": 3921\n        },\n        \"tail\": {\n          \"control_hit@10\": 0.09039190897597978,\n          \"control_ndcg@10\": 0.057534099523798926,\n          \"delta_hit@10\": -0.08280657395701643,\n          \"delta_ndcg@10\": -0.054002242059570014,\n          \"treatment_hit@10\": 0.007585335018963337,\n          \"treatment_ndcg@10\": 0.0035318574642289138,\n          \"users\": 4746\n        }\n      }\n    },\n    \"FP2_G2_MINUS_G1\": {\n      \"history_length\": {\n        \"long_ge10\": {\n          \"control_hit@10\": 0.04586129753914989,\n          \"control_ndcg@10\": 0.02280982495373612,\n          \"delta_hit@10\": -0.010067114093959731,\n          \"delta_ndcg@10\": -0.002350377437565762,\n          \"treatment_hit@10\": 0.035794183445190156,\n          \"treatment_ndcg@10\": 0.02045944751617036,\n          \"users\": 1788\n        },\n        \"medium_4_9\": {\n          \"control_hit@10\": 0.05764192139737991,\n          \"control_ndcg@10\": 0.03194312339338384,\n          \"delta_hit@10\": -0.004366812227074239,\n          \"delta_ndcg@10\": -0.003043947207469675,\n          \"treatment_hit@10\": 0.05327510917030567,\n          \"treatment_ndcg@10\": 0.028899176185914168,\n          \"users\": 3435\n        },\n        \"short_le3\": {\n          \"control_hit@10\": 0.05203679369250985,\n          \"control_ndcg@10\": 0.028983282209892627,\n          \"delta_hit@10\": -0.009067017082785803,\n          \"delta_ndcg@10\": -0.004603025333875865,\n          \"treatment_hit@10\": 0.04296977660972405,\n          \"treatment_ndcg@10\": 0.024380256876016762,\n          \"users\": 7610\n        }\n      },\n      \"memory\": {\n        \"generalization\": {\n          \"control_hit@10\": 0.05267669290111431,\n          \"control_ndcg@10\": 0.028915403529247766,\n          \"delta_hit@10\": -0.007948258396321982,\n          \"delta_ndcg@10\": -0.0038718504096330736,\n          \"treatment_hit@10\": 0.04472843450479233,\n          \"treatment_ndcg@10\": 0.025043553119614693,\n          \"users\": 12833\n        },\n        \"memorization\": {\n          \"state\": \"EMPTY\",\n          \"users\": 0\n        }\n      },\n      \"target_frequency\": {\n        \"head\": {\n          \"control_hit@10\": 0.10369659145463274,\n          \"control_ndcg@10\": 0.057498797688288486,\n          \"delta_hit@10\": -0.006961113778204506,\n          \"delta_ndcg@10\": -0.002818025302082708,\n          \"treatment_hit@10\": 0.09673547767642823,\n          \"treatment_ndcg@10\": 0.05468077238620578,\n          \"users\": 4166\n        },\n        \"mid\": {\n          \"control_hit@10\": 0.04692680438663606,\n          \"control_ndcg@10\": 0.026139667236440598,\n          \"delta_hit@10\": -0.01249681203774547,\n          \"delta_ndcg@10\": -0.006547312251015548,\n          \"treatment_hit@10\": 0.03442999234889059,\n          \"treatment_ndcg@10\": 0.01959235498542505,\n          \"users\": 3921\n        },\n        \"tail\": {\n          \"control_hit@10\": 0.012642225031605562,\n          \"control_ndcg@10\": 0.00611836221815069,\n          \"delta_hit@10\": -0.005056890012642225,\n          \"delta_ndcg@10\": -0.002586504753921776,\n          \"treatment_hit@10\": 0.007585335018963337,\n          \"treatment_ndcg@10\": 0.0035318574642289138,\n          \"users\": 4746\n        }\n      }\n    }\n  },\n  \"test_read\": false\n}\n",
+    "returncode": 0
+  },
+  "analysis_attempted": true,
+  "analysis_path": "artifacts/phase17/fullport/external_d0/attempt_001/analysis.json",
+  "analysis_sha256": "30933210b311253f525b6eb1610c8e9289145b3870a8bed3f4e708645948f620",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "completed_at": "2026-09-02T13:17:08.574780+00:00",
+  "g1_schedule": "attempt_003_parallel_gpu4_launched_externally",
+  "hard_timeout_seconds": 172800,
+  "raw_external_projection_reopened": false,
+  "report": {
+    "command": [
+      "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+      "/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase17/protocol/s17_fp12_external_d0_report.py",
+      "--root",
+      "/mnt/18T/jiangtangyunzhi/projects/recomm"
+    ],
+    "completed_at": "2026-09-02T13:17:08.571589+00:00",
+    "output": "/mnt/18T/jiangtangyunzhi/projects/recomm/report/第十七阶段/Stage17_FP12_ExternalD0评测准备报告.md\n",
+    "returncode": 0
+  },
+  "report_attempted": true,
+  "report_path": "report/第十七阶段/Stage17_FP12_ExternalD0评测准备报告.md",
+  "report_sha256": "b511b0a63e0cb0d69ded18517d0e14e1b69ae70336cd75dca955e5117b5e114a",
+  "schema_version": "phase17.s17_fp12_recovery_controller.v1",
+  "started_at": "2026-09-02T05:18:30.182926+00:00",
+  "state": "CONTROLLED_RECOVERY_ANALYSIS_AND_REPORT_COMPLETED",
+  "statuses": {
+    "G0_GRAM_B0_FRESH": {
+      "affects_scientific_result": true,
+      "attempt_id": "attempt_002",
+      "automatic_process_termination": false,
+      "automatic_retry": false,
+      "canonical_result_dir": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh",
+      "controlled_recovery": true,
+      "d1_read": false,
+      "d2_read": false,
+      "execution_state": "SCIENTIFIC_COMPLETED",
+      "experiment_id": "s17_fp12_external_d0_recovery_g0_gram_b0_fresh",
+      "external_target_materialized": true,
+      "gpu_ids": [],
+      "gpu_snapshot": {
+        "first": [
+          {
+            "free_mib": 13806,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 34765,
+            "utilization_percent": 53
+          },
+          {
+            "free_mib": 12363,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36207,
+            "utilization_percent": 53
+          },
+          {
+            "free_mib": 9504,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 39066,
+            "utilization_percent": 19
+          },
+          {
+            "free_mib": 18785,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29786,
+            "utilization_percent": 80
+          },
+          {
+            "free_mib": 30367,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 18204,
+            "utilization_percent": 47
+          },
+          {
+            "free_mib": 24963,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 23608,
+            "utilization_percent": 0
+          },
+          {
+            "free_mib": 19490,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29081,
+            "utilization_percent": 16
+          },
+          {
+            "free_mib": 12288,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36283,
+            "utilization_percent": 23
+          }
+        ],
+        "minimum_free_mib": 18968,
+        "physical_gpu": 5,
+        "preserve_preexisting_processes": true,
+        "second": [
+          {
+            "free_mib": 13806,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 34765,
+            "utilization_percent": 31
+          },
+          {
+            "free_mib": 12363,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36207,
+            "utilization_percent": 100
+          },
+          {
+            "free_mib": 9504,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 39066,
+            "utilization_percent": 24
+          },
+          {
+            "free_mib": 18785,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29786,
+            "utilization_percent": 92
+          },
+          {
+            "free_mib": 30367,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 18204,
+            "utilization_percent": 14
+          },
+          {
+            "free_mib": 24963,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 23608,
+            "utilization_percent": 0
+          },
+          {
+            "free_mib": 19490,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29081,
+            "utilization_percent": 19
+          },
+          {
+            "free_mib": 12288,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36283,
+            "utilization_percent": 22
+          }
+        ],
+        "utilization_recorded_only": true
+      },
+      "heartbeat_at": "2026-09-02T13:15:02.242315+00:00",
+      "launcher_pid": 2743833,
+      "log_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/run.log",
+      "occupancy_mode": "none",
+      "original_attempt_preserved": true,
+      "predictions_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/predictions.jsonl",
+      "predictions_sha256": "f7b2d327c3b1a1d33d29cd6c6497058b6d28b771c88ecb671b95d1e11f2301ea",
+      "process_alive": false,
+      "progress": {
+        "current": 12833,
+        "total": 12833,
+        "unit": "external_user"
+      },
+      "raw_external_projection_reopened": false,
+      "repeat_iteration": 0,
+      "repeat_metrics_ignored": false,
+      "result_selection_eligible": true,
+      "schema_version": "phase17.status.v2",
+      "scientific_state": "COMPLETED",
+      "single_materialization_count": 1,
+      "sports_read": false,
+      "stage": "external_predictions_frozen",
+      "started_at": "2026-09-02T04:40:13.143351+00:00",
+      "status_code": "PASS_S17_FP12_EXTERNAL_ARM_PREDICTIONS_FROZEN",
+      "step_id": "S17-FP12-EXTERNAL-D0-RECOVERY",
+      "summary_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/summary.json",
+      "summary_sha256": "08a884dd74ac6aed991b5963d222e842e10e23473eca533139a85974fbf7545f",
+      "target_gpu_id": 5,
+      "test_read": false,
+      "tmux_session": "s17_fp12_external_d0_recovery_g0_gram_b0_fresh",
+      "track_id": "G0_GRAM_B0_FRESH",
+      "updated_at": "2026-09-02T13:15:21.317585+00:00",
+      "workload_pid": 0
+    },
+    "G1_GRAM_PSID_FULL": {
+      "affects_scientific_result": true,
+      "attempt_id": "attempt_003",
+      "authorization_path": "artifacts/phase17/authorizations/s17_fp12_external_d0_recovery_g1_parallel_attempt_003.json",
+      "authorization_sha256": "33d16a0625d88c2c1fc442ccbf98b0dcc7c1409d5b09c7fbd720a4187a0ff113",
+      "automatic_process_termination": false,
+      "automatic_retry": false,
+      "canonical_result_dir": "artifacts/phase17/fullport/external_d0/recovery/attempt_003/arms/g1_gram_psid_full",
+      "d1_read": false,
+      "d2_read": false,
+      "execution_state": "SCIENTIFIC_COMPLETED",
+      "experiment_id": "s17_fp12_external_d0_recovery_g1_parallel",
+      "external_target_materialized": true,
+      "gpu_ids": [],
+      "gpu_snapshot": {
+        "first": [
+          {
+            "free_mib": 12366,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36204,
+            "utilization_percent": 69
+          },
+          {
+            "free_mib": 16778,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 31792,
+            "utilization_percent": 60
+          },
+          {
+            "free_mib": 10360,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 38211,
+            "utilization_percent": 45
+          },
+          {
+            "free_mib": 22235,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 26335,
+            "utilization_percent": 1
+          },
+          {
+            "free_mib": 30367,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 18204,
+            "utilization_percent": 32
+          },
+          {
+            "free_mib": 9547,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 39023,
+            "utilization_percent": 92
+          },
+          {
+            "free_mib": 4074,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 44496,
+            "utilization_percent": 100
+          },
+          {
+            "free_mib": 13162,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 35409,
+            "utilization_percent": 0
+          }
+        ],
+        "minimum_free_mib": 18968,
+        "physical_gpu": 4,
+        "preserve_preexisting_processes": true,
+        "second": [
+          {
+            "free_mib": 11480,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 37090,
+            "utilization_percent": 38
+          },
+          {
+            "free_mib": 16778,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 31792,
+            "utilization_percent": 61
+          },
+          {
+            "free_mib": 10360,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 38211,
+            "utilization_percent": 29
+          },
+          {
+            "free_mib": 22235,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 26335,
+            "utilization_percent": 0
+          },
+          {
+            "free_mib": 30367,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 18204,
+            "utilization_percent": 44
+          },
+          {
+            "free_mib": 9547,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 39023,
+            "utilization_percent": 98
+          },
+          {
+            "free_mib": 4074,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 44496,
+            "utilization_percent": 86
+          },
+          {
+            "free_mib": 13162,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 35409,
+            "utilization_percent": 10
+          }
+        ],
+        "utilization_recorded_only": true
+      },
+      "heartbeat_at": "2026-09-02T11:51:18.744868+00:00",
+      "launcher_pid": 2,
+      "log_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_003/arms/g1_gram_psid_full/run.log",
+      "minimum_free_mib": 18968,
+      "occupancy_mode": "none",
+      "post_completion_runtime_guard_authorized": true,
+      "predictions_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_003/arms/g1_gram_psid_full/predictions.jsonl",
+      "predictions_sha256": "95c3ced8963a8c9e82caed439c44ba5c55ec6606f937da2d0aac215ba91017d7",
+      "process_alive": false,
+      "progress": {
+        "current": 12833,
+        "total": 12833,
+        "unit": "external_user"
+      },
+      "raw_external_projection_reopened": false,
+      "repeat_iteration": 0,
+      "repeat_metrics_ignored": false,
+      "result_selection_eligible": true,
+      "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp12_external_d0_recovery_g1_parallel/attempt_003/manifest.json",
+      "schema_version": "phase17.status.v2",
+      "scientific_state": "COMPLETED",
+      "single_materialization_count": 1,
+      "sports_read": false,
+      "stage": "external_predictions_frozen",
+      "started_at": "2026-09-02T05:16:45.406460+00:00",
+      "status_code": "PASS_S17_FP12_EXTERNAL_ARM_PREDICTIONS_FROZEN",
+      "step_id": "S17-FP12-EXTERNAL-D0-G1-PARALLEL",
+      "summary_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_003/arms/g1_gram_psid_full/summary.json",
+      "summary_sha256": "418255d72d866e9606686c554505935daecfeafaf500bada1b16ebcf5cbd028e",
+      "target_gpu_id": 4,
+      "test_read": false,
+      "tmux_session": "s17_fp12_external_d0_recovery_g1_parallel",
+      "track_id": "G1_GRAM_PSID_FULL",
+      "updated_at": "2026-09-02T11:51:34.241281+00:00",
+      "workload_pid": 0
+    },
+    "G2_GRAM_LATTE_FULL": {
+      "affects_scientific_result": true,
+      "attempt_id": "attempt_002",
+      "automatic_process_termination": false,
+      "automatic_retry": false,
+      "canonical_result_dir": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full",
+      "controlled_recovery": true,
+      "d1_read": false,
+      "d2_read": false,
+      "execution_state": "SCIENTIFIC_COMPLETED",
+      "experiment_id": "s17_fp12_external_d0_recovery_g2_gram_latte_full",
+      "external_target_materialized": true,
+      "gpu_ids": [],
+      "gpu_snapshot": {
+        "first": [
+          {
+            "free_mib": 18504,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 30067,
+            "utilization_percent": 7
+          },
+          {
+            "free_mib": 12363,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36207,
+            "utilization_percent": 51
+          },
+          {
+            "free_mib": 9504,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 39066,
+            "utilization_percent": 15
+          },
+          {
+            "free_mib": 18785,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29786,
+            "utilization_percent": 90
+          },
+          {
+            "free_mib": 30367,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 18204,
+            "utilization_percent": 40
+          },
+          {
+            "free_mib": 24397,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 24173,
+            "utilization_percent": 1
+          },
+          {
+            "free_mib": 19490,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29081,
+            "utilization_percent": 10
+          },
+          {
+            "free_mib": 12288,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36283,
+            "utilization_percent": 0
+          }
+        ],
+        "minimum_free_mib": 18968,
+        "physical_gpu": 6,
+        "preserve_preexisting_processes": true,
+        "second": [
+          {
+            "free_mib": 16010,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 32561,
+            "utilization_percent": 1
+          },
+          {
+            "free_mib": 12363,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36207,
+            "utilization_percent": 51
+          },
+          {
+            "free_mib": 9504,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 39066,
+            "utilization_percent": 19
+          },
+          {
+            "free_mib": 18785,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29786,
+            "utilization_percent": 89
+          },
+          {
+            "free_mib": 30367,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 18204,
+            "utilization_percent": 41
+          },
+          {
+            "free_mib": 24021,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 24549,
+            "utilization_percent": 2
+          },
+          {
+            "free_mib": 19490,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29081,
+            "utilization_percent": 100
+          },
+          {
+            "free_mib": 12288,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36283,
+            "utilization_percent": 21
+          }
+        ],
+        "utilization_recorded_only": true
+      },
+      "heartbeat_at": "2026-09-02T12:48:12.080984+00:00",
+      "launcher_pid": 2745555,
+      "log_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full/run.log",
+      "occupancy_mode": "none",
+      "original_attempt_preserved": true,
+      "predictions_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full/predictions.jsonl",
+      "predictions_sha256": "2f7dcd00d723dc4f17919008d6feaf9bb92dd540dc8de82d6490171abc2aa47d",
+      "process_alive": false,
+      "progress": {
+        "current": 12833,
+        "total": 12833,
+        "unit": "external_user"
+      },
+      "raw_external_projection_reopened": false,
+      "repeat_iteration": 0,
+      "repeat_metrics_ignored": false,
+      "result_selection_eligible": true,
+      "schema_version": "phase17.status.v2",
+      "scientific_state": "COMPLETED",
+      "single_materialization_count": 1,
+      "sports_read": false,
+      "stage": "external_predictions_frozen",
+      "started_at": "2026-09-02T04:40:34.666449+00:00",
+      "status_code": "PASS_S17_FP12_EXTERNAL_ARM_PREDICTIONS_FROZEN",
+      "step_id": "S17-FP12-EXTERNAL-D0-RECOVERY",
+      "summary_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full/summary.json",
+      "summary_sha256": "7ac9d8acd6a6641c2cdd1c2d1e836a1ab0df9e77c098fae061ba34a68340e8f9",
+      "target_gpu_id": 6,
+      "test_read": false,
+      "tmux_session": "s17_fp12_external_d0_recovery_g2_gram_latte_full",
+      "track_id": "G2_GRAM_LATTE_FULL",
+      "updated_at": "2026-09-02T12:48:33.779707+00:00",
+      "workload_pid": 0
+    },
+    "N0_NATIVE_PSID": {
+      "affects_scientific_result": true,
+      "attempt_id": "attempt_001",
+      "automatic_process_termination": false,
+      "automatic_retry": false,
+      "canonical_result_dir": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid",
+      "d1_read": false,
+      "d2_read": false,
+      "execution_state": "SCIENTIFIC_COMPLETED",
+      "experiment_id": "s17_fp12_external_d0_n0_native_psid",
+      "external_target_materialized": true,
+      "gpu_ids": [],
+      "gpu_snapshot": {
+        "first": [
+          {
+            "free_mib": 11870,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36701,
+            "utilization_percent": 100
+          },
+          {
+            "free_mib": 12403,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36167,
+            "utilization_percent": 97
+          },
+          {
+            "free_mib": 10360,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 38211,
+            "utilization_percent": 43
+          },
+          {
+            "free_mib": 18787,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29784,
+            "utilization_percent": 8
+          },
+          {
+            "free_mib": 10787,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 37784,
+            "utilization_percent": 21
+          },
+          {
+            "free_mib": 25003,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 23568,
+            "utilization_percent": 0
+          },
+          {
+            "free_mib": 19496,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29075,
+            "utilization_percent": 70
+          },
+          {
+            "free_mib": 13161,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 35409,
+            "utilization_percent": 0
+          }
+        ],
+        "minimum_free_mib": 6076,
+        "physical_gpu": 7,
+        "preserve_preexisting_processes": true,
+        "second": [
+          {
+            "free_mib": 11010,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 37561,
+            "utilization_percent": 100
+          },
+          {
+            "free_mib": 12403,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36167,
+            "utilization_percent": 99
+          },
+          {
+            "free_mib": 10360,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 38211,
+            "utilization_percent": 17
+          },
+          {
+            "free_mib": 18787,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29784,
+            "utilization_percent": 7
+          },
+          {
+            "free_mib": 10787,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 37784,
+            "utilization_percent": 16
+          },
+          {
+            "free_mib": 25003,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 23568,
+            "utilization_percent": 6
+          },
+          {
+            "free_mib": 19496,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29075,
+            "utilization_percent": 94
+          },
+          {
+            "free_mib": 13161,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 35409,
+            "utilization_percent": 0
+          }
+        ],
+        "utilization_recorded_only": true
+      },
+      "heartbeat_at": "2026-09-02T04:41:03.892256+00:00",
+      "launcher_pid": 2610006,
+      "log_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid/run.log",
+      "occupancy_mode": "none",
+      "predictions_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid/predictions.jsonl",
+      "predictions_sha256": "513eb0d9dcfafa2d4298ff639ea01b2cae8e815d8365ba911b9bfa9d3fe9fbe7",
+      "process_alive": false,
+      "progress": {
+        "current": 12833,
+        "total": 12833,
+        "unit": "external_user"
+      },
+      "repeat_iteration": 0,
+      "repeat_metrics_ignored": false,
+      "result_selection_eligible": true,
+      "schema_version": "phase17.status.v2",
+      "scientific_state": "COMPLETED",
+      "single_materialization_count": 1,
+      "sports_read": false,
+      "stage": "external_predictions_frozen",
+      "started_at": "2026-09-02T04:11:37.718436+00:00",
+      "status_code": "PASS_S17_FP12_EXTERNAL_ARM_PREDICTIONS_FROZEN",
+      "step_id": "S17-FP12-EXTERNAL-D0",
+      "summary_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid/summary.json",
+      "summary_sha256": "e0f841ce0402d615f7dbfcf5395234d5dc6acbe5cfbb419576d5a7e1f3d9cc90",
+      "target_gpu_id": 7,
+      "test_read": false,
+      "tmux_session": "s17_fp12_external_d0_n0_native_psid",
+      "track_id": "N0_NATIVE_PSID",
+      "updated_at": "2026-09-02T04:41:07.998819+00:00",
+      "workload_pid": 0
+    },
+    "N1_NATIVE_LATTE": {
+      "affects_scientific_result": true,
+      "attempt_id": "attempt_001",
+      "automatic_process_termination": false,
+      "automatic_retry": false,
+      "canonical_result_dir": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n1_native_latte",
+      "d1_read": false,
+      "d2_read": false,
+      "execution_state": "SCIENTIFIC_COMPLETED",
+      "experiment_id": "s17_fp12_external_d0_n1_native_latte",
+      "external_target_materialized": true,
+      "gpu_ids": [],
+      "gpu_snapshot": {
+        "first": [
+          {
+            "free_mib": 11894,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36677,
+            "utilization_percent": 91
+          },
+          {
+            "free_mib": 12403,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36167,
+            "utilization_percent": 98
+          },
+          {
+            "free_mib": 10360,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 38211,
+            "utilization_percent": 37
+          },
+          {
+            "free_mib": 18787,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29784,
+            "utilization_percent": 84
+          },
+          {
+            "free_mib": 10787,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 37784,
+            "utilization_percent": 17
+          },
+          {
+            "free_mib": 25003,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 23568,
+            "utilization_percent": 23
+          },
+          {
+            "free_mib": 19496,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29075,
+            "utilization_percent": 7
+          },
+          {
+            "free_mib": 13161,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 35409,
+            "utilization_percent": 0
+          }
+        ],
+        "minimum_free_mib": 7020,
+        "physical_gpu": 2,
+        "preserve_preexisting_processes": true,
+        "second": [
+          {
+            "free_mib": 11814,
+            "index": 0,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36757,
+            "utilization_percent": 93
+          },
+          {
+            "free_mib": 12403,
+            "index": 1,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 36167,
+            "utilization_percent": 99
+          },
+          {
+            "free_mib": 10360,
+            "index": 2,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 38211,
+            "utilization_percent": 13
+          },
+          {
+            "free_mib": 18787,
+            "index": 3,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29784,
+            "utilization_percent": 6
+          },
+          {
+            "free_mib": 10787,
+            "index": 4,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 37784,
+            "utilization_percent": 15
+          },
+          {
+            "free_mib": 25003,
+            "index": 5,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 23568,
+            "utilization_percent": 5
+          },
+          {
+            "free_mib": 19496,
+            "index": 6,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 29075,
+            "utilization_percent": 12
+          },
+          {
+            "free_mib": 13161,
+            "index": 7,
+            "name": "NVIDIA RTX A6000",
+            "total_mib": 49140,
+            "used_mib": 35409,
+            "utilization_percent": 0
+          }
+        ],
+        "utilization_recorded_only": true
+      },
+      "heartbeat_at": "2026-09-02T04:46:02.021798+00:00",
+      "launcher_pid": 2609772,
+      "log_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n1_native_latte/run.log",
+      "occupancy_mode": "none",
+      "predictions_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n1_native_latte/predictions.jsonl",
+      "predictions_sha256": "61df030582003cf273f44f4e54d54a47f9410fe34e40cb5ba7f835bb3d6b8c55",
+      "process_alive": false,
+      "progress": {
+        "current": 12833,
+        "total": 12833,
+        "unit": "external_user"
+      },
+      "repeat_iteration": 0,
+      "repeat_metrics_ignored": false,
+      "result_selection_eligible": true,
+      "schema_version": "phase17.status.v2",
+      "scientific_state": "COMPLETED",
+      "single_materialization_count": 1,
+      "sports_read": false,
+      "stage": "external_predictions_frozen",
+      "started_at": "2026-09-02T04:11:35.975405+00:00",
+      "status_code": "PASS_S17_FP12_EXTERNAL_ARM_PREDICTIONS_FROZEN",
+      "step_id": "S17-FP12-EXTERNAL-D0",
+      "summary_path": "artifacts/phase17/fullport/external_d0/attempt_001/arms/n1_native_latte/summary.json",
+      "summary_sha256": "21139d4fb11287febbc8dea30fcf918aeedeabbab23e9346f7338b42ff4eb3e2",
+      "target_gpu_id": 2,
+      "test_read": false,
+      "tmux_session": "s17_fp12_external_d0_n1_native_latte",
+      "track_id": "N1_NATIVE_LATTE",
+      "updated_at": "2026-09-02T04:46:06.193300+00:00",
+      "workload_pid": 0
+    }
+  },
+  "terminal": true,
+  "updated_at": "2026-09-02T13:16:15.827936+00:00"
+}

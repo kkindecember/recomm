@@ -1,0 +1,99 @@
+{
+  "artifact_path": "artifacts/phase17/fullport/fp3_setrec/tokenizer/attempt_001/sasrec_item_embeddings.pt",
+  "artifact_sha256": "c125aca66fe39feaa4ffb64b9ad982d221f25e049c2ae11ab7bd7edcb962cc3a",
+  "authorization_sha256": "488f62dd931ae2b5c42f0b9044b3419d068ba5eaeb64db3808970a8358b46474",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "best_epoch": 9,
+  "best_internal_dev_ndcg@10": 0.011724362964288202,
+  "catalog_items": 11924,
+  "completed_at": "2026-09-02T15:40:25.680639+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "external_target_materialized": false,
+  "internal_dev_examples": 1283,
+  "learning_curve": [
+    {
+      "epoch": 1,
+      "hit@10": 0.013250194855806703,
+      "n": 1283,
+      "ndcg@10": 0.006015693221534497,
+      "training_loss": 1.2925236472543282
+    },
+    {
+      "epoch": 2,
+      "hit@10": 0.014809041309431021,
+      "n": 1283,
+      "ndcg@10": 0.006648449626455805,
+      "training_loss": 1.136192388216012
+    },
+    {
+      "epoch": 3,
+      "hit@10": 0.01636788776305534,
+      "n": 1283,
+      "ndcg@10": 0.007919018285309814,
+      "training_loss": 1.038511978785704
+    },
+    {
+      "epoch": 4,
+      "hit@10": 0.0171473109898675,
+      "n": 1283,
+      "ndcg@10": 0.008243982436967286,
+      "training_loss": 0.9611602477297903
+    },
+    {
+      "epoch": 5,
+      "hit@10": 0.01636788776305534,
+      "n": 1283,
+      "ndcg@10": 0.009269665343075734,
+      "training_loss": 0.8856577601031105
+    },
+    {
+      "epoch": 6,
+      "hit@10": 0.020265003897116135,
+      "n": 1283,
+      "ndcg@10": 0.0106255699207517,
+      "training_loss": 0.8223916025738637
+    },
+    {
+      "epoch": 7,
+      "hit@10": 0.021044427123928292,
+      "n": 1283,
+      "ndcg@10": 0.009594733419589298,
+      "training_loss": 0.759864695240653
+    },
+    {
+      "epoch": 8,
+      "hit@10": 0.013250194855806703,
+      "n": 1283,
+      "ndcg@10": 0.008929426142320165,
+      "training_loss": 0.7065042689450822
+    },
+    {
+      "epoch": 9,
+      "hit@10": 0.02260327357755261,
+      "n": 1283,
+      "ndcg@10": 0.011724362964288202,
+      "training_loss": 0.6578860352960161
+    },
+    {
+      "epoch": 10,
+      "hit@10": 0.017926734216679657,
+      "n": 1283,
+      "ndcg@10": 0.007436036970684143,
+      "training_loss": 0.6152322910453645
+    }
+  ],
+  "next_gate": "S17_FP3_FOUR_ARM_RESOURCE_PROFILE",
+  "peak_allocated_mib": 91.376953125,
+  "peak_reserved_mib": 114.0,
+  "physical_gpu": 7,
+  "researcher_direction": "用户于2026-09-02确认精确命令：bash experiment/phase17/run_stage17_fp3_setrec_tokenizer.sh launch；仅授权GPU7上的FP3 train-prefix SASRec tokenizer attempt_001，不授权效果实验，不停止既有进程，不自动重试。",
+  "schema_version": "phase17.s17_fp3_setrec_cf_tokenizer_summary.v1",
+  "sports_read": false,
+  "test_read": false,
+  "train_examples": 56421,
+  "train_fit_item_count": 11038,
+  "verdict": "PASS_S17_FP3_SETREC_CF_TOKENIZER",
+  "wall_seconds": 75.13633586093783
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "s17.fp3.external_d0.gpu_authorization_request.v1",
+  "created_at": "2026-09-03T11:37:17+08:00",
+  "experiment_id": "S17-FP3-EXTERNAL-D0",
+  "attempt": "attempt_001",
+  "status": "AWAITING_RESEARCHER_AUTHORIZATION",
+  "request": {
+    "physical_gpu_count": 1,
+    "recommended_physical_gpu": 7,
+    "recommended_gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+    "forbidden_physical_gpus": [
+      1
+    ],
+    "minimum_free_memory_mib": 16366,
+    "profiled_peak_reserved_memory_mib": 12270,
+    "estimated_wall_time_minutes": "10-20",
+    "estimated_gpu_hours": 0.34,
+    "estimated_additional_disk_gib": 0.25
+  },
+  "live_snapshot": {
+    "captured_at": "2026-09-03T11:37:17+08:00",
+    "physical_gpu": 7,
+    "memory_total_mib": 49140,
+    "memory_free_mib": 48569,
+    "utilization_percent": 0,
+    "compute_process_count": 0,
+    "meets_memory_gate": true
+  },
+  "execution_scope": {
+    "mode": "single_gpu_sequential",
+    "arms": [
+      "S0",
+      "S1R",
+      "S1P",
+      "S2"
+    ],
+    "baseline_g0": "reuse_frozen_predictions",
+    "external_bundle": "reuse_sealed_bundle_once",
+    "raw_projection_reopened": false,
+    "external_bundle_content_read_before_authorization": false,
+    "d1_read": false,
+    "d2_read": false,
+    "test_read": false,
+    "sports_read": false
+  },
+  "exact_commands_after_approval": {
+    "authorize": "bash experiment/phase17/run_stage17_fp3_external_d0.sh authorize 7 '同意在物理 GPU7 启动 S17-FP3 one-shot external D0，复用 sealed bundle，不重开 raw projection'",
+    "launch": "bash experiment/phase17/run_stage17_fp3_external_d0.sh launch",
+    "inspect": "bash experiment/phase17/run_stage17_fp3_external_d0.sh inspect"
+  },
+  "inputs": {
+    "config": "experiment/phase17/config/s17_fp3_external_d0.json",
+    "frozen_attempt_config": "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/config.json",
+    "readiness": "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/readiness.json",
+    "source_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp3_external_d0/attempt_001/manifest.json",
+    "status": "artifacts/phase17/status/s17_fp3_external_d0.status.json"
+  },
+  "safety": {
+    "authorization_is_not_launch": true,
+    "launch_rechecks_two_gpu_snapshots": true,
+    "launch_fails_closed_below_memory_gate": true,
+    "no_existing_process_will_be_stopped": true,
+    "no_automatic_retry": true
+  }
+}

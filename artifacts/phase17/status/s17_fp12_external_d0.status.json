@@ -1,0 +1,126 @@
+{
+  "affects_scientific_result": true,
+  "analysis_path": "artifacts/phase17/fullport/external_d0/attempt_001/analysis.json",
+  "analysis_sha256": "30933210b311253f525b6eb1610c8e9289145b3870a8bed3f4e708645948f620",
+  "attempt_id": "attempt_001",
+  "authorization_path": "artifacts/phase17/authorizations/s17_fp12_external_d0_attempt_001.json",
+  "authorization_sha256": "5cc34090f4201c7d608de5d1c0d474b363c4c40726994e27e70a71246470681f",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/external_d0/attempt_001",
+  "d1_read": false,
+  "d2_read": false,
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s17_fp12_external_d0",
+  "external_d0_evaluation_authorized": true,
+  "external_target_materialized": true,
+  "gates": {
+    "FP1": {
+      "checks": {
+        "aggregate_item_valid": true,
+        "hit_delta_nonnegative": false,
+        "integrity_valid": true,
+        "latent_not_collapsed": true,
+        "multi_path_item_rate_positive": true,
+        "ndcg_ci95_low_positive": false,
+        "ndcg_delta_positive": true
+      },
+      "verdict": "FP1_NOT_STRONG_PASS"
+    },
+    "FP2": {
+      "catastrophic_subgroups": [
+        {
+          "delta_ndcg@10": -0.0383910954549066,
+          "dimension": "history_length",
+          "label": "short_le3",
+          "users": 7610
+        },
+        {
+          "delta_ndcg@10": -0.037743814936291406,
+          "dimension": "history_length",
+          "label": "medium_4_9",
+          "users": 3435
+        },
+        {
+          "delta_ndcg@10": -0.02718498007573771,
+          "dimension": "history_length",
+          "label": "long_ge10",
+          "users": 1788
+        },
+        {
+          "delta_ndcg@10": -0.054002242059570014,
+          "dimension": "target_frequency",
+          "label": "tail",
+          "users": 4746
+        },
+        {
+          "delta_ndcg@10": -0.04180989278893321,
+          "dimension": "target_frequency",
+          "label": "mid",
+          "users": 3921
+        },
+        {
+          "delta_ndcg@10": -0.012045548404534992,
+          "dimension": "target_frequency",
+          "label": "head",
+          "users": 4166
+        }
+      ],
+      "checks": {
+        "aggregate_item_valid": true,
+        "g2_vs_g0_delta_ge_0.0015": false,
+        "g2_vs_g0_hit_delta_nonnegative": false,
+        "g2_vs_g1_ci95_low_positive": false,
+        "g2_vs_g1_delta_ge_0.0015": false,
+        "integrity_valid": true,
+        "item_aggregation_gain_positive": true,
+        "latent_not_collapsed": true,
+        "multi_path_item_rate_positive": true,
+        "no_catastrophic_large_subgroup": false,
+        "target_path_survival_positive": true,
+        "tree_coupling_reduced_vs_g1": true
+      },
+      "verdict": "FP2_NOT_STRONG_PASS"
+    }
+  },
+  "gpu_execution_authorized": true,
+  "gpu_ids": [],
+  "gpu_snapshot": {},
+  "launcher_pid": 2,
+  "log_path": null,
+  "materialization_seal_path": "artifacts/phase17/fullport/external_d0/attempt_001/materialization_seal.json",
+  "materialization_seal_sha256": "5e0e7479f5cc594f2af5e61c44f4b211ffd744069277ca9df809b5cd0aaa7a5d",
+  "next_action": "stop standalone LATTE migration; do not open D1 and do not tune on D0",
+  "occupancy_mode": "none",
+  "physical_gpu_by_arm": {
+    "G0_GRAM_B0_FRESH": 5,
+    "G1_GRAM_PSID_FULL": 0,
+    "G2_GRAM_LATTE_FULL": 6,
+    "N0_NATIVE_PSID": 7,
+    "N1_NATIVE_LATTE": 2
+  },
+  "process_alive": false,
+  "progress": {
+    "current": 0,
+    "total": 1
+  },
+  "readiness_path": "artifacts/phase17/fullport/external_d0/attempt_001/readiness.json",
+  "readiness_sha256": "27e394c8a559b46076bf15bd7b1387f03e242d1ccebe9e0b8a655b2125bc06bc",
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "result_selection_eligible": true,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp12_external_d0/attempt_001/manifest.json",
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "COMPLETED",
+  "single_materialization_count": 1,
+  "sports_read": false,
+  "stage": "external_analysis_complete",
+  "started_at": "2026-09-02T02:41:50.828538+00:00",
+  "status_code": "PASS_S17_FP12_EXTERNAL_D0_ANALYZED",
+  "step_id": "S17-FP12-EXTERNAL-D0",
+  "test_read": false,
+  "tmux_session": null,
+  "track_id": null,
+  "updated_at": "2026-09-02T13:17:05.303087+00:00",
+  "workload_pid": 0
+}

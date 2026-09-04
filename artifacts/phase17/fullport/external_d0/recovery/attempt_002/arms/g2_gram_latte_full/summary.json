@@ -1,0 +1,41 @@
+{
+  "arm_id": "G2_GRAM_LATTE_FULL",
+  "attempt_id": "attempt_002",
+  "automatic_retry": false,
+  "bundle_path": "artifacts/phase17/fullport/external_d0/attempt_001/external_examples.jsonl",
+  "bundle_sha256": "e677d5c5905e5298f4a51541f112765796d7e3599963ed8432d62191e5bcf2d6",
+  "checkpoint_path": "artifacts/phase17/fullport/formal/g2_gram_latte_full/attempt_004/best_checkpoint.pt",
+  "checkpoint_sha256": "df4be4a5b035abe59af5e3e693675b93fb1800cd517397c9141a1eec9e7c2151",
+  "completed_at": "2026-09-02T12:48:33.592812+00:00",
+  "controlled_recovery": true,
+  "d1_read": false,
+  "d2_read": false,
+  "physical_gpu": 6,
+  "predictions_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g2_gram_latte_full/predictions.jsonl",
+  "predictions_sha256": "2f7dcd00d723dc4f17919008d6feaf9bb92dd540dc8de82d6490171abc2aa47d",
+  "raw_external_projection_reopened": false,
+  "recovered_from_attempt_id": "attempt_001",
+  "researcher_authorized": true,
+  "result": {
+    "arm_id": "G2_GRAM_LATTE_FULL",
+    "d1_read": false,
+    "d2_read": false,
+    "external_target_materialized_by_worker": false,
+    "external_users": 12833,
+    "prediction_rows": 51332,
+    "sports_read": false,
+    "test_read": false,
+    "variants": [
+      "beam500_agg_max",
+      "beam500_agg_sum",
+      "beam50_agg_max",
+      "beam50_agg_sum"
+    ],
+    "wall_seconds": 29276.871882990003
+  },
+  "schema_version": "phase17.s17_fp12_external_arm_summary.v1",
+  "single_materialization_count": 1,
+  "sports_read": false,
+  "test_read": false,
+  "verdict": "PASS_S17_FP12_EXTERNAL_ARM_PREDICTIONS_FROZEN"
+}

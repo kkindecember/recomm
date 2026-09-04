@@ -1,0 +1,199 @@
+{
+  "attempt_id": "attempt_001",
+  "authorization": {
+    "automatic_process_termination": false,
+    "automatic_retry": false,
+    "external_bundle_content_read_authorized": false,
+    "gpu_execution_authorized": false,
+    "requires_future_explicit_researcher_direction": true
+  },
+  "checkpoints": {
+    "S0_SETREC_ORDERED_CONTROL": {
+      "best_epoch": 29,
+      "path": "artifacts/phase17/fullport/fp3_setrec/formal/s0_setrec_ordered_control/attempt_002/best_checkpoint.pt",
+      "selected_beta": 0.2,
+      "sha256": "a5a8b98c0a7623d963671f03c9daa410293bb3cb577b0c5dc69545efc229ec77",
+      "status_path": "artifacts/phase17/status/s17_fp3_formal_s0_setrec_ordered_control_seed2023.status.json",
+      "summary_path": "artifacts/phase17/fullport/fp3_setrec/formal/s0_setrec_ordered_control/attempt_002/training_summary.json",
+      "summary_sha256": "551a5f2543d11998aee5dd687c8b735946520311a296004e0b9e97bda6037d44"
+    },
+    "S1P_SETREC_PAPER_FAITHFUL": {
+      "best_epoch": 24,
+      "path": "artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/best_checkpoint.pt",
+      "selected_beta": 0.3,
+      "sha256": "5860d7801858675267c462f87ffdb11c6ea54098fc7c689b72f4a4090258deb8",
+      "status_path": "artifacts/phase17/status/s17_fp3_formal_s1p_setrec_paper_faithful_seed2023.status.json",
+      "summary_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1p_setrec_paper_faithful/attempt_002/training_summary.json",
+      "summary_sha256": "84409e0eaa283f1fb12d0685e53207265f1c0c8666a16218a36606e69a055261"
+    },
+    "S1R_SETREC_REPO_PARITY": {
+      "best_epoch": 28,
+      "path": "artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/best_checkpoint.pt",
+      "selected_beta": 0.1,
+      "sha256": "7e948a5d30434663c9205e3e703fe1a366826e1b14f4d66cd7a4979251efc282",
+      "status_path": "artifacts/phase17/status/s17_fp3_formal_s1r_setrec_repo_parity_seed2023.status.json",
+      "summary_path": "artifacts/phase17/fullport/fp3_setrec/formal/s1r_setrec_repo_parity/attempt_002/training_summary.json",
+      "summary_sha256": "97c9f29e93845d08ec4e9fa8ec5d486e84c925b8f64c053bf0d6467275397634"
+    },
+    "S2_GRAM_SETREC_PAPER_FULL": {
+      "best_epoch": 22,
+      "path": "artifacts/phase17/fullport/fp3_setrec/formal/s2_gram_setrec_paper_full/attempt_002/best_checkpoint.pt",
+      "selected_beta": 0.2,
+      "sha256": "baf7af41a6fc710b65a18dc084acda1a6e05bdcc8e55dedbc753fe6f067120f5",
+      "status_path": "artifacts/phase17/status/s17_fp3_formal_s2_gram_setrec_paper_full_seed2023.status.json",
+      "summary_path": "artifacts/phase17/fullport/fp3_setrec/formal/s2_gram_setrec_paper_full/attempt_002/training_summary.json",
+      "summary_sha256": "52a4bdf4e7243591ffdcde37d310736e9021e6326444581c9794fb5777bc2dea"
+    }
+  },
+  "comparisons": {
+    "S1P_MINUS_S0": [
+      "S1P_SETREC_PAPER_FAITHFUL",
+      "S0_SETREC_ORDERED_CONTROL"
+    ],
+    "S1P_MINUS_S1R": [
+      "S1P_SETREC_PAPER_FAITHFUL",
+      "S1R_SETREC_REPO_PARITY"
+    ],
+    "S1R_MINUS_S0": [
+      "S1R_SETREC_REPO_PARITY",
+      "S0_SETREC_ORDERED_CONTROL"
+    ],
+    "S2_MINUS_G0": [
+      "S2_GRAM_SETREC_PAPER_FULL",
+      "G0_GRAM_B0_FRESH"
+    ],
+    "S2_MINUS_S0": [
+      "S2_GRAM_SETREC_PAPER_FULL",
+      "S0_SETREC_ORDERED_CONTROL"
+    ]
+  },
+  "data": {
+    "bundle_content_read_authorized": false,
+    "d1_read": false,
+    "d2_read": false,
+    "domain": "Toys",
+    "expected_users": 12833,
+    "fold": "D0",
+    "max_history_items": 20,
+    "official_test_read": false,
+    "raw_external_projection_reopen_forbidden": true,
+    "sealed_bundle_path": "artifacts/phase17/fullport/external_d0/attempt_001/external_examples.jsonl",
+    "sealed_bundle_sha256": "e677d5c5905e5298f4a51541f112765796d7e3599963ed8432d62191e5bcf2d6",
+    "sports_read": false,
+    "upstream_seal_path": "artifacts/phase17/fullport/external_d0/attempt_001/materialization_seal.json",
+    "upstream_seal_sha256": "5e0e7479f5cc594f2af5e61c44f4b211ffd744069277ca9df809b5cd0aaa7a5d",
+    "upstream_single_materialization_count": 1
+  },
+  "efficacy_gate": {
+    "no_large_subgroup_ndcg10_at_or_below": -0.003,
+    "s1p_minus_s0_ndcg10_positive": true,
+    "s2_minus_g0_ndcg10_min": 0.0015,
+    "s2_minus_s0_hit10_nonnegative": true,
+    "s2_minus_s0_ndcg10_min": 0.0015,
+    "s2_minus_s0_paired_ci95_low_positive": true
+  },
+  "experiment_id": "s17_fp3_external_d0",
+  "formal_source_config": {
+    "path": "experiment/phase17/config/s17_fp3_setrec.json",
+    "sha256": "9b93c4b28f6924f221ce66e498e72b45ff48379ba449702fa311fcb7731830eb"
+  },
+  "g0_control": {
+    "checkpoint_path": "artifacts/phase17/fullport/formal/g0_gram_b0_fresh/attempt_004/best_checkpoint.pt",
+    "checkpoint_sha256": "52e55da3ebf9e505db12ea4c485e6cb0afb51098715809c8999741ea54d39a5b",
+    "predictions_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/predictions.jsonl",
+    "predictions_sha256": "f7b2d327c3b1a1d33d29cd6c6497058b6d28b771c88ecb671b95d1e11f2301ea",
+    "status_path": "artifacts/phase17/status/s17_fp12_external_d0_recovery_g0_gram_b0_fresh.status.json",
+    "status_sha256": "b2ea8e4780b7ae410c463b4255b4559e19ed8dcd57b3d2c29a1284e49c74566c",
+    "summary_path": "artifacts/phase17/fullport/external_d0/recovery/attempt_002/arms/g0_gram_b0_fresh/summary.json",
+    "summary_sha256": "08a884dd74ac6aed991b5963d222e842e10e23473eca533139a85974fbf7545f"
+  },
+  "inference": {
+    "automatic_retry": false,
+    "background_required": true,
+    "batch_size_by_arm": {
+      "S0_SETREC_ORDERED_CONTROL": 128,
+      "S1P_SETREC_PAPER_FAITHFUL": 128,
+      "S1R_SETREC_REPO_PARITY": 128,
+      "S2_GRAM_SETREC_PAPER_FULL": 8
+    },
+    "candidate_eligibility": "all_catalog_items_including_history",
+    "candidate_policy_reason": "exact parity with frozen G0 ranking eligibility; D0 external targets are all generalization targets",
+    "full_catalog_grounding": true,
+    "precision": "fp16",
+    "primary_variant_by_arm": {
+      "G0_GRAM_B0_FRESH": "beam500_identity",
+      "S0_SETREC_ORDERED_CONTROL": "beta0.2_full_catalog",
+      "S1P_SETREC_PAPER_FAITHFUL": "beta0.3_full_catalog",
+      "S1R_SETREC_REPO_PARITY": "beta0.1_full_catalog",
+      "S2_GRAM_SETREC_PAPER_FULL": "beta0.2_full_catalog"
+    },
+    "selected_beta_by_arm": {
+      "S0_SETREC_ORDERED_CONTROL": 0.2,
+      "S1P_SETREC_PAPER_FAITHFUL": 0.3,
+      "S1R_SETREC_REPO_PARITY": 0.1,
+      "S2_GRAM_SETREC_PAPER_FULL": 0.2
+    },
+    "selected_beta_source": "each frozen checkpoint's train-prefix internal dev only",
+    "top_k": 50
+  },
+  "mechanism_gates": {
+    "forbidden_visibility_count": 0,
+    "full_catalog_grounding_required": true,
+    "full_set_recovery_strictly_positive": true,
+    "query_token_norm_finite_nonzero": true,
+    "semantic_reconstruction_finite": true,
+    "valid_item_rate": 1.0
+  },
+  "prepared_at": "2026-09-03T03:35:41.260025+00:00",
+  "registered_at": "2026-09-03T11:22:39+08:00",
+  "registration_basis": "S17-FP plan v0.1 section 7.3; all four attempt_002 checkpoints frozen before external D0 access",
+  "resources": {
+    "estimated_disk_gib": 0.25,
+    "estimated_gpu_hours": 0.34,
+    "estimated_wall_time": "10-20 minutes including model/catalog initialization and atomic output",
+    "execution": "one GPU, four arms sequentially in one immutable background worker",
+    "gpu1_forbidden_for_this_runner": true,
+    "minimum_free_mib": 16366,
+    "preferred_gpu_count": 1,
+    "profile_source": "artifacts/phase17/fullport/fp3_setrec/profiles/attempt_002/summary.json",
+    "profiled_eval_step_seconds": {
+      "S0_SETREC_ORDERED_CONTROL": 0.035001,
+      "S1P_SETREC_PAPER_FAITHFUL": 0.039813,
+      "S1R_SETREC_REPO_PARITY": 0.051103,
+      "S2_GRAM_SETREC_PAPER_FULL": 0.090469
+    },
+    "profiled_peak_reserved_mib_max": 12270
+  },
+  "schema_version": "phase17.s17_fp3_external_d0_config.v1",
+  "seed": 2023,
+  "source_config_sha256": "8e4ebae5c174bda5408935d98db876fd5f31434ed848e661eec4b1514b422380",
+  "state": "PREPARED_NOT_AUTHORIZED",
+  "statistics": {
+    "confidence_interval": 0.95,
+    "cutoffs": [
+      5,
+      10,
+      20,
+      50
+    ],
+    "paired_bootstrap_replicates": 2000,
+    "paired_bootstrap_seed": 2023,
+    "primary_metric": "ndcg@10",
+    "secondary_metrics": [
+      "hit@5",
+      "hit@10",
+      "hit@20",
+      "hit@50",
+      "ndcg@5",
+      "ndcg@20",
+      "ndcg@50",
+      "mrr@10"
+    ],
+    "subgroups": [
+      "history_length",
+      "target_frequency",
+      "memory"
+    ]
+  },
+  "step_id": "S17-FP3-EXTERNAL-D0"
+}

@@ -1,0 +1,42 @@
+{
+  "arms": [
+    "S0_SETREC_ORDERED_CONTROL",
+    "S1R_SETREC_REPO_PARITY",
+    "S1P_SETREC_PAPER_FAITHFUL",
+    "S2_GRAM_SETREC_PAPER_FULL"
+  ],
+  "catalog_items": 11924,
+  "d1_read": false,
+  "d2_read": false,
+  "effect_metrics_computed": false,
+  "effective_global_batch": 512,
+  "external_target_materialized": false,
+  "internal_dev_examples": 1283,
+  "parameter_counts": {
+    "S0_SETREC_ORDERED_CONTROL": 62948672,
+    "S1P_SETREC_PAPER_FAITHFUL": 62948672,
+    "S1R_SETREC_REPO_PARITY": 62948672,
+    "S2_GRAM_SETREC_PAPER_FULL": 62948672
+  },
+  "profile_eval_batch_by_arm": {
+    "S0_SETREC_ORDERED_CONTROL": 32,
+    "S1P_SETREC_PAPER_FAITHFUL": 32,
+    "S1R_SETREC_REPO_PARITY": 32,
+    "S2_GRAM_SETREC_PAPER_FULL": 2
+  },
+  "profile_microbatch_by_arm": {
+    "S0_SETREC_ORDERED_CONTROL": 16,
+    "S1P_SETREC_PAPER_FAITHFUL": 16,
+    "S1R_SETREC_REPO_PARITY": 16,
+    "S2_GRAM_SETREC_PAPER_FULL": 2
+  },
+  "rolling_train_examples": 56421,
+  "s2_fid_shape": [
+    1,
+    21,
+    128
+  ],
+  "sports_read": false,
+  "state": "PASS_S17_FP3_CPU_PREFLIGHT",
+  "test_read": false
+}

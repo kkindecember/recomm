@@ -1,0 +1,212 @@
+{
+  "affects_scientific_result": true,
+  "analysis_path": "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/analysis.json",
+  "analysis_sha256": "ef781c52781cad1b9ce7e5a4efd9b4307e1ee224b7a24ae9992bad14dae64d00",
+  "attempt_id": "attempt_001",
+  "authorization_path": "artifacts/phase17/authorizations/s17_fp3_external_d0_attempt_001.json",
+  "authorization_sha256": "9c49c1b18917eecea18ff9f7748e32df07cf44c0366cf602a9d24c6d8b9db598",
+  "automatic_process_termination": false,
+  "automatic_retry": false,
+  "canonical_result_dir": "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001",
+  "d1_read": false,
+  "d2_read": false,
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s17_fp3_external_d0",
+  "external_bundle_content_read": true,
+  "external_bundle_content_read_authorized": true,
+  "fp3_family_bundle_read_count": 1,
+  "gate": {
+    "catastrophic_subgroups": [],
+    "checks": {
+      "integrity_valid": true,
+      "no_catastrophic_large_subgroup": true,
+      "s1p_mechanism_active": true,
+      "s1p_vs_s0_ndcg_positive": false,
+      "s1r_mechanism_active": true,
+      "s2_mechanism_active": true,
+      "s2_vs_g0_ndcg_ge_0.0015": false,
+      "s2_vs_s0_hit_nonnegative": true,
+      "s2_vs_s0_ndcg_ci95_low_positive": false,
+      "s2_vs_s0_ndcg_ge_0.0015": false
+    },
+    "verdict": "FP3_NOT_STRONG_PASS"
+  },
+  "gpu_execution_authorized": true,
+  "gpu_ids": [],
+  "gpu_snapshot": {
+    "captured_at": "2026-09-03T04:29:15.544588+00:00",
+    "compute_processes": {
+      "0": [
+        {
+          "pid": 3260340,
+          "process_name": "/mnt/18T/baishilong/embody_ai/openpi/.venv/bin/python",
+          "used_memory_mib": 8516
+        },
+        {
+          "pid": 2072868,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 20162
+        },
+        {
+          "pid": 2456566,
+          "process_name": "python",
+          "used_memory_mib": 7374
+        }
+      ],
+      "1": [
+        {
+          "pid": 2628927,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 19704
+        }
+      ],
+      "2": [
+        {
+          "pid": 1641452,
+          "process_name": "python",
+          "used_memory_mib": 19470
+        },
+        {
+          "pid": 2842070,
+          "process_name": "python",
+          "used_memory_mib": 9352
+        }
+      ],
+      "3": [
+        {
+          "pid": 3598666,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 26322
+        }
+      ],
+      "4": [
+        {
+          "pid": 73279,
+          "process_name": "/mnt/18T/guozhihui/envs/pea_tta/bin/python",
+          "used_memory_mib": 26564
+        },
+        {
+          "pid": 2867217,
+          "process_name": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python",
+          "used_memory_mib": 1778
+        }
+      ],
+      "5": [
+        {
+          "pid": 2362955,
+          "process_name": "/mnt/18T/pengxun_data/VLM_Eval/VLMEvalKit/OTT-Vid-main/.venv-ottvid/bin/python",
+          "used_memory_mib": 22758
+        }
+      ],
+      "6": [
+        {
+          "pid": 2711810,
+          "process_name": "python",
+          "used_memory_mib": 9358
+        }
+      ],
+      "7": []
+    },
+    "devices": [
+      {
+        "free_mib": 13292,
+        "index": 0,
+        "total_mib": 49140,
+        "used_mib": 35279,
+        "utilization_percent": 26,
+        "uuid": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc"
+      },
+      {
+        "free_mib": 28854,
+        "index": 1,
+        "total_mib": 49140,
+        "used_mib": 19717,
+        "utilization_percent": 0,
+        "uuid": "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160"
+      },
+      {
+        "free_mib": 19722,
+        "index": 2,
+        "total_mib": 49140,
+        "used_mib": 28849,
+        "utilization_percent": 0,
+        "uuid": "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059"
+      },
+      {
+        "free_mib": 22236,
+        "index": 3,
+        "total_mib": 49140,
+        "used_mib": 26335,
+        "utilization_percent": 0,
+        "uuid": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640"
+      },
+      {
+        "free_mib": 20241,
+        "index": 4,
+        "total_mib": 49140,
+        "used_mib": 28329,
+        "utilization_percent": 4,
+        "uuid": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09"
+      },
+      {
+        "free_mib": 25802,
+        "index": 5,
+        "total_mib": 49140,
+        "used_mib": 22769,
+        "utilization_percent": 0,
+        "uuid": "GPU-07374397-b213-09c1-2988-718acb6ed231"
+      },
+      {
+        "free_mib": 39200,
+        "index": 6,
+        "total_mib": 49140,
+        "used_mib": 9371,
+        "utilization_percent": 42,
+        "uuid": "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2"
+      },
+      {
+        "free_mib": 48569,
+        "index": 7,
+        "total_mib": 49140,
+        "used_mib": 2,
+        "utilization_percent": 0,
+        "uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253"
+      }
+    ]
+  },
+  "heartbeat_at": "2026-09-03T04:36:16.278335+00:00",
+  "launcher_pid": 2866861,
+  "log_path": "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/run.log",
+  "minimum_free_mib": 16366,
+  "next_action": "stop FP3 SETRec promotion; keep D1/D2 and FP4 closed; do not tune on D0",
+  "occupancy_mode": "none",
+  "physical_gpu": 7,
+  "process_alive": false,
+  "progress": {
+    "current": 4,
+    "total": 4,
+    "unit": "arm"
+  },
+  "raw_external_projection_reopened": false,
+  "readiness_path": "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/readiness.json",
+  "readiness_sha256": "14ad7a1c586e94a3c938bb0352aa759a6e7fd8b6490719d69aad95e962d2f184",
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "report_path": "report/第十七阶段/Stage17_FP3_FullSETRec正式结果报告.md",
+  "report_sha256": "e3eae802a275b5976ac06143c4e382a592f54c06f5b690f8b18b4402a61f8766",
+  "result_selection_eligible": true,
+  "run_snapshot_manifest": "artifacts/phase17/snapshots/s17_fp3_external_d0/attempt_001/manifest.json",
+  "schema_version": "phase17.status.v2",
+  "scientific_state": "COMPLETED",
+  "sports_read": false,
+  "stage": "external_analysis_and_report_complete",
+  "started_at": "2026-09-03T03:35:41.419816+00:00",
+  "status_code": "PASS_S17_FP3_EXTERNAL_D0_ANALYZED",
+  "step_id": "S17-FP3-EXTERNAL-D0",
+  "test_read": false,
+  "tmux_session": "s17_fp3_external_d0",
+  "track_id": null,
+  "updated_at": "2026-09-03T04:36:32.217688+00:00",
+  "wall_seconds": 442.1892304867506,
+  "workload_pid": 0
+}
