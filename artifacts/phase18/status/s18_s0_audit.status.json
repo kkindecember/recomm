@@ -1,0 +1,81 @@
+{
+  "affects_scientific_result": false,
+  "artifact_metadata_correction": {
+    "at": "2026-09-03T13:45:14+08:00",
+    "reason": "Added required config/input SHA fields; scientific checks and gate unchanged."
+  },
+  "attempt_id": "s18_s0_audit_attempt_001",
+  "canonical_result_dir": "artifacts/phase18/s0_audit",
+  "config_paths": [
+    "experiment/phase18/config/s18_evidence_contract.json",
+    "experiment/phase18/config/s18_data_contract.json"
+  ],
+  "config_sha256": {
+    "data": "3985a1a5c4a27bff845f85876d58bfd1fd4c01366a6a02a7d73e888a1aacd3a2",
+    "evidence": "9a9f5343472fcba4df2488fd997140cfd99c9f5a8415dcdc2b6cff1ebeabea7e"
+  },
+  "d0_read": false,
+  "d1_read": false,
+  "d2_read": false,
+  "execution_state": "SCIENTIFIC_COMPLETED",
+  "experiment_id": "s18_s0_audit",
+  "gate": {
+    "decision": "S18_0_COMPLETE_AWAIT_S18_1_AUTHORIZATION",
+    "status": "ENGINEERING_PASS"
+  },
+  "gpu_ids": [],
+  "heartbeat_at": "2026-09-03T05:44:35.472390+00:00",
+  "historical_test_derived_cache_read": true,
+  "input_sha256": {
+    "canonical_plan": "dec5da19668d3b594308b29cd80247f633ff659e708864c80004721aea7578f7",
+    "d0_shadow": {
+      "Beauty": "aa3301afe220f5625e546667da795ffc38dba23fb0474bd2fbe0c13a6f4e0c80",
+      "Toys": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa"
+    },
+    "historical_sources": {
+      "p10_budget": "56412176509131de3ce8cac2bbd827a1ee9e3bd6103b0a7c055a753340959bca",
+      "p10_c1": "9477348b7a7b7814d8f10e606e2ea5891ca587c2ae1675d0a78e7785c1b871a7",
+      "p10_c2": "06787a053e4019eadc06febb2ff411186a6b4b9f952f742ca584254fdafcf3f8",
+      "p10_union": "786de16c98cd848ae946754821d0f0e0cd977960099c598579b96e91dc6d987c",
+      "p11_bw1": "bffc19043b30623a35b20c7a233c9299017e01a018185a1cae3f2c573ce80e11",
+      "p11_p1c": "23b7ffd57f10b863e5ab3f1e97df6ded9e3fb17bd2affc1305266d7a695dead2",
+      "p11_p2": "0b644b5d8318ee9ce57b4296bf4888f22b5c0a8515331c466c6d81fc18a3f0aa",
+      "p11_shift": "4fe86b7ce16e870760b9056acdfc6d4ab169c202d8d4e0f9f97dc7765712ff46",
+      "p9_beauty_test": "67da7fa425a5a16dd04b7221c3686744a0fc0cb27512b6552a836e95a8c5eea9",
+      "p9_fresh": "fac661d4c244b2f3e03d6ea1eb3700eb6496058a9489ceb00cc7e6ae834d44c4",
+      "p9_multiseed": "b0e3daedd34a855e8237c2d1189362452be6a6f8aec1ff8dd5612828d28af1ac",
+      "p9_toys_test": "e117ec542106571fabc51d3c79c70448b764550f7acc473d8687985dad18782f",
+      "s17_a0": "2b0643e536499b3f9341cfd612983fa518e5d1badb09b0a76f9e3b3e51aa9c71",
+      "s17_control": "7fa7c0c568b25c995c725454d25c2e64e3c714e6ab7e969fe59d13825cc15ebf",
+      "s17_latte": "30933210b311253f525b6eb1610c8e9289145b3870a8bed3f4e708645948f620",
+      "s17_s4": "a7e0570e1f2c951d36ec9768485d24093770cb9b0dc53b090f79ad68a50c4ad2",
+      "s17_setrec": "ef781c52781cad1b9ce7e5a4efd9b4307e1ee224b7a24ae9992bad14dae64d00"
+    },
+    "shadow_manifest": "db8673822062534e58060c711116bfed7bdf552c3cbd7c1c7ca13ca25d594f95"
+  },
+  "launcher_pid": 2,
+  "log_path": "artifacts/phase18/s0_audit/run.log",
+  "occupancy_mode": "none",
+  "process_alive": false,
+  "progress": {
+    "current": 1,
+    "total": 1,
+    "unit": "audit"
+  },
+  "repeat_iteration": 0,
+  "repeat_metrics_ignored": false,
+  "report_path": "report/第十八阶段/Stage18_S0_历史证据与执行契约报告.md",
+  "result_selection_eligible": false,
+  "schema_version": "phase18.status.v1",
+  "scientific_state": "COMPLETED",
+  "sports_read": false,
+  "stage": "s18_0_contract_audit",
+  "started_at": "2026-09-03T05:44:35.144457+00:00",
+  "status_code": "S18_0_ENGINEERING_PASS",
+  "step_id": "S18-0",
+  "summary_path": "artifacts/phase18/s0_audit/summary.json",
+  "test_read": false,
+  "tmux_session": null,
+  "updated_at": "2026-09-03T05:44:35.472352+00:00",
+  "workload_pid": 0
+}

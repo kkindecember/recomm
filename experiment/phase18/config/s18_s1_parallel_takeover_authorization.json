@@ -1,0 +1,93 @@
+{
+  "schema_version": "phase18.s18_1_parallel_takeover_authorization.v1",
+  "experiment_id": "s18_s1_actionability_parallel_takeover",
+  "attempt_id": "run-0004",
+  "authorized_at_local": "2026-09-04T01:09:30+08:00",
+  "authorization_basis": "Researcher explicitly authorized terminating only the run-0003 serial controller, preserving its active Toys:I-1 worker on GPU1+7, running Beauty:I0 and Beauty:I-1 serially on GPU0 in parallel with that worker, and starting an isolated GPU0 repeat-occupancy guard only after normal science completes.",
+  "correction_scope": {
+    "resource_only": true,
+    "checkpoint_only_diagnostic_recovery": true,
+    "parallel_takeover": true,
+    "preserve_active_toys_worker": true,
+    "generation_use_cache": true,
+    "cross_attention_cache": true,
+    "release_unused_generation_tensors": true,
+    "release_cuda_cache_per_user": true,
+    "parent_retraining": false,
+    "item_head_retraining": false,
+    "scientific_config_changes": false,
+    "cohort_changes": false,
+    "beam_changes": false,
+    "score_changes_allowed": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false
+  },
+  "frozen_inputs": {
+    "scientific_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "preflight_manifest": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "checkpoint_authorization": {
+      "path": "experiment/phase18/config/s18_s1_recovery_authorization.json",
+      "sha256": "2347bf1553af66d5030915ebf11cdc6761f506622c32bdda57e3a237982a542b"
+    },
+    "run_0003_authorization": {
+      "path": "experiment/phase18/config/s18_s1_resource_recovery_authorization.json",
+      "sha256": "e07ab311b36fd010919bc386b60a1c4a5acc889d5fc7b1cdac530691dbf2cfd3"
+    },
+    "toys_i0_completed_summary": {
+      "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/summary.json",
+      "sha256": "85bc2755e5b9fb13a4e3a2eda90ab471c2e75a877d71723edbb04ed0f1ed5039"
+    },
+    "single_gpu_memory_basis": {
+      "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/summary.json",
+      "sha256": "85bc2755e5b9fb13a4e3a2eda90ab471c2e75a877d71723edbb04ed0f1ed5039"
+    },
+    "two_gpu_parity_smoke": {
+      "path": "artifacts/phase18/s1_actionability/resource-smoke-run-0003-cache-on-release-decoder-mp2-u32/summary.json",
+      "sha256": "b4067e42985d92504dca230e1b4792b3a03fbdf7c0baff3d3000f5d665e39fb5"
+    }
+  },
+  "source_takeover": {
+    "controller_pid": 1559219,
+    "active_worker_pid": 1560179,
+    "active_worker_label": "Toys:I-1",
+    "active_worker_status": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/status.json",
+    "active_worker_summary": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/summary.json",
+    "source_attempt": "s18_s1_actionability_resource_recovery/run-0003"
+  },
+  "runtime": {
+    "beauty_physical_gpu": 0,
+    "beauty_units": ["Beauty:I0", "Beauty:I-1"],
+    "beauty_units_serial": true,
+    "toys_and_beauty_parallel": true,
+    "single_gpu_peak_reserved_mib": 31276,
+    "single_gpu_memory_buffer_mib": 4096,
+    "required_gpu0_free_mib": 35372,
+    "stable_snapshots_required": 2,
+    "snapshot_interval_seconds": 10,
+    "gpu_wait_hard_timeout_seconds": 21600,
+    "source_worker_wait_hard_timeout_seconds": 7200,
+    "unit_hard_timeout_seconds": 7200,
+    "heartbeat_seconds": 30,
+    "tmux_session": "s18_s1_parallel_takeover_run_0004"
+  },
+  "postrun_occupancy": {
+    "authorized": true,
+    "physical_gpu": 0,
+    "minimum_free_mib": 22000,
+    "max_batches_per_cycle": 200,
+    "fresh_cuda_process_per_cycle": true,
+    "normal_priority_preemption": true,
+    "normal_priority_request_path": "artifacts/phase18/runtime/S18_GPU0_NORMAL_PRIORITY.request",
+    "tmux_session": "s18_s1_gpu0_postrun_guard",
+    "status": "artifacts/phase18/status/s18_s1_gpu0_postrun_guard.status.json",
+    "result_selection_eligible": false,
+    "repeat_metrics_ignored": true,
+    "affects_scientific_result": false
+  }
+}

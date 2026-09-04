@@ -708,6 +708,11 @@ class T5Block(nn.Module):
     def __init__(self, config, has_relative_attention_bias=False):
         super().__init__()
         self.is_decoder = config.is_decoder
+        # Default Hugging Face behavior caches both decoder self-attention and
+        # encoder cross-attention K/V tensors.  Stage18 may disable only the
+        # latter at inference time to trade recomputation for lower beam-search
+        # memory while retaining the self-attention cache and identical math.
+        self.cache_cross_attention = True
         self.layer = nn.ModuleList()
         self.layer.append(
             T5LayerSelfAttention(
@@ -740,7 +745,11 @@ class T5Block(nn.Module):
                 logger.warning(
                     "`past_key_values` is passed to the encoder. Please make sure this is intended."
                 )
-            expected_num_past_key_values = 2 if encoder_hidden_states is None else 4
+            expected_num_past_key_values = (
+                2
+                if encoder_hidden_states is None or not self.cache_cross_attention
+                else 4
+            )
 
             if len(past_key_value) != expected_num_past_key_values:
                 raise ValueError(
@@ -750,7 +759,9 @@ class T5Block(nn.Module):
                 )
 
             self_attn_past_key_value = past_key_value[:2]
-            cross_attn_past_key_value = past_key_value[2:]
+            cross_attn_past_key_value = (
+                past_key_value[2:] if self.cache_cross_attention else None
+            )
         else:
             self_attn_past_key_value, cross_attn_past_key_value = None, None
 
@@ -808,7 +819,7 @@ class T5Block(nn.Module):
                 )
 
             # Combine self attn and cross attn key value states
-            if present_key_value_state is not None:
+            if present_key_value_state is not None and self.cache_cross_attention:
                 present_key_value_state = (
                     present_key_value_state + cross_attention_outputs[1]
                 )

@@ -1,0 +1,45 @@
+{
+  "schema_version": "phase18.s18_1_resource_authorization.v1",
+  "experiment_id": "s18_s1_actionability",
+  "attempt_id": "run-0001",
+  "authorized_at_local": "2026-09-03T14:41:27+08:00",
+  "authorization_basis": "Researcher explicitly confirmed the four-GPU schedule after a live GPU inventory.",
+  "scientific_config": {
+    "path": "experiment/phase18/config/s18_s1_actionability.json",
+    "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+  },
+  "preflight_manifest": {
+    "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+    "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+  },
+  "gpu_assignment": {
+    "Beauty:I0": 4,
+    "Beauty:I-1": 7,
+    "Toys:I0": 0,
+    "Toys:I-1": 6
+  },
+  "gpu4_takeover": {
+    "authorized": true,
+    "source_status": "artifacts/phase17/status/s17_fp12_external_d0_g1_guard_v3.status.json",
+    "required_scientific_state": "COMPLETED",
+    "required_result_selection_eligible": false,
+    "action": "stop and archive only the result-ineligible occupancy repeat before S18-1 smoke"
+  },
+  "launch_contract": {
+    "tmux_session": "s18_s1_actionability_run_0001",
+    "background_required": true,
+    "unit_hard_timeout_seconds": 43200,
+    "heartbeat_seconds": 60,
+    "no_automatic_retry": true,
+    "automatic_s18_2": false,
+    "aggregate_status": "artifacts/phase18/status/s18_s1_actionability.status.json"
+  },
+  "postrun_occupancy": {
+    "authorized": true,
+    "physical_gpu": 4,
+    "tmux_session": "s18_s1_postrun_guard",
+    "status": "artifacts/phase18/status/s18_s1_postrun_guard.status.json",
+    "result_selection_eligible": false,
+    "repeat_metrics_ignored": true
+  }
+}

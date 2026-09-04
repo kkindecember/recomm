@@ -1,0 +1,73 @@
+{
+  "schema_version": "phase18.s18_1_recovery_authorization.v1",
+  "experiment_id": "s18_s1_actionability_recovery",
+  "attempt_id": "run-0002",
+  "recovery_of": "s18_s1_actionability/run-0001",
+  "authorized_at_local": "2026-09-03T23:20:00+08:00",
+  "authorization_basis": "Researcher chose to preserve the running epoch-10 checkpoints, then reported that the failed run had finished so the named infrastructure correction could proceed.",
+  "correction_scope": {
+    "failure_type": "numpy_bool_json_serialization",
+    "checkpoint_only_diagnostic_recovery": true,
+    "parent_retraining": false,
+    "item_head_retraining": false,
+    "scientific_config_changes": false,
+    "effect_results_read_before_correction": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false
+  },
+  "frozen_inputs": {
+    "scientific_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "preflight_manifest": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "failed_status": {
+      "path": "artifacts/phase18/status/s18_s1_actionability.status.json",
+      "sha256": "81a21c88c14129f6591cadbb5f5d5730381f6404f1bb9018d7d4f81ed809ee3f"
+    },
+    "failed_run_manifest": {
+      "path": "artifacts/phase18/s1_actionability/run-0001/run_manifest.json",
+      "sha256": "0cac3e6ee8331f4748536ac927233d2acdb80b3adf02385f9b4f962aa0b9697f"
+    }
+  },
+  "checkpoints": {
+    "Beauty:I0": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/parent_epoch10.pt", "sha256": "16629e85bd41e72a0b1c955a222823d0aa19444da3c82bbb99f14e8a625d2a7f"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/item_head_epoch10.pt", "sha256": "9c1297475b38a167798ec02bb375c4034f6885d3fc7f4f948f84a318db936f3b"}
+    },
+    "Beauty:I-1": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_im1/parent_epoch10.pt", "sha256": "5e5ab66ed4696c53b74b46e9949037d7c7dbae522dd0a25593d51f307525c8ed"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_im1/item_head_epoch10.pt", "sha256": "dd4dc6b96ced42dc8c07e7d4b4dfae64a5f618ca3af65112344a7417178c59d8"}
+    },
+    "Toys:I0": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/parent_epoch10.pt", "sha256": "f7dc8e50330e04968eed30cac23ba50ceace1d704f79caa6ca0738224d2e7325"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/item_head_epoch10.pt", "sha256": "f835f4746d67a1eca662a750139bbd6fda9611e1dd8adfc911925d577609a4a3"}
+    },
+    "Toys:I-1": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_im1/parent_epoch10.pt", "sha256": "dea622bdde979e503c972fd26d040198080d27b395896f8d73de44acf4eb5275"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_im1/item_head_epoch10.pt", "sha256": "5cfcc39d98147eea0d7fc5194638a1825c9e8e892b3da8a7788ed1ea35731eed"}
+    }
+  },
+  "runtime": {
+    "candidate_physical_gpus": [0, 4, 6, 7],
+    "excluded_physical_gpus": [1],
+    "memory_buffer_mib_above_smoke_peak": 2048,
+    "minimum_parallel_gpus": 1,
+    "unit_hard_timeout_seconds": 7200,
+    "heartbeat_seconds": 60,
+    "tmux_session": "s18_s1_actionability_recovery_run_0002"
+  },
+  "postrun_occupancy": {
+    "authorized": true,
+    "physical_gpu": 4,
+    "minimum_free_mib": 22000,
+    "tmux_session": "s18_s1_postrun_guard",
+    "status": "artifacts/phase18/status/s18_s1_postrun_guard.status.json",
+    "fresh_cuda_process_per_cycle": true,
+    "result_selection_eligible": false,
+    "repeat_metrics_ignored": true
+  }
+}

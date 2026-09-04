@@ -178,6 +178,17 @@ artifacts/phase17/status/s17_fp12_gpu1_runtime_guard.status.json
 artifacts/phase17/status/phase17.index.json
 artifacts/phase17/status/s17_s4_p1_targeted_d0_seed2023.status.json
 
+# Phase 18 S18-1 is an active bounded-generation run. Keep immutable source,
+# configs, plans, and S18-0 terminal evidence in Git; leave mutable attempts,
+# status snapshots, logs, generated views, and per-user diagnostics local.
+# A canonical top-level S18-1 summary/report remains eligible once finalized.
+artifacts/phase18/attempts/S18-1.attempts.jsonl
+artifacts/phase18/status/s18_s1*.json
+artifacts/phase18/status/history/
+artifacts/phase18/s1_actionability/preflight/
+artifacts/phase18/s1_actionability/run-*/
+artifacts/phase18/s1_actionability/*smoke*
+
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt

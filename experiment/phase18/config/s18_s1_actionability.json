@@ -1,0 +1,156 @@
+{
+  "schema_version": "phase18.s18_1_actionability.v1",
+  "step_id": "S18-1",
+  "seed": 2023,
+  "parent_plan": "plan/第十八阶段/GRAM_第十八阶段_PCPS-GRAM词法锚定协同前缀生存与低风险验证计划v0.2.md",
+  "execution_addendum": "plan/第十八阶段/GRAM_第十八阶段_S18-1可作用性诊断执行补遗v0.1.md",
+  "prerequisites": {
+    "s18_s0_summary": {
+      "path": "artifacts/phase18/s0_audit/summary.json",
+      "sha256": "bd0e81eb80241cc6105532ecb1e43fd495b72ec581342d6881f99cdfb5969135",
+      "required_status": "ENGINEERING_PASS"
+    },
+    "s18_data_contract": {
+      "path": "experiment/phase18/config/s18_data_contract.json",
+      "sha256": "3985a1a5c4a27bff845f85876d58bfd1fd4c01366a6a02a7d73e888a1aacd3a2"
+    },
+    "s18_evidence_contract": {
+      "path": "experiment/phase18/config/s18_evidence_contract.json",
+      "sha256": "9a9f5343472fcba4df2488fd997140cfd99c9f5a8415dcdc2b6cff1ebeabea7e"
+    }
+  },
+  "authorization_boundary": {
+    "cpu_preflight_allowed": true,
+    "gpu_smoke_allowed": true,
+    "scientific_attempt_requires_resource_authorization": true,
+    "treatment_training_allowed": false,
+    "d1_d2_allowed": false,
+    "official_validation_test_allowed": false,
+    "sports_allowed": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false
+  },
+  "folds": {
+    "I-1": {"visible": "H[:-4]", "target": "H[-4]"},
+    "I0": {"visible": "H[:-3]", "target": "H[-3]"}
+  },
+  "cohort": {
+    "users_per_domain": 1024,
+    "eligibility": "intersection(I-1,I0)",
+    "selection_key": "sha256('S18-1|2023|<domain>|<user>'), then user",
+    "domains": {
+      "Toys": {
+        "eligible_intersection": 4188,
+        "sample_sha256": "3872e5545d3f410452fdf3396c57bb42bed77575b1e4a1b4a9093a29ed919248"
+      },
+      "Beauty": {
+        "eligible_intersection": 5123,
+        "sample_sha256": "91c13e190600322f0f3c3d572a312a9ce14e006e00401ad15b896caf069152fd"
+      }
+    }
+  },
+  "domains": {
+    "Toys": {
+      "shadow_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+      "shadow_sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+      "hierarchy": "hierarchy_v1_c32_l5_len32768_split",
+      "top_k_similar_item": 5,
+      "assets": {
+        "item_plain_text.txt": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+        "item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+        "similar_item_sasrec.txt": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1"
+      }
+    },
+    "Beauty": {
+      "shadow_path": "artifacts/phase17/s0_audit/shadow_data/Beauty/D0/user_sequence.txt",
+      "shadow_sha256": "aa3301afe220f5625e546667da795ffc38dba23fb0474bd2fbe0c13a6f4e0c80",
+      "hierarchy": "hierarchy_v1_c128_l7_len32768_split",
+      "top_k_similar_item": 10,
+      "assets": {
+        "item_plain_text.txt": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc",
+        "item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+        "similar_item_sasrec.txt": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c"
+      }
+    }
+  },
+  "backbone": {
+    "name": "t5-small",
+    "snapshot": "/home/jiangtangyunzhi/.cache/huggingface/hub/models--t5-small/snapshots/df1b051c49625cf57a3d0d8d3863ed4d13564fe4",
+    "files": {
+      "config.json": "530e25060e3a8d5f7b0fcf53bfea9f3601165161f3b1914676e98d97cf07bcf1",
+      "model.safetensors": "bd944e5f1b3ad9b70dd9d00010a517059e19265671076b8b0a4a58d9491842bc",
+      "spiece.model": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86",
+      "tokenizer.json": "d2acde0d8d71dd30a711834b07781b9c89feaac33fd332f60507699282740066",
+      "tokenizer_config.json": "d1e7146101aa96282057f374aa9c3b260fba2109e5990edb1775d6efc70ffa3c"
+    }
+  },
+  "parent_training": {
+    "population": "all eligible users in each domain-fold",
+    "initialization": "independent generic t5-small snapshot",
+    "epochs": 10,
+    "rec_batch_size": 16,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.05,
+    "max_history": 20,
+    "skip_empty_history": true,
+    "checkpoint": "epoch_10_only",
+    "target_based_selection": false
+  },
+  "item_head_training": {
+    "architecture": "CF0B2ItemHead",
+    "epochs": 10,
+    "batch_size": 512,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "max_history": 20,
+    "d_model": 512,
+    "layers": 2,
+    "heads": 4,
+    "dropout": 0.1,
+    "temperature": 0.07,
+    "checkpoint": "epoch_10_only",
+    "target_based_selection": false
+  },
+  "generation": {
+    "beam_widths": [50, 200],
+    "inference_length_penalty": 1.0,
+    "identifier": "native_lexical",
+    "trie": "frozen_legal_catalog",
+    "hard_negative_k": 8
+  },
+  "pcrf": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1_definition": "lower empirical 25th percentile over positive fold-visible catalog frequencies"
+  },
+  "diagnostic_definitions": {
+    "first_drop": "first token depth where target prefix is absent from beam50 active prefixes; decoder start excluded and EOS included",
+    "actual_pruner": "returned legal wrong item paths sharing target prefix through depth-1 and choosing a different legal child at first-drop depth",
+    "hard_negative_recall": "intersection(K8 item paths, actual-pruner item paths) / actual-pruner item paths",
+    "cf_target_z": "(target item-head logit - full-catalog mean) / full-catalog std",
+    "full_path_score": "raw sum of normalized transition log probabilities plus inference-length-normalized score"
+  },
+  "gates": {
+    "per_domain_headroom_min": 0.05,
+    "per_domain_beam200_only_events_min": 100,
+    "per_domain_nonempty_actual_pruner_fraction_min": 0.5,
+    "per_domain_k8_actual_pruner_recall_min": 0.5,
+    "finite_and_trie_legality_required": true,
+    "absolute_cf_target_z_mean_drift_max_exclusive": 1.0,
+    "gate_1_5_failure": "NO_ACTIONABLE_PREFIX_BOTTLENECK",
+    "gate_6_failure": "CF_TEACHER_UNSTABLE"
+  },
+  "resources": {
+    "recommended_gpu_count": 4,
+    "minimum_gpu_count": 2,
+    "minimum_usable_memory_gib_per_gpu": 30,
+    "recommended_wall_time_hours": "3.5-4.5",
+    "minimum_resource_wall_time_hours": "7-9",
+    "excluded_physical_gpu_ids": [1, 4],
+    "background_required": true,
+    "status_path": "artifacts/phase18/status/s18_s1_actionability.status.json"
+  }
+}

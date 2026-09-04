@@ -1,0 +1,67 @@
+{
+  "schema_version": "phase18.s18_1_resource_recovery_authorization.v1",
+  "experiment_id": "s18_s1_actionability_resource_recovery",
+  "attempt_id": "run-0003",
+  "recovery_of": "s18_s1_actionability_recovery/run-0002",
+  "authorized_at_local": "2026-09-04T00:12:15+08:00",
+  "authorization_basis": "Researcher explicitly authorized GPU1 and a result-preserving memory adaptation after run-0002 encountered concurrent-workload CUDA OOM failures.",
+  "correction_scope": {
+    "resource_only": true,
+    "checkpoint_only_diagnostic_recovery": true,
+    "generation_use_cache": true,
+    "cross_attention_cache": true,
+    "decoder_model_parallel": true,
+    "release_unused_generation_tensors": true,
+    "release_cuda_cache_per_user": true,
+    "parent_retraining": false,
+    "item_head_retraining": false,
+    "scientific_config_changes": false,
+    "cohort_changes": false,
+    "beam_changes": false,
+    "score_changes_allowed": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false
+  },
+  "frozen_inputs": {
+    "scientific_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "preflight_manifest": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "checkpoint_authorization": {
+      "path": "experiment/phase18/config/s18_s1_recovery_authorization.json",
+      "sha256": "2347bf1553af66d5030915ebf11cdc6761f506622c32bdda57e3a237982a542b"
+    }
+  },
+  "memory_smoke": {
+    "path": "artifacts/phase18/s1_actionability/resource-smoke-run-0003-cache-on-release-decoder-mp2-u32/summary.json",
+    "required_users": 32,
+    "candidate_order_exact": true,
+    "diagnostic_record_exact": true,
+    "score_tolerance": 0.000001,
+    "memory_buffer_mib": 4096
+  },
+  "runtime": {
+    "candidate_physical_gpus": [1, 7],
+    "physical_gpu_pairs": [[1, 7]],
+    "stable_snapshots_required": 2,
+    "snapshot_interval_seconds": 10,
+    "wait_poll_seconds": 20,
+    "prerequisite_hard_timeout_seconds": 21600,
+    "gpu_wait_hard_timeout_seconds": 21600,
+    "unit_hard_timeout_seconds": 7200,
+    "heartbeat_seconds": 30,
+    "serial_units": true,
+    "tmux_session": "s18_s1_actionability_resource_recovery_run_0003"
+  },
+  "postrun_occupancy": {
+    "authorized": true,
+    "physical_gpu": 4,
+    "tmux_session": "s18_s1_postrun_guard",
+    "result_selection_eligible": false,
+    "repeat_metrics_ignored": true
+  }
+}

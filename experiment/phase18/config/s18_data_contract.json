@@ -1,0 +1,118 @@
+{
+  "schema_version": "phase18.data_contract.v1",
+  "step_id": "S18-0",
+  "plan_path": "plan/第十八阶段/GRAM_第十八阶段_PCPS-GRAM词法锚定协同前缀生存与低风险验证计划v0.2.md",
+  "plan_sha256": "dec5da19668d3b594308b29cd80247f633ff659e708864c80004721aea7578f7",
+  "authorized_steps": [
+    "S18-0"
+  ],
+  "authorization_boundary": {
+    "cpu_only": true,
+    "gpu_allowed": false,
+    "training_allowed": false,
+    "bounded_generation_allowed": false,
+    "external_evaluation_allowed": false,
+    "automatic_next_stage": false
+  },
+  "shadow_manifest": {
+    "path": "artifacts/phase17/s0_audit/shadow_data_manifest.json",
+    "sha256": "db8673822062534e58060c711116bfed7bdf552c3cbd7c1c7ca13ca25d594f95"
+  },
+  "access_profiles": {
+    "s18_internal_runner": {
+      "exact_allowlist": [
+        "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+        "artifacts/phase17/s0_audit/shadow_data/Beauty/D0/user_sequence.txt"
+      ],
+      "purpose": "Only D0 shadow train-prefix material may enter Stage18 internal folds."
+    },
+    "s18_s0_historical_audit": {
+      "exact_allowlist": [
+        "artifacts/phase17/s0_audit/shadow_data_manifest.json",
+        "artifacts/phase9/cf0_b5_toys_pcrf_test_p2e/summary.json",
+        "artifacts/phase9/cf0_b5_toys_pcrf_test_p2e/per_user_test.tsv",
+        "artifacts/phase9/p9r_toys_fresh_beam_512/summary.json",
+        "artifacts/phase9/p9r_toys_fresh_beam_512/per_user.tsv",
+        "artifacts/phase9/p9x_beauty_test/summary.json",
+        "artifacts/phase9/p9s_multiseed/summary.json",
+        "artifacts/phase10/cf1_a_toys_candidate_union/summary.json",
+        "artifacts/phase10/cf1_a2_toys_budgeted_union/summary.json",
+        "artifacts/phase10/cf1_c1_toys_crossfit_calibrator/summary.json",
+        "artifacts/phase10/cf1_c2_toys_pcrf_anchored/summary.json",
+        "artifacts/phase11/bw1_candidate_ceiling/summary.json",
+        "artifacts/phase11/bw3_p1c_listwise_admission/scientific/summary.json",
+        "artifacts/phase11/bw3_p2_one_shot_validation/scientific/summary.json",
+        "artifacts/phase11/bw3_p2_exploratory_selection_shift/summary.json",
+        "artifacts/phase17/s3_exploration/run-0001/arms/gram_continue/result.json",
+        "artifacts/phase17/s3_exploration/run-0001/arms/a0_bear_proxy/result.json",
+        "artifacts/phase17/s4_p1_targeted/run-0001/summary.json",
+        "artifacts/phase17/fullport/external_d0/attempt_001/analysis.json",
+        "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/analysis.json"
+      ],
+      "purpose": "Read immutable historical summaries and derived rank caches only; do not reopen raw targets, predictions, or source datasets."
+    }
+  },
+  "d0_shadow_inputs": {
+    "Toys": {
+      "path": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+      "sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa"
+    },
+    "Beauty": {
+      "path": "artifacts/phase17/s0_audit/shadow_data/Beauty/D0/user_sequence.txt",
+      "sha256": "aa3301afe220f5625e546667da795ffc38dba23fb0474bd2fbe0c13a6f4e0c80"
+    }
+  },
+  "shadow_line_contract": {
+    "train_prefix": "shadow_items[:-2]",
+    "sealed_external_target": "shadow_items[-2]",
+    "guard": "shadow_items[-1]",
+    "internal_loader_may_return_external_target": false,
+    "internal_loader_may_return_guard": false
+  },
+  "internal_rolling_folds": {
+    "I-1": {
+      "visible_history": "H[:-4]",
+      "target": "H[-4]",
+      "role": "actionability_and_teacher_stability"
+    },
+    "I0": {
+      "visible_history": "H[:-3]",
+      "target": "H[-3]",
+      "role": "mechanism_development"
+    },
+    "I1": {
+      "visible_history": "H[:-2]",
+      "target": "H[-2]",
+      "role": "efficacy_confirmation_1"
+    },
+    "I2": {
+      "visible_history": "H[:-1]",
+      "target": "H[-1]",
+      "role": "efficacy_confirmation_2"
+    }
+  },
+  "sealed_scopes": [
+    "Stage17 external D0 raw/materialized targets and predictions",
+    "Toys D1",
+    "Beauty D1",
+    "D2",
+    "Toys/Beauty official validation and test source files",
+    "Sports"
+  ],
+  "representative_denied_paths": [
+    "artifacts/phase17/s0_audit/shadow_data/Toys/D1/user_sequence.txt",
+    "artifacts/phase17/s0_audit/shadow_data/Beauty/D2/user_sequence.txt",
+    "GRAM/rec_datasets/Toys/user_sequence.txt",
+    "GRAM/rec_datasets/Beauty/user_sequence.txt",
+    "GRAM/rec_datasets/Sports/user_sequence.txt",
+    "artifacts/phase17/fullport/external_d0/attempt_001/external_examples.jsonl",
+    "artifacts/phase17/fullport/external_d0/attempt_001/arms/n0_native_psid/predictions.jsonl",
+    "artifacts/phase17/fullport/fp3_setrec/external_d0/attempt_001/arms/s2_gram_setrec_paper_full/predictions.jsonl"
+  ],
+  "historical_derived_cache_exception": {
+    "allowed_only_in_step": "S18-0",
+    "contains_raw_sequence_or_target_item": false,
+    "may_select_method_or_hyperparameters": false,
+    "status_field": "historical_test_derived_cache_read"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "phase18.s18_1_beauty_reservation_authorization.v1",
+  "experiment_id": "s18_s1_actionability_beauty_reservation_recovery",
+  "attempt_id": "run-0007",
+  "recovery_of": "s18_s1_actionability_beauty_recovery/run-0006",
+  "terminal_status_input": "run_0006_terminal_status",
+  "authorized_at_local": "2026-09-04T14:31:27+08:00",
+  "authorization_basis": "Researcher explicitly requested an immediate repair after run-0006 failed. This named correction addresses shared-GPU allocator-cache release only, preserves all scientific inputs, and does not authorize S18-2.",
+  "correction_scope": {
+    "resource_only": true,
+    "checkpoint_only_diagnostic_recovery": true,
+    "beauty_only_execution": true,
+    "carry_completed_toys": true,
+    "generation_use_cache": true,
+    "cross_attention_cache": true,
+    "release_unused_generation_tensors": true,
+    "release_cuda_cache_per_user": false,
+    "retain_allocator_cache_between_users": true,
+    "preclaim_allocator_reservation": true,
+    "decoder_model_parallel": true,
+    "parent_retraining": false,
+    "item_head_retraining": false,
+    "scientific_config_changes": false,
+    "cohort_changes": false,
+    "beam_changes": false,
+    "score_changes_allowed": false,
+    "protected_data_access": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false
+  },
+  "frozen_inputs": {
+    "scientific_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "preflight_manifest": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "checkpoint_authorization": {
+      "path": "experiment/phase18/config/s18_s1_recovery_authorization.json",
+      "sha256": "2347bf1553af66d5030915ebf11cdc6761f506622c32bdda57e3a237982a542b"
+    },
+    "run_0006_terminal_status": {
+      "path": "artifacts/phase18/status/s18_s1_actionability_beauty_recovery.status.json",
+      "sha256": "b22f51bffaa7d510bebaa9d55da79921b5652af9a0c2b72041287adf190d2f6d"
+    },
+    "run_0006_memory_smoke": {
+      "path": "artifacts/phase18/s1_actionability/beauty-resource-smoke-run-0006/summary.json",
+      "sha256": "7ce2c0a1b4326a7d1ae28def42594d1cd8da51f7a6626e17bc4d3e1ce415b235"
+    },
+    "toys_i0_summary": {
+      "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/summary.json",
+      "sha256": "85bc2755e5b9fb13a4e3a2eda90ab471c2e75a877d71723edbb04ed0f1ed5039"
+    },
+    "toys_im1_summary": {
+      "path": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/summary.json",
+      "sha256": "f1743bf13c93bfc9281bf0d1b9940f149b62b81a36177dc9ba954ca31dc8c409"
+    },
+    "beauty_i0_partial_beam50_reference": {
+      "path": "artifacts/phase18/s1_actionability/run-0006/units/beauty_i0/beams_w50.tsv",
+      "sha256": "044a86519194c19c6cfb4b10f76a9a9cae13e48185549401600423cbc53b8870"
+    },
+    "beauty_i0_partial_beam200_reference": {
+      "path": "artifacts/phase18/s1_actionability/run-0006/units/beauty_i0/beams_w200.tsv",
+      "sha256": "d120d179e714ed93718eb1d239c09566dd1c1e8ce0a0ee6d7b26e0e30f95492f"
+    },
+    "beauty_i0_partial_diagnostic_reference": {
+      "path": "artifacts/phase18/s1_actionability/run-0006/units/beauty_i0/per_user_diagnostics.jsonl",
+      "sha256": "b4534e1f3a5df712af8647d7e3a77f10c692ea93ef3371a1ab2a7fef85e88104"
+    }
+  },
+  "runtime": {
+    "beauty_physical_gpus": [7, 5],
+    "beauty_units": ["Beauty:I0", "Beauty:I-1"],
+    "beauty_units_serial": true,
+    "smoke_users": 128,
+    "smoke_min_free_mib_by_gpu": {"7": 21504, "5": 20480},
+    "allocator_reservation_mib_by_gpu": {"7": 17408, "5": 16384},
+    "resource_selection": {
+      "selected_at_local": "2026-09-04T14:59:47+08:00",
+      "reason": "GPU6 no longer met admission; GPU5 had 22344 MiB free and is an allowed small-experiment substitution.",
+      "scientific_parameters_changed": false
+    },
+    "formal_memory_buffer_mib": 4096,
+    "stable_snapshots_required": 3,
+    "snapshot_interval_seconds": 10,
+    "unit_hard_timeout_seconds": 7200,
+    "heartbeat_seconds": 30,
+    "smoke_tmux_session": "s18_s1_beauty_reservation_smoke_run_0007",
+    "formal_tmux_session": "s18_s1_beauty_reservation_recovery_run_0007"
+  }
+}
