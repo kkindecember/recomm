@@ -1,0 +1,164 @@
+{
+  "authorization": {
+    "automatic_retry": false,
+    "automatic_s18_3": false,
+    "basis": "研究者 2026-09-07：阅读我的实验计划，我应该是18-1已经过了，帮我开始18-2",
+    "implementation": true,
+    "protected_data_access": false,
+    "single_gpu_bounded_probe": true
+  },
+  "automatic_retry": false,
+  "automatic_s18_3": false,
+  "config_sha256": "e05d127c4b3eeb71e79b3a8391c2440c68dd891c816ddd5efe6e9d6595959d41",
+  "created_at": "2026-09-07T14:53:43.980872+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "free_mib_at_launch": 44870,
+  "i1_i2_read": false,
+  "kind": "formal",
+  "official_validation_test_read": false,
+  "physical_gpu": 3,
+  "preflight": {
+    "path": "artifacts/phase18/s2_mechanism_probe/preflight/manifest.json",
+    "sha256": "aa3828bfdddd128152ed92257be2c7ab1ef27671c5ecce44c72e656f9e358b87"
+  },
+  "required_free_mib": 7588,
+  "run_name": "run-0001",
+  "schema_version": "phase18.s18_2_run_manifest.v1",
+  "sources": [
+    {
+      "path": "experiment/phase18/config/s18_s2_mechanism_probe.json",
+      "sha256": "e05d127c4b3eeb71e79b3a8391c2440c68dd891c816ddd5efe6e9d6595959d41"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_s2_mechanism_probe.py",
+      "sha256": "db1d75de5da82a39471992da12193bc12b27c0b96504222b13d7ca70b30b858d"
+    },
+    {
+      "path": "experiment/phase18/core/pcps_loss.py",
+      "sha256": "d8b67812616adf39f8a53369dee1cb0f213e1e619bd3de482a7512697b5a4b8a"
+    },
+    {
+      "path": "experiment/phase18/core/s2_contracts.py",
+      "sha256": "aa6cbe0a9592781d64963868f449761c8f0f8cb5de7df117aadc1b6f106fef7f"
+    },
+    {
+      "path": "experiment/phase18/tests/test_s18_s2_contract.py",
+      "sha256": "52ead55c4ddd74042cfda758d80dc8d7f7db90a803e8e4167e5189c4b0de1904"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_s1_runtime.py",
+      "sha256": "c6d7819e5fbc9aa78fe73132228357ccf867b042ecd702b074a642742f946047"
+    },
+    {
+      "path": "experiment/phase18/core/contracts.py",
+      "sha256": "0fffc0167025aa1faa77576537edd8e603188fa15c08ac5a3518002f043c70cb"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_s1_prepare.py",
+      "sha256": "6edb437a2aef44e2f5fb27874cb37c81696a747d57eef050b91cac2828fbfbd8"
+    },
+    {
+      "path": "GRAM/prompt.txt",
+      "sha256": "90d10983134376958393a36bec68cf57bba20f2bb7c3397cee21ba1228263438"
+    },
+    {
+      "path": "experiment/phase9/train_cf0_b2_item_head.py",
+      "sha256": "09a191f9bb978976d5c5febc8bf7fdfc9763715a74f02484ee264e0077c8df23"
+    },
+    {
+      "path": "plan/第十八阶段/GRAM_第十八阶段_S18-2机制探针执行补遗v0.1.md",
+      "sha256": "26b3c76a325b012c1f88750e012b8f1b317c040ec7e39c2f4513f469898884bc"
+    },
+    {
+      "path": "GRAM/src/model/__init__.py",
+      "sha256": "bbf16d3aeb2fa9e1ecdae11da0757bdd97e4ef7b66d0a3a8cb433ce6ba865236"
+    },
+    {
+      "path": "GRAM/src/model/gram.py",
+      "sha256": "fdd6286e30fa5f17eb2f3405cec72d79f8182ad1025ca2e16ff01fe037ea5cea"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5.py",
+      "sha256": "4bb0c08bf8561303f154931ff2cb2d445d1c382ebc0b44b6797297fa622bd673"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5_config.py",
+      "sha256": "cc49f51c86dddbdc77a67c9b4fb841b78c1a7844e51df94baa375a30146d0631"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5_modeling.py",
+      "sha256": "27b558fb2558311894d702d4b9cde5987c3fb09bc4ff321a4eaf3a8abf68fbb3"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5_outputs.py",
+      "sha256": "6b6e2f2a2d0faba8c27e7906eb8cbe9abd6e7d0654f881adf32ba1229ed3c07b"
+    },
+    {
+      "path": "GRAM/src/data/__init__.py",
+      "sha256": "ae229fd84a5ce389d700ee1191cda1a74ea53731c0e5685ac634fc43cc512da4"
+    },
+    {
+      "path": "GRAM/src/data/multi_task_dataset_gen.py",
+      "sha256": "4495a3b2c4c89d64ff869d2ea0e1b084813278e398c95aa36e17792cabe5808b"
+    },
+    {
+      "path": "GRAM/src/data/multi_task_dataset_gram.py",
+      "sha256": "5c20b9b3d15df4eb76b52303fe6fac7f5811e84902341860324e369364af6b1b"
+    },
+    {
+      "path": "GRAM/src/data/multi_task_dataset_rec.py",
+      "sha256": "6c983bcc7ef17889a18ff0e85346826f554c52796e4a5cdb2ad15991c0a7dd84"
+    },
+    {
+      "path": "GRAM/src/data/test_dataset_gram.py",
+      "sha256": "aa440101015976e3be9d40ecec0373e31239653157a0539e57b2455d9f5d651c"
+    },
+    {
+      "path": "GRAM/src/processor/Collator.py",
+      "sha256": "49a35955d0f952e4015d8e87935c05b8138489d1ed60b4d30cc865dcf7bcc949"
+    },
+    {
+      "path": "GRAM/src/processor/DistMultiDataTaskSampler.py",
+      "sha256": "d25b063fd5360bc3c9de18e50fa7ca45369c7673e74e4e95758b97600643977f"
+    },
+    {
+      "path": "GRAM/src/processor/SingleMultiDataTaskSampler.py",
+      "sha256": "2f1e8c429503ad0fe1f9a37c749a69878abe2a949913ba83e9eb1c8fe8989683"
+    },
+    {
+      "path": "GRAM/src/processor/__init__.py",
+      "sha256": "0f38568b35b4f388bbe4264b2e157cd42ca6ba82e6fef85ff9c9584ed3705990"
+    },
+    {
+      "path": "GRAM/src/utils/__init__.py",
+      "sha256": "3a4f72f6e82b8f226c6bd8ce04ff2b65435aa6f3af87ebfc8a16bcac63c17838"
+    },
+    {
+      "path": "GRAM/src/utils/dataset_utils.py",
+      "sha256": "3ad7b030a7a43f2fdf4f594e96a89730db484ac74fcb28f075dd6c7cd0ca02fb"
+    },
+    {
+      "path": "GRAM/src/utils/evaluate.py",
+      "sha256": "9321e5b958d2f29a1bc75bd9bc621bb6626a34af301fc08e9051369e9c46dcbf"
+    },
+    {
+      "path": "GRAM/src/utils/generation_trie.py",
+      "sha256": "eb244f1e79a9e80334d147fdbffcad2ebe4fd4be6e96c9d00a4fa46d828af7af"
+    },
+    {
+      "path": "GRAM/src/utils/indexing.py",
+      "sha256": "e16a52a4dec05fc1cddac5d1468fec3a9698e1f4208042a65e1c79504fa2d2cc"
+    },
+    {
+      "path": "GRAM/src/utils/prompt.py",
+      "sha256": "10219c1bd32425baddb4a4af401cb24eaf27c2caae7640018ef51d4742122426"
+    },
+    {
+      "path": "GRAM/src/utils/utils.py",
+      "sha256": "1b6d22a42c9cbfd6e044ddffaeb638a7814712800fdb71de10b44f4d687f2610"
+    }
+  ],
+  "sports_read": false,
+  "tmux_session": "s18_s2_run_0001"
+}

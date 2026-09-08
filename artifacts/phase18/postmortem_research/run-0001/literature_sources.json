@@ -1,0 +1,165 @@
+{
+  "search_date": "2026-09-08",
+  "scope": "Targeted post-S18-2 mechanism and novelty scan; not a systematic review",
+  "queries": [
+    "generative recommendation beam search optimization prefix pruning survival global beam BEAR 2026",
+    "generative retrieval beam search optimization relevance prefix probability 2025 2026",
+    "\"APAO: Adaptive Prefix-Aware Optimization\" arxiv",
+    "\"TAAL\" \"2608.29179\" github",
+    "\"BEAR\" \"Towards Beam-Search-Aware\" SIGIR 2026 acm"
+  ],
+  "inclusion": "Primary sources on beam-training mismatch, cumulative prefix objectives, or alternative prefix supervision; preserve lexical identifiers and distinguish training from reranking",
+  "source_verification": "Author arXiv papers and official ACL pages/code repositories; no external model used. Direct ACM DOI retrieval was unavailable; acceptance for BEAR/APAO checked via author arXiv metadata and official repositories.",
+  "deduplication": "arXiv identifier/title; earlier APAO v1 and BEAR v1 reads superseded by v4/v3 for final method comparison",
+  "limitations": [
+    "No exhaustive database result count or PRISMA claim",
+    "No Semantic Scholar API cross-index verification",
+    "Method/theory evidence does not establish efficacy on local GRAM",
+    "No human-read attestation inferred",
+    "No full paper-level risk-of-bias or independent replication audit"
+  ],
+  "distribution": {
+    "records": 7,
+    "core_and_context_included": 6,
+    "screened_excluded": 1,
+    "accepted_conference_among_included": 5,
+    "computational_or_theoretical_records": 7,
+    "note": "Computational methods concentration is intentional for this question; no geographic coverage inferred."
+  },
+  "sources": [
+    {
+      "key": "wiseman_rush_2016_bso",
+      "title": "Sequence-to-Sequence Learning as Beam-Search Optimization",
+      "authors": [
+        "Sam Wiseman",
+        "Alexander M. Rush"
+      ],
+      "year": 2016,
+      "venue": "EMNLP 2016",
+      "status": "published",
+      "url": "https://aclanthology.org/D16-1137/",
+      "fulltext": "https://aclanthology.org/D16-1137.pdf",
+      "read_scope": "Method section 4 including frontier loss, LaSO and constrained search",
+      "use": "Prior-art boundary, not a claimed novel method"
+    },
+    {
+      "key": "yang_2026_bear",
+      "title": "BEAR: Towards Beam-Search-Aware Optimization for Recommendation with Large Language Models",
+      "authors": [
+        "Weiqin Yang",
+        "Bohao Wang",
+        "Zhenxiang Xu",
+        "Jiawei Chen",
+        "Shengjia Zhang",
+        "Jingbang Chen",
+        "Canghong Jin",
+        "Can Wang"
+      ],
+      "year": 2026,
+      "venue": "SIGIR 2026",
+      "status": "accepted per author metadata and official code",
+      "version": "2601.22925v3",
+      "url": "https://arxiv.org/abs/2601.22925v3",
+      "fulltext": "https://arxiv.org/html/2601.22925v3",
+      "code": "https://github.com/Tiny-Snow/BEAR-SIGIR-2026",
+      "read_scope": "Abstract, introduction and methodology 3.1–3.2",
+      "use": "Global beam survival versus local token necessary condition"
+    },
+    {
+      "key": "yu_2026_apao",
+      "title": "APAO: Bridging the Training-Inference Gap in Generative Recommendation via Adaptive Prefix-Aware Optimization",
+      "authors": [
+        "Yuanqing Yu",
+        "Yifan Wang",
+        "Weizhi Ma",
+        "Zhiqiang Guo",
+        "Min Zhang"
+      ],
+      "year": 2026,
+      "venue": "KDD 2026",
+      "status": "accepted per author metadata and official code",
+      "version": "2603.02730v4",
+      "url": "https://arxiv.org/abs/2603.02730v4",
+      "fulltext": "https://arxiv.org/html/2603.02730v4",
+      "code": "https://github.com/yuyq18/APAO",
+      "read_scope": "Training/inference definitions, full method section 4; not independently validated proof or experiments",
+      "use": "Cumulative prefix pairwise loss and adaptive worst-prefix weighting are prior art"
+    },
+    {
+      "key": "wu_2025_card",
+      "title": "Constrained Auto-Regressive Decoding Constrains Generative Retrieval",
+      "authors": [
+        "Shiguang Wu",
+        "Zhaochun Ren",
+        "Xin Xin",
+        "Jiyuan Yang",
+        "Mengqi Zhang",
+        "Zhumin Chen",
+        "Maarten de Rijke",
+        "Pengjie Ren"
+      ],
+      "year": 2025,
+      "venue": "SIGIR 2025",
+      "status": "accepted per author metadata",
+      "version": "2504.09935v1",
+      "url": "https://arxiv.org/abs/2504.09935v1",
+      "fulltext": "https://arxiv.org/html/2504.09935v1",
+      "read_scope": "Abstract, analysis overview, empirical conclusions and limitations",
+      "use": "Theoretical constraints on relevance concentration and beam retrieval; no local causal proof"
+    },
+    {
+      "key": "li_2026_taal",
+      "title": "TAAL: Mitigating Early Beam Pruning in Generative Recommendation via Temporal Autoregressive Alignment",
+      "authors": [
+        "Lianjie Li",
+        "Zhiying Tu",
+        "Dianhui Chu",
+        "Hongliang Sun"
+      ],
+      "year": 2026,
+      "venue": null,
+      "status": "preprint, submitted 2026-08-29; no accepted venue verified",
+      "version": "2608.29179v1",
+      "url": "https://arxiv.org/abs/2608.29179v1",
+      "fulltext": "https://arxiv.org/html/2608.29179v1",
+      "read_scope": "Abstract, methods 3, evaluation setup and ablations 4",
+      "use": "Alternative temporal prefix supervision only; SID, single seed and validation-selected alpha limit transfer"
+    },
+    {
+      "key": "lee_2025_gram",
+      "title": "GRAM: Generative Recommendation via Semantic-aware Multi-granular Late Fusion",
+      "authors": [
+        "Sunkyung Lee",
+        "Minjin Choi",
+        "Eunseong Choi",
+        "Hye-young Kim",
+        "Jongwuk Lee"
+      ],
+      "year": 2025,
+      "venue": "ACL 2025",
+      "status": "published",
+      "url": "https://aclanthology.org/2025.acl-long.1596/",
+      "read_scope": "Official abstract and metadata; local code used for implementation evidence",
+      "use": "Preserve local lexical identifier and late-fusion backbone"
+    },
+    {
+      "key": "chen_2026_pro",
+      "title": "Closing the Indexing-Decoding Gap in Multimodal Generative Retrieval via Prefix Retention Optimization",
+      "authors": [
+        "Yufei Chen",
+        "Zihan Wang",
+        "Yubao Tang",
+        "Yukun Zhao",
+        "Maarten de Rijke",
+        "Zhaochun Ren"
+      ],
+      "year": 2026,
+      "venue": null,
+      "status": "preprint",
+      "version": "2606.09241v3",
+      "url": "https://arxiv.org/abs/2606.09241v3",
+      "read_scope": "Author abstract only",
+      "use": "Screened out of direct migration: quantized indexing, vocabulary scheduling and altered inference"
+    }
+  ]
+}

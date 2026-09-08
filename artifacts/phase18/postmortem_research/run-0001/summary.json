@@ -1,0 +1,256 @@
+{
+  "verification_status": "ANALYZED",
+  "kind": "retrospective_existing_cache_audit",
+  "canonical_s18_2_decision": "FAILED_SCIENTIFIC_GATE",
+  "gate_changed": false,
+  "model_loaded": false,
+  "training_started": false,
+  "protected_data_read": false,
+  "live_frontier_available": false,
+  "paired": {
+    "max_summary_abs_error": 0,
+    "M0_minus_control": {
+      "A0_LEGAL_GENERIC": {
+        "Hit@50": {
+          "delta": 0.002,
+          "gain": 5,
+          "loss": 3,
+          "tie": 992
+        },
+        "prefix_survival": {
+          "delta": 0.0015999999999999999,
+          "gain": 13,
+          "loss": 14,
+          "tie": 973
+        }
+      },
+      "C0_CONT": {
+        "Hit@50": {
+          "delta": 0.005,
+          "gain": 7,
+          "loss": 2,
+          "tie": 991
+        },
+        "prefix_survival": {
+          "delta": -1.1102230246251566e-19,
+          "gain": 15,
+          "loss": 20,
+          "tie": 965
+        }
+      },
+      "S0_SHUFFLED_CF": {
+        "Hit@50": {
+          "delta": 0.005,
+          "gain": 7,
+          "loss": 2,
+          "tie": 991
+        },
+        "prefix_survival": {
+          "delta": 0.0009000000000000004,
+          "gain": 16,
+          "loss": 17,
+          "tie": 967
+        }
+      }
+    }
+  },
+  "domains": {
+    "Toys": {
+      "catalog_items": 11924,
+      "training_cache": {
+        "users": 1000,
+        "parent_hit50": 272,
+        "parent_hit200": 399,
+        "non_eos_prefix_drop_users": 720,
+        "all_non_eos_survive_but_final_miss": 8,
+        "drop_local_children_le_beam50": 609,
+        "drop_local_single_child": 8,
+        "legal_branch_nodes": 3490,
+        "local_children_le_beam50_nodes": 3253,
+        "first_non_eos_drop_depth": {
+          "3": 310,
+          "2": 355,
+          "4": 42,
+          "5": 13
+        },
+        "training_loss_nodes_relative_to_parent_drop": {
+          "before": 1148,
+          "at": 712,
+          "after": 610
+        },
+        "mean_unique_negative_children": 5.1194842406876795,
+        "mean_final_beam_sibling_prefixes_at_drop": 1.6902777777777778,
+        "parent_teacher_force_vs_generation_score_max_abs_error": 0.0008008820669991312,
+        "cf_comparisons": {
+          "A0_LEGAL_GENERIC": {
+            "same_child_nodes": 1098,
+            "nodes": 3490,
+            "all_nodes_same_users": 14,
+            "mean_path_weight_tv": 0.018274475016080736,
+            "mean_child_jaccard": 0.683196001706032
+          },
+          "S0_SHUFFLED_CF": {
+            "same_child_nodes": 919,
+            "nodes": 3490,
+            "all_nodes_same_users": 4,
+            "mean_path_weight_tv": 0.05180879425564954,
+            "mean_child_jaccard": 0.6411896460750329
+          }
+        }
+      },
+      "s1r_existing_confirmation": {
+        "im1": {
+          "users": 1024,
+          "beam200_only": 98,
+          "local_children_le_beam50": 86,
+          "local_single_child": 8,
+          "eos_depth": 7,
+          "nonempty_final_sibling_item_proxy": 61,
+          "final_sibling_items": 260,
+          "unique_final_sibling_prefixes": 177
+        },
+        "i0": {
+          "users": 1024,
+          "beam200_only": 134,
+          "local_children_le_beam50": 124,
+          "local_single_child": 11,
+          "eos_depth": 9,
+          "nonempty_final_sibling_item_proxy": 90,
+          "final_sibling_items": 317,
+          "unique_final_sibling_prefixes": 222
+        }
+      },
+      "evaluation_anchors": {
+        "users": 1000,
+        "parent_hit50": 166,
+        "parent_hit200": 269,
+        "non_eos_prefix_drop_users": 828,
+        "all_non_eos_survive_but_final_miss": 6,
+        "drop_local_children_le_beam50": 691,
+        "drop_local_single_child": 2,
+        "first_non_eos_drop_depth": {
+          "3": 340,
+          "2": 422,
+          "4": 64,
+          "5": 2
+        },
+        "training_loss_nodes_relative_to_parent_drop": {},
+        "mean_unique_negative_children": null,
+        "mean_final_beam_sibling_prefixes_at_drop": 1.5954106280193237,
+        "parent_teacher_force_vs_generation_score_max_abs_error": 0.0010148088137308386,
+        "cf_comparisons": {
+          "A0_LEGAL_GENERIC": {
+            "same_child_nodes": 0,
+            "nodes": 0,
+            "all_nodes_same_users": 0,
+            "mean_path_weight_tv": null,
+            "mean_child_jaccard": null
+          },
+          "S0_SHUFFLED_CF": {
+            "same_child_nodes": 0,
+            "nodes": 0,
+            "all_nodes_same_users": 0,
+            "mean_path_weight_tv": null,
+            "mean_child_jaccard": null
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "catalog_items": 12101,
+      "training_cache": {
+        "users": 100,
+        "parent_hit50": 38,
+        "parent_hit200": 55,
+        "non_eos_prefix_drop_users": 61,
+        "all_non_eos_survive_but_final_miss": 1,
+        "drop_local_children_le_beam50": 11,
+        "drop_local_single_child": 1,
+        "legal_branch_nodes": 294,
+        "local_children_le_beam50_nodes": 119,
+        "first_non_eos_drop_depth": {
+          "2": 41,
+          "3": 5,
+          "7": 1,
+          "1": 13,
+          "4": 1
+        },
+        "training_loss_nodes_relative_to_parent_drop": {
+          "before": 57,
+          "at": 60,
+          "after": 62
+        },
+        "mean_unique_negative_children": 5.3231292517006805,
+        "mean_final_beam_sibling_prefixes_at_drop": 6.721311475409836,
+        "parent_teacher_force_vs_generation_score_max_abs_error": 0.0004017353057861328,
+        "cf_comparisons": {
+          "A0_LEGAL_GENERIC": {
+            "same_child_nodes": 111,
+            "nodes": 294,
+            "all_nodes_same_users": 1,
+            "mean_path_weight_tv": 0.02060590905829518,
+            "mean_child_jaccard": 0.6939271046413904
+          },
+          "S0_SHUFFLED_CF": {
+            "same_child_nodes": 95,
+            "nodes": 294,
+            "all_nodes_same_users": 0,
+            "mean_path_weight_tv": 0.04938728452946856,
+            "mean_child_jaccard": 0.6270824696845103
+          }
+        }
+      },
+      "s1r_existing_confirmation": {
+        "im1": {
+          "users": 1024,
+          "beam200_only": 122,
+          "local_children_le_beam50": 48,
+          "local_single_child": 7,
+          "eos_depth": 3,
+          "nonempty_final_sibling_item_proxy": 83,
+          "final_sibling_items": 1002,
+          "unique_final_sibling_prefixes": 592
+        },
+        "i0": {
+          "users": 1024,
+          "beam200_only": 145,
+          "local_children_le_beam50": 57,
+          "local_single_child": 10,
+          "eos_depth": 4,
+          "nonempty_final_sibling_item_proxy": 101,
+          "final_sibling_items": 1192,
+          "unique_final_sibling_prefixes": 766
+        }
+      }
+    }
+  },
+  "local_rank_counterexample": {
+    "target": 0.20400000000000001,
+    "sibling": 0.196,
+    "other_parent_a": 0.3,
+    "other_parent_b": 0.3
+  },
+  "input_sha256": {
+    "experiment/phase18/config/s18_s2_mechanism_probe.json": "e05d127c4b3eeb71e79b3a8391c2440c68dd891c816ddd5efe6e9d6595959d41",
+    "experiment/phase18/config/s18_s1_actionability.json": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/summary.json": "4ab4890616eddbbaa180affd56e4ad8b8bbee6dde51f29a489d629ed6ad14d9c",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/A0_LEGAL_GENERIC/evaluation.json": "7ce89d305f437e8e266576151a43104d0a50b073f4dd6add8f108a9f761bfddf",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/A0_LEGAL_GENERIC/per_user.tsv": "66881b5efb4e86099e905fc4b17825df9d95d8e5d5ea2b7022a61b198839e819",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/C0_CONT/evaluation.json": "0df448f6020179e57e3206abac6ffc2c176d15760ce632315b3669798a42694e",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/C0_CONT/per_user.tsv": "b242ee615dbf38309f3465b315ffc66ddafebe37f090deb8643329cefd5ba840",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/M0_PCPS/evaluation.json": "0700068d1392dcba2a63e6f4d90e3c89a8df0a36bd82fc79b5d5516ed740d552",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/M0_PCPS/per_user.tsv": "0120ad82d69c54466b988cab2a918d1963a53d53af7a0ac28ee58f6af75d9f0d",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/S0_SHUFFLED_CF/evaluation.json": "f9acdaf56f2d668c6d0a70bd1ce587b430f8941b551e9d1b00e92a5c2e864512",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/S0_SHUFFLED_CF/per_user.tsv": "e5252fc03c7a8839fee35431432c60138851d1825108710f1aabee8b96ba04b2",
+    "artifacts/phase18/s1_actionability/preflight/data/Toys_s18_s1_I0/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/training_cache.jsonl": "fab9e94c4c3a2ab121a626ee161276e69057c8c5ba50bf05ec2c37a7273de0f1",
+    "artifacts/phase18/s1r_disjoint_confirmation/run-0001/units/toys_im1/per_user_diagnostics.jsonl": "26299c36de222a5acde955da494fd464648b3b1b8a14b9ac9446a95e7f225102",
+    "artifacts/phase18/s1r_disjoint_confirmation/run-0001/units/toys_i0/per_user_diagnostics.jsonl": "8320c078328be238302a4365d47e5ad6de451019738c2795f51652b4b1e10d6a",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/evaluation_anchors.jsonl": "e707c7df8fb7df86029a69cfe966bbcfc61c920f0d1c453c3989770bc32e055b",
+    "artifacts/phase18/s1_actionability/preflight/data/Beauty_s18_s1_I0/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/training_cache.jsonl": "1ff1a5e9f14ee7a7e443e823284397d83e1becf40ff440180fb9d3992f97a0b9",
+    "artifacts/phase18/s1r_disjoint_confirmation/run-0001/units/beauty_im1/per_user_diagnostics.jsonl": "8d5dcca52dea503f7d58577a8686d7ea8f571997854a09c6745da1207202dda2",
+    "artifacts/phase18/s1r_disjoint_confirmation/run-0001/units/beauty_i0/per_user_diagnostics.jsonl": "d0a504ced24cc3f04ba1aad93a18deb42234c7e87f39a859ea5c63bfe36240ed"
+  },
+  "analysis_source_sha256": "1c87a18f76459437c934aa7e0e2b365cc9b221fbb0517a4f81e1ef698c72ac51"
+}

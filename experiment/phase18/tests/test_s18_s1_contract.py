@@ -15,6 +15,7 @@ from experiment.phase18.core.s1_contracts import (
     hard_negative_recall,
     lower_empirical_quartile,
     stable_cohort,
+    stable_cohort_slice,
 )
 
 
@@ -25,6 +26,22 @@ class CohortAndFoldTests(unittest.TestCase):
         right = stable_cohort("Toys", reversed(users), count=8)
         self.assertEqual(left, right)
         self.assertEqual(len(cohort_sha256(left)), 64)
+
+    def test_contiguous_stable_slices_are_disjoint_and_order_independent(self) -> None:
+        users = [f"u{index}" for index in range(40)]
+        original = stable_cohort_slice("Beauty", users, start=0, count=16)
+        confirmation = stable_cohort_slice(
+            "Beauty", reversed(users), start=16, count=16
+        )
+        self.assertFalse(set(original) & set(confirmation))
+        self.assertEqual(
+            original + confirmation,
+            stable_cohort_slice("Beauty", users, start=0, count=32),
+        )
+
+    def test_stable_slice_fails_closed_when_rank_range_is_unavailable(self) -> None:
+        with self.assertRaises(ValueError):
+            stable_cohort_slice("Toys", ["u1", "u2"], start=1, count=2)
 
     def test_only_i_minus_1_and_i0_can_be_constructed(self) -> None:
         histories = {"u": tuple(f"i{index}" for index in range(8))}

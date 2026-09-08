@@ -1,0 +1,169 @@
+{
+  "created_at": "2026-09-08T06:56:04.450780+00:00",
+  "device": "cpu",
+  "training_runs": 0,
+  "model_inference_runs": 0,
+  "test_read": false,
+  "interpretation": "Exploratory comparisons on identical users; no final efficacy or causal attribution claim, no automatic stopping or extension.",
+  "datasets": [
+    {
+      "dataset": "Toys",
+      "historical_full": {
+        "gram": {
+          "hit@5": 0.0909231403255718,
+          "hit@10": 0.11941067381001443,
+          "hit@50": 0.21193076447558212,
+          "ndcg@5": 0.06713487106644733,
+          "ndcg@10": 0.07627451425999993,
+          "ndcg@50": 0.09653217535352775
+        },
+        "gram_pcrf": {
+          "hit@5": 0.0936534102616938,
+          "hit@10": 0.12533484442612816,
+          "hit@50": 0.21193076447558212,
+          "ndcg@5": 0.06850763766741287,
+          "ndcg@10": 0.07871552229273793,
+          "ndcg@50": 0.0980706124558045
+        }
+      },
+      "matched_subset": {
+        "gram": {
+          "hit@5": 0.0815,
+          "hit@10": 0.1145,
+          "hit@50": 0.206,
+          "ndcg@5": 0.05881192897253931,
+          "ndcg@10": 0.06937056511844693,
+          "ndcg@50": 0.08924545332045665
+        },
+        "gram_pcrf": {
+          "hit@5": 0.084,
+          "hit@10": 0.1185,
+          "hit@50": 0.206,
+          "ndcg@5": 0.05960071967054703,
+          "ndcg@10": 0.07091031447150944,
+          "ndcg@50": 0.09048022731992626
+        }
+      },
+      "cohort_users": 2000,
+      "evaluations": [],
+      "checks": "PASS: saved hashes, full-metric identity, users, targets, histories, cohort and metrics",
+      "reference": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv",
+      "reference_sha256": "4a14a4dca2fa22aa5c23186b50bbf900e4d99ee40917a42552c4e459d03a6fa5",
+      "cohort_sha256": "b003e5e27f4710c1d0a252da012f0e631621803e944025768b2fb732301933a7",
+      "provenance_note": "Historical targets rely on the existing validated cache lineage; current prediction targets are checked against prepared validation."
+    },
+    {
+      "dataset": "Beauty",
+      "historical_full": {
+        "gram": {
+          "hit@5": 0.07762822519339982,
+          "hit@10": 0.10875106202209006,
+          "hit@50": 0.2081116129320753,
+          "ndcg@5": 0.054916834352078656,
+          "ndcg@10": 0.06497370269327073,
+          "ndcg@50": 0.08670097723570454
+        },
+        "gram_pcrf": {
+          "hit@5": 0.081608013236149,
+          "hit@10": 0.11384876805437553,
+          "hit@50": 0.2081116129320753,
+          "ndcg@5": 0.057534350522304704,
+          "ndcg@10": 0.0679076815479998,
+          "ndcg@50": 0.08875958665222096
+        }
+      },
+      "matched_subset": {
+        "gram": {
+          "hit@5": 0.0935,
+          "hit@10": 0.124,
+          "hit@50": 0.215,
+          "ndcg@5": 0.0665033039498821,
+          "ndcg@10": 0.07635150086778297,
+          "ndcg@50": 0.09608035134601972
+        },
+        "gram_pcrf": {
+          "hit@5": 0.095,
+          "hit@10": 0.1265,
+          "hit@50": 0.215,
+          "ndcg@5": 0.06626695719607469,
+          "ndcg@10": 0.07660199421786551,
+          "ndcg@50": 0.09623254071120461
+        }
+      },
+      "cohort_users": 2000,
+      "evaluations": [
+        {
+          "family": "diffgrm",
+          "scope": "trend_subset",
+          "stage_epoch": 5,
+          "examples": 2000,
+          "metrics": {
+            "hit@5": 0.033,
+            "hit@10": 0.059,
+            "hit@50": 0.135,
+            "ndcg@5": 0.02359513306923011,
+            "ndcg@10": 0.03205366428875619,
+            "ndcg@50": 0.048605091230207335
+          },
+          "delta_vs_gram": {
+            "hit@5": -0.0605,
+            "hit@10": -0.065,
+            "hit@50": -0.07999999999999999,
+            "ndcg@5": -0.04290817088065199,
+            "ndcg@10": -0.044297836579026785,
+            "ndcg@50": -0.047475260115812386
+          },
+          "relative_ndcg10_vs_gram": -0.5801829181555559,
+          "delta_vs_gram_pcrf": {
+            "hit@5": -0.062,
+            "hit@10": -0.0675,
+            "hit@50": -0.07999999999999999,
+            "ndcg@5": -0.042671824126844574,
+            "ndcg@10": -0.04454832992910932,
+            "ndcg@50": -0.04762744948099728
+          },
+          "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/trend_subset_stage_epoch_05.jsonl",
+          "source_sha256": "d28d51baa87df1c10dddd7c11a6d56e7a8216b775311d2bb50a98414bd5a5fbb"
+        },
+        {
+          "family": "diffgrm",
+          "scope": "trend_subset",
+          "stage_epoch": 10,
+          "examples": 2000,
+          "metrics": {
+            "hit@5": 0.0425,
+            "hit@10": 0.0685,
+            "hit@50": 0.1615,
+            "ndcg@5": 0.029015743859210245,
+            "ndcg@10": 0.037396389080692156,
+            "ndcg@50": 0.05753644134597852
+          },
+          "delta_vs_gram": {
+            "hit@5": -0.051,
+            "hit@10": -0.055499999999999994,
+            "hit@50": -0.05349999999999999,
+            "ndcg@5": -0.03748756009067186,
+            "ndcg@10": -0.03895511178709082,
+            "ndcg@50": -0.038543910000041204
+          },
+          "relative_ndcg10_vs_gram": -0.5102075446368624,
+          "delta_vs_gram_pcrf": {
+            "hit@5": -0.0525,
+            "hit@10": -0.057999999999999996,
+            "hit@50": -0.05349999999999999,
+            "ndcg@5": -0.037251213336864444,
+            "ndcg@10": -0.039205605137173354,
+            "ndcg@50": -0.0386960993652261
+          },
+          "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/trend_subset_stage_epoch_10.jsonl",
+          "source_sha256": "6a5c21aff43250d9c636eebcc320789421c743a818744187c0edc0bd9b508acc"
+        }
+      ],
+      "checks": "PASS: saved hashes, full-metric identity, users, targets, histories, cohort and metrics",
+      "reference": "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv",
+      "reference_sha256": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1",
+      "cohort_sha256": "b028031beba7efd523dc586972c11451583aa27cc7f774feeb580dc97fba9c37",
+      "provenance_note": "Historical targets rely on the existing validated cache lineage; current prediction targets are checked against prepared validation."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "phase18.s18_1r_disjoint_confirmation.v1",
+  "experiment_id": "s18_s1r_disjoint_confirmation",
+  "step_id": "S18-1R-B",
+  "authorization_basis": "researcher_continue_direction_2026-09-07",
+  "parent_plan": "plan/第十八阶段/GRAM_第十八阶段_PCPS-GRAM词法锚定协同前缀生存与低风险验证计划v0.2.md",
+  "amendment": "plan/第十八阶段/GRAM_第十八阶段_S18-1R容量校正Gate修订补遗v0.1.md",
+  "frozen_inputs": {
+    "s18_s1_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "s18_s1_preflight": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "s18_s1r_retrospective": {
+      "path": "artifacts/phase18/s1r_capacity_audit/summary.json",
+      "sha256": "3e47eeccbddd8e482ececd19c416cb43b06f5359109ccb8f0c741f50563ab00e",
+      "required_decision": "S18_1R_RETROSPECTIVE_CAPACITY_PASS_REQUIRES_DISJOINT_CONFIRMATION"
+    },
+    "checkpoint_authorization": {
+      "path": "experiment/phase18/config/s18_s1_recovery_authorization.json",
+      "sha256": "2347bf1553af66d5030915ebf11cdc6761f506622c32bdda57e3a237982a542b"
+    }
+  },
+  "cohort": {
+    "seed": 2023,
+    "selection_key": "sha256('S18-1|2023|<domain>|<user>'), then user",
+    "original_slice": [0, 1024],
+    "confirmation_slice": [1024, 2048],
+    "users_per_domain": 1024,
+    "domains": {
+      "Toys": {
+        "eligible_intersection": 4188,
+        "shadow_path": "artifacts/phase17/s0_audit/shadow_data/Toys/D0/user_sequence.txt",
+        "shadow_sha256": "24e92f46fc21e0192f8f0764c2c79e166c3636c79fb2ef1a4119491dde7be1fa",
+        "original_sha256": "3872e5545d3f410452fdf3396c57bb42bed77575b1e4a1b4a9093a29ed919248",
+        "confirmation_sha256": "9072921f09a2085b55e42129cfcdc081cebb4e45444d8d9d32e9a9b277ca6107"
+      },
+      "Beauty": {
+        "eligible_intersection": 5123,
+        "shadow_path": "artifacts/phase17/s0_audit/shadow_data/Beauty/D0/user_sequence.txt",
+        "shadow_sha256": "aa3301afe220f5625e546667da795ffc38dba23fb0474bd2fbe0c13a6f4e0c80",
+        "original_sha256": "91c13e190600322f0f3c3d572a312a9ce14e006e00401ad15b896caf069152fd",
+        "confirmation_sha256": "2770129d83bc67cd50991bd987dee476cda703f0c8b67ae6093b0668cea8df3a"
+      }
+    }
+  },
+  "checkpoints": {
+    "Toys:I-1": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_im1/parent_epoch10.pt", "sha256": "dea622bdde979e503c972fd26d040198080d27b395896f8d73de44acf4eb5275"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_im1/item_head_epoch10.pt", "sha256": "5cfcc39d98147eea0d7fc5194638a1825c9e8e892b3da8a7788ed1ea35731eed"}
+    },
+    "Toys:I0": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/parent_epoch10.pt", "sha256": "f7dc8e50330e04968eed30cac23ba50ceace1d704f79caa6ca0738224d2e7325"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/item_head_epoch10.pt", "sha256": "f835f4746d67a1eca662a750139bbd6fda9611e1dd8adfc911925d577609a4a3"}
+    },
+    "Beauty:I-1": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_im1/parent_epoch10.pt", "sha256": "5e5ab66ed4696c53b74b46e9949037d7c7dbae522dd0a25593d51f307525c8ed"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_im1/item_head_epoch10.pt", "sha256": "dd4dc6b96ced42dc8c07e7d4b4dfae64a5f618ca3af65112344a7417178c59d8"}
+    },
+    "Beauty:I0": {
+      "parent": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/parent_epoch10.pt", "sha256": "16629e85bd41e72a0b1c955a222823d0aa19444da3c82bbb99f14e8a625d2a7f"},
+      "item_head": {"path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/item_head_epoch10.pt", "sha256": "9c1297475b38a167798ec02bb375c4034f6885d3fc7f4f948f84a318db936f3b"}
+    }
+  },
+  "gate": {
+    "hard_negative_k": 8,
+    "capacity_normalized_recall_min": 0.8,
+    "event_any_hit_rate_min": 0.8,
+    "raw_micro_recall_role": "descriptive_only",
+    "per_domain_headroom_min": 0.05,
+    "per_domain_beam200_only_events_min": 100,
+    "per_domain_nonempty_actual_pruner_fraction_min": 0.5,
+    "finite_and_trie_legality_required": true,
+    "absolute_cf_target_z_mean_drift_max_exclusive": 1.0,
+    "depth_stratification_required": true
+  },
+  "authorization_boundary": {
+    "cpu_preflight_allowed": true,
+    "gpu_confirmation_automatic": false,
+    "parent_retraining": false,
+    "item_head_retraining": false,
+    "treatment_training": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false,
+    "i1_i2_allowed": false,
+    "d1_d2_allowed": false,
+    "official_validation_test_allowed": false,
+    "sports_allowed": false
+  }
+}

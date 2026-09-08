@@ -1,0 +1,724 @@
+{
+  "alpha": 0.1,
+  "automatic_retry": false,
+  "automatic_s18_3": false,
+  "completed_at": "2026-09-07T17:12:46.975653+00:00",
+  "config_sha256": "e05d127c4b3eeb71e79b3a8391c2440c68dd891c816ddd5efe6e9d6595959d41",
+  "d1_read": false,
+  "d2_read": false,
+  "decision": "FAILED_SCIENTIFIC_GATE",
+  "domains": {
+    "Beauty": {
+      "overfit": {
+        "A0_LEGAL_GENERIC": {
+          "arm": "A0_LEGAL_GENERIC",
+          "batch_order_sha256": "dbcd4834495ff53f9286f413fd265d4ba3b4b23d5b42193d494cf91291fc2467",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/overfit/A0_LEGAL_GENERIC/final.pt",
+            "sha256": "de8d235921e80867c9ee7afb5c9aa4d436fbbde3f91473c51a4308013ccc7f1d"
+          },
+          "final_train_ce": 0.746631619867403,
+          "history": [
+            {
+              "auxiliary": 2.3424212761223315,
+              "ce": 2.4227175241708756,
+              "epoch": 1,
+              "path": 2.1254247125983237,
+              "prefix": 2.5594178345240652
+            },
+            {
+              "auxiliary": 1.7814880952239036,
+              "ce": 1.9266027725487946,
+              "epoch": 2,
+              "path": 1.6806600978970527,
+              "prefix": 1.8823161007836462
+            },
+            {
+              "auxiliary": 1.3754811430722476,
+              "ce": 1.5583063051477075,
+              "epoch": 3,
+              "path": 1.3554239962995052,
+              "prefix": 1.3955382822360844
+            },
+            {
+              "auxiliary": 1.2827585422992707,
+              "ce": 1.4011570193991065,
+              "epoch": 4,
+              "path": 1.227705621123314,
+              "prefix": 1.3378114780271426
+            },
+            {
+              "auxiliary": 1.1718516997247934,
+              "ce": 1.312061762055382,
+              "epoch": 5,
+              "path": 1.1638055883347989,
+              "prefix": 1.1798978133639322
+            }
+          ],
+          "initial_train_ce": 1.8178417928516866,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2571.81591796875,
+          "peak_reserved_mib": 2916.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 90.17251950874925
+        },
+        "C0_CONT": {
+          "arm": "C0_CONT",
+          "batch_order_sha256": "dbcd4834495ff53f9286f413fd265d4ba3b4b23d5b42193d494cf91291fc2467",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/overfit/C0_CONT/final.pt",
+            "sha256": "36afc9bffb5b9996ad080ff2d697353f9ae61ce5e6f93e189b613a5a952d5487"
+          },
+          "final_train_ce": 0.7675542086572387,
+          "history": [
+            {
+              "ce": 2.4229841040074827,
+              "epoch": 1
+            },
+            {
+              "ce": 1.9381682442873716,
+              "epoch": 2
+            },
+            {
+              "ce": 1.573294375669211,
+              "epoch": 3
+            },
+            {
+              "ce": 1.4009556231182068,
+              "epoch": 4
+            },
+            {
+              "ce": 1.3156462001660838,
+              "epoch": 5
+            }
+          ],
+          "initial_train_ce": 1.8178417928516866,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 1912.39208984375,
+          "peak_reserved_mib": 2158.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 62.55593313276768
+        },
+        "M0_PCPS": {
+          "arm": "M0_PCPS",
+          "batch_order_sha256": "dbcd4834495ff53f9286f413fd265d4ba3b4b23d5b42193d494cf91291fc2467",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/overfit/M0_PCPS/final.pt",
+            "sha256": "a8babc6a9ace92b2e4c2fb11c1978057e149af5ba243ccf87f00b78f9e1eaf83"
+          },
+          "final_train_ce": 0.7512196946161567,
+          "history": [
+            {
+              "auxiliary": 2.3457585340738296,
+              "ce": 2.4234931191802023,
+              "epoch": 1,
+              "path": 2.1279412484169007,
+              "prefix": 2.5635758024081587
+            },
+            {
+              "auxiliary": 1.7980526538193227,
+              "ce": 1.930439942330122,
+              "epoch": 2,
+              "path": 1.6894610464572906,
+              "prefix": 1.9066442697681487
+            },
+            {
+              "auxiliary": 1.3913505647331477,
+              "ce": 1.5646236540563405,
+              "epoch": 3,
+              "path": 1.3637798431515693,
+              "prefix": 1.4189212703797967
+            },
+            {
+              "auxiliary": 1.289400185123086,
+              "ce": 1.4036705475207418,
+              "epoch": 4,
+              "path": 1.2323729346692562,
+              "prefix": 1.3464274297794327
+            },
+            {
+              "auxiliary": 1.1801870902627707,
+              "ce": 1.3189147274196147,
+              "epoch": 5,
+              "path": 1.1699640770256519,
+              "prefix": 1.1904100964358078
+            }
+          ],
+          "initial_train_ce": 1.8178417928516866,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2571.81591796875,
+          "peak_reserved_mib": 2916.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 90.54247792810202
+        },
+        "S0_SHUFFLED_CF": {
+          "arm": "S0_SHUFFLED_CF",
+          "batch_order_sha256": "dbcd4834495ff53f9286f413fd265d4ba3b4b23d5b42193d494cf91291fc2467",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/overfit/S0_SHUFFLED_CF/final.pt",
+            "sha256": "beb3fb57c8a12b563ba374a63cfac91ba985c83a972cd9e50072d0ce54fac6b0"
+          },
+          "final_train_ce": 0.7467182297457475,
+          "history": [
+            {
+              "auxiliary": 2.336307247132063,
+              "ce": 2.4226168701052666,
+              "epoch": 1,
+              "path": 2.126172958314419,
+              "prefix": 2.546441541798413
+            },
+            {
+              "auxiliary": 1.7834036561846733,
+              "ce": 1.9276010346971453,
+              "epoch": 2,
+              "path": 1.681311204880476,
+              "prefix": 1.885496101975441
+            },
+            {
+              "auxiliary": 1.3693324121832848,
+              "ce": 1.5601252508349717,
+              "epoch": 3,
+              "path": 1.3573849175870418,
+              "prefix": 1.3812799138668925
+            },
+            {
+              "auxiliary": 1.2792664408683776,
+              "ce": 1.4028437413694337,
+              "epoch": 4,
+              "path": 1.23041095033288,
+              "prefix": 1.3281219298951328
+            },
+            {
+              "auxiliary": 1.165953817665577,
+              "ce": 1.3089536003116518,
+              "epoch": 5,
+              "path": 1.1618087984621526,
+              "prefix": 1.1700988357001916
+            }
+          ],
+          "initial_train_ce": 1.8178417928516866,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2571.81591796875,
+          "peak_reserved_mib": 2916.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 96.7107698507607
+        }
+      },
+      "overfit_engineering_pass": true
+    },
+    "Toys": {
+      "evaluation_anchors": {
+        "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/evaluation_anchors.jsonl",
+        "sha256": "e707c7df8fb7df86029a69cfe966bbcfc61c920f0d1c453c3989770bc32e055b"
+      },
+      "gate": {
+        "checks": {
+          "cf_additive": true,
+          "hit50_vs_c0": true,
+          "ndcg10_noninferiority": true,
+          "path_margin_vs_c0": true,
+          "survival_vs_c0": false,
+          "survival_vs_s0": false
+        },
+        "decision": "FAILED_SCIENTIFIC_GATE",
+        "deltas": {
+          "M0_minus_A0": {
+            "Hit@50": 0.0020000000000000018,
+            "NDCG@10": -0.0016419945635374675,
+            "path_margin": 0.007404952056329739,
+            "prefix_survival": 0.0015999999999998793
+          },
+          "M0_minus_C0": {
+            "Hit@50": 0.0050000000000000044,
+            "NDCG@10": 0.0012317122943360029,
+            "path_margin": 0.040234415013632674,
+            "prefix_survival": 0.0
+          },
+          "M0_minus_S0": {
+            "Hit@50": 0.0050000000000000044,
+            "NDCG@10": -0.0005577650435598935,
+            "path_margin": -0.0007660337002795004,
+            "prefix_survival": 0.0008999999999999009
+          }
+        }
+      },
+      "overfit": {
+        "A0_LEGAL_GENERIC": {
+          "arm": "A0_LEGAL_GENERIC",
+          "batch_order_sha256": "5fe1a2af98b83bc7222e8862a1493ec9e74f4ec1794725e589588b09a2e204d4",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/overfit/A0_LEGAL_GENERIC/final.pt",
+            "sha256": "f5d0b4527882f51303968d500dc310bb03d5893ca68b918dead3cd134431f5ae"
+          },
+          "final_train_ce": 0.5628419447178021,
+          "history": [
+            {
+              "auxiliary": 2.082513287961483,
+              "ce": 2.445714503377676,
+              "epoch": 1,
+              "path": 1.8221605041623115,
+              "prefix": 2.342866074889898
+            },
+            {
+              "auxiliary": 1.3347656060010196,
+              "ce": 1.7410431345179678,
+              "epoch": 2,
+              "path": 1.2423470433056354,
+              "prefix": 1.4271841693064198
+            },
+            {
+              "auxiliary": 1.0757982702553273,
+              "ce": 1.397734583709389,
+              "epoch": 3,
+              "path": 0.9556692425906658,
+              "prefix": 1.1959272916894406
+            },
+            {
+              "auxiliary": 0.8492936939746142,
+              "ce": 1.0940212965756655,
+              "epoch": 4,
+              "path": 0.7438361646980047,
+              "prefix": 0.9547512217680924
+            },
+            {
+              "auxiliary": 0.7939803582429886,
+              "ce": 1.0486239268258215,
+              "epoch": 5,
+              "path": 0.7202480148524046,
+              "prefix": 0.8677126972097904
+            }
+          ],
+          "initial_train_ce": 1.9055190965533257,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2530.45947265625,
+          "peak_reserved_mib": 2910.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 88.28314485028386
+        },
+        "C0_CONT": {
+          "arm": "C0_CONT",
+          "batch_order_sha256": "5fe1a2af98b83bc7222e8862a1493ec9e74f4ec1794725e589588b09a2e204d4",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/overfit/C0_CONT/final.pt",
+            "sha256": "defcc13d8e861a9871083192b26ffe25310e937edab642585d1351c880ac8def"
+          },
+          "final_train_ce": 0.5565791925322264,
+          "history": [
+            {
+              "ce": 2.443928321748972,
+              "epoch": 1
+            },
+            {
+              "ce": 1.7468018819019198,
+              "epoch": 2
+            },
+            {
+              "ce": 1.3889527623727917,
+              "epoch": 3
+            },
+            {
+              "ce": 1.0866115684062243,
+              "epoch": 4
+            },
+            {
+              "ce": 1.0423791348282248,
+              "epoch": 5
+            }
+          ],
+          "initial_train_ce": 1.9055190965533257,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 1910.57958984375,
+          "peak_reserved_mib": 2162.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 54.62261523492634
+        },
+        "M0_PCPS": {
+          "arm": "M0_PCPS",
+          "batch_order_sha256": "5fe1a2af98b83bc7222e8862a1493ec9e74f4ec1794725e589588b09a2e204d4",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/overfit/M0_PCPS/final.pt",
+            "sha256": "6ecc38e7302d3ce090fb8b9c98bce55df2d91d9155747f81006229eac320cf4c"
+          },
+          "final_train_ce": 0.556920519717969,
+          "history": [
+            {
+              "auxiliary": 2.0769898012280463,
+              "ce": 2.447753700464964,
+              "epoch": 1,
+              "path": 1.824962722659111,
+              "prefix": 2.3290168762207033
+            },
+            {
+              "auxiliary": 1.3467531269788742,
+              "ce": 1.7405087906494736,
+              "epoch": 2,
+              "path": 1.2434576065838336,
+              "prefix": 1.4500486573344096
+            },
+            {
+              "auxiliary": 1.0720477219671012,
+              "ce": 1.3953360192663968,
+              "epoch": 3,
+              "path": 0.9552840200066567,
+              "prefix": 1.1888114234013483
+            },
+            {
+              "auxiliary": 0.8531062771379948,
+              "ce": 1.0947602057363839,
+              "epoch": 4,
+              "path": 0.7470674134045839,
+              "prefix": 0.9591451335232705
+            },
+            {
+              "auxiliary": 0.8004377248138189,
+              "ce": 1.0550080872420222,
+              "epoch": 5,
+              "path": 0.7263411612808705,
+              "prefix": 0.8745342888496817
+            }
+          ],
+          "initial_train_ce": 1.9055190965533257,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2530.45947265625,
+          "peak_reserved_mib": 2910.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 91.46006776019931
+        },
+        "S0_SHUFFLED_CF": {
+          "arm": "S0_SHUFFLED_CF",
+          "batch_order_sha256": "5fe1a2af98b83bc7222e8862a1493ec9e74f4ec1794725e589588b09a2e204d4",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/overfit/S0_SHUFFLED_CF/final.pt",
+            "sha256": "bfe96c70454e68cf6248711ccd89cbd64fc73172bd4b69f061b25038e08ba122"
+          },
+          "final_train_ce": 0.562014792971313,
+          "history": [
+            {
+              "auxiliary": 2.086818328797817,
+              "ce": 2.446454354375601,
+              "epoch": 1,
+              "path": 1.8248966237902642,
+              "prefix": 2.3487400291860103
+            },
+            {
+              "auxiliary": 1.3561297954618932,
+              "ce": 1.7413871416822075,
+              "epoch": 2,
+              "path": 1.2417869828641415,
+              "prefix": 1.4704726147232576
+            },
+            {
+              "auxiliary": 1.0761145385354758,
+              "ce": 1.3977489530667662,
+              "epoch": 3,
+              "path": 0.9548614966869354,
+              "prefix": 1.197367573613301
+            },
+            {
+              "auxiliary": 0.8581975281983614,
+              "ce": 1.09499901576899,
+              "epoch": 4,
+              "path": 0.7432819478213787,
+              "prefix": 0.9731131062516942
+            },
+            {
+              "auxiliary": 0.8016956652700901,
+              "ce": 1.0479364097490906,
+              "epoch": 5,
+              "path": 0.7219011346250772,
+              "prefix": 0.8814902041945607
+            }
+          ],
+          "initial_train_ce": 1.9055190965533257,
+          "optimizer_steps": 35,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2530.45947265625,
+          "peak_reserved_mib": 2910.0,
+          "samples": 500,
+          "stage": "overfit",
+          "wall_seconds": 93.04571227170527
+        }
+      },
+      "overfit_engineering_pass": true,
+      "probe": {
+        "A0_LEGAL_GENERIC": {
+          "Hit@1": 0.025,
+          "Hit@10": 0.066,
+          "Hit@20": 0.084,
+          "Hit@5": 0.051,
+          "Hit@50": 0.131,
+          "NDCG@1": 0.025,
+          "NDCG@10": 0.04391827558307727,
+          "NDCG@20": 0.04845325870432425,
+          "NDCG@5": 0.03895442169685469,
+          "NDCG@50": 0.05802431170457288,
+          "count": 1000,
+          "finite_fraction": 1.0,
+          "generated_path_legality": 1.0,
+          "mrr": 0.03992342810736815,
+          "path_margin": -1.949770471793245,
+          "pcrf": {
+            "Hit@1": 0.021,
+            "Hit@10": 0.071,
+            "Hit@20": 0.101,
+            "Hit@5": 0.048,
+            "Hit@50": 0.131,
+            "NDCG@1": 0.021,
+            "NDCG@10": 0.042502492987841846,
+            "NDCG@20": 0.05004166426589221,
+            "NDCG@5": 0.03509773905669741,
+            "NDCG@50": 0.056207122501352645,
+            "count": 1000,
+            "mrr": 0.03697628998644582
+          },
+          "per_user": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/A0_LEGAL_GENERIC/per_user.tsv",
+            "sha256": "66881b5efb4e86099e905fc4b17825df9d95d8e5d5ea2b7022a61b198839e819"
+          },
+          "prefix_survival": 0.40393333333332915
+        },
+        "C0_CONT": {
+          "Hit@1": 0.021,
+          "Hit@10": 0.065,
+          "Hit@20": 0.089,
+          "Hit@5": 0.052,
+          "Hit@50": 0.128,
+          "NDCG@1": 0.021,
+          "NDCG@10": 0.041044568725203796,
+          "NDCG@20": 0.04701217652199989,
+          "NDCG@5": 0.03690700979277849,
+          "NDCG@50": 0.054838860058562026,
+          "count": 1000,
+          "finite_fraction": 1.0,
+          "generated_path_legality": 1.0,
+          "mrr": 0.036498001070850085,
+          "path_margin": -1.9825999347505479,
+          "pcrf": {
+            "Hit@1": 0.019,
+            "Hit@10": 0.07,
+            "Hit@20": 0.1,
+            "Hit@5": 0.048,
+            "Hit@50": 0.128,
+            "NDCG@1": 0.019,
+            "NDCG@10": 0.0413287564354259,
+            "NDCG@20": 0.048955983598919325,
+            "NDCG@5": 0.03428020969138948,
+            "NDCG@50": 0.0547177363489942,
+            "count": 1000,
+            "mrr": 0.03569778936656333
+          },
+          "per_user": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/C0_CONT/per_user.tsv",
+            "sha256": "b242ee615dbf38309f3465b315ffc66ddafebe37f090deb8643329cefd5ba840"
+          },
+          "prefix_survival": 0.405533333333329
+        },
+        "M0_PCPS": {
+          "Hit@1": 0.023,
+          "Hit@10": 0.064,
+          "Hit@20": 0.088,
+          "Hit@5": 0.051,
+          "Hit@50": 0.133,
+          "NDCG@1": 0.023,
+          "NDCG@10": 0.0422762810195398,
+          "NDCG@20": 0.04827155118873064,
+          "NDCG@5": 0.03792892200576693,
+          "NDCG@50": 0.05724854989285027,
+          "count": 1000,
+          "finite_fraction": 1.0,
+          "generated_path_legality": 1.0,
+          "mrr": 0.03851543687644922,
+          "path_margin": -1.9423655197369152,
+          "pcrf": {
+            "Hit@1": 0.02,
+            "Hit@10": 0.074,
+            "Hit@20": 0.1,
+            "Hit@5": 0.05,
+            "Hit@50": 0.133,
+            "NDCG@1": 0.02,
+            "NDCG@10": 0.043054433351617266,
+            "NDCG@20": 0.04978282823921904,
+            "NDCG@5": 0.03550237442473795,
+            "NDCG@50": 0.056549746216178316,
+            "count": 1000,
+            "mrr": 0.036817743306724125
+          },
+          "per_user": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/M0_PCPS/per_user.tsv",
+            "sha256": "0120ad82d69c54466b988cab2a918d1963a53d53af7a0ac28ee58f6af75d9f0d"
+          },
+          "prefix_survival": 0.405533333333329
+        },
+        "S0_SHUFFLED_CF": {
+          "Hit@1": 0.025,
+          "Hit@10": 0.064,
+          "Hit@20": 0.087,
+          "Hit@5": 0.051,
+          "Hit@50": 0.128,
+          "NDCG@1": 0.025,
+          "NDCG@10": 0.04283404606309969,
+          "NDCG@20": 0.04850366546201987,
+          "NDCG@5": 0.038571697866664555,
+          "NDCG@50": 0.05678699724294135,
+          "count": 1000,
+          "finite_fraction": 1.0,
+          "generated_path_legality": 1.0,
+          "mrr": 0.03912706248382356,
+          "path_margin": -1.9415994860366357,
+          "pcrf": {
+            "Hit@1": 0.02,
+            "Hit@10": 0.069,
+            "Hit@20": 0.1,
+            "Hit@5": 0.048,
+            "Hit@50": 0.128,
+            "NDCG@1": 0.02,
+            "NDCG@10": 0.04152336427748897,
+            "NDCG@20": 0.04941613128755127,
+            "NDCG@5": 0.03464156280753627,
+            "NDCG@50": 0.05516141565732606,
+            "count": 1000,
+            "mrr": 0.036294354741100265
+          },
+          "per_user": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/S0_SHUFFLED_CF/per_user.tsv",
+            "sha256": "e5252fc03c7a8839fee35431432c60138851d1825108710f1aabee8b96ba04b2"
+          },
+          "prefix_survival": 0.4046333333333291
+        }
+      },
+      "training": {
+        "A0_LEGAL_GENERIC": {
+          "arm": "A0_LEGAL_GENERIC",
+          "batch_order_sha256": "6c0f8bb113587afbb2f5f54880c7f5bb58133088c2b7a7c61a03bf4a38b82665",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/A0_LEGAL_GENERIC/final.pt",
+            "sha256": "838f82582e089eae986a920eaa6da261601599d2581d21b6b92c718d46af6f7c"
+          },
+          "final_train_ce": null,
+          "history": [
+            {
+              "auxiliary": 2.0817745491713286,
+              "ce": 2.5656111448705197,
+              "epoch": 1,
+              "path": 1.8199997002184392,
+              "prefix": 2.343549396207556
+            }
+          ],
+          "initial_train_ce": null,
+          "optimizer_steps": 63,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2575.05908203125,
+          "peak_reserved_mib": 2980.0,
+          "samples": 1000,
+          "stage": "probe",
+          "wall_seconds": 171.89252555556595
+        },
+        "C0_CONT": {
+          "arm": "C0_CONT",
+          "batch_order_sha256": "6c0f8bb113587afbb2f5f54880c7f5bb58133088c2b7a7c61a03bf4a38b82665",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/C0_CONT/final.pt",
+            "sha256": "47fa4c3a17b880eaefa34c692e3959363dbf882c697a8598573a22ca1056188c"
+          },
+          "final_train_ce": null,
+          "history": [
+            {
+              "ce": 2.555246603317559,
+              "epoch": 1
+            }
+          ],
+          "initial_train_ce": null,
+          "optimizer_steps": 63,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 1947.736328125,
+          "peak_reserved_mib": 13572.0,
+          "samples": 1000,
+          "stage": "probe",
+          "wall_seconds": 107.9437811691314
+        },
+        "M0_PCPS": {
+          "arm": "M0_PCPS",
+          "batch_order_sha256": "6c0f8bb113587afbb2f5f54880c7f5bb58133088c2b7a7c61a03bf4a38b82665",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/M0_PCPS/final.pt",
+            "sha256": "6f780090b8a160f7e670b0a146c2deeeb0f8da60d5571c085767327ebe81d9ee"
+          },
+          "final_train_ce": null,
+          "history": [
+            {
+              "auxiliary": 2.0866324337422846,
+              "ce": 2.5678345761299135,
+              "epoch": 1,
+              "path": 1.8206004713922739,
+              "prefix": 2.3526644002720714
+            }
+          ],
+          "initial_train_ce": null,
+          "optimizer_steps": 63,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2575.05908203125,
+          "peak_reserved_mib": 2980.0,
+          "samples": 1000,
+          "stage": "probe",
+          "wall_seconds": 156.90475376322865
+        },
+        "S0_SHUFFLED_CF": {
+          "arm": "S0_SHUFFLED_CF",
+          "batch_order_sha256": "6c0f8bb113587afbb2f5f54880c7f5bb58133088c2b7a7c61a03bf4a38b82665",
+          "checkpoint": {
+            "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/S0_SHUFFLED_CF/final.pt",
+            "sha256": "a80e187a99f84872b400986057eb3dcb4bca663b7fd22367b2313511a5c40a25"
+          },
+          "final_train_ce": null,
+          "history": [
+            {
+              "auxiliary": 2.0881810093224047,
+              "ce": 2.564004026412964,
+              "epoch": 1,
+              "path": 1.8212123588323592,
+              "prefix": 2.3551496546529234
+            }
+          ],
+          "initial_train_ce": null,
+          "optimizer_steps": 63,
+          "parameter_count": 60517376,
+          "peak_allocated_mib": 2575.05908203125,
+          "peak_reserved_mib": 2980.0,
+          "samples": 1000,
+          "stage": "probe",
+          "wall_seconds": 175.07094140164554
+        }
+      },
+      "training_cache": {
+        "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/training_cache.jsonl",
+        "sha256": "fab9e94c4c3a2ab121a626ee161276e69057c8c5ba50bf05ec2c37a7273de0f1"
+      }
+    }
+  },
+  "i1_i2_read": false,
+  "input_manifest_sha256": "a6189937ae89dabd681a8f80f0bd2fe2a8b01ba0ce429eeaf18fc1ac128ecf89",
+  "kind": "formal",
+  "official_validation_test_read": false,
+  "physical_gpu": 3,
+  "run_name": "run-0001",
+  "schema_version": "phase18.s18_2_summary.v1",
+  "sports_read": false,
+  "status": "COMPLETED",
+  "stopped_at_domain": "Toys",
+  "treatment_training_started": true,
+  "wall_seconds": 8336.636862209067
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": "phase18.s18_1r_disjoint_resource_authorization.v1",
+  "experiment_id": "s18_s1r_disjoint_confirmation",
+  "attempt_id": "run-0001",
+  "authorization_basis": "researcher_continue_direction_2026-09-07_after_capacity_audit",
+  "frozen_inputs": {
+    "confirmation_config": {
+      "path": "experiment/phase18/config/s18_s1r_disjoint_confirmation.json",
+      "sha256": "3e4f875c5bf1d15f7aa898ed680881a939e7005fc28b5103d60db7eb06d87c6b"
+    },
+    "confirmation_preflight": {
+      "path": "artifacts/phase18/s1r_disjoint_confirmation/preflight/manifest.json",
+      "sha256": "2f3c6121eb8aa29e8d8c17ede0840c2c9867d80cf75f5b14e6c5154fff94355c"
+    },
+    "s18_s1_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "s18_s1_preflight": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "checkpoint_authorization": {
+      "path": "experiment/phase18/config/s18_s1_recovery_authorization.json",
+      "sha256": "2347bf1553af66d5030915ebf11cdc6761f506622c32bdda57e3a237982a542b"
+    },
+    "retrospective_audit": {
+      "path": "artifacts/phase18/s1r_capacity_audit/summary.json",
+      "sha256": "3e47eeccbddd8e482ececd19c416cb43b06f5359109ccb8f0c741f50563ab00e"
+    }
+  },
+  "scope": {
+    "checkpoint_only_diagnostic": true,
+    "disjoint_confirmation": true,
+    "two_gpu_decoder_parallel": true,
+    "generation_use_cache": true,
+    "cross_attention_cache": true,
+    "retain_allocator_cache_between_users": true,
+    "parent_retraining": false,
+    "item_head_retraining": false,
+    "treatment_training": false,
+    "cohort_changes": false,
+    "beam_changes": false,
+    "score_changes": false,
+    "protected_data_access": false,
+    "automatic_retry": false,
+    "automatic_s18_2": false
+  },
+  "runtime": {
+    "physical_gpus": [3, 7],
+    "serial_units": ["Toys:I-1", "Toys:I0", "Beauty:I-1", "Beauty:I0"],
+    "allocator_reservation_mib_by_gpu": {"3": 18432, "7": 17408},
+    "minimum_free_mib_by_gpu": {"3": 22528, "7": 21504},
+    "stable_snapshots_required": 3,
+    "snapshot_interval_seconds": 10,
+    "smoke_users_per_domain": 1,
+    "unit_hard_timeout_seconds": 10800,
+    "heartbeat_seconds": 30,
+    "smoke_tmux_session": "s18_s1r_disjoint_smoke_run_0001",
+    "formal_tmux_session": "s18_s1r_disjoint_confirmation_run_0001"
+  }
+}

@@ -706,6 +706,7 @@ def diagnose(
     generation_use_cache: bool = True,
     cross_attention_cache: bool = True,
     release_cuda_cache_per_user: bool = False,
+    cohort_path: Path | None = None,
 ) -> dict[str, Any]:
     set_cross_attention_cache(parent, cross_attention_cache)
     dataset_name = dataset_name_from_manifest(domain, fold)
@@ -720,7 +721,8 @@ def diagnose(
         mode="validation",
     )
     dataset_index = {user: index for index, user in enumerate(dataset.data["user_id"])}
-    selected = (PREFLIGHT / f"cohort_{domain}.txt").read_text(encoding="utf-8").splitlines()
+    selected_path = cohort_path or (PREFLIGHT / f"cohort_{domain}.txt")
+    selected = selected_path.read_text(encoding="utf-8").splitlines()
     if len(selected) != config["cohort"]["users_per_domain"] or set(selected) - set(dataset_index):
         raise RuntimeError(f"{domain}/{fold}: frozen cohort mismatch")
     if max_users is not None:

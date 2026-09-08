@@ -1,0 +1,210 @@
+{
+  "schema_version": "phase18.s18_2_mechanism_probe.v1",
+  "step_id": "S18-2",
+  "seed": 2023,
+  "authorization": {
+    "basis": "研究者 2026-09-07：阅读我的实验计划，我应该是18-1已经过了，帮我开始18-2",
+    "implementation": true,
+    "single_gpu_bounded_probe": true,
+    "automatic_retry": false,
+    "automatic_s18_3": false,
+    "protected_data_access": false
+  },
+  "prerequisites": {
+    "s1r_confirmation": {
+      "path": "artifacts/phase18/s1r_disjoint_confirmation/run-0001/summary.json",
+      "sha256": "ef4398426000bbfa7e5f28a14279bee6771d19010cacb11e5736bc24ada46c94"
+    },
+    "s1_config": {
+      "path": "experiment/phase18/config/s18_s1_actionability.json",
+      "sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738"
+    },
+    "s1_preflight": {
+      "path": "artifacts/phase18/s1_actionability/preflight/manifest.json",
+      "sha256": "12a70def1ab246d4e64f6be824c37106b383449ea4694bf2309ace53421d6527"
+    },
+    "data_contract": {
+      "path": "experiment/phase18/config/s18_data_contract.json",
+      "sha256": "3985a1a5c4a27bff845f85876d58bfd1fd4c01366a6a02a7d73e888a1aacd3a2"
+    }
+  },
+  "required_predecessor_decision": "S18_1R_ACTIONABILITY_REPAIRED_PASS",
+  "domains": {
+    "Toys": {
+      "parent": {
+        "path": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/parent_epoch10.pt",
+        "sha256": "f7dc8e50330e04968eed30cac23ba50ceace1d704f79caa6ca0738224d2e7325"
+      },
+      "item_head": {
+        "path": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/item_head_epoch10.pt",
+        "sha256": "f835f4746d67a1eca662a750139bbd6fda9611e1dd8adfc911925d577609a4a3"
+      },
+      "source_cohort": {
+        "path": "artifacts/phase18/s1_actionability/preflight/cohort_Toys.txt",
+        "sha256": "3872e5545d3f410452fdf3396c57bb42bed77575b1e4a1b4a9093a29ed919248"
+      },
+      "probe_cohort_sha256": "2405c59402284c4d833da6309371534e87b7c52c8b7929c3b40a5fc12426b1d1",
+      "dataset": {
+        "files": {
+          "item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": {
+            "sha256": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+            "size_bytes": 643301
+          },
+          "item_plain_text.txt": {
+            "sha256": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+            "size_bytes": 7595045
+          },
+          "similar_item_sasrec.txt": {
+            "sha256": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1",
+            "size_bytes": 2754562
+          },
+          "user_sequence.txt": {
+            "sha256": "38ab2cc667fc90e7dad47ffdeec08d79bd5fdcab90990ec63640b418eced5767",
+            "size_bytes": 653373
+          }
+        },
+        "path": "artifacts/phase18/s1_actionability/preflight/data/Toys_s18_s1_I0"
+      },
+      "q1": 1
+    },
+    "Beauty": {
+      "parent": {
+        "path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/parent_epoch10.pt",
+        "sha256": "16629e85bd41e72a0b1c955a222823d0aa19444da3c82bbb99f14e8a625d2a7f"
+      },
+      "item_head": {
+        "path": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/item_head_epoch10.pt",
+        "sha256": "9c1297475b38a167798ec02bb375c4034f6885d3fc7f4f948f84a318db936f3b"
+      },
+      "source_cohort": {
+        "path": "artifacts/phase18/s1_actionability/preflight/cohort_Beauty.txt",
+        "sha256": "91c13e190600322f0f3c3d572a312a9ce14e006e00401ad15b896caf069152fd"
+      },
+      "probe_cohort_sha256": "7c44caaf2baa07f2b31e35c0cef09b0e43b6bae733395a961d70a8fcfd6f0908",
+      "dataset": {
+        "files": {
+          "item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": {
+            "sha256": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+            "size_bytes": 818050
+          },
+          "item_plain_text.txt": {
+            "sha256": "d2a4446fd36d2a13fdca89bed64730bde37f49330c35fa0d5be1d719479cdacc",
+            "size_bytes": 7766790
+          },
+          "similar_item_sasrec.txt": {
+            "sha256": "fbece8be64cec2cd9a65d14710e4207b808e4803162359dc698377f78458ce3c",
+            "size_bytes": 2795449
+          },
+          "user_sequence.txt": {
+            "sha256": "2766cae66309d49c684239ce61453c35b94d0293ad349130546374a023ac557a",
+            "size_bytes": 812719
+          }
+        },
+        "path": "artifacts/phase18/s1_actionability/preflight/data/Beauty_s18_s1_I0"
+      },
+      "q1": 1
+    }
+  },
+  "arms": [
+    "C0_CONT",
+    "A0_LEGAL_GENERIC",
+    "M0_PCPS",
+    "S0_SHUFFLED_CF"
+  ],
+  "cohort": {
+    "probe_users": 1000,
+    "calibration_users": 100,
+    "overfit_users": 100,
+    "selection": "first 1000 of original S18-1 frozen cohort; first 100 nested; no outcome selection",
+    "fold": "I0",
+    "training": "one final next-item transition inside I0 visible prefix per selected user",
+    "evaluation": "I0 held-out target, excluded from optimization and training negative-cache generation"
+  },
+  "loss": {
+    "prefix_margin": 0.0,
+    "path_margin": 0.0,
+    "prefix_event_weight": 1.0,
+    "prefix_normalization": "mean over nonempty legal sibling nodes per user",
+    "path_normalization": "one log1p weighted exponential sum per user; weights sum to one",
+    "user_normalization": "equal user mean",
+    "prefix_weight": 0.5,
+    "path_weight": 0.5,
+    "negative_k_per_node": 8,
+    "path_negative_cap": 8,
+    "path_selection": "first 8 parent-beam200 wrong items in native order, shared by A0/M0/S0",
+    "empty_prefix_fallback": "zero prefix loss, retain CE and path",
+    "empty_wrong_beam_fallback": "zero path loss, retain CE and prefix",
+    "logit_clipping": null,
+    "weight_sigmoid": "stable unclipped logaddexp",
+    "length_penalty": 1.0,
+    "cf_path_standardization": "full catalog z(z(cf)-0.5*z(log1p(freq)))",
+    "generic_fallback": "lexical item order; no CF/frequency reads",
+    "shuffle": "fixed hash-sorted cyclic bijection over 1000 users within domain; remap CF vector only, retain current-user reliability/frequency/parent beam"
+  },
+  "alpha_calibration": {
+    "candidates": [
+      0.1,
+      0.3
+    ],
+    "weighted_gradient_ratio_range": [
+      0.1,
+      0.3
+    ],
+    "definition": "alpha * norm(mean per-user grad auxiliary) / norm(mean per-user grad CE), all trainable parameters, eval mode, 100 train-only examples per domain",
+    "requirement": "same alpha satisfies both domains",
+    "tie_break": "closest macro weighted ratio to 0.20 then smaller alpha",
+    "no_candidate_decision": "GRADIENT_CALIBRATION_FAILED",
+    "accuracy_read_before_freeze": false
+  },
+  "training": {
+    "overfit_epochs": 5,
+    "probe_epochs": 1,
+    "fresh_parent_per_arm_and_stage": true,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "adam_eps": 1e-06,
+    "warmup_ratio": 0.05,
+    "microbatch_users": 1,
+    "gradient_accumulation_users": 16,
+    "max_grad_norm": 1.0,
+    "dropout": true,
+    "checkpoint": "fixed final epoch only",
+    "batch_order": "seeded shuffle per epoch, identical across all arms",
+    "sample_rng": "reset per epoch/user to match target-forward dropout across arms"
+  },
+  "generation": {
+    "training_beam": 200,
+    "evaluation_beam": 50,
+    "length_penalty": 1.0,
+    "cross_attention_cache": false,
+    "self_attention_cache": true,
+    "formal_candidate_insertion": false
+  },
+  "metrics": {
+    "prefix_survival": "per-user fraction of non-EOS target prefixes in traced active beam50, then user mean",
+    "path_margin": "target minus parent-softmax-weighted mean of fixed top8 parent wrong paths; same evaluation anchors for every arm",
+    "generic_additivity": "M0 strictly exceeds A0 on BOTH survival and Hit@50",
+    "overfit": "report initial/final train CE; all four arms must reduce CE; no outcome-driven extra epochs"
+  },
+  "gates": {
+    "survival_vs_c0_min": 0.02,
+    "hit50_vs_c0_min": 0.005,
+    "survival_vs_s0_min": 0.01,
+    "ndcg10_max_drop": 0.001
+  },
+  "runtime": {
+    "gpu_count": 1,
+    "excluded_physical_gpus": [
+      1,
+      4
+    ],
+    "hard_timeout_seconds": 86400,
+    "heartbeat_seconds": 30,
+    "background_required": true,
+    "no_live_agent_monitoring": true,
+    "status_path": "artifacts/phase18/status/s18_s2_mechanism_probe.status.json",
+    "postrun_occupancy": false,
+    "postrun_occupancy_reason": "S18-2 bounded single-GPU probe, not a large experiment",
+    "smoke_scientific_result_eligible": false
+  }
+}

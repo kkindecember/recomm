@@ -1,0 +1,228 @@
+{
+  "accuracy_promotion": false,
+  "automatic_retry": false,
+  "automatic_s18_3": false,
+  "config_sha256": "b99baa03eae7181796fd2b8ef346a4cfa3b3f393f956571fac985e7387c3f09e",
+  "created_at": "2026-09-08T02:33:45.444196+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "gpu": 7,
+  "i1_i2_read": false,
+  "inputs": [
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/manifest.json",
+      "sha256": "aa3828bfdddd128152ed92257be2c7ab1ef27671c5ecce44c72e656f9e358b87"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/cohort_Toys.txt",
+      "sha256": "2405c59402284c4d833da6309371534e87b7c52c8b7929c3b40a5fc12426b1d1"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/training_Toys.jsonl",
+      "sha256": "54bdfba6fca95bde05e2fccef768b661a531b77c692d3cf3866c44386a464c2d"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/shuffled_teacher_Toys.json",
+      "sha256": "29c49f970901c8c1c5955d603094241da7225a29d79c9cef28ba58806f1e415c"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/training_cache.jsonl",
+      "sha256": "fab9e94c4c3a2ab121a626ee161276e69057c8c5ba50bf05ec2c37a7273de0f1"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/cohort_Beauty.txt",
+      "sha256": "7c44caaf2baa07f2b31e35c0cef09b0e43b6bae733395a961d70a8fcfd6f0908"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/training_Beauty.jsonl",
+      "sha256": "b31e5940a0c0ddd7b9296812201a442bde3355aa18632fa914079fd62d9623d3"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/shuffled_teacher_Beauty.json",
+      "sha256": "b00e5d4b702b3b5d639e9a9016dc7381ec479bab88b7f4005c25eb61a03b7fbe"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/training_cache.jsonl",
+      "sha256": "1ff1a5e9f14ee7a7e443e823284397d83e1becf40ff440180fb9d3992f97a0b9"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/evaluation_Toys.jsonl",
+      "sha256": "fc1e32cbff7ca5fde8503a268b8ab89ff490ce73bee14c853f5ac9996fb05b39"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/evaluation_anchors.jsonl",
+      "sha256": "e707c7df8fb7df86029a69cfe966bbcfc61c920f0d1c453c3989770bc32e055b"
+    }
+  ],
+  "kind": "formal",
+  "new_checkpoints": 0,
+  "official_validation_test_read": false,
+  "optimizer_steps": 0,
+  "sources": [
+    {
+      "path": "experiment/phase18/config/s18_s2_mechanism_probe.json",
+      "sha256": "e05d127c4b3eeb71e79b3a8391c2440c68dd891c816ddd5efe6e9d6595959d41"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_s2_mechanism_probe.py",
+      "sha256": "db1d75de5da82a39471992da12193bc12b27c0b96504222b13d7ca70b30b858d"
+    },
+    {
+      "path": "experiment/phase18/core/pcps_loss.py",
+      "sha256": "d8b67812616adf39f8a53369dee1cb0f213e1e619bd3de482a7512697b5a4b8a"
+    },
+    {
+      "path": "experiment/phase18/core/s2_contracts.py",
+      "sha256": "aa6cbe0a9592781d64963868f449761c8f0f8cb5de7df117aadc1b6f106fef7f"
+    },
+    {
+      "path": "experiment/phase18/tests/test_s18_s2_contract.py",
+      "sha256": "52ead55c4ddd74042cfda758d80dc8d7f7db90a803e8e4167e5189c4b0de1904"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_s1_runtime.py",
+      "sha256": "c6d7819e5fbc9aa78fe73132228357ccf867b042ecd702b074a642742f946047"
+    },
+    {
+      "path": "experiment/phase18/core/contracts.py",
+      "sha256": "0fffc0167025aa1faa77576537edd8e603188fa15c08ac5a3518002f043c70cb"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_s1_prepare.py",
+      "sha256": "6edb437a2aef44e2f5fb27874cb37c81696a747d57eef050b91cac2828fbfbd8"
+    },
+    {
+      "path": "GRAM/prompt.txt",
+      "sha256": "90d10983134376958393a36bec68cf57bba20f2bb7c3397cee21ba1228263438"
+    },
+    {
+      "path": "experiment/phase9/train_cf0_b2_item_head.py",
+      "sha256": "09a191f9bb978976d5c5febc8bf7fdfc9763715a74f02484ee264e0077c8df23"
+    },
+    {
+      "path": "plan/第十八阶段/GRAM_第十八阶段_S18-2机制探针执行补遗v0.1.md",
+      "sha256": "26b3c76a325b012c1f88750e012b8f1b317c040ec7e39c2f4513f469898884bc"
+    },
+    {
+      "path": "GRAM/src/model/__init__.py",
+      "sha256": "bbf16d3aeb2fa9e1ecdae11da0757bdd97e4ef7b66d0a3a8cb433ce6ba865236"
+    },
+    {
+      "path": "GRAM/src/model/gram.py",
+      "sha256": "fdd6286e30fa5f17eb2f3405cec72d79f8182ad1025ca2e16ff01fe037ea5cea"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5.py",
+      "sha256": "4bb0c08bf8561303f154931ff2cb2d445d1c382ebc0b44b6797297fa622bd673"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5_config.py",
+      "sha256": "cc49f51c86dddbdc77a67c9b4fb841b78c1a7844e51df94baa375a30146d0631"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5_modeling.py",
+      "sha256": "27b558fb2558311894d702d4b9cde5987c3fb09bc4ff321a4eaf3a8abf68fbb3"
+    },
+    {
+      "path": "GRAM/src/model/gram_t5_outputs.py",
+      "sha256": "6b6e2f2a2d0faba8c27e7906eb8cbe9abd6e7d0654f881adf32ba1229ed3c07b"
+    },
+    {
+      "path": "GRAM/src/data/__init__.py",
+      "sha256": "ae229fd84a5ce389d700ee1191cda1a74ea53731c0e5685ac634fc43cc512da4"
+    },
+    {
+      "path": "GRAM/src/data/multi_task_dataset_gen.py",
+      "sha256": "4495a3b2c4c89d64ff869d2ea0e1b084813278e398c95aa36e17792cabe5808b"
+    },
+    {
+      "path": "GRAM/src/data/multi_task_dataset_gram.py",
+      "sha256": "5c20b9b3d15df4eb76b52303fe6fac7f5811e84902341860324e369364af6b1b"
+    },
+    {
+      "path": "GRAM/src/data/multi_task_dataset_rec.py",
+      "sha256": "6c983bcc7ef17889a18ff0e85346826f554c52796e4a5cdb2ad15991c0a7dd84"
+    },
+    {
+      "path": "GRAM/src/data/test_dataset_gram.py",
+      "sha256": "aa440101015976e3be9d40ecec0373e31239653157a0539e57b2455d9f5d651c"
+    },
+    {
+      "path": "GRAM/src/processor/Collator.py",
+      "sha256": "49a35955d0f952e4015d8e87935c05b8138489d1ed60b4d30cc865dcf7bcc949"
+    },
+    {
+      "path": "GRAM/src/processor/DistMultiDataTaskSampler.py",
+      "sha256": "d25b063fd5360bc3c9de18e50fa7ca45369c7673e74e4e95758b97600643977f"
+    },
+    {
+      "path": "GRAM/src/processor/SingleMultiDataTaskSampler.py",
+      "sha256": "2f1e8c429503ad0fe1f9a37c749a69878abe2a949913ba83e9eb1c8fe8989683"
+    },
+    {
+      "path": "GRAM/src/processor/__init__.py",
+      "sha256": "0f38568b35b4f388bbe4264b2e157cd42ca6ba82e6fef85ff9c9584ed3705990"
+    },
+    {
+      "path": "GRAM/src/utils/__init__.py",
+      "sha256": "3a4f72f6e82b8f226c6bd8ce04ff2b65435aa6f3af87ebfc8a16bcac63c17838"
+    },
+    {
+      "path": "GRAM/src/utils/dataset_utils.py",
+      "sha256": "3ad7b030a7a43f2fdf4f594e96a89730db484ac74fcb28f075dd6c7cd0ca02fb"
+    },
+    {
+      "path": "GRAM/src/utils/evaluate.py",
+      "sha256": "9321e5b958d2f29a1bc75bd9bc621bb6626a34af301fc08e9051369e9c46dcbf"
+    },
+    {
+      "path": "GRAM/src/utils/generation_trie.py",
+      "sha256": "eb244f1e79a9e80334d147fdbffcad2ebe4fd4be6e96c9d00a4fa46d828af7af"
+    },
+    {
+      "path": "GRAM/src/utils/indexing.py",
+      "sha256": "e16a52a4dec05fc1cddac5d1468fec3a9698e1f4208042a65e1c79504fa2d2cc"
+    },
+    {
+      "path": "GRAM/src/utils/prompt.py",
+      "sha256": "10219c1bd32425baddb4a4af401cb24eaf27c2caae7640018ef51d4742122426"
+    },
+    {
+      "path": "GRAM/src/utils/utils.py",
+      "sha256": "1b6d22a42c9cbfd6e044ddffaeb638a7814712800fdb71de10b44f4d687f2610"
+    },
+    {
+      "path": "experiment/phase18/config/s18_beam_boundary_diagnostic.json",
+      "sha256": "b99baa03eae7181796fd2b8ef346a4cfa3b3f393f956571fac985e7387c3f09e"
+    },
+    {
+      "path": "experiment/phase18/protocol/s18_beam_boundary_diagnostic.py",
+      "sha256": "c80413c9f6887f043b5085eb85e2d612ac4a063467ab9ee0c85649dc5ccd9fe6"
+    },
+    {
+      "path": "plan/第十八阶段/GRAM_真实Beam边界诊断_执行补遗v0.1.md",
+      "sha256": "26419c464956e4f654ec7d9a34389c187e9c9da0cdd0c19e56dacde9dd1a493c"
+    },
+    {
+      "path": "experiment/phase18/run_stage18_beam_boundary_diagnostic.sh",
+      "sha256": "2877be79c29e53f92787275e6d3d8252f6e6edf9d8cc9d979dc2a2f6c9282f9e"
+    },
+    {
+      "path": "experiment/phase18/tests/test_s18_beam_boundary.py",
+      "sha256": "72e3fd33578498edd1a2687dadb1503833b820ed004fbfb411d0edd9afe9d543"
+    },
+    {
+      "path": "experiment/phase18/core/beam_boundary_trace.py",
+      "sha256": "3908c45e4a16b0e057aaf9d275a8807864fbf50fd311b2e74a697c33edb24027"
+    },
+    {
+      "path": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/generation/utils.py",
+      "sha256": "58fee688e4ad412c03a4bff6206f197555c1a7884bd2f2943d9fdea1c059d749"
+    },
+    {
+      "path": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/generation/beam_search.py",
+      "sha256": "ede853a2fc7a8cb4278a4c6a0c739cafcaf16a7a3579326db291a4f2f8b0c8a3"
+    }
+  ],
+  "sports_read": false
+}

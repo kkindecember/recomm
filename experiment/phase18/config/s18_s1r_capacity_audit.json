@@ -1,0 +1,59 @@
+{
+  "schema_version": "phase18.s18_1r_capacity_audit.v1",
+  "step_id": "S18-1R-AUDIT",
+  "mode": "retrospective_metric_feasibility_audit",
+  "parent_plan": "plan/第十八阶段/GRAM_第十八阶段_PCPS-GRAM词法锚定协同前缀生存与低风险验证计划v0.2.md",
+  "amendment": "plan/第十八阶段/GRAM_第十八阶段_S18-1R容量校正Gate修订补遗v0.1.md",
+  "authorization_basis": "researcher_continue_direction_2026-09-07",
+  "hard_negative_k": 8,
+  "sources": {
+    "canonical_summary": {
+      "path": "artifacts/phase18/s1_actionability/summary.json",
+      "sha256": "ebb9a7068f30007709737781501b57d8ef6dcb4e09aaec42362f94d3117d41e0"
+    },
+    "folds": {
+      "Toys:I0": {
+        "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/per_user_diagnostics.jsonl",
+        "sha256": "92cb0f2e892682009952745240242d7e593c22ae20c9c21c2eae352ca56e4b9a"
+      },
+      "Toys:I-1": {
+        "path": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/per_user_diagnostics.jsonl",
+        "sha256": "b6bd3faa82d90b51a5c6c05035ee07b92804457cb4ebba4c47565d28aeba9d16"
+      },
+      "Beauty:I0": {
+        "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_i0/per_user_diagnostics.jsonl",
+        "sha256": "33b317da9f5162d9b460bea0053d25f2d9f6350f91997767bab7bc4b9d86ee8c"
+      },
+      "Beauty:I-1": {
+        "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_im1/per_user_diagnostics.jsonl",
+        "sha256": "6a166a843930a639ed67b44c7b5d50a69dc0dc4557971148a822173c461550a4"
+      }
+    }
+  },
+  "repaired_gate": {
+    "capacity_normalized_recall_min": 0.8,
+    "event_any_hit_rate_min": 0.8,
+    "raw_micro_recall_role": "descriptive_only",
+    "depth_stratification_required": true
+  },
+  "disjoint_confirmation": {
+    "required": true,
+    "domains": ["Toys", "Beauty"],
+    "folds": ["I-1", "I0"],
+    "users_per_domain": 1024,
+    "selection_key": "sha256('S18-1|2023|<domain>|<user>'), then user",
+    "selection_slice": [1024, 2048],
+    "reuse_frozen_fold_local_checkpoints": true,
+    "treatment_training": false
+  },
+  "authorization_boundary": {
+    "cpu_retrospective_audit_allowed": true,
+    "disjoint_cohort_preflight_allowed": true,
+    "gpu_confirmation_automatic": false,
+    "automatic_s18_2": false,
+    "i1_i2_allowed": false,
+    "d1_d2_allowed": false,
+    "official_validation_test_allowed": false,
+    "sports_allowed": false
+  }
+}

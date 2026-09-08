@@ -1,0 +1,1183 @@
+{
+  "attempt_id": "run-0007",
+  "automatic_retry": false,
+  "automatic_s18_2": false,
+  "beauty_recovery_authorization_sha256": "814fe3d8cac23f1d06b9851b3ce3b5d2e3a7e8b2c0609c9a6402e1708e1d5a09",
+  "checkpoint_only": true,
+  "completed_at": "2026-09-04T08:46:20.810688+00:00",
+  "d1_read": false,
+  "d2_read": false,
+  "decision": "NO_ACTIONABLE_PREFIX_BOTTLENECK",
+  "domains": {
+    "Beauty": {
+      "folds": {
+        "I-1": {
+          "actual_pruner_items_total": 821,
+          "actual_pruner_legal_fraction": 1.0,
+          "allocator_reservation": {
+            "0": {
+              "physical_gpu": 7,
+              "reserved_mib": 17408.0,
+              "target_mib": 17408
+            },
+            "1": {
+              "physical_gpu": 5,
+              "reserved_mib": 16384.0,
+              "target_mib": 16384
+            }
+          },
+          "attempt_id": "run-0007",
+          "attrition": {
+            "beam200_only": 108,
+            "cohort": 1024,
+            "empty_actual_pruner": 30,
+            "hard_negative_fewer_than_k": 21,
+            "nonempty_actual_pruner": 78
+          },
+          "beam200_hits": 421,
+          "beam200_only_events": 108,
+          "beam50_hits": 313,
+          "d1_read": false,
+          "d2_read": false,
+          "decoder_device_map": {
+            "0": [
+              0,
+              1,
+              2
+            ],
+            "1": [
+              3,
+              4,
+              5
+            ]
+          },
+          "domain": "Beauty",
+          "experiment_id": "s18_s1_actionability_beauty_reservation_recovery",
+          "files": {
+            "beam200": {
+              "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_im1/beams_w200.tsv",
+              "sha256": "2c18cc9aa9dc2c77c70c0d7aad00cbb8d8b42e7dd4802ffd9702e21c35eaef48"
+            },
+            "beam50": {
+              "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_im1/beams_w50.tsv",
+              "sha256": "d22b57747b2074ee53f105b0e3cacc679c7d8f2b9083ec908aa6e354e8322069"
+            },
+            "diagnostics": {
+              "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_im1/per_user_diagnostics.jsonl",
+              "sha256": "6a166a843930a639ed67b44c7b5d50a69dc0dc4557971148a822173c461550a4"
+            }
+          },
+          "finite_and_trie_legal": true,
+          "first_drop_depth_distribution": {
+            "1": 12,
+            "2": 63,
+            "3": 26,
+            "4": 4,
+            "5": 1,
+            "9": 2
+          },
+          "first_drop_events": 108,
+          "fold": "I-1",
+          "generation_runtime": {
+            "cross_attention_cache": true,
+            "release_cuda_cache_per_user": false,
+            "scientific_parameters_changed": false,
+            "use_cache": true
+          },
+          "hard_negative_actual_denominator_total": 821,
+          "hard_negative_intersection_total": 281,
+          "headroom": 0.10546875,
+          "item_head_retraining": false,
+          "item_head_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/beauty_im1/item_head_epoch10.pt",
+            "checkpoint_sha256": "dd4dc6b96ced42dc8c07e7d4b4dfae64a5f618ca3af65112344a7417178c59d8",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 8.720038080215454
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 7.40838742852211
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 6.482881945371628
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 5.763427567481995
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 5.199839890003204
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 4.749395126104355
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 4.396260130405426
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 4.115366080403328
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 3.9118924707174303
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 3.780639284849167
+              }
+            ],
+            "reused_without_training": true,
+            "samples": 40594
+          },
+          "k8_actual_pruner_recall": 0.34226552984165654,
+          "nonempty_actual_pruner_events": 78,
+          "nonempty_actual_pruner_fraction": 0.7222222222222222,
+          "parent_retraining": false,
+          "parent_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/beauty_im1/parent_epoch10.pt",
+            "checkpoint_sha256": "5e5ab66ed4696c53b74b46e9949037d7c7dbae522dd0a25593d51f307525c8ed",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 5.323550155540448,
+                "wall_time_seconds": 1945.893358707428
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 3.9987178563695895,
+                "wall_time_seconds": 2044.4186825752258
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 3.332667207652138,
+                "wall_time_seconds": 2035.7808413505554
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 2.945080814679088,
+                "wall_time_seconds": 2494.201464176178
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 2.693515533626878,
+                "wall_time_seconds": 2670.902805328369
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 2.509275948254493,
+                "wall_time_seconds": 2676.648062467575
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 2.3714833623363427,
+                "wall_time_seconds": 2669.4971895217896
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 2.268493242743825,
+                "wall_time_seconds": 2864.2280530929565
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 2.190614101288354,
+                "wall_time_seconds": 3199.3420321941376
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 2.1455964677628803,
+                "wall_time_seconds": 3290.7810850143433
+              }
+            ],
+            "reused_without_training": true
+          },
+          "peak_allocated_mib": 17408.0,
+          "peak_by_visible_gpu": {
+            "0": {
+              "allocated_mib": 17408.0,
+              "physical_gpu": 7,
+              "reserved_mib": 17484.0
+            },
+            "1": {
+              "allocated_mib": 16384.0,
+              "physical_gpu": 5,
+              "reserved_mib": 16432.0
+            }
+          },
+          "peak_reserved_mib": 17484.0,
+          "physical_gpus": [
+            7,
+            5
+          ],
+          "recovery_of": "s18_s1_actionability_beauty_recovery/run-0006",
+          "release_cuda_cache_per_user": false,
+          "retain_allocator_cache_between_users": true,
+          "schema_version": "phase18.s18_1_unit_summary.v1",
+          "scientific_parameters_changed": false,
+          "sports_read": false,
+          "status": "COMPLETED",
+          "target_cf_z": {
+            "count": 1024,
+            "max": 12.167873938071597,
+            "mean": 1.9487379397249085,
+            "median": 1.17532079214606,
+            "min": -2.9722347587771933
+          },
+          "target_minus_negative_cf_margin": {
+            "count": 101,
+            "max": 7.67221474647522,
+            "mean": 0.5900167814609225,
+            "median": 0.42721766233444214,
+            "min": -5.276353091001511
+          },
+          "target_minus_negative_logpop_margin": {
+            "count": 101,
+            "max": 4.339551875475032,
+            "mean": 0.5455092470295326,
+            "median": 0.49693515495717966,
+            "min": -2.928895725226715
+          },
+          "target_minus_negative_path_gap": {
+            "count": 101,
+            "max": 9.541309237480164,
+            "mean": 1.096032679026047,
+            "median": 0.5237652510404587,
+            "min": -0.703998502343893
+          },
+          "target_path_probability": {
+            "count": 108,
+            "max": 0.004312154254408359,
+            "mean": 0.001336494249741575,
+            "median": 0.001122663971828928,
+            "min": 2.0032715524610662e-05
+          },
+          "target_raw_log_probability": {
+            "count": 108,
+            "max": -5.446317672729492,
+            "mean": -7.0173316222650035,
+            "median": -6.792211294174194,
+            "min": -10.818143844604492
+          },
+          "test_read": false,
+          "treatment_training": false,
+          "users": 1024,
+          "wall_time_seconds": 2257.228982925415,
+          "wall_time_total_seconds": 2332.9799683094025,
+          "wrong_beam_normalized_log_probability": {
+            "count": 95,
+            "max": -0.28258615732192993,
+            "mean": -0.8389817704436567,
+            "median": -0.8540726184844971,
+            "min": -1.1509947776794434
+          },
+          "wrong_beam_path_probability": {
+            "count": 95,
+            "max": 0.11150644406673267,
+            "mean": 0.007025381179651182,
+            "median": 0.0034670099202546278,
+            "min": 0.00015256060845224488
+          },
+          "wrong_beam_pcrf_difficulty": {
+            "count": 95,
+            "max": 4.850461473388523,
+            "mean": 0.48182764393980326,
+            "median": 0.28080276310763375,
+            "min": -2.217627777931355
+          },
+          "wrong_beam_raw_log_probability": {
+            "count": 95,
+            "max": -2.1936728954315186,
+            "mean": -6.276694192098128,
+            "median": -6.282179296016693,
+            "min": -8.787948608398438
+          }
+        },
+        "I0": {
+          "actual_pruner_items_total": 620,
+          "actual_pruner_legal_fraction": 1.0,
+          "allocator_reservation": {
+            "0": {
+              "physical_gpu": 7,
+              "reserved_mib": 17408.0,
+              "target_mib": 17408
+            },
+            "1": {
+              "physical_gpu": 5,
+              "reserved_mib": 16384.0,
+              "target_mib": 16384
+            }
+          },
+          "attempt_id": "run-0007",
+          "attrition": {
+            "beam200_only": 114,
+            "cohort": 1024,
+            "empty_actual_pruner": 32,
+            "hard_negative_fewer_than_k": 25,
+            "nonempty_actual_pruner": 82
+          },
+          "beam200_hits": 435,
+          "beam200_only_events": 114,
+          "beam50_hits": 321,
+          "d1_read": false,
+          "d2_read": false,
+          "decoder_device_map": {
+            "0": [
+              0,
+              1,
+              2
+            ],
+            "1": [
+              3,
+              4,
+              5
+            ]
+          },
+          "domain": "Beauty",
+          "experiment_id": "s18_s1_actionability_beauty_reservation_recovery",
+          "files": {
+            "beam200": {
+              "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_i0/beams_w200.tsv",
+              "sha256": "45381aef82d74bd7a09fce565f38c9274308e1a26f14180e4642f87be5ed603c"
+            },
+            "beam50": {
+              "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_i0/beams_w50.tsv",
+              "sha256": "bf40611630550c81813baccc8f12afaa5aec953d685c4272e44c592760bcab1a"
+            },
+            "diagnostics": {
+              "path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_i0/per_user_diagnostics.jsonl",
+              "sha256": "33b317da9f5162d9b460bea0053d25f2d9f6350f91997767bab7bc4b9d86ee8c"
+            }
+          },
+          "finite_and_trie_legal": true,
+          "first_drop_depth_distribution": {
+            "1": 8,
+            "2": 69,
+            "3": 28,
+            "4": 5,
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "9": 1
+          },
+          "first_drop_events": 114,
+          "fold": "I0",
+          "generation_runtime": {
+            "cross_attention_cache": true,
+            "release_cuda_cache_per_user": false,
+            "scientific_parameters_changed": false,
+            "use_cache": true
+          },
+          "hard_negative_actual_denominator_total": 620,
+          "hard_negative_intersection_total": 243,
+          "headroom": 0.111328125,
+          "item_head_retraining": false,
+          "item_head_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/item_head_epoch10.pt",
+            "checkpoint_sha256": "9c1297475b38a167798ec02bb375c4034f6885d3fc7f4f948f84a318db936f3b",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 8.727495574951172
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 7.436983823776245
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 6.5145999855465355
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 5.786266162660387
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 5.214247560501098
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 4.750615379545423
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 4.380405802196926
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 4.09619701968299
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 3.8892520798577204
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 3.7507689052157933
+              }
+            ],
+            "reused_without_training": true,
+            "samples": 45717
+          },
+          "k8_actual_pruner_recall": 0.3919354838709677,
+          "nonempty_actual_pruner_events": 82,
+          "nonempty_actual_pruner_fraction": 0.7192982456140351,
+          "parent_retraining": false,
+          "parent_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/beauty_i0/parent_epoch10.pt",
+            "checkpoint_sha256": "16629e85bd41e72a0b1c955a222823d0aa19444da3c82bbb99f14e8a625d2a7f",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 5.369499745112019,
+                "wall_time_seconds": 2169.0182847976685
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 3.9588054087380584,
+                "wall_time_seconds": 2260.9074325561523
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 3.259072601086114,
+                "wall_time_seconds": 2284.898268222809
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 2.885258532262833,
+                "wall_time_seconds": 2251.954343557358
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 2.636656425356281,
+                "wall_time_seconds": 2254.748488664627
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 2.4538965092162472,
+                "wall_time_seconds": 2246.0021674633026
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 2.3190967829140687,
+                "wall_time_seconds": 2261.415734052658
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 2.2146134577988743,
+                "wall_time_seconds": 2224.9063532352448
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 2.137690161891214,
+                "wall_time_seconds": 2931.1812829971313
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 2.0960739476852606,
+                "wall_time_seconds": 2981.289989709854
+              }
+            ],
+            "reused_without_training": true
+          },
+          "peak_allocated_mib": 17408.0,
+          "peak_by_visible_gpu": {
+            "0": {
+              "allocated_mib": 17408.0,
+              "physical_gpu": 7,
+              "reserved_mib": 17484.0
+            },
+            "1": {
+              "allocated_mib": 16384.0,
+              "physical_gpu": 5,
+              "reserved_mib": 16432.0
+            }
+          },
+          "peak_reserved_mib": 17484.0,
+          "physical_gpus": [
+            7,
+            5
+          ],
+          "recovery_of": "s18_s1_actionability_beauty_recovery/run-0006",
+          "release_cuda_cache_per_user": false,
+          "retain_allocator_cache_between_users": true,
+          "schema_version": "phase18.s18_1_unit_summary.v1",
+          "scientific_parameters_changed": false,
+          "sports_read": false,
+          "status": "COMPLETED",
+          "target_cf_z": {
+            "count": 1024,
+            "max": 13.245669476204707,
+            "mean": 1.953053354360872,
+            "median": 1.0664148000480704,
+            "min": -2.0223112003235073
+          },
+          "target_minus_negative_cf_margin": {
+            "count": 108,
+            "max": 7.793470074733098,
+            "mean": 0.6964738171077595,
+            "median": 0.5193050355883315,
+            "min": -4.49063378572464
+          },
+          "target_minus_negative_logpop_margin": {
+            "count": 108,
+            "max": 4.356708826689592,
+            "mean": 0.5851979667512959,
+            "median": 0.4740650895896006,
+            "min": -2.03385972009902
+          },
+          "target_minus_negative_path_gap": {
+            "count": 108,
+            "max": 12.634530782699585,
+            "mean": 1.1332243432566254,
+            "median": 0.6017039128475719,
+            "min": -0.724123926833272
+          },
+          "target_path_probability": {
+            "count": 114,
+            "max": 0.009211332962920328,
+            "mean": 0.0016035816951962742,
+            "median": 0.0012250714420251638,
+            "min": 1.9519414893468354e-05
+          },
+          "target_raw_log_probability": {
+            "count": 114,
+            "max": -4.687320709228516,
+            "mean": -6.796526227081031,
+            "median": -6.704760313034058,
+            "min": -10.844100952148438
+          },
+          "test_read": false,
+          "treatment_training": false,
+          "users": 1024,
+          "wall_time_seconds": 3168.016409635544,
+          "wall_time_total_seconds": 3251.334051847458,
+          "wrong_beam_normalized_log_probability": {
+            "count": 99,
+            "max": -0.2343575805425644,
+            "mean": -0.8224428515679219,
+            "median": -0.8412722229957581,
+            "min": -1.351410436630249
+          },
+          "wrong_beam_path_probability": {
+            "count": 99,
+            "max": 0.16800752969976793,
+            "mean": 0.00980769030030424,
+            "median": 0.0033129233571838473,
+            "min": 3.043268718150473e-05
+          },
+          "wrong_beam_pcrf_difficulty": {
+            "count": 99,
+            "max": 4.947835549946679,
+            "mean": 0.6069017687561932,
+            "median": 0.3136024272147357,
+            "min": -1.4967436468658755
+          },
+          "wrong_beam_raw_log_probability": {
+            "count": 99,
+            "max": -1.7837464809417725,
+            "mean": -6.158248444855562,
+            "median": -6.241918775770399,
+            "min": -10.444265937805175
+          }
+        }
+      },
+      "gate": {
+        "checks": {
+          "gate1_headroom": true,
+          "gate2_beam200_only_events": true,
+          "gate3_nonempty_actual_pruner": true,
+          "gate4_k8_actual_pruner_recall": false,
+          "gate5_finite_and_trie_legal": true,
+          "gate6_cf_target_z_drift": true
+        },
+        "decision": "NO_ACTIONABLE_PREFIX_BOTTLENECK"
+      },
+      "metrics": {
+        "beam200_only_events": 222,
+        "cf_target_z_mean_drift": 0.0043154146359634105,
+        "finite_and_trie_legal": true,
+        "k8_actual_pruner_recall": 0.36363636363636365,
+        "nonempty_actual_pruner_fraction": 0.7207207207207207,
+        "pooled_headroom": 0.1083984375
+      }
+    },
+    "Toys": {
+      "folds": {
+        "I-1": {
+          "actual_pruner_items_total": 282,
+          "actual_pruner_legal_fraction": 1.0,
+          "attempt_id": "run-0003",
+          "attrition": {
+            "beam200_only": 119,
+            "cohort": 1024,
+            "empty_actual_pruner": 48,
+            "hard_negative_fewer_than_k": 18,
+            "nonempty_actual_pruner": 71
+          },
+          "beam200_hits": 285,
+          "beam200_only_events": 119,
+          "beam50_hits": 166,
+          "carried_forward_from": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/summary.json",
+          "carried_forward_sha256": "f1743bf13c93bfc9281bf0d1b9940f149b62b81a36177dc9ba954ca31dc8c409",
+          "carried_forward_source_attempt": "s18_s1_actionability_resource_recovery/run-0003",
+          "d1_read": false,
+          "d2_read": false,
+          "decoder_device_map": {
+            "0": [
+              0,
+              1,
+              2
+            ],
+            "1": [
+              3,
+              4,
+              5
+            ]
+          },
+          "domain": "Toys",
+          "experiment_id": "s18_s1_actionability_resource_recovery",
+          "files": {
+            "beam200": {
+              "path": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/beams_w200.tsv",
+              "sha256": "efd70ac19e041d44dee9107949955c5bb6550d671a9c8a6769474812ff5c283f"
+            },
+            "beam50": {
+              "path": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/beams_w50.tsv",
+              "sha256": "9f060cc8f568242ade2e36ec3214aa1660e1829d84e0e230ce27aa9933bd0782"
+            },
+            "diagnostics": {
+              "path": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/per_user_diagnostics.jsonl",
+              "sha256": "b6bd3faa82d90b51a5c6c05035ee07b92804457cb4ebba4c47565d28aeba9d16"
+            }
+          },
+          "finite_and_trie_legal": true,
+          "first_drop_depth_distribution": {
+            "2": 41,
+            "3": 62,
+            "4": 9,
+            "5": 1,
+            "6": 3,
+            "7": 3
+          },
+          "first_drop_events": 119,
+          "fold": "I-1",
+          "generation_runtime": {
+            "cross_attention_cache": true,
+            "release_cuda_cache_per_user": true,
+            "scientific_parameters_changed": false,
+            "use_cache": true
+          },
+          "hard_negative_actual_denominator_total": 282,
+          "hard_negative_intersection_total": 200,
+          "headroom": 0.1162109375,
+          "item_head_retraining": false,
+          "item_head_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/toys_im1/item_head_epoch10.pt",
+            "checkpoint_sha256": "5cfcc39d98147eea0d7fc5194638a1825c9e8e892b3da8a7788ed1ea35731eed",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 9.1081073731184
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 8.246394366025925
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 7.403278924524784
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 6.663925722241402
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 6.076970234513283
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 5.606205500662327
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 5.234530605375767
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 4.9475817531347275
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 4.741889491677284
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 4.609374031424522
+              }
+            ],
+            "reused_without_training": true,
+            "samples": 32543
+          },
+          "k8_actual_pruner_recall": 0.7092198581560284,
+          "nonempty_actual_pruner_events": 71,
+          "nonempty_actual_pruner_fraction": 0.5966386554621849,
+          "parent_retraining": false,
+          "parent_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/toys_im1/parent_epoch10.pt",
+            "checkpoint_sha256": "dea622bdde979e503c972fd26d040198080d27b395896f8d73de44acf4eb5275",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 5.767281582221872,
+                "wall_time_seconds": 1449.0824081897736
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 4.279882941625814,
+                "wall_time_seconds": 1488.6357123851776
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 3.541863256733912,
+                "wall_time_seconds": 1929.2389125823975
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 3.1204072818995225,
+                "wall_time_seconds": 2047.5805442333221
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 2.8571032709428343,
+                "wall_time_seconds": 1989.6200692653656
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 2.673258329270043,
+                "wall_time_seconds": 1636.3679113388062
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 2.5329625637599267,
+                "wall_time_seconds": 1489.4946582317352
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 2.43107113133724,
+                "wall_time_seconds": 1485.6074492931366
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 2.354183352685139,
+                "wall_time_seconds": 1490.926599264145
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 2.3020933102834658,
+                "wall_time_seconds": 1494.8192846775055
+              }
+            ],
+            "reused_without_training": true
+          },
+          "peak_allocated_mib": 14160.59375,
+          "peak_by_visible_gpu": {
+            "0": {
+              "allocated_mib": 14160.59375,
+              "physical_gpu": 1,
+              "reserved_mib": 15082.0
+            },
+            "1": {
+              "allocated_mib": 13797.02490234375,
+              "physical_gpu": 7,
+              "reserved_mib": 13838.0
+            }
+          },
+          "peak_reserved_mib": 15082.0,
+          "physical_gpus": [
+            1,
+            7
+          ],
+          "recovery_of": "s18_s1_actionability_recovery/run-0002",
+          "resource_recovery_attempt": "run-0007",
+          "schema_version": "phase18.s18_1_unit_summary.v1",
+          "scientific_parameters_changed": false,
+          "sports_read": false,
+          "status": "COMPLETED",
+          "target_cf_z": {
+            "count": 1024,
+            "max": 7.641231306950747,
+            "mean": 1.2570254851455809,
+            "median": 1.0266807215164557,
+            "min": -2.0753626018340254
+          },
+          "target_minus_negative_cf_margin": {
+            "count": 111,
+            "max": 6.475426258519292,
+            "mean": 0.8234821646599157,
+            "median": 0.6466419100761414,
+            "min": -3.504179649055004
+          },
+          "target_minus_negative_logpop_margin": {
+            "count": 111,
+            "max": 2.0402134766531006,
+            "mean": 0.4676490527081162,
+            "median": 0.41914709318999765,
+            "min": -2.32930535332258
+          },
+          "target_minus_negative_path_gap": {
+            "count": 111,
+            "max": 4.20478293299675,
+            "mean": 0.8863899389016311,
+            "median": 0.551546742518743,
+            "min": -0.6142696113813492
+          },
+          "target_path_probability": {
+            "count": 119,
+            "max": 0.016526291310577975,
+            "mean": 0.0017748309582140064,
+            "median": 0.0015311361414000822,
+            "min": 0.00014109791975613087
+          },
+          "target_raw_log_probability": {
+            "count": 119,
+            "max": -4.102802753448486,
+            "mean": -6.557769474863004,
+            "median": -6.48174524307251,
+            "min": -8.866056442260742
+          },
+          "test_read": false,
+          "treatment_training": false,
+          "users": 1024,
+          "wall_time_seconds": 3713.3075461387634,
+          "wall_time_total_seconds": 3771.929179430008,
+          "wrong_beam_normalized_log_probability": {
+            "count": 99,
+            "max": -0.5168824791908264,
+            "mean": -1.0444982816719117,
+            "median": -1.0655714869499207,
+            "min": -1.2945191860198975
+          },
+          "wrong_beam_path_probability": {
+            "count": 99,
+            "max": 0.13024966104393373,
+            "mean": 0.007180812073822354,
+            "median": 0.0027440278860848067,
+            "min": 0.0005932628683975311
+          },
+          "wrong_beam_pcrf_difficulty": {
+            "count": 99,
+            "max": 4.6560964108545315,
+            "mean": 0.4236460487287691,
+            "median": 0.07705066752547561,
+            "min": -1.3916579844741888
+          },
+          "wrong_beam_raw_log_probability": {
+            "count": 99,
+            "max": -3.063504695892334,
+            "mean": -5.911880018998673,
+            "median": -6.052663040161133,
+            "min": -7.446276664733887
+          }
+        },
+        "I0": {
+          "actual_pruner_items_total": 214,
+          "actual_pruner_legal_fraction": 1.0,
+          "attempt_id": "run-0002",
+          "attrition": {
+            "beam200_only": 103,
+            "cohort": 1024,
+            "empty_actual_pruner": 51,
+            "hard_negative_fewer_than_k": 16,
+            "nonempty_actual_pruner": 52
+          },
+          "beam200_hits": 271,
+          "beam200_only_events": 103,
+          "beam50_hits": 168,
+          "carried_forward_from": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/summary.json",
+          "carried_forward_sha256": "85bc2755e5b9fb13a4e3a2eda90ab471c2e75a877d71723edbb04ed0f1ed5039",
+          "carried_forward_source_attempt": "s18_s1_actionability_recovery/run-0002",
+          "d1_read": false,
+          "d2_read": false,
+          "domain": "Toys",
+          "experiment_id": "s18_s1_actionability_recovery",
+          "files": {
+            "beam200": {
+              "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/beams_w200.tsv",
+              "sha256": "b53e14133ff00fda1df57499dc0347fa309031ba9fe7ef07ad6fe6d3ee651a27"
+            },
+            "beam50": {
+              "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/beams_w50.tsv",
+              "sha256": "5d73de98f5216844dc4481e80a9b27ec6fdd344cc0dfa6b22f4650813ad61781"
+            },
+            "diagnostics": {
+              "path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/per_user_diagnostics.jsonl",
+              "sha256": "92cb0f2e892682009952745240242d7e593c22ae20c9c21c2eae352ca56e4b9a"
+            }
+          },
+          "finite_and_trie_legal": true,
+          "first_drop_depth_distribution": {
+            "2": 32,
+            "3": 52,
+            "4": 13,
+            "6": 3,
+            "7": 3
+          },
+          "first_drop_events": 103,
+          "fold": "I0",
+          "hard_negative_actual_denominator_total": 214,
+          "hard_negative_intersection_total": 144,
+          "headroom": 0.1005859375,
+          "item_head_retraining": false,
+          "item_head_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/item_head_epoch10.pt",
+            "checkpoint_sha256": "f835f4746d67a1eca662a750139bbd6fda9611e1dd8adfc911925d577609a4a3",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 9.1176421907213
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 8.222787810696495
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 7.375379549132453
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 6.630757729212443
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 6.039027492205302
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 5.563676218191783
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 5.180279619163937
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 4.89325651857588
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 4.678391853968303
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 4.540167715814379
+              }
+            ],
+            "reused_without_training": true,
+            "samples": 36731
+          },
+          "k8_actual_pruner_recall": 0.6728971962616822,
+          "nonempty_actual_pruner_events": 52,
+          "nonempty_actual_pruner_fraction": 0.5048543689320388,
+          "parent_retraining": false,
+          "parent_training": {
+            "checkpoint": "artifacts/phase18/s1_actionability/run-0001/units/toys_i0/parent_epoch10.pt",
+            "checkpoint_sha256": "f7dc8e50330e04968eed30cac23ba50ceace1d704f79caa6ca0738224d2e7325",
+            "history": [
+              {
+                "epoch": 1,
+                "mean_loss": 5.7191890419983284,
+                "wall_time_seconds": 1528.3603777885437
+              },
+              {
+                "epoch": 2,
+                "mean_loss": 4.1992994840759845,
+                "wall_time_seconds": 1586.6379170417786
+              },
+              {
+                "epoch": 3,
+                "mean_loss": 3.440585481269019,
+                "wall_time_seconds": 1601.5008480548859
+              },
+              {
+                "epoch": 4,
+                "mean_loss": 3.036967915836527,
+                "wall_time_seconds": 1748.3720953464508
+              },
+              {
+                "epoch": 5,
+                "mean_loss": 2.7815765447213674,
+                "wall_time_seconds": 1910.3462483882904
+              },
+              {
+                "epoch": 6,
+                "mean_loss": 2.5973421284338323,
+                "wall_time_seconds": 1897.1029741764069
+              },
+              {
+                "epoch": 7,
+                "mean_loss": 2.4664652801349187,
+                "wall_time_seconds": 1892.8943622112274
+              },
+              {
+                "epoch": 8,
+                "mean_loss": 2.3598689938463817,
+                "wall_time_seconds": 1900.4118990898132
+              },
+              {
+                "epoch": 9,
+                "mean_loss": 2.283597048203289,
+                "wall_time_seconds": 1892.4898681640625
+              },
+              {
+                "epoch": 10,
+                "mean_loss": 2.2351011179050086,
+                "wall_time_seconds": 1889.257695198059
+              }
+            ],
+            "reused_without_training": true
+          },
+          "peak_allocated_mib": 26899.57470703125,
+          "peak_reserved_mib": 31276.0,
+          "physical_gpu": 0,
+          "recovery_of": "s18_s1_actionability/run-0001",
+          "resource_recovery_attempt": "run-0007",
+          "schema_version": "phase18.s18_1_unit_summary.v1",
+          "sports_read": false,
+          "status": "COMPLETED",
+          "target_cf_z": {
+            "count": 1024,
+            "max": 7.611771569129093,
+            "mean": 1.2887928170605571,
+            "median": 0.9944258875139123,
+            "min": -2.7433848405493633
+          },
+          "target_minus_negative_cf_margin": {
+            "count": 97,
+            "max": 5.198199532926083,
+            "mean": 0.664796079309014,
+            "median": 0.42501153238117695,
+            "min": -3.6147437803447247
+          },
+          "target_minus_negative_logpop_margin": {
+            "count": 97,
+            "max": 2.9689907465530787,
+            "mean": 0.5366821359643837,
+            "median": 0.47289262755165673,
+            "min": -1.543446525975484
+          },
+          "target_minus_negative_path_gap": {
+            "count": 97,
+            "max": 4.11382330031622,
+            "mean": 0.9409961812933344,
+            "median": 0.7412857711315153,
+            "min": -0.7103036755607242
+          },
+          "target_path_probability": {
+            "count": 103,
+            "max": 0.005279274587481353,
+            "mean": 0.0017000058408479853,
+            "median": 0.0014934652771510669,
+            "min": 0.00020972684165389524
+          },
+          "target_raw_log_probability": {
+            "count": 103,
+            "max": -5.243966579437256,
+            "mean": -6.554564809336246,
+            "median": -6.506656169891357,
+            "min": -8.469704627990723
+          },
+          "test_read": false,
+          "treatment_training": false,
+          "users": 1024,
+          "wall_time_seconds": 1834.7315003871918,
+          "wall_time_total_seconds": 1889.7117145061493,
+          "wrong_beam_normalized_log_probability": {
+            "count": 87,
+            "max": -0.3000749349594116,
+            "mean": -1.0484271845069078,
+            "median": -1.0770002603530884,
+            "min": -1.6268582344055176
+          },
+          "wrong_beam_path_probability": {
+            "count": 87,
+            "max": 0.1858345492248587,
+            "mean": 0.00822367485191696,
+            "median": 0.002526952028452013,
+            "min": 0.00041923273005420715
+          },
+          "wrong_beam_pcrf_difficulty": {
+            "count": 87,
+            "max": 8.973634428766298,
+            "mean": 0.4644776251055149,
+            "median": 0.15803318161302007,
+            "min": -2.3995994718673748
+          },
+          "wrong_beam_raw_log_probability": {
+            "count": 87,
+            "max": -1.6828985214233398,
+            "mean": -5.948271842373784,
+            "median": -6.154951731363933,
+            "min": -7.8987282911936445
+          }
+        }
+      },
+      "gate": {
+        "checks": {
+          "gate1_headroom": true,
+          "gate2_beam200_only_events": true,
+          "gate3_nonempty_actual_pruner": true,
+          "gate4_k8_actual_pruner_recall": true,
+          "gate5_finite_and_trie_legal": true,
+          "gate6_cf_target_z_drift": true
+        },
+        "decision": "ACTIONABILITY_PASS"
+      },
+      "metrics": {
+        "beam200_only_events": 222,
+        "cf_target_z_mean_drift": 0.03176733191497627,
+        "finite_and_trie_legal": true,
+        "k8_actual_pruner_recall": 0.6935483870967742,
+        "nonempty_actual_pruner_fraction": 0.5540540540540541,
+        "pooled_headroom": 0.1083984375
+      }
+    }
+  },
+  "experiment_id": "s18_s1_actionability_beauty_reservation_recovery",
+  "item_head_retraining": false,
+  "parent_retraining": false,
+  "recovery_of": "run-0002 Toys:I0 + run-0003 Toys:I-1 + run-0007 Beauty:I0 and Beauty:I-1",
+  "resource_adaptation": {
+    "allocator_reservation_mib_by_gpu": {
+      "5": 16384,
+      "7": 17408
+    },
+    "beam_widths_changed": false,
+    "cross_attention_cache": true,
+    "decoder_model_parallel": true,
+    "generation_use_cache": true,
+    "physical_gpus": [
+      7,
+      5
+    ],
+    "release_cuda_cache_per_user": false,
+    "retain_allocator_cache_between_users": true,
+    "score_changes_allowed": false
+  },
+  "resource_authorization_sha256": "9e17fdbc9ee17fac17c387309d915116c58b56f8360c495914f7ceb6b9b5071a",
+  "schema_version": "phase18.s18_1_summary.v1",
+  "scientific_config_sha256": "d0ecd6a22c20598d9f395aee2378c066d2d5cf3eb67474cc9d46039231312738",
+  "scientific_parameters_changed": false,
+  "sports_read": false,
+  "status": "COMPLETED",
+  "test_read": false,
+  "treatment_training": false
+}

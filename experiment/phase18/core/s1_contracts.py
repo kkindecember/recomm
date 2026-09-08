@@ -19,16 +19,36 @@ def stable_cohort(
     count: int = 1024,
     seed: int = 2023,
 ) -> list[str]:
+    return stable_cohort_slice(domain, users, start=0, count=count, seed=seed)
+
+
+def stable_cohort_slice(
+    domain: str,
+    users: Iterable[str],
+    start: int,
+    count: int = 1024,
+    seed: int = 2023,
+) -> list[str]:
+    """Select a predeclared contiguous slice of the stable S18-1 ranking."""
+    if start < 0:
+        raise ValueError("cohort start must be non-negative")
+    if count <= 0:
+        raise ValueError("cohort count must be positive")
     unique = set(users)
-    if len(unique) < count:
-        raise ValueError(f"{domain}: only {len(unique)} eligible users for cohort {count}")
-    return sorted(
+    stop = start + count
+    if len(unique) < stop:
+        raise ValueError(
+            f"{domain}: only {len(unique)} eligible users for cohort slice "
+            f"[{start},{stop})"
+        )
+    ranked = sorted(
         unique,
         key=lambda user: (
             hashlib.sha256(f"S18-1|{seed}|{domain}|{user}".encode()).hexdigest(),
             user,
         ),
-    )[:count]
+    )
+    return ranked[start:stop]
 
 
 def cohort_sha256(users: Sequence[str]) -> str:
@@ -102,6 +122,70 @@ def hard_negative_recall(selected: Iterable[str], actual: Iterable[str]) -> floa
     if not actual_set:
         raise ValueError("actual-pruner denominator is empty")
     return len(set(selected) & actual_set) / len(actual_set)
+
+
+def capped_recall_metrics(
+    events: Iterable[tuple[int, int]],
+    k: int,
+) -> dict[str, float | int]:
+    """Summarize top-k coverage without penalizing an impossible denominator.
+
+    Each event is ``(intersection, actual_pruner_count)``.  Raw micro recall is
+    retained for continuity with S18-1, while capacity-normalized recall uses
+    ``min(k, actual_pruner_count)`` as the per-event attainable denominator.
+    """
+    if k <= 0:
+        raise ValueError("k must be positive")
+    rows = [(int(intersection), int(actual)) for intersection, actual in events]
+    if not rows:
+        raise ValueError("at least one nonempty actual-pruner event is required")
+    for intersection, actual in rows:
+        if actual <= 0:
+            raise ValueError("actual-pruner count must be positive")
+        if intersection < 0 or intersection > min(k, actual):
+            raise ValueError("intersection is outside the attainable top-k range")
+
+    intersection_total = sum(intersection for intersection, _ in rows)
+    actual_total = sum(actual for _, actual in rows)
+    capacity_total = sum(min(k, actual) for _, actual in rows)
+    return {
+        "event_count": len(rows),
+        "intersection_total": intersection_total,
+        "actual_pruner_total": actual_total,
+        "topk_capacity_total": capacity_total,
+        "raw_micro_recall": intersection_total / actual_total,
+        "raw_micro_mechanical_ceiling": capacity_total / actual_total,
+        "capacity_normalized_recall": intersection_total / capacity_total,
+        "macro_event_recall": sum(
+            intersection / actual for intersection, actual in rows
+        )
+        / len(rows),
+        "event_any_hit_rate": sum(intersection > 0 for intersection, _ in rows)
+        / len(rows),
+        "event_full_coverage_rate": sum(
+            intersection == actual for intersection, actual in rows
+        )
+        / len(rows),
+    }
+
+
+def evaluate_capacity_gate(
+    metrics: Mapping[str, Any], gates: Mapping[str, Any]
+) -> dict[str, Any]:
+    checks = {
+        "capacity_normalized_recall": float(metrics["capacity_normalized_recall"])
+        >= float(gates["capacity_normalized_recall_min"]),
+        "event_any_hit_rate": float(metrics["event_any_hit_rate"])
+        >= float(gates["event_any_hit_rate_min"]),
+    }
+    return {
+        "decision": (
+            "CAPACITY_ADJUSTED_ACTIONABILITY_PASS"
+            if all(checks.values())
+            else "CAPACITY_ADJUSTED_ACTIONABILITY_FAIL"
+        ),
+        "checks": checks,
+    }
 
 
 def catalog_standardized_target(target_score: float, catalog_scores: Sequence[float]) -> float:

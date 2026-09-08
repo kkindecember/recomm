@@ -1,0 +1,584 @@
+{
+  "status": "DESIGN_ONLY_NOT_EXECUTED",
+  "basis": "2026-09-08 研究者：那接下来该怎么做",
+  "engineering_selection_not_scientific_sample": true,
+  "max_cases": 9,
+  "actual_cases": 9,
+  "strata": [
+    {
+      "domain": "Toys",
+      "split": "training",
+      "source": {
+        "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/training_events.jsonl",
+        "sha256": "fbf0bbf37a0137b4e6590c3dfc03bf9cd19534f51637e2c80b728daf270707e9"
+      },
+      "events": 71,
+      "sign_disagreements": 0,
+      "selected_engineering_cases": [
+        {
+          "user": "AUBF1WVKUKBKC",
+          "reasons": [
+            "first_event"
+          ],
+          "target": "B003AVKIRG",
+          "event": {
+            "event": true,
+            "depth": 3,
+            "target_prefix": [
+              25636,
+              3971,
+              13919
+            ],
+            "target_score": -12.274917602539062,
+            "local_rank": 4,
+            "local_ties": 1,
+            "branch_degree": 6,
+            "global_above": 727,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 49,
+            "proxy_item_count": 2,
+            "proxy_prefix_count": 1,
+            "proxy_overlap_prefix_count": 1,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              467,
+              895,
+              2190
+            ],
+            "boundary_score": -6.395730972290039,
+            "native_margin": -5.879186630249023,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 8,
+            "old_path_overlap_prefix_count": 8,
+            "arm_prefix_overlap": {
+              "A0_LEGAL_GENERIC": {
+                "mined_prefixes": 5,
+                "overlap": 1
+              },
+              "M0_PCPS": {
+                "mined_prefixes": 5,
+                "overlap": 1
+              },
+              "S0_SHUFFLED_CF": {
+                "mined_prefixes": 5,
+                "overlap": 1
+              }
+            }
+          },
+          "score_audit": {
+            "tf_target": -12.274862289428711,
+            "tf_boundary": -6.3973798751831055,
+            "tf_margin": -5.8774824142456055,
+            "target_residual": 5.53131103515625e-05,
+            "boundary_residual": -0.0016489028930664062,
+            "margin_residual": 0.0017042160034179688,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        },
+        {
+          "user": "A3VEFQ25OSXMOQ",
+          "reasons": [
+            "maximum_individual_residual"
+          ],
+          "target": "B008KHG21Q",
+          "event": {
+            "event": true,
+            "depth": 3,
+            "target_prefix": [
+              1041,
+              5533,
+              15414
+            ],
+            "target_score": -15.193023681640625,
+            "local_rank": 6,
+            "local_ties": 1,
+            "branch_degree": 21,
+            "global_above": 618,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 50,
+            "proxy_item_count": 0,
+            "proxy_prefix_count": 0,
+            "proxy_overlap_prefix_count": 0,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              1041,
+              620,
+              10880
+            ],
+            "boundary_score": -8.68587875366211,
+            "native_margin": -6.507144927978516,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 5,
+            "old_path_overlap_prefix_count": 5,
+            "arm_prefix_overlap": {
+              "A0_LEGAL_GENERIC": {
+                "mined_prefixes": 5,
+                "overlap": 0
+              },
+              "M0_PCPS": {
+                "mined_prefixes": 6,
+                "overlap": 0
+              },
+              "S0_SHUFFLED_CF": {
+                "mined_prefixes": 8,
+                "overlap": 0
+              }
+            }
+          },
+          "score_audit": {
+            "tf_target": -15.188753128051758,
+            "tf_boundary": -8.68517780303955,
+            "tf_margin": -6.503575325012207,
+            "target_residual": 0.0042705535888671875,
+            "boundary_residual": 0.0007009506225585938,
+            "margin_residual": 0.0035696029663085938,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        },
+        {
+          "user": "AKSAJKVR26RX2",
+          "reasons": [
+            "smallest_absolute_native_margin"
+          ],
+          "target": "B00009AWM4",
+          "event": {
+            "event": true,
+            "depth": 2,
+            "target_prefix": [
+              3203,
+              9052
+            ],
+            "target_score": -5.538037300109863,
+            "local_rank": 5,
+            "local_ties": 1,
+            "branch_degree": 28,
+            "global_above": 50,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 46,
+            "proxy_item_count": 4,
+            "proxy_prefix_count": 3,
+            "proxy_overlap_prefix_count": 3,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              740,
+              6438
+            ],
+            "boundary_score": -5.5139288902282715,
+            "native_margin": -0.024108409881591797,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 5,
+            "old_path_overlap_prefix_count": 5,
+            "arm_prefix_overlap": {
+              "A0_LEGAL_GENERIC": {
+                "mined_prefixes": 6,
+                "overlap": 3
+              },
+              "M0_PCPS": {
+                "mined_prefixes": 7,
+                "overlap": 4
+              },
+              "S0_SHUFFLED_CF": {
+                "mined_prefixes": 5,
+                "overlap": 3
+              }
+            }
+          },
+          "score_audit": {
+            "tf_target": -5.539280414581299,
+            "tf_boundary": -5.512397766113281,
+            "tf_margin": -0.026882648468017578,
+            "target_residual": -0.0012431144714355469,
+            "boundary_residual": 0.0015311241149902344,
+            "margin_residual": -0.0027742385864257812,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        }
+      ]
+    },
+    {
+      "domain": "Toys",
+      "split": "evaluation",
+      "source": {
+        "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/evaluation_events.jsonl",
+        "sha256": "a85dd495a3da45c2d69047a02610e1020d721b7d3459fd7cb02f3aa90225a862"
+      },
+      "events": 85,
+      "sign_disagreements": 0,
+      "selected_engineering_cases": [
+        {
+          "user": "A1GCFTFXELCHRP",
+          "reasons": [
+            "first_event"
+          ],
+          "target": "B004KGTM90",
+          "event": {
+            "event": true,
+            "depth": 3,
+            "target_prefix": [
+              16352,
+              18057,
+              10219
+            ],
+            "target_score": -21.465682983398438,
+            "local_rank": 4,
+            "local_ties": 1,
+            "branch_degree": 4,
+            "global_above": 1511,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 50,
+            "proxy_item_count": 0,
+            "proxy_prefix_count": 0,
+            "proxy_overlap_prefix_count": 0,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              2100,
+              1073,
+              740
+            ],
+            "boundary_score": -8.556471824645996,
+            "native_margin": -12.909211158752441,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 4,
+            "old_path_overlap_prefix_count": 4,
+            "arm_prefix_overlap": {}
+          },
+          "score_audit": {
+            "tf_target": -21.466144561767578,
+            "tf_boundary": -8.556343078613281,
+            "tf_margin": -12.909801483154297,
+            "target_residual": -0.000461578369140625,
+            "boundary_residual": 0.00012874603271484375,
+            "margin_residual": -0.0005903244018554688,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        },
+        {
+          "user": "A10L132FI5QHV6",
+          "reasons": [
+            "maximum_individual_residual"
+          ],
+          "target": "B007XVYN4S",
+          "event": {
+            "event": true,
+            "depth": 3,
+            "target_prefix": [
+              14527,
+              12911,
+              19818
+            ],
+            "target_score": -16.82111358642578,
+            "local_rank": 16,
+            "local_ties": 1,
+            "branch_degree": 16,
+            "global_above": 1349,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 49,
+            "proxy_item_count": 2,
+            "proxy_prefix_count": 1,
+            "proxy_overlap_prefix_count": 1,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              2100,
+              11925,
+              12496
+            ],
+            "boundary_score": -7.197290897369385,
+            "native_margin": -9.623822689056396,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 7,
+            "old_path_overlap_prefix_count": 7,
+            "arm_prefix_overlap": {}
+          },
+          "score_audit": {
+            "tf_target": -16.817747116088867,
+            "tf_boundary": -7.197063446044922,
+            "tf_margin": -9.620683670043945,
+            "target_residual": 0.0033664703369140625,
+            "boundary_residual": 0.00022745132446289062,
+            "margin_residual": 0.003139019012451172,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        },
+        {
+          "user": "A14ENWEKTHCBXR",
+          "reasons": [
+            "smallest_absolute_native_margin"
+          ],
+          "target": "B008EG7KTQ",
+          "event": {
+            "event": true,
+            "depth": 2,
+            "target_prefix": [
+              14295,
+              7267
+            ],
+            "target_score": -5.696477890014648,
+            "local_rank": 2,
+            "local_ties": 1,
+            "branch_degree": 44,
+            "global_above": 52,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 49,
+            "proxy_item_count": 0,
+            "proxy_prefix_count": 0,
+            "proxy_overlap_prefix_count": 0,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              740,
+              1438
+            ],
+            "boundary_score": -5.637938976287842,
+            "native_margin": -0.05853891372680664,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 7,
+            "old_path_overlap_prefix_count": 7,
+            "arm_prefix_overlap": {}
+          },
+          "score_audit": {
+            "tf_target": -5.696587562561035,
+            "tf_boundary": -5.636751174926758,
+            "tf_margin": -0.059836387634277344,
+            "target_residual": -0.00010967254638671875,
+            "boundary_residual": 0.0011878013610839844,
+            "margin_residual": -0.0012974739074707031,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        }
+      ],
+      "exploratory_cf_paired_differences": {
+        "A0_LEGAL_GENERIC": {
+          "count": 85,
+          "mean": -0.0005674222975670087,
+          "median": -0.0026424382578937866,
+          "positive": 39,
+          "negative": 46
+        },
+        "S0_SHUFFLED_CF": {
+          "count": 85,
+          "mean": 0.009350390008051948,
+          "median": 0.008279761164506905,
+          "positive": 48,
+          "negative": 37
+        }
+      }
+    },
+    {
+      "domain": "Beauty",
+      "split": "training",
+      "source": {
+        "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Beauty/training_events.jsonl",
+        "sha256": "4464c497e612b7e56a1bd9fa2be3421238fa71037cfca070515605e27276931d"
+      },
+      "events": 61,
+      "sign_disagreements": 0,
+      "selected_engineering_cases": [
+        {
+          "user": "A19KLWTEW9KRJ8",
+          "reasons": [
+            "first_event"
+          ],
+          "target": "B0001AQCII",
+          "event": {
+            "event": true,
+            "depth": 2,
+            "target_prefix": [
+              26891,
+              31465
+            ],
+            "target_score": -12.489470481872559,
+            "local_rank": 35,
+            "local_ties": 1,
+            "branch_degree": 58,
+            "global_above": 1083,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 47,
+            "proxy_item_count": 3,
+            "proxy_prefix_count": 3,
+            "proxy_overlap_prefix_count": 3,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              6453,
+              11842
+            ],
+            "boundary_score": -7.311829566955566,
+            "native_margin": -5.177640914916992,
+            "boundary_cross_parent": true,
+            "old_path_prefix_count": 7,
+            "old_path_overlap_prefix_count": 7,
+            "arm_prefix_overlap": {
+              "A0_LEGAL_GENERIC": {
+                "mined_prefixes": 7,
+                "overlap": 3
+              },
+              "M0_PCPS": {
+                "mined_prefixes": 8,
+                "overlap": 3
+              },
+              "S0_SHUFFLED_CF": {
+                "mined_prefixes": 7,
+                "overlap": 3
+              }
+            }
+          },
+          "score_audit": {
+            "tf_target": -12.493346214294434,
+            "tf_boundary": -7.312383651733398,
+            "tf_margin": -5.180962562561035,
+            "target_residual": -0.003875732421875,
+            "boundary_residual": -0.0005540847778320312,
+            "margin_residual": -0.0033216476440429688,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        },
+        {
+          "user": "A3I947II1AZ810",
+          "reasons": [
+            "maximum_individual_residual"
+          ],
+          "target": "B00198W37A",
+          "event": {
+            "event": true,
+            "depth": 1,
+            "target_prefix": [
+              123
+            ],
+            "target_score": -7.146225929260254,
+            "local_rank": 88,
+            "local_ties": 1,
+            "branch_degree": 108,
+            "global_above": 87,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 0,
+            "proxy_item_count": 50,
+            "proxy_prefix_count": 30,
+            "proxy_overlap_prefix_count": 30,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              26190
+            ],
+            "boundary_score": -5.23140811920166,
+            "native_margin": -1.9148178100585938,
+            "boundary_cross_parent": false,
+            "old_path_prefix_count": 8,
+            "old_path_overlap_prefix_count": 8,
+            "arm_prefix_overlap": {
+              "A0_LEGAL_GENERIC": {
+                "mined_prefixes": 8,
+                "overlap": 8
+              },
+              "M0_PCPS": {
+                "mined_prefixes": 7,
+                "overlap": 7
+              },
+              "S0_SHUFFLED_CF": {
+                "mined_prefixes": 8,
+                "overlap": 8
+              }
+            }
+          },
+          "score_audit": {
+            "tf_target": -7.15494441986084,
+            "tf_boundary": -5.240389823913574,
+            "tf_margin": -1.9145545959472656,
+            "target_residual": -0.008718490600585938,
+            "boundary_residual": -0.008981704711914062,
+            "margin_residual": 0.000263214111328125,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": false,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        },
+        {
+          "user": "AF7WCPEASVKA0",
+          "reasons": [
+            "smallest_absolute_native_margin"
+          ],
+          "target": "B00480JHWK",
+          "event": {
+            "event": true,
+            "depth": 1,
+            "target_prefix": [
+              24055
+            ],
+            "target_score": -5.718947410583496,
+            "local_rank": 51,
+            "local_ties": 1,
+            "branch_degree": 108,
+            "global_above": 50,
+            "global_ties": 1,
+            "competitor_prefixes": 50,
+            "cross_parent_competitor_prefixes": 0,
+            "proxy_item_count": 50,
+            "proxy_prefix_count": 21,
+            "proxy_overlap_prefix_count": 21,
+            "eos_offered_count": 0,
+            "candidate_set_incomplete": false,
+            "boundary_prefix": [
+              2164
+            ],
+            "boundary_score": -5.715910911560059,
+            "native_margin": -0.0030364990234375,
+            "boundary_cross_parent": false,
+            "old_path_prefix_count": 6,
+            "old_path_overlap_prefix_count": 6,
+            "arm_prefix_overlap": {
+              "A0_LEGAL_GENERIC": {
+                "mined_prefixes": 6,
+                "overlap": 6
+              },
+              "M0_PCPS": {
+                "mined_prefixes": 3,
+                "overlap": 3
+              },
+              "S0_SHUFFLED_CF": {
+                "mined_prefixes": 6,
+                "overlap": 6
+              }
+            }
+          },
+          "score_audit": {
+            "tf_target": -5.722923278808594,
+            "tf_boundary": -5.718814849853516,
+            "tf_margin": -0.004108428955078125,
+            "target_residual": -0.003975868225097656,
+            "boundary_residual": -0.0029039382934570312,
+            "margin_residual": -0.001071929931640625,
+            "sign_match": true,
+            "near_tie_or_sign_uncertain": true,
+            "residual_status": "UNEXPLAINED_NONZERO_RESIDUAL"
+          }
+        }
+      ]
+    }
+  ]
+}

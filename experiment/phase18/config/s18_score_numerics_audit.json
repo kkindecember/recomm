@@ -1,0 +1,60 @@
+{
+  "schema_version": "phase18.score_numerics_audit.v1",
+  "authorization": "2026-09-08 研究者：继续；实施固定9案例数值评分复核",
+  "seed": 2023,
+  "inputs": [
+    {
+      "path": "artifacts/phase18/beam_boundary_followup_design/case_manifest.json",
+      "sha256": "336b80a94e000440a79ec152855614c913746a220169c4e5a8c43b43d1f27b1b"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/summary.json",
+      "sha256": "bd5e9332734ab93f68dd4161f6be54302d5806bf6eb510a5981fea32f5ad782d"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/run_manifest.json",
+      "sha256": "6b8a3db650771bdd1c30852a924a65cb5b3aa6a631a93a0bbcd29dc585401686"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/training_traces.jsonl",
+      "sha256": "b538c144ea4e55c3396aac357812e7e463d5a6948ded834cc03ea344e55433aa"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/training_events.jsonl",
+      "sha256": "fbf0bbf37a0137b4e6590c3dfc03bf9cd19534f51637e2c80b728daf270707e9"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/evaluation_traces.jsonl",
+      "sha256": "f09f2af9923a73b0947a12533521a7253f6a9b2d048db290cb75880530148b7f"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/evaluation_events.jsonl",
+      "sha256": "a85dd495a3da45c2d69047a02610e1020d721b7d3459fd7cb02f3aa90225a862"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Beauty/training_traces.jsonl",
+      "sha256": "7831b684f1e10dbeaeddf0063d04ad0b5980340d3368735529225ccbd698ab36"
+    },
+    {
+      "path": "artifacts/phase18/beam_boundary_diagnostic/run-0001/Beauty/training_events.jsonl",
+      "sha256": "4464c497e612b7e56a1bd9fa2be3421238fa71037cfca070515605e27276931d"
+    }
+  ],
+  "conditions": [
+    "frontier_cached",
+    "frontier_full",
+    "pair_full_shared",
+    "pair_full_duplicate_encoder",
+    "pair_cached",
+    "single_full"
+  ],
+  "tf32_states": [
+    true,
+    false
+  ],
+  "case_count": 9,
+  "smoke_case_ordinal": 1,
+  "optimizer_steps": 0,
+  "hard_timeout_seconds": 1800,
+  "automatic_retry": false
+}

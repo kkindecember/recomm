@@ -1,0 +1,500 @@
+{
+  "attempt_id": "audit-0001",
+  "automatic_s18_2": false,
+  "canonical_s18_1_summary_sha256": "ebb9a7068f30007709737781501b57d8ef6dcb4e09aaec42362f94d3117d41e0",
+  "completed_at": "2026-09-06T16:30:10.626393+00:00",
+  "config_sha256": "0fdaff1eb338e2a88d96fc5ca6f39fc59b14bc495212d41185c36f8f7b8ef0c4",
+  "d1_read": false,
+  "d2_read": false,
+  "decision": "S18_1R_RETROSPECTIVE_CAPACITY_PASS_REQUIRES_DISJOINT_CONFIRMATION",
+  "disjoint_confirmation": {
+    "domains": [
+      "Toys",
+      "Beauty"
+    ],
+    "folds": [
+      "I-1",
+      "I0"
+    ],
+    "required": true,
+    "reuse_frozen_fold_local_checkpoints": true,
+    "selection_key": "sha256('S18-1|2023|<domain>|<user>'), then user",
+    "selection_slice": [
+      1024,
+      2048
+    ],
+    "treatment_training": false,
+    "users_per_domain": 1024
+  },
+  "domains": {
+    "Beauty": {
+      "gate": {
+        "all_inherited_checks_pass": true,
+        "checks": {
+          "capacity_normalized_recall": true,
+          "event_any_hit_rate": true
+        },
+        "decision": "CAPACITY_ADJUSTED_ACTIONABILITY_PASS"
+      },
+      "inherited_non_gate4_checks": {
+        "gate1_headroom": true,
+        "gate2_beam200_only_events": true,
+        "gate3_nonempty_actual_pruner": true,
+        "gate5_finite_and_trie_legal": true,
+        "gate6_cf_target_z_drift": true
+      },
+      "metrics": {
+        "actual_pruner_total": 1441,
+        "by_first_drop_depth": {
+          "1": {
+            "actual_pruner_total": 1000,
+            "capacity_normalized_recall": 0.98125,
+            "event_any_hit_rate": 1.0,
+            "event_count": 20,
+            "event_full_coverage_rate": 0.0,
+            "intersection_total": 157,
+            "macro_event_recall": 0.15700000000000006,
+            "raw_micro_mechanical_ceiling": 0.16,
+            "raw_micro_recall": 0.157,
+            "topk_capacity_total": 160
+          },
+          "2": {
+            "actual_pruner_total": 380,
+            "capacity_normalized_recall": 0.9683544303797469,
+            "event_any_hit_rate": 1.0,
+            "event_count": 99,
+            "event_full_coverage_rate": 0.8585858585858586,
+            "intersection_total": 306,
+            "macro_event_recall": 0.9497823530426602,
+            "raw_micro_mechanical_ceiling": 0.8315789473684211,
+            "raw_micro_recall": 0.8052631578947368,
+            "topk_capacity_total": 316
+          },
+          "3": {
+            "actual_pruner_total": 52,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 32,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 52,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 52
+          },
+          "4": {
+            "actual_pruner_total": 6,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 6,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 6,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 6
+          },
+          "5": {
+            "actual_pruner_total": 1,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 1,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 1,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 1
+          },
+          "6": {
+            "actual_pruner_total": 1,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 1,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 1,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 1
+          },
+          "7": {
+            "actual_pruner_total": 1,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 1,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 1,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 1
+          }
+        },
+        "capacity_normalized_recall": 0.9757914338919925,
+        "event_any_hit_rate": 1.0,
+        "event_count": 160,
+        "event_full_coverage_rate": 0.7875,
+        "intersection_total": 524,
+        "macro_event_recall": 0.8635528309451456,
+        "raw_micro_mechanical_ceiling": 0.37265787647467036,
+        "raw_micro_recall": 0.36363636363636365,
+        "topk_capacity_total": 537
+      }
+    },
+    "Toys": {
+      "gate": {
+        "all_inherited_checks_pass": true,
+        "checks": {
+          "capacity_normalized_recall": true,
+          "event_any_hit_rate": true
+        },
+        "decision": "CAPACITY_ADJUSTED_ACTIONABILITY_PASS"
+      },
+      "inherited_non_gate4_checks": {
+        "gate1_headroom": true,
+        "gate2_beam200_only_events": true,
+        "gate3_nonempty_actual_pruner": true,
+        "gate5_finite_and_trie_legal": true,
+        "gate6_cf_target_z_drift": true
+      },
+      "metrics": {
+        "actual_pruner_total": 496,
+        "by_first_drop_depth": {
+          "2": {
+            "actual_pruner_total": 202,
+            "capacity_normalized_recall": 0.9012345679012346,
+            "event_any_hit_rate": 1.0,
+            "event_count": 48,
+            "event_full_coverage_rate": 0.7083333333333334,
+            "intersection_total": 146,
+            "macro_event_recall": 0.8972889683416,
+            "raw_micro_mechanical_ceiling": 0.801980198019802,
+            "raw_micro_recall": 0.7227722772277227,
+            "topk_capacity_total": 162
+          },
+          "3": {
+            "actual_pruner_total": 276,
+            "capacity_normalized_recall": 0.9473684210526315,
+            "event_any_hit_rate": 1.0,
+            "event_count": 63,
+            "event_full_coverage_rate": 0.8253968253968254,
+            "intersection_total": 180,
+            "macro_event_recall": 0.9177136155183895,
+            "raw_micro_mechanical_ceiling": 0.6884057971014492,
+            "raw_micro_recall": 0.6521739130434783,
+            "topk_capacity_total": 190
+          },
+          "4": {
+            "actual_pruner_total": 18,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 12,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 18,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 18
+          }
+        },
+        "capacity_normalized_recall": 0.9297297297297298,
+        "event_any_hit_rate": 1.0,
+        "event_count": 123,
+        "event_full_coverage_rate": 0.7967479674796748,
+        "intersection_total": 344,
+        "macro_event_recall": 0.9177709614476044,
+        "raw_micro_mechanical_ceiling": 0.7459677419354839,
+        "raw_micro_recall": 0.6935483870967742,
+        "topk_capacity_total": 370
+      }
+    }
+  },
+  "experiment_id": "s18_s1r_capacity_audit",
+  "folds": {
+    "Beauty:I-1": {
+      "metrics": {
+        "actual_pruner_total": 821,
+        "by_first_drop_depth": {
+          "1": {
+            "actual_pruner_total": 600,
+            "capacity_normalized_recall": 0.9791666666666666,
+            "event_any_hit_rate": 1.0,
+            "event_count": 12,
+            "event_full_coverage_rate": 0.0,
+            "intersection_total": 94,
+            "macro_event_recall": 0.15666666666666665,
+            "raw_micro_mechanical_ceiling": 0.16,
+            "raw_micro_recall": 0.15666666666666668,
+            "topk_capacity_total": 96
+          },
+          "2": {
+            "actual_pruner_total": 193,
+            "capacity_normalized_recall": 0.9636363636363636,
+            "event_any_hit_rate": 1.0,
+            "event_count": 48,
+            "event_full_coverage_rate": 0.8541666666666666,
+            "intersection_total": 159,
+            "macro_event_recall": 0.9445734922756981,
+            "raw_micro_mechanical_ceiling": 0.8549222797927462,
+            "raw_micro_recall": 0.8238341968911918,
+            "topk_capacity_total": 165
+          },
+          "3": {
+            "actual_pruner_total": 25,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 15,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 25,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 25
+          },
+          "4": {
+            "actual_pruner_total": 2,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 2,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 2,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 2
+          },
+          "5": {
+            "actual_pruner_total": 1,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 1,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 1,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 1
+          }
+        },
+        "capacity_normalized_recall": 0.972318339100346,
+        "event_any_hit_rate": 1.0,
+        "event_count": 78,
+        "event_full_coverage_rate": 0.7564102564102564,
+        "intersection_total": 281,
+        "macro_event_recall": 0.8361477901183781,
+        "raw_micro_mechanical_ceiling": 0.3520097442143727,
+        "raw_micro_recall": 0.34226552984165654,
+        "topk_capacity_total": 289
+      },
+      "source_path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_im1/per_user_diagnostics.jsonl",
+      "source_sha256": "6a166a843930a639ed67b44c7b5d50a69dc0dc4557971148a822173c461550a4"
+    },
+    "Beauty:I0": {
+      "metrics": {
+        "actual_pruner_total": 620,
+        "by_first_drop_depth": {
+          "1": {
+            "actual_pruner_total": 400,
+            "capacity_normalized_recall": 0.984375,
+            "event_any_hit_rate": 1.0,
+            "event_count": 8,
+            "event_full_coverage_rate": 0.0,
+            "intersection_total": 63,
+            "macro_event_recall": 0.1575,
+            "raw_micro_mechanical_ceiling": 0.16,
+            "raw_micro_recall": 0.1575,
+            "topk_capacity_total": 64
+          },
+          "2": {
+            "actual_pruner_total": 187,
+            "capacity_normalized_recall": 0.9735099337748344,
+            "event_any_hit_rate": 1.0,
+            "event_count": 51,
+            "event_full_coverage_rate": 0.8627450980392157,
+            "intersection_total": 147,
+            "macro_event_recall": 0.9546848102350948,
+            "raw_micro_mechanical_ceiling": 0.8074866310160428,
+            "raw_micro_recall": 0.786096256684492,
+            "topk_capacity_total": 151
+          },
+          "3": {
+            "actual_pruner_total": 27,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 17,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 27,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 27
+          },
+          "4": {
+            "actual_pruner_total": 4,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 4,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 4,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 4
+          },
+          "6": {
+            "actual_pruner_total": 1,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 1,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 1,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 1
+          },
+          "7": {
+            "actual_pruner_total": 1,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 1,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 1,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 1
+          }
+        },
+        "capacity_normalized_recall": 0.9798387096774194,
+        "event_any_hit_rate": 1.0,
+        "event_count": 82,
+        "event_full_coverage_rate": 0.8170731707317073,
+        "intersection_total": 243,
+        "macro_event_recall": 0.8896210405120709,
+        "raw_micro_mechanical_ceiling": 0.4,
+        "raw_micro_recall": 0.3919354838709677,
+        "topk_capacity_total": 248
+      },
+      "source_path": "artifacts/phase18/s1_actionability/run-0007/units/beauty_i0/per_user_diagnostics.jsonl",
+      "source_sha256": "33b317da9f5162d9b460bea0053d25f2d9f6350f91997767bab7bc4b9d86ee8c"
+    },
+    "Toys:I-1": {
+      "metrics": {
+        "actual_pruner_total": 282,
+        "by_first_drop_depth": {
+          "2": {
+            "actual_pruner_total": 118,
+            "capacity_normalized_recall": 0.9325842696629213,
+            "event_any_hit_rate": 1.0,
+            "event_count": 27,
+            "event_full_coverage_rate": 0.7407407407407407,
+            "intersection_total": 83,
+            "macro_event_recall": 0.9038424051581947,
+            "raw_micro_mechanical_ceiling": 0.7542372881355932,
+            "raw_micro_recall": 0.7033898305084746,
+            "topk_capacity_total": 89
+          },
+          "3": {
+            "actual_pruner_total": 156,
+            "capacity_normalized_recall": 0.956140350877193,
+            "event_any_hit_rate": 1.0,
+            "event_count": 38,
+            "event_full_coverage_rate": 0.8421052631578947,
+            "intersection_total": 109,
+            "macro_event_recall": 0.931450609933582,
+            "raw_micro_mechanical_ceiling": 0.7307692307692307,
+            "raw_micro_recall": 0.6987179487179487,
+            "topk_capacity_total": 114
+          },
+          "4": {
+            "actual_pruner_total": 8,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 6,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 8,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 8
+          }
+        },
+        "capacity_normalized_recall": 0.9478672985781991,
+        "event_any_hit_rate": 1.0,
+        "event_count": 71,
+        "event_full_coverage_rate": 0.8169014084507042,
+        "intersection_total": 200,
+        "macro_event_recall": 0.926744621362639,
+        "raw_micro_mechanical_ceiling": 0.74822695035461,
+        "raw_micro_recall": 0.7092198581560284,
+        "topk_capacity_total": 211
+      },
+      "source_path": "artifacts/phase18/s1_actionability/run-0003/units/toys_im1/per_user_diagnostics.jsonl",
+      "source_sha256": "b6bd3faa82d90b51a5c6c05035ee07b92804457cb4ebba4c47565d28aeba9d16"
+    },
+    "Toys:I0": {
+      "metrics": {
+        "actual_pruner_total": 214,
+        "by_first_drop_depth": {
+          "2": {
+            "actual_pruner_total": 84,
+            "capacity_normalized_recall": 0.863013698630137,
+            "event_any_hit_rate": 1.0,
+            "event_count": 21,
+            "event_full_coverage_rate": 0.6666666666666666,
+            "intersection_total": 63,
+            "macro_event_recall": 0.8888631210059782,
+            "raw_micro_mechanical_ceiling": 0.8690476190476191,
+            "raw_micro_recall": 0.75,
+            "topk_capacity_total": 73
+          },
+          "3": {
+            "actual_pruner_total": 120,
+            "capacity_normalized_recall": 0.9342105263157895,
+            "event_any_hit_rate": 1.0,
+            "event_count": 25,
+            "event_full_coverage_rate": 0.8,
+            "intersection_total": 71,
+            "macro_event_recall": 0.896833384007297,
+            "raw_micro_mechanical_ceiling": 0.6333333333333333,
+            "raw_micro_recall": 0.5916666666666667,
+            "topk_capacity_total": 76
+          },
+          "4": {
+            "actual_pruner_total": 10,
+            "capacity_normalized_recall": 1.0,
+            "event_any_hit_rate": 1.0,
+            "event_count": 6,
+            "event_full_coverage_rate": 1.0,
+            "intersection_total": 10,
+            "macro_event_recall": 1.0,
+            "raw_micro_mechanical_ceiling": 1.0,
+            "raw_micro_recall": 1.0,
+            "topk_capacity_total": 10
+          }
+        },
+        "capacity_normalized_recall": 0.9056603773584906,
+        "event_any_hit_rate": 1.0,
+        "event_count": 52,
+        "event_full_coverage_rate": 0.7692307692307693,
+        "intersection_total": 144,
+        "macro_event_recall": 0.9055184642559223,
+        "raw_micro_mechanical_ceiling": 0.7429906542056075,
+        "raw_micro_recall": 0.6728971962616822,
+        "topk_capacity_total": 159
+      },
+      "source_path": "artifacts/phase18/s1_actionability/run-0002/units/toys_i0/per_user_diagnostics.jsonl",
+      "source_sha256": "92cb0f2e892682009952745240242d7e593c22ae20c9c21c2eae352ca56e4b9a"
+    }
+  },
+  "hard_negative_k": 8,
+  "i1_i2_read": false,
+  "retrospective": true,
+  "schema_version": "phase18.s18_1r_capacity_audit_summary.v1",
+  "sports_read": false,
+  "status": "COMPLETED",
+  "test_read": false,
+  "treatment_training": false
+}

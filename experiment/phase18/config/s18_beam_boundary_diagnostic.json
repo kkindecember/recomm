@@ -1,0 +1,69 @@
+{
+  "schema_version": "phase18.beam_boundary_diagnostic.v1",
+  "seed": 2023,
+  "users_per_domain": 100,
+  "beam": 50,
+  "alpha": 0.1,
+  "s2_config": {
+    "path": "experiment/phase18/config/s18_s2_mechanism_probe.json",
+    "sha256": "e05d127c4b3eeb71e79b3a8391c2440c68dd891c816ddd5efe6e9d6595959d41"
+  },
+  "s2_run_manifest": {
+    "path": "artifacts/phase18/s2_mechanism_probe/run-0001/run_manifest.json",
+    "sha256": "a6189937ae89dabd681a8f80f0bd2fe2a8b01ba0ce429eeaf18fc1ac128ecf89"
+  },
+  "inputs": [
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/manifest.json",
+      "sha256": "aa3828bfdddd128152ed92257be2c7ab1ef27671c5ecce44c72e656f9e358b87"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/cohort_Toys.txt",
+      "sha256": "2405c59402284c4d833da6309371534e87b7c52c8b7929c3b40a5fc12426b1d1"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/training_Toys.jsonl",
+      "sha256": "54bdfba6fca95bde05e2fccef768b661a531b77c692d3cf3866c44386a464c2d"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/shuffled_teacher_Toys.json",
+      "sha256": "29c49f970901c8c1c5955d603094241da7225a29d79c9cef28ba58806f1e415c"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/training_cache.jsonl",
+      "sha256": "fab9e94c4c3a2ab121a626ee161276e69057c8c5ba50bf05ec2c37a7273de0f1"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/cohort_Beauty.txt",
+      "sha256": "7c44caaf2baa07f2b31e35c0cef09b0e43b6bae733395a961d70a8fcfd6f0908"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/training_Beauty.jsonl",
+      "sha256": "b31e5940a0c0ddd7b9296812201a442bde3355aa18632fa914079fd62d9623d3"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/shuffled_teacher_Beauty.json",
+      "sha256": "b00e5d4b702b3b5d639e9a9016dc7381ec479bab88b7f4005c25eb61a03b7fbe"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Beauty/training_cache.jsonl",
+      "sha256": "1ff1a5e9f14ee7a7e443e823284397d83e1becf40ff440180fb9d3992f97a0b9"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/preflight/evaluation_Toys.jsonl",
+      "sha256": "fc1e32cbff7ca5fde8503a268b8ab89ff490ce73bee14c853f5ac9996fb05b39"
+    },
+    {
+      "path": "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/evaluation_anchors.jsonl",
+      "sha256": "e707c7df8fb7df86029a69cfe966bbcfc61c920f0d1c453c3989770bc32e055b"
+    }
+  ],
+  "authorization": "2026-09-08 研究者：那继续吧；实施真实 beam 边界与冻结梯度诊断",
+  "hard_timeout_seconds": 7200,
+  "excluded_gpus": [
+    1,
+    4
+  ],
+  "optimizer_steps": 0,
+  "automatic_retry": false
+}

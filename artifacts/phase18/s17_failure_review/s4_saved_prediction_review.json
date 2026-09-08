@@ -1,0 +1,159 @@
+{
+  "source_summary": "artifacts/phase17/s4_p1_targeted/run-0001/summary.json",
+  "source_summary_sha256": "a7e0570e1f2c951d36ec9768485d24093770cb9b0dc53b090f79ad68a50c4ad2",
+  "status": "RECOMPUTED_FROM_SAVED_RANKINGS_NO_NEW_INFERENCE",
+  "model_runs": 0,
+  "metric_order_in_rows": [
+    "hit@1",
+    "hit@3",
+    "hit@5",
+    "hit@10",
+    "hit@20",
+    "hit@50",
+    "ndcg@1",
+    "ndcg@3",
+    "ndcg@5",
+    "ndcg@10",
+    "ndcg@20",
+    "ndcg@50"
+  ],
+  "arms": {
+    "gram_continue": {
+      "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/gram_continue/predictions/20260830_155012_Toys_s17_d0_full_sequential_pred_validation.tsv",
+      "prediction_sha256": "bd4a0ab79a597ed3790ccaf9ecaa074400f2bbaab52f71b5691d95bc90fa4530",
+      "users": 12833,
+      "header_columns": 8,
+      "data_columns": 16,
+      "metrics": {
+        "hit@1": 0.10348320735603522,
+        "hit@3": 0.18904387126938363,
+        "hit@5": 0.2342398503857243,
+        "hit@10": 0.30343645289488036,
+        "hit@20": 0.3826073404504013,
+        "hit@50": 0.49824670770669366,
+        "ndcg@1": 0.10348320735603522,
+        "ndcg@3": 0.15309927023243952,
+        "ndcg@5": 0.17158403507244688,
+        "ndcg@10": 0.1938991678293417,
+        "ndcg@20": 0.21388596852642427,
+        "ndcg@50": 0.23696321222094463
+      },
+      "max_difference_vs_logged_aggregates": 1.4988010832439613e-15
+    },
+    "pawa_lite": {
+      "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/pawa_lite/predictions/20260830_154714_Toys_s17_d0_full_sequential_pred_validation.tsv",
+      "prediction_sha256": "7c2d053d639f71b1a21c09c713f44e49ed84610e56e14c151afb83aaeb8637ab",
+      "users": 12833,
+      "header_columns": 8,
+      "data_columns": 16,
+      "metrics": {
+        "hit@1": 0.10363905555988467,
+        "hit@3": 0.18997896049248034,
+        "hit@5": 0.23564248422036935,
+        "hit@10": 0.30367022520065456,
+        "hit@20": 0.38619184913893867,
+        "hit@50": 0.4963765292605003,
+        "ndcg@1": 0.10363905555988467,
+        "ndcg@3": 0.1536753466962995,
+        "ndcg@5": 0.17239220637819777,
+        "ndcg@10": 0.1943884998751134,
+        "ndcg@20": 0.2152234806303375,
+        "ndcg@50": 0.23717862282403637
+      },
+      "max_difference_vs_logged_aggregates": 2.220446049250313e-16,
+      "paired_vs_gram_continue": {
+        "hit@10": {
+          "mean_delta": 0.00023377230577417596,
+          "ci95_low": -0.0021039507519675835,
+          "ci95_high": 0.0025714953635159353,
+          "replicates": 2000,
+          "seed": 2023
+        },
+        "ndcg@10": {
+          "mean_delta": 0.0004893320457718197,
+          "ci95_low": -0.0005769758490245143,
+          "ci95_high": 0.001560488759769192,
+          "replicates": 2000,
+          "seed": 2023
+        }
+      }
+    },
+    "latte_sethead": {
+      "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/latte_sethead/predictions/20260830_154812_Toys_s17_d0_full_sequential_pred_validation.tsv",
+      "prediction_sha256": "55b55803ce81d22b82f15b407646d1b32b0c4b918c48eeba658ea5d4cf63e34b",
+      "users": 12833,
+      "header_columns": 8,
+      "data_columns": 16,
+      "metrics": {
+        "hit@1": 0.09904153354632587,
+        "hit@3": 0.17938128263071768,
+        "hit@5": 0.2200576638354243,
+        "hit@10": 0.276318865425076,
+        "hit@20": 0.34871035611314577,
+        "hit@50": 0.39406218343333593,
+        "ndcg@1": 0.09904153354632587,
+        "ndcg@3": 0.14535336333281657,
+        "ndcg@5": 0.16205897469529407,
+        "ndcg@10": 0.18022777469245455,
+        "ndcg@20": 0.19838791753470728,
+        "ndcg@50": 0.20791526657432946
+      },
+      "max_difference_vs_logged_aggregates": 6.106226635438361e-16,
+      "paired_vs_gram_continue": {
+        "hit@10": {
+          "mean_delta": -0.02711758746980441,
+          "ci95_low": -0.031639133483986594,
+          "ci95_high": -0.022284345047923333,
+          "replicates": 2000,
+          "seed": 2023
+        },
+        "ndcg@10": {
+          "mean_delta": -0.013671393136888244,
+          "ci95_low": -0.016037003640510448,
+          "ci95_high": -0.011038411158343992,
+          "replicates": 2000,
+          "seed": 2023
+        }
+      }
+    },
+    "biflow_s2g": {
+      "prediction_path": "artifacts/phase17/s4_p1_targeted/run-0001/arms/biflow_s2g/predictions/20260830_160246_Toys_s17_d0_full_sequential_pred_validation.tsv",
+      "prediction_sha256": "3cd2aa93dc661c508c9ee0edb94ab15bcf692b4adf0b9e5918e18ea03892961d",
+      "users": 12833,
+      "header_columns": 8,
+      "data_columns": 16,
+      "metrics": {
+        "hit@1": 0.10418452427335775,
+        "hit@3": 0.18748538923088912,
+        "hit@5": 0.2329930647549287,
+        "hit@10": 0.3032806046910309,
+        "hit@20": 0.3844775188965947,
+        "hit@50": 0.4939608821008338,
+        "ndcg@1": 0.10418452427335775,
+        "ndcg@3": 0.1523033946672114,
+        "ndcg@5": 0.17091898491682325,
+        "ndcg@10": 0.1936256689205064,
+        "ndcg@20": 0.2141193331970641,
+        "ndcg@50": 0.2359587531148746
+      },
+      "max_difference_vs_logged_aggregates": 4.718447854656915e-16,
+      "paired_vs_gram_continue": {
+        "hit@10": {
+          "mean_delta": -0.00015584820384945063,
+          "ci95_low": -0.0025714953635159353,
+          "ci95_high": 0.002261747058365142,
+          "replicates": 2000,
+          "seed": 2023
+        },
+        "ndcg@10": {
+          "mean_delta": -0.0002734989088353242,
+          "ci95_low": -0.0013842874572083156,
+          "ci95_high": 0.0008700456692121739,
+          "replicates": 2000,
+          "seed": 2023
+        }
+      }
+    }
+  },
+  "finding": "The stale header makes historical DictReader parse H@3 as H@10 and H@10 as NDCG@10. Old paired deltas/intervals do not describe their labels. Corrected figures are exploratory and do not reopen old gates."
+}

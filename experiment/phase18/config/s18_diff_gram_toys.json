@@ -1,0 +1,41 @@
+{
+  "name": "S18-DIFF-GRAM-Toys-v1",
+  "seed": 2023,
+  "reference_commit": "ef6283a3bf9ed242a9b867fcf63368f0fb36eb33",
+  "original_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+  "parent_checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+  "parent_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+  "baseline_csv": "artifacts/phase2_toys/checkpoint_selection.csv",
+  "prepared": "artifacts/phase18/diff_gram/prepared_v2_categories",
+  "attribute_features": ["categories"],
+  "model": {
+    "hidden_size": 256,
+    "inner_size": 256,
+    "heads": 2,
+    "layers": 2,
+    "history_length": 20,
+    "dropout": 0.5,
+    "cutoff": 9,
+    "alpha": 0.5,
+    "alignment_weight": 100.0,
+    "auxiliary_weight": 0.1
+  },
+  "training": {
+    "warmup_epochs": 1,
+    "joint_epochs": 10,
+    "min_joint_epochs": 4,
+    "evaluation_interval": 2,
+    "patience": 3,
+    "effective_batch_size": 128,
+    "new_learning_rate": 0.001,
+    "backbone_learning_rate": 0.00001,
+    "weight_decay": 0.01,
+    "adam_epsilon": 0.000001,
+    "warmup_fraction": 0.05,
+    "gradient_clip": 1.0,
+    "beam_size": 50,
+    "length_penalty": 1.0,
+    "precision": "float32",
+    "num_workers": 2
+  }
+}

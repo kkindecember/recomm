@@ -1,0 +1,103 @@
+{
+  "verification_status": "ANALYZED",
+  "posthoc": true,
+  "scope": "same 1000 already evaluated Toys I0 users",
+  "canonical_s18_2_decision_changed": false,
+  "metrics": {
+    "PARENT_FROZEN": {
+      "Hit@50": 0.166,
+      "Hit@10": 0.089,
+      "NDCG@10": 0.05131021280911458,
+      "prefix_survival": 0.43060000000000004
+    },
+    "C0_CONT": {
+      "Hit@50": 0.128,
+      "Hit@10": 0.065,
+      "NDCG@10": 0.04104456872520379,
+      "prefix_survival": 0.40553333333333336
+    },
+    "A0_LEGAL_GENERIC": {
+      "Hit@50": 0.131,
+      "Hit@10": 0.066,
+      "NDCG@10": 0.04391827558307726,
+      "prefix_survival": 0.4039333333333333
+    },
+    "M0_PCPS": {
+      "Hit@50": 0.133,
+      "Hit@10": 0.064,
+      "NDCG@10": 0.04227628101953979,
+      "prefix_survival": 0.40553333333333336
+    },
+    "S0_SHUFFLED_CF": {
+      "Hit@50": 0.128,
+      "Hit@10": 0.064,
+      "NDCG@10": 0.042834046063099686,
+      "prefix_survival": 0.40463333333333334
+    }
+  },
+  "paired_vs_parent": {
+    "PARENT_FROZEN": {
+      "hit50_gain": 0,
+      "hit50_loss": 0,
+      "hit50_tie": 1000,
+      "deltas": {
+        "Hit@50": 0.0,
+        "Hit@10": 0.0,
+        "NDCG@10": 0.0,
+        "prefix_survival": 0.0
+      }
+    },
+    "C0_CONT": {
+      "hit50_gain": 16,
+      "hit50_loss": 54,
+      "hit50_tie": 930,
+      "deltas": {
+        "Hit@50": -0.038000000000000006,
+        "Hit@10": -0.023999999999999994,
+        "NDCG@10": -0.010265644083910792,
+        "prefix_survival": -0.02506666666666668
+      }
+    },
+    "A0_LEGAL_GENERIC": {
+      "hit50_gain": 17,
+      "hit50_loss": 52,
+      "hit50_tie": 931,
+      "deltas": {
+        "Hit@50": -0.035,
+        "Hit@10": -0.022999999999999993,
+        "NDCG@10": -0.007391937226037322,
+        "prefix_survival": -0.026666666666666727
+      }
+    },
+    "M0_PCPS": {
+      "hit50_gain": 16,
+      "hit50_loss": 49,
+      "hit50_tie": 935,
+      "deltas": {
+        "Hit@50": -0.033,
+        "Hit@10": -0.024999999999999994,
+        "NDCG@10": -0.00903393178957479,
+        "prefix_survival": -0.02506666666666668
+      }
+    },
+    "S0_SHUFFLED_CF": {
+      "hit50_gain": 17,
+      "hit50_loss": 55,
+      "hit50_tie": 928,
+      "deltas": {
+        "Hit@50": -0.038000000000000006,
+        "Hit@10": -0.024999999999999994,
+        "NDCG@10": -0.008476166746014896,
+        "prefix_survival": -0.025966666666666693
+      }
+    }
+  },
+  "input_sha256": {
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/evaluation_anchors.jsonl": "e707c7df8fb7df86029a69cfe966bbcfc61c920f0d1c453c3989770bc32e055b",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/C0_CONT/per_user.tsv": "b242ee615dbf38309f3465b315ffc66ddafebe37f090deb8643329cefd5ba840",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/A0_LEGAL_GENERIC/per_user.tsv": "66881b5efb4e86099e905fc4b17825df9d95d8e5d5ea2b7022a61b198839e819",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/M0_PCPS/per_user.tsv": "0120ad82d69c54466b988cab2a918d1963a53d53af7a0ac28ee58f6af75d9f0d",
+    "artifacts/phase18/s2_mechanism_probe/run-0001/Toys/probe/S0_SHUFFLED_CF/per_user.tsv": "e5252fc03c7a8839fee35431432c60138851d1825108710f1aabee8b96ba04b2"
+  },
+  "analysis_source_sha256": "746b5e5636e51ca3016efcc45f1b692ec7727e9f75d2591d9d27b71e1cbc31a6"
+}
