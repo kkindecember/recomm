@@ -178,17 +178,6 @@ artifacts/phase17/status/s17_fp12_gpu1_runtime_guard.status.json
 artifacts/phase17/status/phase17.index.json
 artifacts/phase17/status/s17_s4_p1_targeted_d0_seed2023.status.json
 
-# Phase 18 S18-1 is an active bounded-generation run. Keep immutable source,
-# configs, plans, and S18-0 terminal evidence in Git; leave mutable attempts,
-# status snapshots, logs, generated views, and per-user diagnostics local.
-# A canonical top-level S18-1 summary/report remains eligible once finalized.
-artifacts/phase18/attempts/S18-1.attempts.jsonl
-artifacts/phase18/status/s18_s1*.json
-artifacts/phase18/status/history/
-artifacts/phase18/s1_actionability/preflight/
-artifacts/phase18/s1_actionability/run-*/
-artifacts/phase18/s1_actionability/*smoke*
-
 # Phase 13 local resource orchestration and failed-launch diagnostics.
 artifacts/phase13/explore/**/.resource_transition_started
 artifacts/phase13/explore/**/preexisting_gpu_pids.txt
@@ -196,3 +185,70 @@ artifacts/phase13/explore/**/resource_watchdog_status.json
 artifacts/phase13/explore/**/test_access.json
 artifacts/phase13/explore/**/status.*.json
 artifacts/phase13/explore/**/recompute_output.txt
+
+# Complete experiment logs are machine-local, including older phases.
+artifacts/**/*.log
+
+# These already-published aggregate Phase 13 metrics are durable results.
+!artifacts/phase13/explore/smoke_v0_beauty/metrics_cold_warm.json
+!artifacts/phase13/explore/v0_toys/metrics_cold_warm.json
+
+# Phase 18 defaults to local-only artifacts: checkpoints, generated data,
+# embeddings, per-user predictions, logs, process/attempt state, active metrics,
+# downloaded source trees, and duplicate execution snapshots. Explicitly retain
+# compact completed evidence and the pinned upstream source manifest below.
+# Future terminal evidence should be reviewed and added to this allowlist.
+/artifacts/phase18/**
+!/artifacts/phase18/attempts/
+!/artifacts/phase18/beam_boundary_diagnostic/
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/Beauty/
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/
+!/artifacts/phase18/beam_boundary_followup_design/
+!/artifacts/phase18/diffgrm_native/
+!/artifacts/phase18/diffgrm_native/beauty/
+!/artifacts/phase18/diffgrm_native/beauty/run_v1/
+!/artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/
+!/artifacts/phase18/diffgrm_native/sources/
+!/artifacts/phase18/postmortem_research/
+!/artifacts/phase18/postmortem_research/run-0001/
+!/artifacts/phase18/s0_audit/
+!/artifacts/phase18/s17_failure_review/
+!/artifacts/phase18/s1_actionability/
+!/artifacts/phase18/s1r_capacity_audit/
+!/artifacts/phase18/s1r_disjoint_confirmation/
+!/artifacts/phase18/s1r_disjoint_confirmation/run-0001/
+!/artifacts/phase18/s2_mechanism_probe/
+!/artifacts/phase18/s2_mechanism_probe/run-0001/
+!/artifacts/phase18/score_numerics_audit/
+!/artifacts/phase18/score_numerics_audit/run-0001/
+!/artifacts/phase18/screen_reference_reuse/
+!/artifacts/phase18/status/
+!/artifacts/phase18/attempts/S18-0.attempts.jsonl
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/Beauty/summary.json
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/Toys/summary.json
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/run_manifest.json
+!/artifacts/phase18/beam_boundary_diagnostic/run-0001/summary.json
+!/artifacts/phase18/beam_boundary_followup_design/case_manifest.json
+!/artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/full_validation_stage_epoch_20.json
+!/artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/result.json
+!/artifacts/phase18/diffgrm_native/sources/source_manifest.json
+!/artifacts/phase18/postmortem_research/run-0001/literature_sources.json
+!/artifacts/phase18/postmortem_research/run-0001/parent_comparison.json
+!/artifacts/phase18/postmortem_research/run-0001/summary.json
+!/artifacts/phase18/s0_audit/summary.json
+!/artifacts/phase18/s17_failure_review/s4_saved_prediction_review.json
+!/artifacts/phase18/s1_actionability/canonical_manifest.json
+!/artifacts/phase18/s1_actionability/summary.json
+!/artifacts/phase18/s1r_capacity_audit/summary.json
+!/artifacts/phase18/s1r_disjoint_confirmation/run-0001/run_manifest.json
+!/artifacts/phase18/s1r_disjoint_confirmation/run-0001/summary.json
+!/artifacts/phase18/s2_mechanism_probe/run-0001/frozen_alpha.json
+!/artifacts/phase18/s2_mechanism_probe/run-0001/run_manifest.json
+!/artifacts/phase18/s2_mechanism_probe/run-0001/summary.json
+!/artifacts/phase18/s2_mechanism_probe/summary.json
+!/artifacts/phase18/score_numerics_audit/interpretation.json
+!/artifacts/phase18/score_numerics_audit/run-0001/run_manifest.json
+!/artifacts/phase18/score_numerics_audit/run-0001/summary.json
+!/artifacts/phase18/screen_reference_reuse/review_20260908.json
+!/artifacts/phase18/status/s18_s0_audit.status.json
