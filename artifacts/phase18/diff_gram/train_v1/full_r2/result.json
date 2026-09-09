@@ -1,0 +1,67 @@
+{
+  "state": "COMPLETED",
+  "revision": "full_r2",
+  "completion_scope": "full_budget_preserved_short_prefix",
+  "source_epoch": 2,
+  "selected_absolute_epoch": 11,
+  "selected_stage_epoch": 9,
+  "epochs_completed": 11,
+  "additional_epochs": 9,
+  "optimizer_steps": 9405,
+  "stopping_reason": "epoch_limit",
+  "automatic_additional_training": false,
+  "direction_rejected": false,
+  "full_validation": {
+    "scope": "full_validation",
+    "stage_epoch": 9,
+    "metrics": {
+      "hit@5": 0.09045950958170204,
+      "hit@10": 0.11915310117453122,
+      "hit@50": 0.21162167731300227,
+      "ndcg@5": 0.06687428037733846,
+      "ndcg@10": 0.07609225673586052,
+      "ndcg@50": 0.09631508359179995
+    },
+    "examples": 19412,
+    "historical_gram": {
+      "hit@5": 0.0909231403255718,
+      "hit@10": 0.11941067381001443,
+      "hit@50": 0.21193076447558212,
+      "ndcg@5": 0.06713487106644733,
+      "ndcg@10": 0.07627451425999993,
+      "ndcg@50": 0.09653217535352775
+    },
+    "delta": {
+      "hit@5": -0.000463630743869764,
+      "hit@10": -0.0002575726354832053,
+      "hit@50": -0.0003090871625798519,
+      "ndcg@5": -0.0002605906891088722,
+      "ndcg@10": -0.00018225752413940366,
+      "ndcg@50": -0.00021709176172779454
+    },
+    "mean_returned_items": 50.0,
+    "fewer_than_50_fraction": 0.0,
+    "seconds": 10469.679764019325,
+    "predictions_sha256": "57ecfdcd9d2649d5ba56c17b41e7bdc5f4756ea36941a38c7cdb1d0ba4083a1f",
+    "epoch": 11,
+    "historical_gram_pcrf": {
+      "hit@5": 0.0936534102616938,
+      "hit@10": 0.12533484442612816,
+      "hit@50": 0.21193076447558212,
+      "ndcg@5": 0.06850763766741287,
+      "ndcg@10": 0.07871552229273793,
+      "ndcg@50": 0.0980706124558045
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.003193900679991757,
+      "hit@10": -0.006181743251596941,
+      "hit@50": -0.0003090871625798519,
+      "ndcg@5": -0.0016333572900744109,
+      "ndcg@10": -0.002623265556877405,
+      "ndcg@50": -0.0017555288640045547
+    },
+    "interpretation": "Exploratory comparison with historical ranks on identical validation users"
+  },
+  "seconds": 65512.540880611166,
+  "interpretation": "All completed short-run model, Adam and RNG states retained; one-epoch LR bridge then original long curve. Exploratory candidate screening, not an uninterrupted original-schedule reproduction or matched-budget structural attribution."
+}

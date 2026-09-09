@@ -1,5 +1,9 @@
 # 第十八阶段：四实验完整预算与自动接续执行补遗 v0.1
 
+**2026-09-09 完成更新：** 四条 `full_r2` 均已完成。DIFF→GRAM 两域均训练到绝对 epoch 11，分别选择 Toys epoch 11、Beauty epoch 9；DiffGRM 两域因 patience 分别停在 Toys epoch 110、Beauty epoch 160，选择 epoch 60 / 110，不能称为均跑满 200。
+
+最终结论见 [DiffGRM 双域报告](../../report/第十八阶段/Stage18_DiffGRM_双域full_r2结果与方向结论报告.md)和 [DIFF→GRAM 双域报告](../../report/第十八阶段/Stage18_DIFF_GRAM_双域full_r2结果与方向结论报告.md)。DiffGRM 明显落后；DIFF→GRAM Toys 略负、Beauty NDCG@10 相对 +0.59%，但配对区间包含 0，保留弱正信号。本轮不追加旧方向预算，Beauty `full_r3` finish 未启动。以下日期、PID、自动接管及“当前”描述保留为 09-08 执行历史。
+
 日期：2026-09-08。用户授权：“那还是按照你现在的这个来改下这四个实验吧 我不想白跑”。
 
 本补遗覆盖此前“四条按 screen_r1 短档跑完，再手动决定是否追加”以及“仅 Beauty 恢复完整日程”的执行规则。当前四条候选统一使用完整训练上限、固定子集稀疏验证和早停。优先寻找可提点方向；GRAM / PCRF 只复用已有逐用户结果，不训练、不重新推理，不增加 seed 或消融，不读取 test。最终方法确定后统一重跑正式实验。

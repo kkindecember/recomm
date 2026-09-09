@@ -1,0 +1,21 @@
+{
+  "revision": "fixed_r1",
+  "family": "diff_gram",
+  "dataset": "Beauty",
+  "seed": 2023,
+  "model_config": "experiment/phase18/config/s18_diff_gram_beauty.json",
+  "run_directory": "artifacts/phase18/diff_gram/beauty/confirm_v1",
+  "smoke_directory": "artifacts/phase18/diff_gram/beauty/confirm_smoke_v1_gpu4_mb8",
+  "total_epochs": 11,
+  "additional_epochs": 11,
+  "microbatch": 8,
+  "trend_users": 2000,
+  "gpu_uuid": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09",
+  "max_wall_seconds": 129600,
+  "cohort_source": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/trend_cohort.json",
+  "reference_cache": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/historical_references.json",
+  "authorized_purpose": "User authorized Beauty-only clean-schedule rerun: same parent, seed and model hyperparameters; all training data, 1 frozen + 10 joint epochs, fixed subset selection, one final full validation. No automatic additional training, test evaluation, or baseline rerun.",
+  "model_config_sha256": "fe8d2e9e1e26d5fbb105929ca048080fec4979aaa20495c77757f54b9265d8fc",
+  "cohort_sha256": "b028031beba7efd523dc586972c11451583aa27cc7f774feeb580dc97fba9c37",
+  "reference_cache_sha256": "d2314bd0bd280ba4e3773aa28b2cad7102f66a0c418fc71b2e9c64949cdedfac"
+}

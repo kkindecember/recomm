@@ -1,0 +1,60 @@
+{
+  "state": "PASSED",
+  "hardware": {
+    "gpu_uuid": "GPU-07374397-b213-09c1-2988-718acb6ed231",
+    "device_name": "NVIDIA RTX A6000",
+    "free_bytes_before": 24370806784,
+    "allocator_cap_bytes": 22223323136,
+    "torch": "2.7.1+cu126"
+  },
+  "timings": {
+    "rq_update": 0.006938711367547513,
+    "id_update": 0.05122648365795612,
+    "rec_update": 0.1457051057368517,
+    "finetune_update": 0.12203691434115171,
+    "validation_user": 0.0031867065117694438,
+    "code_refresh": 0.02783605270087719,
+    "checkpoint": 0.48210923187434673
+  },
+  "code_info": {
+    "distinct_prefixes": 10976,
+    "max_collision": 48,
+    "catalog_items": 11924
+  },
+  "alignment_gradient_l1": {
+    "kl": 1.1072598285973072,
+    "contrastive": 237.68720316886902
+  },
+  "actual_parameter_update_l1": {
+    "id": 0.07674525678157806,
+    "rec": 0.5027898550033569,
+    "finetune": 1.5641818046569824
+  },
+  "gpu_checkpoint_replay": "PASSED",
+  "config_sha256": "be36755084ca7d3d9a65e4828aa1b1341d34064d4fd4314d672b774562b51a90",
+  "local_source_sha256": {
+    "experiment/phase18/core/etegrec_adapter.py": "3e7657dd7ac18c1a04cf4ff96d26b315572bc617a7a3e604c5e6eacfafbeb44b",
+    "experiment/phase18/core/etegrec_toys_adapter.py": "0eeb851e2364ad951975c9deb38c52b3443ff406f0a8041599355c4d3d89c311",
+    "experiment/phase18/protocol/s18_etegrec_toys.py": "266f8ef86d12fbbc8d8132c088bef44e5831b5fc5148f5a03de80c4b264580b2",
+    "experiment/phase18/run_stage18_etegrec_toys.sh": "9ac3bfcf504cf0e01effc89efa3e241b01257055611a4da310f50ecd1cb48cbb"
+  },
+  "max_memory_allocated": 4740654592,
+  "estimate_components": {
+    "rq": 5653.737682849169,
+    "joint": 8434.23923663795,
+    "finetune": 2611.5899669006467,
+    "evaluation": 444.2651282188017,
+    "checkpoints": 241.05461593717337,
+    "rq_monitoring": 16.65290728211403
+  },
+  "estimated_max_seconds": 21764.563422582636,
+  "budget_admitted": true,
+  "seconds": 12.63971015252173,
+  "test_read": false,
+  "formal_training_started": false,
+  "rq_initialization_passes": 50,
+  "torch_versions": {
+    "torch": "2.7.1+cu126"
+  },
+  "training_batch": 512
+}

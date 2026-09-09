@@ -1,0 +1,142 @@
+{
+  "created_at": "2026-09-09T11:15:13.540452+08:00",
+  "scope": "ETEGRec planning; saved inputs only",
+  "training_runs": 0,
+  "model_inference_runs": 0,
+  "test_read": false,
+  "files": {
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/train.jsonl": "906230a74174564c8e4d41437e986371e85137dd961c3f3b85646e327ed11c59",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/validation.jsonl": "1dff8bc5e43fd91234a8e2fe3e6d2b6595179b1883a5eae5b68896ed0f4d40bf",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/catalog.json": "98b65f13a82d1141beafd35bc5a29d1ae00640016c2f36cdd58c81288fba164d",
+    "artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/trend_cohort.json": "b028031beba7efd523dc586972c11451583aa27cc7f774feeb580dc97fba9c37",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1"
+  },
+  "dataset": "Beauty",
+  "train_examples": 131413,
+  "validation_users": 22363,
+  "train_catalog_items": 12068,
+  "catalog_items": 12101,
+  "trend_users": 2000,
+  "train_steps_per_pass_batch512": 257,
+  "validation_history_le5": 14063,
+  "max_history": 20,
+  "baseline": {
+    "count": 22363,
+    "mrr": 0.05617756464777004,
+    "Hit@1": 0.031748870902830566,
+    "NDCG@1": 0.031748870902830566,
+    "Hit@5": 0.07762822519339982,
+    "NDCG@5": 0.054916834352078656,
+    "Hit@10": 0.10875106202209006,
+    "NDCG@10": 0.06497370269327073,
+    "Hit@20": 0.14693914054464965,
+    "NDCG@20": 0.07459553058434051,
+    "Hit@50": 0.2081116129320753,
+    "NDCG@50": 0.08670097723570454
+  },
+  "pcrf": {
+    "count": 22363,
+    "mrr": 0.05835238661608075,
+    "Hit@1": 0.03268792201404105,
+    "NDCG@1": 0.03268792201404105,
+    "Hit@5": 0.081608013236149,
+    "NDCG@5": 0.05753435052230472,
+    "Hit@10": 0.11384876805437553,
+    "NDCG@10": 0.06790768154799981,
+    "Hit@20": 0.15391494879935608,
+    "NDCG@20": 0.07794558983641887,
+    "Hit@50": 0.2081116129320753,
+    "NDCG@50": 0.08875958665222095
+  },
+  "collaborative_checkpoint": {
+    "path": "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt",
+    "sha256": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+    "cpu_inspection": "item_embedding.weight shape [12102,512], finite; catalog sorted raw item IDs match phase18 catalog",
+    "source_training": "phase9 train-prefix-only item-head, checkpoint selected on historical validation",
+    "is_official_sasrec_embedding": false
+  },
+  "pending": [
+    "author source commit pin and local compatibility",
+    "gradient smoke and throughput profile",
+    "runtime implementation"
+  ],
+  "diff_gram_beauty_status_snapshot": {
+    "state": "VALIDATING",
+    "updated_at": "2026-09-09T03:15:09.762149+00:00",
+    "pid": 4047906,
+    "revision": "full_r2",
+    "dataset": "Beauty",
+    "family": "diff_gram",
+    "active_config": "experiment/phase18/config/s18_full_r2_diff_gram_beauty.json",
+    "stage_epochs": 8,
+    "total_epochs": 11,
+    "minimum_epochs": 5,
+    "patience": 3,
+    "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+    "result_path": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/result.json",
+    "training_policy": "full_horizon_sparse_validation_early_stop",
+    "schedule_provenance": "Preserved short-run prefix; one-epoch bridge, then original long LR curve",
+    "hard_timeout_seconds": 172800,
+    "inherited_epoch": 3,
+    "inherited_optimizer_steps": 3081,
+    "latest_trend_validation": {
+      "scope": "trend_subset",
+      "stage_epoch": 8,
+      "metrics": {
+        "hit@5": 0.0915,
+        "hit@10": 0.1265,
+        "hit@50": 0.2205,
+        "ndcg@5": 0.06517688330417115,
+        "ndcg@10": 0.07639617085047008,
+        "ndcg@50": 0.09661118113865175
+      },
+      "examples": 2000,
+      "historical_gram": {
+        "hit@5": 0.0935,
+        "hit@10": 0.124,
+        "hit@50": 0.215,
+        "ndcg@5": 0.0665033039498821,
+        "ndcg@10": 0.07635150086778297,
+        "ndcg@50": 0.09608035134601972
+      },
+      "delta": {
+        "hit@5": -0.0020000000000000018,
+        "hit@10": 0.0025000000000000022,
+        "hit@50": 0.005500000000000005,
+        "ndcg@5": -0.0013264206457109518,
+        "ndcg@10": 4.466998268710942e-05,
+        "ndcg@50": 0.000530829792632026
+      },
+      "interpretation": "Exploratory comparison with historical ranks on identical validation users",
+      "mean_returned_items": 50.0,
+      "fewer_than_50_fraction": 0.0,
+      "seconds": 1495.872417608276,
+      "predictions_sha256": "b6aa9edb0b0086fbfb2ebe4f96e2a48f62f14cde5d88a058589bd41be244f61c",
+      "epoch": 11,
+      "historical_gram_pcrf": {
+        "hit@5": 0.095,
+        "hit@10": 0.1265,
+        "hit@50": 0.215,
+        "ndcg@5": 0.06626695719607469,
+        "ndcg@10": 0.07660199421786551,
+        "ndcg@50": 0.09623254071120461
+      },
+      "delta_vs_gram_pcrf": {
+        "hit@5": -0.003500000000000003,
+        "hit@10": 0.0,
+        "hit@50": 0.005500000000000005,
+        "ndcg@5": -0.001090073891903534,
+        "ndcg@10": -0.0002058233673954274,
+        "ndcg@50": 0.0003786404274471328
+      }
+    },
+    "phase": "full_validation",
+    "stage_epoch": 6,
+    "epoch": 9,
+    "validation_scope": "full_validation",
+    "validation_total": 22363,
+    "evaluated": 13276,
+    "validation_elapsed_seconds": 8974.15386317484,
+    "validation_eta_seconds": 6142.523060761508
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-09-09T07:09:44.818057+00:00",
+  "dataset": "Beauty",
+  "files": {
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/train.jsonl": "906230a74174564c8e4d41437e986371e85137dd961c3f3b85646e327ed11c59",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/validation.jsonl": "1dff8bc5e43fd91234a8e2fe3e6d2b6595179b1883a5eae5b68896ed0f4d40bf",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/catalog.json": "98b65f13a82d1141beafd35bc5a29d1ae00640016c2f36cdd58c81288fba164d",
+    "artifacts/phase18/diffgrm_native/beauty/run_v1/screen_r1/trend_cohort.json": "b028031beba7efd523dc586972c11451583aa27cc7f774feeb580dc97fba9c37",
+    "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/historical_references.json": "d2314bd0bd280ba4e3773aa28b2cad7102f66a0c418fc71b2e9c64949cdedfac",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1"
+  },
+  "test_read": false,
+  "train_examples": 131413,
+  "validation_users": 22363,
+  "trend_users": 2000,
+  "catalog_items": 12101,
+  "history_order": "chronological; left padding in ReaRec adapter",
+  "baseline": {
+    "hit@5": 0.07762822519339982,
+    "hit@10": 0.10875106202209006,
+    "hit@50": 0.2081116129320753,
+    "ndcg@5": 0.054916834352078656,
+    "ndcg@10": 0.06497370269327073,
+    "ndcg@50": 0.08670097723570454
+  },
+  "pcrf": {
+    "hit@5": 0.081608013236149,
+    "hit@10": 0.11384876805437553,
+    "hit@50": 0.2081116129320753,
+    "ndcg@5": 0.057534350522304704,
+    "ndcg@10": 0.0679076815479998,
+    "ndcg@50": 0.08875958665222096
+  },
+  "embeddings": "Random trainable ID embeddings; no CF or LLM features loaded",
+  "checks": [
+    "frozen prepared data hashes",
+    "exact validation/cohort population",
+    "history lengths",
+    "full/subset historical six metrics identity"
+  ]
+}

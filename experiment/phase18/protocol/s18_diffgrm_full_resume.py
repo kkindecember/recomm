@@ -77,7 +77,7 @@ def save_training(path, backend, run, scheduler, epoch, steps, **extra):
                     revision_config=run.spec, **extra)
 
 
-def train_original(backend, run, scheduler):
+def train_original(backend, run, scheduler, prior_best=None):
     indices = cohort_indices(backend.records, run.spec['dataset'], backend.config['seed'], run.spec['trend_users'])
     previous = json.loads((run.root / 'screen_r1/trend_cohort.json').read_text())
     users = [str(backend.records[i]['user_id']) for i in indices]
@@ -93,6 +93,10 @@ def train_original(backend, run, scheduler):
     steps = backend.initial_steps
     save_training(run.directory / 'best_trend.pt', backend, run, scheduler,
                   best_epoch, steps, selection=initial, bad_checks=bad)
+    if prior_best is not None and prior_best['score'] >= best:
+        best, best_epoch = prior_best['score'], prior_best['epoch']
+        shutil.copy2(prior_best['checkpoint'], run.directory / 'best_trend.pt')
+        run.event('historical_best_retained', epoch=best_epoch, score=best)
     for epoch in range(backend.inherited_epoch + 1, run.spec['total_epochs'] + 1):
         stage_epoch = epoch - backend.inherited_epoch
         backend.model.train()
@@ -155,18 +159,32 @@ def train_original(backend, run, scheduler):
                 bad += 1
             write_json(run.directory / 'selection_state.json', dict(
                 epoch=epoch, best_epoch=best_epoch, best_score=best, bad_checks=bad))
-            if stopping_due(epoch, run.spec['minimum_epochs'], bad, run.spec['patience']):
+            if (not run.spec.get('disable_early_stopping', False)
+                    and stopping_due(epoch, run.spec['minimum_epochs'], bad, run.spec['patience'])):
                 break
     selected = load_checkpoint(run.directory / 'best_trend.pt')
     backend.model.load_state_dict(selected['model'], strict=True)
     del selected
-    full = matched_evaluate(backend, backend.validation, run, best_epoch-backend.inherited_epoch, True)
+    reused = prior_best is not None and best_epoch == prior_best['epoch']
+    if reused:
+        full = dict(prior_best['full_validation'], reused=True,
+                    source_summary=prior_best['full_summary_path'],
+                    source_predictions=prior_best['full_predictions_path'],
+                    source_revision=prior_best['revision'])
+        write_json(run.directory / 'reused_full_validation.json', full)
+        run.context['latest_full_validation'] = full
+        run.event('full_validation_reused', **full)
+    else:
+        full = matched_evaluate(backend, backend.validation, run, best_epoch-backend.inherited_epoch, True)
     result = dict(state='COMPLETED', revision=run.spec['revision'],
         completion_scope=run.spec.get('completion_scope', 'original_schedule_continuation'),
         source_epoch=backend.inherited_epoch, selected_absolute_epoch=best_epoch,
         selected_stage_epoch=best_epoch-backend.inherited_epoch, epochs_completed=epoch,
         additional_epochs=epoch-backend.inherited_epoch, optimizer_steps=steps,
         stopping_reason='patience' if epoch < run.spec['total_epochs'] else 'epoch_limit',
+        early_stopping_enabled=not run.spec.get('disable_early_stopping', False),
+        inherited_best_epoch=prior_best['epoch'] if prior_best else None,
+        full_validation_reused=reused,
         automatic_additional_training=False, direction_rejected=False, full_validation=full,
         seconds=time.monotonic()-started,
         interpretation=run.spec.get('interpretation',

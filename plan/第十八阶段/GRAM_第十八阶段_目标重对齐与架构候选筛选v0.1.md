@@ -1,8 +1,27 @@
 # 第十八阶段：目标重对齐与架构候选筛选 v0.1
 
+**2026-09-09 15:17 ReaRec Beauty 启动更新：** 用户授权开始第四候选，现已完成本地适配、5 项 CPU 测试及 GPU 6 真实 batch 核验，正式 PID `2752109`。两步 PRL 单域、单 seed，最多 300 epoch，至少 100 epoch 后启用平台判断；完整日程实测估计 3.38 小时，含 profile 的硬预算 4 小时。已确认完整 epoch、真实参数更新和 checkpoint，详见 [ReaRec 启动报告](../../report/第十八阶段/Stage18_ReaRec_Beauty实现核验与启动报告.md)与[执行计划](GRAM_第十八阶段_第四候选ReaRec筛选准备v0.1.md)。[汇总 status](../../artifacts/phase18/parallel_screen_20260909/status.json)已纳入四条任务，每 15 秒刷新。ReaRec 效果仍待最终 validation；下文“第四条未启动”为此前准备状态。
+
+**2026-09-09 14:42 ETEGRec Toys 并行更新：** 用户已授权补充 Toys，现已在 GPU 5 启动 [ETEGRec Toys 完整训练筛选](GRAM_第十八阶段_ETEGRec_Toys并行筛选计划v0.1.md)，PID 2572693，实测最大日程约 6.05 小时、硬预算 12 小时，真实更新与 checkpoint 已确认。当前共三条训练：DIFF→GRAM Beauty 固定日程复核、ETEGRec Beauty、ETEGRec Toys。推荐查看每 15 秒更新的 [汇总 status](../../artifacts/phase18/parallel_screen_20260909/status.json)，Toys 原始状态为 `artifacts/phase18/etegrec/toys/run_v1/status.json`。完整核验见 [Toys 启动与并行资源报告](../../report/第十八阶段/Stage18_ETEGRec_Toys启动与并行资源报告.md)。
+
+**第四方向考虑结果：** GPU 6 的三次快照尚有约 18–25 GiB 显存空间，可考虑轻量候选。已固定作者 ReaRec 源码，并完成 [潜在推理候选准备计划](GRAM_第十八阶段_第四候选ReaRec筛选准备v0.1.md)；本地数据接口和实测准入尚未完成，第四条训练未启动。拟只增加一个 Beauty 两步 PRL 候选，复用历史 GRAM / PCRF 参照；零步仅作同 checkpoint 推理诊断，不先重训额外基线。下文关于单域 ETEGRec 的描述保留为此前阶段记录，本更新补充其 Toys 筛选。
+
 日期：2026-09-08。依据：用户本轮明确，主要目标是找到能提升原始 GRAM 的模型内部改动，再叠加已经确认有效的 PCRF，形成有实验支撑的方法；优先借鉴有作者公开实现的顶会工作。
 
-**最新执行修订（16:15 起）：** 用户已授权四条统一改为完整训练上限、固定子集稀疏验证和早停。DiffGRM Beauty 保留已恢复的 full_r2；其余三条在当前整轮 checkpoint 保存后自动接入 full_r2，保留已经完成的短日程训练。DIFF→GRAM 最多 10 个联合 epoch，DiffGRM 最多总 epoch 200。配置、自动接管状态与历史轨迹边界以 [四实验完整预算与自动接续补遗](GRAM_第十八阶段_四实验完整预算与自动接续执行补遗v0.1.md) 为准。此前短档预算讨论保留为历史记录。
+**2026-09-09 13:28 Beauty 复核启动更新：** 用户在澄清旧 DIFF→GRAM 已用全量数据、但经过短档切换后，授权“先做 Beauty”。已启动 [Beauty 固定日程复核](GRAM_第十八阶段_DIFF_Beauty固定日程复核计划v0.1.md)：GPU 4，重新加载原 Beauty epoch 25 GRAM parent，同 seed 2023、同结构与超参数，固定 1 frozen + 10 joint，2,000 人选模、最终全量 validation；预计 24–30 小时，最长 36 小时。状态入口为 `artifacts/phase18/diff_gram/beauty/confirm_v1/status.json`。这条授权覆盖下文对 Beauty“暂不追加”的先前投入建议；原 full_r2 结果及其科学边界不变。Toys 不启动复核，DiffGRM 不续训，ETEGRec 按已有任务推进。
+
+**2026-09-09 四实验最终结果更新（Beauty 12:53 完成后）：** 四条 `full_r2` 均已完成，完整 validation 逐用户预测已经 CPU 重算核对。结论与报告入口如下；下文未完成状态与短档记录均为历史，不再作为当前结论。
+
+| 方向 | Toys 相对 GRAM 的 NDCG@10 | Beauty 相对 GRAM 的 NDCG@10 | 当前结论与报告 |
+| --- | --- | --- | --- |
+| DiffGRM | 0.035143，-53.93% | 0.041467，-36.18% | 当前配置归档、降低优先级；提前停止未排除训练不足，尤其 Toys 低 LR 尾段。[最终报告](../../report/第十八阶段/Stage18_DiffGRM_双域full_r2结果与方向结论报告.md) |
+| DIFF→GRAM | 0.076092，-0.24% | 0.065355，+0.59% | Toys 未提点；Beauty 保留弱正信号，增量 95% 区间 [-0.000133, +0.000910] 包含 0，未确认稳定收益，PCRF 组合未评估。[最终报告](../../report/第十八阶段/Stage18_DIFF_GRAM_双域full_r2结果与方向结论报告.md) |
+
+本次不追加旧方向训练，保留模型和预测；不能将 Beauty 小幅正增量改写成“DIFF 两域全部失败”，也不能将 DiffGRM 的资源决策改写成“扩散机制无效”。完整指标、哈希、配对区间与分组见 [CPU 复核快照](../../artifacts/phase18/final_diff_review/review_20260909.json)。
+
+**2026-09-09 后续选型更新：** 用户在核对 DiffGRM / DIFF→GRAM 的新增结果后，再次明确优先寻找提点方向，并要求继续制定计划、随后继续实施。下一候选收敛为 [ETEGRec 联合编码学习与 Beauty 单域筛选](GRAM_第十八阶段_ETEGRec联合编码学习与Beauty单域筛选计划v0.1.md)：复用已有协同向量和 GRAM / PCRF 参照，单域、单 seed，先评价独立候选，再决定迁移与组合。ETEGRec 已通过 CPU / GPU 核验，12:26 在 GPU 0 启动；最大日程实测估计约 6.93 小时，投入上限 12 GPU 小时。已准备的 DiffGRM `full_r3` finish 续训仍未启动。DIFF→GRAM Beauty 已完成，最终结论见上表；不新增旧方向预算。本段更新后续优先级，下文四任务启动与预算记录保留为历史。
+
+**2026-09-08 执行修订（历史，16:15 起）：** 用户已授权四条统一改为完整训练上限、固定子集稀疏验证和早停。DiffGRM Beauty 保留已恢复的 full_r2；其余三条在当前整轮 checkpoint 保存后自动接入 full_r2，保留已经完成的短日程训练。DIFF→GRAM 最多 10 个联合 epoch，DiffGRM 最多总 epoch 200。配置、自动接管状态与历史轨迹边界以 [四实验完整预算与自动接续补遗](GRAM_第十八阶段_四实验完整预算与自动接续执行补遗v0.1.md) 为准。此前短档预算讨论保留为历史记录。
 
 同日用户补充：选型阶段优先复用第一、第二阶段的 GRAM 基线及已有 PCRF 结果，不花时间重跑或重建基线。当前投入集中在寻找能提点的结构；方法确定后再统一重跑最终实验。以下执行顺序据此修订。
 

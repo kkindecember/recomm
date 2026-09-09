@@ -1,0 +1,44 @@
+{
+  "state": "PASSED",
+  "budget_admitted": true,
+  "config_sha256": "905312eda8b291ced18aeb6efcd9ee06d29f75a72892f412f19b2acfd6e9a0dd",
+  "source_sha256": {
+    "experiment/phase18/core/rearec_adapter.py": "9c439935e54ae66525870f0fb200b0cd005ec49279a5b726e04fa6a589110e1b",
+    "experiment/phase18/protocol/s18_rearec.py": "4a3e941274880dd06693780da06e4a9b0c36602817b2c1fabf0be240006be3b9",
+    "experiment/phase18/run_stage18_rearec_beauty.sh": "249a746e30d2838f14919ca7b0931435b0a2ace268b5a43361b8dc338160c580",
+    "experiment/phase18/config/s18_rearec_beauty.json": "905312eda8b291ced18aeb6efcd9ee06d29f75a72892f412f19b2acfd6e9a0dd",
+    "artifacts/phase18/parallel_screen_20260909/rearec_source_manifest.json": "c6bef716af4997e6eef80d9d085ecb40055123f5999969d2d217a465144d174a",
+    "artifacts/phase18/rearec/beauty/input_review.json": "218d0b77581ad8ac7f582878d9c6e6b52b0e45ccd0ecac8202fdc22144bb0058",
+    "experiment/phase18/analysis/screen_saved_reference.py": "a049b3e98c08f23b4e03d3efd5e1a16d6c8c70e74d05f6be98647a8159106c9f"
+  },
+  "hardware": {
+    "gpu_uuid": "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2",
+    "free_bytes_before": 17983078400,
+    "allocator_cap_bytes": 12884901888,
+    "device_name": "NVIDIA RTX A6000",
+    "torch": "2.7.1+cu126"
+  },
+  "max_memory_allocated": 2114351616,
+  "train_update_p90": 0.12499822918325663,
+  "validation_user_p90": 7.260470738401636e-05,
+  "checkpoint_seconds": 0.22572445683181286,
+  "steps_per_epoch": 257,
+  "estimated_max_seconds": 12169.38658800103,
+  "estimate_components": {
+    "training": 9637.363470029086,
+    "validation": 11.95988302853948,
+    "checkpoints": 81.26080445945263
+  },
+  "actual_reason_position_update_l1": 2.464772939682007,
+  "reasoning_gradient_l1": {
+    "ce": 5.116077899932861,
+    "progressive": 0.24537834525108337,
+    "contrastive": 6.2082839012146
+  },
+  "gpu_checkpoint_replay": "PASSED",
+  "warmup_no_noise": "PASSED",
+  "dense_top50": "PASSED",
+  "seconds": 6.156735010445118,
+  "test_read": false,
+  "formal_training_started": false
+}

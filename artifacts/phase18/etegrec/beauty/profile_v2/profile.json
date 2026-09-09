@@ -1,0 +1,58 @@
+{
+  "state": "PASSED",
+  "hardware": {
+    "gpu_uuid": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "device_name": "NVIDIA RTX A6000",
+    "free_bytes_before": 25127944192,
+    "allocator_cap_bytes": 22980460544,
+    "torch": "2.7.1+cu126"
+  },
+  "timings": {
+    "rq_update": 0.007418094389140607,
+    "id_update": 0.05102536641061306,
+    "rec_update": 0.1378731718286872,
+    "finetune_update": 0.12266595475375652,
+    "validation_user": 0.0032028640271164477,
+    "code_refresh": 0.028605520725250244,
+    "checkpoint": 0.5439342185854912
+  },
+  "code_info": {
+    "distinct_prefixes": 5507,
+    "max_collision": 24,
+    "catalog_items": 12101
+  },
+  "alignment_gradient_l1": {
+    "kl": 0.6423900369554758,
+    "contrastive": 228.22414016723633
+  },
+  "actual_parameter_update_l1": {
+    "id": 0.0756102129817009,
+    "rec": 0.5236703753471375,
+    "finetune": 1.6299893856048584
+  },
+  "gpu_checkpoint_replay": "PASSED",
+  "config_sha256": "fbb4a4bc5d9b473c1e9ac67c602be5dbdb9026542d7700b43c86445460f92d1b",
+  "local_source_sha256": {
+    "experiment/phase18/core/etegrec_adapter.py": "3e7657dd7ac18c1a04cf4ff96d26b315572bc617a7a3e604c5e6eacfafbeb44b",
+    "experiment/phase18/protocol/s18_etegrec.py": "17ccf58dd728d2d966acceadf412e99cd3a920626014d70ee11f1a7dc72e89fa"
+  },
+  "max_memory_allocated": 4740637184,
+  "estimate_components": {
+    "rq": 6329.5135125517845,
+    "joint": 9715.105969645083,
+    "finetune": 3152.5150371715426,
+    "evaluation": 455.96933149237884,
+    "checkpoints": 271.9671092927456,
+    "rq_monitoring": 17.803426533937458
+  },
+  "estimated_max_seconds": 24946.965471248943,
+  "budget_admitted": true,
+  "seconds": 18.37332261353731,
+  "test_read": false,
+  "formal_training_started": false,
+  "rq_initialization_passes": 50,
+  "torch_versions": {
+    "torch": "2.7.1+cu126"
+  },
+  "training_batch": 512
+}

@@ -1,0 +1,1937 @@
+{
+  "created_at": "2026-09-09T05:03:00.649650+00:00",
+  "verification_status": "ANALYZED",
+  "training_runs": 0,
+  "model_inference_runs": 0,
+  "test_read": false,
+  "device": "cpu",
+  "bootstrap": {
+    "unit": "paired user",
+    "method": "percentile",
+    "repetitions": 2000,
+    "seed": 2023,
+    "confidence": 0.95,
+    "multiple_comparison_adjusted": false,
+    "limitation": "Conditional on selected checkpoint and seed; ignores model-selection/training variance and shared-item dependence. Exploratory validation, not independent confirmation."
+  },
+  "software": {
+    "numpy": "2.5.1",
+    "script_sha256": "2c7e7e4a882e8723feee2e1ca35b1e2df3753cf42ea54e22ddab1f05e677efc9"
+  },
+  "datasets": [
+    {
+      "dataset": "Toys",
+      "users": 19412,
+      "historical": {
+        "gram": {
+          "hit@5": 0.0909231403255718,
+          "hit@10": 0.11941067381001443,
+          "hit@50": 0.21193076447558212,
+          "ndcg@5": 0.06713487106644733,
+          "ndcg@10": 0.07627451425999993,
+          "ndcg@50": 0.09653217535352775
+        },
+        "gram_pcrf": {
+          "hit@5": 0.0936534102616938,
+          "hit@10": 0.12533484442612816,
+          "hit@50": 0.21193076447558212,
+          "ndcg@5": 0.06850763766741287,
+          "ndcg@10": 0.07871552229273793,
+          "ndcg@50": 0.0980706124558045
+        }
+      },
+      "candidates": [
+        {
+          "family": "diffgrm",
+          "result_path": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/result.json",
+          "result_sha256": "c983fd2a91d69a54f7f0c1a15c1af01dce6e680ad43b7e4f1c146efb016011b4",
+          "run_result": {
+            "state": "COMPLETED",
+            "revision": "full_r2",
+            "completion_scope": "full_budget_preserved_short_prefix",
+            "source_epoch": 19,
+            "selected_absolute_epoch": 60,
+            "selected_stage_epoch": 41,
+            "epochs_completed": 110,
+            "additional_epochs": 91,
+            "optimizer_steps": 11770,
+            "stopping_reason": "patience",
+            "automatic_additional_training": false,
+            "direction_rejected": false,
+            "full_validation": {
+              "scope": "full_validation",
+              "stage_epoch": 41,
+              "metrics": {
+                "hit@5": 0.04327220276117865,
+                "hit@10": 0.06511436225015454,
+                "hit@50": 0.14681640222542758,
+                "ndcg@5": 0.028151736826546925,
+                "ndcg@10": 0.03514295761566374,
+                "ndcg@50": 0.052932155633974104
+              },
+              "examples": 19412,
+              "historical_gram": {
+                "hit@5": 0.0909231403255718,
+                "hit@10": 0.11941067381001443,
+                "hit@50": 0.21193076447558212,
+                "ndcg@5": 0.06713487106644733,
+                "ndcg@10": 0.07627451425999993,
+                "ndcg@50": 0.09653217535352775
+              },
+              "delta": {
+                "hit@5": -0.047650937564393155,
+                "hit@10": -0.05429631155985988,
+                "hit@50": -0.06511436225015454,
+                "ndcg@5": -0.03898313423990041,
+                "ndcg@10": -0.04113155664433619,
+                "ndcg@50": -0.04360001971955364
+              },
+              "mean_returned_items": 49.50288481351741,
+              "fewer_than_50_fraction": 0.05063878013599835,
+              "seconds": 1402.7220952715725,
+              "predictions_sha256": "237e00f0e9ffefa6901960205cdc9d955ef81b71ba19fda77cd7cdcac4c7e995",
+              "epoch": 60,
+              "historical_gram_pcrf": {
+                "hit@5": 0.0936534102616938,
+                "hit@10": 0.12533484442612816,
+                "hit@50": 0.21193076447558212,
+                "ndcg@5": 0.06850763766741287,
+                "ndcg@10": 0.07871552229273793,
+                "ndcg@50": 0.0980706124558045
+              },
+              "delta_vs_gram_pcrf": {
+                "hit@5": -0.05038120750051515,
+                "hit@10": -0.060220482175973616,
+                "hit@50": -0.06511436225015454,
+                "ndcg@5": -0.040355900840865946,
+                "ndcg@10": -0.04357256467707419,
+                "ndcg@50": -0.0451384568218304
+              },
+              "interpretation": "Exploratory comparison with historical ranks on identical validation users"
+            },
+            "seconds": 41778.26924354769,
+            "interpretation": "All completed short-run model, Adam and RNG states retained; one-epoch LR bridge then original long curve. Exploratory candidate screening, not an uninterrupted original-schedule reproduction or matched-budget structural attribution."
+          },
+          "predictions_path": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/full_validation_stage_epoch_41.jsonl",
+          "predictions_sha256": "237e00f0e9ffefa6901960205cdc9d955ef81b71ba19fda77cd7cdcac4c7e995",
+          "prepared_manifest_path": "artifacts/phase18/diffgrm_native/toys/run_v1/prepared/manifest.json",
+          "prepared_manifest_sha256": "7796c5677822d6473d1df1845697d43d06b58d6f5b99f4c571e12cba7111f197",
+          "metrics": {
+            "hit@5": 0.04327220276117865,
+            "hit@10": 0.06511436225015454,
+            "hit@50": 0.14681640222542758,
+            "ndcg@5": 0.028151736826546803,
+            "ndcg@10": 0.035142957615663786,
+            "ndcg@50": 0.05293215563397397
+          },
+          "relative_ndcg10_vs_gram": -0.5392568807993898,
+          "paired": {
+            "gram": {
+              "ndcg@10": {
+                "delta": -0.04113155664433613,
+                "percentile_95ci": [
+                  -0.044057592460274554,
+                  -0.03808692109026336
+                ],
+                "improved_users": 663,
+                "worsened_users": 1976,
+                "unchanged_users": 16773
+              },
+              "hit@10": {
+                "delta": -0.05429631155985988,
+                "percentile_95ci": [
+                  -0.058623531835977745,
+                  -0.04965871625798476
+                ],
+                "improved_users": 477,
+                "worsened_users": 1531,
+                "unchanged_users": 17404
+              },
+              "hit@50": {
+                "delta": -0.06511436225015454,
+                "percentile_95ci": [
+                  -0.07052338759530187,
+                  -0.05949799093344324
+                ],
+                "improved_users": 903,
+                "worsened_users": 2167,
+                "unchanged_users": 16342
+              }
+            },
+            "gram_pcrf": {
+              "ndcg@10": {
+                "delta": -0.043572564677074155,
+                "percentile_95ci": [
+                  -0.04653764252404456,
+                  -0.040603052975247814
+                ],
+                "improved_users": 647,
+                "worsened_users": 2073,
+                "unchanged_users": 16692
+              },
+              "hit@10": {
+                "delta": -0.06022048217597362,
+                "percentile_95ci": [
+                  -0.06475376056047806,
+                  -0.05579023284566248
+                ],
+                "improved_users": 445,
+                "worsened_users": 1614,
+                "unchanged_users": 17353
+              },
+              "hit@50": {
+                "delta": -0.06511436225015454,
+                "percentile_95ci": [
+                  -0.07052338759530187,
+                  -0.05949799093344324
+                ],
+                "improved_users": 903,
+                "worsened_users": 2167,
+                "unchanged_users": 16342
+              }
+            }
+          },
+          "subgroups": {
+            "selection_subset": {
+              "users": 2000,
+              "metrics": {
+                "hit@5": 0.0475,
+                "hit@10": 0.0695,
+                "hit@50": 0.144,
+                "ndcg@5": 0.03040700979277849,
+                "ndcg@10": 0.03742489068938694,
+                "ndcg@50": 0.05350147517849286
+              },
+              "gram": {
+                "hit@5": 0.0815,
+                "hit@10": 0.1145,
+                "hit@50": 0.206,
+                "ndcg@5": 0.05881192897253931,
+                "ndcg@10": 0.06937056511844693,
+                "ndcg@50": 0.08924545332045665
+              },
+              "delta": {
+                "hit@5": -0.034,
+                "hit@10": -0.045,
+                "hit@50": -0.062,
+                "ndcg@5": -0.02840491917976082,
+                "ndcg@10": -0.03194567442905999,
+                "ndcg@50": -0.03574397814196379
+              }
+            },
+            "outside_selection_subset": {
+              "users": 17412,
+              "metrics": {
+                "hit@5": 0.04278658396508155,
+                "hit@10": 0.0646106133700896,
+                "hit@50": 0.14713990351481737,
+                "ndcg@5": 0.02789268870269754,
+                "ndcg@10": 0.03488084722355224,
+                "ndcg@50": 0.05286676170512963
+              },
+              "gram": {
+                "hit@5": 0.09200551343900758,
+                "hit@10": 0.11997473007121526,
+                "hit@50": 0.2126119917298415,
+                "ndcg@5": 0.06809087176641379,
+                "ndcg@10": 0.07706752472882061,
+                "ndcg@50": 0.09736915238466388
+              },
+              "delta": {
+                "hit@5": -0.049218929473926025,
+                "hit@10": -0.05536411670112566,
+                "hit@50": -0.06547208821502412,
+                "ndcg@5": -0.04019818306371625,
+                "ndcg@10": -0.042186677505268375,
+                "ndcg@50": -0.04450239067953425
+              }
+            },
+            "history_1_5": {
+              "users": 12673,
+              "metrics": {
+                "hit@5": 0.047976011994003,
+                "hit@10": 0.06983350430048134,
+                "hit@50": 0.15134537994160815,
+                "ndcg@5": 0.03168876730090878,
+                "ndcg@10": 0.038662677720819535,
+                "ndcg@50": 0.05641144562747868
+              },
+              "gram": {
+                "hit@5": 0.09768799810621005,
+                "hit@10": 0.12554249191193878,
+                "hit@50": 0.21218338199321393,
+                "ndcg@5": 0.0724038892698485,
+                "ndcg@10": 0.08136607393522666,
+                "ndcg@50": 0.10042572679329348
+              },
+              "delta": {
+                "hit@5": -0.049711986112207056,
+                "hit@10": -0.05570898761145744,
+                "hit@50": -0.06083800205160578,
+                "ndcg@5": -0.04071512196893973,
+                "ndcg@10": -0.04270339621440712,
+                "ndcg@50": -0.0440142811658148
+              }
+            },
+            "history_6_10": {
+              "users": 4319,
+              "metrics": {
+                "hit@5": 0.03658254225515165,
+                "hit@10": 0.061356795554526514,
+                "hit@50": 0.13915258161611485,
+                "ndcg@5": 0.02264913902166867,
+                "ndcg@10": 0.030609774279011497,
+                "ndcg@50": 0.047453940794155346
+              },
+              "gram": {
+                "hit@5": 0.0817318823801806,
+                "hit@10": 0.10951609168789071,
+                "hit@50": 0.2021301227135911,
+                "ndcg@5": 0.06062914461792623,
+                "ndcg@10": 0.06949897682711417,
+                "ndcg@50": 0.089740199725269
+              },
+              "delta": {
+                "hit@5": -0.04514934012502895,
+                "hit@10": -0.0481592961333642,
+                "hit@50": -0.06297754109747625,
+                "ndcg@5": -0.037980005596257554,
+                "ndcg@10": -0.03888920254810267,
+                "ndcg@50": -0.04228625893111366
+              }
+            },
+            "history_11_20": {
+              "users": 2420,
+              "metrics": {
+                "hit@5": 0.030578512396694214,
+                "hit@10": 0.047107438016528926,
+                "hit@50": 0.13677685950413224,
+                "ndcg@5": 0.01944964290823251,
+                "ndcg@10": 0.02480138982159868,
+                "ndcg@50": 0.04448891918996225
+              },
+              "gram": {
+                "hit@5": 0.07190082644628099,
+                "hit@10": 0.10495867768595041,
+                "hit@50": 0.228099173553719,
+                "ndcg@5": 0.0511530383554802,
+                "ndcg@10": 0.061703526825489574,
+                "ndcg@50": 0.088264227147866
+              },
+              "delta": {
+                "hit@5": -0.04132231404958677,
+                "hit@10": -0.05785123966942148,
+                "hit@50": -0.09132231404958677,
+                "ndcg@5": -0.03170339544724769,
+                "ndcg@10": -0.03690213700389089,
+                "ndcg@50": -0.04377530795790375
+              }
+            },
+            "target_tail": {
+              "users": 5160,
+              "metrics": {
+                "hit@5": 0.014728682170542635,
+                "hit@10": 0.026744186046511628,
+                "hit@50": 0.08410852713178295,
+                "ndcg@5": 0.007316213434223911,
+                "ndcg@10": 0.011115466147873935,
+                "ndcg@50": 0.02385497571476146
+              },
+              "gram": {
+                "hit@5": 0.06976744186046512,
+                "hit@10": 0.09186046511627907,
+                "hit@50": 0.13895348837209304,
+                "ndcg@5": 0.051226878472063066,
+                "ndcg@10": 0.058313750923645144,
+                "ndcg@50": 0.0688394439734711
+              },
+              "delta": {
+                "hit@5": -0.05503875968992248,
+                "hit@10": -0.06511627906976744,
+                "hit@50": -0.05484496124031009,
+                "ndcg@5": -0.04391066503783916,
+                "ndcg@10": -0.04719828477577121,
+                "ndcg@50": -0.04498446825870964
+              }
+            },
+            "target_non_tail": {
+              "users": 14252,
+              "metrics": {
+                "hit@5": 0.05360651136682571,
+                "hit@10": 0.07900645523435307,
+                "hit@50": 0.16952006735896716,
+                "ndcg@5": 0.03569533075753095,
+                "ndcg@10": 0.043842217787835806,
+                "ndcg@50": 0.06345967797351486
+              },
+              "gram": {
+                "hit@5": 0.09858265506595565,
+                "hit@10": 0.12938534942464217,
+                "hit@50": 0.23835251192815043,
+                "ndcg@5": 0.07289443055192464,
+                "ndcg@10": 0.08277728852435515,
+                "ndcg@50": 0.10655845194075006
+              },
+              "delta": {
+                "hit@5": -0.04497614369912994,
+                "hit@10": -0.0503788941902891,
+                "hit@50": -0.06883244456918328,
+                "ndcg@5": -0.03719909979439369,
+                "ndcg@10": -0.03893507073651934,
+                "ndcg@50": -0.0430987739672352
+              }
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": 19,
+              "stage_epoch": 0,
+              "metrics": {
+                "hit@5": 0.029,
+                "hit@10": 0.048,
+                "hit@50": 0.1135,
+                "ndcg@5": 0.017810728697922606,
+                "ndcg@10": 0.023793110268614845,
+                "ndcg@50": 0.037964133434999506
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_00.json"
+            },
+            {
+              "epoch": 20,
+              "stage_epoch": 1,
+              "metrics": {
+                "hit@5": 0.033,
+                "hit@10": 0.0525,
+                "hit@50": 0.117,
+                "ndcg@5": 0.021748232047876796,
+                "ndcg@10": 0.027988287011042237,
+                "ndcg@50": 0.04194384596745124
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_01.json"
+            },
+            {
+              "epoch": 30,
+              "stage_epoch": 11,
+              "metrics": {
+                "hit@5": 0.037,
+                "hit@10": 0.0595,
+                "hit@50": 0.132,
+                "ndcg@5": 0.022691928863397597,
+                "ndcg@10": 0.029820110689974505,
+                "ndcg@50": 0.0455342350571265
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_11.json"
+            },
+            {
+              "epoch": 40,
+              "stage_epoch": 21,
+              "metrics": {
+                "hit@5": 0.0395,
+                "hit@10": 0.0625,
+                "hit@50": 0.1415,
+                "ndcg@5": 0.025995547632857156,
+                "ndcg@10": 0.03341817002054918,
+                "ndcg@50": 0.05044803455801254
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_21.json"
+            },
+            {
+              "epoch": 50,
+              "stage_epoch": 31,
+              "metrics": {
+                "hit@5": 0.037,
+                "hit@10": 0.0635,
+                "hit@50": 0.14,
+                "ndcg@5": 0.023720396781225266,
+                "ndcg@10": 0.032221723374645475,
+                "ndcg@50": 0.04861183339679299
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_31.json"
+            },
+            {
+              "epoch": 60,
+              "stage_epoch": 41,
+              "metrics": {
+                "hit@5": 0.0475,
+                "hit@10": 0.0695,
+                "hit@50": 0.144,
+                "ndcg@5": 0.03040700979277849,
+                "ndcg@10": 0.03742489068938694,
+                "ndcg@50": 0.05350147517849282
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_41.json"
+            },
+            {
+              "epoch": 70,
+              "stage_epoch": 51,
+              "metrics": {
+                "hit@5": 0.041,
+                "hit@10": 0.0585,
+                "hit@50": 0.1395,
+                "ndcg@5": 0.0250909119272476,
+                "ndcg@10": 0.030548623558980685,
+                "ndcg@50": 0.04807110280868994
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_51.json"
+            },
+            {
+              "epoch": 80,
+              "stage_epoch": 61,
+              "metrics": {
+                "hit@5": 0.041,
+                "hit@10": 0.059,
+                "hit@50": 0.13,
+                "ndcg@5": 0.02536255305319448,
+                "ndcg@10": 0.031112856397993084,
+                "ndcg@50": 0.04667188323663842
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_61.json"
+            },
+            {
+              "epoch": 90,
+              "stage_epoch": 71,
+              "metrics": {
+                "hit@5": 0.0405,
+                "hit@10": 0.0665,
+                "hit@50": 0.1405,
+                "ndcg@5": 0.02583560846251293,
+                "ndcg@10": 0.034289755034440796,
+                "ndcg@50": 0.050217481063042586
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_71.json"
+            },
+            {
+              "epoch": 100,
+              "stage_epoch": 81,
+              "metrics": {
+                "hit@5": 0.039,
+                "hit@10": 0.063,
+                "hit@50": 0.141,
+                "ndcg@5": 0.023770776574472362,
+                "ndcg@10": 0.031329571010087445,
+                "ndcg@50": 0.04816355405720293
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_81.json"
+            },
+            {
+              "epoch": 110,
+              "stage_epoch": 91,
+              "metrics": {
+                "hit@5": 0.0345,
+                "hit@10": 0.0585,
+                "hit@50": 0.131,
+                "ndcg@5": 0.020078524320976336,
+                "ndcg@10": 0.02762788927269676,
+                "ndcg@50": 0.04344956534011577
+              },
+              "source": "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/trend_subset_stage_epoch_91.json"
+            }
+          ],
+          "mean_returned_items": 49.50288481351741,
+          "fewer_than_50_users": 983
+        },
+        {
+          "family": "diff_gram",
+          "result_path": "artifacts/phase18/diff_gram/train_v1/full_r2/result.json",
+          "result_sha256": "4dc48ac87a8af65828a4c2bd7c80338f7b3ff5b3e52f784cb1bf5a6533d37165",
+          "run_result": {
+            "state": "COMPLETED",
+            "revision": "full_r2",
+            "completion_scope": "full_budget_preserved_short_prefix",
+            "source_epoch": 2,
+            "selected_absolute_epoch": 11,
+            "selected_stage_epoch": 9,
+            "epochs_completed": 11,
+            "additional_epochs": 9,
+            "optimizer_steps": 9405,
+            "stopping_reason": "epoch_limit",
+            "automatic_additional_training": false,
+            "direction_rejected": false,
+            "full_validation": {
+              "scope": "full_validation",
+              "stage_epoch": 9,
+              "metrics": {
+                "hit@5": 0.09045950958170204,
+                "hit@10": 0.11915310117453122,
+                "hit@50": 0.21162167731300227,
+                "ndcg@5": 0.06687428037733846,
+                "ndcg@10": 0.07609225673586052,
+                "ndcg@50": 0.09631508359179995
+              },
+              "examples": 19412,
+              "historical_gram": {
+                "hit@5": 0.0909231403255718,
+                "hit@10": 0.11941067381001443,
+                "hit@50": 0.21193076447558212,
+                "ndcg@5": 0.06713487106644733,
+                "ndcg@10": 0.07627451425999993,
+                "ndcg@50": 0.09653217535352775
+              },
+              "delta": {
+                "hit@5": -0.000463630743869764,
+                "hit@10": -0.0002575726354832053,
+                "hit@50": -0.0003090871625798519,
+                "ndcg@5": -0.0002605906891088722,
+                "ndcg@10": -0.00018225752413940366,
+                "ndcg@50": -0.00021709176172779454
+              },
+              "mean_returned_items": 50.0,
+              "fewer_than_50_fraction": 0.0,
+              "seconds": 10469.679764019325,
+              "predictions_sha256": "57ecfdcd9d2649d5ba56c17b41e7bdc5f4756ea36941a38c7cdb1d0ba4083a1f",
+              "epoch": 11,
+              "historical_gram_pcrf": {
+                "hit@5": 0.0936534102616938,
+                "hit@10": 0.12533484442612816,
+                "hit@50": 0.21193076447558212,
+                "ndcg@5": 0.06850763766741287,
+                "ndcg@10": 0.07871552229273793,
+                "ndcg@50": 0.0980706124558045
+              },
+              "delta_vs_gram_pcrf": {
+                "hit@5": -0.003193900679991757,
+                "hit@10": -0.006181743251596941,
+                "hit@50": -0.0003090871625798519,
+                "ndcg@5": -0.0016333572900744109,
+                "ndcg@10": -0.002623265556877405,
+                "ndcg@50": -0.0017555288640045547
+              },
+              "interpretation": "Exploratory comparison with historical ranks on identical validation users"
+            },
+            "seconds": 65512.540880611166,
+            "interpretation": "All completed short-run model, Adam and RNG states retained; one-epoch LR bridge then original long curve. Exploratory candidate screening, not an uninterrupted original-schedule reproduction or matched-budget structural attribution."
+          },
+          "predictions_path": "artifacts/phase18/diff_gram/train_v1/full_r2/full_validation_stage_epoch_09.jsonl",
+          "predictions_sha256": "57ecfdcd9d2649d5ba56c17b41e7bdc5f4756ea36941a38c7cdb1d0ba4083a1f",
+          "prepared_manifest_path": "artifacts/phase18/diff_gram/prepared_v2_categories/manifest.json",
+          "prepared_manifest_sha256": "0a12fa83e1e57f2e2badd40a3dc8a44742daab0ca148a03a61f6c046fe409f70",
+          "metrics": {
+            "hit@5": 0.09045950958170204,
+            "hit@10": 0.11915310117453122,
+            "hit@50": 0.21162167731300227,
+            "ndcg@5": 0.06687428037733822,
+            "ndcg@10": 0.07609225673586009,
+            "ndcg@50": 0.09631508359179879
+          },
+          "relative_ndcg10_vs_gram": -0.002389494392826541,
+          "paired": {
+            "gram": {
+              "ndcg@10": {
+                "delta": -0.0001822575241398219,
+                "percentile_95ci": [
+                  -0.0005892282039101983,
+                  0.00021362507306193495
+                ],
+                "improved_users": 250,
+                "worsened_users": 294,
+                "unchanged_users": 18868
+              },
+              "hit@10": {
+                "delta": -0.0002575726354832063,
+                "percentile_95ci": [
+                  -0.00123634865031939,
+                  0.0007727179064496188
+                ],
+                "improved_users": 49,
+                "worsened_users": 54,
+                "unchanged_users": 19309
+              },
+              "hit@50": {
+                "delta": -0.0003090871625798475,
+                "percentile_95ci": [
+                  -0.001442406758705955,
+                  0.00082423243354626
+                ],
+                "improved_users": 61,
+                "worsened_users": 67,
+                "unchanged_users": 19284
+              }
+            },
+            "gram_pcrf": {
+              "ndcg@10": {
+                "delta": -0.0026232655568778364,
+                "percentile_95ci": [
+                  -0.0036061553410057664,
+                  -0.0016079386883446707
+                ],
+                "improved_users": 631,
+                "worsened_users": 826,
+                "unchanged_users": 17955
+              },
+              "hit@10": {
+                "delta": -0.006181743251596951,
+                "percentile_95ci": [
+                  -0.00819080980836596,
+                  -0.004224191221924582
+                ],
+                "improved_users": 149,
+                "worsened_users": 269,
+                "unchanged_users": 18994
+              },
+              "hit@50": {
+                "delta": -0.0003090871625798475,
+                "percentile_95ci": [
+                  -0.001442406758705955,
+                  0.00082423243354626
+                ],
+                "improved_users": 61,
+                "worsened_users": 67,
+                "unchanged_users": 19284
+              }
+            }
+          },
+          "subgroups": {
+            "selection_subset": {
+              "users": 2000,
+              "metrics": {
+                "hit@5": 0.08,
+                "hit@10": 0.115,
+                "hit@50": 0.2055,
+                "ndcg@5": 0.058413216658161855,
+                "ndcg@10": 0.06973852639849226,
+                "ndcg@50": 0.08929183116948901
+              },
+              "gram": {
+                "hit@5": 0.0815,
+                "hit@10": 0.1145,
+                "hit@50": 0.206,
+                "ndcg@5": 0.05881192897253931,
+                "ndcg@10": 0.06937056511844693,
+                "ndcg@50": 0.08924545332045665
+              },
+              "delta": {
+                "hit@5": -0.0015000000000000013,
+                "hit@10": 0.0005000000000000004,
+                "hit@50": -0.0005000000000000004,
+                "ndcg@5": -0.0003987123143774571,
+                "ndcg@10": 0.0003679612800453341,
+                "ndcg@50": 4.637784903235853e-05
+              }
+            },
+            "outside_selection_subset": {
+              "users": 17412,
+              "metrics": {
+                "hit@5": 0.09166092350103378,
+                "hit@10": 0.11963014013324144,
+                "hit@50": 0.21232483344819664,
+                "ndcg@5": 0.0678461461847327,
+                "ndcg@10": 0.0768220672501454,
+                "ndcg@50": 0.09712179763065816
+              },
+              "gram": {
+                "hit@5": 0.09200551343900758,
+                "hit@10": 0.11997473007121526,
+                "hit@50": 0.2126119917298415,
+                "ndcg@5": 0.06809087176641379,
+                "ndcg@10": 0.07706752472882061,
+                "ndcg@50": 0.09736915238466388
+              },
+              "delta": {
+                "hit@5": -0.0003445899379738021,
+                "hit@10": -0.000344589937973816,
+                "hit@50": -0.0002871582816448559,
+                "ndcg@5": -0.0002447255816810934,
+                "ndcg@10": -0.00024545747867521506,
+                "ndcg@50": -0.00024735475400572415
+              }
+            },
+            "history_1_5": {
+              "users": 12673,
+              "metrics": {
+                "hit@5": 0.09745127436281859,
+                "hit@10": 0.12554249191193878,
+                "hit@50": 0.21155211867750334,
+                "ndcg@5": 0.07243404230441933,
+                "ndcg@10": 0.08147275472800447,
+                "ndcg@50": 0.10037774729511456
+              },
+              "gram": {
+                "hit@5": 0.09768799810621005,
+                "hit@10": 0.12554249191193878,
+                "hit@50": 0.21218338199321393,
+                "ndcg@5": 0.0724038892698485,
+                "ndcg@10": 0.08136607393522666,
+                "ndcg@50": 0.10042572679329348
+              },
+              "delta": {
+                "hit@5": -0.00023672374339146762,
+                "hit@10": 0.0,
+                "hit@50": -0.0006312633157105896,
+                "ndcg@5": 3.015303457082341e-05,
+                "ndcg@10": 0.0001066807927778135,
+                "ndcg@50": -4.7979498178918334e-05
+              }
+            },
+            "history_6_10": {
+              "users": 4319,
+              "metrics": {
+                "hit@5": 0.08150034730261635,
+                "hit@10": 0.1081268812225052,
+                "hit@50": 0.20236165779115536,
+                "ndcg@5": 0.06021876251278226,
+                "ndcg@10": 0.06876240331993266,
+                "ndcg@50": 0.08935312720600869
+              },
+              "gram": {
+                "hit@5": 0.0817318823801806,
+                "hit@10": 0.10951609168789071,
+                "hit@50": 0.2021301227135911,
+                "ndcg@5": 0.06062914461792623,
+                "ndcg@10": 0.06949897682711417,
+                "ndcg@50": 0.089740199725269
+              },
+              "delta": {
+                "hit@5": -0.00023153507756425162,
+                "hit@10": -0.0013892104653855097,
+                "hit@50": 0.0002315350775642655,
+                "ndcg@5": -0.0004103821051439638,
+                "ndcg@10": -0.0007365735071815094,
+                "ndcg@50": -0.0003870725192603175
+              }
+            },
+            "history_11_20": {
+              "users": 2420,
+              "metrics": {
+                "hit@5": 0.06983471074380165,
+                "hit@10": 0.10537190082644628,
+                "hit@50": 0.2285123966942149,
+                "ndcg@5": 0.049637222011684586,
+                "ndcg@10": 0.06099745749988689,
+                "ndcg@50": 0.08746489868192546
+              },
+              "gram": {
+                "hit@5": 0.07190082644628099,
+                "hit@10": 0.10495867768595041,
+                "hit@50": 0.228099173553719,
+                "ndcg@5": 0.0511530383554802,
+                "ndcg@10": 0.061703526825489574,
+                "ndcg@50": 0.088264227147866
+              },
+              "delta": {
+                "hit@5": -0.002066115702479332,
+                "hit@10": 0.00041322314049586917,
+                "hit@50": 0.00041322314049588305,
+                "ndcg@5": -0.0015158163437956132,
+                "ndcg@10": -0.0007060693256026873,
+                "ndcg@50": -0.0007993284659405381
+              }
+            },
+            "target_tail": {
+              "users": 5160,
+              "metrics": {
+                "hit@5": 0.0693798449612403,
+                "hit@10": 0.09263565891472868,
+                "hit@50": 0.13914728682170543,
+                "ndcg@5": 0.05122837403994713,
+                "ndcg@10": 0.05870408731015037,
+                "ndcg@50": 0.06900869685108188
+              },
+              "gram": {
+                "hit@5": 0.06976744186046512,
+                "hit@10": 0.09186046511627907,
+                "hit@50": 0.13895348837209304,
+                "ndcg@5": 0.051226878472063066,
+                "ndcg@10": 0.058313750923645144,
+                "ndcg@50": 0.0688394439734711
+              },
+              "delta": {
+                "hit@5": -0.00038759689922480967,
+                "hit@10": 0.0007751937984496055,
+                "hit@50": 0.0001937984496123979,
+                "ndcg@5": 1.4955678840633535e-06,
+                "ndcg@10": 0.00039033638650522867,
+                "ndcg@50": 0.00016925287761078434
+              }
+            },
+            "target_non_tail": {
+              "users": 14252,
+              "metrics": {
+                "hit@5": 0.09809149593039573,
+                "hit@10": 0.12875385910749368,
+                "hit@50": 0.23786135279259052,
+                "ndcg@5": 0.07253895036758085,
+                "ndcg@10": 0.08238772082768316,
+                "ndcg@50": 0.1062014823836946
+              },
+              "gram": {
+                "hit@5": 0.09858265506595565,
+                "hit@10": 0.12938534942464217,
+                "hit@50": 0.23835251192815043,
+                "ndcg@5": 0.07289443055192464,
+                "ndcg@10": 0.08277728852435515,
+                "ndcg@50": 0.10655845194075006
+              },
+              "delta": {
+                "hit@5": -0.0004911591355599154,
+                "hit@10": -0.0006314903171484865,
+                "hit@50": -0.0004911591355599154,
+                "ndcg@5": -0.00035548018434379547,
+                "ndcg@10": -0.0003895676966719913,
+                "ndcg@50": -0.00035696955705545597
+              }
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": 2,
+              "stage_epoch": 0,
+              "metrics": {
+                "hit@5": 0.08,
+                "hit@10": 0.114,
+                "hit@50": 0.207,
+                "ndcg@5": 0.05823757281535054,
+                "ndcg@10": 0.06919681026348681,
+                "ndcg@50": 0.08927433134662266
+              },
+              "source": "artifacts/phase18/diff_gram/train_v1/full_r2/trend_subset_stage_epoch_00.json"
+            },
+            {
+              "epoch": 3,
+              "stage_epoch": 1,
+              "metrics": {
+                "hit@5": 0.081,
+                "hit@10": 0.1125,
+                "hit@50": 0.2085,
+                "ndcg@5": 0.05822455222033413,
+                "ndcg@10": 0.06840362608358841,
+                "ndcg@50": 0.08918000480064536
+              },
+              "source": "artifacts/phase18/diff_gram/train_v1/full_r2/trend_subset_stage_epoch_01.json"
+            },
+            {
+              "epoch": 5,
+              "stage_epoch": 3,
+              "metrics": {
+                "hit@5": 0.08,
+                "hit@10": 0.114,
+                "hit@50": 0.207,
+                "ndcg@5": 0.05768099921896781,
+                "ndcg@10": 0.06870431509998404,
+                "ndcg@50": 0.0888080322066708
+              },
+              "source": "artifacts/phase18/diff_gram/train_v1/full_r2/trend_subset_stage_epoch_03.json"
+            },
+            {
+              "epoch": 7,
+              "stage_epoch": 5,
+              "metrics": {
+                "hit@5": 0.08,
+                "hit@10": 0.1145,
+                "hit@50": 0.2075,
+                "ndcg@5": 0.05804800497687415,
+                "ndcg@10": 0.0692606037098899,
+                "ndcg@50": 0.089353820841558
+              },
+              "source": "artifacts/phase18/diff_gram/train_v1/full_r2/trend_subset_stage_epoch_05.json"
+            },
+            {
+              "epoch": 9,
+              "stage_epoch": 7,
+              "metrics": {
+                "hit@5": 0.0805,
+                "hit@10": 0.1155,
+                "hit@50": 0.2065,
+                "ndcg@5": 0.05833473118635965,
+                "ndcg@10": 0.06964934360006972,
+                "ndcg@50": 0.0892355742588335
+              },
+              "source": "artifacts/phase18/diff_gram/train_v1/full_r2/trend_subset_stage_epoch_07.json"
+            },
+            {
+              "epoch": 11,
+              "stage_epoch": 9,
+              "metrics": {
+                "hit@5": 0.08,
+                "hit@10": 0.115,
+                "hit@50": 0.2055,
+                "ndcg@5": 0.0584132166581618,
+                "ndcg@10": 0.06973852639849223,
+                "ndcg@50": 0.08929183116948894
+              },
+              "source": "artifacts/phase18/diff_gram/train_v1/full_r2/trend_subset_stage_epoch_09.json"
+            }
+          ],
+          "mean_returned_items": 50.0,
+          "fewer_than_50_users": 0
+        }
+      ],
+      "reference_path": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv",
+      "reference_sha256": "4a14a4dca2fa22aa5c23186b50bbf900e4d99ee40917a42552c4e459d03a6fa5",
+      "reference_summary_sha256": "294589dcf5a0712cd292431af8ee6014a22de33c50516f783680bc2d783be4b8",
+      "tail_q1": 5,
+      "cohort_sha256": "b003e5e27f4710c1d0a252da012f0e631621803e944025768b2fb732301933a7",
+      "historical_gold_note": "Historical rank TSV has no gold column: identity relies on frozen validated sequence/cache lineage. Current gold IDs checked against prepared validation.",
+      "integrity": "PASS: hashes, completed revision, selected epoch, exact user sets/current targets, history lengths, catalog validity/uniqueness, all six metrics, baseline identity"
+    },
+    {
+      "dataset": "Beauty",
+      "users": 22363,
+      "historical": {
+        "gram": {
+          "hit@5": 0.07762822519339982,
+          "hit@10": 0.10875106202209006,
+          "hit@50": 0.2081116129320753,
+          "ndcg@5": 0.054916834352078656,
+          "ndcg@10": 0.06497370269327073,
+          "ndcg@50": 0.08670097723570454
+        },
+        "gram_pcrf": {
+          "hit@5": 0.081608013236149,
+          "hit@10": 0.11384876805437553,
+          "hit@50": 0.2081116129320753,
+          "ndcg@5": 0.057534350522304704,
+          "ndcg@10": 0.0679076815479998,
+          "ndcg@50": 0.08875958665222096
+        }
+      },
+      "candidates": [
+        {
+          "family": "diffgrm",
+          "result_path": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/result.json",
+          "result_sha256": "a1be3c59de10472c6f912cd015c9fffc4700aaa006edf52bda727ba0c8a69b30",
+          "run_result": {
+            "state": "COMPLETED",
+            "revision": "full_r2",
+            "completion_scope": "original_schedule_continuation",
+            "source_epoch": 33,
+            "selected_absolute_epoch": 110,
+            "selected_stage_epoch": 77,
+            "epochs_completed": 160,
+            "additional_epochs": 127,
+            "optimizer_steps": 20640,
+            "stopping_reason": "patience",
+            "automatic_additional_training": false,
+            "direction_rejected": false,
+            "full_validation": {
+              "scope": "full_validation",
+              "stage_epoch": 77,
+              "metrics": {
+                "hit@5": 0.04753387291508295,
+                "hit@10": 0.07261995260027725,
+                "hit@50": 0.15190269641819076,
+                "ndcg@5": 0.03341113033836515,
+                "ndcg@10": 0.04146748813896667,
+                "ndcg@50": 0.05884290100727702
+              },
+              "examples": 22363,
+              "historical_gram": {
+                "hit@5": 0.07762822519339982,
+                "hit@10": 0.10875106202209006,
+                "hit@50": 0.2081116129320753,
+                "ndcg@5": 0.054916834352078656,
+                "ndcg@10": 0.06497370269327073,
+                "ndcg@50": 0.08670097723570454
+              },
+              "delta": {
+                "hit@5": -0.030094352278316867,
+                "hit@10": -0.036131109421812815,
+                "hit@50": -0.056208916513884544,
+                "ndcg@5": -0.021505704013713503,
+                "ndcg@10": -0.02350621455430406,
+                "ndcg@50": -0.027858076228427515
+              },
+              "mean_returned_items": 47.19183472700443,
+              "fewer_than_50_fraction": 0.20292447346062692,
+              "seconds": 553.9417030103505,
+              "predictions_sha256": "25de3eed4ce1959e6b6958e67c2d20ceb025ed950af212b1abcc3009bdf23847",
+              "epoch": 110,
+              "historical_gram_pcrf": {
+                "hit@5": 0.081608013236149,
+                "hit@10": 0.11384876805437553,
+                "hit@50": 0.2081116129320753,
+                "ndcg@5": 0.057534350522304704,
+                "ndcg@10": 0.0679076815479998,
+                "ndcg@50": 0.08875958665222096
+              },
+              "delta_vs_gram_pcrf": {
+                "hit@5": -0.034074140321066045,
+                "hit@10": -0.04122881545409829,
+                "hit@50": -0.056208916513884544,
+                "ndcg@5": -0.024123220183939552,
+                "ndcg@10": -0.026440193409033128,
+                "ndcg@50": -0.029916685644943937
+              },
+              "interpretation": "Exploratory comparison with historical ranks on identical validation users"
+            },
+            "seconds": 13638.619496336207,
+            "interpretation": "Original training LR schedule restored; selection uses a fixed validation subset. Exploratory efficacy comparison, not a matched-budget structural attribution."
+          },
+          "predictions_path": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/full_validation_stage_epoch_77.jsonl",
+          "predictions_sha256": "25de3eed4ce1959e6b6958e67c2d20ceb025ed950af212b1abcc3009bdf23847",
+          "prepared_manifest_path": "artifacts/phase18/diffgrm_native/beauty/run_v1/prepared/manifest.json",
+          "prepared_manifest_sha256": "79df2f5048861ac00432ad43aa6db0fab19eb9d12970f504bc80e2b64371895a",
+          "metrics": {
+            "hit@5": 0.04753387291508295,
+            "hit@10": 0.07261995260027725,
+            "hit@50": 0.15190269641819076,
+            "ndcg@5": 0.033411130338365215,
+            "ndcg@10": 0.04146748813896683,
+            "ndcg@50": 0.058842901007276495
+          },
+          "relative_ndcg10_vs_gram": -0.36178043700653095,
+          "paired": {
+            "gram": {
+              "ndcg@10": {
+                "delta": -0.023506214554303902,
+                "percentile_95ci": [
+                  -0.025967033841750822,
+                  -0.02101204996772664
+                ],
+                "improved_users": 903,
+                "worsened_users": 1851,
+                "unchanged_users": 19609
+              },
+              "hit@10": {
+                "delta": -0.036131109421812815,
+                "percentile_95ci": [
+                  -0.04006618074498055,
+                  -0.032329070339399905
+                ],
+                "improved_users": 582,
+                "worsened_users": 1390,
+                "unchanged_users": 20391
+              },
+              "hit@50": {
+                "delta": -0.056208916513884544,
+                "percentile_95ci": [
+                  -0.06126302374457809,
+                  -0.05133479407950633
+                ],
+                "improved_users": 1001,
+                "worsened_users": 2258,
+                "unchanged_users": 19104
+              }
+            },
+            "gram_pcrf": {
+              "ndcg@10": {
+                "delta": -0.026440193409032975,
+                "percentile_95ci": [
+                  -0.028978741671140406,
+                  -0.023881057477489073
+                ],
+                "improved_users": 866,
+                "worsened_users": 1952,
+                "unchanged_users": 19545
+              },
+              "hit@10": {
+                "delta": -0.04122881545409829,
+                "percentile_95ci": [
+                  -0.045029736618521665,
+                  -0.03729262621294102
+                ],
+                "improved_users": 551,
+                "worsened_users": 1473,
+                "unchanged_users": 20339
+              },
+              "hit@50": {
+                "delta": -0.056208916513884544,
+                "percentile_95ci": [
+                  -0.06126302374457809,
+                  -0.05133479407950633
+                ],
+                "improved_users": 1001,
+                "worsened_users": 2258,
+                "unchanged_users": 19104
+              }
+            }
+          },
+          "subgroups": {
+            "selection_subset": {
+              "users": 2000,
+              "metrics": {
+                "hit@5": 0.05,
+                "hit@10": 0.079,
+                "hit@50": 0.1525,
+                "ndcg@5": 0.03453857253509511,
+                "ndcg@10": 0.04375890293728021,
+                "ndcg@50": 0.060077198119871895
+              },
+              "gram": {
+                "hit@5": 0.0935,
+                "hit@10": 0.124,
+                "hit@50": 0.215,
+                "ndcg@5": 0.0665033039498821,
+                "ndcg@10": 0.07635150086778297,
+                "ndcg@50": 0.09608035134601972
+              },
+              "delta": {
+                "hit@5": -0.0435,
+                "hit@10": -0.045,
+                "hit@50": -0.0625,
+                "ndcg@5": -0.03196473141478699,
+                "ndcg@10": -0.032592597930502766,
+                "ndcg@50": -0.036003153226147826
+              }
+            },
+            "outside_selection_subset": {
+              "users": 20363,
+              "metrics": {
+                "hit@5": 0.047291656435692185,
+                "hit@10": 0.07199332121985955,
+                "hit@50": 0.15184403084024947,
+                "ndcg@5": 0.03330039594787954,
+                "ndcg@10": 0.04124243143825344,
+                "ndcg@50": 0.05872167160958505
+              },
+              "gram": {
+                "hit@5": 0.07606934145263468,
+                "hit@10": 0.10725335166723961,
+                "hit@50": 0.20743505377400187,
+                "ndcg@5": 0.05377884195431767,
+                "ndcg@10": 0.06385620545077088,
+                "ndcg@50": 0.08577975991897172
+              },
+              "delta": {
+                "hit@5": -0.028777685016942493,
+                "hit@10": -0.03526003044738006,
+                "hit@50": -0.0555910229337524,
+                "ndcg@5": -0.020478446006438125,
+                "ndcg@10": -0.02261377401251744,
+                "ndcg@50": -0.027058088309386663
+              }
+            },
+            "history_1_5": {
+              "users": 14063,
+              "metrics": {
+                "hit@5": 0.041385195193059804,
+                "hit@10": 0.06527767901585721,
+                "hit@50": 0.1378084334779208,
+                "ndcg@5": 0.02917880878119199,
+                "ndcg@10": 0.036847323223698006,
+                "ndcg@50": 0.052818528959267995
+              },
+              "gram": {
+                "hit@5": 0.07039749697788523,
+                "hit@10": 0.09912536443148688,
+                "hit@50": 0.18836663585294744,
+                "ndcg@5": 0.04963897126057052,
+                "ndcg@10": 0.05894987171649427,
+                "ndcg@50": 0.07852447616689745
+              },
+              "delta": {
+                "hit@5": -0.02901230178482543,
+                "hit@10": -0.03384768541562967,
+                "hit@50": -0.050558202375026645,
+                "ndcg@5": -0.02046016247937853,
+                "ndcg@10": -0.022102548492796262,
+                "ndcg@50": -0.025705947207629455
+              }
+            },
+            "history_6_10": {
+              "users": 5311,
+              "metrics": {
+                "hit@5": 0.047072114479382414,
+                "hit@10": 0.07117303709282621,
+                "hit@50": 0.15213707399736395,
+                "ndcg@5": 0.03352498732875187,
+                "ndcg@10": 0.04128310054161449,
+                "ndcg@50": 0.058900966289526846
+              },
+              "gram": {
+                "hit@5": 0.07700997928826962,
+                "hit@10": 0.1092073055921672,
+                "hit@50": 0.2127659574468085,
+                "ndcg@5": 0.05287584151905839,
+                "ndcg@10": 0.06320308962562508,
+                "ndcg@50": 0.08584325316539265
+              },
+              "delta": {
+                "hit@5": -0.02993786480888721,
+                "hit@10": -0.03803426849934098,
+                "hit@50": -0.06062888344944456,
+                "ndcg@5": -0.01935085419030652,
+                "ndcg@10": -0.02191998908401059,
+                "ndcg@50": -0.026942286875865806
+              }
+            },
+            "history_11_20": {
+              "users": 2989,
+              "metrics": {
+                "hit@5": 0.07728337236533958,
+                "hit@10": 0.1097356975577116,
+                "hit@50": 0.21779859484777517,
+                "ndcg@5": 0.05312154973702149,
+                "ndcg@10": 0.06353261417876734,
+                "ndcg@50": 0.08708390448573482
+              },
+              "gram": {
+                "hit@5": 0.11274673803947809,
+                "hit@10": 0.15322850451656073,
+                "hit@50": 0.2927400468384075,
+                "ndcg@5": 0.08337528252606644,
+                "ndcg@10": 0.09646144475706238,
+                "ndcg@50": 0.12669479023940494
+              },
+              "delta": {
+                "hit@5": -0.035463365674138506,
+                "hit@10": -0.04349280695884912,
+                "hit@50": -0.07494145199063232,
+                "ndcg@5": -0.030253732789044946,
+                "ndcg@10": -0.03292883057829504,
+                "ndcg@50": -0.039610885753670125
+              }
+            },
+            "target_tail": {
+              "users": 6049,
+              "metrics": {
+                "hit@5": 0.01587039180029757,
+                "hit@10": 0.026450653000495948,
+                "hit@50": 0.05719953711357249,
+                "ndcg@5": 0.009012625505759335,
+                "ndcg@10": 0.012452539900979893,
+                "ndcg@50": 0.01928256625205056
+              },
+              "gram": {
+                "hit@5": 0.035708381550669535,
+                "hit@10": 0.04182509505703422,
+                "hit@50": 0.05769548685733179,
+                "ndcg@5": 0.025280628269369203,
+                "ndcg@10": 0.027287185562909756,
+                "ndcg@50": 0.030703543464180097
+              },
+              "delta": {
+                "hit@5": -0.019837989750371966,
+                "hit@10": -0.01537444205653827,
+                "hit@50": -0.0004959497437592997,
+                "ndcg@5": -0.016268002763609866,
+                "ndcg@10": -0.014834645661929862,
+                "ndcg@50": -0.011420977212129538
+              }
+            },
+            "target_non_tail": {
+              "users": 16314,
+              "metrics": {
+                "hit@5": 0.05927424298148829,
+                "hit@10": 0.08973887458624494,
+                "hit@50": 0.18701728576682605,
+                "ndcg@5": 0.042457750157688066,
+                "ndcg@10": 0.052225819749337245,
+                "ndcg@50": 0.07351131249031939
+              },
+              "gram": {
+                "hit@5": 0.09317150913325978,
+                "hit@10": 0.13356626210616648,
+                "hit@50": 0.26388378080176533,
+                "ndcg@5": 0.06590551956688248,
+                "ndcg@10": 0.07894732915652643,
+                "ndcg@50": 0.1074640320894468
+              },
+              "delta": {
+                "hit@5": -0.03389726615177149,
+                "hit@10": -0.043827387519921546,
+                "hit@50": -0.07686649503493928,
+                "ndcg@5": -0.023447769409194415,
+                "ndcg@10": -0.026721509407189183,
+                "ndcg@50": -0.03395271959912741
+              }
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": 33,
+              "stage_epoch": 0,
+              "metrics": {
+                "hit@5": 0.042,
+                "hit@10": 0.0645,
+                "hit@50": 0.15,
+                "ndcg@5": 0.028380065202096943,
+                "ndcg@10": 0.03563761897429431,
+                "ndcg@50": 0.05420505321288023
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_00.json"
+            },
+            {
+              "epoch": 40,
+              "stage_epoch": 7,
+              "metrics": {
+                "hit@5": 0.0435,
+                "hit@10": 0.0675,
+                "hit@50": 0.157,
+                "ndcg@5": 0.03040288081573408,
+                "ndcg@10": 0.038173317728514816,
+                "ndcg@50": 0.057500321500776205
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_07.json"
+            },
+            {
+              "epoch": 50,
+              "stage_epoch": 17,
+              "metrics": {
+                "hit@5": 0.046,
+                "hit@10": 0.069,
+                "hit@50": 0.162,
+                "ndcg@5": 0.032373238410216144,
+                "ndcg@10": 0.039786761522459795,
+                "ndcg@50": 0.05978304485465531
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_17.json"
+            },
+            {
+              "epoch": 60,
+              "stage_epoch": 27,
+              "metrics": {
+                "hit@5": 0.043,
+                "hit@10": 0.0645,
+                "hit@50": 0.158,
+                "ndcg@5": 0.029771060723761664,
+                "ndcg@10": 0.03676611476728354,
+                "ndcg@50": 0.0572709595200859
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_27.json"
+            },
+            {
+              "epoch": 70,
+              "stage_epoch": 37,
+              "metrics": {
+                "hit@5": 0.043,
+                "hit@10": 0.069,
+                "hit@50": 0.151,
+                "ndcg@5": 0.030307503121526885,
+                "ndcg@10": 0.03873894100095178,
+                "ndcg@50": 0.056909024239014325
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_37.json"
+            },
+            {
+              "epoch": 80,
+              "stage_epoch": 47,
+              "metrics": {
+                "hit@5": 0.045,
+                "hit@10": 0.077,
+                "hit@50": 0.1575,
+                "ndcg@5": 0.03167452194168095,
+                "ndcg@10": 0.041950637075240355,
+                "ndcg@50": 0.05981136768628178
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_47.json"
+            },
+            {
+              "epoch": 90,
+              "stage_epoch": 57,
+              "metrics": {
+                "hit@5": 0.0515,
+                "hit@10": 0.079,
+                "hit@50": 0.1615,
+                "ndcg@5": 0.03501423359431184,
+                "ndcg@10": 0.043686122313788635,
+                "ndcg@50": 0.061625895893275905
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_57.json"
+            },
+            {
+              "epoch": 100,
+              "stage_epoch": 67,
+              "metrics": {
+                "hit@5": 0.051,
+                "hit@10": 0.073,
+                "hit@50": 0.1535,
+                "ndcg@5": 0.035437812948600905,
+                "ndcg@10": 0.04252119195829094,
+                "ndcg@50": 0.060229367948516147
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_67.json"
+            },
+            {
+              "epoch": 110,
+              "stage_epoch": 77,
+              "metrics": {
+                "hit@5": 0.05,
+                "hit@10": 0.079,
+                "hit@50": 0.1525,
+                "ndcg@5": 0.0345385725350951,
+                "ndcg@10": 0.04375890293728015,
+                "ndcg@50": 0.0600771981198718
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_77.json"
+            },
+            {
+              "epoch": 120,
+              "stage_epoch": 87,
+              "metrics": {
+                "hit@5": 0.0495,
+                "hit@10": 0.0735,
+                "hit@50": 0.1535,
+                "ndcg@5": 0.03598082478859113,
+                "ndcg@10": 0.04370599592564759,
+                "ndcg@50": 0.061707738905313704
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_87.json"
+            },
+            {
+              "epoch": 130,
+              "stage_epoch": 97,
+              "metrics": {
+                "hit@5": 0.0505,
+                "hit@10": 0.076,
+                "hit@50": 0.1405,
+                "ndcg@5": 0.03561112155341743,
+                "ndcg@10": 0.043687170453418314,
+                "ndcg@50": 0.0579994745979309
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_97.json"
+            },
+            {
+              "epoch": 140,
+              "stage_epoch": 107,
+              "metrics": {
+                "hit@5": 0.0465,
+                "hit@10": 0.0695,
+                "hit@50": 0.14,
+                "ndcg@5": 0.0343797947901934,
+                "ndcg@10": 0.04189943947520288,
+                "ndcg@50": 0.05794648286423478
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_107.json"
+            },
+            {
+              "epoch": 150,
+              "stage_epoch": 117,
+              "metrics": {
+                "hit@5": 0.0515,
+                "hit@10": 0.072,
+                "hit@50": 0.1325,
+                "ndcg@5": 0.0353045479570347,
+                "ndcg@10": 0.04185633024248448,
+                "ndcg@50": 0.055565855822175304
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_117.json"
+            },
+            {
+              "epoch": 160,
+              "stage_epoch": 127,
+              "metrics": {
+                "hit@5": 0.0525,
+                "hit@10": 0.073,
+                "hit@50": 0.137,
+                "ndcg@5": 0.03701396318240831,
+                "ndcg@10": 0.04370421668892693,
+                "ndcg@50": 0.05810376923961478
+              },
+              "source": "artifacts/phase18/diffgrm_native/beauty/run_v1/full_r2/trend_subset_stage_epoch_127.json"
+            }
+          ],
+          "mean_returned_items": 47.19183472700443,
+          "fewer_than_50_users": 4538
+        },
+        {
+          "family": "diff_gram",
+          "result_path": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/result.json",
+          "result_sha256": "c9ad0bdb8416daf999aed4d3b4d4d031ffee938f3db0eecd511e217f11077421",
+          "run_result": {
+            "state": "COMPLETED",
+            "revision": "full_r2",
+            "completion_scope": "full_budget_preserved_short_prefix",
+            "source_epoch": 3,
+            "selected_absolute_epoch": 9,
+            "selected_stage_epoch": 6,
+            "epochs_completed": 11,
+            "additional_epochs": 8,
+            "optimizer_steps": 11297,
+            "stopping_reason": "epoch_limit",
+            "automatic_additional_training": false,
+            "direction_rejected": false,
+            "full_validation": {
+              "scope": "full_validation",
+              "stage_epoch": 6,
+              "metrics": {
+                "hit@5": 0.07838840942628449,
+                "hit@10": 0.10977954657246344,
+                "hit@50": 0.20873764700621564,
+                "ndcg@5": 0.05526355693213886,
+                "ndcg@10": 0.06535459097357453,
+                "ndcg@50": 0.08691554937545296
+              },
+              "examples": 22363,
+              "historical_gram": {
+                "hit@5": 0.07762822519339982,
+                "hit@10": 0.10875106202209006,
+                "hit@50": 0.2081116129320753,
+                "ndcg@5": 0.054916834352078656,
+                "ndcg@10": 0.06497370269327073,
+                "ndcg@50": 0.08670097723570454
+              },
+              "delta": {
+                "hit@5": 0.000760184232884667,
+                "hit@10": 0.001028484550373382,
+                "hit@50": 0.0006260340741403303,
+                "ndcg@5": 0.00034672258006020196,
+                "ndcg@10": 0.00038088828030380384,
+                "ndcg@50": 0.00021457213974841738
+              },
+              "mean_returned_items": 50.0,
+              "fewer_than_50_fraction": 0.0,
+              "seconds": 14892.130296755582,
+              "predictions_sha256": "9f673fd600b1c51fb218725875790ba46c40e6d04adb8ee2aebb6b08a50fc651",
+              "epoch": 9,
+              "historical_gram_pcrf": {
+                "hit@5": 0.081608013236149,
+                "hit@10": 0.11384876805437553,
+                "hit@50": 0.2081116129320753,
+                "ndcg@5": 0.057534350522304704,
+                "ndcg@10": 0.0679076815479998,
+                "ndcg@50": 0.08875958665222096
+              },
+              "delta_vs_gram_pcrf": {
+                "hit@5": -0.0032196038098645102,
+                "hit@10": -0.004069221481912091,
+                "hit@50": 0.0006260340741403303,
+                "ndcg@5": -0.002270793590165847,
+                "ndcg@10": -0.002553090574425265,
+                "ndcg@50": -0.001844037276768004
+              },
+              "interpretation": "Exploratory comparison with historical ranks on identical validation users"
+            },
+            "seconds": 69398.91830583662,
+            "interpretation": "All completed short-run model, Adam and RNG states retained; one-epoch LR bridge then original long curve. Exploratory candidate screening, not an uninterrupted original-schedule reproduction or matched-budget structural attribution."
+          },
+          "predictions_path": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/full_validation_stage_epoch_06.jsonl",
+          "predictions_sha256": "9f673fd600b1c51fb218725875790ba46c40e6d04adb8ee2aebb6b08a50fc651",
+          "prepared_manifest_path": "artifacts/phase18/diff_gram/beauty/prepared_v1/manifest.json",
+          "prepared_manifest_sha256": "98244d1798ce19e8ba356479329d1ca065d900b8912f7c54c83904f51667c16f",
+          "metrics": {
+            "hit@5": 0.07838840942628449,
+            "hit@10": 0.10977954657246344,
+            "hit@50": 0.20873764700621564,
+            "ndcg@5": 0.05526355693213869,
+            "ndcg@10": 0.06535459097357399,
+            "ndcg@50": 0.08691554937545155
+          },
+          "relative_ndcg10_vs_gram": 0.005862191386896365,
+          "paired": {
+            "gram": {
+              "ndcg@10": {
+                "delta": 0.00038088828030326597,
+                "percentile_95ci": [
+                  -0.00013331497506692474,
+                  0.0009104992049561544
+                ],
+                "improved_users": 546,
+                "worsened_users": 502,
+                "unchanged_users": 21315
+              },
+              "hit@10": {
+                "delta": 0.0010284845503733845,
+                "percentile_95ci": [
+                  -0.000268300317488709,
+                  0.002280552698654027
+                ],
+                "improved_users": 110,
+                "worsened_users": 87,
+                "unchanged_users": 22166
+              },
+              "hit@50": {
+                "delta": 0.0006260340741403211,
+                "percentile_95ci": [
+                  -0.000983767830791933,
+                  0.0021016858203282206
+                ],
+                "improved_users": 159,
+                "worsened_users": 145,
+                "unchanged_users": 22059
+              }
+            },
+            "gram_pcrf": {
+              "ndcg@10": {
+                "delta": -0.002553090574425811,
+                "percentile_95ci": [
+                  -0.0035126895831456345,
+                  -0.0016112777005516505
+                ],
+                "improved_users": 731,
+                "worsened_users": 1033,
+                "unchanged_users": 20599
+              },
+              "hit@10": {
+                "delta": -0.004069221481912087,
+                "percentile_95ci": [
+                  -0.005993158341904037,
+                  -0.0020111344631757876
+                ],
+                "improved_users": 223,
+                "worsened_users": 314,
+                "unchanged_users": 21826
+              },
+              "hit@50": {
+                "delta": 0.0006260340741403211,
+                "percentile_95ci": [
+                  -0.000983767830791933,
+                  0.0021016858203282206
+                ],
+                "improved_users": 159,
+                "worsened_users": 145,
+                "unchanged_users": 22059
+              }
+            }
+          },
+          "subgroups": {
+            "selection_subset": {
+              "users": 2000,
+              "metrics": {
+                "hit@5": 0.092,
+                "hit@10": 0.127,
+                "hit@50": 0.2205,
+                "ndcg@5": 0.06554209498545885,
+                "ndcg@10": 0.07674523086292313,
+                "ndcg@50": 0.09680306513894879
+              },
+              "gram": {
+                "hit@5": 0.0935,
+                "hit@10": 0.124,
+                "hit@50": 0.215,
+                "ndcg@5": 0.0665033039498821,
+                "ndcg@10": 0.07635150086778297,
+                "ndcg@50": 0.09608035134601972
+              },
+              "delta": {
+                "hit@5": -0.0015000000000000013,
+                "hit@10": 0.0030000000000000027,
+                "hit@50": 0.005500000000000005,
+                "ndcg@5": -0.0009612089644232547,
+                "ndcg@10": 0.00039372999514016016,
+                "ndcg@50": 0.0007227137929290695
+              }
+            },
+            "outside_selection_subset": {
+              "users": 20363,
+              "metrics": {
+                "hit@5": 0.07705151500270098,
+                "hit@10": 0.10808819918479595,
+                "hit@50": 0.2075823798065118,
+                "ndcg@5": 0.0542540261112066,
+                "ndcg@10": 0.06423583245180911,
+                "ndcg@50": 0.08594442372957449
+              },
+              "gram": {
+                "hit@5": 0.07606934145263468,
+                "hit@10": 0.10725335166723961,
+                "hit@50": 0.20743505377400187,
+                "ndcg@5": 0.05377884195431767,
+                "ndcg@10": 0.06385620545077088,
+                "ndcg@50": 0.08577975991897172
+              },
+              "delta": {
+                "hit@5": 0.000982173550066301,
+                "hit@10": 0.0008348475175563447,
+                "hit@50": 0.00014732603250994236,
+                "ndcg@5": 0.0004751841568889359,
+                "ndcg@10": 0.00037962700103823244,
+                "ndcg@50": 0.0001646638106027748
+              }
+            },
+            "history_1_5": {
+              "users": 14063,
+              "metrics": {
+                "hit@5": 0.0714641257199744,
+                "hit@10": 0.10040531892199389,
+                "hit@50": 0.18900661309820097,
+                "ndcg@5": 0.049990401548990815,
+                "ndcg@10": 0.05928703296516169,
+                "ndcg@50": 0.07858378934926571
+              },
+              "gram": {
+                "hit@5": 0.07039749697788523,
+                "hit@10": 0.09912536443148688,
+                "hit@50": 0.18836663585294744,
+                "ndcg@5": 0.04963897126057052,
+                "ndcg@10": 0.05894987171649427,
+                "ndcg@50": 0.07852447616689745
+              },
+              "delta": {
+                "hit@5": 0.001066628742089168,
+                "hit@10": 0.0012799544905070098,
+                "hit@50": 0.0006399772452535257,
+                "ndcg@5": 0.0003514302884202944,
+                "ndcg@10": 0.0003371612486674225,
+                "ndcg@50": 5.931318236826466e-05
+              }
+            },
+            "history_6_10": {
+              "users": 5311,
+              "metrics": {
+                "hit@5": 0.07700997928826962,
+                "hit@10": 0.10939559405008473,
+                "hit@50": 0.21483713048390135,
+                "ndcg@5": 0.05307974854712367,
+                "ndcg@10": 0.06348511223637389,
+                "ndcg@50": 0.08650530670783445
+              },
+              "gram": {
+                "hit@5": 0.07700997928826962,
+                "hit@10": 0.1092073055921672,
+                "hit@50": 0.2127659574468085,
+                "ndcg@5": 0.05287584151905839,
+                "ndcg@10": 0.06320308962562508,
+                "ndcg@50": 0.08584325316539265
+              },
+              "delta": {
+                "hit@5": 0.0,
+                "hit@10": 0.00018828845791753201,
+                "hit@50": 0.0020711730370928383,
+                "ndcg@5": 0.0002039070280652755,
+                "ndcg@10": 0.0002820226107488055,
+                "ndcg@50": 0.0006620535424417956
+              }
+            },
+            "history_11_20": {
+              "users": 2989,
+              "metrics": {
+                "hit@5": 0.1134158581465373,
+                "hit@10": 0.15456674473067916,
+                "hit@50": 0.29073268651722983,
+                "ndcg@5": 0.08395361731555234,
+                "ndcg@10": 0.0972237344481715,
+                "ndcg@50": 0.12684473641324537
+              },
+              "gram": {
+                "hit@5": 0.11274673803947809,
+                "hit@10": 0.15322850451656073,
+                "hit@50": 0.2927400468384075,
+                "ndcg@5": 0.08337528252606644,
+                "ndcg@10": 0.09646144475706238,
+                "ndcg@50": 0.12669479023940494
+              },
+              "delta": {
+                "hit@5": 0.0006691201070592179,
+                "hit@10": 0.0013382402141184357,
+                "hit@50": -0.0020073603211776536,
+                "ndcg@5": 0.000578334789485907,
+                "ndcg@10": 0.0007622896911091276,
+                "ndcg@50": 0.0001499461738404262
+              }
+            },
+            "target_tail": {
+              "users": 6049,
+              "metrics": {
+                "hit@5": 0.03620433129442883,
+                "hit@10": 0.04199041163828732,
+                "hit@50": 0.05802612001983799,
+                "ndcg@5": 0.02578020035365593,
+                "ndcg@10": 0.02769798408556835,
+                "ndcg@50": 0.031134226016546793
+              },
+              "gram": {
+                "hit@5": 0.035708381550669535,
+                "hit@10": 0.04182509505703422,
+                "hit@50": 0.05769548685733179,
+                "ndcg@5": 0.025280628269369203,
+                "ndcg@10": 0.027287185562909756,
+                "ndcg@50": 0.030703543464180097
+              },
+              "delta": {
+                "hit@5": 0.0004959497437592927,
+                "hit@10": 0.0001653165812530999,
+                "hit@50": 0.0003306331625061998,
+                "ndcg@5": 0.0004995720842867271,
+                "ndcg@10": 0.0004107985226585939,
+                "ndcg@50": 0.0004306825523666957
+              }
+            },
+            "target_non_tail": {
+              "users": 16314,
+              "metrics": {
+                "hit@5": 0.09402966777001348,
+                "hit@10": 0.13491479710677945,
+                "hit@50": 0.26461934534755427,
+                "ndcg@5": 0.06619556771693962,
+                "ndcg@10": 0.07931712714284861,
+                "ndcg@50": 0.1075984735508846
+              },
+              "gram": {
+                "hit@5": 0.09317150913325978,
+                "hit@10": 0.13356626210616648,
+                "hit@50": 0.26388378080176533,
+                "ndcg@5": 0.06590551956688248,
+                "ndcg@10": 0.07894732915652643,
+                "ndcg@50": 0.1074640320894468
+              },
+              "delta": {
+                "hit@5": 0.0008581586367537031,
+                "hit@10": 0.001348535000612966,
+                "hit@50": 0.0007355645457889359,
+                "ndcg@5": 0.00029004815005713447,
+                "ndcg@10": 0.00036979798632218175,
+                "ndcg@50": 0.00013444146143780367
+              }
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": 3,
+              "stage_epoch": 0,
+              "metrics": {
+                "hit@5": 0.0905,
+                "hit@10": 0.126,
+                "hit@50": 0.217,
+                "ndcg@5": 0.06471154502513443,
+                "ndcg@10": 0.07619090271745707,
+                "ndcg@50": 0.09586432899343204
+              },
+              "source": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/trend_subset_stage_epoch_00.json"
+            },
+            {
+              "epoch": 5,
+              "stage_epoch": 2,
+              "metrics": {
+                "hit@5": 0.092,
+                "hit@10": 0.1255,
+                "hit@50": 0.2205,
+                "ndcg@5": 0.06550716251502295,
+                "ndcg@10": 0.0763099220436963,
+                "ndcg@50": 0.09679259069243924
+              },
+              "source": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/trend_subset_stage_epoch_02.json"
+            },
+            {
+              "epoch": 7,
+              "stage_epoch": 4,
+              "metrics": {
+                "hit@5": 0.091,
+                "hit@10": 0.1265,
+                "hit@50": 0.2195,
+                "ndcg@5": 0.06491799202376813,
+                "ndcg@10": 0.07636132214771582,
+                "ndcg@50": 0.09632217882259897
+              },
+              "source": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/trend_subset_stage_epoch_04.json"
+            },
+            {
+              "epoch": 9,
+              "stage_epoch": 6,
+              "metrics": {
+                "hit@5": 0.092,
+                "hit@10": 0.127,
+                "hit@50": 0.2205,
+                "ndcg@5": 0.06554209498545881,
+                "ndcg@10": 0.07674523086292308,
+                "ndcg@50": 0.09680306513894867
+              },
+              "source": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/trend_subset_stage_epoch_06.json"
+            },
+            {
+              "epoch": 11,
+              "stage_epoch": 8,
+              "metrics": {
+                "hit@5": 0.0915,
+                "hit@10": 0.1265,
+                "hit@50": 0.2205,
+                "ndcg@5": 0.06517688330417115,
+                "ndcg@10": 0.07639617085047008,
+                "ndcg@50": 0.09661118113865175
+              },
+              "source": "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/trend_subset_stage_epoch_08.json"
+            }
+          ],
+          "mean_returned_items": 50.0,
+          "fewer_than_50_users": 0
+        }
+      ],
+      "reference_path": "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv",
+      "reference_sha256": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1",
+      "reference_summary_sha256": "3e9695735786e4a48cbf27e44178ecd4bbc59b0479199de6ec76b5e6707c0ac9",
+      "tail_q1": 6,
+      "cohort_sha256": "b028031beba7efd523dc586972c11451583aa27cc7f774feeb580dc97fba9c37",
+      "historical_gold_note": "Historical rank TSV has no gold column: identity relies on frozen validated sequence/cache lineage. Current gold IDs checked against prepared validation.",
+      "integrity": "PASS: hashes, completed revision, selected epoch, exact user sets/current targets, history lengths, catalog validity/uniqueness, all six metrics, baseline identity"
+    }
+  ]
+}
