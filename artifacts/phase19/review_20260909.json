@@ -1,0 +1,128 @@
+{
+  "reviewed_at_unix": 1788950539.173446,
+  "timezone": "Asia/Shanghai",
+  "status": {
+    "pid": 3680679,
+    "state": "running",
+    "elapsed_seconds": 438.57,
+    "time": 1788950536.4800787,
+    "stage": "pretrain",
+    "event": "training",
+    "epoch": 35,
+    "seen": 26624,
+    "total": 109361,
+    "loss": 8.050580024719238
+  },
+  "run_manifest": {
+    "started_at": 1788950097.9074013,
+    "deadline": 1789122897.9074013,
+    "config": {
+      "name": "S18-RaSeRec-GRAM-Toys-v1",
+      "dataset": "Toys",
+      "seed": 2023,
+      "data_config": "experiment/phase18/config/s18_diff_gram_toys.json",
+      "output": "artifacts/phase18/raserec_gram/toys/v1",
+      "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+      "max_wall_seconds": 172800,
+      "cuda_memory_fraction": 0.34,
+      "minimum_free_mib": 18500,
+      "pretrain": {
+        "n_layers": 2,
+        "n_heads": 2,
+        "hidden_size": 64,
+        "inner_size": 256,
+        "hidden_dropout_prob": 0.5,
+        "attn_dropout_prob": 0.5,
+        "hidden_act": "gelu",
+        "layer_norm_eps": 1e-12,
+        "initializer_range": 0.02,
+        "loss_type": "CE",
+        "lmd": 0.1,
+        "lmd_sem": 0.1,
+        "contrast": "us_x",
+        "tau": 1,
+        "sim": "dot",
+        "train_batch_size": 1024,
+        "MAX_ITEM_LIST_LENGTH": 20,
+        "epochs": 100,
+        "patience": 10,
+        "learning_rate": 0.001,
+        "weight_decay": 0
+      },
+      "reader": {
+        "hidden_size": 64,
+        "inner_size": 256,
+        "heads": 2,
+        "dropout": 0.5,
+        "alpha": 0.5,
+        "beta": 1,
+        "topk": 20,
+        "attn_tau": 1,
+        "auxiliary_weight": 0.1
+      },
+      "reader_training": {
+        "epochs": 100,
+        "patience": 10,
+        "batch_size": 1024,
+        "learning_rate": 0.001
+      },
+      "gram_training": {
+        "warmup_epochs": 1,
+        "joint_epochs": 10,
+        "microbatch": 4,
+        "effective_batch_size": 128,
+        "new_learning_rate": 0.001,
+        "backbone_learning_rate": 0.00001,
+        "weight_decay": 0.01,
+        "gradient_clip": 1,
+        "warmup_fraction": 0.05,
+        "validation_microbatch": 1,
+        "trend_users": 2000,
+        "num_workers": 2,
+        "precision": "float32",
+        "beam_size": 50,
+        "length_penalty": 1
+      },
+      "pcrf": {
+        "checkpoint": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+        "reference": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv",
+        "summary": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/summary.json",
+        "lambda": 1,
+        "beta": 0.5,
+        "gamma": 1,
+        "q1": 5
+      }
+    },
+    "test_read": false
+  },
+  "last_completed_validation": {
+    "time": 1788950532.8340325,
+    "stage": "pretrain",
+    "event": "validation",
+    "epoch": 34,
+    "loss": 8.114416540633188,
+    "metrics": {
+      "users": 19412,
+      "hit@5": 0.054502369668246446,
+      "ndcg@5": 0.03395209927841983,
+      "hit@10": 0.08525654234494127,
+      "ndcg@10": 0.04386720906948557,
+      "hit@20": 0.12054399340614053,
+      "ndcg@20": 0.05275748040958322,
+      "hit@50": 0.18632804450855142,
+      "ndcg@50": 0.06578774437656011
+    },
+    "best": 0.04386720906948557,
+    "bad_epochs": 0
+  },
+  "timing": {
+    "pretrain_recent5_epoch_seconds": 14.027298784255981,
+    "estimated_total_hours": [
+      20,
+      30
+    ],
+    "estimate_basis": "Historical Toys DIFF full_r2: 9 additional epochs plus final full validation took 18.20 h; full validation alone 2.91 h. This run has 11 GRAM epochs and two final full validations. New GRAM-stage throughput has not yet been measured.",
+    "hard_deadline_unix": 1789122897.9074013
+  },
+  "scope": "One user-requested status read; no ongoing agent polling."
+}

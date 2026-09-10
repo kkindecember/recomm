@@ -1,0 +1,59 @@
+{
+  "state": "passed",
+  "updated_at": "2026-09-10T02:26:36.865037+00:00",
+  "config_sha256": "7cb1d19865df8465e335836a6a8ea3361f2bcaf3eb41cd3806904f8ffbca6e87",
+  "source_sha256": {
+    "experiment/phase19/config/s19_raserec_gram_beauty.json": "7cb1d19865df8465e335836a6a8ea3361f2bcaf3eb41cd3806904f8ffbca6e87",
+    "experiment/phase18/config/s18_diff_gram_beauty.json": "fe8d2e9e1e26d5fbb105929ca048080fec4979aaa20495c77757f54b9265d8fc",
+    "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/summary.json": "3e9695735786e4a48cbf27e44178ecd4bbc59b0479199de6ec76b5e6707c0ac9",
+    "experiment/phase18/protocol/s18_raserec_gram.py": "0e40c172583d4c439abea46e4a0571ebd0fb7e729df2162de9650dc0b256e7eb",
+    "experiment/phase19/raserec_beauty.py": "0ea2a72d96ec7a68811fe4095663eef418fd127a8befbb3b3b45542ac9689893",
+    "experiment/phase19/run_stage19_raserec_beauty.sh": "060db4732e9f1f5ae9391e631daa68bfc6ed15c4149c6be24014a1724f7f9715"
+  },
+  "train_examples": 131413,
+  "validation_examples": 22363,
+  "catalog_items": 12101,
+  "parent_sha256": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+  "training_frequencies_match_all_validation_references": true,
+  "pcrf_original_beam_rank_parity_users": 64,
+  "pcrf_rank_parity": true,
+  "frozen_pcrf": {
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1": 6
+  },
+  "primary_comparator": "original_gram",
+  "original_gram": {
+    "count": 22363,
+    "mrr": 0.05617756464777004,
+    "Hit@1": 0.031748870902830566,
+    "NDCG@1": 0.031748870902830566,
+    "Hit@5": 0.07762822519339982,
+    "NDCG@5": 0.054916834352078656,
+    "Hit@10": 0.10875106202209006,
+    "NDCG@10": 0.06497370269327073,
+    "Hit@20": 0.14693914054464965,
+    "NDCG@20": 0.07459553058434051,
+    "Hit@50": 0.2081116129320753,
+    "NDCG@50": 0.08670097723570454
+  },
+  "original_gram_pcrf": {
+    "count": 22363,
+    "mrr": 0.05835238661608075,
+    "Hit@1": 0.03268792201404105,
+    "NDCG@1": 0.03268792201404105,
+    "Hit@5": 0.081608013236149,
+    "NDCG@5": 0.05753435052230472,
+    "Hit@10": 0.11384876805437553,
+    "NDCG@10": 0.06790768154799981,
+    "Hit@20": 0.15391494879935608,
+    "NDCG@20": 0.07794558983641887,
+    "Hit@50": 0.2081116129320753,
+    "NDCG@50": 0.08875958665222095
+  },
+  "gpu_smoke": "Runs in the background after pretrain/bank/reader, before GRAM training",
+  "test_read": false
+}

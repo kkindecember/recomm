@@ -1,5 +1,19 @@
 # 第十八阶段：目标重对齐与架构候选筛选 v0.1
 
+**2026-09-09 Beauty 吞吐处理：** 同checkpoint、同13个用户的原生成短测在GPU5约1.64秒/人、GPU4约10.00秒/人，输出均与历史逐位一致；共享负载与GPU4原训练并存限制了速度倍数的外推。已安排完整epoch保存边界的GPU5迁移，保留原1+10日程、Adam/scheduler/RNG和9月11日01:28的原截止时间；实际迁移以`confirm_v1/migration_pending.json`的`RESUMED`为准。见[吞吐诊断与换卡安排](../../report/第十八阶段/Stage18_DIFF_Beauty验证吞吐诊断与换卡安排.md)。
+
+**2026-09-09 17:18 Toys 长日程更新：** 用户进一步明确要排除旧中途设置变化，现已从原Toys epoch30 GRAM父模型重新初始化DIFF和Adam，固定1 frozen + 20 joint，在GPU0启动，PID3299278。未采用旧epoch11接续方案。Beauty继续原本地配置的1+10固定复核；两条均为同seed探索，尚无新最终结果。见[Toys长日程计划](GRAM_第十八阶段_DIFF_Toys从父模型固定长日程计划v0.1.md)及[启动报告](../../report/第十八阶段/Stage18_DIFF_Toys从父模型长日程启动报告.md)；统一状态新增`jobs.diff_gram_toys_long`。本更新覆盖下文暂不启动Toys的此前投入安排。
+
+**2026-09-09 DIFF→GRAM 继续价值复议：** Beauty +0.5862%、Toys -0.2389% 的原完整结果与 ETEGRec / ReaRec 的明显退化不同。保留 DIFF→GRAM 为当前增量候选，优先完成已授权的 Beauty 固定日程复核，随后先核验冻结 PCRF 组合价值，再决定匹配续训、消融及跨域；本次未启动额外训练或组合评分。当前验证约 4.77 秒/用户，原 36 小时预算存在完成风险，需在扩大投入前检查吞吐。完整分析见 [继续投入价值与最小验证路径](../../report/第十八阶段/Stage18_DIFF_GRAM_继续投入价值与最小验证路径.md)。这是优先级判断，尚未确认稳定提点。
+
+**2026-09-09 16:46 ETEGRec Toys 停止更新：** 用户已明确停止 ETEGRec Toys，PID `2572693` 退出，汇总状态为 `USER_STOPPED`。联合阶段最后完整第 222 轮，最佳 `joint_180`；微调与全量验证未执行。详见 [停止记录](../../report/第十八阶段/Stage18_ETEGRec_Toys主动停止记录.md)。当前 ETEGRec / ReaRec 两域均无继续运行的任务，保留所有 checkpoint 和证据，不自动追加预算；DIFF→GRAM Beauty 继续原任务。下文关于 Toys 仍在运行的描述保留为历史。
+
+**2026-09-09 ETEGRec Beauty 结果复核更新：** Beauty 已完成 RQ 5,850 商品 pass、交替训练 350 epoch 和固定编码微调 65 epoch，最终最佳为 `joint_290`；全量 NDCG@10 = 0.04912738797，相对 GRAM -24.39%，相对 GRAM + PCRF -27.66%。六项指标、全部历史长度分组及长尾均落后；已重新核对逐用户预测与配对区间。详见 [ETEGRec Beauty 完整结果与投入结论报告](../../report/第十八阶段/Stage18_ETEGRec_Beauty完整结果与投入结论报告.md)。当前 Beauty 设置归档、不续训或补多 seed；Toys 仍按此前已启动任务运行，尚无最终结论。本次未新增训练，也未停止其他任务。
+
+**2026-09-09 16:28 ReaRec 收尾更新：** Beauty 已按计划在第 150 轮平台早停，最佳第 45 轮，全量 NDCG@10 = 0.04762500932，对 GRAM 相对 -26.70%；六项指标及短历史/长尾等分组均落后。用户已明确停止 ReaRec Toys：第 35 轮中断，保留第 34 轮完整 checkpoint，状态 `USER_STOPPED`，未达到最小预算或全量验证，不能算作第二个完整负结果。完整证据、训练轨迹、零步诊断与投入决策见 [ReaRec 完整结果与停止报告](../../report/第十八阶段/Stage18_ReaRec_Beauty完整结果与Toys主动停止报告.md)。当前降低这套 ReaRec 适配的优先级，不追加训练；DIFF→GRAM Beauty 和 ETEGRec Toys 继续原任务。下文 ReaRec 启动与运行信息保留为历史。
+
+**2026-09-09 16:19 ReaRec Toys 补充更新：** 用户提出补充 Toys，已完成输入与 GPU 核验，在 ETEGRec Beauty 结束后使用 GPU 0 启动，PID `3020613`。沿用 Beauty 的 PRL 两步、seed2023 和完整训练设置；最大 300 轮日程实测约 83.45 分钟，4 小时硬预算，预计 30–90 分钟。见 [Toys 计划](GRAM_第十八阶段_ReaRec_Toys并行筛选计划v0.1.md)、[启动报告](../../report/第十八阶段/Stage18_ReaRec_Toys输入核验与启动报告.md)。汇总状态已加入 `jobs.rearec_toys`；当前仍在运行 DIFF→GRAM Beauty、ETEGRec Toys、ReaRec Toys，另两条已完成。ReaRec Beauty 全量 NDCG@10 为 0.04762500932，低于 GRAM 0.06497370269；Toys 结果待定。下文四任务运行情况为此前记录。
+
 **2026-09-09 15:17 ReaRec Beauty 启动更新：** 用户授权开始第四候选，现已完成本地适配、5 项 CPU 测试及 GPU 6 真实 batch 核验，正式 PID `2752109`。两步 PRL 单域、单 seed，最多 300 epoch，至少 100 epoch 后启用平台判断；完整日程实测估计 3.38 小时，含 profile 的硬预算 4 小时。已确认完整 epoch、真实参数更新和 checkpoint，详见 [ReaRec 启动报告](../../report/第十八阶段/Stage18_ReaRec_Beauty实现核验与启动报告.md)与[执行计划](GRAM_第十八阶段_第四候选ReaRec筛选准备v0.1.md)。[汇总 status](../../artifacts/phase18/parallel_screen_20260909/status.json)已纳入四条任务，每 15 秒刷新。ReaRec 效果仍待最终 validation；下文“第四条未启动”为此前准备状态。
 
 **2026-09-09 14:42 ETEGRec Toys 并行更新：** 用户已授权补充 Toys，现已在 GPU 5 启动 [ETEGRec Toys 完整训练筛选](GRAM_第十八阶段_ETEGRec_Toys并行筛选计划v0.1.md)，PID 2572693，实测最大日程约 6.05 小时、硬预算 12 小时，真实更新与 checkpoint 已确认。当前共三条训练：DIFF→GRAM Beauty 固定日程复核、ETEGRec Beauty、ETEGRec Toys。推荐查看每 15 秒更新的 [汇总 status](../../artifacts/phase18/parallel_screen_20260909/status.json)，Toys 原始状态为 `artifacts/phase18/etegrec/toys/run_v1/status.json`。完整核验见 [Toys 启动与并行资源报告](../../report/第十八阶段/Stage18_ETEGRec_Toys启动与并行资源报告.md)。

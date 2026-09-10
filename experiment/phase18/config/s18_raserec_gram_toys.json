@@ -1,0 +1,41 @@
+{
+  "name": "S18-RaSeRec-GRAM-Toys-v1",
+  "dataset": "Toys",
+  "seed": 2023,
+  "data_config": "experiment/phase18/config/s18_diff_gram_toys.json",
+  "output": "artifacts/phase18/raserec_gram/toys/v1",
+  "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+  "max_wall_seconds": 172800,
+  "cuda_memory_fraction": 0.34,
+  "minimum_free_mib": 18500,
+  "pretrain": {
+    "n_layers": 2, "n_heads": 2, "hidden_size": 64, "inner_size": 256,
+    "hidden_dropout_prob": 0.5, "attn_dropout_prob": 0.5,
+    "hidden_act": "gelu", "layer_norm_eps": 1e-12, "initializer_range": 0.02,
+    "loss_type": "CE", "lmd": 0.1, "lmd_sem": 0.1, "contrast": "us_x",
+    "tau": 1.0, "sim": "dot", "train_batch_size": 1024,
+    "MAX_ITEM_LIST_LENGTH": 20, "epochs": 100, "patience": 10,
+    "learning_rate": 0.001, "weight_decay": 0.0
+  },
+  "reader": {
+    "hidden_size": 64, "inner_size": 256, "heads": 2, "dropout": 0.5,
+    "alpha": 0.5, "beta": 1.0, "topk": 20, "attn_tau": 1.0,
+    "auxiliary_weight": 0.1
+  },
+  "reader_training": {"epochs": 100, "patience": 10, "batch_size": 1024, "learning_rate": 0.001},
+  "gram_training": {
+    "warmup_epochs": 1, "joint_epochs": 10, "microbatch": 4,
+    "effective_batch_size": 128, "new_learning_rate": 0.001,
+    "backbone_learning_rate": 0.00001, "weight_decay": 0.01,
+    "gradient_clip": 1.0, "warmup_fraction": 0.05,
+    "validation_microbatch": 1, "trend_users": 2000,
+    "num_workers": 2, "precision": "float32", "beam_size": 50,
+    "length_penalty": 1.0
+  },
+  "pcrf": {
+    "checkpoint": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+    "reference": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv",
+    "summary": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/summary.json",
+    "lambda": 1.0, "beta": 0.5, "gamma": 1.0, "q1": 5
+  }
+}

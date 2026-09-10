@@ -1,0 +1,106 @@
+{
+  "state": "USER_STOPPED",
+  "stopped_at": "2026-09-09T08:46:28.542711+00:00",
+  "recorded_at": "2026-09-09T08:47:27.633853+00:00",
+  "reason": "User stopped the current ETEGRec Toys screen after reviewing the completed Beauty negative result.",
+  "request": "那把ETEGRec Toys也停了吧",
+  "training": {
+    "phase": "joint",
+    "epoch": 222,
+    "counters": {
+      "id": 23754,
+      "rec": 23754,
+      "finetune": 0
+    },
+    "best_score": 0.041826728467473706,
+    "best_label": "joint_180",
+    "plateau": {
+      "anchor": 0.041826728467473706,
+      "stale": 4,
+      "active": true
+    }
+  },
+  "rq_pretrain": {
+    "phase": "rq_pretrain",
+    "epoch": 2950,
+    "steps": 35400,
+    "best": 0.0015007131588706448,
+    "anchor": 0.0015020648048266532,
+    "stale": 10,
+    "active": true,
+    "stopping_reason": "plateau"
+  },
+  "selected_label": "joint_180",
+  "selected_file": "joint_best.pt",
+  "selected_trend": {
+    "scope": "trend",
+    "label": "joint_180",
+    "examples": 2000,
+    "metrics": {
+      "hit@5": 0.049,
+      "hit@10": 0.0785,
+      "hit@50": 0.175,
+      "ndcg@5": 0.03245235687076347,
+      "ndcg@10": 0.041826728467473706,
+      "ndcg@50": 0.06278690706816636
+    },
+    "historical_gram": {
+      "hit@5": 0.0815,
+      "hit@10": 0.1145,
+      "hit@50": 0.206,
+      "ndcg@5": 0.05881192897253931,
+      "ndcg@10": 0.06937056511844693,
+      "ndcg@50": 0.08924545332045665
+    },
+    "historical_gram_pcrf": {
+      "hit@5": 0.084,
+      "hit@10": 0.1185,
+      "hit@50": 0.206,
+      "ndcg@5": 0.05960071967054703,
+      "ndcg@10": 0.07091031447150944,
+      "ndcg@50": 0.09048022731992626
+    },
+    "delta": {
+      "hit@5": -0.0325,
+      "hit@10": -0.036000000000000004,
+      "hit@50": -0.031,
+      "ndcg@5": -0.026359572101775842,
+      "ndcg@10": -0.027543836650973222,
+      "ndcg@50": -0.026458546252290285
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.035,
+      "hit@10": -0.039999999999999994,
+      "hit@50": -0.031,
+      "ndcg@5": -0.02714836279978356,
+      "ndcg@10": -0.02908358600403574,
+      "ndcg@50": -0.027693320251759898
+    },
+    "predictions": "artifacts/phase18/etegrec/toys/run_v1/trend_joint_180.jsonl",
+    "predictions_sha256": "d04983b128bb83d261cf412d84584b709d68268b15e94a9accc5e5dc9c5a68d5",
+    "seconds": 6.501266600564122,
+    "test_read": false
+  },
+  "full_validation": null,
+  "paired": null,
+  "finetune_started": false,
+  "training_complete": false,
+  "seconds_including_profile": 7423.535107793286,
+  "test_read": false,
+  "checkpoint_files": {
+    "last.pt": {
+      "bytes": 86254681,
+      "sha256": "3a07b0729a8eade0f676626c45be6703f11326f12149b5866f355b35b13b0945"
+    },
+    "joint_best.pt": {
+      "bytes": 86258437,
+      "sha256": "d439adb2a1ade5d9002f8ce393416f20f61f7a1e768c63871b29da34d830a090"
+    },
+    "rq_best.pt": {
+      "bytes": 52553707,
+      "sha256": "565a3605dcd7500e292d0ae38656e34b692f1bcf81bb5afef25578e5851742f1"
+    }
+  },
+  "interpretation": "User stopped after Beauty negative evidence. Toys completed its joint minimum epochs but not the planned joint stopping criterion, fixed-code finetuning or final full validation. Saved subset metrics are provisional, not a completed domain result.",
+  "interrupt_evidence": "status_on_interrupt.json; original KeyboardInterrupt event preserved"
+}

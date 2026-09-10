@@ -1,4 +1,4 @@
-"""Read-only monitor of the four authorized runs; writes a separate overview."""
+"""Read-only monitor of the authorized runs; writes a separate overview."""
 import argparse
 from datetime import datetime, timezone
 import json
@@ -9,9 +9,11 @@ ROOT = Path(__file__).resolve().parents[3]
 OUTPUT = ROOT / 'artifacts/phase18/parallel_screen_20260909/status.json'
 JOBS = {
     'diff_gram_beauty': ('artifacts/phase18/diff_gram/beauty/confirm_v1', 's18_diff_gram_fixed'),
+    'diff_gram_toys_long': ('artifacts/phase18/diff_gram/toys/long_fixed_v1', 's18_diff_gram_toys_long'),
     'etegrec_beauty': ('artifacts/phase18/etegrec/beauty/run_v1', 'protocol.s18_etegrec'),
     'etegrec_toys': ('artifacts/phase18/etegrec/toys/run_v1', 's18_etegrec_toys'),
     'rearec_beauty': ('artifacts/phase18/rearec/beauty/run_v1', 's18_rearec'),
+    'rearec_toys': ('artifacts/phase18/rearec/toys/run_v1', 's18_rearec_toys'),
 }
 
 
@@ -51,6 +53,9 @@ def snapshot():
         jobs[name] = dict(status_path=str(path.relative_to(ROOT)), state=status['state'],
                           process_alive=alive, seconds_since_activity=(observed - activity).total_seconds(),
                           raw_status=status, latest_event=event)
+        pending = path.parent / 'migration_pending.json'
+        if pending.exists():
+            jobs[name]['pending_migration'] = json.loads(pending.read_text())
     terminal = all(j['process_alive'] is False for j in jobs.values())
     result = dict(updated_at=observed.isoformat(), monitor_running=not terminal, jobs=jobs,
                   note='RQ progress may update events before raw status; inspect latest_event. This monitor never controls training.')

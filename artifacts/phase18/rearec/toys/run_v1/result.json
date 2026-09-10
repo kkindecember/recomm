@@ -1,0 +1,90 @@
+{
+  "state": "USER_STOPPED",
+  "stopped_at": "2026-09-09T08:28:45.278525+00:00",
+  "recorded_at": "2026-09-09T08:29:51.797131+00:00",
+  "reason": "User stopped exploratory Toys run after completed Beauty negative result; redirect experiment budget.",
+  "request": "那你停止toys吧",
+  "training": {
+    "epoch": 34,
+    "optimizer_steps": 7276,
+    "best_score": 0.04995475943270744,
+    "best_epoch": 20,
+    "plateau": {
+      "anchor": 0.04995475943270744,
+      "stale": 0,
+      "active": false
+    }
+  },
+  "interrupted_epoch": 35,
+  "reported_updates_at_interrupt": 7431,
+  "selected_epoch": 20,
+  "selected_trend": {
+    "scope": "trend",
+    "epoch": 20,
+    "examples": 2000,
+    "metrics": {
+      "hit@5": 0.067,
+      "hit@10": 0.0905,
+      "hit@50": 0.169,
+      "ndcg@5": 0.0424402658008912,
+      "ndcg@10": 0.04995475943270744,
+      "ndcg@50": 0.06673303417885865
+    },
+    "reason_steps": 2,
+    "predictions": "artifacts/phase18/rearec/toys/run_v1/trend_epoch_020.jsonl",
+    "predictions_sha256": "1a768c531bf478188eaf2d05ef24db03bda8c3c7cfe1860cdc96cbb04e14ea9b",
+    "historical_gram": {
+      "hit@5": 0.0815,
+      "hit@10": 0.1145,
+      "hit@50": 0.206,
+      "ndcg@5": 0.05881192897253931,
+      "ndcg@10": 0.06937056511844693,
+      "ndcg@50": 0.08924545332045665
+    },
+    "historical_gram_pcrf": {
+      "hit@5": 0.084,
+      "hit@10": 0.1185,
+      "hit@50": 0.206,
+      "ndcg@5": 0.05960071967054703,
+      "ndcg@10": 0.07091031447150944,
+      "ndcg@50": 0.09048022731992626
+    },
+    "delta_vs_gram": {
+      "hit@5": -0.014499999999999999,
+      "hit@10": -0.024000000000000007,
+      "hit@50": -0.03699999999999998,
+      "ndcg@5": -0.016371663171648114,
+      "ndcg@10": -0.019415805685739487,
+      "ndcg@50": -0.022512419141598003
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.017,
+      "hit@10": -0.027999999999999997,
+      "hit@50": -0.03699999999999998,
+      "ndcg@5": -0.017160453869655833,
+      "ndcg@10": -0.020955555038802004,
+      "ndcg@50": -0.023747193141067616
+    },
+    "seconds": 0.24112343974411488,
+    "test_read": false,
+    "score_type": "log_softmax over all legitimate catalog items; PAD excluded"
+  },
+  "full_validation": null,
+  "paired": null,
+  "zero_step_diagnostic": null,
+  "test_read": false,
+  "training_complete": false,
+  "seconds_including_profile": 555.7098975908011,
+  "checkpoint_files": {
+    "last.pt": {
+      "bytes": 46810879,
+      "sha256": "2b5af9835d2d24e229423f198d3faee7b6165a1de2975c9303067be0dff1b389"
+    },
+    "best.pt": {
+      "bytes": 46810879,
+      "sha256": "3010d86dc91490a042cbedc2ca194304e18e0e979ecb20de41cdc14530df3b58"
+    }
+  },
+  "interpretation": "User stopped after Beauty negative evidence. Toys did not reach its minimum training budget or final full validation; trend metrics are provisional and cannot establish mechanism failure.",
+  "interrupt_evidence": "status_on_interrupt.json and events.jsonl KeyboardInterrupt"
+}

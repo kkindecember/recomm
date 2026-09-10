@@ -1,0 +1,87 @@
+{
+  "state": "COMPLETED",
+  "selected": {
+    "phase": "finetune",
+    "epoch": 65,
+    "counters": {
+      "id": 44975,
+      "rec": 44975,
+      "finetune": 16705
+    },
+    "best_score": 0.05588588951463004,
+    "best_label": "joint_290",
+    "selected_file": "joint_best.pt",
+    "plateau": {
+      "anchor": 0.05532267014222247,
+      "stale": 5,
+      "active": true
+    }
+  },
+  "full_validation": {
+    "scope": "full_validation",
+    "label": "joint_290",
+    "examples": 22363,
+    "metrics": {
+      "hit@5": 0.0610383222286813,
+      "hit@10": 0.0891651388454143,
+      "hit@50": 0.1916111434065197,
+      "ndcg@5": 0.040076336449456254,
+      "ndcg@10": 0.04912738796580923,
+      "ndcg@50": 0.07146773527413254
+    },
+    "historical_gram": {
+      "hit@5": 0.07762822519339982,
+      "hit@10": 0.10875106202209006,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.054916834352078656,
+      "ndcg@10": 0.06497370269327073,
+      "ndcg@50": 0.08670097723570454
+    },
+    "historical_gram_pcrf": {
+      "hit@5": 0.081608013236149,
+      "hit@10": 0.11384876805437553,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.057534350522304704,
+      "ndcg@10": 0.0679076815479998,
+      "ndcg@50": 0.08875958665222096
+    },
+    "delta": {
+      "hit@5": -0.016589902964718517,
+      "hit@10": -0.019585923176675762,
+      "hit@50": -0.016500469525555617,
+      "ndcg@5": -0.014840497902622402,
+      "ndcg@10": -0.015846314727461494,
+      "ndcg@50": -0.015233241961571997
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.020569691007467694,
+      "hit@10": -0.024683629208961236,
+      "hit@50": -0.016500469525555617,
+      "ndcg@5": -0.01745801407284845,
+      "ndcg@10": -0.018780293582190563,
+      "ndcg@50": -0.01729185137808842
+    },
+    "predictions": "artifacts/phase18/etegrec/beauty/run_v1/full_validation_joint_290.jsonl",
+    "predictions_sha256": "71b56b1064765157ccf60ea91c4b8c05f913c83d9b679a58b5917a74308cf0e1",
+    "seconds": 61.27907128445804,
+    "test_read": false
+  },
+  "paired": {
+    "ndcg10_delta": -0.015846314727461494,
+    "hit10_net_users": -438,
+    "bootstrap_replicates": 2000,
+    "ndcg10_ci95": [
+      -0.017955789409264126,
+      -0.013491330682899476
+    ],
+    "hit10_ci95": [
+      -0.023164378661181418,
+      -0.015785002012252383
+    ],
+    "interpretation": "Exploratory paired-user uncertainty; not seed robustness or independent confirmation."
+  },
+  "seconds_including_profile": 13351.346021922305,
+  "test_read": false,
+  "interpretation": "Exploratory local core adaptation; frozen CF512, optimizer-specific schedules, constrained beam50; no test, no baseline training.",
+  "automatic_additional_training": false
+}

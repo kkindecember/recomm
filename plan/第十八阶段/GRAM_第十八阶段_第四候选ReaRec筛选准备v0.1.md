@@ -1,5 +1,7 @@
 # 第十八阶段：第四候选 ReaRec 筛选准备 v0.1
 
+**最新收尾（2026-09-09 16:28）：** Beauty 已完成 150 轮并全量验证，NDCG@10 相对 GRAM -26.70%；ReaRec Toys 已按用户要求停止，保留第 34 轮完整 checkpoint，未完成训练预算。当前降低本适配优先级，不追加实验。详见 [完整结果与 Toys 停止报告](../../report/第十八阶段/Stage18_ReaRec_Beauty完整结果与Toys主动停止报告.md)。下文准备与启动状态为历史记录。
+
 ## Material Passport
 
 - 日期：2026-09-09；模式：候选规划与源码静态核对。
@@ -73,3 +75,9 @@ bash experiment/phase18/run_stage18_rearec_beauty.sh --mode run
 本节覆盖上文“未完成本地适配/实测”的准备阶段状态；效果结论仍待正式训练与最终验证。
 
 正式 PID `2752109`，15:17:59（北京时间）启动；真实完整 epoch、参数更新与 checkpoint 证据见 [ReaRec 启动报告](../../report/第十八阶段/Stage18_ReaRec_Beauty实现核验与启动报告.md)。
+
+## 2026-09-09 16:20 Toys 补充执行
+
+用户进一步提出“有必要跑下 rearec toys 吗，闲着也是闲着”。ETEGRec Beauty 完成后释放 GPU 0；已完成 Toys 输入审核与实测，并于 16:19:34 启动一个同设置的 Toys 候选，见 [Toys 并行筛选计划](GRAM_第十八阶段_ReaRec_Toys并行筛选计划v0.1.md) 和 [启动报告](../../report/第十八阶段/Stage18_ReaRec_Toys输入核验与启动报告.md)。本节覆盖上文只做 Beauty 的首轮范围；当前没有新增参数搜索。
+
+Beauty 已完成 150 轮，最佳第 45 轮，全量 NDCG@10 = 0.04762500932，低于 GRAM = 0.06497370269。Toys 用于补充域间证据，不预设其效果；运行状态已加入汇总 `jobs.rearec_toys`。

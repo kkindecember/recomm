@@ -1,0 +1,15 @@
+{
+  "cohort": "first 2000 validation users sorted by SHA256(salt + user_id)",
+  "salt": "recomm_case_memory_probe_v1:",
+  "candidate_budget": 20,
+  "case_retrieval": "cosine of training-prefix TF-IDF histories, recency 1/(distance+1), last20; take20 distinct next items",
+  "memory_exclusion": "exclude all cases belonging to the query user",
+  "controls": [
+    "uniform random training cases",
+    "last-item training transition frequency",
+    "recency-weighted reciprocal-rank sum of static SASRec neighbors"
+  ],
+  "metric": "target coverage in retrieved20, not trained recommendation performance",
+  "test_read": false,
+  "hyperparameter_search": false
+}

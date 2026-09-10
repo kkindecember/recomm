@@ -1,0 +1,92 @@
+{
+  "name": "S19-RaSeRec-GRAM-Beauty-v1",
+  "dataset": "Beauty",
+  "seed": 2023,
+  "data_config": "experiment/phase18/config/s18_diff_gram_beauty.json",
+  "output": "artifacts/phase19/raserec_gram_beauty_v1",
+  "gpu_uuid": "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160",
+  "max_wall_seconds": 172800,
+  "cuda_memory_fraction": 0.28,
+  "minimum_free_mib": 12000,
+  "pretrain": {
+    "n_layers": 2,
+    "n_heads": 2,
+    "hidden_size": 64,
+    "inner_size": 256,
+    "hidden_dropout_prob": 0.5,
+    "attn_dropout_prob": 0.5,
+    "hidden_act": "gelu",
+    "layer_norm_eps": 1e-12,
+    "initializer_range": 0.02,
+    "loss_type": "CE",
+    "lmd": 0.1,
+    "lmd_sem": 0.1,
+    "contrast": "us_x",
+    "tau": 1.0,
+    "sim": "dot",
+    "train_batch_size": 1024,
+    "MAX_ITEM_LIST_LENGTH": 20,
+    "epochs": 100,
+    "patience": 10,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0
+  },
+  "reader": {
+    "hidden_size": 64,
+    "inner_size": 256,
+    "heads": 2,
+    "dropout": 0.5,
+    "alpha": 0.5,
+    "beta": 1.0,
+    "topk": 20,
+    "attn_tau": 1.0,
+    "auxiliary_weight": 0.1
+  },
+  "reader_training": {
+    "epochs": 100,
+    "patience": 10,
+    "batch_size": 1024,
+    "learning_rate": 0.001
+  },
+  "gram_training": {
+    "warmup_epochs": 1,
+    "joint_epochs": 10,
+    "microbatch": 4,
+    "effective_batch_size": 128,
+    "new_learning_rate": 0.001,
+    "backbone_learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "warmup_fraction": 0.05,
+    "validation_microbatch": 1,
+    "trend_users": 2000,
+    "num_workers": 2,
+    "precision": "float32",
+    "beam_size": 50,
+    "length_penalty": 1.0
+  },
+  "pcrf": {
+    "checkpoint": "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt",
+    "reference": "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv",
+    "summary": "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/summary.json",
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1": 6
+  },
+  "runtime": {
+    "tmux_session": "s19_raserec_gram_beauty_v1",
+    "physical_gpu": 1,
+    "heartbeat_seconds": 30,
+    "preflight": "artifacts/phase19/raserec_gram_beauty_preflight_v1/summary.json",
+    "baseline_predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+    "primary_comparator": "original_gram",
+    "resource_policy": "2026-09-10 user explicitly authorized GPU1 with actual available memory. Toys measured workload uses 10882 MiB; launch admission 12000 MiB, PyTorch allocator limit 28% of the card. No 18.5 GiB or 30 GiB reservation. Scientific training settings match Toys.",
+    "expected_workload_peak_mib": 13759,
+    "admission_wait_seconds": 21600,
+    "gpu_candidates": [
+      "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160"
+    ],
+    "previous_attempt": "artifacts/phase19/raserec_gram_beauty_v1/attempts/admission_rejected_20260910T022103Z"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "created_at": "2026-09-09T08:16:01.972370+00:00",
+  "dataset": "Toys",
+  "files": {
+    "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+    "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb",
+    "artifacts/phase18/diff_gram/prepared_v2_categories/catalog.json": "2a03a849d0c7ccf8c06adfa5601ae3b9dc15622602ee126ccbdd3e68d7033a3f",
+    "artifacts/phase18/diffgrm_native/toys/run_v1/screen_r1/trend_cohort.json": "b003e5e27f4710c1d0a252da012f0e631621803e944025768b2fb732301933a7",
+    "artifacts/phase18/diffgrm_native/toys/run_v1/full_r2/historical_references.json": "304fc4c9dd850190e3b43e85459ce7a824776fe53764154e7d0729b7707768f2",
+    "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv": "4a14a4dca2fa22aa5c23186b50bbf900e4d99ee40917a42552c4e459d03a6fa5",
+    "artifacts/phase18/diffgrm_native/toys/run_v1/prepared/validation.jsonl": "3cb3e61b4d519d1e2b76c84bb7c45d031645d4f4389a379efa454cea5e56dbc8",
+    "artifacts/phase18/diffgrm_native/toys/run_v1/prepared/item_names.json": "ac865301be9b60ea4caae21d46cef7c3e7fa34bfd71e95a45898aa6c13133282",
+    "artifacts/phase18/etegrec_planning/input_review_toys_20260909.json": "119c083743a5d203787e36fc3397d66aaca816d57fac4b044af8a0e684769a54",
+    "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/summary.json": "294589dcf5a0712cd292431af8ee6014a22de33c50516f783680bc2d783be4b8",
+    "artifacts/phase18/diffgrm_native/toys/run_v1/prepared/manifest.json": "7796c5677822d6473d1df1845697d43d06b58d6f5b99f4c571e12cba7111f197"
+  },
+  "train_examples": 109361,
+  "validation_users": 19412,
+  "trend_users": 2000,
+  "catalog_items": 11924,
+  "baseline": {
+    "hit@5": 0.0909231403255718,
+    "hit@10": 0.11941067381001443,
+    "hit@50": 0.21193076447558212,
+    "ndcg@5": 0.06713487106644733,
+    "ndcg@10": 0.07627451425999993,
+    "ndcg@50": 0.09653217535352775
+  },
+  "pcrf": {
+    "hit@5": 0.0936534102616938,
+    "hit@10": 0.12533484442612816,
+    "hit@50": 0.21193076447558212,
+    "ndcg@5": 0.06850763766741287,
+    "ndcg@10": 0.07871552229273793,
+    "ndcg@50": 0.0980706124558045
+  },
+  "test_read": false,
+  "history_order": "chronological; left padding in ReaRec adapter",
+  "embeddings": "Random trainable ID embeddings; no CF or LLM features loaded",
+  "checks": [
+    "frozen prepared hashes and population",
+    "catalog IDs and history bounds",
+    "historical full/subset six-metric identity",
+    "exact paired users/history lengths",
+    "native validation raw targets and chronological histories match"
+  ]
+}

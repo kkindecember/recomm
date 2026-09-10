@@ -296,3 +296,83 @@ artifacts/**/*.log
 !/artifacts/phase18/rearec/beauty/first_validation_verification.json
 !/artifacts/phase18/rearec/beauty/input_review.json
 !/artifacts/phase18/rearec/beauty/profile_v1/profile.json
+
+# Machine-local credentials and transient experiment bookkeeping.
+.env
+.env.*
+!.env.example
+!.env.*.example
+artifacts/**/gpu_lease.json
+artifacts/**/gpu_lease_status.json
+artifacts/**/cpu_telemetry.csv
+artifacts/**/current_dataset.txt
+
+# Stage 19 active runs stay local, including status links, checkpoints,
+# event streams, per-user rows, and duplicate source/config snapshots.
+/artifacts/phase19/**
+
+# Immutable Stage 19 probe protocol/results and completed input checks.
+!/artifacts/phase19/
+!/artifacts/phase19/memory_probe_v1/
+!/artifacts/phase19/raserec_gram_beauty_preflight_v1/
+!/artifacts/phase19/memory_probe_v1/additional_all_history_transition_control.json
+!/artifacts/phase19/memory_probe_v1/probe.py
+!/artifacts/phase19/memory_probe_v1/protocol.json
+!/artifacts/phase19/memory_probe_v1/summary.json
+!/artifacts/phase19/raserec_gram_beauty_preflight_v1/summary.json
+!/artifacts/phase19/review_20260909.json
+
+# Completed Stage 18 evaluations and resource/input checks referenced by reports.
+!/artifacts/phase18/
+!/artifacts/phase18/raserec_gram/
+!/artifacts/phase18/diff_gram/continuation_review/
+!/artifacts/phase18/diff_gram/toys/
+!/artifacts/phase18/etegrec/final_review/
+!/artifacts/phase18/raserec_gram/toys/
+!/artifacts/phase18/rearec/final_review/
+!/artifacts/phase18/rearec/toys/
+!/artifacts/phase18/diff_gram/beauty/speed_probe_20260909/
+!/artifacts/phase18/diff_gram/toys/long_fixed_smoke_v1_gpu0_mb4/
+!/artifacts/phase18/etegrec/beauty/run_v1/
+!/artifacts/phase18/etegrec/toys/run_v1/
+!/artifacts/phase18/raserec_gram/toys/preflight_v1/
+!/artifacts/phase18/rearec/beauty/run_v1/
+!/artifacts/phase18/rearec/toys/profile_v2/
+!/artifacts/phase18/rearec/toys/run_v1/
+!/artifacts/phase18/diff_gram/beauty/speed_probe_20260909/gpu4_v1/
+!/artifacts/phase18/diff_gram/beauty/speed_probe_20260909/gpu5_v1/
+!/artifacts/phase18/diff_gram/beauty/speed_probe_20260909/gpu4_v1/result.json
+!/artifacts/phase18/diff_gram/beauty/speed_probe_20260909/gpu5_v1/result.json
+!/artifacts/phase18/diff_gram/continuation_review/review_20260909.json
+!/artifacts/phase18/diff_gram/toys/long_fixed_smoke_v1_gpu0_mb4/runtime_profile.json
+!/artifacts/phase18/diff_gram/toys/long_fixed_smoke_v1_gpu0_mb4/smoke_summary.json
+!/artifacts/phase18/etegrec/beauty/run_v1/result.json
+!/artifacts/phase18/etegrec/final_review/beauty_20260909.json
+!/artifacts/phase18/etegrec/toys/run_v1/result.json
+!/artifacts/phase18/raserec_gram/toys/preflight_v1/summary.json
+!/artifacts/phase18/rearec/beauty/run_v1/result.json
+!/artifacts/phase18/rearec/final_review/review_20260909.json
+!/artifacts/phase18/rearec/toys/first_validation_verification.json
+!/artifacts/phase18/rearec/toys/input_review.json
+!/artifacts/phase18/rearec/toys/profile_v2/profile.json
+!/artifacts/phase18/rearec/toys/run_v1/result.json
+
+# Keep only pinned RaSeRec reference code/defaults needed for provenance and
+# source-fidelity checks; the downloaded RecBole framework stays local.
+/third_party/RaSeRec/**
+!/third_party/RaSeRec/
+!/third_party/RaSeRec/recbole/
+!/third_party/RaSeRec/recbole/model/
+!/third_party/RaSeRec/recbole/properties/
+!/third_party/RaSeRec/recbole/model/sequential_recommender/
+!/third_party/RaSeRec/recbole/properties/model/
+!/third_party/RaSeRec/LICENSE
+!/third_party/RaSeRec/README.md
+!/third_party/RaSeRec/SOURCE.json
+!/third_party/RaSeRec/raserec.sh
+!/third_party/RaSeRec/recbole/model/layers.py
+!/third_party/RaSeRec/recbole/model/sequential_recommender/duorec.py
+!/third_party/RaSeRec/recbole/model/sequential_recommender/raserec.py
+!/third_party/RaSeRec/recbole/properties/model/DuoRec.yaml
+!/third_party/RaSeRec/recbole/properties/model/RaSeRec.yaml
+!/third_party/RaSeRec/seq.yaml

@@ -1,0 +1,159 @@
+{
+  "state": "COMPLETED",
+  "selected_epoch": 45,
+  "training": {
+    "epoch": 150,
+    "optimizer_steps": 38550,
+    "best_score": 0.05194817795585822,
+    "best_epoch": 45,
+    "plateau": {
+      "anchor": 0.05194817795585822,
+      "stale": 10,
+      "active": true
+    }
+  },
+  "full_validation": {
+    "scope": "full_validation",
+    "epoch": 45,
+    "examples": 22363,
+    "metrics": {
+      "hit@5": 0.05853418593212002,
+      "hit@10": 0.08344139873898851,
+      "hit@50": 0.16737468139337297,
+      "ndcg@5": 0.03957436486110152,
+      "ndcg@10": 0.047625009318161236,
+      "ndcg@50": 0.06583271221008088
+    },
+    "reason_steps": 2,
+    "predictions": "artifacts/phase18/rearec/beauty/run_v1/full_validation_epoch_045.jsonl",
+    "predictions_sha256": "64f214f94cf1f9e6a0e822dd8ba1dc9175fabf02db5df7f37b12b017910bbc6c",
+    "historical_gram": {
+      "hit@5": 0.07762822519339982,
+      "hit@10": 0.10875106202209006,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.054916834352078656,
+      "ndcg@10": 0.06497370269327073,
+      "ndcg@50": 0.08670097723570454
+    },
+    "historical_gram_pcrf": {
+      "hit@5": 0.081608013236149,
+      "hit@10": 0.11384876805437553,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.057534350522304704,
+      "ndcg@10": 0.0679076815479998,
+      "ndcg@50": 0.08875958665222096
+    },
+    "delta_vs_gram": {
+      "hit@5": -0.019094039261279797,
+      "hit@10": -0.025309663283101552,
+      "hit@50": -0.04073693153870234,
+      "ndcg@5": -0.015342469490977138,
+      "ndcg@10": -0.01734869337510949,
+      "ndcg@50": -0.020868265025623653
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.023073827304028974,
+      "hit@10": -0.030407369315387026,
+      "hit@50": -0.04073693153870234,
+      "ndcg@5": -0.017959985661203187,
+      "ndcg@10": -0.02028267222983856,
+      "ndcg@50": -0.022926874442140074
+    },
+    "seconds": 3.1824304666370153,
+    "test_read": false,
+    "score_type": "log_softmax over all legitimate catalog items; PAD excluded"
+  },
+  "zero_step_diagnostic": {
+    "scope": "zero_step_full_validation",
+    "epoch": 45,
+    "examples": 22363,
+    "metrics": {
+      "hit@5": 0.06430264275812726,
+      "hit@10": 0.09269775969234897,
+      "hit@50": 0.18235478245315923,
+      "ndcg@5": 0.04110009536078244,
+      "ndcg@10": 0.05023778042187457,
+      "ndcg@50": 0.06960650907892689
+    },
+    "reason_steps": 0,
+    "predictions": "artifacts/phase18/rearec/beauty/run_v1/zero_step_full_validation_epoch_045.jsonl",
+    "predictions_sha256": "71e6159a7fe415ab09a612c1730ca8c9293c0631057ffc1bbc4c4315e2fec7cf",
+    "historical_gram": {
+      "hit@5": 0.07762822519339982,
+      "hit@10": 0.10875106202209006,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.054916834352078656,
+      "ndcg@10": 0.06497370269327073,
+      "ndcg@50": 0.08670097723570454
+    },
+    "historical_gram_pcrf": {
+      "hit@5": 0.081608013236149,
+      "hit@10": 0.11384876805437553,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.057534350522304704,
+      "ndcg@10": 0.0679076815479998,
+      "ndcg@50": 0.08875958665222096
+    },
+    "delta_vs_gram": {
+      "hit@5": -0.013325582435272557,
+      "hit@10": -0.016053302329741087,
+      "hit@50": -0.025756830478916082,
+      "ndcg@5": -0.013816738991296214,
+      "ndcg@10": -0.014735922271396154,
+      "ndcg@50": -0.017094468156777648
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.017305370478021734,
+      "hit@10": -0.02115100836202656,
+      "hit@50": -0.025756830478916082,
+      "ndcg@5": -0.016434255161522263,
+      "ndcg@10": -0.017669901126125223,
+      "ndcg@50": -0.01915307757329407
+    },
+    "seconds": 2.323445064947009,
+    "test_read": false,
+    "score_type": "log_softmax over all legitimate catalog items; PAD excluded"
+  },
+  "paired": {
+    "comparisons": {
+      "gram": {
+        "ndcg10_delta": -0.017348693375109487,
+        "hit10_net_users": -566,
+        "ndcg10_ci95": [
+          -0.01926157152649999,
+          -0.01528892672743175
+        ],
+        "hit10_ci95": [
+          -0.028618700532128963,
+          -0.021911192594911238
+        ]
+      },
+      "gram_pcrf": {
+        "ndcg10_delta": -0.020282672229838566,
+        "hit10_net_users": -680,
+        "ndcg10_ci95": [
+          -0.022185423669449228,
+          -0.018292188774654928
+        ],
+        "hit10_ci95": [
+          -0.03385055672315879,
+          -0.02705249742878863
+        ]
+      }
+    },
+    "bootstrap_replicates": 2000,
+    "interpretation": "Exploratory paired-user uncertainty; checkpoint selected on validation subset; not seed robustness or independent confirmation."
+  },
+  "two_step_minus_zero_step": {
+    "hit@5": -0.00576845682600724,
+    "hit@10": -0.009256360953360465,
+    "hit@50": -0.014980101059786255,
+    "ndcg@5": -0.0015257304996809246,
+    "ndcg@10": -0.0026127711037133364,
+    "ndcg@50": -0.003773796868846005
+  },
+  "zero_step_interpretation": "Same trained two-step checkpoint; inference diagnostic only, not a separately trained baseline.",
+  "seconds_including_profile": 3366.1486929021776,
+  "test_read": false,
+  "interpretation": "Exploratory pinned ReaRec PRL ID-based core adaptation; local PAD=0 and no PAD class; no test or baseline retraining. Zero-step diagnostics use the same selected two-step checkpoint, not a separately trained control."
+}

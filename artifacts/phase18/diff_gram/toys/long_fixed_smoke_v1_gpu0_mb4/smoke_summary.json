@@ -1,0 +1,55 @@
+{
+  "state": "SMOKE_PASSED",
+  "microbatch": 4,
+  "long_history_length": 20,
+  "training": [
+    {
+      "backbone_frozen": true,
+      "steps": 2,
+      "seconds_per_step": 0.21070963237434626,
+      "peak_allocated_mib": 645.03662109375,
+      "peak_reserved_mib": 822.0,
+      "loss_components": {
+        "generation": 14.994635581970215,
+        "item": 9.48131275177002,
+        "alignment": 1.0737613439559937,
+        "total": 26.680381774902344
+      },
+      "gradients_abs_sum": {
+        "frequency": 30.35048966348404,
+        "intermediate": 106655.68433282524,
+        "early": 112326.19015041424,
+        "attribute": 1607.3712158203125,
+        "memory": 353938.6869506836,
+        "backbone": 0
+      }
+    },
+    {
+      "backbone_frozen": false,
+      "steps": 2,
+      "seconds_per_step": 0.43764373008161783,
+      "peak_allocated_mib": 4322.916015625,
+      "peak_reserved_mib": 4610.0,
+      "loss_components": {
+        "generation": 14.124003410339355,
+        "item": 9.603269577026367,
+        "alignment": 0.9988142848014832,
+        "total": 25.072473526000977
+      },
+      "gradients_abs_sum": {
+        "frequency": 168.94541649962775,
+        "intermediate": 363476.8375722803,
+        "early": 365185.96642788546,
+        "attribute": 4952.97802734375,
+        "memory": 1266803.3603515625,
+        "backbone": 1105421.468111813
+      }
+    }
+  ],
+  "generation_seconds": 0.4749488215893507,
+  "generation_peak_reserved_mib": 7068.0,
+  "beam_count": 50,
+  "checkpoint_roundtrip_equal": true,
+  "cross_cache_reuse_exact_parity": null,
+  "efficacy_evidence": false
+}

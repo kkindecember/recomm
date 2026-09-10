@@ -1,5 +1,7 @@
 # 第十八阶段：ETEGRec Toys 并行筛选计划 v0.1
 
+**当前状态（2026-09-09 16:46:28）：USER_STOPPED。** 已按用户指令停止，联合第 222 轮完整 checkpoint、`joint_180` 最佳模型和已有预测均保留；尚未执行固定编码微调与最终全量验证，不作为完整负结果。详见 [停止记录](../../report/第十八阶段/Stage18_ETEGRec_Toys主动停止记录.md)。本节覆盖下文继续训练的原计划，不自动恢复。
+
 ## Material Passport
 
 - 模式：run；用户已授权补充 ETEGRec Toys，并检查额外并行空间。

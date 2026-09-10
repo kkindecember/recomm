@@ -1,5 +1,7 @@
 # 第十八阶段：DIFF→GRAM 双域 full_r2 结果与方向结论
 
+**2026-09-09 后续优先级复议：** ETEGRec / ReaRec 当前适配归档后，用户希望进一步判断 DIFF→GRAM 是否值得发展。最新建议为保留并优先有限验证：完成已授权 Beauty 固定日程复核、先检查冻结 PCRF 组合价值，再决定归因/跨域投入。详见 [继续投入价值与最小验证路径](Stage18_DIFF_GRAM_继续投入价值与最小验证路径.md)。本报告原始数值与“弱正信号、未确认稳定收益”的边界不变；下文主线倾向 ETEGRec 的资源建议为此前记录。
+
 **2026-09-09 13:28 后续执行更新：** 用户已授权 Beauty 单域固定日程复核，见 [新执行计划](../../plan/第十八阶段/GRAM_第十八阶段_DIFF_Beauty固定日程复核计划v0.1.md)。新任务从原始 GRAM parent 重新初始化，固定 seed 2023、1 frozen + 10 joint，已在 GPU 4 启动，状态为 `artifacts/phase18/diff_gram/beauty/confirm_v1/status.json`。这是后续投入决定，覆盖下文“当前不追加 Beauty”的先前建议；本报告的 full_r2 数值和未确认稳定收益的结论继续保留，新复核尚无效果结果。
 
 ## Material Passport

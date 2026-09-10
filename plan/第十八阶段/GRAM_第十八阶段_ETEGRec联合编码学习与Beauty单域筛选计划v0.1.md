@@ -6,7 +6,7 @@
 - 来源：academic-research-suite / experiment-agent，plan，inline。
 - 用户目标：找到能超过现有 GRAM、后续可能与 PCRF 组合的新模型机制；允许大改，优先复用历史基线。
 - 原计划请求：“那你继续计划”；随后用户“那继续吧”，接续实施、核验和预算内正式筛选。
-- 当前状态：`EXECUTING`；2026-09-09 12:26 在 GPU 0 启动 Beauty。5 项 CPU 测试、真实 GPU 梯度 / 更新 / 恢复 / 生成检查通过；本地效果仍待训练后验证。
+- 当前状态：`COMPLETED`；2026-09-09 16:08:45 完成。RQ 预训练 5,850 商品 pass、交替训练 350 epoch、固定编码微调 65 epoch，均按平台停止；最终选择 `joint_290`，全量 NDCG@10 = 0.04912738797，相对 GRAM -24.39%。完整结果与预测复核见 [Beauty 结果报告](../../report/第十八阶段/Stage18_ETEGRec_Beauty完整结果与投入结论报告.md)。当前 Beauty 配置归档，不追加同设置训练或多 seed；下文为原计划与实施记录。
 - 实验标识：`S18-ETEG-CF512-Beauty-S2023`。这是作者核心机制的本地适配，不是官方 Beauty 配置复现，也尚不是 GRAM 内部模块的完成稿。
 - 本轮输入检查：[input_review_20260909.json](../../artifacts/phase18/etegrec_planning/input_review_20260909.json)。记录数据哈希、协同 checkpoint、基线及旧任务状态快照。
 

@@ -1,5 +1,7 @@
 # 第十八阶段：ETEGRec Toys 启动与并行资源报告
 
+**2026-09-09 16:46:28 停止更新：** 用户已要求停止 ETEGRec Toys，PID `2572693` 已退出，状态 `USER_STOPPED`。保留联合第 222 轮完整 checkpoint 和 `joint_180` 最佳模型；固定编码微调与最终全量验证尚未执行。详见 [主动停止记录](Stage18_ETEGRec_Toys主动停止记录.md)。下文为启动时记录。
+
 ## Material Passport
 
 - 状态：**已启动、已确认真实参数更新，效果待最终 validation**。

@@ -1,0 +1,15 @@
+{
+  "revision": "gpu5_move_v1",
+  "original_exec_config": "experiment/phase18/config/s18_diff_gram_beauty_fixed.json",
+  "original_exec_sha256": "3e25ec750e19f463b51c7a2b166c3dd39062de816ab7cd2aee387112f523a63f",
+  "old_pid": 2195156,
+  "target_gpu_uuid": "GPU-07374397-b213-09c1-2988-718acb6ed231",
+  "minimum_epoch": 2,
+  "minimum_free_mib": 17000,
+  "deadline_utc": "2026-09-10T17:28:24+00:00",
+  "probe_sha256": {
+    "artifacts/phase18/diff_gram/beauty/speed_probe_20260909/gpu4_v1/result.json": "0235e886e6edef2f47eb604b2249b766b751ab95a8b193228432f97c590793fb",
+    "artifacts/phase18/diff_gram/beauty/speed_probe_20260909/gpu5_v1/result.json": "07baa7ed00bc83817b1cdb06d5e0a464b94f96832e81475f0158702d27384efc"
+  },
+  "purpose": "User requested handling slow Beauty validation. Move this existing fixed 1+10 run after a fresh complete epoch; preserve model, Adam, scheduler, RNG, cohort, precision, beam and original 36-hour deadline. No old DiffGRM/ETEGRec/ReaRec restart."
+}
