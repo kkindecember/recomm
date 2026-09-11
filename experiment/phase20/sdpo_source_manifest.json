@@ -1,0 +1,19 @@
+{
+  "retrieved_at": "2026-09-10",
+  "paper": "https://arxiv.org/html/2406.09215v3",
+  "repository": "https://github.com/chenyuxin1999/S-DPO",
+  "code_url": "https://raw.githubusercontent.com/chenyuxin1999/S-DPO/main/trainer/softmax_dpo_trainer.py",
+  "code_sha256": "bb912f3a258eb353bf6ed149e6200b53ff231d306f2e8cf2e5305f28da817bc3",
+  "source_kernel": "dpo_loss lines220-265; summed sequence logps in _get_batch_logps",
+  "implementation": "Independent, numerically stable logsumexp equivalent of Eq11; no downloaded author code executed.",
+  "differences": [
+    "Llama LoRA -> originalGRAM full-parameter encoder-decoder",
+    "candidate-list selection -> original full-catalog lexical generation",
+    "random negatives in supplied candidate lists ->4 distinct hard negatives from frozen-parent beam8",
+    "reference logps cached once on train rows; parent fixed throughout3epochs",
+    "originalmodel is already SFT-trained; no additional alternating SFT stages",
+    "native beam50 inference and matched FP32 parent; test never constructed"
+  ],
+  "git_commit": null,
+  "version_boundary": "individual file pinned by content SHA256"
+}

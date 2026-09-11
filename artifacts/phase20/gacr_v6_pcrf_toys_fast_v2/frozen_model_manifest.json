@@ -1,0 +1,19 @@
+{
+  "inputs": {
+    "artifacts/phase4/gcdh_p0/Toys/C1/model.pt": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "artifacts/phase6/gacr_v6/Toys/residual_seed2023.pt": "c05f812ee4204602b58119e0411f08e4aa06c99d8ab277e2861ad48d2d9ce68c",
+    "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "artifacts/phase4/gcdh_p0_splits/Toys/train_users.txt": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "experiment/phase4/gacr_s0.py": "556b960a04b423353b75d3dddf327cd4af2a8ee3666dc45ce65178d0f0dc46cc",
+    "experiment/phase4/gcdh_p0.py": "cae662891aa431a391482c4284f26356d5c3fde2c3a0b2b024e90f9fa65cdb4f",
+    "experiment/phase9/eval_cf0_b4_reliability.py": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "experiment/phase20/gacr_features.py": "b1d31cca6afcea86739062a474cc5e5f3a2297014823a5f24e78fde565bc2428",
+    "experiment/phase20/evaluate_gacr_pcrf.py": "d4d10acc02e4621b8b866af8f093d7b339b1295d11202eaa67af9bff43d5a45f"
+  },
+  "catalog_row_order": "lexical file insertion order",
+  "catalog_row_mapping_verified": true,
+  "new_optimizer_steps": 0,
+  "combination": "Original GACR top50, then frozen PCRF with GACR scores as its base signal",
+  "parent_model": "C1 continued backbone; independently compared to untouched GRAM"
+}

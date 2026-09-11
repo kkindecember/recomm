@@ -1,0 +1,66 @@
+{
+  "state": "COMPLETED",
+  "revision": "gpu5_move_v1",
+  "source_epoch": 0,
+  "device_move_after_epoch": 2,
+  "selected_absolute_epoch": 7,
+  "selected_stage_epoch": 7,
+  "epochs_completed": 11,
+  "optimizer_steps": 11297,
+  "stopping_reason": "epoch_limit",
+  "early_stopping_enabled": false,
+  "automatic_additional_training": false,
+  "full_validation": {
+    "scope": "full_validation",
+    "stage_epoch": 7,
+    "metrics": {
+      "hit@5": 0.07789652551088852,
+      "hit@10": 0.10937709609623038,
+      "hit@50": 0.2090506640432858,
+      "ndcg@5": 0.05494626974628927,
+      "ndcg@10": 0.06509004679290155,
+      "ndcg@50": 0.08684003325776643
+    },
+    "examples": 22363,
+    "historical_gram": {
+      "hit@5": 0.07762822519339982,
+      "hit@10": 0.10875106202209006,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.054916834352078656,
+      "ndcg@10": 0.06497370269327073,
+      "ndcg@50": 0.08670097723570454
+    },
+    "delta": {
+      "hit@5": 0.0002683003174887011,
+      "hit@10": 0.0006260340741403164,
+      "hit@50": 0.0009390511112104816,
+      "ndcg@5": 2.9435394210616805e-05,
+      "ndcg@10": 0.00011634409963082182,
+      "ndcg@50": 0.0001390560220618925
+    },
+    "mean_returned_items": 50.0,
+    "fewer_than_50_fraction": 0.0,
+    "seconds": 12495.252309741452,
+    "predictions_sha256": "062a8e3102ccb1fef6cf6c739755cc24ab24ac02072cf973c9c28e6a1f078f59",
+    "epoch": 7,
+    "historical_gram_pcrf": {
+      "hit@5": 0.081608013236149,
+      "hit@10": 0.11384876805437553,
+      "hit@50": 0.2081116129320753,
+      "ndcg@5": 0.057534350522304704,
+      "ndcg@10": 0.0679076815479998,
+      "ndcg@50": 0.08875958665222096
+    },
+    "delta_vs_gram_pcrf": {
+      "hit@5": -0.003711487725260476,
+      "hit@10": -0.004471671958145157,
+      "hit@50": 0.0009390511112104816,
+      "ndcg@5": -0.002588080776015432,
+      "ndcg@10": -0.0028176347550982472,
+      "ndcg@50": -0.001919553394454529
+    },
+    "interpretation": "Same-user exploratory validation; fixed seed and selected checkpoint, not independent test."
+  },
+  "seconds_after_device_move": 74327.09171859547,
+  "interpretation": "Original fixed 1+10 schedule retained across device move; same seed, no LR restart or deadline extension; exploratory validation, not independent test."
+}

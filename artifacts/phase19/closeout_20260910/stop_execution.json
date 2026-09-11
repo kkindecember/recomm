@@ -1,0 +1,87 @@
+{
+  "experiment": "s19_raserec_gram_beauty",
+  "requested_at": "2026-09-10T12:40:38.113768+00:00",
+  "process_before": {
+    "pid": 3121373,
+    "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase19.raserec_beauty --mode run ",
+    "stat": "3121373 (python) S 3121371 3121371 3121371 34873 3121371 4194304 3821 3299 0 0 151 20 0 10 20 0 1 0 1097627838 32030720 4003 18446744073709551615 4194304 6359954 140737337692288 0 0 0 0 16781312 16387 1 0 0 17 56 0 0 32 0 0 7406224 7634104 975568896 140737337695006 140737337695117 140737337695117 140737337700284 0\n",
+    "uid": 1082,
+    "pgid": 3121371
+  },
+  "run_directory": "artifacts/phase19/raserec_gram_beauty_v1",
+  "audit_directory": "artifacts/phase19/closeout_20260910",
+  "authorization": "2026-09-10 user requested closing stages 18 and 19 and forcing closure of the remaining datasets.",
+  "reason": "Stop further budget for the current versions after weak completed-domain evidence; incomplete-domain efficacy remains unconfirmed.",
+  "automatic_restart": false,
+  "original_schedule_completed": false,
+  "final_full_validation_completed": false,
+  "process_tree_before": [
+    {
+      "pid": 1422365,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase18.protocol.s18_raserec_gram --config artifacts/phase19/raserec_gram_beauty_v1/execution_config.json --stage all ",
+      "stat": "1422365 (python) S 3121432 3121432 3121432 0 -1 4194368 2227381 0 0 0 56636 1735 0 0 20 0 3 0 1100974804 27749543936 1377995 18446744073709551615 4194304 6359954 140727515812448 0 0 0 0 16781312 91330 0 0 0 17 79 0 0 0 0 0 7406224 7634104 649834496 140727515814602 140727515814797 140727515814797 140727515819964 0\n",
+      "uid": 1082,
+      "pgid": 3121432
+    },
+    {
+      "pid": 1422375,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase18.protocol.s18_raserec_gram --config artifacts/phase19/raserec_gram_beauty_v1/execution_config.json --stage all ",
+      "stat": "1422375 (python) R 3121432 3121432 3121432 0 -1 4194368 2470759 0 0 0 56468 1863 0 0 20 0 3 0 1100974823 27749556224 1377995 18446744073709551615 4194304 6359954 140727515812448 0 0 0 0 16781312 91330 0 0 0 17 67 0 0 0 0 0 7406224 7634104 649834496 140727515814602 140727515814797 140727515814797 140727515819964 0\n",
+      "uid": 1082,
+      "pgid": 3121432
+    },
+    {
+      "pid": 1447774,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase18.protocol.s18_diff_gram_toys_long --config experiment/phase18/config/s18_diff_gram_toys_long_fixed.json --mode run ",
+      "stat": "1447774 (python) S 3299278 3299276 3299276 34960 3299276 4194368 1525914 0 0 0 42575 1484 0 0 20 0 3 0 1101001500 31944052736 1209870 18446744073709551615 4194304 6359954 140723435965344 0 0 0 0 16781312 91330 0 0 0 17 55 0 0 0 0 0 7406224 7634104 610516992 140723435973291 140723435973490 140723435973490 140723435978684 0\n",
+      "uid": 1082,
+      "pgid": 3299276
+    },
+    {
+      "pid": 1447798,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase18.protocol.s18_diff_gram_toys_long --config experiment/phase18/config/s18_diff_gram_toys_long_fixed.json --mode run ",
+      "stat": "1447798 (python) S 3299278 3299276 3299276 34960 3299276 4194368 1609180 0 0 0 42637 1390 0 0 20 0 3 0 1101001520 31944065024 1209870 18446744073709551615 4194304 6359954 140723435965344 0 0 0 0 16781312 91330 0 0 0 17 60 0 0 0 0 0 7406224 7634104 610516992 140723435973291 140723435973490 140723435973490 140723435978684 0\n",
+      "uid": 1082,
+      "pgid": 3299276
+    },
+    {
+      "pid": 3121371,
+      "command": "bash -c bash experiment/phase19/run_stage19_raserec_beauty.sh --mode run > artifacts/phase19/raserec_gram_beauty_v1/launcher.log 2>&1 ",
+      "stat": "3121371 (bash) S 1911706 3121371 3121371 34873 3121371 4194304 233 0 0 0 0 0 0 0 20 0 1 0 1097627837 14635008 742 18446744073709551615 94763376168960 94763377075925 140723512821280 0 0 0 65536 4 65538 1 0 0 17 7 0 0 0 0 0 94763377306864 94763377354244 94763977322496 140723512822681 140723512822815 140723512822815 140723512827886 0\n",
+      "uid": 1082,
+      "pgid": 3121371
+    },
+    {
+      "pid": 3121373,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase19.raserec_beauty --mode run ",
+      "stat": "3121373 (python) S 3121371 3121371 3121371 34873 3121371 4194304 3821 3299 0 0 151 20 0 10 20 0 1 0 1097627838 32030720 4003 18446744073709551615 4194304 6359954 140737337692288 0 0 0 0 16781312 16387 1 0 0 17 56 0 0 32 0 0 7406224 7634104 975568896 140737337695006 140737337695117 140737337695117 140737337700284 0\n",
+      "uid": 1082,
+      "pgid": 3121371
+    },
+    {
+      "pid": 3121432,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase18.protocol.s18_raserec_gram --config artifacts/phase19/raserec_gram_beauty_v1/execution_config.json --stage all ",
+      "stat": "3121432 (python) R 3121373 3121432 3121432 0 -1 4194304 225349752 37815626 1234 0 2716889 70148 855481 30721 20 0 16 0 1097627914 27852435456 1550279 18446744073709551615 4194304 6359954 140727515812448 0 0 0 0 16781312 73730 0 0 0 17 77 0 0 3001 0 0 7406224 7634104 649834496 140727515814602 140727515814797 140727515814797 140727515819964 0\n",
+      "uid": 1082,
+      "pgid": 3121432
+    },
+    {
+      "pid": 3299276,
+      "command": "bash -c bash experiment/phase18/run_stage18_diff_gram_toys_long.sh --mode run > artifacts/phase18/diff_gram/toys/long_fixed_v1.console.log 2>&1 ",
+      "stat": "3299276 (bash) S 1911706 3299276 3299276 34960 3299276 4194304 235 0 0 0 0 0 0 0 20 0 1 0 1091451882 14635008 763 18446744073709551615 94838001684480 94838002591445 140729346200400 0 0 0 65536 4 65538 1 0 0 17 8 0 0 0 0 0 94838002822384 94838002869764 94838547996672 140729346206607 140729346206751 140729346206751 140729346211822 0\n",
+      "uid": 1082,
+      "pgid": 3299276
+    },
+    {
+      "pid": 3299278,
+      "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -u -m experiment.phase18.protocol.s18_diff_gram_toys_long --config experiment/phase18/config/s18_diff_gram_toys_long_fixed.json --mode run ",
+      "stat": "3299278 (python) S 3299276 3299276 3299276 34960 3299276 1077936128 51114942 76625094 99 39 7289190 63575 2020605 66262 20 0 13 0 1091451882 32030158848 1354835 18446744073709551615 4194304 6359954 140723435965344 0 0 0 0 16781312 73730 0 0 0 17 90 0 0 7823 0 0 7406224 7634104 610516992 140723435973291 140723435973490 140723435973490 140723435978684 0\n",
+      "uid": 1082,
+      "pgid": 3299276
+    }
+  ],
+  "checked_at": "2026-09-10T12:41:07.893564+00:00",
+  "remaining_target_processes": [],
+  "all_target_processes_exited": true,
+  "gpu_process_snapshot_after": "3260340, GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc, 8516 MiB\n574715, GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc, 14524 MiB\n3121432, GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160, 10798 MiB\n4100052, GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160, 23460 MiB\n1670362, GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160, 7378 MiB\n1641452, GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059, 19470 MiB\n277816, GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059, 560 MiB\n654534, GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059, 23440 MiB\n278660, GPU-7952ad6e-2db7-fb2e-581b-34be56287640, 560 MiB\n451679, GPU-7952ad6e-2db7-fb2e-581b-34be56287640, 20704 MiB\n598484, GPU-7952ad6e-2db7-fb2e-581b-34be56287640, 23336 MiB\n4099301, GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09, 23874 MiB\n1392323, GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09, 11774 MiB\n1577164, GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09, 6152 MiB\n278688, GPU-07374397-b213-09c1-2988-718acb6ed231, 560 MiB\n1570763, GPU-07374397-b213-09c1-2988-718acb6ed231, 1576 MiB\n1616163, GPU-07374397-b213-09c1-2988-718acb6ed231, 1476 MiB\n1664525, GPU-07374397-b213-09c1-2988-718acb6ed231, 7732 MiB\n1700097, GPU-07374397-b213-09c1-2988-718acb6ed231, 28824 MiB\n1463382, GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2, 10968 MiB\n280117, GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253, 560 MiB\n1454353, GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253, 37412 MiB\n"
+}

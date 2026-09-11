@@ -1,0 +1,435 @@
+{
+  "verification_status": "ANALYZED",
+  "device": "cpu",
+  "new_training_runs": 0,
+  "new_model_inference_runs": 0,
+  "test_read": false,
+  "previous_review": "artifacts/phase19/review_20260910.json",
+  "previous_review_sha256": "9cc8b2bb555071f19bb63b8ba694304911f335d82e2e4b8cdbdf7f1b9c658797",
+  "previous_review_source_hash_checks": {
+    "artifacts/phase18/raserec_gram/toys/v1/gram/best_full.jsonl": true,
+    "artifacts/phase18/raserec_gram/toys/v1/gram/best_pcrf_full.jsonl": true,
+    "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv": true,
+    "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl": true,
+    "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl": true,
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": true,
+    "artifacts/phase18/raserec_gram/toys/v1/gram/trend_cohort.json": true,
+    "artifacts/phase18/raserec_gram/toys/v1/gram/best_full.metrics.json": true,
+    "artifacts/phase18/raserec_gram/toys/v1/gram/best_pcrf_full.metrics.json": true,
+    "artifacts/phase18/raserec_gram/toys/v1/manifest.json": true
+  },
+  "prior_bootstrap_reused_not_rerun": true,
+  "prior_pcrf_recalculation_reused_after_hash_match": true,
+  "prediction_checks": [
+    {
+      "predictions": "artifacts/phase18/raserec_gram/toys/v1/gram/best_full.jsonl",
+      "predictions_sha256": "ee13c7372b04596d21a753b27c9b2180050cf55ffd50be61eb100241919232d8",
+      "users": 19412,
+      "raw_metrics": {
+        "hit@5": 0.09107768390686173,
+        "ndcg@5": 0.06746260906974016,
+        "hit@10": 0.11848341232227488,
+        "ndcg@10": 0.07629684859564581,
+        "hit@20": 0.15289511642283124,
+        "ndcg@20": 0.08498708288785349,
+        "hit@50": 0.21023078508139295,
+        "ndcg@50": 0.09636913075062815
+      },
+      "original_gram": {
+        "hit@5": 0.0909231403255718,
+        "ndcg@5": 0.06713487106644733,
+        "hit@10": 0.11941067381001443,
+        "ndcg@10": 0.07627451425999993,
+        "hit@20": 0.15444055223573047,
+        "ndcg@20": 0.08510430222346627,
+        "hit@50": 0.21193076447558212,
+        "ndcg@50": 0.09653217535352775
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0936534102616938,
+        "ndcg@5": 0.06850763766741287,
+        "hit@10": 0.12533484442612816,
+        "ndcg@10": 0.07871552229273793,
+        "hit@20": 0.16427982691118895,
+        "ndcg@20": 0.08852973505762471,
+        "hit@50": 0.21193076447558212,
+        "ndcg@50": 0.0980706124558045
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 19412,
+        "hit@5": 0.09324129404492067,
+        "ndcg@5": 0.06874105267750277,
+        "hit@10": 0.12451061199258191,
+        "ndcg@10": 0.0788165459238742,
+        "hit@20": 0.16402225427570574,
+        "ndcg@20": 0.08877132904068355,
+        "hit@50": 0.21023078508139295,
+        "ndcg@50": 0.09800029754436547
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS"
+    },
+    {
+      "predictions": "artifacts/phase18/raserec_gram/toys/v1/gram/best_pcrf_full.jsonl",
+      "predictions_sha256": "1466a036b859ff2aa7ef47371355e521c62ae58d6361b5317b92d75872104935",
+      "users": 19412,
+      "raw_metrics": {
+        "hit@5": 0.09035648052750876,
+        "ndcg@5": 0.06697187825172089,
+        "hit@10": 0.11889552853904801,
+        "ndcg@10": 0.07615426458917066,
+        "hit@20": 0.1534617762208943,
+        "ndcg@20": 0.08487217425122769,
+        "hit@50": 0.21151864825880898,
+        "ndcg@50": 0.09641236969122736
+      },
+      "original_gram": {
+        "hit@5": 0.0909231403255718,
+        "ndcg@5": 0.06713487106644733,
+        "hit@10": 0.11941067381001443,
+        "ndcg@10": 0.07627451425999993,
+        "hit@20": 0.15444055223573047,
+        "ndcg@20": 0.08510430222346627,
+        "hit@50": 0.21193076447558212,
+        "ndcg@50": 0.09653217535352775
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0936534102616938,
+        "ndcg@5": 0.06850763766741287,
+        "hit@10": 0.12533484442612816,
+        "ndcg@10": 0.07871552229273793,
+        "hit@20": 0.16427982691118895,
+        "ndcg@20": 0.08852973505762471,
+        "hit@50": 0.21193076447558212,
+        "ndcg@50": 0.0980706124558045
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 19412,
+        "hit@5": 0.09313826499072739,
+        "ndcg@5": 0.06842534170216129,
+        "hit@10": 0.12440758293838862,
+        "ndcg@10": 0.07849914912446285,
+        "hit@20": 0.16345559447764269,
+        "ndcg@20": 0.08836342531718686,
+        "hit@50": 0.21151864825880898,
+        "ndcg@50": 0.09798864635804377
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS"
+    }
+  ],
+  "checkpoints": {
+    "artifacts/phase19/raserec_gram_beauty_v1/gram/latest.pt": {
+      "epoch": 5,
+      "bytes": 925725497,
+      "sha256": "fc1c1ef2ead7542ae486aa9abd8e9c6f2e168dba0bbee044ec2a5ea16fdfd979",
+      "saved_fields": [
+        "cuda_rng",
+        "epoch",
+        "model",
+        "numpy_rng",
+        "optimizer",
+        "python_rng",
+        "scheduler",
+        "torch_rng"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": true,
+      "scheduler_present": true,
+      "rng_fields": [
+        "torch_rng",
+        "cuda_rng",
+        "python_rng",
+        "numpy_rng"
+      ],
+      "optimizer_steps": null
+    },
+    "artifacts/phase19/raserec_gram_beauty_v1/gram/best.pt": {
+      "epoch": 4,
+      "bytes": 440292797,
+      "sha256": "df2fd581e8d952e654b75abdb85e530c494fa12adb52784c75c0275169c27390",
+      "saved_fields": [
+        "epoch",
+        "model",
+        "trend"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": false,
+      "scheduler_present": false,
+      "rng_fields": [],
+      "optimizer_steps": null
+    },
+    "artifacts/phase19/raserec_gram_beauty_v1/gram/best_pcrf.pt": {
+      "epoch": 2,
+      "bytes": 440292797,
+      "sha256": "2820176f21031a85e888658ad1661a7e3e8725e34799330155084023df207471",
+      "saved_fields": [
+        "epoch",
+        "model",
+        "trend"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": false,
+      "scheduler_present": false,
+      "rng_fields": [],
+      "optimizer_steps": null
+    }
+  },
+  "trend_checks": [
+    {
+      "predictions": "artifacts/phase19/raserec_gram_beauty_v1/gram/epoch_01_trend.jsonl",
+      "predictions_sha256": "dadadd069bd9a9bba33b3ec66682800191e25bb8a5d0b555866a411c0af27e33",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.0715,
+        "ndcg@5": 0.05036877331839459,
+        "hit@10": 0.093,
+        "ndcg@10": 0.057286482930126836,
+        "hit@20": 0.113,
+        "ndcg@20": 0.06233173462529502,
+        "hit@50": 0.1645,
+        "ndcg@50": 0.07248778830915198
+      },
+      "original_gram": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.05824260553061271,
+        "hit@10": 0.1075,
+        "ndcg@10": 0.06663334015396584,
+        "hit@20": 0.1385,
+        "ndcg@20": 0.07441186415059013,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08742185097156044
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.0582405410420905,
+        "hit@10": 0.107,
+        "ndcg@10": 0.06674953402105879,
+        "hit@20": 0.1515,
+        "ndcg@20": 0.07783838832390115,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08829498582351407
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 2000,
+        "hit@5": 0.0725,
+        "ndcg@5": 0.0524034350393579,
+        "hit@10": 0.097,
+        "ndcg@10": 0.06031647621977646,
+        "hit@20": 0.126,
+        "ndcg@20": 0.0676374104280624,
+        "hit@50": 0.1645,
+        "ndcg@50": 0.0753997622278244
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 1
+    },
+    {
+      "predictions": "artifacts/phase19/raserec_gram_beauty_v1/gram/epoch_02_trend.jsonl",
+      "predictions_sha256": "cdfde5d13b96ef3aa8ec84e053d33cccfd391cc6e4c49eb789216d2d28706ab0",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.05767247017783747,
+        "hit@10": 0.103,
+        "ndcg@10": 0.06477187486343818,
+        "hit@20": 0.134,
+        "ndcg@20": 0.0725351216397105,
+        "hit@50": 0.197,
+        "ndcg@50": 0.08493197922851099
+      },
+      "original_gram": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.05824260553061271,
+        "hit@10": 0.1075,
+        "ndcg@10": 0.06663334015396584,
+        "hit@20": 0.1385,
+        "ndcg@20": 0.07441186415059013,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08742185097156044
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.0582405410420905,
+        "hit@10": 0.107,
+        "ndcg@10": 0.06674953402105879,
+        "hit@20": 0.1515,
+        "ndcg@20": 0.07783838832390115,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08829498582351407
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 2000,
+        "hit@5": 0.0785,
+        "ndcg@5": 0.05786374060313247,
+        "hit@10": 0.102,
+        "ndcg@10": 0.06539334232444091,
+        "hit@20": 0.146,
+        "ndcg@20": 0.076496128608834,
+        "hit@50": 0.197,
+        "ndcg@50": 0.08669874876860567
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 2
+    },
+    {
+      "predictions": "artifacts/phase19/raserec_gram_beauty_v1/gram/epoch_03_trend.jsonl",
+      "predictions_sha256": "abb281d3296650f40c0af4e362682071f6d6737342f21533ef5db9a600dc026c",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.05749376661848622,
+        "hit@10": 0.1025,
+        "ndcg@10": 0.0644558100208552,
+        "hit@20": 0.1355,
+        "ndcg@20": 0.07277997468947249,
+        "hit@50": 0.199,
+        "ndcg@50": 0.08531079023173117
+      },
+      "original_gram": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.05824260553061271,
+        "hit@10": 0.1075,
+        "ndcg@10": 0.06663334015396584,
+        "hit@20": 0.1385,
+        "ndcg@20": 0.07441186415059013,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08742185097156044
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.0582405410420905,
+        "hit@10": 0.107,
+        "ndcg@10": 0.06674953402105879,
+        "hit@20": 0.1515,
+        "ndcg@20": 0.07783838832390115,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08829498582351407
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 2000,
+        "hit@5": 0.0775,
+        "ndcg@5": 0.05652699683967248,
+        "hit@10": 0.1025,
+        "ndcg@10": 0.06453410798375327,
+        "hit@20": 0.1485,
+        "ndcg@20": 0.07609967840139287,
+        "hit@50": 0.199,
+        "ndcg@50": 0.0861700603930839
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 3
+    },
+    {
+      "predictions": "artifacts/phase19/raserec_gram_beauty_v1/gram/epoch_04_trend.jsonl",
+      "predictions_sha256": "1d052443da2a5bebeaef344c3ad56bd718b5271b75c42d39d9ba919dfb2858bd",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.08,
+        "ndcg@5": 0.05764068519381402,
+        "hit@10": 0.106,
+        "ndcg@10": 0.06597170018733348,
+        "hit@20": 0.1355,
+        "ndcg@20": 0.073297456622817,
+        "hit@50": 0.1995,
+        "ndcg@50": 0.08599717264614372
+      },
+      "original_gram": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.05824260553061271,
+        "hit@10": 0.1075,
+        "ndcg@10": 0.06663334015396584,
+        "hit@20": 0.1385,
+        "ndcg@20": 0.07441186415059013,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08742185097156044
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.0582405410420905,
+        "hit@10": 0.107,
+        "ndcg@10": 0.06674953402105879,
+        "hit@20": 0.1515,
+        "ndcg@20": 0.07783838832390115,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08829498582351407
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 2000,
+        "hit@5": 0.0785,
+        "ndcg@5": 0.057176599492450894,
+        "hit@10": 0.1035,
+        "ndcg@10": 0.0652333871751278,
+        "hit@20": 0.1505,
+        "ndcg@20": 0.07706050704423044,
+        "hit@50": 0.1995,
+        "ndcg@50": 0.08674645802117015
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 4
+    },
+    {
+      "predictions": "artifacts/phase19/raserec_gram_beauty_v1/gram/epoch_05_trend.jsonl",
+      "predictions_sha256": "5e792764cfa7a49ad874414245bfc332dbdf69b88ff556f79bd052e923f96d76",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.079,
+        "ndcg@5": 0.05673192051116005,
+        "hit@10": 0.1065,
+        "ndcg@10": 0.06554399723941866,
+        "hit@20": 0.1355,
+        "ndcg@20": 0.07276965751597854,
+        "hit@50": 0.2,
+        "ndcg@50": 0.08559112632596702
+      },
+      "original_gram": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.05824260553061271,
+        "hit@10": 0.1075,
+        "ndcg@10": 0.06663334015396584,
+        "hit@20": 0.1385,
+        "ndcg@20": 0.07441186415059013,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08742185097156044
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.0582405410420905,
+        "hit@10": 0.107,
+        "ndcg@10": 0.06674953402105879,
+        "hit@20": 0.1515,
+        "ndcg@20": 0.07783838832390115,
+        "hit@50": 0.204,
+        "ndcg@50": 0.08829498582351407
+      },
+      "saved_candidate_pcrf_metrics": {
+        "users": 2000,
+        "hit@5": 0.0785,
+        "ndcg@5": 0.05715495836650402,
+        "hit@10": 0.1035,
+        "ndcg@10": 0.06519485478007928,
+        "hit@20": 0.1505,
+        "ndcg@20": 0.07700321632798011,
+        "hit@50": 0.2,
+        "ndcg@50": 0.08678765716588442
+      },
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 5
+    }
+  ],
+  "created_at": "2026-09-10T12:44:45.875563+00:00",
+  "stop_record": "artifacts/phase19/raserec_gram_beauty_v1/result.json",
+  "interpretation": "Evidence review only; no stochastic training reproduction."
+}

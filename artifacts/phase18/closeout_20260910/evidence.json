@@ -1,0 +1,486 @@
+{
+  "verification_status": "ANALYZED",
+  "device": "cpu",
+  "new_training_runs": 0,
+  "new_model_inference_runs": 0,
+  "test_read": false,
+  "previous_review": "artifacts/phase18/diff_gram/continuation_review/review_20260910.json",
+  "previous_review_sha256": "64afe350923176d5ddb9d9c0a89c6cb6a9d72f66ce141d046d4a42a037a91c63",
+  "previous_review_source_hash_checks": {
+    "artifacts/phase18/diff_gram/beauty/confirm_v1/gpu5_move_v1/full_validation_stage_epoch_07.jsonl": true,
+    "artifacts/phase18/diff_gram/beauty/train_v1/full_r2/full_validation_stage_epoch_06.jsonl": true,
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": true,
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/validation.jsonl": true,
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/catalog.json": true,
+    "artifacts/phase18/diff_gram/beauty/confirm_v1/gpu5_move_v1/result.json": true,
+    "artifacts/phase18/diff_gram/beauty/confirm_v1/gpu5_move_v1/schedule_restore_check.json": true
+  },
+  "prior_bootstrap_reused_not_rerun": true,
+  "prior_pcrf_recalculation_reused_after_hash_match": false,
+  "prediction_checks": [
+    {
+      "predictions": "artifacts/phase18/diff_gram/beauty/confirm_v1/gpu5_move_v1/full_validation_stage_epoch_07.jsonl",
+      "predictions_sha256": "062a8e3102ccb1fef6cf6c739755cc24ab24ac02072cf973c9c28e6a1f078f59",
+      "users": 22363,
+      "raw_metrics": {
+        "hit@5": 0.07789652551088852,
+        "ndcg@5": 0.0549462697462891,
+        "hit@10": 0.10937709609623038,
+        "ndcg@10": 0.06509004679290095,
+        "hit@20": 0.14729687430130126,
+        "ndcg@20": 0.07463457099836739,
+        "hit@50": 0.2090506640432858,
+        "ndcg@50": 0.08684003325776495
+      },
+      "original_gram": {
+        "hit@5": 0.07762822519339982,
+        "ndcg@5": 0.054916834352078656,
+        "hit@10": 0.10875106202209006,
+        "ndcg@10": 0.06497370269327073,
+        "hit@20": 0.14693914054464965,
+        "ndcg@20": 0.07459553058434051,
+        "hit@50": 0.2081116129320753,
+        "ndcg@50": 0.08670097723570454
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.081608013236149,
+        "ndcg@5": 0.057534350522304704,
+        "hit@10": 0.11384876805437553,
+        "ndcg@10": 0.0679076815479998,
+        "hit@20": 0.15391494879935608,
+        "ndcg@20": 0.07794558983641887,
+        "hit@50": 0.2081116129320753,
+        "ndcg@50": 0.08875958665222096
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS"
+    }
+  ],
+  "checkpoints": {
+    "artifacts/phase18/diff_gram/toys/long_fixed_v1/last.pt": {
+      "epoch": 17,
+      "bytes": 989794557,
+      "sha256": "4ad6220c674c8069c005fc8f985b3053a73b52755c0aaac20ccd84c41357027b",
+      "saved_fields": [
+        "best_epoch",
+        "best_score",
+        "config",
+        "cpu_rng",
+        "cuda_rng",
+        "epoch",
+        "model",
+        "optimizer",
+        "optimizer_steps",
+        "phase",
+        "phase_epoch",
+        "revision_config",
+        "scheduler",
+        "stage_epoch",
+        "stage_optimizer_steps"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": true,
+      "scheduler_present": true,
+      "rng_fields": [
+        "cpu_rng",
+        "cuda_rng"
+      ],
+      "optimizer_steps": 14535
+    },
+    "artifacts/phase18/diff_gram/toys/long_fixed_v1/best_trend.pt": {
+      "epoch": 1,
+      "bytes": 505577933,
+      "sha256": "af51ef037e0a5280a6af10c20758647ab55f57a350af67dcff23021b4c17a4e4",
+      "saved_fields": [
+        "config",
+        "cpu_rng",
+        "cuda_rng",
+        "epoch",
+        "model",
+        "optimizer",
+        "optimizer_steps",
+        "phase",
+        "revision_config",
+        "scheduler",
+        "selection",
+        "stage_epoch",
+        "stage_optimizer_steps"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": true,
+      "scheduler_present": true,
+      "rng_fields": [
+        "cpu_rng",
+        "cuda_rng"
+      ],
+      "optimizer_steps": 855
+    }
+  },
+  "trend_checks": [
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_01.jsonl",
+      "predictions_sha256": "9da1dae8b0475409e5cd75e642db31be59a4eaad04d9c1f07d27d7ccb598109a",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.082,
+        "ndcg@5": 0.05818603193422997,
+        "hit@10": 0.117,
+        "ndcg@10": 0.06939595566507445,
+        "hit@20": 0.1475,
+        "ndcg@20": 0.07700828800920542,
+        "hit@50": 0.206,
+        "ndcg@50": 0.0885797606532858
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 1
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_03.jsonl",
+      "predictions_sha256": "6cb41d38920d3defd8cd1269516337092e7067e8b6ec46a533efde079d37383e",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.0795,
+        "ndcg@5": 0.058588860500973124,
+        "hit@10": 0.1125,
+        "ndcg@10": 0.06936265199694383,
+        "hit@20": 0.1475,
+        "ndcg@20": 0.07814996319442713,
+        "hit@50": 0.2055,
+        "ndcg@50": 0.0895258244127742
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 3
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_05.jsonl",
+      "predictions_sha256": "05d28c10878430a0940ea5db7437c0727aaf57468b8a44c6277761c1311eb874",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.079,
+        "ndcg@5": 0.0580915579782405,
+        "hit@10": 0.1125,
+        "ndcg@10": 0.06897504286424937,
+        "hit@20": 0.148,
+        "ndcg@20": 0.07788468432858225,
+        "hit@50": 0.2045,
+        "ndcg@50": 0.08899113113186802
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 5
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_07.jsonl",
+      "predictions_sha256": "fdc34771a7e23b9954e297e2e93771bef33c7e2a999faf05d1e35d7f51da19cd",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.058478681534947584,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06924828584137521,
+        "hit@20": 0.146,
+        "ndcg@20": 0.07719495675208723,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08899037441132074
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 7
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_09.jsonl",
+      "predictions_sha256": "d1655db62c5a218cc84fe1106123552ab45f7d175f6cf655395a15a96c3a9c68",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.058577014056077945,
+        "hit@10": 0.113,
+        "ndcg@10": 0.06873315443112815,
+        "hit@20": 0.146,
+        "ndcg@20": 0.07708006756581308,
+        "hit@50": 0.2075,
+        "ndcg@50": 0.0891462545343925
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 9
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_11.jsonl",
+      "predictions_sha256": "cecb6b52b61cda11cb57e0a4ae89c69be1dd4b1a343692a7fb60c30f4d50b215",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.05839633749800455,
+        "hit@10": 0.1135,
+        "ndcg@10": 0.06895292058034033,
+        "hit@20": 0.146,
+        "ndcg@20": 0.0771688771029386,
+        "hit@50": 0.2065,
+        "ndcg@50": 0.08906011857549928
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 11
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_13.jsonl",
+      "predictions_sha256": "ec5ad19152c2a3e79107ad931c7e14031640d8989594ca680be10f3fe26decde",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.081,
+        "ndcg@5": 0.058506516464030094,
+        "hit@10": 0.1135,
+        "ndcg@10": 0.06897804241839449,
+        "hit@20": 0.146,
+        "ndcg@20": 0.07718030182355742,
+        "hit@50": 0.205,
+        "ndcg@50": 0.08881065438098981
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 13
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_15.jsonl",
+      "predictions_sha256": "3ad80f3b99121446ceaee3f70aefdfc7359d50fb56074d17361171fa489a81dd",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.082,
+        "ndcg@5": 0.05888358765246068,
+        "hit@10": 0.1135,
+        "ndcg@10": 0.06907506230625252,
+        "hit@20": 0.146,
+        "ndcg@20": 0.07727090132071322,
+        "hit@50": 0.207,
+        "ndcg@50": 0.08926840279953205
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 15
+    },
+    {
+      "predictions": "artifacts/phase18/diff_gram/toys/long_fixed_v1/trend_subset_stage_epoch_17.jsonl",
+      "predictions_sha256": "73d5aea5aff61f41b662913d7a505274d33921dcd7050b0b89c67bbeb1ed0011",
+      "users": 2000,
+      "raw_metrics": {
+        "hit@5": 0.0805,
+        "ndcg@5": 0.05842210793856486,
+        "hit@10": 0.1135,
+        "ndcg@10": 0.06911801343649139,
+        "hit@20": 0.147,
+        "ndcg@20": 0.0775822513833289,
+        "hit@50": 0.2055,
+        "ndcg@50": 0.08910737441288322
+      },
+      "original_gram": {
+        "hit@5": 0.0815,
+        "ndcg@5": 0.05881192897253931,
+        "hit@10": 0.1145,
+        "ndcg@10": 0.06937056511844693,
+        "hit@20": 0.147,
+        "ndcg@20": 0.07755896159264235,
+        "hit@50": 0.206,
+        "ndcg@50": 0.08924545332045665
+      },
+      "original_gram_pcrf": {
+        "hit@5": 0.084,
+        "ndcg@5": 0.05960071967054703,
+        "hit@10": 0.1185,
+        "ndcg@10": 0.07091031447150944,
+        "hit@20": 0.1575,
+        "ndcg@20": 0.08068875555321899,
+        "hit@50": 0.206,
+        "ndcg@50": 0.09048022731992626
+      },
+      "saved_candidate_pcrf_metrics": null,
+      "candidate_pcrf_recomputed_this_closeout": false,
+      "metric_match_atol": 1e-12,
+      "identity_legal_unique_finite_checks": "PASS",
+      "epoch": 17
+    }
+  ],
+  "created_at": "2026-09-10T12:44:45.875563+00:00",
+  "stop_record": "artifacts/phase18/diff_gram/toys/long_fixed_v1/result.json",
+  "interpretation": "Evidence review only; no stochastic training reproduction."
+}

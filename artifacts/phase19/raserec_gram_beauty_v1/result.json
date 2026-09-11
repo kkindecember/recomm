@@ -1,0 +1,95 @@
+{
+  "state": "USER_STOPPED",
+  "ended_at": "2026-09-10T12:41:07.893564+00:00",
+  "updated_at": "2026-09-10T12:44:45.875563+00:00",
+  "end_time_semantics": "Process exit verified by this time; signal request time in stop_execution.json.",
+  "stopping_reason": "user_authorized_stage_closeout",
+  "original_schedule_completed": false,
+  "final_full_validation_completed": false,
+  "full_validation": null,
+  "epochs_completed": 5,
+  "epochs_planned": 11,
+  "interrupted_epoch": 6,
+  "automatic_restart": false,
+  "automatic_additional_training": false,
+  "process_alive": false,
+  "test_read": false,
+  "checkpoint_details": {
+    "artifacts/phase19/raserec_gram_beauty_v1/gram/latest.pt": {
+      "epoch": 5,
+      "bytes": 925725497,
+      "sha256": "fc1c1ef2ead7542ae486aa9abd8e9c6f2e168dba0bbee044ec2a5ea16fdfd979",
+      "saved_fields": [
+        "cuda_rng",
+        "epoch",
+        "model",
+        "numpy_rng",
+        "optimizer",
+        "python_rng",
+        "scheduler",
+        "torch_rng"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": true,
+      "scheduler_present": true,
+      "rng_fields": [
+        "torch_rng",
+        "cuda_rng",
+        "python_rng",
+        "numpy_rng"
+      ],
+      "optimizer_steps": null
+    },
+    "artifacts/phase19/raserec_gram_beauty_v1/gram/best.pt": {
+      "epoch": 4,
+      "bytes": 440292797,
+      "sha256": "df2fd581e8d952e654b75abdb85e530c494fa12adb52784c75c0275169c27390",
+      "saved_fields": [
+        "epoch",
+        "model",
+        "trend"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": false,
+      "scheduler_present": false,
+      "rng_fields": [],
+      "optimizer_steps": null
+    },
+    "artifacts/phase19/raserec_gram_beauty_v1/gram/best_pcrf.pt": {
+      "epoch": 2,
+      "bytes": 440292797,
+      "sha256": "2820176f21031a85e888658ad1661a7e3e8725e34799330155084023df207471",
+      "saved_fields": [
+        "epoch",
+        "model",
+        "trend"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": false,
+      "scheduler_present": false,
+      "rng_fields": [],
+      "optimizer_steps": null
+    }
+  },
+  "observed_partial_progress_before_stop": {
+    "pid": 3121432,
+    "state": "running",
+    "elapsed_seconds": 36752.99,
+    "time": 1789044039.208692,
+    "stage": "gram",
+    "event": "training",
+    "epoch": 6,
+    "seen": 86016,
+    "total": 131413,
+    "loss": 1.5620359138854492,
+    "learning_rates": [
+      0.0005115065685269729,
+      5.115065685269729e-06
+    ],
+    "frozen": false
+  },
+  "partial_epoch_saved": false,
+  "interpretation": "Resource decision. Missing full validation remains unmeasured; not a complete negative result.",
+  "stop_audit": "artifacts/phase19/closeout_20260910/stop_execution.json",
+  "verification": "artifacts/phase19/closeout_20260910/evidence.json"
+}

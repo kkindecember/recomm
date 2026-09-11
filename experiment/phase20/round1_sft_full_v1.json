@@ -1,0 +1,43 @@
+{
+  "name": "S20-round1-SFT-full-validation",
+  "dataset": "Toys",
+  "seed": 2023,
+  "data_config": "experiment/phase18/config/s18_diff_gram_toys.json",
+  "output": "artifacts/phase20/round1_sft_full_v1",
+  "smoke_output": "artifacts/phase20/sprec_gram_toys_smoke_v4",
+  "gpu_uuid": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+  "rounds": 3,
+  "microbatch": 4,
+  "effective_batch_size": 128,
+  "mining_microbatch": 8,
+  "validation_microbatch": 1,
+  "selection_users": 3000,
+  "sft_learning_rate": 1e-05,
+  "dpo_learning_rate": 1e-05,
+  "beta": 0.1,
+  "max_wall_seconds": 43200,
+  "minimum_free_mib": 12288,
+  "cuda_memory_fraction": 0.4,
+  "decoding": {
+    "beam_size": 50,
+    "length_penalty": 1.0
+  },
+  "pcrf": {
+    "checkpoint": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+    "reference": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv",
+    "summary": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/summary.json",
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1": 5
+  },
+  "source": "https://github.com/RegionCh/SPRec",
+  "resource_policy": "Evaluation only on GPU0 after user-authorized S-DPO stop; >=12GiB available, allocator cap40%; no holder; no optimizer.",
+  "primary_comparator": "original_gram",
+  "auxiliary_comparator": "original_gram_pcrf",
+  "baseline_predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+  "matched_parent_inference": true,
+  "evaluation_checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round1_sft.pt",
+  "evaluation_checkpoint_sha256": "d88678743b9d4650057647aa644ecb3e78dd82dcdb4138642f9a85e671e20193",
+  "shared_parent_output": "artifacts/phase20/sprec_gram_toys_v1"
+}

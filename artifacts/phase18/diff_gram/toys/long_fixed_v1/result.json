@@ -1,0 +1,166 @@
+{
+  "state": "USER_STOPPED",
+  "ended_at": "2026-09-10T12:41:07.893041+00:00",
+  "updated_at": "2026-09-10T12:44:45.875563+00:00",
+  "end_time_semantics": "Process exit verified by this time; signal request time in stop_execution.json.",
+  "stopping_reason": "user_authorized_stage_closeout",
+  "original_schedule_completed": false,
+  "final_full_validation_completed": false,
+  "full_validation": null,
+  "epochs_completed": 17,
+  "epochs_planned": 21,
+  "interrupted_epoch": 18,
+  "automatic_restart": false,
+  "automatic_additional_training": false,
+  "process_alive": false,
+  "test_read": false,
+  "checkpoint_details": {
+    "artifacts/phase18/diff_gram/toys/long_fixed_v1/last.pt": {
+      "epoch": 17,
+      "bytes": 989794557,
+      "sha256": "4ad6220c674c8069c005fc8f985b3053a73b52755c0aaac20ccd84c41357027b",
+      "saved_fields": [
+        "best_epoch",
+        "best_score",
+        "config",
+        "cpu_rng",
+        "cuda_rng",
+        "epoch",
+        "model",
+        "optimizer",
+        "optimizer_steps",
+        "phase",
+        "phase_epoch",
+        "revision_config",
+        "scheduler",
+        "stage_epoch",
+        "stage_optimizer_steps"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": true,
+      "scheduler_present": true,
+      "rng_fields": [
+        "cpu_rng",
+        "cuda_rng"
+      ],
+      "optimizer_steps": 14535
+    },
+    "artifacts/phase18/diff_gram/toys/long_fixed_v1/best_trend.pt": {
+      "epoch": 1,
+      "bytes": 505577933,
+      "sha256": "af51ef037e0a5280a6af10c20758647ab55f57a350af67dcff23021b4c17a4e4",
+      "saved_fields": [
+        "config",
+        "cpu_rng",
+        "cuda_rng",
+        "epoch",
+        "model",
+        "optimizer",
+        "optimizer_steps",
+        "phase",
+        "revision_config",
+        "scheduler",
+        "selection",
+        "stage_epoch",
+        "stage_optimizer_steps"
+      ],
+      "model_tensors_finite": true,
+      "optimizer_present": true,
+      "scheduler_present": true,
+      "rng_fields": [
+        "cpu_rng",
+        "cuda_rng"
+      ],
+      "optimizer_steps": 855
+    }
+  },
+  "observed_partial_progress_before_stop": {
+    "state": "TRAINING",
+    "updated_at": "2026-09-10T12:40:25.287454+00:00",
+    "pid": 3299278,
+    "revision": "long_fixed_r1",
+    "dataset": "Toys",
+    "family": "diff_gram",
+    "active_config": "experiment/phase18/config/s18_diff_gram_toys_long_fixed.json",
+    "stage_epochs": 21,
+    "total_epochs": 21,
+    "seed": 2023,
+    "training_policy": "fresh_parent_fixed_phases_no_early_stopping",
+    "schedule_provenance": "fresh Adam; planned frozen and joint linear schedules; no handoff/bridge",
+    "result_path": "artifacts/phase18/diff_gram/toys/long_fixed_v1/result.json",
+    "hard_timeout_seconds": 216000,
+    "gpu_uuid": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "early_stopping_enabled": false,
+    "initialization": "original_gram_parent_new_diff_new_adam",
+    "cumulative_joint_epochs": 20,
+    "latest_trend_validation": {
+      "scope": "trend_subset",
+      "stage_epoch": 17,
+      "metrics": {
+        "hit@5": 0.0805,
+        "hit@10": 0.1135,
+        "hit@50": 0.2055,
+        "ndcg@5": 0.05842210793856482,
+        "ndcg@10": 0.06911801343649135,
+        "ndcg@50": 0.0891073744128831
+      },
+      "examples": 2000,
+      "historical_gram": {
+        "hit@5": 0.0815,
+        "hit@10": 0.1145,
+        "hit@50": 0.206,
+        "ndcg@5": 0.05881192897253931,
+        "ndcg@10": 0.06937056511844693,
+        "ndcg@50": 0.08924545332045665
+      },
+      "delta": {
+        "hit@5": -0.0010000000000000009,
+        "hit@10": -0.0010000000000000009,
+        "hit@50": -0.0005000000000000004,
+        "ndcg@5": -0.00038982103397449536,
+        "ndcg@10": -0.000252551681955579,
+        "ndcg@50": -0.0001380789075735439
+      },
+      "interpretation": "Same-user exploratory validation; fixed seed and selected checkpoint, not independent test.",
+      "mean_returned_items": 50.0,
+      "fewer_than_50_fraction": 0.0,
+      "seconds": 553.7839453332126,
+      "predictions_sha256": "73d5aea5aff61f41b662913d7a505274d33921dcd7050b0b89c67bbeb1ed0011",
+      "epoch": 17,
+      "historical_gram_pcrf": {
+        "hit@5": 0.084,
+        "hit@10": 0.1185,
+        "hit@50": 0.206,
+        "ndcg@5": 0.05960071967054703,
+        "ndcg@10": 0.07091031447150944,
+        "ndcg@50": 0.09048022731992626
+      },
+      "delta_vs_gram_pcrf": {
+        "hit@5": -0.003500000000000003,
+        "hit@10": -0.0049999999999999906,
+        "hit@50": -0.0005000000000000004,
+        "ndcg@5": -0.001178611731982214,
+        "ndcg@10": -0.0017923010350180957,
+        "ndcg@50": -0.0013728529070431567
+      }
+    },
+    "phase": "joint",
+    "epoch": 18,
+    "phase_epoch": 17,
+    "seen": 77036,
+    "train_total": 109361,
+    "optimizer_steps": 15136,
+    "loss": 2.997772258971053,
+    "epoch_elapsed_seconds": 3007.8761333134025,
+    "epoch_eta_seconds": 1262.1319384360006,
+    "learning_rates": [
+      0.00017353031702062172,
+      1.7353031702062174e-06
+    ],
+    "best_epoch": 1
+  },
+  "partial_epoch_saved": false,
+  "interpretation": "Resource decision. Missing full validation remains unmeasured; not a complete negative result.",
+  "stop_audit": "artifacts/phase18/closeout_20260910/stop_execution.json",
+  "verification": "artifacts/phase18/closeout_20260910/evidence.json"
+}

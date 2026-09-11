@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-10",
+  "status": "PASSED_ENGINEERING_ONLY",
+  "unit_tests": {
+    "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -m unittest experiment.phase20.test_preference_core -v",
+    "passed": 5,
+    "failed": 0
+  },
+  "gpu_smoke": "artifacts/phase20/sprec_gram_toys_smoke_v4/smoke.json",
+  "smoke_sha256": "4d9dd69c92eb87f18189a696335af6eb8f93e4fe0c40f3f7858a2265c44ea8d7",
+  "parameters": 60517376,
+  "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+  "gradient_abs_sum": {
+    "encoder.": 982.1746974289417,
+    "decoder.": 1026.7995163723826,
+    "shared.": 3.107137441635132,
+    "position_embedding": 50.534454345703125
+  },
+  "reference_identity_max_abs": 0.0,
+  "longest_history_dpo_peak_allocated_mib": 3224.890625,
+  "longest_history_dpo_peak_reserved_mib": 3670.0,
+  "cached_pcrf_exact_rank_parity_users": 64,
+  "tf32_on_exact_candidate_orders_vs_historical": 16,
+  "fresh_fp32_vs_historical_rank_mismatches": {
+    "raw": 0,
+    "pcrf": 1
+  },
+  "pipeline": {
+    "training_rows": 8,
+    "sft_optimizer_steps": 1,
+    "dpo_optimizer_steps": 1,
+    "valid_preference_rows": 8
+  },
+  "notes": [
+    "The initial v1 smoke inherited physicalGPU0 visibility; v2-v4 explicitly selected GPU7.",
+    "v1: duplicate/aliased position module name check failed; fixed by checking the shared parameter directly.",
+    "v2: fresh FP32 versus historical TF32 parity difference exposed; fixed comparison protocol, no accuracy-based tuning.",
+    "v3: variable-length ancestral sampling terminal branch produced all-infinite logits; fixed EOS/padding handling and added regression test.",
+    "v4: all checks passed. No smoke model used in formal training.",
+    "Admission reduced to12288MiB available, allocator cap40% after resource smoke. Scientific parameters unchanged."
+  ],
+  "current_source_sha256": {
+    "experiment/phase20/preference_core.py": "0e33077abd961700a4037399bba7598e652dcdb6a70860800d3d5bd4dfa49fda",
+    "experiment/phase20/run_preference.py": "0f148b9ef7ae5233356926e354cc284fcfb35ac87b537e2cf0fff441f07dcfdb",
+    "experiment/phase20/supervise.py": "9cd4deb3b2d784f8f0d1ed99d8739c50d652444fdcdde03f7a1920ed25c4f690",
+    "experiment/phase20/test_preference_core.py": "59c7643fdecc0759a3f14064ae7b5b74cff0e90526af2ac8a7e6d8351c4f20da",
+    "experiment/phase20/source_manifest.json": "614bbc9490ea1502d997bda0ec9ad1cebf3667ef891eee875093e76550ccba10",
+    "experiment/phase20/sprec_beauty_v1.json": "75203cd69ea67f7a44e20d53d8636c4490d2df1543bb09be23b1d8967a6e968a",
+    "experiment/phase20/sprec_toys_v1.json": "989dbd14499fba5a3d0f2e3974f399be3f05778a3c0a04c775605c3803ea2e0b",
+    "experiment/phase20/run_stage20.sh": "736d70c0f1452351de98c7ea26a02a03f77f7567cb2c44691974e579b02af3ad"
+  },
+  "test_read": false,
+  "scientific_efficacy_claim": false
+}

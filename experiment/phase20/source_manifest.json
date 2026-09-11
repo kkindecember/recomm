@@ -1,0 +1,57 @@
+{
+  "retrieved_at": "2026-09-10",
+  "implementation": "independent GRAM adaptation; no author model code executed",
+  "primary_method": {
+    "name": "SPRec",
+    "paper": "https://hexiangnan.github.io/papers/www25-SPRec.pdf",
+    "arxiv": "https://arxiv.org/abs/2412.09243",
+    "repository": "https://github.com/RegionCh/SPRec",
+    "inspected_source_urls": [
+      "https://raw.githubusercontent.com/RegionCh/SPRec/main/shell/SPRec.sh",
+      "https://raw.githubusercontent.com/RegionCh/SPRec/main/train/dpo.py",
+      "https://raw.githubusercontent.com/RegionCh/SPRec/main/train/data_generate.py"
+    ],
+    "verified_via": "Author PDF and raw GitHub source inspected via web and downloaded as individual files.",
+    "source_download_note": "Full git clone failed twice (TLS/early EOF); did not execute downloaded code. Individual primary-source files downloaded successfully.",
+    "source_files": {
+      "artifacts/phase20/sources/sprec_data_generate.py": {
+        "sha256": "78eb6ad876fb3fbf94f29bf5ee860447b8945f5c3d2496a474961b7c72726089",
+        "bytes": 5876
+      },
+      "artifacts/phase20/sources/sprec_dpo.py": {
+        "sha256": "7f3c422ce11a1ae8d4a5a9fa3afda3b46c9a29dac42b52f16341e4a20bee0023",
+        "bytes": 4124
+      },
+      "artifacts/phase20/sources/sprec_shell.sh": {
+        "sha256": "2250d7eea6e4e48db28315cc583bd102db4bab6d62163b3eb9f8bf78a62bbd06",
+        "bytes": 4319
+      }
+    },
+    "source_files_by_url": {
+      "https://raw.githubusercontent.com/RegionCh/SPRec/main/train/data_generate.py": {
+        "sha256": "78eb6ad876fb3fbf94f29bf5ee860447b8945f5c3d2496a474961b7c72726089",
+        "bytes": 5876
+      },
+      "https://raw.githubusercontent.com/RegionCh/SPRec/main/train/dpo.py": {
+        "sha256": "7f3c422ce11a1ae8d4a5a9fa3afda3b46c9a29dac42b52f16341e4a20bee0023",
+        "bytes": 4124
+      },
+      "https://raw.githubusercontent.com/RegionCh/SPRec/main/shell/SPRec.sh": {
+        "sha256": "2250d7eea6e4e48db28315cc583bd102db4bab6d62163b3eb9f8bf78a62bbd06",
+        "bytes": 4319
+      }
+    },
+    "git_commit": null,
+    "version_boundary": "Content-pinned individual files by SHA256; no claim of a successfully checked out repository commit."
+  },
+  "port_differences": [
+    "Llama/LoRA -> original GRAM/T5 full-parameter training",
+    "free-text name grounding -> lexical trie constrained full-catalog generation",
+    "released greedy negative generation -> ancestral constrained sampling, following the paper predictive-distribution idea",
+    "sampled few-thousand original data -> all local training prefixes",
+    "post-SFT frozen reference and beta=0.1 retained",
+    "DPO chosen/rejected collision excluded; no preference fabricated",
+    "fixed 3 rounds; no source test-selected best-checkpoint logic copied",
+    "native beam50 evaluation; no local test constructed"
+  ]
+}

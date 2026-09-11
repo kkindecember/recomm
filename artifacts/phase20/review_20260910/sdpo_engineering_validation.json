@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-10",
+  "unit_tests_passed": 4,
+  "unit_tests_failed": 0,
+  "smoke": {
+    "state": "PASSED",
+    "negative_count": 4,
+    "initial_loss": 1.6094379425048828,
+    "initial_margin_max_abs": 0.0,
+    "gradient_abs_sum": {
+      "encoder.": 902.5348401516676,
+      "decoder.": 815.60452952981,
+      "shared.": 2.7168118953704834,
+      "position_embedding": 49.71802520751953
+    },
+    "max_parameter_change": 6.103515625e-05,
+    "longest_history": 20,
+    "microbatch": 2,
+    "seconds": 1.71371247805655,
+    "peak_allocated_mib": 2368.43896484375,
+    "peak_reserved_mib": 2798.0,
+    "test_read": false,
+    "scientific_efficacy_result": false,
+    "cached_reference_pipeline": {
+      "train_rows": 8,
+      "optimizer_updates": 2
+    }
+  },
+  "smoke_sha256": "1afc96cb1aa87e88f1de75ab31d76ac59598d714fa66d8793388dd77ff1f2708",
+  "source_sha256": {
+    "experiment/phase20/run_sdpo.py": "dfa9a5ad195f80e192071a51e1957c670a692e6d5750c4630b8f538c41bf2393",
+    "experiment/phase20/sdpo_core.py": "f6b4fd223553a62d7cae77579d4e91476f4345a2bc19f33eac500b264cb2542d",
+    "experiment/phase20/test_sdpo_core.py": "244ea97e46d9747e5e94a9c4c707123e20e95bc5711a71c278f8f35f10a4a4fe",
+    "experiment/phase20/sdpo_toys_v1.json": "83b0b68d85743a955c085cdea72e625d4eb7605786b54295d532724e40ab4120"
+  },
+  "scientific_efficacy_claim": false
+}

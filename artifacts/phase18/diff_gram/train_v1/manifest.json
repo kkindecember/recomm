@@ -1,0 +1,135 @@
+{
+  "created_at": "2026-09-08T04:37:07.097039+00:00",
+  "config": {
+    "name": "S18-DIFF-GRAM-Toys-v1",
+    "seed": 2023,
+    "reference_commit": "ef6283a3bf9ed242a9b867fcf63368f0fb36eb33",
+    "original_config": "GRAM/log/Toys/1_20260720_1830/config.json",
+    "parent_checkpoint": "GRAM/log/Toys/1_20260720_1830/id_0_rec_30/model_rec_phase_1_epoch_30.pt",
+    "parent_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "baseline_csv": "artifacts/phase2_toys/checkpoint_selection.csv",
+    "prepared": "artifacts/phase18/diff_gram/prepared_v2_categories",
+    "attribute_features": [
+      "categories"
+    ],
+    "model": {
+      "hidden_size": 256,
+      "inner_size": 256,
+      "heads": 2,
+      "layers": 2,
+      "history_length": 20,
+      "dropout": 0.5,
+      "cutoff": 9,
+      "alpha": 0.5,
+      "alignment_weight": 100.0,
+      "auxiliary_weight": 0.1
+    },
+    "training": {
+      "warmup_epochs": 1,
+      "joint_epochs": 10,
+      "min_joint_epochs": 4,
+      "evaluation_interval": 2,
+      "patience": 3,
+      "effective_batch_size": 128,
+      "new_learning_rate": 0.001,
+      "backbone_learning_rate": 1e-05,
+      "weight_decay": 0.01,
+      "adam_epsilon": 1e-06,
+      "warmup_fraction": 0.05,
+      "gradient_clip": 1.0,
+      "beam_size": 50,
+      "length_penalty": 1.0,
+      "precision": "float32",
+      "num_workers": 2
+    }
+  },
+  "command_args": {
+    "mode": "train",
+    "config": "experiment/phase18/config/s18_diff_gram_toys.json",
+    "output": "artifacts/phase18/diff_gram/train_v1",
+    "microbatch": 4,
+    "smoke_report": "artifacts/phase18/diff_gram/smoke_v5_gpu3_mb4/smoke_summary.json"
+  },
+  "prepared_manifest": {
+    "state": "PREPARED",
+    "split": "original leave-one-out train/official validation",
+    "train_examples": 109361,
+    "validation_examples": 19412,
+    "catalog_items": 11924,
+    "train_items": 11876,
+    "attribute_sizes": [
+      468
+    ],
+    "unknown_or_missing_items": [
+      23
+    ],
+    "attribute_features": [
+      "categories"
+    ],
+    "raw_missing_brand_items": 11924,
+    "native_render_parity_examples": {
+      "train": 573,
+      "validation": 7
+    },
+    "parent_sha256": "b0d76ea4da9a40b1be43c55c1c7e20cdca4e1eff0194acbbe1b3cc15f471fd82",
+    "baseline_validation": {
+      "hit@10": 0.11941067381001443,
+      "ndcg@10": 0.07627451426000033
+    },
+    "sources": {
+      "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+      "GRAM/rec_datasets/Toys/item_plain_text.txt": "e2d4f59b59381a4519905c94409d334bcd092f060d4a1d52df1bb4d9b63a8507",
+      "GRAM/rec_datasets/Toys/similar_item_sasrec.txt": "845d8ca3fc7463e7d90f45b9839b30f901c23ef84a410af3f55c2111dd738ae1",
+      "GRAM/rec_datasets/Toys/user_sequence.txt": "9c2f2cce5323c5e5fd840896a68f0274aba4c241c54f0bc77ac9183094004071",
+      "artifacts/phase2_toys/checkpoint_selection.csv": "b73e154c75e9b6427e966f2f2e92ba3df74020e111f8a13fa1b9ad0e3c9484b0",
+      "GRAM/log/Toys/1_20260720_1830/config.json": "7cf5857fd8f383fc591b66ac7e1421fc34d9b7a989fa839f77c74900260e02a4"
+    },
+    "test_examples_constructed": 0,
+    "prepared_files": {
+      "catalog.json": "2a03a849d0c7ccf8c06adfa5601ae3b9dc15622602ee126ccbdd3e68d7033a3f",
+      "train.jsonl": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+      "validation.jsonl": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb"
+    }
+  },
+  "source_sha256": {
+    "GRAM/src/model/__init__.py": "bbf16d3aeb2fa9e1ecdae11da0757bdd97e4ef7b66d0a3a8cb433ce6ba865236",
+    "GRAM/src/model/gram.py": "fdd6286e30fa5f17eb2f3405cec72d79f8182ad1025ca2e16ff01fe037ea5cea",
+    "GRAM/src/model/gram_t5.py": "4bb0c08bf8561303f154931ff2cb2d445d1c382ebc0b44b6797297fa622bd673",
+    "GRAM/src/model/gram_t5_config.py": "cc49f51c86dddbdc77a67c9b4fb841b78c1a7844e51df94baa375a30146d0631",
+    "GRAM/src/model/gram_t5_modeling.py": "27b558fb2558311894d702d4b9cde5987c3fb09bc4ff321a4eaf3a8abf68fbb3",
+    "GRAM/src/model/gram_t5_outputs.py": "6b6e2f2a2d0faba8c27e7906eb8cbe9abd6e7d0654f881adf32ba1229ed3c07b",
+    "GRAM/src/processor/Collator.py": "49a35955d0f952e4015d8e87935c05b8138489d1ed60b4d30cc865dcf7bcc949",
+    "GRAM/src/processor/DistMultiDataTaskSampler.py": "d25b063fd5360bc3c9de18e50fa7ca45369c7673e74e4e95758b97600643977f",
+    "GRAM/src/processor/SingleMultiDataTaskSampler.py": "2f1e8c429503ad0fe1f9a37c749a69878abe2a949913ba83e9eb1c8fe8989683",
+    "GRAM/src/processor/__init__.py": "0f38568b35b4f388bbe4264b2e157cd42ca6ba82e6fef85ff9c9584ed3705990",
+    "experiment/phase17/__init__.py": "976587eaf2fc763aa56a92ab5a8b5a0de21dc9f6d83787a993d3e75a3dd8872d",
+    "experiment/phase17/core/__init__.py": "449b84a7c793a8ebdeb0e2f734e3d21658bb7964cc0cab9020ed03b24120ce22",
+    "experiment/phase17/core/feature_hooks.py": "3f3e56ce776c556c8cb1078ce824e4a2eb145d670cf8edc124b92b19bd51c9f6",
+    "experiment/phase17/core/full_latte_arm_contracts.py": "9c6d63af497d90fe6556dfa488fe13dc94fcaa760ff1e09a100540864bbb952b",
+    "experiment/phase17/core/full_latte_gram_backend.py": "cd8b7035088e222173deebd5fcbb24a6be70e7c114f3eee9991dc5d0f74d7ae2",
+    "experiment/phase17/core/full_latte_native_adapter.py": "0c1dca5c4d04a6af4c4d974b0c0b34de2abced9c779711cddb5b707612e42f4b",
+    "experiment/phase17/core/fullport_data.py": "5580566df84c9bacac056c70457ea33ce6266d010ea6dca9a5d1f45da6fda4bd",
+    "experiment/phase17/core/generation_hooks.py": "0186bf70ea95ef41aa3c6c225390e103ffe28945e83c1bc1942010146a9944d5",
+    "experiment/phase17/core/loss_hooks.py": "b7f4b250554d5fa8bafdb25d1c6c2f2cd066da5ff25cc1a74c19282b7f781084",
+    "experiment/phase17/core/p0_modules.py": "876b5cc4e5bc358e44b3206f614cfe058adfd42ee5d7f286f2271b817502395b",
+    "experiment/phase17/core/p1_modules.py": "19371346a242bc62bfc57d9fff568ba27454739fb87e6c80643e0dccb63aca2f",
+    "experiment/phase17/core/runtime.py": "4216e5d500e31d91c5c80e5bb793d0a65095e3a4221c1c2a9a75fa9912879d89",
+    "experiment/phase17/registry/__init__.py": "13017b08c682771343b6d250c972d95f83a36dc05ef84cd4c3a613c49fcbde4b",
+    "experiment/phase17/registry/module_registry.py": "9d11b069e7112ab01bc6ae2ac724f347daf50ca1594f9340e883d018b64a4b2d",
+    "experiment/phase18/__init__.py": "cc64514f96ba18003df10894862e9e441035d0773e00f2c669239d0dccb16d7d",
+    "experiment/phase18/config/s18_diff_gram_toys.json": "ed8302b0a6e39f558d31473262498a15829af5daa233118e0aab5dfdd26a8977",
+    "experiment/phase18/core/__init__.py": "29bbf9af3adda73b8c4928c490b2709fc5638001faf88100a7751c1412813755",
+    "experiment/phase18/core/diff_data.py": "cad1e39e1bb01e18d820ee063fc9699831c9fc2f9443def7941ccd247cded11b",
+    "experiment/phase18/core/diff_gram.py": "14c5b99e2d866eaad0762e3e45c8102ff26514603341d7cec2468710cc16e7af",
+    "experiment/phase18/core/diff_sequence.py": "5f682f4877306cef8de2578fe3f63bdab0ace65c498eabdda6cd769a5681bb4a",
+    "experiment/phase18/protocol/__init__.py": "5fd52329fae800f435571ba154953acd0ce97366b2e243b4e142504e76e822a7",
+    "experiment/phase18/protocol/s18_diff_gram.py": "c5822a720b21accf6b880ec0c07a99134cadbae6081072396eb9b4b0752f6549",
+    "experiment/phase18/run_stage18_diff_gram.sh": "e62f1d23efe7c71d62c07d3a114d53f4e10eea529f439d678e93cc10929db47d"
+  },
+  "torch": "1.11.0+cu113",
+  "numpy": "1.23.1",
+  "cuda_visible_devices": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640",
+  "gpu_name": "NVIDIA RTX A6000",
+  "parameters": 65875854,
+  "new_parameters": 5358478
+}

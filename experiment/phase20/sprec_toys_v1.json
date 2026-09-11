@@ -1,0 +1,40 @@
+{
+  "name": "S20-SPRec-GRAM-toys-v1",
+  "dataset": "Toys",
+  "seed": 2023,
+  "data_config": "experiment/phase18/config/s18_diff_gram_toys.json",
+  "output": "artifacts/phase20/sprec_gram_toys_v1",
+  "smoke_output": "artifacts/phase20/sprec_gram_toys_smoke_v4",
+  "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+  "rounds": 3,
+  "microbatch": 4,
+  "effective_batch_size": 128,
+  "mining_microbatch": 8,
+  "validation_microbatch": 1,
+  "selection_users": 3000,
+  "sft_learning_rate": 1e-05,
+  "dpo_learning_rate": 1e-05,
+  "beta": 0.1,
+  "max_wall_seconds": 259200,
+  "minimum_free_mib": 12288,
+  "cuda_memory_fraction": 0.4,
+  "decoding": {
+    "beam_size": 50,
+    "length_penalty": 1.0
+  },
+  "pcrf": {
+    "checkpoint": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+    "reference": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv",
+    "summary": "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/summary.json",
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1": 5
+  },
+  "source": "https://github.com/RegionCh/SPRec",
+  "resource_policy": "GPU7; longest-history microbatch4 DPO smoke: peak allocated3224.89 MiB, reserved3670 MiB. Admit12 GiB available with additional margin for native beam50 and allocator variation; allocator cap40% of48GiB. No holder/reservation. Beauty receives its own smoke before formal training.",
+  "primary_comparator": "original_gram",
+  "auxiliary_comparator": "original_gram_pcrf",
+  "baseline_predictions": "GRAM/preds/20260722_020042_Toys_sequential_pred_validation.tsv",
+  "matched_parent_inference": true
+}

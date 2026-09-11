@@ -1,0 +1,199 @@
+{
+  "captured_at": "2026-09-11T13:49:09.921017+08:00",
+  "scope": "Historical cached results, same users and verified validation targets; different model/numerical pipelines. No training or inference.",
+  "old_baseline": "C1 backbone trained with lexical CE and catalog balanced softmax; not untouched original GRAM",
+  "seed_scope": "GACR residual seeds 2023/2024/2025; PCRF item-head seed2023 fixed",
+  "test_read": false,
+  "cells": {
+    "Toys_2023": {
+      "users": 1024,
+      "metrics": {
+        "c1_baseline": {
+          "ndcg10": 0.07584565512692637,
+          "hit10": 0.1181640625,
+          "hit50": 0.212890625
+        },
+        "gacr_v6": {
+          "ndcg10": 0.07784910518784458,
+          "hit10": 0.12109375,
+          "hit50": 0.2138671875
+        },
+        "original_gram": {
+          "ndcg10": 0.07606812575111244,
+          "hit10": 0.12109375,
+          "hit50": 0.21875
+        },
+        "original_pcrf": {
+          "ndcg10": 0.08120739494579636,
+          "hit10": 0.1298828125,
+          "hit50": 0.21875
+        }
+      },
+      "old_baseline_vs_original_rank_changed_users": 173,
+      "gacr_vs_pcrf_hit10_gained_users": 11,
+      "gacr_vs_pcrf_hit10_lost_users": 20,
+      "ndcg10_relative_percent_vs_original_gram": 2.3412952786024066,
+      "ndcg10_relative_percent_vs_original_pcrf": -4.135448206648363
+    },
+    "Toys_2024": {
+      "users": 1024,
+      "metrics": {
+        "c1_baseline": {
+          "ndcg10": 0.07584565512692637,
+          "hit10": 0.1181640625,
+          "hit50": 0.212890625
+        },
+        "gacr_v6": {
+          "ndcg10": 0.07776832000936462,
+          "hit10": 0.1201171875,
+          "hit50": 0.2138671875
+        },
+        "original_gram": {
+          "ndcg10": 0.07606812575111244,
+          "hit10": 0.12109375,
+          "hit50": 0.21875
+        },
+        "original_pcrf": {
+          "ndcg10": 0.08120739494579636,
+          "hit10": 0.1298828125,
+          "hit50": 0.21875
+        }
+      },
+      "old_baseline_vs_original_rank_changed_users": 173,
+      "gacr_vs_pcrf_hit10_gained_users": 9,
+      "gacr_vs_pcrf_hit10_lost_users": 19,
+      "ndcg10_relative_percent_vs_original_gram": 2.235094188878861,
+      "ndcg10_relative_percent_vs_original_pcrf": -4.234928282981154
+    },
+    "Toys_2025": {
+      "users": 1024,
+      "metrics": {
+        "c1_baseline": {
+          "ndcg10": 0.07584565512692637,
+          "hit10": 0.1181640625,
+          "hit50": 0.212890625
+        },
+        "gacr_v6": {
+          "ndcg10": 0.07753658026808265,
+          "hit10": 0.119140625,
+          "hit50": 0.21484375
+        },
+        "original_gram": {
+          "ndcg10": 0.07606812575111244,
+          "hit10": 0.12109375,
+          "hit50": 0.21875
+        },
+        "original_pcrf": {
+          "ndcg10": 0.08120739494579636,
+          "hit10": 0.1298828125,
+          "hit50": 0.21875
+        }
+      },
+      "old_baseline_vs_original_rank_changed_users": 173,
+      "gacr_vs_pcrf_hit10_gained_users": 10,
+      "gacr_vs_pcrf_hit10_lost_users": 21,
+      "ndcg10_relative_percent_vs_original_gram": 1.9304465601990062,
+      "ndcg10_relative_percent_vs_original_pcrf": -4.52029606437182
+    },
+    "Beauty_2023": {
+      "users": 1024,
+      "metrics": {
+        "c1_baseline": {
+          "ndcg10": 0.06055902645446303,
+          "hit10": 0.1044921875,
+          "hit50": 0.201171875
+        },
+        "gacr_v6": {
+          "ndcg10": 0.06241440051684238,
+          "hit10": 0.109375,
+          "hit50": 0.2021484375
+        },
+        "original_gram": {
+          "ndcg10": 0.06012545508215253,
+          "hit10": 0.1015625,
+          "hit50": 0.20703125
+        },
+        "original_pcrf": {
+          "ndcg10": 0.0652594512939603,
+          "hit10": 0.1083984375,
+          "hit50": 0.20703125
+        }
+      },
+      "old_baseline_vs_original_rank_changed_users": 150,
+      "gacr_vs_pcrf_hit10_gained_users": 17,
+      "gacr_vs_pcrf_hit10_lost_users": 16,
+      "ndcg10_relative_percent_vs_original_gram": 3.8069490394082584,
+      "ndcg10_relative_percent_vs_original_pcrf": -4.3595995993016
+    },
+    "Beauty_2024": {
+      "users": 1024,
+      "metrics": {
+        "c1_baseline": {
+          "ndcg10": 0.06055902645446303,
+          "hit10": 0.1044921875,
+          "hit50": 0.201171875
+        },
+        "gacr_v6": {
+          "ndcg10": 0.06222708193984519,
+          "hit10": 0.109375,
+          "hit50": 0.201171875
+        },
+        "original_gram": {
+          "ndcg10": 0.06012545508215253,
+          "hit10": 0.1015625,
+          "hit50": 0.20703125
+        },
+        "original_pcrf": {
+          "ndcg10": 0.0652594512939603,
+          "hit10": 0.1083984375,
+          "hit50": 0.20703125
+        }
+      },
+      "old_baseline_vs_original_rank_changed_users": 150,
+      "gacr_vs_pcrf_hit10_gained_users": 17,
+      "gacr_vs_pcrf_hit10_lost_users": 16,
+      "ndcg10_relative_percent_vs_original_gram": 3.4954028286706462,
+      "ndcg10_relative_percent_vs_original_pcrf": -4.646636301699569
+    },
+    "Beauty_2025": {
+      "users": 1024,
+      "metrics": {
+        "c1_baseline": {
+          "ndcg10": 0.06055902645446303,
+          "hit10": 0.1044921875,
+          "hit50": 0.201171875
+        },
+        "gacr_v6": {
+          "ndcg10": 0.06243432643676332,
+          "hit10": 0.109375,
+          "hit50": 0.2021484375
+        },
+        "original_gram": {
+          "ndcg10": 0.06012545508215253,
+          "hit10": 0.1015625,
+          "hit50": 0.20703125
+        },
+        "original_pcrf": {
+          "ndcg10": 0.0652594512939603,
+          "hit10": 0.1083984375,
+          "hit50": 0.20703125
+        }
+      },
+      "old_baseline_vs_original_rank_changed_users": 150,
+      "gacr_vs_pcrf_hit10_gained_users": 16,
+      "gacr_vs_pcrf_hit10_lost_users": 15,
+      "ndcg10_relative_percent_vs_original_gram": 3.8400896117227967,
+      "ndcg10_relative_percent_vs_original_pcrf": -4.329066213675691
+    }
+  },
+  "sha256": {
+    "artifacts/phase9/p9s_multiseed/Toys/seed2023/validation/per_user.tsv": "4a14a4dca2fa22aa5c23186b50bbf900e4d99ee40917a42552c4e459d03a6fa5",
+    "artifacts/phase6/gacr_v6_validation_recovery/Toys/gacr_v6_seed2023_per_user.csv": "d0ab6e215128928b6b889861ca9c6784eeb4d46dcf48b5896344a64fd7de89c9",
+    "artifacts/phase6/gacr_v6_validation_recovery/Toys/gacr_v6_seed2024_per_user.csv": "1644e5e18b873906a3b97f8cb84cb73619bc3db2201c45988d167f4fecee47a8",
+    "artifacts/phase6/gacr_v6_validation_recovery/Toys/gacr_v6_seed2025_per_user.csv": "1b01c9aa45c33677f490505cbb201e1c8778b5446168b7c091858814ba768390",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1",
+    "artifacts/phase6/gacr_v6_validation_recovery/Beauty/gacr_v6_seed2023_per_user.csv": "00d5059f05f5466c50f9b0fc754e376c47f92dd7a7d21d7b5d354a3cc05fedfd",
+    "artifacts/phase6/gacr_v6_validation_recovery/Beauty/gacr_v6_seed2024_per_user.csv": "12c26078ce3457024dab882a73d4826afc5d59c5dc5615f890d6a83056cf41c5",
+    "artifacts/phase6/gacr_v6_validation_recovery/Beauty/gacr_v6_seed2025_per_user.csv": "cab7ff966268eca58b7807b92a5a3e911fd40ca7b8fc346f6d214b6c9ea252f9"
+  }
+}

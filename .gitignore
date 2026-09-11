@@ -376,3 +376,71 @@ artifacts/**/current_dataset.txt
 !/third_party/RaSeRec/recbole/properties/model/DuoRec.yaml
 !/third_party/RaSeRec/recbole/properties/model/RaSeRec.yaml
 !/third_party/RaSeRec/seq.yaml
+
+# Completed Stage 18/19 closeout evidence referenced by the committed reports.
+# Keep aggregate results and immutable manifests; predictions and live state
+# remain excluded by the phase-wide defaults above.
+!/artifacts/phase18/closeout_20260910/
+!/artifacts/phase18/closeout_20260910/evidence.json
+!/artifacts/phase18/closeout_20260910/stop_execution.json
+!/artifacts/phase18/diff_gram/continuation_review/review_20260910.json
+!/artifacts/phase18/diff_gram/toys/long_fixed_v1/
+!/artifacts/phase18/diff_gram/toys/long_fixed_v1/result.json
+!/artifacts/phase18/diff_gram/beauty/confirm_v1/
+!/artifacts/phase18/diff_gram/beauty/confirm_v1/gpu5_move_v1/
+!/artifacts/phase18/diff_gram/beauty/confirm_v1/gpu5_move_v1/result.json
+!/artifacts/phase18/diff_gram/train_v1/manifest.json
+!/artifacts/phase18/diff_gram/beauty/train_v1/manifest.json
+!/artifacts/phase18/raserec_gram/toys/v1/
+!/artifacts/phase18/raserec_gram/toys/v1/manifest.json
+!/artifacts/phase18/raserec_gram/toys/v1/gram/
+!/artifacts/phase18/raserec_gram/toys/v1/gram/best_full.metrics.json
+!/artifacts/phase18/raserec_gram/toys/v1/gram/best_pcrf_full.metrics.json
+!/artifacts/phase19/closeout_20260910/
+!/artifacts/phase19/closeout_20260910/evidence.json
+!/artifacts/phase19/closeout_20260910/stop_execution.json
+!/artifacts/phase19/review_20260910.json
+!/artifacts/phase19/raserec_gram_beauty_v1/
+!/artifacts/phase19/raserec_gram_beauty_v1/result.json
+!/artifacts/phase19/raserec_gram_beauty_v1/smoke.json
+!/artifacts/phase19/raserec_gram_beauty_v1/pretrain/
+!/artifacts/phase19/raserec_gram_beauty_v1/pretrain/summary.json
+!/artifacts/phase19/raserec_gram_beauty_v1/reader/
+!/artifacts/phase19/raserec_gram_beauty_v1/reader/summary.json
+
+# Stage 20 artifacts are local by default: weights, downloaded/copied sources,
+# event streams, per-user predictions/features, caches, locks and process state.
+# Retain only reviewed aggregate evidence, audit scripts and frozen provenance.
+/artifacts/phase20/**
+!/artifacts/phase20/README.md
+!/artifacts/phase20/review_20260910/
+!/artifacts/phase20/review_20260910/engineering_validation.json
+!/artifacts/phase20/review_20260910/sdpo_engineering_validation.json
+!/artifacts/phase20/review_20260911/
+!/artifacts/phase20/review_20260911/audit.py
+!/artifacts/phase20/review_20260911/audit.json
+!/artifacts/phase20/review_20260911/compare_cached_gacr.py
+!/artifacts/phase20/review_20260911/gacr_cached_comparison.json
+!/artifacts/phase20/review_20260911/followup_execution.json
+!/artifacts/phase20/sdpo_gram_toys_v1/
+!/artifacts/phase20/sdpo_gram_toys_v1/manifest.json
+!/artifacts/phase20/sdpo_gram_toys_v1/stop_receipt.json
+!/artifacts/phase20/sprec_gram_toys_v1/
+!/artifacts/phase20/sprec_gram_toys_v1/manifest.json
+!/artifacts/phase20/sprec_gram_toys_v1/summary.json
+!/artifacts/phase20/sprec_gram_beauty_v1/
+!/artifacts/phase20/sprec_gram_beauty_v1/summary.json
+!/artifacts/phase20/round1_sft_full_v1/
+!/artifacts/phase20/round1_sft_full_v1/manifest.json
+!/artifacts/phase20/round1_sft_full_v1/shared_parent_reference_manifest.json
+!/artifacts/phase20/round1_sft_full_v1/smoke.json
+!/artifacts/phase20/round1_sft_full_v1/summary.json
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_smoke_v3/
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_smoke_v3/smoke.json
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/manifest.json
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/frozen_model_manifest.json
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/shared_parent_reference_manifest.json
+!/artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/summary.json
+!/artifacts/phase20/gacr_v6_pcrf_toys_v1/
+!/artifacts/phase20/gacr_v6_pcrf_toys_v1/engineering_stop.json

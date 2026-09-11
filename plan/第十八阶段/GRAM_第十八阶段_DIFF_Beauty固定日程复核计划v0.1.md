@@ -1,10 +1,16 @@
 # 第十八阶段：DIFF→GRAM Beauty 固定日程复核计划 v0.1
 
+## 2026-09-10 最终收尾决定（覆盖下文历史建议）
+
+**第十八阶段已关闭。** DIFF→GRAM Beauty固定复核已完成11轮与22,363人验证，NDCG@10相对原GRAM+0.1791%，配对区间包含0。按用户本次指令，Toys长日程在第18轮中断，保留第17轮完整checkpoint及第1轮最佳；20:41确认进程退出，规范状态为`USER_STOPPED`，没有本轮最终全量结果。不继续当前版训练、全量验证或自动接续。下文“仍在运行”“建议停止但尚未执行”“继续有限验证”等均为历史记录，不再代表待执行安排。完整账目与证据见[实验收尾总报告](../../report/第十八阶段/GRAM_第十八阶段_实验收尾总报告.md)。
+
+**2026-09-10完成核查：** 本轮于16:19:56（北京时间）正常完成全部11轮和22,363人全量验证，按固定子集选中epoch7。NDCG@10=0.065090047，相对原GRAM+0.1791%；Hit@10=0.109377096，净增14人。逐用户复算与保存指标一致；NDCG@10配对95%区间包含0，当前判断为接近持平的弱正结果，不扩大同版实验。此前GPU迁移保留原日程、optimizer和截止时间。最终结果在`confirm_v1/gpu5_move_v1/result.json`，本节覆盖下文尚未完成的历史状态；详见[更新后的投入分析](../../report/第十八阶段/Stage18_DIFF_GRAM_继续投入价值与最小验证路径.md)。
+
 ## Material Passport
 
 - Origin Skill / Mode：academic-research-suite / experiment-agent / run，inline。
 - Origin Date：2026-09-09（Asia/Shanghai）；Version Label：s18_diff_beauty_fixed_v1。
-- Verification Status：UNVERIFIED（新候选效果尚未产生）；执行检查结果另行记录。
+- Verification Status：ANALYZED（2026-09-10已核查完整结果及逐用户指标；单seed探索，不是稳定性确认）。
 - 用户授权：“那你先做beauty的吧”。承接前文确认：只做 Beauty，从原始 GRAM 父模型初始化，固定完整日程，复核现有小幅正信号。
 
 ## 1. 问题与已有证据
