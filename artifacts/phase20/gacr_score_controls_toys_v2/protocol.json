@@ -1,0 +1,111 @@
+{
+  "config": {
+    "id": "stage20_gacr_score_controls_toys_v2",
+    "dataset": "Toys",
+    "users": 19412,
+    "catalog_size_with_padding": 11925,
+    "config_path": "experiment/phase20/gacr_score_controls_toys_v2.json",
+    "output": "artifacts/phase20/gacr_score_controls_toys_v2",
+    "report": "report/第二十阶段/Stage20_Toys_GACR分数与候选固定对照报告.md",
+    "inputs": {
+      "train": "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl",
+      "validation": "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl",
+      "parent": "artifacts/phase20/sprec_gram_toys_v1/parent_full.predictions.jsonl",
+      "c1": "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/c1.predictions.jsonl",
+      "gacr": "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/gacr.predictions.jsonl",
+      "features": "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/candidate_features.jsonl",
+      "reference_ranks": "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/per_user.tsv",
+      "residual": "artifacts/phase6/gacr_v6/Toys/residual_seed2023.pt",
+      "item_head": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+      "c1_training_users": "artifacts/phase4/gcdh_p0_splits/Toys/train_users.txt",
+      "ranker_code": "experiment/phase4/gacr_s0.py",
+      "pcrf_code": "experiment/phase9/eval_cf0_b4_reliability.py",
+      "item_scoring_code": "experiment/phase9/eval_cf0_b3_beamfusion.py",
+      "statistics_code": "experiment/phase20/audit_pcrf_components.py",
+      "frequency_code": "experiment/phase18/core/raserec_data.py"
+    },
+    "expected_sha256": {
+      "train": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+      "validation": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb",
+      "parent": "2d7e26c86b84e558bc7c06037697f5557a1de5e9d04d4ff4c72d8e5a7205ae5a",
+      "c1": "ae68afb79e8872933aa03c9f0d4f14bb07ce7c60320ce1793185caa690ce5f42",
+      "gacr": "d99c1fdd870c43af12c9452f972cb6e5e1fc17eac28a220660b0a47491e74246",
+      "features": "b08830fe5a9adc0c16adb90f865ff7c3ad51ba16598a62d17f79d43bf8205f99",
+      "reference_ranks": "4a3835255b05484c0080b93e74f410fed52c053634e26dc832cc0ff58597fd8b",
+      "residual": "c05f812ee4204602b58119e0411f08e4aa06c99d8ab277e2861ad48d2d9ce68c",
+      "item_head": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+      "c1_training_users": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+      "ranker_code": "556b960a04b423353b75d3dddf327cd4af2a8ee3666dc45ce65178d0f0dc46cc",
+      "pcrf_code": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+      "item_scoring_code": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+      "statistics_code": "fd033e75920937dc57f24e33873dfc96a1c2348d598c844c2b81333bb31c8fda",
+      "frequency_code": "3cef8d5f45d372f205d2c288120181831af291ffce8c06753070447609232090"
+    },
+    "cpu_threads": 4,
+    "max_wall_seconds": 1800,
+    "lambda": 1.0,
+    "beta": 0.5,
+    "gamma": 1.0,
+    "q1": 5,
+    "bootstrap_repeats": 3000,
+    "bootstrap_seed": 20260912,
+    "primary_comparison": [
+      "gacr_v6_pcrf",
+      "c1_reciprocal_pcrf"
+    ],
+    "comparisons": [
+      [
+        "gacr_v6_pcrf",
+        "c1_reciprocal_pcrf"
+      ],
+      [
+        "gacr_v6_pcrf",
+        "original_gram_reciprocal_pcrf"
+      ],
+      [
+        "gacr_v6_pcrf",
+        "c1_fixed_candidates_residual_pcrf"
+      ],
+      [
+        "c1_fixed_candidates_residual_pcrf",
+        "c1_reciprocal_pcrf"
+      ],
+      [
+        "original_gram_reciprocal_pcrf",
+        "original_pcrf"
+      ],
+      [
+        "c1_reciprocal_pcrf",
+        "original_pcrf"
+      ],
+      [
+        "c1_fixed_candidates_residual_pcrf",
+        "original_pcrf"
+      ]
+    ],
+    "scope": "Fixed controls on reused validation. All inputs and parameters pinned before new outcomes; no selection, no test.",
+    "residual_device": "cuda:0",
+    "gpu_uuid": "GPU-07374397-b213-09c1-2988-718acb6ed231",
+    "engineering_revision": "CPU/GPU 3e-8 residual difference changed top50 boundary before new outcomes; use original GPU FP32 arithmetic only for frozen residual; retain exact parity gate and v1 evidence."
+  },
+  "input_sha256": {
+    "train": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+    "validation": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb",
+    "parent": "2d7e26c86b84e558bc7c06037697f5557a1de5e9d04d4ff4c72d8e5a7205ae5a",
+    "c1": "ae68afb79e8872933aa03c9f0d4f14bb07ce7c60320ce1793185caa690ce5f42",
+    "gacr": "d99c1fdd870c43af12c9452f972cb6e5e1fc17eac28a220660b0a47491e74246",
+    "features": "b08830fe5a9adc0c16adb90f865ff7c3ad51ba16598a62d17f79d43bf8205f99",
+    "reference_ranks": "4a3835255b05484c0080b93e74f410fed52c053634e26dc832cc0ff58597fd8b",
+    "residual": "c05f812ee4204602b58119e0411f08e4aa06c99d8ab277e2861ad48d2d9ce68c",
+    "item_head": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "c1_training_users": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+    "ranker_code": "556b960a04b423353b75d3dddf327cd4af2a8ee3666dc45ce65178d0f0dc46cc",
+    "pcrf_code": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "item_scoring_code": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+    "statistics_code": "fd033e75920937dc57f24e33873dfc96a1c2348d598c844c2b81333bb31c8fda",
+    "frequency_code": "3cef8d5f45d372f205d2c288120181831af291ffce8c06753070447609232090",
+    "config": "adb2822a5395f429505d628ab43752153943aeea7f99c3cdb9672bbf8aaed7a9",
+    "code": "af25a739c534c20265d006bde01f9d9bb27bfdaa881f982b1a4f36a4da579c7c"
+  },
+  "started_at": "2026-09-12T01:20:33+0800"
+}

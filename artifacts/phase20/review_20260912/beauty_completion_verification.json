@@ -1,0 +1,1366 @@
+{
+  "state": "PASSED",
+  "verification_status": "ANALYZED",
+  "users": 22363,
+  "metric_values_checked": 240,
+  "max_metric_error": 1.3877787807814457e-17,
+  "prediction_rows_checked": 67089,
+  "frozen_input_hashes_checked": 21,
+  "parent_reference_users_checked": 22363,
+  "group_sizes": {
+    "all_validation": 22363,
+    "outside_c1_training_users": 16772,
+    "inside_c1_training_users": 5591,
+    "target_frequency_le6": 6049,
+    "target_frequency_gt6": 16314
+  },
+  "comparisons_combined_minus": {
+    "original_gram": {
+      "all_validation": {
+        "users": 22363,
+        "hit@5": {
+          "gained": 334,
+          "lost": 175,
+          "net": 159,
+          "delta": 0.00710995841345079
+        },
+        "ndcg@5": 0.004282455296955132,
+        "hit@10": {
+          "gained": 453,
+          "lost": 292,
+          "net": 161,
+          "delta": 0.007199391852613693
+        },
+        "ndcg@10": 0.004251085412540805,
+        "hit@20": {
+          "gained": 559,
+          "lost": 398,
+          "net": 161,
+          "delta": 0.007199391852613693
+        },
+        "ndcg@20": 0.004256558646028714,
+        "hit@50": {
+          "gained": 299,
+          "lost": 319,
+          "net": -20,
+          "delta": -0.0008943343916290301
+        },
+        "ndcg@50": 0.0027842380880518693,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4336,
+            "ndcg10_contribution_to_full_group": 0.0037715889480031193,
+            "hit10_net": 130
+          },
+          "gained_coverage": {
+            "users": 299,
+            "ndcg10_contribution_to_full_group": 0.0005097212838174085,
+            "hit10_net": 33
+          },
+          "lost_coverage": {
+            "users": 319,
+            "ndcg10_contribution_to_full_group": -3.0224819279722288e-05,
+            "hit10_net": -2
+          },
+          "neither_covered": {
+            "users": 17409,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "outside_c1_training_users": {
+        "users": 16772,
+        "hit@5": {
+          "gained": 237,
+          "lost": 136,
+          "net": 101,
+          "delta": 0.006021941330789411
+        },
+        "ndcg@5": 0.003837750456898507,
+        "hit@10": {
+          "gained": 336,
+          "lost": 217,
+          "net": 119,
+          "delta": 0.0070951585976627716
+        },
+        "ndcg@10": 0.0041206586825166995,
+        "hit@20": {
+          "gained": 410,
+          "lost": 297,
+          "net": 113,
+          "delta": 0.006737419508704984
+        },
+        "ndcg@20": 0.004008692354146787,
+        "hit@50": {
+          "gained": 233,
+          "lost": 240,
+          "net": -7,
+          "delta": -0.00041736227045075126
+        },
+        "ndcg@50": 0.0027303711756337255,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 3227,
+            "ndcg10_contribution_to_full_group": 0.0035851219596551957,
+            "hit10_net": 93
+          },
+          "gained_coverage": {
+            "users": 233,
+            "ndcg10_contribution_to_full_group": 0.0005758370826010951,
+            "hit10_net": 28
+          },
+          "lost_coverage": {
+            "users": 240,
+            "ndcg10_contribution_to_full_group": -4.0300359739591554e-05,
+            "hit10_net": -2
+          },
+          "neither_covered": {
+            "users": 13072,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "inside_c1_training_users": {
+        "users": 5591,
+        "hit@5": {
+          "gained": 97,
+          "lost": 39,
+          "net": 58,
+          "delta": 0.010373815059917725
+        },
+        "ndcg@5": 0.005616490277715231,
+        "hit@10": {
+          "gained": 117,
+          "lost": 75,
+          "net": 42,
+          "delta": 0.00751207297442318
+        },
+        "ndcg@10": 0.004642342274634224,
+        "hit@20": {
+          "gained": 149,
+          "lost": 101,
+          "net": 48,
+          "delta": 0.008585226256483634
+        },
+        "ndcg@20": 0.005000113188587054,
+        "hit@50": {
+          "gained": 66,
+          "lost": 79,
+          "net": -13,
+          "delta": -0.0023251654444643175
+        },
+        "ndcg@50": 0.002945829190730658,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 1109,
+            "ndcg10_contribution_to_full_group": 0.004330956561770132,
+            "hit10_net": 37
+          },
+          "gained_coverage": {
+            "users": 66,
+            "ndcg10_contribution_to_full_group": 0.00031138571286409177,
+            "hit10_net": 5
+          },
+          "lost_coverage": {
+            "users": 79,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 4337,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_le6": {
+        "users": 6049,
+        "hit@5": {
+          "gained": 28,
+          "lost": 11,
+          "net": 17,
+          "delta": 0.0028103818813026947
+        },
+        "ndcg@5": 0.002208153783028725,
+        "hit@10": {
+          "gained": 29,
+          "lost": 9,
+          "net": 20,
+          "delta": 0.0033063316250619935
+        },
+        "ndcg@10": 0.002314965348591099,
+        "hit@20": {
+          "gained": 31,
+          "lost": 17,
+          "net": 14,
+          "delta": 0.0023144321375433955
+        },
+        "ndcg@20": 0.002068175059901184,
+        "hit@50": {
+          "gained": 17,
+          "lost": 37,
+          "net": -20,
+          "delta": -0.0033063316250619935
+        },
+        "ndcg@50": 0.0010339517297665306,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 314,
+            "ndcg10_contribution_to_full_group": 0.0019993913068566222,
+            "hit10_net": 15
+          },
+          "gained_coverage": {
+            "users": 17,
+            "ndcg10_contribution_to_full_group": 0.0003155740417344767,
+            "hit10_net": 5
+          },
+          "lost_coverage": {
+            "users": 37,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 5681,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_gt6": {
+        "users": 16314,
+        "hit@5": {
+          "gained": 306,
+          "lost": 164,
+          "net": 142,
+          "delta": 0.0087041804585019
+        },
+        "ndcg@5": 0.005051576901573303,
+        "hit@10": {
+          "gained": 424,
+          "lost": 283,
+          "net": 141,
+          "delta": 0.008642883413019492
+        },
+        "ndcg@10": 0.004968971293798117,
+        "hit@20": {
+          "gained": 528,
+          "lost": 381,
+          "net": 147,
+          "delta": 0.00901066568591394
+        },
+        "ndcg@20": 0.005067980266261976,
+        "hit@50": {
+          "gained": 282,
+          "lost": 282,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.0034332194648612363,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4022,
+            "ndcg10_contribution_to_full_group": 0.0044286947179734,
+            "hit10_net": 115
+          },
+          "gained_coverage": {
+            "users": 282,
+            "ndcg10_contribution_to_full_group": 0.0005817083297509413,
+            "hit10_net": 28
+          },
+          "lost_coverage": {
+            "users": 282,
+            "ndcg10_contribution_to_full_group": -4.143175392622468e-05,
+            "hit10_net": -2
+          },
+          "neither_covered": {
+            "users": 11728,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      }
+    },
+    "original_pcrf": {
+      "all_validation": {
+        "users": 22363,
+        "hit@5": {
+          "gained": 196,
+          "lost": 126,
+          "net": 70,
+          "delta": 0.0031301703707016055
+        },
+        "ndcg@5": 0.0015816258953670643,
+        "hit@10": {
+          "gained": 226,
+          "lost": 169,
+          "net": 57,
+          "delta": 0.002548853016142736
+        },
+        "ndcg@10": 0.0013563779915148483,
+        "hit@20": {
+          "gained": 272,
+          "lost": 264,
+          "net": 8,
+          "delta": 0.000357733756651612
+        },
+        "ndcg@20": 0.000853305489994666,
+        "hit@50": {
+          "gained": 299,
+          "lost": 319,
+          "net": -20,
+          "delta": -0.0008943343916290301
+        },
+        "ndcg@50": 0.0006405166119330578,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4336,
+            "ndcg10_contribution_to_full_group": 0.000999759761071633,
+            "hit10_net": 35
+          },
+          "gained_coverage": {
+            "users": 299,
+            "ndcg10_contribution_to_full_group": 0.0005097212838174085,
+            "hit10_net": 33
+          },
+          "lost_coverage": {
+            "users": 319,
+            "ndcg10_contribution_to_full_group": -0.00015310305337419298,
+            "hit10_net": -11
+          },
+          "neither_covered": {
+            "users": 17409,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "outside_c1_training_users": {
+        "users": 16772,
+        "hit@5": {
+          "gained": 141,
+          "lost": 99,
+          "net": 42,
+          "delta": 0.0025041736227045075
+        },
+        "ndcg@5": 0.0014588999346345295,
+        "hit@10": {
+          "gained": 158,
+          "lost": 123,
+          "net": 35,
+          "delta": 0.002086811352253756
+        },
+        "ndcg@10": 0.0013051670429039572,
+        "hit@20": {
+          "gained": 207,
+          "lost": 192,
+          "net": 15,
+          "delta": 0.0008943477223944669
+        },
+        "ndcg@20": 0.0010282739381574416,
+        "hit@50": {
+          "gained": 233,
+          "lost": 240,
+          "net": -7,
+          "delta": -0.00041736227045075126
+        },
+        "ndcg@50": 0.0008094860244506873,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 3227,
+            "ndcg10_contribution_to_full_group": 0.0008801914588233469,
+            "hit10_net": 15
+          },
+          "gained_coverage": {
+            "users": 233,
+            "ndcg10_contribution_to_full_group": 0.0005758370826010951,
+            "hit10_net": 28
+          },
+          "lost_coverage": {
+            "users": 240,
+            "ndcg10_contribution_to_full_group": -0.0001508614985204849,
+            "hit10_net": -8
+          },
+          "neither_covered": {
+            "users": 13072,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "inside_c1_training_users": {
+        "users": 5591,
+        "hit@5": {
+          "gained": 55,
+          "lost": 27,
+          "net": 28,
+          "delta": 0.005008048649615454
+        },
+        "ndcg@5": 0.0019497818269367422,
+        "hit@10": {
+          "gained": 68,
+          "lost": 46,
+          "net": 22,
+          "delta": 0.003934895367554999
+        },
+        "ndcg@10": 0.0015100016778145924,
+        "hit@20": {
+          "gained": 65,
+          "lost": 72,
+          "net": -7,
+          "delta": -0.0012520121624038634
+        },
+        "ndcg@20": 0.0003284314401670725,
+        "hit@50": {
+          "gained": 66,
+          "lost": 79,
+          "net": -13,
+          "delta": -0.0023251654444643175
+        },
+        "ndcg@50": 0.00013363859606010408,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 1109,
+            "ndcg10_contribution_to_full_group": 0.0013584432819638264,
+            "hit10_net": 20
+          },
+          "gained_coverage": {
+            "users": 66,
+            "ndcg10_contribution_to_full_group": 0.00031138571286409177,
+            "hit10_net": 5
+          },
+          "lost_coverage": {
+            "users": 79,
+            "ndcg10_contribution_to_full_group": -0.0001598273170133258,
+            "hit10_net": -3
+          },
+          "neither_covered": {
+            "users": 4337,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_le6": {
+        "users": 6049,
+        "hit@5": {
+          "gained": 13,
+          "lost": 5,
+          "net": 8,
+          "delta": 0.0013225326500247974
+        },
+        "ndcg@5": 0.0005906068028749391,
+        "hit@10": {
+          "gained": 18,
+          "lost": 7,
+          "net": 11,
+          "delta": 0.0018184823937840966
+        },
+        "ndcg@10": 0.00073916027066277,
+        "hit@20": {
+          "gained": 20,
+          "lost": 22,
+          "net": -2,
+          "delta": -0.00033063316250619935
+        },
+        "ndcg@20": 0.0002213327357037621,
+        "hit@50": {
+          "gained": 17,
+          "lost": 37,
+          "net": -20,
+          "delta": -0.0033063316250619935
+        },
+        "ndcg@50": -0.0003930903329295629,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 314,
+            "ndcg10_contribution_to_full_group": 0.0005191606466230819,
+            "hit10_net": 8
+          },
+          "gained_coverage": {
+            "users": 17,
+            "ndcg10_contribution_to_full_group": 0.0003155740417344767,
+            "hit10_net": 5
+          },
+          "lost_coverage": {
+            "users": 37,
+            "ndcg10_contribution_to_full_group": -9.557441769478852e-05,
+            "hit10_net": -2
+          },
+          "neither_covered": {
+            "users": 5681,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_gt6": {
+        "users": 16314,
+        "hit@5": {
+          "gained": 183,
+          "lost": 121,
+          "net": 62,
+          "delta": 0.0038004168199092803
+        },
+        "ndcg@5": 0.0019490817302625443,
+        "hit@10": {
+          "gained": 208,
+          "lost": 162,
+          "net": 46,
+          "delta": 0.0028196640921907563
+        },
+        "ndcg@10": 0.0015852335752732291,
+        "hit@20": {
+          "gained": 252,
+          "lost": 242,
+          "net": 10,
+          "delta": 0.0006129704548240775
+        },
+        "ndcg@20": 0.0010876320310456455,
+        "hit@50": {
+          "gained": 282,
+          "lost": 282,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.0010237634189377157,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4022,
+            "ndcg10_contribution_to_full_group": 0.00117795910171766,
+            "hit10_net": 27
+          },
+          "gained_coverage": {
+            "users": 282,
+            "ndcg10_contribution_to_full_group": 0.0005817083297509413,
+            "hit10_net": 28
+          },
+          "lost_coverage": {
+            "users": 282,
+            "ndcg10_contribution_to_full_group": -0.00017443385619537218,
+            "hit10_net": -9
+          },
+          "neither_covered": {
+            "users": 11728,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      }
+    },
+    "c1_pcrf": {
+      "all_validation": {
+        "users": 22363,
+        "hit@5": {
+          "gained": 130,
+          "lost": 60,
+          "net": 70,
+          "delta": 0.0031301703707016055
+        },
+        "ndcg@5": 0.0010531846580231468,
+        "hit@10": {
+          "gained": 171,
+          "lost": 114,
+          "net": 57,
+          "delta": 0.002548853016142736
+        },
+        "ndcg@10": 0.0008169813163101687,
+        "hit@20": {
+          "gained": 176,
+          "lost": 171,
+          "net": 5,
+          "delta": 0.00022358359790725752
+        },
+        "ndcg@20": 0.000256116207374462,
+        "hit@50": {
+          "gained": 12,
+          "lost": 0,
+          "net": 12,
+          "delta": 0.000536600634977418
+        },
+        "ndcg@50": 0.0003387868748118967,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4623,
+            "ndcg10_contribution_to_full_group": 0.0008169813163101687,
+            "hit10_net": 57
+          },
+          "gained_coverage": {
+            "users": 12,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 17728,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "outside_c1_training_users": {
+        "users": 16772,
+        "hit@5": {
+          "gained": 97,
+          "lost": 50,
+          "net": 47,
+          "delta": 0.00280228953016933
+        },
+        "ndcg@5": 0.0010752685214705183,
+        "hit@10": {
+          "gained": 122,
+          "lost": 88,
+          "net": 34,
+          "delta": 0.002027188170760792
+        },
+        "ndcg@10": 0.0007770114392677518,
+        "hit@20": {
+          "gained": 125,
+          "lost": 128,
+          "net": -3,
+          "delta": -0.0001788695444788934
+        },
+        "ndcg@20": 0.0002522150761226884,
+        "hit@50": {
+          "gained": 8,
+          "lost": 0,
+          "net": 8,
+          "delta": 0.0004769854519437157
+        },
+        "ndcg@50": 0.0004168928420383801,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 3452,
+            "ndcg10_contribution_to_full_group": 0.0007770114392677518,
+            "hit10_net": 34
+          },
+          "gained_coverage": {
+            "users": 8,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 13312,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "inside_c1_training_users": {
+        "users": 5591,
+        "hit@5": {
+          "gained": 33,
+          "lost": 10,
+          "net": 23,
+          "delta": 0.004113754247898408
+        },
+        "ndcg@5": 0.000986937017576122,
+        "hit@10": {
+          "gained": 49,
+          "lost": 26,
+          "net": 23,
+          "delta": 0.004113754247898408
+        },
+        "ndcg@10": 0.0009368837984699641,
+        "hit@20": {
+          "gained": 51,
+          "lost": 43,
+          "net": 8,
+          "delta": 0.0014308710427472723
+        },
+        "ndcg@20": 0.0002678189033778149,
+        "hit@50": {
+          "gained": 4,
+          "lost": 0,
+          "net": 4,
+          "delta": 0.0007154355213736362
+        },
+        "ndcg@50": 0.00010448294307829268,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 1171,
+            "ndcg10_contribution_to_full_group": 0.0009368837984699641,
+            "hit10_net": 23
+          },
+          "gained_coverage": {
+            "users": 4,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 4416,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_le6": {
+        "users": 6049,
+        "hit@5": {
+          "gained": 6,
+          "lost": 0,
+          "net": 6,
+          "delta": 0.000991899487518598
+        },
+        "ndcg@5": 0.0003132386166123244,
+        "hit@10": {
+          "gained": 14,
+          "lost": 1,
+          "net": 13,
+          "delta": 0.002149115556290296
+        },
+        "ndcg@10": 0.0006764809429148886,
+        "hit@20": {
+          "gained": 13,
+          "lost": 3,
+          "net": 10,
+          "delta": 0.0016531658125309968
+        },
+        "ndcg@20": 0.000554304840008667,
+        "hit@50": {
+          "gained": 3,
+          "lost": 0,
+          "net": 3,
+          "delta": 0.000495949743759299
+        },
+        "ndcg@50": 0.00030731286827944077,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 328,
+            "ndcg10_contribution_to_full_group": 0.0006764809429148886,
+            "hit10_net": 13
+          },
+          "gained_coverage": {
+            "users": 3,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 5718,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_gt6": {
+        "users": 16314,
+        "hit@5": {
+          "gained": 124,
+          "lost": 60,
+          "net": 64,
+          "delta": 0.003923010910874096
+        },
+        "ndcg@5": 0.001327546163754057,
+        "hit@10": {
+          "gained": 157,
+          "lost": 113,
+          "net": 44,
+          "delta": 0.002697070001225941
+        },
+        "ndcg@10": 0.0008690768636111403,
+        "hit@20": {
+          "gained": 163,
+          "lost": 168,
+          "net": -5,
+          "delta": -0.00030648522741203875
+        },
+        "ndcg@20": 0.00014555208828629805,
+        "hit@50": {
+          "gained": 9,
+          "lost": 0,
+          "net": 9,
+          "delta": 0.0005516734093416697
+        },
+        "ndcg@50": 0.00035045699038838466,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4295,
+            "ndcg10_contribution_to_full_group": 0.0008690768636111403,
+            "hit10_net": 44
+          },
+          "gained_coverage": {
+            "users": 9,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 12010,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      }
+    },
+    "gacr_v6": {
+      "all_validation": {
+        "users": 22363,
+        "hit@5": {
+          "gained": 230,
+          "lost": 126,
+          "net": 104,
+          "delta": 0.004650538836470957
+        },
+        "ndcg@5": 0.002234239656898747,
+        "hit@10": {
+          "gained": 394,
+          "lost": 305,
+          "net": 89,
+          "delta": 0.003979788042749184
+        },
+        "ndcg@10": 0.0019675307144918124,
+        "hit@20": {
+          "gained": 499,
+          "lost": 394,
+          "net": 105,
+          "delta": 0.004695255556052408
+        },
+        "ndcg@20": 0.0021425276824156504,
+        "hit@50": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.001307273433319114,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4635,
+            "ndcg10_contribution_to_full_group": 0.0019675307144918124,
+            "hit10_net": 89
+          },
+          "gained_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 17728,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "outside_c1_training_users": {
+        "users": 16772,
+        "hit@5": {
+          "gained": 165,
+          "lost": 99,
+          "net": 66,
+          "delta": 0.003935129978535654
+        },
+        "ndcg@5": 0.0019205045265672956,
+        "hit@10": {
+          "gained": 294,
+          "lost": 237,
+          "net": 57,
+          "delta": 0.0033985213450989744
+        },
+        "ndcg@10": 0.0016841564974903421,
+        "hit@20": {
+          "gained": 370,
+          "lost": 304,
+          "net": 66,
+          "delta": 0.003935129978535654
+        },
+        "ndcg@20": 0.0017979524223943485,
+        "hit@50": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.0011297866559869265,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 3460,
+            "ndcg10_contribution_to_full_group": 0.0016841564974903421,
+            "hit10_net": 57
+          },
+          "gained_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 13312,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "inside_c1_training_users": {
+        "users": 5591,
+        "hit@5": {
+          "gained": 65,
+          "lost": 27,
+          "net": 38,
+          "delta": 0.0067966374530495435
+        },
+        "ndcg@5": 0.0031753889335789666,
+        "hit@10": {
+          "gained": 100,
+          "lost": 68,
+          "net": 32,
+          "delta": 0.005723484170989089
+        },
+        "ndcg@10": 0.0028176026815010533,
+        "hit@20": {
+          "gained": 129,
+          "lost": 90,
+          "net": 39,
+          "delta": 0.006975496333392953
+        },
+        "ndcg@20": 0.0031761918321343546,
+        "hit@50": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.001839702020229407,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 1175,
+            "ndcg10_contribution_to_full_group": 0.0028176026815010533,
+            "hit10_net": 32
+          },
+          "gained_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 4416,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_le6": {
+        "users": 6049,
+        "hit@5": {
+          "gained": 16,
+          "lost": 5,
+          "net": 11,
+          "delta": 0.0018184823937840966
+        },
+        "ndcg@5": 0.0007429172906952396,
+        "hit@10": {
+          "gained": 27,
+          "lost": 6,
+          "net": 21,
+          "delta": 0.0034716482063150934
+        },
+        "ndcg@10": 0.001267192620605734,
+        "hit@20": {
+          "gained": 31,
+          "lost": 10,
+          "net": 21,
+          "delta": 0.0034716482063150934
+        },
+        "ndcg@20": 0.0012673022444889227,
+        "hit@50": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.0006323365041043431,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 331,
+            "ndcg10_contribution_to_full_group": 0.001267192620605734,
+            "hit10_net": 21
+          },
+          "gained_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 5718,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_gt6": {
+        "users": 16314,
+        "hit@5": {
+          "gained": 214,
+          "lost": 121,
+          "net": 93,
+          "delta": 0.00570062522986392
+        },
+        "ndcg@5": 0.0027872008554499926,
+        "hit@10": {
+          "gained": 367,
+          "lost": 299,
+          "net": 68,
+          "delta": 0.0041681990928037265
+        },
+        "ndcg@10": 0.002227206154599505,
+        "hit@20": {
+          "gained": 468,
+          "lost": 384,
+          "net": 84,
+          "delta": 0.0051489518205222505
+        },
+        "ndcg@20": 0.002467048871211701,
+        "hit@50": {
+          "gained": 0,
+          "lost": 0,
+          "net": 0,
+          "delta": 0.0
+        },
+        "ndcg@50": 0.0015575304815488643,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4304,
+            "ndcg10_contribution_to_full_group": 0.002227206154599505,
+            "hit10_net": 68
+          },
+          "gained_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 12010,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      }
+    },
+    "c1": {
+      "all_validation": {
+        "users": 22363,
+        "hit@5": {
+          "gained": 260,
+          "lost": 104,
+          "net": 156,
+          "delta": 0.006975808254706435
+        },
+        "ndcg@5": 0.0037436627505046866,
+        "hit@10": {
+          "gained": 426,
+          "lost": 277,
+          "net": 149,
+          "delta": 0.006662791217636274
+        },
+        "ndcg@10": 0.0036258005992560647,
+        "hit@20": {
+          "gained": 543,
+          "lost": 365,
+          "net": 178,
+          "delta": 0.007959576085498368
+        },
+        "ndcg@20": 0.0039581048272551225,
+        "hit@50": {
+          "gained": 12,
+          "lost": 0,
+          "net": 12,
+          "delta": 0.000536600634977418
+        },
+        "ndcg@50": 0.002580148139208558,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4623,
+            "ndcg10_contribution_to_full_group": 0.0036258005992560647,
+            "hit10_net": 149
+          },
+          "gained_coverage": {
+            "users": 12,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 17728,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "outside_c1_training_users": {
+        "users": 16772,
+        "hit@5": {
+          "gained": 185,
+          "lost": 83,
+          "net": 102,
+          "delta": 0.006081564512282376
+        },
+        "ndcg@5": 0.003394549564449264,
+        "hit@10": {
+          "gained": 318,
+          "lost": 214,
+          "net": 104,
+          "delta": 0.006200810875268304
+        },
+        "ndcg@10": 0.003398284146345968,
+        "hit@20": {
+          "gained": 403,
+          "lost": 281,
+          "net": 122,
+          "delta": 0.007274028142141665
+        },
+        "ndcg@20": 0.0036629085399930215,
+        "hit@50": {
+          "gained": 8,
+          "lost": 0,
+          "net": 8,
+          "delta": 0.0004769854519437157
+        },
+        "ndcg@50": 0.00242506478962915,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 3452,
+            "ndcg10_contribution_to_full_group": 0.003398284146345968,
+            "hit10_net": 104
+          },
+          "gained_coverage": {
+            "users": 8,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 13312,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "inside_c1_training_users": {
+        "users": 5591,
+        "hit@5": {
+          "gained": 75,
+          "lost": 21,
+          "net": 54,
+          "delta": 0.00965837953854409
+        },
+        "ndcg@5": 0.004790939866677383,
+        "hit@10": {
+          "gained": 108,
+          "lost": 63,
+          "net": 45,
+          "delta": 0.008048649615453407
+        },
+        "ndcg@10": 0.004308309264648327,
+        "hit@20": {
+          "gained": 140,
+          "lost": 84,
+          "net": 56,
+          "delta": 0.010016097299230907
+        },
+        "ndcg@20": 0.004843640890564004,
+        "hit@50": {
+          "gained": 4,
+          "lost": 0,
+          "net": 4,
+          "delta": 0.0007154355213736362
+        },
+        "ndcg@50": 0.003045370449912515,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 1171,
+            "ndcg10_contribution_to_full_group": 0.004308309264648327,
+            "hit10_net": 45
+          },
+          "gained_coverage": {
+            "users": 4,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 4416,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_le6": {
+        "users": 6049,
+        "hit@5": {
+          "gained": 22,
+          "lost": 5,
+          "net": 17,
+          "delta": 0.0028103818813026947
+        },
+        "ndcg@5": 0.0019461626271147531,
+        "hit@10": {
+          "gained": 29,
+          "lost": 5,
+          "net": 24,
+          "delta": 0.003967597950074392
+        },
+        "ndcg@10": 0.0022999448463577607,
+        "hit@20": {
+          "gained": 34,
+          "lost": 8,
+          "net": 26,
+          "delta": 0.004298231112580592
+        },
+        "ndcg@20": 0.0023767696372344596,
+        "hit@50": {
+          "gained": 3,
+          "lost": 0,
+          "net": 3,
+          "delta": 0.000495949743759299
+        },
+        "ndcg@50": 0.0016452125731953073,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 328,
+            "ndcg10_contribution_to_full_group": 0.0022999448463577607,
+            "hit10_net": 24
+          },
+          "gained_coverage": {
+            "users": 3,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 5718,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      },
+      "target_frequency_gt6": {
+        "users": 16314,
+        "hit@5": {
+          "gained": 238,
+          "lost": 99,
+          "net": 139,
+          "delta": 0.008520289322054677
+        },
+        "ndcg@5": 0.0044101503223071695,
+        "hit@10": {
+          "gained": 397,
+          "lost": 272,
+          "net": 125,
+          "delta": 0.007662130685300968
+        },
+        "ndcg@10": 0.004117409122566218,
+        "hit@20": {
+          "gained": 509,
+          "lost": 357,
+          "net": 152,
+          "delta": 0.009317150913325977
+        },
+        "ndcg@20": 0.004544441505227109,
+        "hit@50": {
+          "gained": 9,
+          "lost": 0,
+          "net": 9,
+          "delta": 0.0005516734093416697
+        },
+        "ndcg@50": 0.0029268089972945056,
+        "coverage_accounting": {
+          "both_covered": {
+            "users": 4295,
+            "ndcg10_contribution_to_full_group": 0.004117409122566218,
+            "hit10_net": 125
+          },
+          "gained_coverage": {
+            "users": 9,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "lost_coverage": {
+            "users": 0,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          },
+          "neither_covered": {
+            "users": 12010,
+            "ndcg10_contribution_to_full_group": 0.0,
+            "hit10_net": 0
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "artifacts/phase20/gacr_v6_pcrf_beauty_v1/summary.json": "84e13c52fb842b476dc12cd4d11a5362d7310d9e7937db33db5c3f89a7698524",
+    "artifacts/phase20/gacr_v6_pcrf_beauty_v1/per_user.tsv": "b97ee8eff929d7d0e669199e9509deec8fdf00c5f0d3d9eb224e8eb507143439",
+    "artifacts/phase20/gacr_beauty_parent_v1/summary.json": "1bcf109e87e77ca1dc912b9df3f37288924bd42cd3d1d2095124aa79e785dc56",
+    "artifacts/phase20/gacr_beauty_parent_v1/matched_parent_reference.json": "8a1504b2692ce61e0f268cec45edbc74a13a54100443285f47fe61f7b6874765",
+    "experiment/phase20/gacr_v6_pcrf_beauty_v1.json": "a8c34117bce04060992811638d22d6e924e24796ac9c8a0b2834e51374239b58"
+  },
+  "bootstrap_repeated": false,
+  "new_training": false,
+  "new_model_inference": false,
+  "test_read": false,
+  "scope": "Independent standard-library rank metrics, hit counts, coverage accounting and source hashes. PCRF scoring and bootstrap are not independently rerun; this is not training reproducibility."
+}

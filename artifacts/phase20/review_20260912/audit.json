@@ -1,0 +1,2157 @@
+{
+  "captured_at": "2026-09-12T00:18:51.338475+08:00",
+  "verification_status": "ANALYZED",
+  "test_read": false,
+  "new_training_steps": 0,
+  "new_inference": false,
+  "scope": "Existing ranks and predictions audited; no PCRF rescoring, retraining, GPU inference or new method arms.",
+  "checks": [
+    {
+      "label": "sprec",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "sprec_pcrf",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "sprec/parent",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "sprec/parent_pcrf",
+      "users": 19412,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "sft",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "sft_pcrf",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "sft/parent",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "sft/parent_pcrf",
+      "users": 19412,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "gacr/original_gram",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/original_pcrf",
+      "users": 19412,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "gacr/c1",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/c1_pcrf",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/gacr_v6",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/gacr_v6_pcrf",
+      "users": 19412,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/all_validation/original_gram",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/all_validation/original_pcrf",
+      "users": 19412,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "gacr/all_validation/c1",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/all_validation/c1_pcrf",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/all_validation/gacr_v6",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/all_validation/gacr_v6_pcrf",
+      "users": 19412,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/outside_c1_training_users/original_gram",
+      "users": 14559,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/outside_c1_training_users/original_pcrf",
+      "users": 14559,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/outside_c1_training_users/c1",
+      "users": 14559,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/outside_c1_training_users/c1_pcrf",
+      "users": 14559,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/outside_c1_training_users/gacr_v6",
+      "users": 14559,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "gacr/outside_c1_training_users/gacr_v6_pcrf",
+      "users": 14559,
+      "max_absolute_error": 4.163336342344337e-17
+    },
+    {
+      "label": "gacr/inside_c1_training_users/original_gram",
+      "users": 4853,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/inside_c1_training_users/original_pcrf",
+      "users": 4853,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/inside_c1_training_users/c1",
+      "users": 4853,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/inside_c1_training_users/c1_pcrf",
+      "users": 4853,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/inside_c1_training_users/gacr_v6",
+      "users": 4853,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/inside_c1_training_users/gacr_v6_pcrf",
+      "users": 4853,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_le5/original_gram",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_le5/original_pcrf",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_le5/c1",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_le5/c1_pcrf",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_le5/gacr_v6",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_le5/gacr_v6_pcrf",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_gt5/original_gram",
+      "users": 14252,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "gacr/target_frequency_gt5/original_pcrf",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/target_frequency_gt5/c1",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/target_frequency_gt5/c1_pcrf",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "gacr/target_frequency_gt5/gacr_v6",
+      "users": 14252,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "gacr/target_frequency_gt5/gacr_v6_pcrf",
+      "users": 14252,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "sprec_gram_toys_v1/round1_sft/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round1_sft/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round1_dpo/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round1_dpo/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round2_sft/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round2_sft/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round2_dpo/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round2_dpo/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round3_sft/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round3_sft/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round3_dpo/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sprec_gram_toys_v1/round3_dpo/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sdpo_gram_toys_v1/epoch1_sdpo/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sdpo_gram_toys_v1/epoch1_sdpo/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sdpo_gram_toys_v1/epoch2_sdpo/raw",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "sdpo_gram_toys_v1/epoch2_sdpo/pcrf",
+      "users": 3000,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/gram",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/plain_fusion_075",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/plain_fusion_100",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/popularity_only",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/reliability_only",
+      "users": 19412,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/pcrf",
+      "users": 19412,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/overall/cf_only",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/gram",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/plain_fusion_075",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/plain_fusion_100",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/popularity_only",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/reliability_only",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/pcrf",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/tail/cf_only",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/gram",
+      "users": 14252,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/plain_fusion_075",
+      "users": 14252,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/plain_fusion_100",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/popularity_only",
+      "users": 14252,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/reliability_only",
+      "users": 14252,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/pcrf",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "pcrf_component_audit_20260911_v2/non_tail/cf_only",
+      "users": 14252,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/overall/gram",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/overall/pcrf",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/overall/pp_only",
+      "users": 19412,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/overall/pcrf_plus_real_pp",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/overall/pcrf_plus_shuffled_pp",
+      "users": 19412,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/overall/pcrf_plus_global_pop",
+      "users": 19412,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/tail/gram",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/tail/pcrf",
+      "users": 5160,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/tail/pp_only",
+      "users": 5160,
+      "max_absolute_error": 3.469446951953614e-18
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/tail/pcrf_plus_real_pp",
+      "users": 5160,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/tail/pcrf_plus_shuffled_pp",
+      "users": 5160,
+      "max_absolute_error": 0
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/tail/pcrf_plus_global_pop",
+      "users": 5160,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/non_tail/gram",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/non_tail/pcrf",
+      "users": 14252,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/non_tail/pp_only",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/non_tail/pcrf_plus_real_pp",
+      "users": 14252,
+      "max_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/non_tail/pcrf_plus_shuffled_pp",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    },
+    {
+      "label": "personal_popularity_probe_v1/Toys/non_tail/pcrf_plus_global_pop",
+      "users": 14252,
+      "max_absolute_error": 1.3877787807814457e-17
+    }
+  ],
+  "checked_metric_cells": 891,
+  "prediction_integrity": {
+    "artifacts/phase20/sprec_gram_toys_v1/parent_full.predictions.jsonl": {
+      "users": 19412,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo_full.predictions.jsonl": {
+      "users": 19412,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/round1_sft_full_v1/round1_sft_full.predictions.jsonl": {
+      "users": 19412,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/c1.predictions.jsonl": {
+      "users": 19412,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/gacr.predictions.jsonl": {
+      "users": 19412,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round1_sft.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round2_sft.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round2_dpo.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round3_sft.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/round3_dpo.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch1_sdpo.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    },
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch2_sdpo.predictions.jsonl": {
+      "users": 3000,
+      "unique_legal_finite_and_raw_rank_exact": true
+    }
+  },
+  "full_metrics": {
+    "original_gram": {
+      "users": 19412,
+      "hit@5": 0.09097465485266845,
+      "ndcg@5": 0.06717604174981621,
+      "hit@10": 0.11915310117453122,
+      "ndcg@10": 0.07623069353007147,
+      "hit@20": 0.15444055223573047,
+      "ndcg@20": 0.08513108875956689,
+      "hit@50": 0.21208530805687204,
+      "ndcg@50": 0.09658233391920466
+    },
+    "original_pcrf": {
+      "users": 19412,
+      "hit@5": 0.09355038120750052,
+      "ndcg@5": 0.06845938987162059,
+      "hit@10": 0.1252318153719349,
+      "ndcg@10": 0.0786788755079759,
+      "hit@20": 0.1645889140737688,
+      "ndcg@20": 0.08859030638243687,
+      "hit@50": 0.21208530805687204,
+      "ndcg@50": 0.09809438726612876
+    },
+    "sprec": {
+      "users": 19412,
+      "hit@5": 0.08767772511848342,
+      "ndcg@5": 0.0648419519878214,
+      "hit@10": 0.11595920049453946,
+      "ndcg@10": 0.07397904755799634,
+      "hit@20": 0.14841335256542346,
+      "ndcg@20": 0.08216114606822025,
+      "hit@50": 0.20137028642077065,
+      "ndcg@50": 0.09267933225150976
+    },
+    "sprec_pcrf": {
+      "users": 19412,
+      "hit@5": 0.09246857613847105,
+      "ndcg@5": 0.06766516795898606,
+      "hit@10": 0.1221409437461364,
+      "ndcg@10": 0.0772240402989873,
+      "hit@20": 0.15825262724088193,
+      "ndcg@20": 0.08632164338651108,
+      "hit@50": 0.20137028642077065,
+      "ndcg@50": 0.09497424081057293
+    },
+    "sft": {
+      "users": 19412,
+      "hit@5": 0.09030496600041212,
+      "ndcg@5": 0.06674375639626048,
+      "hit@10": 0.11920461570162785,
+      "ndcg@10": 0.07603906241374515,
+      "hit@20": 0.15413146507315062,
+      "ndcg@20": 0.08484369139759987,
+      "hit@50": 0.21198227900267874,
+      "ndcg@50": 0.09633231566698688
+    },
+    "sft_pcrf": {
+      "users": 19412,
+      "hit@5": 0.09334432309911395,
+      "ndcg@5": 0.06831083058084293,
+      "hit@10": 0.12481969915516175,
+      "ndcg@10": 0.07845138578899975,
+      "hit@20": 0.16361013805893262,
+      "ndcg@20": 0.08823730122111768,
+      "hit@50": 0.21198227900267874,
+      "ndcg@50": 0.0979306488533664
+    },
+    "c1": {
+      "users": 19412,
+      "hit@5": 0.08958376262105913,
+      "ndcg@5": 0.06615353164343801,
+      "hit@10": 0.11863795590356481,
+      "ndcg@10": 0.07548068239631478,
+      "hit@20": 0.15428600865444056,
+      "ndcg@20": 0.08446615683848402,
+      "hit@50": 0.20956109622913663,
+      "ndcg@50": 0.09543512302888488
+    },
+    "c1_pcrf": {
+      "users": 19412,
+      "hit@5": 0.09406552647846693,
+      "ndcg@5": 0.06861161592649553,
+      "hit@10": 0.12476818462806512,
+      "ndcg@10": 0.07848357093786763,
+      "hit@20": 0.16278590562538636,
+      "ndcg@20": 0.08810468296538675,
+      "hit@50": 0.20956109622913663,
+      "ndcg@50": 0.09748659637151343
+    },
+    "gacr_v6": {
+      "users": 19412,
+      "hit@5": 0.09185040181331135,
+      "ndcg@5": 0.06756961366587141,
+      "hit@10": 0.12080156604162373,
+      "ndcg@10": 0.07687402449242285,
+      "hit@20": 0.15469812487121368,
+      "ndcg@20": 0.08542304861099721,
+      "hit@50": 0.20950958170203998,
+      "ndcg@50": 0.09626937179660626
+    },
+    "gacr_v6_pcrf": {
+      "users": 19412,
+      "hit@5": 0.09746548526684524,
+      "ndcg@5": 0.07062716560847206,
+      "hit@10": 0.12924994848547292,
+      "ndcg@10": 0.08088960655540839,
+      "hit@20": 0.16464042860086545,
+      "ndcg@20": 0.08984657744368764,
+      "hit@50": 0.20950958170203998,
+      "ndcg@50": 0.09881447114678686
+    }
+  },
+  "comparisons": {
+    "sprec_vs_original_gram": {
+      "users": 19412,
+      "ndcg10_delta": -0.002251645972075143,
+      "ndcg10_relative_percent": -2.953726206343521,
+      "hit10": {
+        "baseline_hits": 2313,
+        "candidate_hits": 2251,
+        "gained": 127,
+        "lost": 189,
+        "net": -62
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 3909,
+        "gained": 192,
+        "lost": 400,
+        "net": -208
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3717,
+          "ndcg10_contribution_to_full_delta": -0.0021647183990933833,
+          "hit10_net": -56
+        },
+        "candidate_only_cover50": {
+          "users": 192,
+          "ndcg10_contribution_to_full_delta": 6.73216251351683e-05,
+          "hit10_net": 3
+        },
+        "baseline_only_cover50": {
+          "users": 400,
+          "ndcg10_contribution_to_full_delta": -0.00015424919811692848,
+          "hit10_net": -9
+        },
+        "neither_cover50": {
+          "users": 15103,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "sprec_pcrf_vs_original_pcrf": {
+      "users": 19412,
+      "ndcg10_delta": -0.0014548352089886222,
+      "ndcg10_relative_percent": -1.8490798191963531,
+      "hit10": {
+        "baseline_hits": 2431,
+        "candidate_hits": 2371,
+        "gained": 133,
+        "lost": 193,
+        "net": -60
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 3909,
+        "gained": 192,
+        "lost": 400,
+        "net": -208
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3717,
+          "ndcg10_contribution_to_full_delta": -0.0011454121076826223,
+          "hit10_net": -43
+        },
+        "candidate_only_cover50": {
+          "users": 192,
+          "ndcg10_contribution_to_full_delta": 0.00029553393371589367,
+          "hit10_net": 18
+        },
+        "baseline_only_cover50": {
+          "users": 400,
+          "ndcg10_contribution_to_full_delta": -0.0006049570350218937,
+          "hit10_net": -35
+        },
+        "neither_cover50": {
+          "users": 15103,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "sft_vs_original_gram": {
+      "users": 19412,
+      "ndcg10_delta": -0.00019163111632631232,
+      "ndcg10_relative_percent": -0.25138314693506913,
+      "hit10": {
+        "baseline_hits": 2313,
+        "candidate_hits": 2314,
+        "gained": 14,
+        "lost": 13,
+        "net": 1
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 4115,
+        "gained": 26,
+        "lost": 28,
+        "net": -2
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 4089,
+          "ndcg10_contribution_to_full_delta": -0.00019163111632631227,
+          "hit10_net": 1
+        },
+        "candidate_only_cover50": {
+          "users": 26,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "baseline_only_cover50": {
+          "users": 28,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "neither_cover50": {
+          "users": 15269,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "sft_pcrf_vs_original_pcrf": {
+      "users": 19412,
+      "ndcg10_delta": -0.00022748971897616703,
+      "ndcg10_relative_percent": -0.2891369729262294,
+      "hit10": {
+        "baseline_hits": 2431,
+        "candidate_hits": 2423,
+        "gained": 13,
+        "lost": 21,
+        "net": -8
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 4115,
+        "gained": 26,
+        "lost": 28,
+        "net": -2
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 4089,
+          "ndcg10_contribution_to_full_delta": -0.00021259868114812828,
+          "hit10_net": -7
+        },
+        "candidate_only_cover50": {
+          "users": 26,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "baseline_only_cover50": {
+          "users": 28,
+          "ndcg10_contribution_to_full_delta": -1.4891037828038733e-05,
+          "hit10_net": -1
+        },
+        "neither_cover50": {
+          "users": 15269,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "sprec_vs_sft": {
+      "users": 19412,
+      "ndcg10_delta": -0.002060014855748831,
+      "ndcg10_relative_percent": -2.7091534145171736,
+      "hit10": {
+        "baseline_hits": 2314,
+        "candidate_hits": 2251,
+        "gained": 124,
+        "lost": 187,
+        "net": -63
+      },
+      "hit50": {
+        "baseline_hits": 4115,
+        "candidate_hits": 3909,
+        "gained": 197,
+        "lost": 403,
+        "net": -206
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3712,
+          "ndcg10_contribution_to_full_delta": -0.0019879783205951095,
+          "hit10_net": -58
+        },
+        "candidate_only_cover50": {
+          "users": 197,
+          "ndcg10_contribution_to_full_delta": 6.73216251351683e-05,
+          "hit10_net": 3
+        },
+        "baseline_only_cover50": {
+          "users": 403,
+          "ndcg10_contribution_to_full_delta": -0.00013935816028888974,
+          "hit10_net": -8
+        },
+        "neither_cover50": {
+          "users": 15100,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "sprec_pcrf_vs_sft_pcrf": {
+      "users": 19412,
+      "ndcg10_delta": -0.0012273454900124552,
+      "ndcg10_relative_percent": -1.5644662967630452,
+      "hit10": {
+        "baseline_hits": 2423,
+        "candidate_hits": 2371,
+        "gained": 136,
+        "lost": 188,
+        "net": -52
+      },
+      "hit50": {
+        "baseline_hits": 4115,
+        "candidate_hits": 3909,
+        "gained": 197,
+        "lost": 403,
+        "net": -206
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3712,
+          "ndcg10_contribution_to_full_delta": -0.0009375191403337549,
+          "hit10_net": -36
+        },
+        "candidate_only_cover50": {
+          "users": 197,
+          "ndcg10_contribution_to_full_delta": 0.0003005485239044399,
+          "hit10_net": 18
+        },
+        "baseline_only_cover50": {
+          "users": 403,
+          "ndcg10_contribution_to_full_delta": -0.0005903748735831404,
+          "hit10_net": -34
+        },
+        "neither_cover50": {
+          "users": 15100,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "gacr_v6_vs_original_gram": {
+      "users": 19412,
+      "ndcg10_delta": 0.0006433309623513682,
+      "ndcg10_relative_percent": 0.8439264193465634,
+      "hit10": {
+        "baseline_hits": 2313,
+        "candidate_hits": 2345,
+        "gained": 218,
+        "lost": 186,
+        "net": 32
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 4067,
+        "gained": 253,
+        "lost": 303,
+        "net": -50
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3814,
+          "ndcg10_contribution_to_full_delta": 0.0007989582866468018,
+          "hit10_net": 39
+        },
+        "candidate_only_cover50": {
+          "users": 253,
+          "ndcg10_contribution_to_full_delta": 0.00011353160374877646,
+          "hit10_net": 7
+        },
+        "baseline_only_cover50": {
+          "users": 303,
+          "ndcg10_contribution_to_full_delta": -0.00026915892804421003,
+          "hit10_net": -14
+        },
+        "neither_cover50": {
+          "users": 15042,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "gacr_v6_vs_c1": {
+      "users": 19412,
+      "ndcg10_delta": 0.0013933420961080706,
+      "ndcg10_relative_percent": 1.8459585312070592,
+      "hit10": {
+        "baseline_hits": 2303,
+        "candidate_hits": 2345,
+        "gained": 85,
+        "lost": 43,
+        "net": 42
+      },
+      "hit50": {
+        "baseline_hits": 4068,
+        "candidate_hits": 4067,
+        "gained": 13,
+        "lost": 14,
+        "net": -1
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 4054,
+          "ndcg10_contribution_to_full_delta": 0.0014237405518046434,
+          "hit10_net": 44
+        },
+        "candidate_only_cover50": {
+          "users": 13,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "baseline_only_cover50": {
+          "users": 14,
+          "ndcg10_contribution_to_full_delta": -3.0398455696572693e-05,
+          "hit10_net": -2
+        },
+        "neither_cover50": {
+          "users": 15331,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "gacr_v6_pcrf_vs_original_gram": {
+      "users": 19412,
+      "ndcg10_delta": 0.004658913025336896,
+      "ndcg10_relative_percent": 6.11159732332629,
+      "hit10": {
+        "baseline_hits": 2313,
+        "candidate_hits": 2509,
+        "gained": 446,
+        "lost": 250,
+        "net": 196
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 4067,
+        "gained": 253,
+        "lost": 303,
+        "net": -50
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3814,
+          "ndcg10_contribution_to_full_delta": 0.00435729860442222,
+          "hit10_net": 178
+        },
+        "candidate_only_cover50": {
+          "users": 253,
+          "ndcg10_contribution_to_full_delta": 0.0005707733489588876,
+          "hit10_net": 32
+        },
+        "baseline_only_cover50": {
+          "users": 303,
+          "ndcg10_contribution_to_full_delta": -0.00026915892804421003,
+          "hit10_net": -14
+        },
+        "neither_cover50": {
+          "users": 15042,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "gacr_v6_pcrf_vs_original_pcrf": {
+      "users": 19412,
+      "ndcg10_delta": 0.0022107310474324634,
+      "ndcg10_relative_percent": 2.8098152562035184,
+      "hit10": {
+        "baseline_hits": 2431,
+        "candidate_hits": 2509,
+        "gained": 260,
+        "lost": 182,
+        "net": 78
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 4067,
+        "gained": 253,
+        "lost": 303,
+        "net": -50
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3814,
+          "ndcg10_contribution_to_full_delta": 0.0021782365870942947,
+          "hit10_net": 74
+        },
+        "candidate_only_cover50": {
+          "users": 253,
+          "ndcg10_contribution_to_full_delta": 0.0005707733489588876,
+          "hit10_net": 32
+        },
+        "baseline_only_cover50": {
+          "users": 303,
+          "ndcg10_contribution_to_full_delta": -0.0005382788886207188,
+          "hit10_net": -28
+        },
+        "neither_cover50": {
+          "users": 15042,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "gacr_v6_pcrf_vs_c1_pcrf": {
+      "users": 19412,
+      "ndcg10_delta": 0.0024060356175407416,
+      "ndcg10_relative_percent": 3.0656551285689115,
+      "hit10": {
+        "baseline_hits": 2422,
+        "candidate_hits": 2509,
+        "gained": 189,
+        "lost": 102,
+        "net": 87
+      },
+      "hit50": {
+        "baseline_hits": 4068,
+        "candidate_hits": 4067,
+        "gained": 13,
+        "lost": 14,
+        "net": -1
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 4054,
+          "ndcg10_contribution_to_full_delta": 0.002472613636601227,
+          "hit10_net": 91
+        },
+        "candidate_only_cover50": {
+          "users": 13,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "baseline_only_cover50": {
+          "users": 14,
+          "ndcg10_contribution_to_full_delta": -6.657801906048523e-05,
+          "hit10_net": -4
+        },
+        "neither_cover50": {
+          "users": 15331,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "gacr_v6_pcrf_vs_gacr_v6": {
+      "users": 19412,
+      "ndcg10_delta": 0.004015582062985528,
+      "ndcg10_relative_percent": 5.223587667614993,
+      "hit10": {
+        "baseline_hits": 2345,
+        "candidate_hits": 2509,
+        "gained": 397,
+        "lost": 233,
+        "net": 164
+      },
+      "hit50": {
+        "baseline_hits": 4067,
+        "candidate_hits": 4067,
+        "gained": 0,
+        "lost": 0,
+        "net": 0
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 4067,
+          "ndcg10_contribution_to_full_delta": 0.0040155820629855276,
+          "hit10_net": 164
+        },
+        "candidate_only_cover50": {
+          "users": 0,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "baseline_only_cover50": {
+          "users": 0,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        },
+        "neither_cover50": {
+          "users": 15345,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    }
+  },
+  "gacr_group_comparisons": {
+    "all_validation": {
+      "users": 19412,
+      "ndcg10_delta": 0.0022107310474324634,
+      "ndcg10_relative_percent": 2.8098152562035184,
+      "hit10": {
+        "baseline_hits": 2431,
+        "candidate_hits": 2509,
+        "gained": 260,
+        "lost": 182,
+        "net": 78
+      },
+      "hit50": {
+        "baseline_hits": 4117,
+        "candidate_hits": 4067,
+        "gained": 253,
+        "lost": 303,
+        "net": -50
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3814,
+          "ndcg10_contribution_to_full_delta": 0.0021782365870942947,
+          "hit10_net": 74
+        },
+        "candidate_only_cover50": {
+          "users": 253,
+          "ndcg10_contribution_to_full_delta": 0.0005707733489588876,
+          "hit10_net": 32
+        },
+        "baseline_only_cover50": {
+          "users": 303,
+          "ndcg10_contribution_to_full_delta": -0.0005382788886207188,
+          "hit10_net": -28
+        },
+        "neither_cover50": {
+          "users": 15042,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "outside_c1_training_users": {
+      "users": 14559,
+      "ndcg10_delta": 0.0021670780874381,
+      "ndcg10_relative_percent": 2.7370042988596133,
+      "hit10": {
+        "baseline_hits": 1837,
+        "candidate_hits": 1889,
+        "gained": 182,
+        "lost": 130,
+        "net": 52
+      },
+      "hit50": {
+        "baseline_hits": 3104,
+        "candidate_hits": 3069,
+        "gained": 194,
+        "lost": 229,
+        "net": -35
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 2875,
+          "ndcg10_contribution_to_full_delta": 0.002168862962166028,
+          "hit10_net": 51
+        },
+        "candidate_only_cover50": {
+          "users": 194,
+          "ndcg10_contribution_to_full_delta": 0.0005035669458622597,
+          "hit10_net": 21
+        },
+        "baseline_only_cover50": {
+          "users": 229,
+          "ndcg10_contribution_to_full_delta": -0.000505351820590188,
+          "hit10_net": -20
+        },
+        "neither_cover50": {
+          "users": 11261,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "inside_c1_training_users": {
+      "users": 4853,
+      "ndcg10_delta": 0.0023416899274155533,
+      "ndcg10_relative_percent": 3.0338869980393257,
+      "hit10": {
+        "baseline_hits": 594,
+        "candidate_hits": 620,
+        "gained": 78,
+        "lost": 52,
+        "net": 26
+      },
+      "hit50": {
+        "baseline_hits": 1013,
+        "candidate_hits": 998,
+        "gained": 59,
+        "lost": 74,
+        "net": -15
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 939,
+          "ndcg10_contribution_to_full_delta": 0.002206357461879094,
+          "hit10_net": 23
+        },
+        "candidate_only_cover50": {
+          "users": 59,
+          "ndcg10_contribution_to_full_delta": 0.0007723925582487708,
+          "hit10_net": 11
+        },
+        "baseline_only_cover50": {
+          "users": 74,
+          "ndcg10_contribution_to_full_delta": -0.0006370600927123114,
+          "hit10_net": -8
+        },
+        "neither_cover50": {
+          "users": 3781,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "target_frequency_le5": {
+      "users": 5160,
+      "ndcg10_delta": 0.0005015838854935756,
+      "ndcg10_relative_percent": 0.8583680522308512,
+      "hit10": {
+        "baseline_hits": 481,
+        "candidate_hits": 483,
+        "gained": 47,
+        "lost": 45,
+        "net": 2
+      },
+      "hit50": {
+        "baseline_hits": 715,
+        "candidate_hits": 680,
+        "gained": 24,
+        "lost": 59,
+        "net": -35
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 656,
+          "ndcg10_contribution_to_full_delta": 0.001018598174697316,
+          "hit10_net": 7
+        },
+        "candidate_only_cover50": {
+          "users": 24,
+          "ndcg10_contribution_to_full_delta": 0.0002858074705581275,
+          "hit10_net": 4
+        },
+        "baseline_only_cover50": {
+          "users": 59,
+          "ndcg10_contribution_to_full_delta": -0.0008028217597618678,
+          "hit10_net": -9
+        },
+        "neither_cover50": {
+          "users": 4421,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    },
+    "target_frequency_gt5": {
+      "users": 14252,
+      "ndcg10_delta": 0.002829535380550949,
+      "ndcg10_relative_percent": 3.289835791104667,
+      "hit10": {
+        "baseline_hits": 1950,
+        "candidate_hits": 2026,
+        "gained": 213,
+        "lost": 137,
+        "net": 76
+      },
+      "hit50": {
+        "baseline_hits": 3402,
+        "candidate_hits": 3387,
+        "gained": 229,
+        "lost": 244,
+        "net": -15
+      },
+      "coverage_accounting": {
+        "both_cover50": {
+          "users": 3158,
+          "ndcg10_contribution_to_full_delta": 0.0025980888329523084,
+          "hit10_net": 67
+        },
+        "candidate_only_cover50": {
+          "users": 229,
+          "ndcg10_contribution_to_full_delta": 0.0006739465129041529,
+          "hit10_net": 28
+        },
+        "baseline_only_cover50": {
+          "users": 244,
+          "ndcg10_contribution_to_full_delta": -0.000442499965305512,
+          "hit10_net": -19
+        },
+        "neither_cover50": {
+          "users": 10621,
+          "ndcg10_contribution_to_full_delta": 0.0,
+          "hit10_net": 0
+        }
+      }
+    }
+  },
+  "selection_metrics": [
+    {
+      "directory": "sprec_gram_toys_v1",
+      "tag": "round1_sft",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.08333333333333333,
+        "ndcg@5": 0.06422970155298392,
+        "hit@10": 0.10866666666666666,
+        "ndcg@10": 0.07238961492582947,
+        "hit@20": 0.14266666666666666,
+        "ndcg@20": 0.08097734379544566,
+        "hit@50": 0.192,
+        "ndcg@50": 0.09089053692782924
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.083,
+        "ndcg@5": 0.062209716322879215,
+        "hit@10": 0.115,
+        "ndcg@10": 0.07249082599746001,
+        "hit@20": 0.15233333333333332,
+        "ndcg@20": 0.08191656343667686,
+        "hit@50": 0.192,
+        "ndcg@50": 0.08986647958362926
+      }
+    },
+    {
+      "directory": "sprec_gram_toys_v1",
+      "tag": "round1_dpo",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.08133333333333333,
+        "ndcg@5": 0.06315426138297513,
+        "hit@10": 0.10733333333333334,
+        "ndcg@10": 0.07157461671160852,
+        "hit@20": 0.135,
+        "ndcg@20": 0.07854031286519385,
+        "hit@50": 0.18533333333333332,
+        "ndcg@50": 0.08857903479258694
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.08166666666666667,
+        "ndcg@5": 0.0623681158771999,
+        "hit@10": 0.10966666666666666,
+        "ndcg@10": 0.07140999326324493,
+        "hit@20": 0.147,
+        "ndcg@20": 0.08082410569366714,
+        "hit@50": 0.18533333333333332,
+        "ndcg@50": 0.08847624960744042
+      }
+    },
+    {
+      "directory": "sprec_gram_toys_v1",
+      "tag": "round2_sft",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.08366666666666667,
+        "ndcg@5": 0.06381027754330272,
+        "hit@10": 0.10933333333333334,
+        "ndcg@10": 0.07198660620832895,
+        "hit@20": 0.142,
+        "ndcg@20": 0.08019105930459883,
+        "hit@50": 0.19066666666666668,
+        "ndcg@50": 0.089926700206915
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.084,
+        "ndcg@5": 0.0630557308153211,
+        "hit@10": 0.114,
+        "ndcg@10": 0.07270162304989027,
+        "hit@20": 0.151,
+        "ndcg@20": 0.08201604440722182,
+        "hit@50": 0.19066666666666668,
+        "ndcg@50": 0.08993032114313905
+      }
+    },
+    {
+      "directory": "sprec_gram_toys_v1",
+      "tag": "round2_dpo",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.081,
+        "ndcg@5": 0.06049077806833333,
+        "hit@10": 0.10533333333333333,
+        "ndcg@10": 0.06832680070043497,
+        "hit@20": 0.13733333333333334,
+        "ndcg@20": 0.0763564887240629,
+        "hit@50": 0.18466666666666667,
+        "ndcg@50": 0.0858247419364087
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.081,
+        "ndcg@5": 0.060979516586729975,
+        "hit@10": 0.11166666666666666,
+        "ndcg@10": 0.07098821949788048,
+        "hit@20": 0.145,
+        "ndcg@20": 0.07933296226606465,
+        "hit@50": 0.18466666666666667,
+        "ndcg@50": 0.08724418020470207
+      }
+    },
+    {
+      "directory": "sprec_gram_toys_v1",
+      "tag": "round3_sft",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.083,
+        "ndcg@5": 0.06247617015138704,
+        "hit@10": 0.10833333333333334,
+        "ndcg@10": 0.07048596838366868,
+        "hit@20": 0.14133333333333334,
+        "ndcg@20": 0.07879528731761755,
+        "hit@50": 0.18866666666666668,
+        "ndcg@50": 0.08831256199376677
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.08166666666666667,
+        "ndcg@5": 0.06178556084400847,
+        "hit@10": 0.11233333333333333,
+        "ndcg@10": 0.07174251611646695,
+        "hit@20": 0.14933333333333335,
+        "ndcg@20": 0.08108895853844379,
+        "hit@50": 0.18866666666666668,
+        "ndcg@50": 0.08897146885070321
+      }
+    },
+    {
+      "directory": "sprec_gram_toys_v1",
+      "tag": "round3_dpo",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.07666666666666666,
+        "ndcg@5": 0.05734781299962218,
+        "hit@10": 0.096,
+        "ndcg@10": 0.0635454705254359,
+        "hit@20": 0.12766666666666668,
+        "ndcg@20": 0.07168361470585308,
+        "hit@50": 0.16833333333333333,
+        "ndcg@50": 0.07980093077132067
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.08166666666666667,
+        "ndcg@5": 0.05975933022111608,
+        "hit@10": 0.10766666666666666,
+        "ndcg@10": 0.06811942830836248,
+        "hit@20": 0.13733333333333334,
+        "ndcg@20": 0.07572226809919391,
+        "hit@50": 0.16833333333333333,
+        "ndcg@50": 0.08200493495063205
+      }
+    },
+    {
+      "directory": "sdpo_gram_toys_v1",
+      "tag": "epoch1_sdpo",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.043,
+        "ndcg@5": 0.03363688339833559,
+        "hit@10": 0.06,
+        "ndcg@10": 0.03908857341719624,
+        "hit@20": 0.077,
+        "ndcg@20": 0.04344276263618813,
+        "hit@50": 0.11,
+        "ndcg@50": 0.04997205409319652
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.05733333333333333,
+        "ndcg@5": 0.04434977417607248,
+        "hit@10": 0.075,
+        "ndcg@10": 0.05006944300723522,
+        "hit@20": 0.09166666666666666,
+        "ndcg@20": 0.05430171800907614,
+        "hit@50": 0.11,
+        "ndcg@50": 0.05798135124787112
+      }
+    },
+    {
+      "directory": "sdpo_gram_toys_v1",
+      "tag": "epoch2_sdpo",
+      "raw": {
+        "users": 3000,
+        "hit@5": 0.012,
+        "ndcg@5": 0.008101903127492411,
+        "hit@10": 0.017666666666666667,
+        "ndcg@10": 0.009910425552100973,
+        "hit@20": 0.027666666666666666,
+        "ndcg@20": 0.012464385215818862,
+        "hit@50": 0.052,
+        "ndcg@50": 0.017239582492796304
+      },
+      "pcrf": {
+        "users": 3000,
+        "hit@5": 0.025,
+        "ndcg@5": 0.018933266351164286,
+        "hit@10": 0.033,
+        "ndcg@10": 0.021482183165938314,
+        "hit@20": 0.041,
+        "ndcg@20": 0.023522437716831244,
+        "hit@50": 0.052,
+        "ndcg@50": 0.0256555347756641
+      }
+    }
+  ],
+  "training_complete_events": {
+    "sprec_gram_toys_v1": [
+      {
+        "time": "2026-09-11T01:22:37+0800",
+        "event": "mining_complete",
+        "stage": "negative_generation",
+        "round": 1,
+        "step": 109361,
+        "elapsed_seconds": 12274.73,
+        "examples": 109361,
+        "valid_pairs": 103799,
+        "collisions": 5562,
+        "negative_sha256": "04640188e9c86147531a60366421a1a8169b5267274e3147992880745985b358"
+      },
+      {
+        "time": "2026-09-11T02:57:57+0800",
+        "event": "training_complete",
+        "stage": "sft",
+        "round": 1,
+        "step": 855,
+        "elapsed_seconds": 17994.32,
+        "examples": 109361,
+        "checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round1_sft.pt",
+        "loss": 1.1551354613058964,
+        "margin": 0.0,
+        "nll": 1.1551354613058964
+      },
+      {
+        "time": "2026-09-11T05:33:34+0800",
+        "event": "training_complete",
+        "stage": "dpo",
+        "round": 1,
+        "step": 811,
+        "elapsed_seconds": 27332.07,
+        "examples": 103799,
+        "checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round1_dpo.pt",
+        "loss": 0.6857825640580134,
+        "margin": 0.015861558641081623,
+        "nll": 0.9158403352064465
+      },
+      {
+        "time": "2026-09-11T07:06:10+0800",
+        "event": "mining_complete",
+        "stage": "negative_generation",
+        "round": 2,
+        "step": 109361,
+        "elapsed_seconds": 32887.4,
+        "examples": 109361,
+        "valid_pairs": 102971,
+        "collisions": 6390,
+        "negative_sha256": "8b85d914caf64ace6f47a62975365c8ec8e2d05520ddc197d741532080b4f17d"
+      },
+      {
+        "time": "2026-09-11T08:42:14+0800",
+        "event": "training_complete",
+        "stage": "sft",
+        "round": 2,
+        "step": 855,
+        "elapsed_seconds": 38651.54,
+        "examples": 109361,
+        "checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round2_sft.pt",
+        "loss": 1.160613208969111,
+        "margin": 0.0,
+        "nll": 1.160613208969111
+      },
+      {
+        "time": "2026-09-11T11:21:17+0800",
+        "event": "training_complete",
+        "stage": "dpo",
+        "round": 2,
+        "step": 805,
+        "elapsed_seconds": 48194.52,
+        "examples": 102971,
+        "checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round2_dpo.pt",
+        "loss": 0.6872739798822092,
+        "margin": 0.012681800848624435,
+        "nll": 0.9261887505089181
+      },
+      {
+        "time": "2026-09-11T12:53:28+0800",
+        "event": "mining_complete",
+        "stage": "negative_generation",
+        "round": 3,
+        "step": 109361,
+        "elapsed_seconds": 53725.86,
+        "examples": 109361,
+        "valid_pairs": 104932,
+        "collisions": 4429,
+        "negative_sha256": "0601b8aee54e012acf79af210bdcbb18e9044238b2bd50a7917ff0ae0d14c4dc"
+      },
+      {
+        "time": "2026-09-11T14:30:50+0800",
+        "event": "training_complete",
+        "stage": "sft",
+        "round": 3,
+        "step": 855,
+        "elapsed_seconds": 59568.02,
+        "examples": 109361,
+        "checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round3_sft.pt",
+        "loss": 1.157892447038183,
+        "margin": 0.0,
+        "nll": 1.157892447038183
+      },
+      {
+        "time": "2026-09-11T17:04:31+0800",
+        "event": "training_complete",
+        "stage": "dpo",
+        "round": 3,
+        "step": 820,
+        "elapsed_seconds": 68789.28,
+        "examples": 104932,
+        "checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round3_dpo.pt",
+        "loss": 0.6523269313610418,
+        "margin": 0.10111793958206601,
+        "nll": 1.0074999321294569
+      }
+    ],
+    "sdpo_gram_toys_v1": [
+      {
+        "time": "2026-09-11T02:21:03+0800",
+        "event": "mining_complete",
+        "stage": "hard_negative_generation",
+        "round": 0,
+        "step": 109361,
+        "elapsed_seconds": 13025.58,
+        "examples": 109361,
+        "negatives": 437444
+      },
+      {
+        "time": "2026-09-11T06:45:59+0800",
+        "event": "training_complete",
+        "stage": "sdpo",
+        "round": 1,
+        "step": 855,
+        "elapsed_seconds": 28921.47,
+        "examples": 109361,
+        "epoch_step": 855,
+        "checkpoint": "artifacts/phase20/sdpo_gram_toys_v1/epoch1_sdpo.pt",
+        "loss": 1.5435977218025976,
+        "margin": 0.0897217801833472,
+        "positive_nll": 0.9905259280832355
+      },
+      {
+        "time": "2026-09-11T11:35:13+0800",
+        "event": "training_complete",
+        "stage": "sdpo",
+        "round": 2,
+        "step": 1710,
+        "elapsed_seconds": 46275.93,
+        "examples": 109361,
+        "epoch_step": 855,
+        "checkpoint": "artifacts/phase20/sdpo_gram_toys_v1/epoch2_sdpo.pt",
+        "loss": 1.4475163497992911,
+        "margin": 0.2559959932187092,
+        "positive_nll": 1.2982781219617152
+      }
+    ]
+  },
+  "auxiliary": {
+    "pcrf_component_audit_20260911_v2": {
+      "methods": 7,
+      "groups": 3,
+      "users": 19412
+    },
+    "personal_popularity_probe_v1/Toys": {
+      "methods": 6,
+      "groups": 3,
+      "users": 19412
+    }
+  },
+  "statuses": {
+    "artifacts/phase20/followup_queue/status.json": {
+      "state": "COMPLETED",
+      "pid": 1870373,
+      "updated_at": "2026-09-11T18:14:24+0800",
+      "automatic_retry": false,
+      "test_read": false,
+      "child_exit_code": 0,
+      "child_status": {
+        "state": "COMPLETED",
+        "dataset": "Toys",
+        "pid": 1870388,
+        "mode": "run",
+        "updated_at": "2026-09-11T18:14:22+0800",
+        "elapsed_seconds": 11431.643445968628,
+        "test_read": false,
+        "new_optimizer_steps": 0
+      },
+      "output": "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2"
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_smoke_v2/status.json": {
+      "state": "FAILED",
+      "error": "RuntimeError('CUDA out of memory. Tried to allocate 264.00 MiB (GPU 0; 47.43 GiB total capacity; 5.14 GiB already allocated; 255.19 MiB free; 18.97 GiB allowed; 5.43 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF')",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/evaluate_gacr_pcrf.py\", line 294, in main\n    run.smoke()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/evaluate_gacr_pcrf.py\", line 162, in smoke\n    before = self.candidate(index, capture=False)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/autograd/grad_mode.py\", line 27, in decorate_context\n    return func(*args, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/evaluate_gacr_pcrf.py\", line 91, in candidate\n    record = build_candidate_record(self.sample(index), self.prepared, self.config, self.device)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/autograd/grad_mode.py\", line 27, in decorate_context\n    return func(*args, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase4/gacr_s0.py\", line 132, in build_candidate_record\n    prediction = model.backbone.generate(\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram.py\", line 160, in generate\n    outputs = super().generate(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/autograd/grad_mode.py\", line 27, in decorate_context\n    return func(*args, **kwargs)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/generation/utils.py\", line 1474, in generate\n    return self.beam_search(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/generation/utils.py\", line 2795, in beam_search\n    model_kwargs[\"past_key_values\"] = self._reorder_cache(model_kwargs[\"past_key_values\"], beam_idx)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram_t5.py\", line 335, in _reorder_cache\n    layer_past_state.index_select(\nRuntimeError: CUDA out of memory. Tried to allocate 264.00 MiB (GPU 0; 47.43 GiB total capacity; 5.14 GiB already allocated; 255.19 MiB free; 18.97 GiB allowed; 5.43 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF\n",
+      "pid": 1851286,
+      "mode": "smoke",
+      "updated_at": "2026-09-11T14:59:30+0800",
+      "automatic_retry": false,
+      "test_read": false
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_smoke_v3/status.json": {
+      "state": "PASSED",
+      "dataset": "Toys",
+      "pid": 1859128,
+      "mode": "smoke",
+      "updated_at": "2026-09-11T15:02:22+0800",
+      "elapsed_seconds": 77.63903617858887,
+      "test_read": false,
+      "new_optimizer_steps": 0
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/status.json": {
+      "state": "COMPLETED",
+      "dataset": "Toys",
+      "pid": 1870388,
+      "mode": "run",
+      "updated_at": "2026-09-11T18:14:22+0800",
+      "elapsed_seconds": 11431.643445968628,
+      "test_read": false,
+      "new_optimizer_steps": 0
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_smoke_v1/status.json": {
+      "state": "PASSED",
+      "dataset": "Toys",
+      "pid": 1737536,
+      "mode": "smoke",
+      "updated_at": "2026-09-11T14:32:27+0800",
+      "elapsed_seconds": 36.556159257888794,
+      "test_read": false,
+      "new_optimizer_steps": 0
+    },
+    "artifacts/phase20/gacr_v6_pcrf_toys_v1/status.json": {
+      "state": "STOPPED",
+      "error": "Stopped('SIGNAL_15')",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/evaluate_gacr_pcrf.py\", line 236, in main\n    run.run_full()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/evaluate_gacr_pcrf.py\", line 148, in run_full\n    self.check_stop()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 99, in check_stop\n    raise Stopped(self.stop_reason)\nexperiment.phase20.run_preference.Stopped: SIGNAL_15\n",
+      "pid": 1762310,
+      "mode": "run",
+      "updated_at": "2026-09-11T14:54:36+0800",
+      "automatic_retry": false,
+      "test_read": false
+    },
+    "artifacts/phase20/overview/status.json": {
+      "state": "FINISHED_WITH_ERRORS",
+      "all_finished": true,
+      "all_succeeded": false,
+      "updated_at": "2026-09-11T19:55:58+0800",
+      "observer_pid": 2436903,
+      "refresh_seconds": 30,
+      "jobs": {
+        "SPRec": {
+          "state": "COMPLETED",
+          "finished": true,
+          "status_file": "artifacts/phase20/status.json",
+          "detail_file": "artifacts/phase20/sprec_gram_toys_v1/status.json",
+          "summary_file": "artifacts/phase20/sprec_gram_toys_v1/summary.json",
+          "dataset": "Toys",
+          "progress": {
+            "stage": "initializing",
+            "round_or_epoch": null,
+            "examples": null,
+            "total": null,
+            "optimizer_step": null,
+            "last_update": "2026-09-11T19:55:43+0800"
+          },
+          "rough_total_time_estimate": {
+            "Toys_hours": [
+              24,
+              72
+            ],
+            "with_conditional_Beauty_days": [
+              2,
+              6
+            ],
+            "basis": "planning window revised for observed throughput fluctuation; no complete training round timed yet; deadline may stop an incomplete run",
+            "per_domain_deadline_hours": 72
+          },
+          "execution_success_is_not_accuracy_gain": true,
+          "available_result": {
+            "raw_ndcg_delta_vs_gram": -0.0022516459720751253,
+            "combined_ndcg_delta_vs_original_pcrf": -0.0014548352089886196,
+            "decision": "NO_POSITIVE_SIGNAL_THIS_CONFIG",
+            "positive_signal": null
+          }
+        },
+        "S-DPO": {
+          "state": "STOPPED",
+          "finished": true,
+          "status_file": "artifacts/phase20/sdpo_gram_toys_v1/status.json",
+          "detail_file": "artifacts/phase20/sdpo_gram_toys_v1/status.json",
+          "summary_file": "artifacts/phase20/sdpo_gram_toys_v1/summary.json",
+          "dataset": "Toys",
+          "progress": {
+            "stage": "sdpo",
+            "round_or_epoch": null,
+            "examples": null,
+            "total": null,
+            "optimizer_step": null,
+            "last_update": "2026-09-11T14:08:28+0800"
+          },
+          "rough_total_time_estimate": {
+            "Toys_hours": [
+              24,
+              48
+            ],
+            "basis": "planning window revised for observed throughput fluctuation; no complete epoch timed yet; deadline may stop an incomplete run",
+            "deadline_hours": 48
+          },
+          "execution_success_is_not_accuracy_gain": true,
+          "error": "Stopped('SIGNAL_15')"
+        }
+      },
+      "note": "Only all_finished=true means both configured jobs have ended. COMPLETED is execution completion, not a positive research result."
+    },
+    "artifacts/phase20/pcrf_component_audit_20260911/status.json": {
+      "state": "FAILED",
+      "pid": 3,
+      "updated_at": "2026-09-11T16:14:52+0800",
+      "elapsed_seconds": 2.45,
+      "error": "AssertionError()"
+    },
+    "artifacts/phase20/pcrf_component_audit_20260911_v2/status.json": {
+      "state": "COMPLETED",
+      "pid": 3,
+      "updated_at": "2026-09-11T16:17:37+0800",
+      "elapsed_seconds": 84.65,
+      "summary": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase20/pcrf_component_audit_20260911_v2/summary.json"
+    },
+    "artifacts/phase20/personal_popularity_probe_v1/Beauty_smoke/status.json": {
+      "state": "COMPLETED",
+      "stage": "smoke_passed",
+      "pid": 2,
+      "updated_at": "2026-09-11 17:58:18 +0800",
+      "elapsed_seconds": 20.78,
+      "dataset": "Beauty",
+      "mode": "smoke",
+      "gpu_used": false
+    },
+    "artifacts/phase20/personal_popularity_probe_v1/Toys/status.json": {
+      "state": "COMPLETED",
+      "stage": "finished",
+      "pid": 2908575,
+      "updated_at": "2026-09-11 17:59:58 +0800",
+      "elapsed_seconds": 82.9,
+      "dataset": "Toys",
+      "mode": "run",
+      "gpu_used": false,
+      "summary": "artifacts/phase20/personal_popularity_probe_v1/Toys/summary.json"
+    },
+    "artifacts/phase20/personal_popularity_probe_v1/Toys_smoke/status.json": {
+      "state": "COMPLETED",
+      "stage": "smoke_passed",
+      "pid": 2,
+      "updated_at": "2026-09-11 17:54:40 +0800",
+      "elapsed_seconds": 7.61,
+      "dataset": "Toys",
+      "mode": "smoke",
+      "gpu_used": false
+    },
+    "artifacts/phase20/personal_popularity_probe_v1/queue_status.json": {
+      "state": "COMPLETED",
+      "supervisor_pid": 2908522,
+      "updated_at": "2026-09-11 17:59:59 +0800",
+      "automatic_retry": false,
+      "gpu_used": false,
+      "completed_domains": [
+        "Toys"
+      ],
+      "beauty": "NOT_TRIGGERED"
+    },
+    "artifacts/phase20/report_watch/status.json": {
+      "state": "COMPLETED",
+      "pid": 1870442,
+      "updated_at": "2026-09-11 19:55:52 +0800",
+      "all_monitored_jobs_finished": true,
+      "refresh_seconds": 30,
+      "reports": [
+        "GRAM_第二十阶段_实验总报告.md",
+        "Stage20_SPRec运行与最终结果报告.md",
+        "Stage20_round1_SFT全量验证报告.md",
+        "Stage20_GACR_v6_PCRF组合评估报告.md"
+      ]
+    },
+    "artifacts/phase20/round1_sft_full_v1/status.json": {
+      "state": "COMPLETED",
+      "dataset": "Toys",
+      "pid": 1658394,
+      "updated_at": "2026-09-11T16:59:25+0800",
+      "elapsed_seconds": 9963.200033187866,
+      "test_read": false,
+      "optimizer_steps": 0
+    },
+    "artifacts/phase20/sdpo_gram_toys_smoke_v1/status.json": {
+      "state": "COMPLETED",
+      "method": "S-DPO-hard4",
+      "mode": "smoke",
+      "dataset": "Toys",
+      "pid": 2357564,
+      "updated_at": "2026-09-10T22:34:34+0800",
+      "elapsed_seconds": 39.97343373298645,
+      "test_read": false
+    },
+    "artifacts/phase20/sdpo_gram_toys_v1/status.json": {
+      "state": "STOPPED",
+      "error": "Stopped('SIGNAL_15')",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_sdpo.py\", line 296, in main\n    run.run()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_sdpo.py\", line 240, in run\n    self.train_epoch(bank)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_sdpo.py\", line 143, in train_epoch\n    self.check_stop()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 99, in check_stop\n    raise Stopped(self.stop_reason)\nexperiment.phase20.run_preference.Stopped: SIGNAL_15\n",
+      "pid": 2408042,
+      "stage": "sdpo",
+      "mode": "run",
+      "updated_at": "2026-09-11T14:08:28+0800",
+      "test_read": false
+    },
+    "artifacts/phase20/sprec_gram_toys_smoke_v1/status.json": {
+      "state": "FAILED",
+      "mode": "smoke",
+      "dataset": "Toys",
+      "error": "AssertionError('Missing/nonfinite gradient in position_embedding.')",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 468, in main\n    signal.signal(signal.SIGTERM, stop)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 400, in run\n    self.smoke()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 366, in smoke\n    raise AssertionError(f'Missing/nonfinite gradient in {prefix}')\nAssertionError: Missing/nonfinite gradient in position_embedding.\n",
+      "pid": 2019119,
+      "stage": "smoke",
+      "round": 0,
+      "step": 0,
+      "last_checkpoint": null,
+      "updated_at": "2026-09-10T21:30:44+0800",
+      "test_read": false
+    },
+    "artifacts/phase20/sprec_gram_toys_smoke_v2/status.json": {
+      "state": "FAILED",
+      "mode": "smoke",
+      "dataset": "Toys",
+      "error": "AssertionError('Native parent/PCRF rank parity failed')",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 491, in main\n    run.run()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 419, in run\n    self.smoke()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 398, in smoke\n    raise AssertionError('Native parent/PCRF rank parity failed')\nAssertionError: Native parent/PCRF rank parity failed\n",
+      "pid": 2041695,
+      "stage": "validation_parent_smoke",
+      "round": 0,
+      "step": 0,
+      "last_checkpoint": null,
+      "updated_at": "2026-09-10T21:35:14+0800",
+      "test_read": false
+    },
+    "artifacts/phase20/sprec_gram_toys_smoke_v3/status.json": {
+      "state": "FAILED",
+      "mode": "smoke",
+      "dataset": "Toys",
+      "error": "RuntimeError('probability tensor contains either `inf`, `nan` or element < 0')",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 536, in main\n    run.run()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 455, in run\n    self.smoke()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 440, in smoke\n    negatives, valid = self.mine()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 197, in mine\n    sampled = self.sample_negative(self.model, batch)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/autograd/grad_mode.py\", line 27, in decorate_context\n    return func(*args, **kwargs)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/run_preference.py\", line 175, in sample_negative\n    sequences = model.generate(input_ids=batch['item_text_ids'].to(self.device),\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/GRAM/src/model/gram.py\", line 160, in generate\n    outputs = super().generate(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/torch/autograd/grad_mode.py\", line 27, in decorate_context\n    return func(*args, **kwargs)\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/generation/utils.py\", line 1437, in generate\n    return self.sample(\n  File \"/home/jiangtangyunzhi/miniconda3/envs/gram-repro/lib/python3.9/site-packages/transformers/generation/utils.py\", line 2479, in sample\n    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)\nRuntimeError: probability tensor contains either `inf`, `nan` or element < 0\n",
+      "pid": 2081393,
+      "stage": "negative_generation",
+      "round": 1,
+      "step": 0,
+      "last_checkpoint": null,
+      "updated_at": "2026-09-10T21:42:37+0800",
+      "test_read": false
+    },
+    "artifacts/phase20/sprec_gram_toys_smoke_v4/status.json": {
+      "state": "COMPLETED",
+      "mode": "smoke",
+      "dataset": "Toys",
+      "pid": 2092785,
+      "updated_at": "2026-09-10T21:44:42+0800",
+      "elapsed_seconds": 48.12236571311951,
+      "last_checkpoint": "artifacts/phase20/sprec_gram_toys_smoke_v4/round1_dpo.pt",
+      "test_read": false
+    },
+    "artifacts/phase20/sprec_gram_toys_v1/status.json": {
+      "state": "COMPLETED",
+      "mode": "run",
+      "dataset": "Toys",
+      "pid": 2175678,
+      "updated_at": "2026-09-11T19:55:43+0800",
+      "elapsed_seconds": 79060.46098828316,
+      "last_checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round3_dpo.pt",
+      "test_read": false
+    },
+    "artifacts/phase20/status.json": {
+      "state": "COMPLETED",
+      "stage": 20,
+      "supervisor_pid": 2175668,
+      "updated_at": "2026-09-11T19:55:46+0800",
+      "tmux_session": "s20_sprec_gram_v1",
+      "test_read": false,
+      "completed_domains": [
+        "Toys"
+      ],
+      "beauty": "NOT_TRIGGERED",
+      "reason": "No positive full-validation raw or incremental PCRF NDCG signal under the fixed rule"
+    }
+  },
+  "input_sha256": {
+    "artifacts/phase18/diff_gram/prepared_v2_categories/catalog.json": "2a03a849d0c7ccf8c06adfa5601ae3b9dc15622602ee126ccbdd3e68d7033a3f",
+    "artifacts/phase20/sprec_gram_toys_v1/manifest.json": "c7f1103b89c78137dda5ff09fee7cfd629e579b1ebfeed976272b2d9d767a968",
+    "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+    "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb",
+    "artifacts/phase20/sprec_gram_toys_v1/parent_full.ranks.tsv": "35cabe127cde353ff8b6930e23eacc120effb81f9b08ce7e01a99d5c15bc719a",
+    "artifacts/phase20/sprec_gram_toys_v1/matched_parent_reference.json": "2ca982df205389971aba02291a6406c6e422aa36dd94225e56137298c989b33e",
+    "artifacts/phase20/sprec_gram_toys_v1/parent_full.predictions.jsonl": "2d7e26c86b84e558bc7c06037697f5557a1de5e9d04d4ff4c72d8e5a7205ae5a",
+    "artifacts/phase20/sprec_gram_toys_v1/summary.json": "15c267176551b2292131783a85844f3af99b8dc514e34ac4a2ca58e0d6875308",
+    "artifacts/phase20/round1_sft_full_v1/summary.json": "57281f490d5ba2dc698197655ea5bd8a0de7d5634fee6886779eea939fd6caff",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo_full.ranks.tsv": "77ea783276567c1adb25f779db5b16d9a063ebb0ae64a1f3a4cb5fd603f58d78",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo_full.predictions.jsonl": "0d7f69e4f91a341e71e7ccbcba241b65e6a7cdb178fb21af0139a659a87ca993",
+    "artifacts/phase20/round1_sft_full_v1/round1_sft_full.ranks.tsv": "041d541f1927431ba6845db788806b5ea129943a7d0ba0bbd205b483f0dfd155",
+    "artifacts/phase20/round1_sft_full_v1/round1_sft_full.predictions.jsonl": "0f7b0dc14b49f10832ab0afa5ead466a4b587077b136a4ac32c5b713fadd2693",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/summary.json": "73cf258ff88d4f35b474e6415d9ee78dd271f00edd7b23dc6121574f64328c65",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/per_user.tsv": "4a3835255b05484c0080b93e74f410fed52c053634e26dc832cc0ff58597fd8b",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/c1.predictions.jsonl": "ae68afb79e8872933aa03c9f0d4f14bb07ce7c60320ce1793185caa690ce5f42",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/gacr.predictions.jsonl": "d99c1fdd870c43af12c9452f972cb6e5e1fc17eac28a220660b0a47491e74246",
+    "artifacts/phase20/sprec_gram_toys_v1/selection_indices.json": "a616b7fe7c7670934c63e094c7b4ae55bd2e6f7b83a586c059d0cc9cd09883cb",
+    "artifacts/phase20/sdpo_gram_toys_v1/selection_indices.json": "a616b7fe7c7670934c63e094c7b4ae55bd2e6f7b83a586c059d0cc9cd09883cb",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_sft.metrics.json": "57aad944c6f3bbb4611ca48e5e567e4f16ebe3a0b632e6d8469d7ccf70b178b1",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_sft.ranks.tsv": "835247dbd92d787eb7ef971ffb25c6bd59c02d28ed5ef3435e4013e207a7efba",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_sft.predictions.jsonl": "56fbeddef04a1e5d3f8bfb2499b49853762de944dc73c511ac0614b23dd3fb3b",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo.metrics.json": "216a89f3a0b1209c30577e5128483fb0f9da3c92ff10a565df3050b7227bdde2",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo.ranks.tsv": "3af4dff0679a89bb7842841516523df0c56e81b28b05be32de123d339cc94a36",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_dpo.predictions.jsonl": "3a390f1f7dd8a5f9e8ebf5cec5712c91003f04e6e58976343aa3e9720477d6d6",
+    "artifacts/phase20/sprec_gram_toys_v1/round2_sft.metrics.json": "5e31bf36bae90f303198b3503eb1a19e64ed8ab37930f4e62f9f9724c6c1d5ed",
+    "artifacts/phase20/sprec_gram_toys_v1/round2_sft.ranks.tsv": "65d22e16561776d65017b4b18a0d0743be2a5b585c16be8eb3a722f025d478eb",
+    "artifacts/phase20/sprec_gram_toys_v1/round2_sft.predictions.jsonl": "e07482f51c6d43ceb10fc6f1e75133bfc684bc65f7ffb5f914bd0c1cbcce8881",
+    "artifacts/phase20/sprec_gram_toys_v1/round2_dpo.metrics.json": "96888ab552fc440394557dfdb83602576de73471545284d5bba2f955adbad9ad",
+    "artifacts/phase20/sprec_gram_toys_v1/round2_dpo.ranks.tsv": "da275ec341d2406d9b3b9a86254f19337dacb74f1fb0785ae0fc4543ba70f6d8",
+    "artifacts/phase20/sprec_gram_toys_v1/round2_dpo.predictions.jsonl": "05d39a5dd8dd0ab64715996b1d84875dfce913674d89cf5dc71d7722b3006110",
+    "artifacts/phase20/sprec_gram_toys_v1/round3_sft.metrics.json": "91b95b0d0d6eddd28d3a375b4aae95dcd14cdb2fdfc8a77152194cad61ba01b3",
+    "artifacts/phase20/sprec_gram_toys_v1/round3_sft.ranks.tsv": "b4208c825c6c46fcceeebebdaed433dd6a796323e234cca7313eb379b1157021",
+    "artifacts/phase20/sprec_gram_toys_v1/round3_sft.predictions.jsonl": "9533708c5bc8ae9c40e6d10e2061498f8acfaa706367cbb8fb434afd9da99352",
+    "artifacts/phase20/sprec_gram_toys_v1/round3_dpo.metrics.json": "347e9e9e8c9534cc1edca9094b68a8194b76fc00c7858e581371f4140d2fa6bf",
+    "artifacts/phase20/sprec_gram_toys_v1/round3_dpo.ranks.tsv": "31e5d5465bd86f3c99da5e34400dd9f615cef0f0ca933006e52a91b94f8e5e9e",
+    "artifacts/phase20/sprec_gram_toys_v1/round3_dpo.predictions.jsonl": "820a56bb622634df4e678ce35e9fd34ef433adafc6cc4a28efa3e67b92f8ea01",
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch1_sdpo.metrics.json": "1da66db5c16992f15a1876a602b492b03468813ee11dc08cab3023e760d22c7d",
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch1_sdpo.ranks.tsv": "eddcc3c75decde69d304f234b2a8438cc7948f8a1ebb7e02676510d19a3f9e44",
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch1_sdpo.predictions.jsonl": "fc51ec1c9e56b843ddabdd7c050e824154692fb09962e865fc16bd6232196290",
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch2_sdpo.metrics.json": "470ebb7e65bdc18a67c89db3a288ab9b38cdc1f72fe3c8e82d3fb24b26a044bf",
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch2_sdpo.ranks.tsv": "acf5e1cb2699ca080dfb526640c4e2d22d43deda08be4cbe1376f08227be99a6",
+    "artifacts/phase20/sdpo_gram_toys_v1/epoch2_sdpo.predictions.jsonl": "1ad12170cb91bf64f870f997b34eadf9c46c8fa32199b49832b1420a7b406132",
+    "artifacts/phase20/pcrf_component_audit_20260911_v2/summary.json": "ae8a60884c78096cc6b929b38d6204f0c65401a05a20032fa63a6cdd12128670",
+    "artifacts/phase20/pcrf_component_audit_20260911_v2/per_user.tsv": "183672487ae11a6d479f3c5cfe3bf2921b1f06f81d3a6aa648ad1a57768845b2",
+    "artifacts/phase20/personal_popularity_probe_v1/Toys/summary.json": "a686b9015c9f467c5c294d6ecd37398bfaa07e12dfaebd96647742c253951771",
+    "artifacts/phase20/personal_popularity_probe_v1/Toys/per_user.tsv": "e62d2a365ff6e380a9f49d438732b10b669e22a787a380e58d5d238ab3200734",
+    "artifacts/phase20/sprec_gram_toys_v1/events.jsonl": "23503289a8cdf3aada50e3b4702e21ef03d46360db9750c2a5a58f5d6934e85a",
+    "artifacts/phase20/sdpo_gram_toys_v1/events.jsonl": "fece8f0eb914a521cba1ef1ca1e55c2a30b503bfb58ba86423ad67725c1faa49",
+    "experiment/phase20/gacr_v6_pcrf_toys_v1.json": "9860050d9ef8c07859f47821655521934ab4f394fddaee90898a0b4e41b1f285",
+    "artifacts/phase4/gcdh_p0/Toys/C1/model.pt": "1307ab9d3aa5e56af97fad7276d63cb276260efd3d314b199e350a611c798af6",
+    "artifacts/phase6/gacr_v6/Toys/residual_seed2023.pt": "c05f812ee4204602b58119e0411f08e4aa06c99d8ab277e2861ad48d2d9ce68c",
+    "GRAM/rec_datasets/Toys/item_generative_indexing_hierarchy_v1_c32_l5_len32768_split.txt": "108282ba2add739ab9e096cfc438fa8d806a53baec3b098d534673117c89b11e",
+    "artifacts/phase4/gcdh_p0_splits/Toys/train_users.txt": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+    "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "experiment/phase4/gacr_s0.py": "556b960a04b423353b75d3dddf327cd4af2a8ee3666dc45ce65178d0f0dc46cc",
+    "experiment/phase4/gcdh_p0.py": "cae662891aa431a391482c4284f26356d5c3fde2c3a0b2b024e90f9fa65cdb4f",
+    "experiment/phase9/eval_cf0_b4_reliability.py": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "experiment/phase20/gacr_features.py": "b1d31cca6afcea86739062a474cc5e5f3a2297014823a5f24e78fde565bc2428",
+    "experiment/phase20/evaluate_gacr_pcrf.py": "d4d10acc02e4621b8b866af8f093d7b339b1295d11202eaa67af9bff43d5a45f",
+    "artifacts/phase20/sprec_gram_toys_v1/round1_sft.pt": "d88678743b9d4650057647aa644ecb3e78dd82dcdb4138642f9a85e671e20193",
+    "artifacts/phase20/sdpo_gram_toys_v1/stop_receipt.json": "7df303717ce7675ecee787c0926a592b0f1eebf8a6b63542385e80004a10fb9a",
+    "artifacts/phase20/sdpo_gram_toys_v1/last_progress.pt": "b661eae5d647cc185219e24c7f8545a44ecc2edcb8fedc0d53b8bddf678e880f",
+    "artifacts/phase20/followup_queue/status.json": "7a419a6ed957672634d5a86a3c313216338453b95ca31c673e4bef32fd7e040c",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_smoke_v2/status.json": "d0e3d2e744573edfc30ae9e7e34f9952bf237e5635fee5a3c8bea25d509b5508",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_smoke_v3/status.json": "d7987769da4a440d354e2a0981185868713f93e7b55cd4530532031dcfbdf674",
+    "artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/status.json": "6030779cdf29b198b9a10e343a935f84b7d1a73aff7619252f32a57607970c7b",
+    "artifacts/phase20/gacr_v6_pcrf_toys_smoke_v1/status.json": "973049ed3af5b97bb5092e2cd9b27a58915d8ff95d68974a1aa08e4bba720934",
+    "artifacts/phase20/gacr_v6_pcrf_toys_v1/status.json": "5339e2432f068c500700ae177834b2b16395b287a86e22052d113e2af58c0920",
+    "artifacts/phase20/overview/status.json": "48ebf0d00b11171c99a4420753aa333f57a06da555e631fe3114c58b4a64e9db",
+    "artifacts/phase20/pcrf_component_audit_20260911/status.json": "541de94a5ac55cce79fc124fef79a61a048a7229eb6f64168ac7b36f4f7670f1",
+    "artifacts/phase20/pcrf_component_audit_20260911_v2/status.json": "d2b9395a1dec354053818486c8d2634510094711e6a47ff690864b6496ffc0ab",
+    "artifacts/phase20/personal_popularity_probe_v1/Beauty_smoke/status.json": "ed36195eeb10234062d322b6abe507074283d15d60c6ff67de56e45fdbaadb0e",
+    "artifacts/phase20/personal_popularity_probe_v1/Toys/status.json": "ae946eb545e03ae8c1abee38fc8b32962f5d9ea331312b9fbcd5c438004cae92",
+    "artifacts/phase20/personal_popularity_probe_v1/Toys_smoke/status.json": "8247d7436c1d9b4b2994e2b6cc58695f10eae4065e9b8aaf243e7867e4c08a51",
+    "artifacts/phase20/personal_popularity_probe_v1/queue_status.json": "09e4a1a62e0c8fac298bbb7cc257c7d409765f5ceb9ad8b2d6d28d40df3cee67",
+    "artifacts/phase20/report_watch/status.json": "8ddf387a367379138a016168fe639ef65c0cbd712f39f1f361e3056a9822cd46",
+    "artifacts/phase20/round1_sft_full_v1/status.json": "ad12ed6bb7170eef84b2030a517c5d77da454a4fe2eb8f63b07be378e03ff3e1",
+    "artifacts/phase20/sdpo_gram_toys_smoke_v1/status.json": "fb17c3e56e6f95cae31fa53bdfa31f73e436416fd5beff60b1391e48c205d348",
+    "artifacts/phase20/sdpo_gram_toys_v1/status.json": "097ddab498908b0f896ea7fb9726a2529c8d222f3a28a648bc016fa6508d0ecd",
+    "artifacts/phase20/sprec_gram_toys_smoke_v1/status.json": "db8a02f0300d5409a8205695990cda98f365ba5d0ebfedd9b8fae2a5b153c361",
+    "artifacts/phase20/sprec_gram_toys_smoke_v2/status.json": "e3deeae431e2dcbe32990f016786fbf49621d47b49dedbd3d6ff18ccc4af24bb",
+    "artifacts/phase20/sprec_gram_toys_smoke_v3/status.json": "5d7c94559b9d639d0240d27a6de415014c167bfb933250ba83a5ae4849ac63e1",
+    "artifacts/phase20/sprec_gram_toys_smoke_v4/status.json": "a9d227bac4780d5046f48bb2c92d36e8a400a3ce65ea5fc4ed7da42b8c5dce31",
+    "artifacts/phase20/sprec_gram_toys_v1/status.json": "1b44bb0f3b336eb6198370fcf4f826d01c8c65751d1d3b00088940a0a3cdb3be",
+    "artifacts/phase20/status.json": "56ba3b146e945a564334eeab500bf957b1efcbcf8c73227715c567bffa94f1e5"
+  }
+}

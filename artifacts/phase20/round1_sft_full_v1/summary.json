@@ -1,0 +1,134 @@
+{
+  "state": "COMPLETED",
+  "evaluation_checkpoint": "artifacts/phase20/sprec_gram_toys_v1/round1_sft.pt",
+  "checkpoint_sha256": "d88678743b9d4650057647aa644ecb3e78dd82dcdb4138642f9a85e671e20193",
+  "full_validation": {
+    "tag": "round1_sft_full",
+    "raw": {
+      "users": 19412,
+      "hit@5": 0.09030496600041212,
+      "ndcg@5": 0.06674375639626048,
+      "hit@10": 0.11920461570162785,
+      "ndcg@10": 0.07603906241374517,
+      "hit@20": 0.15413146507315062,
+      "ndcg@20": 0.08484369139759988,
+      "hit@50": 0.21198227900267874,
+      "ndcg@50": 0.09633231566698688
+    },
+    "pcrf": {
+      "users": 19412,
+      "hit@5": 0.09334432309911395,
+      "ndcg@5": 0.06831083058084293,
+      "hit@10": 0.12481969915516175,
+      "ndcg@10": 0.07845138578899975,
+      "hit@20": 0.16361013805893262,
+      "ndcg@20": 0.08823730122111768,
+      "hit@50": 0.21198227900267874,
+      "ndcg@50": 0.09793064885336641
+    },
+    "original_gram": {
+      "users": 19412,
+      "hit@5": 0.09097465485266845,
+      "ndcg@5": 0.06717604174981623,
+      "hit@10": 0.11915310117453122,
+      "ndcg@10": 0.07623069353007147,
+      "hit@20": 0.15444055223573047,
+      "ndcg@20": 0.0851310887595669,
+      "hit@50": 0.21208530805687204,
+      "ndcg@50": 0.09658233391920465
+    },
+    "original_gram_pcrf": {
+      "users": 19412,
+      "hit@5": 0.09355038120750052,
+      "ndcg@5": 0.06845938987162059,
+      "hit@10": 0.1252318153719349,
+      "ndcg@10": 0.07867887550797592,
+      "hit@20": 0.1645889140737688,
+      "ndcg@20": 0.08859030638243687,
+      "hit@50": 0.21208530805687204,
+      "ndcg@50": 0.09809438726612879
+    },
+    "historical_gram": {
+      "users": 19412,
+      "hit@5": 0.0909231403255718,
+      "ndcg@5": 0.06713487106644733,
+      "hit@10": 0.11941067381001443,
+      "ndcg@10": 0.07627451425999993,
+      "hit@20": 0.15444055223573047,
+      "ndcg@20": 0.08510430222346627,
+      "hit@50": 0.21193076447558212,
+      "ndcg@50": 0.09653217535352775
+    },
+    "historical_gram_pcrf": {
+      "users": 19412,
+      "hit@5": 0.0936534102616938,
+      "ndcg@5": 0.06850763766741287,
+      "hit@10": 0.12533484442612816,
+      "ndcg@10": 0.07871552229273794,
+      "hit@20": 0.16427982691118895,
+      "ndcg@20": 0.08852973505762471,
+      "hit@50": 0.21193076447558212,
+      "ndcg@50": 0.09807061245580449
+    },
+    "comparator": "matched_fp32_parent",
+    "scope": "full_validation",
+    "test_read": false,
+    "descriptive_paired_ci": {
+      "raw_minus_gram": {
+        "hit@10": {
+          "delta": 5.151452709664125e-05,
+          "paired_bootstrap_95ci": [
+            -0.00046363074386977126,
+            0.0005666597980630537
+          ]
+        },
+        "ndcg@10": {
+          "delta": -0.00019163111632631232,
+          "paired_bootstrap_95ci": [
+            -0.00041200363174691897,
+            2.682735777775636e-05
+          ]
+        }
+      },
+      "pcrf_minus_gram": {
+        "hit@10": {
+          "delta": 0.0056665979806305375,
+          "paired_bootstrap_95ci": [
+            0.0036060168967648877,
+            0.007675664537399546
+          ]
+        },
+        "ndcg@10": {
+          "delta": 0.0022206922589282667,
+          "paired_bootstrap_95ci": [
+            0.0012254411801722396,
+            0.0032226828493822405
+          ]
+        }
+      },
+      "pcrf_minus_original_pcrf": {
+        "hit@10": {
+          "delta": -0.00041211621677313,
+          "paired_bootstrap_95ci": [
+            -0.0009787760148361837,
+            0.000206058108386565
+          ]
+        },
+        "ndcg@10": {
+          "delta": -0.00022748971897616703,
+          "paired_bootstrap_95ci": [
+            -0.000440023542601421,
+            -6.28610370366414e-06
+          ]
+        }
+      }
+    },
+    "ci_caveat": "Validation reused across historical experiments; selected model; descriptive CI, not independent confirmation."
+  },
+  "raw_ndcg_delta_vs_gram": -0.00019163111632630736,
+  "combined_ndcg_delta_vs_original_pcrf": -0.00022748971897616765,
+  "positive_signal": false,
+  "new_optimizer_steps": 0,
+  "test_read": false,
+  "scope": "Saved first-round SFT checkpoint; not a training-budget-matched control for three-round SPRec."
+}

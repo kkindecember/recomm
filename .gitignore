@@ -1,5 +1,6 @@
 .cache/
 .runtime/
+
 check.sh
 
 # GRAM is vendored in recomm. Keep any upstream Git metadata backup local only.
@@ -444,3 +445,159 @@ artifacts/**/current_dataset.txt
 !/artifacts/phase20/gacr_v6_pcrf_toys_fast_v2/summary.json
 !/artifacts/phase20/gacr_v6_pcrf_toys_v1/
 !/artifacts/phase20/gacr_v6_pcrf_toys_v1/engineering_stop.json
+
+# Completed fixed PCRF component audit; detailed per-user ranks stay local.
+!/artifacts/phase20/pcrf_component_audit_20260911_v2/
+!/artifacts/phase20/pcrf_component_audit_20260911_v2/protocol.json
+!/artifacts/phase20/pcrf_component_audit_20260911_v2/summary.json
+
+# PP signal experiment: retain only compact reproducible evidence.
+!/artifacts/phase20/personal_popularity_probe_v1/
+!/artifacts/phase20/personal_popularity_probe_v1/Toys/
+!/artifacts/phase20/personal_popularity_probe_v1/Beauty/
+!/artifacts/phase20/personal_popularity_probe_v1/Toys_smoke/
+!/artifacts/phase20/personal_popularity_probe_v1/Beauty_smoke/
+!/artifacts/phase20/personal_popularity_probe_v1/Toys/summary.json
+!/artifacts/phase20/personal_popularity_probe_v1/Toys/protocol.json
+!/artifacts/phase20/personal_popularity_probe_v1/Beauty/summary.json
+!/artifacts/phase20/personal_popularity_probe_v1/Beauty/protocol.json
+!/artifacts/phase20/personal_popularity_probe_v1/Toys_smoke/smoke.json
+!/artifacts/phase20/personal_popularity_probe_v1/Beauty_smoke/smoke.json
+
+# Stage20 completed audit and frozen score-control / Beauty transfer evidence.
+# Large predictions, features, live process state and model weights stay local.
+!/artifacts/phase20/review_20260912/
+!/artifacts/phase20/review_20260912/audit_completed.py
+!/artifacts/phase20/review_20260912/audit.json
+!/artifacts/phase20/review_20260912/full_validation_metrics.csv
+!/artifacts/phase20/review_20260912/verify_controls.py
+!/artifacts/phase20/review_20260912/controls_verification.json
+!/artifacts/phase20/review_20260912/verify_multiseed_completion.py
+!/artifacts/phase20/review_20260912/multiseed_completion_verification.json
+!/artifacts/phase20/review_20260912/multiseed_full_metrics.csv
+!/artifacts/phase20/review_20260912/verify_beauty_completion.py
+!/artifacts/phase20/review_20260912/beauty_completion_verification.json
+!/artifacts/phase20/review_20260912/beauty_full_validation_metrics.csv
+!/artifacts/phase20/gacr_score_controls_toys_v1/
+!/artifacts/phase20/gacr_score_controls_toys_v1/protocol.json
+!/artifacts/phase20/gacr_score_controls_toys_v2/
+!/artifacts/phase20/gacr_score_controls_toys_v2/protocol.json
+!/artifacts/phase20/gacr_score_controls_toys_v2/parity.json
+!/artifacts/phase20/gacr_score_controls_toys_v2/engineering_revision.json
+!/artifacts/phase20/gacr_score_controls_toys_v2/summary.json
+!/artifacts/phase20/gacr_beauty_parent_smoke_v1/
+!/artifacts/phase20/gacr_beauty_parent_smoke_v1/smoke.json
+!/artifacts/phase20/gacr_v6_pcrf_beauty_smoke_v1/
+!/artifacts/phase20/gacr_v6_pcrf_beauty_smoke_v1/smoke.json
+!/artifacts/phase20/gacr_v6_pcrf_beauty_smoke_v1/manifest.json
+!/artifacts/phase20/gacr_beauty_parent_v1/
+!/artifacts/phase20/gacr_beauty_parent_v1/manifest.json
+!/artifacts/phase20/gacr_beauty_parent_v1/summary.json
+!/artifacts/phase20/gacr_v6_pcrf_beauty_v1/
+!/artifacts/phase20/gacr_v6_pcrf_beauty_v1/manifest.json
+!/artifacts/phase20/gacr_v6_pcrf_beauty_v1/frozen_model_manifest.json
+!/artifacts/phase20/gacr_v6_pcrf_beauty_v1/shared_parent_reference_manifest.json
+!/artifacts/phase20/gacr_v6_pcrf_beauty_v1/summary.json
+
+# Stage20 A1/A2 cached controls and residual-seed evidence.
+# Keep compact final evidence; status, logs, predictions, CF arrays and source copies remain local.
+!/artifacts/phase20/gacr_controls_multiseed_v1/
+!/artifacts/phase20/gacr_controls_multiseed_v1/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty_smoke_v1/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty_smoke_v1/smoke.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/protocol.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/parity.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/controls_seed2023/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/controls_seed2023/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/seed2024/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/seed2024/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/seed2025/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Beauty/seed2025/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys_smoke_v1/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys_smoke_v1/smoke.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/protocol.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/parity.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/controls_seed2023/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/controls_seed2023/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/seed2024/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/seed2024/summary.json
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/seed2025/
+!/artifacts/phase20/gacr_controls_multiseed_v1/Toys/seed2025/summary.json
+
+# Stage20 B1/B2 matched fusion training: compact evidence, no caches/checkpoints/logs.
+!/artifacts/phase20/gacr_fusion_train_v1/
+!/artifacts/phase20/gacr_fusion_train_v1/summary.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys_profile_v1/
+!/artifacts/phase20/gacr_fusion_train_v1/Toys_profile_v1/profile.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys_profile_v1/cohort.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys_profile_v1/protocol.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty_profile_v1/
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty_profile_v1/profile.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty_profile_v1/cohort.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty_profile_v1/protocol.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/summary.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/protocol.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/cohort.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/cache_manifest.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/B1.training.json
+!/artifacts/phase20/gacr_fusion_train_v1/Toys/B2.training.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/summary.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/protocol.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/cohort.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/cache_manifest.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/B1.training.json
+!/artifacts/phase20/gacr_fusion_train_v1/Beauty/B2.training.json
+
+# Stage20 completed fusion-training analysis and independent cache audit.
+!/artifacts/phase20/review_20260913/
+!/artifacts/phase20/review_20260913/verify_fusion_completion.py
+!/artifacts/phase20/review_20260913/fusion_completion_verification.json
+
+# B1 continuation across residual initializations: compact evidence only.
+!/artifacts/phase20/gacr_b1_multiseed_v1/
+!/artifacts/phase20/gacr_b1_multiseed_v1/summary.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/Toys/
+!/artifacts/phase20/gacr_b1_multiseed_v1/Beauty/
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/profile/
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/profile/profile.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/profile/protocol.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/profile/cache_reuse.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/seed2024/
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/seed2025/
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/seed*/summary.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/seed*/protocol.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/seed*/cache_reuse.json
+!/artifacts/phase20/gacr_b1_multiseed_v1/*/seed*/B1.training.json
+
+!/artifacts/phase20/review_20260913/verify_b1_multiseed_completion.py
+!/artifacts/phase20/review_20260913/b1_multiseed_completion_verification.json
+!/artifacts/phase20/review_20260913/b1_initialization_ndcg10.svg
+
+# Stage20 training-teacher diagnostics: reproducible CPU analysis and aggregates.
+!/artifacts/phase20/review_20260915/
+!/artifacts/phase20/review_20260915/analyze_training_teacher.py
+!/artifacts/phase20/review_20260915/training_teacher_diagnostic.json
+!/artifacts/phase20/review_20260915/analyze_auxiliary_targets.py
+!/artifacts/phase20/review_20260915/auxiliary_target_diagnostic.json
+
+# Keep the immutable recovery receipt, failure report, and cache/profile contracts.
+# Worker copies, live status, logs, checkpoints and candidate arrays stay local.
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/recovery_receipt.json
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/previous_failure_report.md
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/profile/
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/profile/profile.json
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/profile/parameter_contract.json
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/cache/
+!/artifacts/phase20/gacr_list_distill_toys_recovery_v3/cache/manifest.json
+
+# Heartbeat-generated report and atomic-write temporaries remain local.
+# Commit dated report snapshots; archive final results after evaluation completes.
+/report/第二十阶段/Stage20_Toys完整列表内部蒸馏进展与结果.md
+/report/**/*.tmp.md

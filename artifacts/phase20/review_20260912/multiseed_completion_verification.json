@@ -1,0 +1,57 @@
+{
+  "state": "PASSED",
+  "verified_at": "2026-09-12T18:57:15.920344+08:00",
+  "checks": {
+    "source_hashes": 11,
+    "domain_input_hashes": 32,
+    "metric_values": 1680,
+    "paired_comparisons": 130,
+    "fixed_candidate_sets": 125325,
+    "prediction_rows": 208875,
+    "full_raw_ranks": 83550,
+    "aggregate_metrics": 32
+  },
+  "domains": {
+    "Beauty": {
+      "users": 22363,
+      "phase_hashes": {
+        "controls_seed2023": {
+          "summary.json": "e813213aba6c0fde3f0242ead4dcdab43747f2ae711e733d739dd5cdbc378a6e",
+          "per_user.tsv": "0e5b06ad3edc9b00a8ed320d5d38d4f7aff1f046fb560f9a8daafc30f7540184"
+        },
+        "seed2024": {
+          "summary.json": "fc1de0bcaddce2786e2f3ffbde96364478716005e2a48ebe29272158cb9a1dcd",
+          "per_user.tsv": "cc5a57159b90ad69561b3a08be1f26eaee1becda25f5c05456333b6579a664be"
+        },
+        "seed2025": {
+          "summary.json": "98682e8642c00d888b4ef9236632ecb13dd65179e4b165505cb65146ebec9521",
+          "per_user.tsv": "f3a7b2d8e96817a89f42ec9de5fbcf08b67b196cd06abea7328bfa236f7464bf"
+        }
+      }
+    },
+    "Toys": {
+      "users": 19412,
+      "phase_hashes": {
+        "controls_seed2023": {
+          "summary.json": "c86a34aa883782ac171b7f49f5edb65bf5cd4df7ffe4fec76232827cdad14a12",
+          "per_user.tsv": "d6dac778f9afb14c7007e1c5d2fada890f3577a3e70311241897c4da2af9b480"
+        },
+        "seed2024": {
+          "summary.json": "317a6bf0c8306f1425198bf1f122d4a8f3475ff859e2a25bb35f22039e5a0cb0",
+          "per_user.tsv": "d076446795f07ce9703e0cf8908a0394ab99f40f2f2bac1b397cf7f84009cda8"
+        },
+        "seed2025": {
+          "summary.json": "d9db1b08fb5aa1a3a8eccbc219baaf9bc29b60f9363e656f6eff1a928a822408",
+          "per_user.tsv": "95c8eb49b8b84349cc0062ed7a3a19e6945d478cbdd9adfb7b7c3497fde1a195"
+        }
+      }
+    }
+  },
+  "summary_sha256": "bb0cda1651e1ea0a52dee8b00e4651e7e06c84513f11b19d79a46c2fb8d5a6eb",
+  "metric_tolerance": 1e-12,
+  "scope": "Independent standard-library recomputation from integer ranks, candidate membership/order checks, and frozen source/input hashes.",
+  "limits": "Does not rerun model scores, final PCRF sorting, or bootstrap intervals. Prediction JSONL stores pre-PCRF residual order; TSV stores final PCRF ranks.",
+  "new_training": false,
+  "new_beam_inference": false,
+  "test_read": false
+}

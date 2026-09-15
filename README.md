@@ -1,6 +1,18 @@
 # GRAM 单卡复现实验
 
+**2026-09-15 Git归档：** 本次内部蒸馏进度见[提交快照](report/第二十阶段/Stage20_Toys完整列表内部蒸馏提交快照_20260915.md)，方法研究见[文献借鉴与下一版建议](report/第二十阶段/排序迁移文献借鉴与下一版方法建议_20260915.md)。下文的实时status和动态报告仅在实验机器上存在，已加入忽略规则；固定配置、测试、汇总结果、恢复凭据和诊断脚本纳入版本管理。当前实验的最终评估完成后再归档最终结果。
+
+**2026-09-15恢复入口：** 凌晨分卡尝试因显存准入失败已终止。修订版复用已校验缓存，三臂从原C1重新开始；新增启动余量和进程内资源等待。当前看[恢复status](artifacts/phase20/gacr_list_distill_toys_recovery_v3/status.json)及[动态报告](report/第二十阶段/Stage20_Toys完整列表内部蒸馏进展与结果.md)，管理脚本为`bash experiment/phase20/run_gacr_list_distill_recovery.sh status`。[恢复协议第10节](plan/第二十阶段/Toys完整候选列表内部蒸馏实验计划.md)。下方旧启动记录为历史时间点。
+
+2026-09-15已按用户要求改为三臂分卡调度：原GPU1缓存保留，完成后CE/真教师/打乱教师优先GPU4/1/6，各臂训练后独立完整验证。统一[status](artifacts/phase20/gacr_list_distill_toys_gpu1_v2/status.json)继续更新，实际GPU绑定见`arm_gpu_bindings`；管理入口改为`bash experiment/phase20/run_gacr_list_distill_parallel.sh status`。见[调度修订](plan/第二十阶段/Toys完整候选列表内部蒸馏实验计划.md)和[接管复核](artifacts/phase20/gacr_list_distill_toys_gpu1_v2/parallel_v2/launch_verification.json)。
+
+2026-09-14已启动Toys完整列表向生成器内部迁移的三臂实验：匹配CE＋父保持、真实B1＋PCRF教师、打乱教师。只更新C1解码器，随后重新生成候选并评估全部八指标。GPU1后台状态见[status](artifacts/phase20/gacr_list_distill_toys_gpu1_v2/status.json)，[报告](report/第二十阶段/Stage20_Toys完整列表内部蒸馏进展与结果.md)随队列更新；初版GPU3仅等待资源后停止，未训练。
+
+第20阶段B1多初始化验证于2026-09-13 15:05完成，耗时11分57秒。Toys/Beauty均3/3个残差初始化的N10/H10超过自身B0；B1平均N10相对原PCRF提升4.65%/4.09%，H10提升4.65%/3.68%。完整指标、分组例外和下一步见[最终报告](report/第二十阶段/Stage20_B1缓存复用多初始化验证进展与结果.md)与[完成status](artifacts/phase20/gacr_b1_multiseed_v1/status.json)。下一步准备完整候选列表向生成器迁移的最小验证，尚未启动。
+
 本仓库保存 GRAM Beauty/Toys 单卡复现所需的代码修改、命令脚本、实验编排、计划、审计记录和结果报告。
+
+第20阶段B1/B2匹配训练于2026-09-13 05:04完成，耗时约7小时59分。B1相对原PCRF的N10在Toys/Beauty提升4.68%/4.02%，H10提升4.69%/3.58%；B2与B1接近，融合纳入训练尚未显示额外优势。详见[最终分析报告](report/第二十阶段/Stage20_固定候选最终融合训练进展与结果.md)和[完成status](artifacts/phase20/gacr_fusion_train_v1/status.json)。下一步建议复用缓存验证B1的其他残差初始化；内部化C尚未启动。
 
 ## 仓库内容
 
@@ -29,7 +41,7 @@
 
 第十九阶段采用相同规则：提交固定CPU检索检查的协议、脚本与汇总，以及已完成的输入检查；训练中的status、日志、模型、逐用户结果和重复源码快照保留在本机。旧阶段的GPU租用状态、CPU遥测及当前数据集标记也只保留在本机。各阶段已有的固定参考、划分契约与科学结果仍纳入Git，其中包括后续实验依赖的PCRF验证参考。
 
-当前第20阶段安排见[总计划](plan/第二十阶段/GRAM_第二十阶段_提点实验总计划.md)、[全项目复盘与选型](report/第二十阶段/全项目实验复盘与第20阶段选型报告.md)和[实验总报告](report/第二十阶段/GRAM_第二十阶段_实验总报告.md)。S-DPO已于2026-09-11按用户要求停止；SPRec继续运行，另并行评估已保存的round1_sft及GACR-v6+PCRF组合。实验机器上的总报告每30秒更新，查看命令和字段说明见[状态查看说明](artifacts/phase20/README.md)。旧`artifacts/phase20/overview/status.json`只覆盖原SPRec/S-DPO，不包含新增评估。
+当前第20阶段结果见[双域残差三seed最终报告](report/第二十阶段/Stage20_Beauty固定控制与双域残差多seed进展报告.md)和[实验报告索引](report/第二十阶段/README.md)。截至2026-09-12 16:39，Beauty固定控制和两域残差三seed验证也已完成；完整GACR+PCRF平均NDCG@10相对原PCRF在Toys/Beauty提高3.13%/1.78%，固定候选方案提高3.26%/1.78%，两域平均Hit@50仍下降。此处只改变残差seed，不是完整模型三次重训。下一轮匹配融合训练方案见[方法推进计划](plan/第二十阶段/GACR_PCRF双域提点后的方法推进计划.md)，B/C未启动。旧`artifacts/phase20/overview/status.json`只覆盖原SPRec/S-DPO，不能代表全部后续实验状态；各批次入口见[状态查看说明](artifacts/phase20/README.md)。
 
 第20阶段提交实现、固定配置、计划报告、汇总审计和模型来源记录；模型权重、日志、逐用户预测、候选特征、重复源码快照和进程状态保留在本机。Git中的自动报告是提交时的快照，本机后续更新不会自动推送；正式评估的最终`summary.json`已在忽略规则中预留，生成后可随结论一并提交。
 

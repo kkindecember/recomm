@@ -1,0 +1,71 @@
+{
+  "kind": "in_sample_frozen_target_analysis_NOT_student_evaluation",
+  "config": "experiment/phase20/gacr_list_distill_toys_recovery_v3.json",
+  "cache": "artifacts/phase20/gacr_list_distill_toys_recovery_v3/cache/distillation_cache.npz",
+  "cache_sha256": "24529b6838df36992a7c6e9d5b0780e8a0bb23765abb162f08e9d093b867eda3",
+  "fit_prefixes": 21839,
+  "covered_fit_prefixes": 12399,
+  "temperature": 1.0,
+  "covered_anchor_weight": 1.0,
+  "covered_teacher_weight": 0.17613517219130576,
+  "covered_teacher_fraction_in_two_KL_target": 0.14975759279704312,
+  "identity_probe_rows": 256,
+  "weighted_KL_identity_max_abs_error": 8.881784197001252e-16,
+  "logit_gradient_identity_max_abs_error": 1.6653345369377348e-16,
+  "hypothetical_target_metrics_all_fit": {
+    "parent_teacher_forced_distribution": {
+      "prefixes": 21839,
+      "hit@5": 0.27519575072118685,
+      "ndcg@5": 0.20165741604326595,
+      "hit@10": 0.36027290626860203,
+      "ndcg@10": 0.22920123764721434,
+      "hit@20": 0.45148587389532485,
+      "ndcg@20": 0.2522610811004372,
+      "hit@50": 0.5677457759054901,
+      "ndcg@50": 0.27551791625338745
+    },
+    "external_teacher_distribution": {
+      "prefixes": 21839,
+      "hit@5": 0.4738312193781767,
+      "ndcg@5": 0.323085370128591,
+      "hit@10": 0.539173039058565,
+      "ndcg@10": 0.3447712097768234,
+      "hit@20": 0.5602820641970786,
+      "ndcg@20": 0.3502268299751585,
+      "hit@50": 0.5677457759054901,
+      "ndcg@50": 0.3517787242940001
+    },
+    "hypothetical_auxiliary_target_NOT_student": {
+      "prefixes": 21839,
+      "hit@5": 0.30463849077338706,
+      "ndcg@5": 0.21921090140609,
+      "hit@10": 0.40844361005540547,
+      "ndcg@10": 0.2526824272997953,
+      "hit@20": 0.5116076743440634,
+      "ndcg@20": 0.2788598395498124,
+      "hit@50": 0.5677457759054901,
+      "ndcg@50": 0.29056234124987335
+    }
+  },
+  "mixture_vs_parent_top10_gained": 1058,
+  "mixture_vs_parent_top10_lost": 6,
+  "teacher_parent_top10_set_disagreement_fit_prefixes": 21786,
+  "mean_promoted_items_all_fit": 3.4383900361738173,
+  "mean_promoted_items_covered_fit": 3.3367207032825226,
+  "mean_promoted_demoted_pairs_covered_fit": 12.632147753851116,
+  "minimum_unchanged_set_size_all_fit": 34,
+  "model_forward_calls": 0,
+  "optimizer_steps": 0,
+  "validation_read": false,
+  "test_read": false,
+  "limitations": [
+    "Teacher fitted on FIT; target metrics are in-sample, not generalization evidence.",
+    "The mixture identity concerns only the two KL terms on covered prefixes; excludes CE.",
+    "Teacher mixture fraction is NOT a fraction of the total training gradient.",
+    "Hypothetical target rankings are NOT trained student results or performance bounds.",
+    "Full-list standardization and shared parameters constrain actual optimization.",
+    "Uncovered rows have no teacher loss; set diagnostics on those rows are descriptive only.",
+    "Top10 disagreement identifies requested changes, NOT proof the teacher is correct.",
+    "Fewer ranking pairs does not imply fewer model forward passes with a 50-item anchor."
+  ]
+}

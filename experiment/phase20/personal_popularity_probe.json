@@ -1,0 +1,53 @@
+{
+  "id": "stage20_personal_popularity_probe_v1",
+  "output": "artifacts/phase20/personal_popularity_probe_v1",
+  "report": "report/第二十阶段/EAGER_PPAC实验进展报告.md",
+  "cpu_threads": 4,
+  "batch_size": 256,
+  "neighbor_block_size": 128,
+  "max_history": 20,
+  "neighbors": 30,
+  "etas": [0.0, 0.05, 0.1, 0.2],
+  "fold_count": 5,
+  "fold_seed": 20260911,
+  "shuffle_seed": 20260911,
+  "bootstrap_seed": 20260911,
+  "bootstrap_repeats": 2000,
+  "smoke_users": 64,
+  "max_wall_seconds_per_domain": 1800,
+  "automatic_retry": false,
+  "beauty_trigger": "Toys real-PP OOF NDCG@10 strictly above PCRF and full-Toys selected eta > 0; transfer all feature etas without Beauty tuning",
+  "domains": {
+    "Toys": {
+      "users": 19412,
+      "catalog_size_with_padding": 11925,
+      "train": "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl",
+      "validation": "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl",
+      "predictions": "artifacts/phase20/sprec_gram_toys_v1/parent_full.predictions.jsonl",
+      "prediction_format": "jsonl",
+      "reference": "artifacts/phase20/sprec_gram_toys_v1/matched_parent_reference.json",
+      "reference_format": "json",
+      "item_head": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+      "q1": 5,
+      "pcrf": [1.0, 0.5, 1.0]
+    },
+    "Beauty": {
+      "users": 22363,
+      "catalog_size_with_padding": 12102,
+      "train": "artifacts/phase18/diff_gram/beauty/prepared_v1/train.jsonl",
+      "validation": "artifacts/phase18/diff_gram/beauty/prepared_v1/validation.jsonl",
+      "catalog": "artifacts/phase18/diff_gram/beauty/prepared_v1/catalog.json",
+      "predictions": "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv",
+      "prediction_format": "phase9_tsv",
+      "reference": "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv",
+      "reference_format": "tsv",
+      "item_head": "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt",
+      "q1": 6,
+      "pcrf": [1.0, 0.5, 1.0]
+    }
+  },
+  "test_read": false,
+  "new_training_steps": 0,
+  "gpu_used": false,
+  "scope": "PP-inspired signal study; not full PPAC or EAGER; reused validation development and frozen cross-domain transfer"
+}

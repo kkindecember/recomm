@@ -2,3 +2,8 @@
 third_party/RaSeRec/** -text -whitespace
 # These neural classes are extracted verbatim and checked against upstream ASTs.
 experiment/phase18/core/raserec_author.py -text -whitespace
+
+# Preserve generated audit files byte-for-byte; CSV records use CRLF endings.
+artifacts/phase20/review_20260912/*.csv -text whitespace=cr-at-eol
+# Matplotlib includes trailing separators in multiline SVG path data.
+artifacts/phase20/review_20260913/b1_initialization_ndcg10.svg -text -whitespace

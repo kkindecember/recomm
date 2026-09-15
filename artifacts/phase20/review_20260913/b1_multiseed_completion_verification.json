@@ -1,0 +1,41 @@
+{
+  "state": "PASSED",
+  "verified_at": "2026-09-13T15:30:39.029969+08:00",
+  "checks": {
+    "source_hashes": 71,
+    "domain_input_hashes": 46,
+    "loaded_source_hash_entries": 248,
+    "matched_baseline_user_rows": 83550,
+    "metric_values": 1600,
+    "paired_comparisons": 80,
+    "replayed_user_arm_scores": 167100,
+    "training_trajectories": 4,
+    "aggregate_metric_records": 320
+  },
+  "domains": {
+    "Toys": {
+      "users": 19412,
+      "known_2023_summary_sha256": "f1a6c55f4a3c5d22d1d567e845c64e24fb3d0ed2ec6d28890b436bae38603d40",
+      "new_summaries_sha256": {
+        "2024": "30773957eef901073bef312521f47fb049d4e8a65173b878983c60f8e5812908",
+        "2025": "4384352c0bb7d72611b9cda987421c50ccc424f902cc92f4f5d659cfb01cab99"
+      }
+    },
+    "Beauty": {
+      "users": 22363,
+      "known_2023_summary_sha256": "d2642856b010cb9632a65b36b847caac313439e1c5b576e44c0eca1ec0e773be",
+      "new_summaries_sha256": {
+        "2024": "98b967edb3820df5e524e30497a3467e860ad6c6743213368c40794a2c6b690a",
+        "2025": "626c9cad5491b8e2d853739e30b728cebdf2cc4a018ff56c15581a794c1f3f34"
+      }
+    }
+  },
+  "summary_sha256": "bdef3acaf3c75b42fccb8caa642c2b5883b921d55b5d0e559263760702c2dd15",
+  "unique_hashed_files": 126,
+  "metric_tolerance": 1e-12,
+  "verification_status": "ANALYZED",
+  "new_training": false,
+  "test_read": false,
+  "scope": "Independent rank statistics, cached PCRF replay, matched baselines, checkpoint/source/input hashes, immutable cohort and seed aggregates.",
+  "limits": "Does not repeat model forward, optimizer execution or bootstrap intervals. Original 2023 statistics were audited previously and are hash-checked/reused here."
+}

@@ -1,0 +1,69 @@
+{
+  "config": {
+    "id": "stage20_pcrf_component_audit_20260911",
+    "dataset": "Toys",
+    "users": 19412,
+    "catalog_size_with_padding": 11925,
+    "train": "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl",
+    "validation": "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl",
+    "predictions": "artifacts/phase20/sprec_gram_toys_v1/parent_full.predictions.jsonl",
+    "reference": "artifacts/phase20/sprec_gram_toys_v1/matched_parent_reference.json",
+    "item_head": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+    "output": "artifacts/phase20/pcrf_component_audit_20260911_v2",
+    "q1": 5,
+    "bootstrap_repeats": 2000,
+    "bootstrap_seed": 20260911,
+    "arms": {
+      "gram": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "plain_fusion_075": [
+        0.75,
+        0.0,
+        0.0
+      ],
+      "plain_fusion_100": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "popularity_only": [
+        1.0,
+        0.5,
+        0.0
+      ],
+      "reliability_only": [
+        1.0,
+        0.0,
+        1.0
+      ],
+      "pcrf": [
+        1.0,
+        0.5,
+        1.0
+      ]
+    },
+    "extra_arm": "cf_only_within_same_beam50",
+    "primary_comparison": "pcrf_minus_plain_fusion_100",
+    "primary_metric": "ndcg@10",
+    "scope": "descriptive ablation on reused validation; no parameter fitting or selection",
+    "cpu_threads": 4,
+    "max_wall_seconds": 600,
+    "test_read": false,
+    "new_training_steps": 0
+  },
+  "input_sha256": {
+    "train": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+    "validation": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb",
+    "predictions": "2d7e26c86b84e558bc7c06037697f5557a1de5e9d04d4ff4c72d8e5a7205ae5a",
+    "reference": "2ca982df205389971aba02291a6406c6e422aa36dd94225e56137298c989b33e",
+    "item_head": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+    "config": "844075551b5d2349cac174acb25817de0ed07377351e4561916fdeb07a9ab303",
+    "code": "fd033e75920937dc57f24e33873dfc96a1c2348d598c844c2b81333bb31c8fda",
+    "item_head_scoring_code": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+    "pcrf_code": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "frequency_code": "3cef8d5f45d372f205d2c288120181831af291ffce8c06753070447609232090"
+  }
+}

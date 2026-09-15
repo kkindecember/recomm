@@ -1,0 +1,37 @@
+{
+  "state": "PASSED",
+  "verified_at": "2026-09-13T13:45:34.116500+08:00",
+  "checks": {
+    "input_sha256_entries": 69,
+    "loaded_source_sha256_entries": 122,
+    "baseline_user_parity": 41775,
+    "metric_values": 880,
+    "paired_comparisons": 90,
+    "replayed_user_arm_scores": 125325,
+    "training_cache_rows": 48837,
+    "training_trajectories": 4
+  },
+  "domains": {
+    "Toys": {
+      "users": 19412,
+      "summary_sha256": "f1a6c55f4a3c5d22d1d567e845c64e24fb3d0ed2ec6d28890b436bae38603d40",
+      "per_user_sha256": "8f00bfa8dd90ed0641a30a76d5cc5ec324502b23d6ba38a5a96b4a4ba2bac968",
+      "B1_B2_same_raw_top10_set_users": 19394
+    },
+    "Beauty": {
+      "users": 22363,
+      "summary_sha256": "d2642856b010cb9632a65b36b847caac313439e1c5b576e44c0eca1ec0e773be",
+      "per_user_sha256": "2ad4c93969baba8ba79d227d1d1a058bfe0e9aea6c934ae32df2e69d0918c69f",
+      "B1_B2_same_raw_top10_set_users": 22317
+    }
+  },
+  "metric_tolerance": 1e-12,
+  "summary_sha256": "f81b9da2e796a03c975a691d61e6d4dc2849190e6f91bd169db233d9b13a602f",
+  "unique_hashed_files": 128,
+  "scope": "Independent rank statistics, cached PCRF replay, training cache labels/partitions/membership, trajectories and frozen hashes.",
+  "limits": "No backbone, CF or residual model forward rerun; no bootstrap interval rerun or independent training replication. Cache audit alone does not prove target-independent generation; original GPU profile covers sampled target changes.",
+  "new_training": false,
+  "new_beam_inference": false,
+  "test_read": false,
+  "verification_status": "ANALYZED"
+}

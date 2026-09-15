@@ -1,0 +1,46 @@
+{
+  "state": "PASSED",
+  "diagnostics": {
+    "users": 64,
+    "bank_users": 22363,
+    "k": 30,
+    "users_with_positive_similarity_neighbor": 64,
+    "users_with_at_least_k_positive_neighbors": 58,
+    "mean_positive_neighbor_pool_size": 207.078125,
+    "mean_selected_neighbor_jaccard": 0.1431469925259878,
+    "selected_zero_similarity_fraction": 0.014583333333333334,
+    "candidate_pp_all_zero_users": 0,
+    "candidate_pp_constant_users": 0,
+    "pp_cf_correlation": {
+      "eligible_users": 64,
+      "mean_within_user_pearson": 0.23233121389160794
+    },
+    "pp_global_pop_correlation": {
+      "eligible_users": 64,
+      "mean_within_user_pearson": 0.06846550939320345
+    },
+    "neighbor_seconds": 13.253,
+    "cf_scoring_seconds": 0.489,
+    "exact_reference_users": 64,
+    "max_rss_mib": 797.48
+  },
+  "input_sha256": {
+    "experiment/phase20/personal_popularity_probe.json": "f671afaf4d71b365278742401675587d517531311cb17dfb3859871c535060bf",
+    "experiment/phase20/run_personal_popularity.py": "2f2d078e2ce19efd6d4c93c0b4676dfc2d29a6b720b0b0202701244165ff58d2",
+    "experiment/phase20/personal_popularity_core.py": "cd66cbe2b8351758415ea7acc2f2700fd1fd24357e544f94b323e8dd1b1fae29",
+    "experiment/phase20/audit_pcrf_components.py": "fd033e75920937dc57f24e33873dfc96a1c2348d598c844c2b81333bb31c8fda",
+    "experiment/phase18/core/raserec_data.py": "3cef8d5f45d372f205d2c288120181831af291ffce8c06753070447609232090",
+    "experiment/phase9/eval_cf0_b3_beamfusion.py": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+    "experiment/phase9/eval_cf0_b4_reliability.py": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "experiment/phase9/train_cf0_b2_item_head.py": "09a191f9bb978976d5c5febc8bf7fdfc9763715a74f02484ee264e0077c8df23",
+    "experiment/phase20/test_personal_popularity.py": "36e2eecb0c6790c09022c9246402cda0ed7cf7428270f4470407d0620799efb0",
+    "experiment/phase20/run_personal_popularity.sh": "fbc27563305b4addfd5021049e5458599f6d1065f9513eecf87b2b3026914e11",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/train.jsonl": "906230a74174564c8e4d41437e986371e85137dd961c3f3b85646e327ed11c59",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/validation.jsonl": "1dff8bc5e43fd91234a8e2fe3e6d2b6595179b1883a5eae5b68896ed0f4d40bf",
+    "GRAM/preds/20260722_125916_Beauty_sequential_pred_validation.tsv": "2f5a0ed694ec9b3e07cc93fe86cf7569f62d5fd95853dfd1e869c72a1c1a1892",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1",
+    "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/catalog.json": "98b65f13a82d1141beafd35bc5a29d1ae00640016c2f36cdd58c81288fba164d"
+  },
+  "new_method_metrics_computed": false
+}

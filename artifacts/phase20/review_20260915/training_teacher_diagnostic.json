@@ -1,0 +1,218 @@
+{
+  "state": "ANALYZED",
+  "kind": "descriptive_in_sample_training_cache_analysis",
+  "config": "experiment/phase20/gacr_list_distill_toys_recovery_v3.json",
+  "cache": "artifacts/phase20/gacr_list_distill_toys_recovery_v3/cache/distillation_cache.npz",
+  "cache_sha256": "24529b6838df36992a7c6e9d5b0780e8a0bb23765abb162f08e9d093b867eda3",
+  "fit_prefixes": 21839,
+  "fit_users": 3882,
+  "teacher_supervised_prefixes": 12399,
+  "teacher_supervised_fraction": 0.5677457759054901,
+  "teacher_unsupervised_prefixes": 9440,
+  "metrics": {
+    "all_fit_prefixes": {
+      "C1_native_candidate_order": {
+        "prefixes": 21839,
+        "hit@5": 0.27519575072118685,
+        "ndcg@5": 0.20165741604326595,
+        "hit@10": 0.36027290626860203,
+        "ndcg@10": 0.22920123764721434,
+        "hit@20": 0.45148587389532485,
+        "ndcg@20": 0.2522610811004372,
+        "hit@50": 0.5677457759054901,
+        "ndcg@50": 0.27551786836157693
+      },
+      "C1_teacher_forced_scores": {
+        "prefixes": 21839,
+        "hit@5": 0.27519575072118685,
+        "ndcg@5": 0.20165741604326595,
+        "hit@10": 0.36027290626860203,
+        "ndcg@10": 0.22920123764721434,
+        "hit@20": 0.45148587389532485,
+        "ndcg@20": 0.2522610811004372,
+        "hit@50": 0.5677457759054901,
+        "ndcg@50": 0.27551791625338745
+      },
+      "B1_PCRF_teacher": {
+        "prefixes": 21839,
+        "hit@5": 0.4738312193781767,
+        "ndcg@5": 0.323085370128591,
+        "hit@10": 0.539173039058565,
+        "ndcg@10": 0.3447712097768234,
+        "hit@20": 0.5602820641970786,
+        "ndcg@20": 0.3502268299751585,
+        "hit@50": 0.5677457759054901,
+        "ndcg@50": 0.3517787242940001
+      },
+      "shuffled_teacher": {
+        "prefixes": 21839,
+        "hit@5": 0.058107056183891205,
+        "ndcg@5": 0.03411659645480821,
+        "hit@10": 0.1162599020101653,
+        "ndcg@10": 0.05270259194519394,
+        "hit@20": 0.23023032190118595,
+        "ndcg@20": 0.08115592522054914,
+        "hit@50": 0.5677457759054901,
+        "ndcg@50": 0.1470846211790039
+      }
+    },
+    "covered_fit_prefixes": {
+      "C1_native_candidate_order": {
+        "prefixes": 12399,
+        "hit@5": 0.48471650939591904,
+        "ndcg@5": 0.35518963698434425,
+        "hit@10": 0.6345673038148237,
+        "ndcg@10": 0.4037039945945249,
+        "hit@20": 0.795225421404952,
+        "ndcg@20": 0.44432048956790454,
+        "hit@50": 1.0,
+        "ndcg@50": 0.4852838718564786
+      },
+      "C1_teacher_forced_scores": {
+        "prefixes": 12399,
+        "hit@5": 0.48471650939591904,
+        "ndcg@5": 0.35518963698434425,
+        "hit@10": 0.6345673038148237,
+        "ndcg@10": 0.4037039945945249,
+        "hit@20": 0.795225421404952,
+        "ndcg@20": 0.44432048956790454,
+        "hit@50": 1.0,
+        "ndcg@50": 0.48528395621080156
+      },
+      "B1_PCRF_teacher": {
+        "prefixes": 12399,
+        "hit@5": 0.8345834341479151,
+        "ndcg@5": 0.5690669730009112,
+        "hit@10": 0.9496733607548996,
+        "ndcg@10": 0.6072633640064559,
+        "hit@20": 0.9868537785305267,
+        "ndcg@20": 0.6168726300368971,
+        "hit@50": 1.0,
+        "ndcg@50": 0.6196060617676158
+      },
+      "shuffled_teacher": {
+        "prefixes": 12399,
+        "hit@5": 0.10234696346479555,
+        "ndcg@5": 0.060091325911489364,
+        "hit@10": 0.204774578595048,
+        "ndcg@10": 0.09282780107194856,
+        "hit@20": 0.4055165739172514,
+        "ndcg@20": 0.14294412863066155,
+        "hit@50": 1.0,
+        "ndcg@50": 0.25906775078056826
+      }
+    },
+    "uncovered_fit_prefixes": {
+      "C1_native_candidate_order": {
+        "prefixes": 9440,
+        "hit@5": 0.0,
+        "ndcg@5": 0.0,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "hit@20": 0.0,
+        "ndcg@20": 0.0,
+        "hit@50": 0.0,
+        "ndcg@50": 0.0
+      },
+      "C1_teacher_forced_scores": {
+        "prefixes": 9440,
+        "hit@5": 0.0,
+        "ndcg@5": 0.0,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "hit@20": 0.0,
+        "ndcg@20": 0.0,
+        "hit@50": 0.0,
+        "ndcg@50": 0.0
+      },
+      "B1_PCRF_teacher": {
+        "prefixes": 9440,
+        "hit@5": 0.0,
+        "ndcg@5": 0.0,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "hit@20": 0.0,
+        "ndcg@20": 0.0,
+        "hit@50": 0.0,
+        "ndcg@50": 0.0
+      },
+      "shuffled_teacher": {
+        "prefixes": 9440,
+        "hit@5": 0.0,
+        "ndcg@5": 0.0,
+        "hit@10": 0.0,
+        "ndcg@10": 0.0,
+        "hit@20": 0.0,
+        "ndcg@20": 0.0,
+        "hit@50": 0.0,
+        "ndcg@50": 0.0
+      }
+    }
+  },
+  "teacher_vs_baseline": {
+    "C1_native_candidate_order": {
+      "covered_target_rank_improved": 8225,
+      "covered_target_rank_worsened": 252,
+      "covered_target_rank_unchanged": 3922,
+      "hit5_gained": 4361,
+      "hit5_lost": 23,
+      "hit10_gained": 3958,
+      "hit10_lost": 51,
+      "hit20_gained": 2421,
+      "hit20_lost": 45,
+      "hit50_gained": 0,
+      "hit50_lost": 0
+    },
+    "C1_teacher_forced_scores": {
+      "covered_target_rank_improved": 8225,
+      "covered_target_rank_worsened": 252,
+      "covered_target_rank_unchanged": 3922,
+      "hit5_gained": 4361,
+      "hit5_lost": 23,
+      "hit10_gained": 3958,
+      "hit10_lost": 51,
+      "hit20_gained": 2421,
+      "hit20_lost": 45,
+      "hit50_gained": 0,
+      "hit50_lost": 0
+    },
+    "shuffled_teacher": {
+      "covered_target_rank_improved": 11488,
+      "covered_target_rank_worsened": 657,
+      "covered_target_rank_unchanged": 254,
+      "hit5_gained": 9263,
+      "hit5_lost": 184,
+      "hit10_gained": 9351,
+      "hit10_lost": 115,
+      "hit20_gained": 7276,
+      "hit20_lost": 68,
+      "hit50_gained": 0,
+      "hit50_lost": 0
+    }
+  },
+  "native_vs_teacher_forced_target_rank_changed_fit_prefixes": 3,
+  "covered_mean_teacher_KL_to_parent_anchor_distribution": 0.29209899298948344,
+  "covered_mean_target_teacher_probability": 0.1934162243315315,
+  "covered_mean_target_parent_probability": 0.11202973082745638,
+  "covered_teacher_target_probability_higher_count": 10687,
+  "teacher_distribution_temperature": 1.0,
+  "validation_read": false,
+  "test_read": false,
+  "model_forward_calls": 0,
+  "optimizer_steps": 0,
+  "checks": [
+    "input_sha256",
+    "fit_counts",
+    "probability_simplex",
+    "shuffled_probability_multiset",
+    "independent_target_rank_count",
+    "fixed_candidate_coverage"
+  ],
+  "limitations": [
+    "In-sample teacher diagnostics: teacher fitted on this fit cohort; not generalization evidence.",
+    "Multiple prefixes per user are correlated; no independence-based significance claim.",
+    "Native candidate ordering and cached teacher-forcing scores are reported separately.",
+    "No student checkpoint or post-training prediction is read.",
+    "Probability mass and KL use normalized scores, not calibrated full-catalog relevance probabilities."
+  ]
+}

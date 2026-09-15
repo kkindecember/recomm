@@ -1,0 +1,553 @@
+{
+  "state": "COMPLETED",
+  "domains": {
+    "Beauty": {
+      "state": "COMPLETED",
+      "dataset": "Beauty",
+      "users": 22363,
+      "seed_metrics": {
+        "2023": {
+          "full": {
+            "users": 22363,
+            "hit@5": 0.08464875016768769,
+            "ndcg@5": 0.0591113103592452,
+            "hit@10": 0.1160846040334481,
+            "ndcg@10": 0.06920317638927767,
+            "hit@20": 0.15427268255600768,
+            "ndcg@20": 0.078828250547445,
+            "hit@50": 0.20726199526002773,
+            "ndcg@50": 0.08944294300939676
+          },
+          "fixed": {
+            "users": 22363,
+            "hit@5": 0.08478290032643206,
+            "ndcg@5": 0.059175414744044245,
+            "hit@10": 0.1156374368376336,
+            "ndcg@10": 0.06910057819436224,
+            "hit@20": 0.1544515494343335,
+            "ndcg@20": 0.07887395026740038,
+            "hit@50": 0.2067253946250503,
+            "ndcg@50": 0.08931204862837185
+          }
+        },
+        "2024": {
+          "full": {
+            "users": 22363,
+            "hit@5": 0.08375441577605867,
+            "ndcg@5": 0.058452893242176035,
+            "hit@10": 0.11492196932433037,
+            "ndcg@10": 0.06846910470163982,
+            "hit@20": 0.15404909895810043,
+            "ndcg@20": 0.07833756009379306,
+            "hit@50": 0.20726199526002773,
+            "ndcg@50": 0.0889912311871648
+          },
+          "fixed": {
+            "users": 22363,
+            "hit@5": 0.08370969905647721,
+            "ndcg@5": 0.058441152546113144,
+            "hit@10": 0.11501140276349327,
+            "ndcg@10": 0.06850907585929898,
+            "hit@20": 0.15364664848186738,
+            "ndcg@20": 0.0782305676935422,
+            "hit@50": 0.2067253946250503,
+            "ndcg@50": 0.08883247998642609
+          }
+        },
+        "2025": {
+          "full": {
+            "users": 22363,
+            "hit@5": 0.08500648392433931,
+            "ndcg@5": 0.059323211039651734,
+            "hit@10": 0.11657648794884408,
+            "ndcg@10": 0.06948750442283763,
+            "hit@20": 0.155390600545544,
+            "ndcg@20": 0.07927232655515865,
+            "hit@50": 0.2084693466887269,
+            "ndcg@50": 0.0899047636693806
+          },
+          "fixed": {
+            "users": 22363,
+            "hit@5": 0.08527478424182802,
+            "ndcg@5": 0.05948257939863252,
+            "hit@10": 0.11662120466842553,
+            "ndcg@10": 0.06956358635784521,
+            "hit@20": 0.1551670169476367,
+            "ndcg@20": 0.07926572784274076,
+            "hit@50": 0.2067253946250503,
+            "ndcg@50": 0.0895741459627937
+          }
+        }
+      },
+      "aggregate": {
+        "full": {
+          "hit@5": {
+            "mean": 0.08446988328936189,
+            "min": 0.08375441577605867,
+            "max": 0.08500648392433931,
+            "sample_sd_across_residual_seeds": 0.0006449137012858665,
+            "mean_delta_vs_original_pcrf": 0.0029513034923757953,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@5": {
+            "mean": 0.058962471547024324,
+            "min": 0.058452893242176035,
+            "max": 0.059323211039651734,
+            "sample_sd_across_residual_seeds": 0.00045384800447752276,
+            "mean_delta_vs_original_pcrf": 0.0014327870831461822,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@10": {
+            "mean": 0.11586102043554085,
+            "min": 0.11492196932433037,
+            "max": 0.11657648794884408,
+            "sample_sd_across_residual_seeds": 0.0008496176720475806,
+            "mean_delta_vs_original_pcrf": 0.002325269418235479,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@10": {
+            "mean": 0.06905326183791838,
+            "min": 0.06846910470163982,
+            "max": 0.06948750442283763,
+            "sample_sd_across_residual_seeds": 0.0005254905113947257,
+            "mean_delta_vs_original_pcrf": 0.0012064634401555557,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@20": {
+            "mean": 0.15457079401988402,
+            "min": 0.15404909895810043,
+            "max": 0.155390600545544,
+            "sample_sd_across_residual_seeds": 0.000718720711367966,
+            "mean_delta_vs_original_pcrf": 0.0006558452205279452,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@20": {
+            "mean": 0.0788127123987989,
+            "min": 0.07833756009379306,
+            "max": 0.07927232655515865,
+            "sample_sd_across_residual_seeds": 0.0004675769026277892,
+            "mean_delta_vs_original_pcrf": 0.0008377673413485776,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@50": {
+            "mean": 0.20766444573626078,
+            "min": 0.20726199526002773,
+            "max": 0.2084693466887269,
+            "sample_sd_across_residual_seeds": 0.0006970646723659524,
+            "mean_delta_vs_original_pcrf": -0.0004918839153959798,
+            "positive_seed_count_vs_original_pcrf": 1
+          },
+          "ndcg@50": {
+            "mean": 0.08944631262198072,
+            "min": 0.0889912311871648,
+            "max": 0.0899047636693806,
+            "sample_sd_across_residual_seeds": 0.0004567755627576484,
+            "mean_delta_vs_original_pcrf": 0.0006438862245170124,
+            "positive_seed_count_vs_original_pcrf": 3
+          }
+        },
+        "fixed": {
+          "hit@5": {
+            "mean": 0.08458912787491242,
+            "min": 0.08370969905647721,
+            "max": 0.08527478424182802,
+            "sample_sd_across_residual_seeds": 0.0008003335127164743,
+            "mean_delta_vs_original_pcrf": 0.0030705480779263244,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@5": {
+            "mean": 0.0590330488962633,
+            "min": 0.058441152546113144,
+            "max": 0.05948257939863252,
+            "sample_sd_across_residual_seeds": 0.0005351107345661193,
+            "mean_delta_vs_original_pcrf": 0.0015033644323851555,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@10": {
+            "mean": 0.11575668142318413,
+            "min": 0.11501140276349327,
+            "max": 0.11662120466842553,
+            "sample_sd_across_residual_seeds": 0.0008114986116243353,
+            "mean_delta_vs_original_pcrf": 0.002220930405878757,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@10": {
+            "mean": 0.06905774680383547,
+            "min": 0.06850907585929898,
+            "max": 0.06956358635784521,
+            "sample_sd_across_residual_seeds": 0.0005285584110549138,
+            "mean_delta_vs_original_pcrf": 0.001210948406072651,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@20": {
+            "mean": 0.15442173828794584,
+            "min": 0.15364664848186738,
+            "max": 0.1551670169476367,
+            "sample_sd_across_residual_seeds": 0.0007606225057564092,
+            "mean_delta_vs_original_pcrf": 0.0005067894885897595,
+            "positive_seed_count_vs_original_pcrf": 2
+          },
+          "ndcg@20": {
+            "mean": 0.07879008193456111,
+            "min": 0.0782305676935422,
+            "max": 0.07926572784274076,
+            "sample_sd_across_residual_seeds": 0.0005226514675786594,
+            "mean_delta_vs_original_pcrf": 0.0008151368771107809,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@50": {
+            "mean": 0.20672539462505032,
+            "min": 0.2067253946250503,
+            "max": 0.2067253946250503,
+            "sample_sd_across_residual_seeds": 3.3993498887762956e-17,
+            "mean_delta_vs_original_pcrf": -0.0014309350266064336,
+            "positive_seed_count_vs_original_pcrf": 0
+          },
+          "ndcg@50": {
+            "mean": 0.08923955819253054,
+            "min": 0.08883247998642609,
+            "max": 0.0895741459627937,
+            "sample_sd_across_residual_seeds": 0.00037610936254190493,
+            "mean_delta_vs_original_pcrf": 0.0004371317950668391,
+            "positive_seed_count_vs_original_pcrf": 3
+          }
+        }
+      },
+      "baseline": {
+        "users": 22363,
+        "hit@5": 0.0815185797969861,
+        "ndcg@5": 0.05752968446387814,
+        "hit@10": 0.11353575101730537,
+        "ndcg@10": 0.06784679839776282,
+        "hit@20": 0.15391494879935608,
+        "ndcg@20": 0.07797494505745033,
+        "hit@50": 0.20815632965165676,
+        "ndcg@50": 0.0888024263974637
+      },
+      "input_sha256": {
+        "train": "906230a74174564c8e4d41437e986371e85137dd961c3f3b85646e327ed11c59",
+        "validation": "1dff8bc5e43fd91234a8e2fe3e6d2b6595179b1883a5eae5b68896ed0f4d40bf",
+        "parent": "94c3a9aa157e766706c6ed5066735b203f288707cfda78d36b4d663b109079b6",
+        "c1": "a37b42b13f7a2ef753be3224aba4bdfc47b69a9bd2c35280c922dd9ec476ad98",
+        "gacr": "1d13e3c74f4d0828a0510720d6f0cb138a04cab0b78ab20792c38705106a68c4",
+        "features": "89b1eee34b8e7174cc79135a2db966b83bd57bfda8fb509c7bb632267434ee48",
+        "reference_ranks": "b97ee8eff929d7d0e669199e9509deec8fdf00c5f0d3d9eb224e8eb507143439",
+        "item_head": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+        "c1_training_users": "8ceb8c6c336b31a64e83e3742dbbd59e7e4b2bfe935ce7a38a9a09bdb7c974a3",
+        "origin_model_manifest": "9b0076c0d7afdf850e8b688db56d23933c369ca709f5981e8cc6e3c517c346f2",
+        "residual_2023": "260f47d00ffea5a947fb02753c35286a2688d3c5503adea9e305ef76fe9ab4a4",
+        "residual_2024": "b959497f7c9b211096acc74f17b4255b6d689bbc5cae85cec2d4c637b09dd7c7",
+        "residual_2025": "ce284c8824f485b330e7c645a264f1ed679b05e396a2cb65d4b48c93ca32bfd1"
+      },
+      "config_path": "experiment/phase20/gacr_controls_multiseed_v1.json",
+      "verification_status": "ANALYZED",
+      "seed_scope": "Residual only; C1 and item head fixed; no best-seed selection.",
+      "completed_phases": [
+        "controls_seed2023",
+        "seed2024",
+        "seed2025"
+      ],
+      "test_read": false,
+      "new_optimizer_steps": 0,
+      "elapsed_seconds": 1020.3
+    },
+    "Toys": {
+      "state": "COMPLETED",
+      "dataset": "Toys",
+      "users": 19412,
+      "seed_metrics": {
+        "2023": {
+          "full": {
+            "users": 19412,
+            "hit@5": 0.09746548526684524,
+            "ndcg@5": 0.07062716560847206,
+            "hit@10": 0.12924994848547292,
+            "ndcg@10": 0.08088960655540839,
+            "hit@20": 0.16464042860086545,
+            "ndcg@20": 0.08984657744368764,
+            "hit@50": 0.20950958170203998,
+            "ndcg@50": 0.09881447114678686
+          },
+          "fixed": {
+            "users": 19412,
+            "hit@5": 0.09705336905007211,
+            "ndcg@5": 0.07055523333647319,
+            "hit@10": 0.12940449206676283,
+            "ndcg@10": 0.08101552695659055,
+            "hit@20": 0.1644343704924789,
+            "ndcg@20": 0.08987849649632684,
+            "hit@50": 0.20956109622913663,
+            "ndcg@50": 0.09888141099194064
+          }
+        },
+        "2024": {
+          "full": {
+            "users": 19412,
+            "hit@5": 0.09751699979394189,
+            "ndcg@5": 0.07069146772690472,
+            "hit@10": 0.12945600659385947,
+            "ndcg@10": 0.08103265344765477,
+            "hit@20": 0.16525860292602515,
+            "ndcg@20": 0.09008601042373854,
+            "hit@50": 0.2096641252833299,
+            "ndcg@50": 0.09895479882913111
+          },
+          "fixed": {
+            "users": 19412,
+            "hit@5": 0.09782608695652174,
+            "ndcg@5": 0.07083286349371126,
+            "hit@10": 0.12940449206676283,
+            "ndcg@10": 0.08103651240571434,
+            "hit@20": 0.1645889140737688,
+            "ndcg@20": 0.0899356646408347,
+            "hit@50": 0.20956109622913663,
+            "ndcg@50": 0.09891310001763398
+          }
+        },
+        "2025": {
+          "full": {
+            "users": 19412,
+            "hit@5": 0.09813517411910158,
+            "ndcg@5": 0.07111216222900739,
+            "hit@10": 0.13033175355450238,
+            "ndcg@10": 0.08150653667647878,
+            "hit@20": 0.16618586441376468,
+            "ndcg@20": 0.09057047210784629,
+            "hit@50": 0.2106429012981661,
+            "ndcg@50": 0.09945413302522167
+          },
+          "fixed": {
+            "users": 19412,
+            "hit@5": 0.0977745724294251,
+            "ndcg@5": 0.0710715739667521,
+            "hit@10": 0.13053781166288894,
+            "ndcg@10": 0.08166946076665428,
+            "hit@20": 0.16561920461570162,
+            "ndcg@20": 0.09053565860475266,
+            "hit@50": 0.20956109622913663,
+            "ndcg@50": 0.09931868795711538
+          }
+        }
+      },
+      "aggregate": {
+        "full": {
+          "hit@5": {
+            "mean": 0.09770588639329625,
+            "min": 0.09746548526684524,
+            "max": 0.09813517411910158,
+            "sample_sd_across_residual_seeds": 0.0003726652657155477,
+            "mean_delta_vs_original_pcrf": 0.00415550518579573,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@5": {
+            "mean": 0.07081026518812805,
+            "min": 0.07062716560847206,
+            "max": 0.07111216222900739,
+            "sample_sd_across_residual_seeds": 0.0002634199272596992,
+            "mean_delta_vs_original_pcrf": 0.0023508753165074614,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@10": {
+            "mean": 0.12967923621127825,
+            "min": 0.12924994848547292,
+            "max": 0.13033175355450238,
+            "sample_sd_across_residual_seeds": 0.0005744120023242597,
+            "mean_delta_vs_original_pcrf": 0.004447420839343352,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@10": {
+            "mean": 0.08114293222651398,
+            "min": 0.08088960655540839,
+            "max": 0.08150653667647878,
+            "sample_sd_across_residual_seeds": 0.00032291136612233205,
+            "mean_delta_vs_original_pcrf": 0.0024640567185380546,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@20": {
+            "mean": 0.16536163198021844,
+            "min": 0.16464042860086545,
+            "max": 0.16618586441376468,
+            "sample_sd_across_residual_seeds": 0.0007778523011818169,
+            "mean_delta_vs_original_pcrf": 0.0007727179064496437,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@20": {
+            "mean": 0.09016768665842416,
+            "min": 0.08984657744368764,
+            "max": 0.09057047210784629,
+            "sample_sd_across_residual_seeds": 0.0003687941521820203,
+            "mean_delta_vs_original_pcrf": 0.0015773802759872918,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@50": {
+            "mean": 0.20993886942784531,
+            "min": 0.20950958170203998,
+            "max": 0.2106429012981661,
+            "sample_sd_across_residual_seeds": 0.0006145865158380888,
+            "mean_delta_vs_original_pcrf": -0.00214643862902672,
+            "positive_seed_count_vs_original_pcrf": 0
+          },
+          "ndcg@50": {
+            "mean": 0.09907446766704654,
+            "min": 0.09881447114678686,
+            "max": 0.09945413302522167,
+            "sample_sd_across_residual_seeds": 0.00033620277029898407,
+            "mean_delta_vs_original_pcrf": 0.0009800804009177516,
+            "positive_seed_count_vs_original_pcrf": 3
+          }
+        },
+        "fixed": {
+          "hit@5": {
+            "mean": 0.09755134281200632,
+            "min": 0.09705336905007211,
+            "max": 0.09782608695652174,
+            "sample_sd_across_residual_seeds": 0.0004320264312593333,
+            "mean_delta_vs_original_pcrf": 0.004000961604505804,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@5": {
+            "mean": 0.07081989026564552,
+            "min": 0.07055523333647319,
+            "max": 0.0710715739667521,
+            "sample_sd_across_residual_seeds": 0.0002584146669677207,
+            "mean_delta_vs_original_pcrf": 0.0023605003940249253,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@10": {
+            "mean": 0.12978226526547154,
+            "min": 0.12940449206676283,
+            "max": 0.13053781166288894,
+            "sample_sd_across_residual_seeds": 0.0006543223739012901,
+            "mean_delta_vs_original_pcrf": 0.0045504498935366455,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "ndcg@10": {
+            "mean": 0.08124050004298639,
+            "min": 0.08101552695659055,
+            "max": 0.08166946076665428,
+            "sample_sd_across_residual_seeds": 0.0003716390373816942,
+            "mean_delta_vs_original_pcrf": 0.002561624535010465,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@20": {
+            "mean": 0.16488082972731644,
+            "min": 0.1644343704924789,
+            "max": 0.16561920461570162,
+            "sample_sd_across_residual_seeds": 0.0006441032809090895,
+            "mean_delta_vs_original_pcrf": 0.0002919156535476364,
+            "positive_seed_count_vs_original_pcrf": 1
+          },
+          "ndcg@20": {
+            "mean": 0.09011660658063807,
+            "min": 0.08987849649632684,
+            "max": 0.09053565860475266,
+            "sample_sd_across_residual_seeds": 0.00036403365005520865,
+            "mean_delta_vs_original_pcrf": 0.0015263001982011998,
+            "positive_seed_count_vs_original_pcrf": 3
+          },
+          "hit@50": {
+            "mean": 0.20956109622913663,
+            "min": 0.20956109622913663,
+            "max": 0.20956109622913663,
+            "sample_sd_across_residual_seeds": 0.0,
+            "mean_delta_vs_original_pcrf": -0.0025242118277354064,
+            "positive_seed_count_vs_original_pcrf": 0
+          },
+          "ndcg@50": {
+            "mean": 0.09903773298889666,
+            "min": 0.09888141099194064,
+            "max": 0.09931868795711538,
+            "sample_sd_across_residual_seeds": 0.00024382948798787652,
+            "mean_delta_vs_original_pcrf": 0.0009433457227678715,
+            "positive_seed_count_vs_original_pcrf": 3
+          }
+        }
+      },
+      "baseline": {
+        "users": 19412,
+        "hit@5": 0.09355038120750052,
+        "ndcg@5": 0.06845938987162059,
+        "hit@10": 0.1252318153719349,
+        "ndcg@10": 0.07867887550797592,
+        "hit@20": 0.1645889140737688,
+        "ndcg@20": 0.08859030638243687,
+        "hit@50": 0.21208530805687204,
+        "ndcg@50": 0.09809438726612879
+      },
+      "input_sha256": {
+        "train": "56d1078f8d33c0a9215471b3fc89551ad45104b2c49a716bb6d7401264ff619d",
+        "validation": "925f8333d1965808a0673320ce717d584fb3a62bfbd09d5afb19bdaea7360ffb",
+        "parent": "2d7e26c86b84e558bc7c06037697f5557a1de5e9d04d4ff4c72d8e5a7205ae5a",
+        "c1": "ae68afb79e8872933aa03c9f0d4f14bb07ce7c60320ce1793185caa690ce5f42",
+        "gacr": "d99c1fdd870c43af12c9452f972cb6e5e1fc17eac28a220660b0a47491e74246",
+        "features": "b08830fe5a9adc0c16adb90f865ff7c3ad51ba16598a62d17f79d43bf8205f99",
+        "reference_ranks": "4a3835255b05484c0080b93e74f410fed52c053634e26dc832cc0ff58597fd8b",
+        "item_head": "18a30dd5782632286f93c4693892ec347a0514baa197376867333cc68b656b4d",
+        "c1_training_users": "0b1764bbead34d6a81482a7c20c5577f068072e5c6f46d045129721edd991dc4",
+        "ranker_code": "556b960a04b423353b75d3dddf327cd4af2a8ee3666dc45ce65178d0f0dc46cc",
+        "pcrf_code": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+        "item_scoring_code": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+        "statistics_code": "fd033e75920937dc57f24e33873dfc96a1c2348d598c844c2b81333bb31c8fda",
+        "frequency_code": "3cef8d5f45d372f205d2c288120181831af291ffce8c06753070447609232090",
+        "controls_reference": "d6dac778f9afb14c7007e1c5d2fada890f3577a3e70311241897c4da2af9b480",
+        "origin_model_manifest": "82dfc046d79de74269e1ba25a88002485f1426c536ed1dcc9c69dc0dd3054984",
+        "residual_2023": "c05f812ee4204602b58119e0411f08e4aa06c99d8ab277e2861ad48d2d9ce68c",
+        "residual_2024": "12ad030cbc7127d7bdef86fb7e320a172d1731771d7d1046f67faa8502dabc1d",
+        "residual_2025": "33ac0a6166deefdfd3349b2728cee296d28df7c1ecc39825cab4f9569e20973a"
+      },
+      "config_path": "experiment/phase20/gacr_controls_multiseed_v1.json",
+      "verification_status": "ANALYZED",
+      "seed_scope": "Residual only; C1 and item head fixed; no best-seed selection.",
+      "completed_phases": [
+        "controls_seed2023",
+        "seed2024",
+        "seed2025"
+      ],
+      "test_read": false,
+      "new_optimizer_steps": 0,
+      "elapsed_seconds": 937.2
+    }
+  },
+  "decision": {
+    "rule": "Both domains: three-seed mean N10 and H10 above original PCRF, at least two positive N10 seeds, and worst N10 no lower than -0.5% relative to PCRF.",
+    "full": {
+      "domains": {
+        "Beauty": {
+          "mean_ndcg_positive": true,
+          "mean_hit_positive": true,
+          "positive_ndcg_seeds": 3,
+          "worst_relative_ndcg_delta": 0.00917222799856554
+        },
+        "Toys": {
+          "mean_ndcg_positive": true,
+          "mean_hit_positive": true,
+          "positive_ndcg_seeds": 3,
+          "worst_relative_ndcg_delta": 0.02809815256203496
+        }
+      },
+      "supports_next_training": true
+    },
+    "fixed": {
+      "domains": {
+        "Beauty": {
+          "mean_ndcg_positive": true,
+          "mean_hit_positive": true,
+          "positive_ndcg_seeds": 3,
+          "worst_relative_ndcg_delta": 0.009761366448766795
+        },
+        "Toys": {
+          "mean_ndcg_positive": true,
+          "mean_hit_positive": true,
+          "positive_ndcg_seeds": 3,
+          "worst_relative_ndcg_delta": 0.029698587245031938
+        }
+      },
+      "supports_next_training": true
+    },
+    "next_step": "PREPARE_MATCHED_FINAL_FUSION_TRAINING_ON_FIXED_CANDIDATES",
+    "automatic_training_started": false
+  },
+  "verification_status": "ANALYZED",
+  "new_optimizer_steps": 0,
+  "test_read": false
+}

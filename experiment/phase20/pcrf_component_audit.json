@@ -1,0 +1,31 @@
+{
+  "id": "stage20_pcrf_component_audit_20260911",
+  "dataset": "Toys",
+  "users": 19412,
+  "catalog_size_with_padding": 11925,
+  "train": "artifacts/phase18/diff_gram/prepared_v2_categories/train.jsonl",
+  "validation": "artifacts/phase18/diff_gram/prepared_v2_categories/validation.jsonl",
+  "predictions": "artifacts/phase20/sprec_gram_toys_v1/parent_full.predictions.jsonl",
+  "reference": "artifacts/phase20/sprec_gram_toys_v1/matched_parent_reference.json",
+  "item_head": "artifacts/phase9/cf0_b2_toys_item_p2a/best_item_head.pt",
+  "output": "artifacts/phase20/pcrf_component_audit_20260911_v2",
+  "q1": 5,
+  "bootstrap_repeats": 2000,
+  "bootstrap_seed": 20260911,
+  "arms": {
+    "gram": [0.0, 0.0, 0.0],
+    "plain_fusion_075": [0.75, 0.0, 0.0],
+    "plain_fusion_100": [1.0, 0.0, 0.0],
+    "popularity_only": [1.0, 0.5, 0.0],
+    "reliability_only": [1.0, 0.0, 1.0],
+    "pcrf": [1.0, 0.5, 1.0]
+  },
+  "extra_arm": "cf_only_within_same_beam50",
+  "primary_comparison": "pcrf_minus_plain_fusion_100",
+  "primary_metric": "ndcg@10",
+  "scope": "descriptive ablation on reused validation; no parameter fitting or selection",
+  "cpu_threads": 4,
+  "max_wall_seconds": 600,
+  "test_read": false,
+  "new_training_steps": 0
+}

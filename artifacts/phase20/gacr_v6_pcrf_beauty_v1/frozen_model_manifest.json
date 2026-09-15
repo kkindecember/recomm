@@ -1,0 +1,30 @@
+{
+  "inputs": {
+    "artifacts/phase4/gcdh_p0/Beauty/C1/model.pt": "5842f45998325cfee47427fd5d323ffdde23fda373016ca86e5164d3d908d2f2",
+    "artifacts/phase6/gacr_v6/Beauty/residual_seed2023.pt": "260f47d00ffea5a947fb02753c35286a2688d3c5503adea9e305ef76fe9ab4a4",
+    "GRAM/rec_datasets/Beauty/item_generative_indexing_hierarchy_v1_c128_l7_len32768_split.txt": "2bfa6792146c27884f27ae7ffab223eb93b5151f8bfcce2939f93b87be7add5b",
+    "artifacts/phase4/gcdh_p0_splits/Beauty/train_users.txt": "8ceb8c6c336b31a64e83e3742dbbd59e7e4b2bfe935ce7a38a9a09bdb7c974a3",
+    "artifacts/phase9/p9x_beauty_item_head/best_item_head.pt": "7f6efd92e92a681cad7eeae77a80c71bc7d28d405f34c685232b68b89fb6180a",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/per_user.tsv": "fe2ecac571bf97a1587febee7a6318940c404f175a348f562932cd7ec0eb61f1",
+    "artifacts/phase9/p9s_multiseed/Beauty/seed2023/validation/summary.json": "3e9695735786e4a48cbf27e44178ecd4bbc59b0479199de6ec76b5e6707c0ac9",
+    "experiment/phase4/gacr_s0.py": "556b960a04b423353b75d3dddf327cd4af2a8ee3666dc45ce65178d0f0dc46cc",
+    "experiment/phase4/gcdh_p0.py": "cae662891aa431a391482c4284f26356d5c3fde2c3a0b2b024e90f9fa65cdb4f",
+    "experiment/phase9/eval_cf0_b4_reliability.py": "d880219ff8019f4cf3e1f492e18cadbb18f4e577628c63708ca5abcd1889e49f",
+    "experiment/phase9/eval_cf0_b3_beamfusion.py": "d9781483359ec2576a7d2377aa3ba9ec21ad151d73242f2476099e775771edc3",
+    "experiment/phase20/gacr_features.py": "b1d31cca6afcea86739062a474cc5e5f3a2297014823a5f24e78fde565bc2428",
+    "experiment/phase20/run_preference.py": "0f148b9ef7ae5233356926e354cc284fcfb35ac87b537e2cf0fff441f07dcfdb",
+    "experiment/phase20/evaluate_saved.py": "5824ecf5f774405d85c400f1c1537b625fda0beb59d32300e401cb40f7f222a0",
+    "experiment/phase20/evaluate_gacr_transfer.py": "af47a35472766137edeaf276bdebbc36177a9db84aac5976838dc6c20a3f51c8",
+    "experiment/phase18/config/s18_diff_gram_beauty.json": "fe8d2e9e1e26d5fbb105929ca048080fec4979aaa20495c77757f54b9265d8fc",
+    "GRAM/log/Beauty/4_20260718_2153/id_0_rec_30/model_rec_phase_1_epoch_25.pt": "0df16263344afec8a40e29a7a33e43e7bbe254e0ab97799c9103ad757e60fa89",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/manifest.json": "98244d1798ce19e8ba356479329d1ca065d900b8912f7c54c83904f51667c16f",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/catalog.json": "98b65f13a82d1141beafd35bc5a29d1ae00640016c2f36cdd58c81288fba164d",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/train.jsonl": "906230a74174564c8e4d41437e986371e85137dd961c3f3b85646e327ed11c59",
+    "artifacts/phase18/diff_gram/beauty/prepared_v1/validation.jsonl": "1dff8bc5e43fd91234a8e2fe3e6d2b6595179b1883a5eae5b68896ed0f4d40bf"
+  },
+  "catalog_row_order": "lexical file insertion order",
+  "catalog_row_mapping_verified": true,
+  "new_optimizer_steps": 0,
+  "combination": "Original GACR top50, then frozen PCRF with GACR scores as its base signal",
+  "parent_model": "C1 continued backbone; independently compared to untouched GRAM"
+}
