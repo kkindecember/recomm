@@ -1,0 +1,101 @@
+{
+  "state": "VERIFIED",
+  "input_hashes": 199,
+  "checkpoints_replayed": 6,
+  "checkpoint_max_errors": {
+    "Toys.20260917.talos_exact": 3.9968028886505635e-15,
+    "Toys.20260918.talos_exact": 3.552713678800501e-15,
+    "Toys.20260919.talos_exact": 4.052314039881821e-15,
+    "Beauty.20260917.talos_exact": 2.886579864025407e-15,
+    "Beauty.20260918.talos_exact": 3.552713678800501e-15,
+    "Beauty.20260919.talos_exact": 3.1086244689504383e-15
+  },
+  "final_training_loss_errors": {
+    "Toys.20260917.talos_exact": 4.440892098500626e-16,
+    "Toys.20260918.talos_exact": 4.440892098500626e-16,
+    "Toys.20260919.talos_exact": 4.440892098500626e-16,
+    "Beauty.20260917.talos_exact": 0.0,
+    "Beauty.20260918.talos_exact": 4.440892098500626e-16,
+    "Beauty.20260919.talos_exact": 4.440892098500626e-16
+  },
+  "metrics_checked": 8400,
+  "comparison_values_checked": 5400,
+  "aggregate_distributions_checked": 1900,
+  "registered_strong_baseline_exact_parity": true,
+  "gates": {
+    "Toys": {
+      "utility": {
+        "talos_exact": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": false,
+          "passed": false
+        }
+      },
+      "specificity": {
+        "softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        },
+        "negative_softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        }
+      },
+      "topk": false
+    },
+    "Beauty": {
+      "utility": {
+        "talos_exact": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": false,
+          "passed": false
+        }
+      },
+      "specificity": {
+        "softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        },
+        "negative_softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        }
+      },
+      "topk": false
+    }
+  },
+  "decision": "NO_ADVANCEMENT_GATE_PASSED",
+  "retained_arms": [],
+  "output_sha256": {
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260917.predictions.npz": "42dd62751cabe6462ac6f77dd7ea12ab762fc367780fab747ea35f2fd967dd95",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260917.training.json": "348b4116bbe86119058f10a29a07e0d022ae185cce376de32af164b3377fec4c",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260917.talos_exact.pt": "20793ac4178e143a0fd0d9d4236140c225a7d5a20f63c161c434d61a3ca93965",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260918.predictions.npz": "511cc1725b709e3bd4dd500a0c395536cdd0b795483a27a7c831fc25380620c7",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260918.training.json": "13706959d29e5c651228cbcb866b600d174a45cf330b3b9a4fed9e9954d5de52",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260918.talos_exact.pt": "b0f75c6d919d50c86b1b634780a30dbefc5e4b253860776e8bb657673ba4a990",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260919.predictions.npz": "ae42b080543f6a92039decf3f2130be379742fef3dce3e4c4a8f8ac85d6b1eb0",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260919.training.json": "cacc289154fce8c843bd49e2d6e150736035600b628817365bc6cf521ea01a41",
+    "artifacts/phase20/talos_exact_threshold_20260917/Toys.20260919.talos_exact.pt": "d60a646d6f14477ff36f92183c66a1d173dd6ca760983249879e10d9930b1ba8",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260917.predictions.npz": "094c1ab204837950ecf47d8a2f31083aa1e5fb298bd03cd0897b31808217e95e",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260917.training.json": "5c4671366bbe4877175074fd57c3632d979ea2beecba76d2a436a03ff86da7fd",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260917.talos_exact.pt": "e44db0353e2ccf528636f2aa513325640d66ae8de5a00bd7f64affed3d9bf31d",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260918.predictions.npz": "81b08b34f2c57dbad29219b352652f662004eaa26752720bc4aa89868ce4684d",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260918.training.json": "77f710ddc60cc2d0c67ab54444201a52f3013b1422473125564c233aedc7f103",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260918.talos_exact.pt": "50e92ca6ebd2d592f4d5e0153f52b53525da8a48e195236904f421b00765f1d0",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260919.predictions.npz": "2b1019f035b4011bf840aa9bcd765942b0f476f267c75eefc8230151eb9392c0",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260919.training.json": "a81d5eaeac818381be7eb1b66bd9832eb8b7ba21ee51390436f69e10b1ca0d0f",
+    "artifacts/phase20/talos_exact_threshold_20260917/Beauty.20260919.talos_exact.pt": "d24fd807536c5d1ad70e73d20a3250182016bab62cc4d26f2bfa90ae62cafb26",
+    "artifacts/phase20/talos_exact_threshold_20260917/summary.json": "54f333911a3e4c9f7ca7016db9d10fefc3e601cc3455af77185da5134f8dd6a0",
+    "artifacts/phase20/talos_exact_threshold_20260917/protocol.json": "515d418b8961a9d6d02d7a2f8995ebbc4a852c07359ef83831f53ea48f8b1cc5"
+  },
+  "source_sha256": "b8fa7c5ee6b687604bacb1243a5ee07cb6d0f0a86b69138af63175353fff4edf",
+  "test_read": false
+}

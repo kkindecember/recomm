@@ -1,0 +1,32 @@
+{
+  "contract": "plan/\u7b2c\u4e8c\u5341\u9636\u6bb5/\u5546\u54c1\u5bf9\u534f\u540c\u4e0d\u786e\u5b9a\u6027_\u56fa\u5b9a\u7f13\u5b58\u7b5b\u67e5\u5408\u540c_20260917.md",
+  "source_sha256": {
+    "experiment/phase20/pair_uncertainty_screen.py": "12a6c734e2b0b34860c795f869d528c76c93bd68c89d4a49f2693ba14ac37def",
+    "plan/\u7b2c\u4e8c\u5341\u9636\u6bb5/\u5546\u54c1\u5bf9\u534f\u540c\u4e0d\u786e\u5b9a\u6027_\u56fa\u5b9a\u7f13\u5b58\u7b5b\u67e5\u5408\u540c_20260917.md": "b357f11bb0f925d976c2d0f1978b91986eccb2ccf1a3cfcedfd31ee0598e4e99",
+    "experiment/phase9/train_cf0_b2_item_head.py": "09a191f9bb978976d5c5febc8bf7fdfc9763715a74f02484ee264e0077c8df23",
+    "experiment/phase20/gacr_fusion_train_v1.json": "9de3aec6690900bfbd35ba914ef671d54a8d1f47d827154c1d982c366c37c28c"
+  },
+  "arms": [
+    "current",
+    "seed2024",
+    "seed2025",
+    "mean",
+    "point_lcb",
+    "pair_diag",
+    "pair_cov",
+    "matched_scalar"
+  ],
+  "primary": "pair_cov",
+  "seeds": [
+    2023,
+    2024,
+    2025
+  ],
+  "shrink_std_multiplier": 1.0,
+  "sigmoid_temperature": 1.0,
+  "sample_std_ddof": 1,
+  "max_seconds": 900,
+  "threads": 4,
+  "new_training_steps": 0,
+  "test_read": false
+}

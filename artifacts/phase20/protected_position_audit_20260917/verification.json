@@ -1,0 +1,100 @@
+{
+  "state": "VERIFIED",
+  "input_hashes_checked": 29,
+  "metrics_checked": 768,
+  "independently_rebuilt_target_ranks": 208875,
+  "domains": {
+    "Toys": {
+      "rows": 19412,
+      "tail_rows": 5160,
+      "bootstrap": {
+        "plain": {
+          "delta_N10": -0.00104500858028697,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -0.0018183203052750416,
+            -0.00031182979045814264
+          ]
+        },
+        "pop_constant": {
+          "delta_N10": -0.00025395313443466133,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -0.0005975628077882809,
+            7.430206669213934e-05
+          ]
+        },
+        "group_slots": {
+          "delta_N10": -0.00032258308788335867,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -0.0009765549170632941,
+            0.0002825450743227392
+          ]
+        },
+        "protect_tail": {
+          "delta_N10": -0.00017235661128501482,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -0.0007686847560676554,
+            0.00042718430990802236
+          ]
+        },
+        "protect_non_tail": {
+          "delta_N10": -0.0001502264765983438,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -0.0003271432231547781,
+            3.3306522708621384e-05
+          ]
+        }
+      },
+      "seed": 20260917,
+      "resamples": 2000
+    },
+    "Beauty": {
+      "rows": 22363,
+      "tail_rows": 6049,
+      "bootstrap": {
+        "plain": {
+          "delta_N10": 0.0015603597401304412,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            0.0009465219786694257,
+            0.0021655021606467846
+          ]
+        },
+        "pop_constant": {
+          "delta_N10": 0.0001572723141927925,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -0.00010001053294522316,
+            0.0004113308020647268
+          ]
+        },
+        "group_slots": {
+          "delta_N10": 0.0006151696311634209,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            1.4690328794699573e-05,
+            0.0011796688343745794
+          ]
+        },
+        "protect_tail": {
+          "delta_N10": 0.0005939903119392347,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            4.4224518829488516e-05,
+            0.0011457510452582
+          ]
+        },
+        "protect_non_tail": {
+          "delta_N10": 2.1179319224186332e-05,
+          "descriptive_paired_user_bootstrap_95_percent": [
+            -5.656265572029265e-05,
+            9.460130461395762e-05
+          ]
+        }
+      },
+      "seed": 20260917,
+      "resamples": 2000
+    }
+  },
+  "original_decision": "DUAL_DOMAIN_FEASIBILITY_NOT_ESTABLISHED",
+  "new_training_steps": 0,
+  "gpu_used": false,
+  "statistical_scope": "Post-hoc pointwise paired-user intervals on reused development data; no adjustment for adaptive research, no seed uncertainty, no confirmatory claims.",
+  "source_sha256": "de50568b1faf02f4d8d4eb746433d983c3f5f942cbe6473cca8931070483b7f9",
+  "summary_sha256": "79be4b209c626b894d26b411851a010d8cc20c9e631cf7744012184f75612a1d"
+}

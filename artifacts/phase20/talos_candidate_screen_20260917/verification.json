@@ -1,0 +1,165 @@
+{
+  "state": "VERIFIED",
+  "input_hashes": 162,
+  "checkpoints_replayed": 18,
+  "checkpoint_max_errors": {
+    "Toys.20260917.softmax": 5.773159728050814e-15,
+    "Toys.20260917.negative_softmax": 3.552713678800501e-15,
+    "Toys.20260917.talos": 5.384581669432009e-15,
+    "Toys.20260918.softmax": 5.773159728050814e-15,
+    "Toys.20260918.negative_softmax": 4.440892098500626e-15,
+    "Toys.20260918.talos": 4.9404924595819466e-15,
+    "Toys.20260919.softmax": 5.329070518200751e-15,
+    "Toys.20260919.negative_softmax": 4.440892098500626e-15,
+    "Toys.20260919.talos": 5.717648576819556e-15,
+    "Beauty.20260917.softmax": 5.329070518200751e-15,
+    "Beauty.20260917.negative_softmax": 3.1086244689504383e-15,
+    "Beauty.20260917.talos": 4.9404924595819466e-15,
+    "Beauty.20260918.softmax": 5.329070518200751e-15,
+    "Beauty.20260918.negative_softmax": 3.9968028886505635e-15,
+    "Beauty.20260918.talos": 4.773959005888173e-15,
+    "Beauty.20260919.softmax": 4.884981308350689e-15,
+    "Beauty.20260919.negative_softmax": 3.6637359812630166e-15,
+    "Beauty.20260919.talos": 4.980391099529413e-15
+  },
+  "final_training_loss_errors": {
+    "Toys.20260917.softmax": 0.0,
+    "Toys.20260917.negative_softmax": 2.220446049250313e-16,
+    "Toys.20260917.talos": 0.0,
+    "Toys.20260918.softmax": 8.881784197001252e-16,
+    "Toys.20260918.negative_softmax": 4.440892098500626e-16,
+    "Toys.20260918.talos": 4.440892098500626e-16,
+    "Toys.20260919.softmax": 0.0,
+    "Toys.20260919.negative_softmax": 4.440892098500626e-16,
+    "Toys.20260919.talos": 4.440892098500626e-16,
+    "Beauty.20260917.softmax": 4.440892098500626e-16,
+    "Beauty.20260917.negative_softmax": 0.0,
+    "Beauty.20260917.talos": 4.440892098500626e-16,
+    "Beauty.20260918.softmax": 4.440892098500626e-16,
+    "Beauty.20260918.negative_softmax": 2.220446049250313e-16,
+    "Beauty.20260918.talos": 0.0,
+    "Beauty.20260919.softmax": 4.440892098500626e-16,
+    "Beauty.20260919.negative_softmax": 2.220446049250313e-16,
+    "Beauty.20260919.talos": 4.440892098500626e-16
+  },
+  "metrics_checked": 7200,
+  "comparison_values_checked": 9900,
+  "aggregate_distributions_checked": 2800,
+  "registered_strong_baseline_exact_parity": true,
+  "gates": {
+    "Toys": {
+      "utility": {
+        "softmax": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": true,
+          "passed": false
+        },
+        "negative_softmax": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": true,
+          "passed": false
+        },
+        "talos": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": false,
+          "passed": false
+        }
+      },
+      "specificity": {
+        "softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        },
+        "negative_softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        }
+      },
+      "topk": false
+    },
+    "Beauty": {
+      "utility": {
+        "softmax": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": true,
+          "passed": false
+        },
+        "negative_softmax": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": true,
+          "passed": false
+        },
+        "talos": {
+          "ndcg_route": false,
+          "hit_route": false,
+          "protection": false,
+          "directions": false,
+          "passed": false
+        }
+      },
+      "specificity": {
+        "softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        },
+        "negative_softmax": {
+          "gain": false,
+          "protection": false,
+          "passed": false
+        }
+      },
+      "topk": false
+    }
+  },
+  "decision": "NO_ADVANCEMENT_GATE_PASSED",
+  "retained_arms": [],
+  "output_sha256": {
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260917.predictions.npz": "65e928feebda3373e27b75c01ea2207bb25e762df246dc9e11ac7d13b4d236c7",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260917.training.json": "d1d316e2e4d0d928f5a5be7729f5b69802f58d7e23aef8f96980973da418167f",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260917.softmax.pt": "d11b8c76e8227122aa1bc140e7030df0b7834e4ab3ece510868a707d5ac3c135",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260917.negative_softmax.pt": "b700de03bc65b643d680daaff45b82f98fef98beaa7d4a12bb06b0b484371923",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260917.talos.pt": "860a3274f2f31c93f95c2f25dab73bef7e4da6eb6b5dab1e251d0391163671c0",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260918.predictions.npz": "b21b131cd52286689cc8d6b23fe1bd0e8d4c8b20b52dc99aa61efff8ec6ea0c4",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260918.training.json": "b85766976fe0ef12086ff665821eccb17f88462ac956d98ca3b1e85fa044bb75",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260918.softmax.pt": "2667e3dda28be3e9a6adbcb37be75efae25f5456ca4115290af1dd919d40b77b",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260918.negative_softmax.pt": "7ade3ef00e8529ccb88992ee9f52523212187cbc13cb3e109e0540d51adca22e",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260918.talos.pt": "e9d55b02bb9927fb0c17890910cc22333864dafb4f764edd60f2b59beff35a08",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260919.predictions.npz": "6530709ae7ce4dcd76eb4b535587da05b30f1f8fbe345bc22dd8785b6407ae0d",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260919.training.json": "6bd1d2363c14f3c82649353c154887f01d7f13f73932ceaf2b6f01ddeeb4f014",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260919.softmax.pt": "eca4c5091914f5c8fcf61a30239518748e8f0ac8ea7c77dabe976f029f050ce3",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260919.negative_softmax.pt": "0e6282f5bc8c4f9ab080e18a91fa6ac420d065dc171c8b80aea505f2e8fdd6f1",
+    "artifacts/phase20/talos_candidate_screen_20260917/Toys.20260919.talos.pt": "8de343b942ccacaef653cbc3d7e64664ee330b682acf52be70becec6f143873c",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260917.predictions.npz": "9d86bf6230d1bce2ec0ab8e0dac9691323a42c80edabf5e05fe9e8519d42753d",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260917.training.json": "23466b0f6003ce88fd0db9e87bf640f76995b6c1f9f08d9185f6da681cd78aad",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260917.softmax.pt": "55f075e29dbc1d4caa0d9aa8d8dc99137495dd6bbaf5aa95b1ad60a998a21496",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260917.negative_softmax.pt": "cf6daaf199d98d88c9cc357fee2e1dca1dde8a47480ad4280d7f383f04f856c5",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260917.talos.pt": "ff3b2c5bf98376fb07699348a619df117f2163c6dd73ca5498445a6c1dd0464a",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260918.predictions.npz": "0a6aa0f1187a304a260fda1398ab5f4eaa40278657f30783d6e50ada2312a207",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260918.training.json": "c1b471f6913269420ebdc1ff4bdc04f17239b1aac29ce53ab7729489505d46a3",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260918.softmax.pt": "84bff84447081d2d7ba820dbdc4f672074e931edae57cfdc96d2f385666bdca4",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260918.negative_softmax.pt": "355a776d329906c068e2963299ef1328f78e21747538e3dd11507fff57d71d69",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260918.talos.pt": "5dad844de0d860c409bad3f4a411e832660248f3100c032b899763959a1ba7cb",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260919.predictions.npz": "a1e67c9d64d7a2a74b0c3d2934644c96745b0fc09a837ce97c7ed35a6bbf7961",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260919.training.json": "f660976f2323bd081304f69bdece70cca7781c139f7f5bda043d897d6a3a17d2",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260919.softmax.pt": "4dab000688647b713cea3785aa5def1af7e6b0701157ff4db92bb5dc9148c9ff",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260919.negative_softmax.pt": "2ef43e6b1390f603b11ea4135411912ed1fa99ed3c32ea8e9f1a9f6d2d716967",
+    "artifacts/phase20/talos_candidate_screen_20260917/Beauty.20260919.talos.pt": "107d5311e26479b4a87275b53574b26f68fe9b51a752680330717e517f430d6a",
+    "artifacts/phase20/talos_candidate_screen_20260917/summary.json": "ea66ea2d7a4161c07b4e77b89834202916a477788f8cddc18f98acb477fa5fa4",
+    "artifacts/phase20/talos_candidate_screen_20260917/protocol.json": "e00d28636d91dadf187b75330557575a70e832289d7cc2bfc77f16cce0658c2c"
+  },
+  "source_sha256": "1c7d5687298a33ef9d30350354c627bca8b65624d019e62725642aeedc73d148",
+  "test_read": false
+}

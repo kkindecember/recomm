@@ -1,0 +1,77 @@
+{
+  "state": "VERIFIED",
+  "input_hashes": 21,
+  "metrics_checked": 672,
+  "audit_source_sha256": "479e5b9b13a55a7ea259f11b50090a6f48bc50de7269d161e942f49438d0ffa9",
+  "output_sha256": {
+    "artifacts/phase20/future_factor_screen_20260917/Toys.next_only.pt": "bc0a41e0924678a9d16f0a0812bafd9236006f1b8b255a37c837741804c4e111",
+    "artifacts/phase20/future_factor_screen_20260917/Toys.soft_future.pt": "ea53fa86190d2344d33d3108444a3632e014054ab55ea03fed3105ebfb362287",
+    "artifacts/phase20/future_factor_screen_20260917/Toys.flat_three.pt": "2f5aa9a7e8024283a271ab878f0456fc775adb70340bc79a935b416b92d33b78",
+    "artifacts/phase20/future_factor_screen_20260917/Toys.conditional.pt": "cc550b0f2a9ab1e0846ccb2d331f4e584c3c3bd278bf464fa49f946d020b91f0",
+    "artifacts/phase20/future_factor_screen_20260917/Toys.audit_validation_cache.npz": "65d8cc0e16a3f8736a03fcc4a714f93765fb35847a656463f82522f2747efe7a",
+    "artifacts/phase20/future_factor_screen_20260917/Beauty.next_only.pt": "0d9d4b32f86fa9f5d639829067a54314c4bedd520881bfda8a16f35b3cd5b4f0",
+    "artifacts/phase20/future_factor_screen_20260917/Beauty.soft_future.pt": "9af2963d983d5898159ecd121517eafa997feffebab01507f6685fab1edf319e",
+    "artifacts/phase20/future_factor_screen_20260917/Beauty.flat_three.pt": "f606ae8e8d7a7460b1fd77b7d6ba14763c6fdfc5a8882c79f1024832098c757b",
+    "artifacts/phase20/future_factor_screen_20260917/Beauty.conditional.pt": "8fbda3f0ac305a2d0ce59ec6e1256abf7d58d2ad93c75f0a16913973f5236761",
+    "artifacts/phase20/future_factor_screen_20260917/Beauty.audit_validation_cache.npz": "1c9db8c72c6c860ced8987f67e42ca7e99da93cf9defd8561a55e02471270ef1"
+  },
+  "domains": {
+    "Toys": {
+      "checkpoint_score_errors": {
+        "next_only": 4.496403249731884e-15,
+        "soft_future": 4.551914400963142e-15,
+        "flat_three": 4.884981308350689e-15,
+        "conditional": 4.440892098500626e-15
+      },
+      "soft_vs_next_only": {
+        "all": {
+          "users": 19412,
+          "relative_N10": 0.009148262452903566,
+          "hit_gained": 87,
+          "hit_lost": 83
+        },
+        "fit": {
+          "users": 1395,
+          "relative_N10": 0.020475030426228225,
+          "hit_gained": 8,
+          "hit_lost": 6
+        },
+        "nonfit": {
+          "users": 18017,
+          "relative_N10": 0.00831555635034742,
+          "hit_gained": 79,
+          "hit_lost": 77
+        }
+      }
+    },
+    "Beauty": {
+      "checkpoint_score_errors": {
+        "next_only": 3.9968028886505635e-15,
+        "soft_future": 4.440892098500626e-15,
+        "flat_three": 4.440892098500626e-15,
+        "conditional": 3.9968028886505635e-15
+      },
+      "soft_vs_next_only": {
+        "all": {
+          "users": 22363,
+          "relative_N10": 0.012891181318271272,
+          "hit_gained": 101,
+          "hit_lost": 85
+        },
+        "fit": {
+          "users": 1645,
+          "relative_N10": 0.009818432672399569,
+          "hit_gained": 9,
+          "hit_lost": 8
+        },
+        "nonfit": {
+          "users": 20718,
+          "relative_N10": 0.013237474547808104,
+          "hit_gained": 92,
+          "hit_lost": 77
+        }
+      }
+    }
+  },
+  "test_read": false
+}

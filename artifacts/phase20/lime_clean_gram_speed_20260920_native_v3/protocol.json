@@ -1,0 +1,20 @@
+{
+  "arms": [
+    "checkpoint_tf32",
+    "native_tf32"
+  ],
+  "numerical_reference": "checkpoint_tf32",
+  "mode": "native_baseline",
+  "seed": 2023,
+  "batch_size": 16,
+  "accumulation": 8,
+  "domain": "Toys",
+  "random_windows": 2,
+  "numerical_relative_loss_tolerance": 0.005,
+  "numerical_relative_gradient_l2_tolerance": 0.02,
+  "minimum_free_mib": 30720,
+  "allocator_limit_mib": 25600,
+  "motivation": "CPU collation costs only 1.5-1.7 seconds per 15-16 second update. Torch1.11 native TF32 and no checkpointing were not disabled by old GRAM runner.",
+  "source_sha256": "9d775d13f48c883d1a3d4e3ffc32cb0135c7bab9478c10d7818dfc0dfd40a8b5",
+  "new_effectiveness_metrics": false
+}

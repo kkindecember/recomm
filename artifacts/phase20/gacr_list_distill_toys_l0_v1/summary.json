@@ -1,0 +1,170 @@
+{
+  "state": "COMPLETED",
+  "pid": 3810951,
+  "updated_at": "2026-09-16T01:20:21+0800",
+  "elapsed_seconds": 4072.9124472774565,
+  "arms": {
+    "CE_anchor": {
+      "state": "COMPLETED",
+      "stage": "finished",
+      "arm": "CE_anchor",
+      "pid": 3811080,
+      "gpu_uuid": "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2",
+      "optimizer_steps": 32,
+      "engineering_optimizer_steps": 1,
+      "test_read": false,
+      "updated_at": "2026-09-16T01:20:06+0800",
+      "elapsed_seconds": 4057.04,
+      "free_mib": 20900.625,
+      "gpu_name": "NVIDIA RTX A6000",
+      "profile": {
+        "state": "PASSED",
+        "seconds_per_training_example": [
+          0.756268447265029,
+          0.7139845639467239,
+          0.790400717407465,
+          0.8671787437051535,
+          0.853253398090601,
+          0.7885542288422585,
+          0.8606532979756594,
+          0.8924879748374224
+        ],
+        "seconds_per_scoring_example": [
+          0.3145144321024418,
+          0.22800223901867867,
+          0.3059007655829191,
+          0.21939737163484097,
+          0.26449299417436123,
+          0.24337967671453953,
+          0.35787870548665524,
+          0.3146763052791357
+        ],
+        "gradient_norms": [
+          3.8981926441192627,
+          3.878606081008911,
+          4.872530937194824,
+          3.0948493480682373,
+          6.3237433433532715,
+          4.8391499519348145,
+          3.61879825592041,
+          3.097134590148926
+        ],
+        "profile_indices": [
+          0,
+          22051,
+          13158,
+          13426,
+          5431,
+          6882,
+          19480,
+          21755
+        ],
+        "estimated_remaining_seconds": 4532.926921463012,
+        "estimated_total_compute_seconds": 4588.74804695174,
+        "peak_allocated_mib": 930.0849609375,
+        "peak_reserved_mib": 1524.0,
+        "engineering_optimizer_steps": 1,
+        "formal_optimizer_steps": 0,
+        "restored_C1_sha256": "9f715d25fd1698e5623e62f0f69ff0be36d964c58e5122ff891fe1fcc55853c0",
+        "original_parent_score_atol": 1e-06,
+        "save_load_exact": true,
+        "frozen_parameters_unchanged": true
+      },
+      "scored_prefixes": 512,
+      "examples": 4096,
+      "training_started_at": "2026-09-16T00:15:34+0800",
+      "training_eta_seconds": 0.0,
+      "nonzero_lr_steps": 31,
+      "learning_rate": 8.641975308641975e-06
+    },
+    "true_teacher": {
+      "state": "COMPLETED",
+      "stage": "finished",
+      "arm": "true_teacher",
+      "pid": 3811081,
+      "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+      "optimizer_steps": 32,
+      "engineering_optimizer_steps": 1,
+      "test_read": false,
+      "updated_at": "2026-09-16T01:07:27+0800",
+      "elapsed_seconds": 3297.43,
+      "free_mib": 19146.75,
+      "gpu_name": "NVIDIA RTX A6000",
+      "profile": {
+        "state": "PASSED",
+        "seconds_per_training_example": [
+          0.7407425604760647,
+          0.7295962944626808,
+          0.7062936499714851,
+          0.7760642040520906,
+          0.757052656263113,
+          0.7606640327721834,
+          0.9094498213380575,
+          1.0612266585230827
+        ],
+        "seconds_per_scoring_example": [
+          0.3297363519668579,
+          0.22215983644127846,
+          0.28196352906525135,
+          0.31903850473463535,
+          0.2927349489182234,
+          0.19270195439457893,
+          0.3731392193585634,
+          0.4031250085681677
+        ],
+        "gradient_norms": [
+          3.8981926441192627,
+          3.878606081008911,
+          4.872530937194824,
+          3.7541372776031494,
+          6.3237433433532715,
+          5.201725482940674,
+          3.61879825592041,
+          3.3276751041412354
+        ],
+        "profile_indices": [
+          0,
+          22051,
+          13158,
+          13426,
+          5431,
+          6882,
+          19480,
+          21755
+        ],
+        "estimated_remaining_seconds": 4508.288081645966,
+        "estimated_total_compute_seconds": 4559.81939612329,
+        "peak_allocated_mib": 930.0849609375,
+        "peak_reserved_mib": 1524.0,
+        "engineering_optimizer_steps": 1,
+        "formal_optimizer_steps": 0,
+        "restored_C1_sha256": "9f715d25fd1698e5623e62f0f69ff0be36d964c58e5122ff891fe1fcc55853c0",
+        "original_parent_score_atol": 1e-06,
+        "save_load_exact": true,
+        "frozen_parameters_unchanged": true
+      },
+      "scored_prefixes": 512,
+      "examples": 4096,
+      "training_started_at": "2026-09-16T00:15:24+0800",
+      "training_eta_seconds": 0.0,
+      "nonzero_lr_steps": 31,
+      "learning_rate": 8.641975308641975e-06
+    }
+  },
+  "children": {
+    "CE_anchor": 3811080,
+    "true_teacher": 3811081
+  },
+  "test_read": false,
+  "gate": {
+    "checks": {
+      "fit_teacher_kl": true,
+      "fit_promoted_demoted_satisfaction": false,
+      "calibration_teacher_kl": true,
+      "calibration_promoted_demoted_satisfaction": false,
+      "calibration_user_ndcg10": true
+    },
+    "passed": false
+  },
+  "recommendation": "当前时间预算下停止内部KL路线扩展；不追加lr/权重网格。"
+}

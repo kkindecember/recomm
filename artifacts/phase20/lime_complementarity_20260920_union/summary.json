@@ -1,0 +1,647 @@
+{
+  "created_at": "2026-09-20T14:21:59+08:00",
+  "state": "COMPLETE_DESCRIPTIVE_REVIEW",
+  "completed_seed_outputs": 6,
+  "expected_seed_outputs": 6,
+  "new_training_steps": 0,
+  "test_read": false,
+  "input_sha256": {
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/summary_seed0_crossfit.json": "0f6b819310be42beabf50ddaf94e225ff191b1083142c19ad63c4602c4520139",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/evaluation_seed0_crossfit.npz": "61240d507d231c381b90d0578d28c76e4fe04c01e9a3f1c2d5d64e8106cfa1e4",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/summary_seed1_crossfit.json": "3c008ecda94a1fcdc92aa2c7cfd9b9995c92acd7bb69135a3e629c66229a3fbc",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/evaluation_seed1_crossfit.npz": "b6699ce74e8365fd9de793a6a919216145229f3ac59eadbdeceba297f08e07e0",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/summary_seed2_crossfit.json": "3921e4be324f8d58a809a726217639a51ca05ea89e74b00c21cd5ca41462a0c6",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/evaluation_seed2_crossfit.npz": "f9a991a10528c5541e5bbacfabf89a6bb6ee7fe10dad3c8b01bf567416b6e6a8",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/summary_seed0_crossfit.json": "c198c5beeecaa6a6c5790a7562d47b9ce2ef1662dbc59ab8f2d2d83e4f44495d",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/evaluation_seed0_crossfit.npz": "98874e0a626d53a70820758719aea36253768479492f17e9caa697a19aeb032f",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/summary_seed1_crossfit.json": "c94be06786bd43784e27b1fbc95b89e563e97dc5b676af585d5e85d401345dcd",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/evaluation_seed1_crossfit.npz": "3cde0974b4fb4bf0b55d2ef0fcb9d76cdc5f9ce1abb5464f1396df96088cbe18",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/summary_seed2_crossfit.json": "89f154ec2662622b6d46bb52530cda8ba30cb80bd098872d9ae14c554759ad9d",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/evaluation_seed2_crossfit.npz": "2ebb8a124b64e97be593dd02d63a23022a452aa45c84e1a090fe7caf1194b3bb"
+  },
+  "records": [
+    {
+      "domain": "Toys",
+      "seed": 0,
+      "users": 17364,
+      "metrics": {
+        "LIME": {
+          "N10": 0.08679329195872877,
+          "H10": 0.13769868693849344,
+          "H50": 0.24349228288412808
+        },
+        "LIME_repeat_allowed": {
+          "N10": 0.07636553227760912,
+          "H10": 0.12635337479843353,
+          "H50": 0.2386546878599401
+        },
+        "LIME_scores_G50": {
+          "N10": 0.08945969286259257,
+          "H10": 0.13896567611149505,
+          "H50": 0.20934116563003916
+        },
+        "common_G50": {
+          "N10": 0.08266113237139343,
+          "H10": 0.12848422022575443,
+          "H50": 0.20934116563003916
+        },
+        "common_LIME50": {
+          "N10": 0.08088082053529388,
+          "H10": 0.12859940105966366,
+          "H50": 0.24349228288412808
+        },
+        "SASRec": {
+          "N10": 0.06486035474386352,
+          "H10": 0.10107118175535591,
+          "H50": 0.1835982492513246
+        },
+        "ItemCF": {
+          "N10": 0.0524475649377757,
+          "H10": 0.08546417876065422,
+          "H50": 0.1526146049297397
+        },
+        "BGE": {
+          "N10": 0.03996446784645695,
+          "H10": 0.07377332411886663,
+          "H50": 0.1511172540889196
+        },
+        "common_SASRec50": {
+          "N10": 0.07420277721546326,
+          "H10": 0.11230131306150656,
+          "H50": 0.1835982492513246
+        },
+        "common_BGE50": {
+          "N10": 0.06307798969440194,
+          "H10": 0.09588804422944022,
+          "H50": 0.1511172540889196
+        },
+        "A_primary": {
+          "N10": 0.08778844823148552,
+          "H10": 0.13579820317899102,
+          "H50": 0.20934116563003916
+        }
+      },
+      "A_vs_LIME_top10": {
+        "both": 1638,
+        "first_only": 720,
+        "second_only": 753,
+        "neither": 14253
+      },
+      "G50_vs_LIME50_target_coverage": {
+        "both": 2608,
+        "first_only": 1027,
+        "second_only": 1620,
+        "neither": 12109
+      },
+      "target_coverage_union_oracle": 0.3026376410965215,
+      "restricted_minus_full": {
+        "N10": 0.0026664009038637844,
+        "covered_contribution": 0.018344907942301328,
+        "excluded_contribution": -0.015678507038437543,
+        "gained_top10": 575,
+        "lost_top10": 553
+      },
+      "A_vs_LIME_scored_G50_top10": {
+        "both": 1989,
+        "first_only": 369,
+        "second_only": 424,
+        "neither": 14582
+      },
+      "fixed_common_score_union": {
+        "N10": 0.08077961990155469,
+        "H10": 0.1286569914766183,
+        "H50": 0.25547108961068876,
+        "mean_candidate_count": 88.54417184980419,
+        "N10_delta_vs_G50": -0.0018815124698387542,
+        "existing_covered_contribution": -0.012937408637133876,
+        "newly_covered_contribution": 0.011055896167295121,
+        "gained_top10": 404,
+        "lost_top10": 401,
+        "changed_scoring": false,
+        "parameter_search": false,
+        "new_training_steps": 0
+      }
+    },
+    {
+      "domain": "Toys",
+      "seed": 1,
+      "users": 17364,
+      "metrics": {
+        "LIME": {
+          "N10": 0.08489489264274089,
+          "H10": 0.1367196498502649,
+          "H50": 0.2475236120709514
+        },
+        "LIME_repeat_allowed": {
+          "N10": 0.07476358249815808,
+          "H10": 0.1262381939645243,
+          "H50": 0.24251324579589956
+        },
+        "LIME_scores_G50": {
+          "N10": 0.08814883119303427,
+          "H10": 0.13936880903017737,
+          "H50": 0.20934116563003916
+        },
+        "common_G50": {
+          "N10": 0.08266113237139343,
+          "H10": 0.12848422022575443,
+          "H50": 0.20934116563003916
+        },
+        "common_LIME50": {
+          "N10": 0.08118959723109907,
+          "H10": 0.12946325731398295,
+          "H50": 0.2475236120709514
+        },
+        "SASRec": {
+          "N10": 0.06145073436942995,
+          "H10": 0.09934346924671734,
+          "H50": 0.18878138677724027
+        },
+        "ItemCF": {
+          "N10": 0.0524475649377757,
+          "H10": 0.08546417876065422,
+          "H50": 0.1526146049297397
+        },
+        "BGE": {
+          "N10": 0.03996446784645695,
+          "H10": 0.07377332411886663,
+          "H50": 0.1511172540889196
+        },
+        "common_SASRec50": {
+          "N10": 0.07363607098847468,
+          "H10": 0.11207095139368808,
+          "H50": 0.18878138677724027
+        },
+        "common_BGE50": {
+          "N10": 0.06307798969440194,
+          "H10": 0.09588804422944022,
+          "H50": 0.1511172540889196
+        },
+        "A_primary": {
+          "N10": 0.08778844823148552,
+          "H10": 0.13579820317899102,
+          "H50": 0.20934116563003916
+        }
+      },
+      "A_vs_LIME_top10": {
+        "both": 1630,
+        "first_only": 728,
+        "second_only": 744,
+        "neither": 14262
+      },
+      "G50_vs_LIME50_target_coverage": {
+        "both": 2632,
+        "first_only": 1003,
+        "second_only": 1666,
+        "neither": 12063
+      },
+      "target_coverage_union_oracle": 0.305286800276434,
+      "restricted_minus_full": {
+        "N10": 0.003253938550293369,
+        "covered_contribution": 0.018366333396941686,
+        "excluded_contribution": -0.01511239484664832,
+        "gained_top10": 582,
+        "lost_top10": 536
+      },
+      "A_vs_LIME_scored_G50_top10": {
+        "both": 1980,
+        "first_only": 378,
+        "second_only": 440,
+        "neither": 14566
+      },
+      "fixed_common_score_union": {
+        "N10": 0.08074272734281127,
+        "H10": 0.12888735314443678,
+        "H50": 0.2558742225293711,
+        "mean_candidate_count": 88.23917300161253,
+        "N10_delta_vs_G50": -0.0019184050285821804,
+        "existing_covered_contribution": -0.013035475042556297,
+        "newly_covered_contribution": 0.011117070013974115,
+        "gained_top10": 417,
+        "lost_top10": 410,
+        "changed_scoring": false,
+        "parameter_search": false,
+        "new_training_steps": 0
+      }
+    },
+    {
+      "domain": "Toys",
+      "seed": 2,
+      "users": 17364,
+      "metrics": {
+        "LIME": {
+          "N10": 0.08545683497217914,
+          "H10": 0.13746832527067496,
+          "H50": 0.24331951163326423
+        },
+        "LIME_repeat_allowed": {
+          "N10": 0.07546888441962787,
+          "H10": 0.12641096521538817,
+          "H50": 0.2377908316056208
+        },
+        "LIME_scores_G50": {
+          "N10": 0.08806761273628508,
+          "H10": 0.13723796360285648,
+          "H50": 0.20934116563003916
+        },
+        "common_G50": {
+          "N10": 0.08266113237139343,
+          "H10": 0.12848422022575443,
+          "H50": 0.20934116563003916
+        },
+        "common_LIME50": {
+          "N10": 0.08080506665558106,
+          "H10": 0.12882976272748214,
+          "H50": 0.24331951163326423
+        },
+        "SASRec": {
+          "N10": 0.06234079422078901,
+          "H10": 0.0985947938263073,
+          "H50": 0.1821584888274591
+        },
+        "ItemCF": {
+          "N10": 0.0524475649377757,
+          "H10": 0.08546417876065422,
+          "H50": 0.1526146049297397
+        },
+        "BGE": {
+          "N10": 0.03996446784645695,
+          "H10": 0.07377332411886663,
+          "H50": 0.1511172540889196
+        },
+        "common_SASRec50": {
+          "N10": 0.07326115208836692,
+          "H10": 0.11132227597327804,
+          "H50": 0.1821584888274591
+        },
+        "common_BGE50": {
+          "N10": 0.06307798969440194,
+          "H10": 0.09588804422944022,
+          "H50": 0.1511172540889196
+        },
+        "A_primary": {
+          "N10": 0.08778844823148552,
+          "H10": 0.13579820317899102,
+          "H50": 0.20934116563003916
+        }
+      },
+      "A_vs_LIME_top10": {
+        "both": 1613,
+        "first_only": 745,
+        "second_only": 774,
+        "neither": 14232
+      },
+      "G50_vs_LIME50_target_coverage": {
+        "both": 2596,
+        "first_only": 1039,
+        "second_only": 1629,
+        "neither": 12100
+      },
+      "target_coverage_union_oracle": 0.3031559548491131,
+      "restricted_minus_full": {
+        "N10": 0.00261077776410594,
+        "covered_contribution": 0.01808319289408551,
+        "excluded_contribution": -0.015472415129979567,
+        "gained_top10": 553,
+        "lost_top10": 557
+      },
+      "A_vs_LIME_scored_G50_top10": {
+        "both": 1970,
+        "first_only": 388,
+        "second_only": 413,
+        "neither": 14593
+      },
+      "fixed_common_score_union": {
+        "N10": 0.08063606563329238,
+        "H10": 0.1287145818935729,
+        "H50": 0.25501036627505186,
+        "mean_candidate_count": 88.55050679566921,
+        "N10_delta_vs_G50": -0.002025066738101046,
+        "existing_covered_contribution": -0.012976163387349074,
+        "newly_covered_contribution": 0.010951096649248027,
+        "gained_top10": 407,
+        "lost_top10": 403,
+        "changed_scoring": false,
+        "parameter_search": false,
+        "new_training_steps": 0
+      }
+    },
+    {
+      "domain": "Beauty",
+      "seed": 0,
+      "users": 20315,
+      "metrics": {
+        "LIME": {
+          "N10": 0.07576280518830175,
+          "H10": 0.12463696775781442,
+          "H50": 0.23908442037903027
+        },
+        "LIME_repeat_allowed": {
+          "N10": 0.06879192467044093,
+          "H10": 0.11646566576421363,
+          "H50": 0.23475264582820576
+        },
+        "LIME_scores_G50": {
+          "N10": 0.07669402537584875,
+          "H10": 0.1249815407334482,
+          "H50": 0.20684223480187053
+        },
+        "common_G50": {
+          "N10": 0.07073649361684575,
+          "H10": 0.11493969972926409,
+          "H50": 0.20684223480187053
+        },
+        "common_LIME50": {
+          "N10": 0.07239986000253183,
+          "H10": 0.1196652719665272,
+          "H50": 0.23908442037903027
+        },
+        "SASRec": {
+          "N10": 0.06216131877870072,
+          "H10": 0.1026827467388629,
+          "H50": 0.2010337189269013
+        },
+        "ItemCF": {
+          "N10": 0.04394995911968576,
+          "H10": 0.07388629091804086,
+          "H50": 0.1434408072852572
+        },
+        "BGE": {
+          "N10": 0.03035794438573704,
+          "H10": 0.05473787841496431,
+          "H50": 0.1249815407334482
+        },
+        "common_SASRec50": {
+          "N10": 0.066055570148427,
+          "H10": 0.1059315776519813,
+          "H50": 0.2010337189269013
+        },
+        "common_BGE50": {
+          "N10": 0.04998595126233625,
+          "H10": 0.07551070637460004,
+          "H50": 0.1249815407334482
+        },
+        "A_primary": {
+          "N10": 0.07438068311356812,
+          "H10": 0.1205020920502092,
+          "H50": 0.20684223480187053
+        }
+      },
+      "A_vs_LIME_top10": {
+        "both": 1713,
+        "first_only": 735,
+        "second_only": 819,
+        "neither": 17048
+      },
+      "G50_vs_LIME50_target_coverage": {
+        "both": 3105,
+        "first_only": 1097,
+        "second_only": 1752,
+        "neither": 14361
+      },
+      "target_coverage_union_oracle": 0.29308392813192224,
+      "restricted_minus_full": {
+        "N10": 0.0009312201875469976,
+        "covered_contribution": 0.012880577412851708,
+        "excluded_contribution": -0.011949357225304711,
+        "gained_top10": 522,
+        "lost_top10": 515
+      },
+      "A_vs_LIME_scored_G50_top10": {
+        "both": 2005,
+        "first_only": 443,
+        "second_only": 534,
+        "neither": 17333
+      },
+      "fixed_common_score_union": {
+        "N10": 0.07177671757273567,
+        "H10": 0.11932069899089343,
+        "H50": 0.24464681269997537,
+        "mean_candidate_count": 86.06768397735664,
+        "N10_delta_vs_G50": 0.001040223955889913,
+        "existing_covered_contribution": -0.008645521555401662,
+        "newly_covered_contribution": 0.009685745511291576,
+        "gained_top10": 428,
+        "lost_top10": 339,
+        "changed_scoring": false,
+        "parameter_search": false,
+        "new_training_steps": 0
+      }
+    },
+    {
+      "domain": "Beauty",
+      "seed": 1,
+      "users": 20315,
+      "metrics": {
+        "LIME": {
+          "N10": 0.07525576275677183,
+          "H10": 0.12350479940930346,
+          "H50": 0.23125769136106325
+        },
+        "LIME_repeat_allowed": {
+          "N10": 0.0684901523496106,
+          "H10": 0.11533349741570269,
+          "H50": 0.22594142259414227
+        },
+        "LIME_scores_G50": {
+          "N10": 0.07603000541976247,
+          "H10": 0.12350479940930346,
+          "H50": 0.20684223480187053
+        },
+        "common_G50": {
+          "N10": 0.07073649361684575,
+          "H10": 0.11493969972926409,
+          "H50": 0.20684223480187053
+        },
+        "common_LIME50": {
+          "N10": 0.0718669346064532,
+          "H10": 0.11902535072606449,
+          "H50": 0.23125769136106325
+        },
+        "SASRec": {
+          "N10": 0.062335882337351795,
+          "H10": 0.10105833128230372,
+          "H50": 0.19207482156042333
+        },
+        "ItemCF": {
+          "N10": 0.04394995911968576,
+          "H10": 0.07388629091804086,
+          "H50": 0.1434408072852572
+        },
+        "BGE": {
+          "N10": 0.03035794438573704,
+          "H10": 0.05473787841496431,
+          "H50": 0.1249815407334482
+        },
+        "common_SASRec50": {
+          "N10": 0.06602673753605208,
+          "H10": 0.10617770120600542,
+          "H50": 0.19207482156042333
+        },
+        "common_BGE50": {
+          "N10": 0.04998595126233625,
+          "H10": 0.07551070637460004,
+          "H50": 0.1249815407334482
+        },
+        "A_primary": {
+          "N10": 0.07438068311356812,
+          "H10": 0.1205020920502092,
+          "H50": 0.20684223480187053
+        }
+      },
+      "A_vs_LIME_top10": {
+        "both": 1715,
+        "first_only": 733,
+        "second_only": 794,
+        "neither": 17073
+      },
+      "G50_vs_LIME50_target_coverage": {
+        "both": 3019,
+        "first_only": 1183,
+        "second_only": 1679,
+        "neither": 14434
+      },
+      "target_coverage_union_oracle": 0.28949052424317007,
+      "restricted_minus_full": {
+        "N10": 0.0007742426629906422,
+        "covered_contribution": 0.012770313734752752,
+        "excluded_contribution": -0.011996071071762109,
+        "gained_top10": 507,
+        "lost_top10": 507
+      },
+      "A_vs_LIME_scored_G50_top10": {
+        "both": 1987,
+        "first_only": 461,
+        "second_only": 522,
+        "neither": 17345
+      },
+      "fixed_common_score_union": {
+        "N10": 0.07127065253151503,
+        "H10": 0.11813930593157765,
+        "H50": 0.24469603741078022,
+        "mean_candidate_count": 86.57031749938469,
+        "N10_delta_vs_G50": 0.0005341589146692724,
+        "existing_covered_contribution": -0.008698546123972124,
+        "newly_covered_contribution": 0.009232705038641396,
+        "gained_top10": 409,
+        "lost_top10": 344,
+        "changed_scoring": false,
+        "parameter_search": false,
+        "new_training_steps": 0
+      }
+    },
+    {
+      "domain": "Beauty",
+      "seed": 2,
+      "users": 20315,
+      "metrics": {
+        "LIME": {
+          "N10": 0.07415319352759665,
+          "H10": 0.12163426039872016,
+          "H50": 0.22943637706128475
+        },
+        "LIME_repeat_allowed": {
+          "N10": 0.06714700393419282,
+          "H10": 0.1145459020428255,
+          "H50": 0.2250061530888506
+        },
+        "LIME_scores_G50": {
+          "N10": 0.07526420674357007,
+          "H10": 0.12222495692837805,
+          "H50": 0.20684223480187053
+        },
+        "common_G50": {
+          "N10": 0.07073649361684575,
+          "H10": 0.11493969972926409,
+          "H50": 0.20684223480187053
+        },
+        "common_LIME50": {
+          "N10": 0.07189558577645874,
+          "H10": 0.11833620477479695,
+          "H50": 0.22943637706128475
+        },
+        "SASRec": {
+          "N10": 0.06141141655511814,
+          "H10": 0.0993846911149397,
+          "H50": 0.19084420379030273
+        },
+        "ItemCF": {
+          "N10": 0.04394995911968576,
+          "H10": 0.07388629091804086,
+          "H50": 0.1434408072852572
+        },
+        "BGE": {
+          "N10": 0.03035794438573704,
+          "H10": 0.05473787841496431,
+          "H50": 0.1249815407334482
+        },
+        "common_SASRec50": {
+          "N10": 0.06617262709365357,
+          "H10": 0.10588235294117647,
+          "H50": 0.19084420379030273
+        },
+        "common_BGE50": {
+          "N10": 0.04998595126233625,
+          "H10": 0.07551070637460004,
+          "H50": 0.1249815407334482
+        },
+        "A_primary": {
+          "N10": 0.07438068311356812,
+          "H10": 0.1205020920502092,
+          "H50": 0.20684223480187053
+        }
+      },
+      "A_vs_LIME_top10": {
+        "both": 1705,
+        "first_only": 743,
+        "second_only": 766,
+        "neither": 17101
+      },
+      "G50_vs_LIME50_target_coverage": {
+        "both": 3026,
+        "first_only": 1176,
+        "second_only": 1635,
+        "neither": 14478
+      },
+      "target_coverage_union_oracle": 0.28732463696775784,
+      "restricted_minus_full": {
+        "N10": 0.001111013215973418,
+        "covered_contribution": 0.012393501045323234,
+        "excluded_contribution": -0.011282487829349815,
+        "gained_top10": 478,
+        "lost_top10": 466
+      },
+      "A_vs_LIME_scored_G50_top10": {
+        "both": 1976,
+        "first_only": 472,
+        "second_only": 507,
+        "neither": 17360
+      },
+      "fixed_common_score_union": {
+        "N10": 0.07135766548449662,
+        "H10": 0.11813930593157765,
+        "H50": 0.24213635244892937,
+        "mean_candidate_count": 86.69214865862664,
+        "N10_delta_vs_G50": 0.0006211718676508649,
+        "existing_covered_contribution": -0.00867702599544911,
+        "newly_covered_contribution": 0.009298197863099973,
+        "gained_top10": 408,
+        "lost_top10": 343,
+        "changed_scoring": false,
+        "parameter_search": false,
+        "new_training_steps": 0
+      }
+    }
+  ],
+  "limitations": [
+    "Post-hoc analysis on repeatedly used development validation.",
+    "Oracle target unions are diagnostic upper bounds, not achievable gains.",
+    "A and LIME differ in fitting supervision and history length.",
+    "Seeds vary SASRec for LIME; A varies only its small head.",
+    "No new significance, novelty, or causal claims."
+  ],
+  "initial_state": "INTERIM_DESCRIPTIVE_REVIEW",
+  "finalized_at": "2026-09-20T14:24:28+08:00",
+  "parent_completed_at": "2026-09-20T14:22:06+0800",
+  "final_input_hashes_match": true
+}

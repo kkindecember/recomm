@@ -1,0 +1,1486 @@
+{
+  "state": "COMPLETED",
+  "fixed_list_models": {
+    "C1": {
+      "seconds": 108.06254410557449,
+      "model_parameter_sha256": "9f715d25fd1698e5623e62f0f69ff0be36d964c58e5122ff891fe1fcc55853c0",
+      "samples": 512
+    },
+    "CE_anchor": {
+      "seconds": 124.5593377109617,
+      "model_parameter_sha256": "a4f685488ac335eedb720c957d3a337d0c156b93835bcd6f1717078e5783cbc6",
+      "samples": 512
+    },
+    "true_teacher": {
+      "seconds": 101.27210183255374,
+      "model_parameter_sha256": "75b1d16fb1206d834604c14beb2f36edf517ad4a9885524c912455f66c5d6b3e",
+      "samples": 512
+    },
+    "shuffled_teacher": {
+      "seconds": 109.09171618521214,
+      "model_parameter_sha256": "64309bf93e9b1f8436b2fd7ea60dec9560eee3cda4e911fae76bbab36b3b3194",
+      "samples": 512
+    }
+  },
+  "gradients": {
+    "C1": {
+      "mean_gradient": {
+        "norms": {
+          "ce": 0.7463899410754955,
+          "anchor": 1.8968190047871318e-16,
+          "teacher": 0.1765584064004676
+        },
+        "cosines": {
+          "ce__anchor": null,
+          "ce__teacher": 0.2724934452161401,
+          "anchor__teacher": null
+        },
+        "total_norm": 0.8124592054506616,
+        "teacher_over_ce": 0.23654982025355184,
+        "anchor_over_teacher": 1.0743294773995582e-15,
+        "teacher_alignment_with_total": 0.46764781587778387
+      },
+      "samples": [
+        {
+          "cache_index": 17274,
+          "loss": {
+            "ce": 0.423777312040329,
+            "anchor_kl": -9.586798324535403e-17,
+            "teacher_kl": 0.221285744072151
+          },
+          "norms": {
+            "ce": 4.022580731910041,
+            "anchor": 7.218551709345033e-16,
+            "teacher": 0.5078587357241117
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.8415891271292152,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.458435347691776,
+          "teacher_over_ce": 0.12625196846775658,
+          "anchor_over_teacher": 1.421369999484744e-15,
+          "teacher_alignment_with_total": 0.8732253894216034
+        },
+        {
+          "cache_index": 15807,
+          "loss": {
+            "ce": 0.3321951925754547,
+            "anchor_kl": -1.2572291983125148e-16,
+            "teacher_kl": 0.4444068388118032
+          },
+          "norms": {
+            "ce": 3.4902686357693784,
+            "anchor": 6.488558507631277e-16,
+            "teacher": 1.7090227726104343
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.843519459812805,
+            "anchor__teacher": null
+          },
+          "total_norm": 5.016556029483388,
+          "teacher_over_ce": 0.4896536487466402,
+          "anchor_over_teacher": 3.7966483604664764e-16,
+          "teacher_alignment_with_total": 0.927555131350831
+        },
+        {
+          "cache_index": 4442,
+          "loss": {
+            "ce": 0.5240712761878967,
+            "anchor_kl": -9.166785288706288e-17,
+            "teacher_kl": 0.04577245234545028
+          },
+          "norms": {
+            "ce": 6.485665751145278,
+            "anchor": 7.638577237553284e-16,
+            "teacher": 0.5399220513340465
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.7593033896331839,
+            "anchor__teacher": null
+          },
+          "total_norm": 6.085851522936258,
+          "teacher_over_ce": 0.08324851635141754,
+          "anchor_over_teacher": 1.414755559377467e-15,
+          "teacher_alignment_with_total": -0.7204687661231214
+        },
+        {
+          "cache_index": 10220,
+          "loss": {
+            "ce": 0.7539100646972656,
+            "anchor_kl": -4.623443895023225e-18,
+            "teacher_kl": 0.3883133177612702
+          },
+          "norms": {
+            "ce": 3.508055110757992,
+            "anchor": 1.5183084269991257e-15,
+            "teacher": 1.1884446767533812
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.5128420442462538,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.242058594711068,
+          "teacher_over_ce": 0.3387759425753696,
+          "anchor_over_teacher": 1.2775591970733323e-15,
+          "teacher_alignment_with_total": 0.7042625094354905
+        },
+        {
+          "cache_index": 4269,
+          "loss": {
+            "ce": 0.2745645344257355,
+            "anchor_kl": 1.4058235142563182e-16,
+            "teacher_kl": 0.2799826641286064
+          },
+          "norms": {
+            "ce": 1.9812988614233027,
+            "anchor": 6.770638929240277e-16,
+            "teacher": 0.9713144744409316
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.8517027563310603,
+            "anchor__teacher": null
+          },
+          "total_norm": 2.8543195370955274,
+          "teacher_over_ce": 0.49024127220421954,
+          "anchor_over_teacher": 6.970594083998713e-16,
+          "teacher_alignment_with_total": 0.9314977322183708
+        },
+        {
+          "cache_index": 17087,
+          "loss": {
+            "ce": 0.9588818550109863,
+            "anchor_kl": -1.4289784671600923e-17,
+            "teacher_kl": 0.11043349831881982
+          },
+          "norms": {
+            "ce": 3.980283995228915,
+            "anchor": 2.2312139477053893e-15,
+            "teacher": 0.2556960491988298
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.5884926231082906,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.1359291000806415,
+          "teacher_over_ce": 0.06424065456267126,
+          "anchor_over_teacher": 8.726039978702965e-15,
+          "teacher_alignment_with_total": 0.6281693315817295
+        },
+        {
+          "cache_index": 805,
+          "loss": {
+            "ce": 0.6873788833618164,
+            "anchor_kl": 6.45909523834545e-18,
+            "teacher_kl": 0.19305915826481987
+          },
+          "norms": {
+            "ce": 2.9978583928179305,
+            "anchor": 8.35747541399257e-16,
+            "teacher": 0.64885492807529
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.7232600928381187,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.4959838158614485,
+          "teacher_over_ce": 0.21643948547729053,
+          "anchor_over_teacher": 1.2880345131666795e-15,
+          "teacher_alignment_with_total": 0.8058064384620732
+        },
+        {
+          "cache_index": 7107,
+          "loss": {
+            "ce": 0.5424076914787292,
+            "anchor_kl": 8.847364661728341e-17,
+            "teacher_kl": 0.5416772622117862
+          },
+          "norms": {
+            "ce": 2.263152918768466,
+            "anchor": 1.2699231705426331e-15,
+            "teacher": 1.3914444427977632
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.7984000923320386,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.476547838144581,
+          "teacher_over_ce": 0.6148256404851962,
+          "anchor_over_teacher": 9.126653795743446e-16,
+          "teacher_alignment_with_total": 0.9199775441062628
+        },
+        {
+          "cache_index": 14317,
+          "loss": {
+            "ce": 0.8872427344322205,
+            "anchor_kl": 1.5854045364563442e-17,
+            "teacher_kl": 0.18762793857391297
+          },
+          "norms": {
+            "ce": 3.2843735090466675,
+            "anchor": 3.7315916873536834e-16,
+            "teacher": 0.8144990193087116
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.809199626889114,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.9723958257265033,
+          "teacher_over_ce": 0.24799220218565537,
+          "anchor_over_teacher": 4.581456329463467e-16,
+          "teacher_alignment_with_total": 0.874085310156316
+        },
+        {
+          "cache_index": 12944,
+          "loss": {
+            "ce": 0.08808491379022598,
+            "anchor_kl": -3.830432750368475e-17,
+            "teacher_kl": 0.1711656574548302
+          },
+          "norms": {
+            "ce": 0.7391111774068403,
+            "anchor": 2.020097445896798e-15,
+            "teacher": 0.8579091665768603
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.15218868984375453,
+            "anchor__teacher": null
+          },
+          "total_norm": 1.0436909219688932,
+          "teacher_over_ce": 1.1607308789278779,
+          "anchor_over_teacher": 2.354675208748707e-15,
+          "teacher_alignment_with_total": 0.7142198798014413
+        },
+        {
+          "cache_index": 10147,
+          "loss": {
+            "ce": 0.30938124656677246,
+            "anchor_kl": 2.4735255922648587e-17,
+            "teacher_kl": 0.07989722357398119
+          },
+          "norms": {
+            "ce": 3.2299849642297422,
+            "anchor": 3.613166526365669e-16,
+            "teacher": 0.202741271150807
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.37578878093822743,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.1593884504303062,
+          "teacher_over_ce": 0.06276848759237333,
+          "anchor_over_teacher": 1.7821563936422458e-15,
+          "teacher_alignment_with_total": -0.3200147297076306
+        },
+        {
+          "cache_index": 4131,
+          "loss": {
+            "ce": 0.8908512592315674,
+            "anchor_kl": 4.900444701164896e-17,
+            "teacher_kl": 0.12649863198443995
+          },
+          "norms": {
+            "ce": 2.233642788485456,
+            "anchor": 1.3469255043472687e-15,
+            "teacher": 0.6842149090977596
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.20271388586118783,
+            "anchor__teacher": null
+          },
+          "total_norm": 2.199476813001766,
+          "teacher_over_ce": 0.3063224400181277,
+          "anchor_over_teacher": 1.9685708195446847e-15,
+          "teacher_alignment_with_total": 0.1052179765889132
+        },
+        {
+          "cache_index": 18756,
+          "loss": {
+            "ce": 0.6611716747283936,
+            "anchor_kl": 6.060993365294637e-17,
+            "teacher_kl": 0.223939160272771
+          },
+          "norms": {
+            "ce": 3.3905815258067413,
+            "anchor": 6.906359483270003e-16,
+            "teacher": 0.9344343117485987
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.19830141116679637,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.333566179906361,
+          "teacher_over_ce": 0.2755970634052998,
+          "anchor_over_teacher": 7.390952361698056e-16,
+          "teacher_alignment_with_total": 0.07861767139494699
+        },
+        {
+          "cache_index": 3672,
+          "loss": {
+            "ce": 0.8471382260322571,
+            "anchor_kl": 2.1015905698678944e-17,
+            "teacher_kl": 0.4389565645059381
+          },
+          "norms": {
+            "ce": 3.2279528590386293,
+            "anchor": 1.271111768981658e-15,
+            "teacher": 1.45093088153462
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.09090295884099468,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.657372654275128,
+          "teacher_over_ce": 0.4494894891267855,
+          "anchor_over_teacher": 8.760663827330141e-16,
+          "teacher_alignment_with_total": 0.47694383709613275
+        },
+        {
+          "cache_index": 7829,
+          "loss": {
+            "ce": 0.8200977444648743,
+            "anchor_kl": 0.0,
+            "teacher_kl": 0.13443983262915113
+          },
+          "norms": {
+            "ce": 3.631842928715071,
+            "anchor": 9.727554100084494e-16,
+            "teacher": 0.832046184685469
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.18742615489705874,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.570690733878255,
+          "teacher_over_ce": 0.22909751358103006,
+          "anchor_over_teacher": 1.1691122775548469e-15,
+          "teacher_alignment_with_total": 0.042385028737081346
+        },
+        {
+          "cache_index": 19927,
+          "loss": {
+            "ce": 0.8753933906555176,
+            "anchor_kl": -7.407354456480049e-17,
+            "teacher_kl": 0.6231181524602447
+          },
+          "norms": {
+            "ce": 4.4787510203102,
+            "anchor": 1.033587710070302e-15,
+            "teacher": 2.9563776449083834
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.23131517173704533,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.761695800815575,
+          "teacher_over_ce": 0.6600897508037015,
+          "anchor_over_teacher": 3.49612882457827e-16,
+          "teacher_alignment_with_total": 0.4032963599122109
+        },
+        {
+          "cache_index": 19862,
+          "loss": {
+            "ce": 0.7497908473014832,
+            "anchor_kl": -9.09048785039133e-17,
+            "teacher_kl": 0.2680714532253256
+          },
+          "norms": {
+            "ce": 3.2823027779326286,
+            "anchor": 8.794924178214916e-16,
+            "teacher": 0.9655920424668267
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.5483671419293092,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.8963869492497563,
+          "teacher_over_ce": 0.2941812830183231,
+          "anchor_over_teacher": 9.108322968099718e-16,
+          "teacher_alignment_with_total": 0.709759854903759
+        },
+        {
+          "cache_index": 13072,
+          "loss": {
+            "ce": 0.8364384770393372,
+            "anchor_kl": 5.598300727353989e-17,
+            "teacher_kl": 0.14916341791075566
+          },
+          "norms": {
+            "ce": 3.215050952850877,
+            "anchor": 6.177139456683231e-16,
+            "teacher": 0.7936210113854661
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.12725106923155483,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.4081897374793853,
+          "teacher_over_ce": 0.24684554709210435,
+          "anchor_over_teacher": 7.783487795893246e-16,
+          "teacher_alignment_with_total": 0.3528969263487092
+        },
+        {
+          "cache_index": 5796,
+          "loss": {
+            "ce": 0.7842624187469482,
+            "anchor_kl": -2.1912542782918082e-16,
+            "teacher_kl": 0.41034480281594166
+          },
+          "norms": {
+            "ce": 4.950147961949386,
+            "anchor": 9.511824745822312e-16,
+            "teacher": 1.0313043934793704
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.3173345796114318,
+            "anchor__teacher": null
+          },
+          "total_norm": 5.3672720306241954,
+          "teacher_over_ce": 0.20833809441793716,
+          "anchor_over_teacher": 9.22310115807005e-16,
+          "teacher_alignment_with_total": 0.48481938332021396
+        },
+        {
+          "cache_index": 3683,
+          "loss": {
+            "ce": 0.4192047119140625,
+            "anchor_kl": 5.611899252242081e-18,
+            "teacher_kl": 0.10427929006336686
+          },
+          "norms": {
+            "ce": 2.1203820120849257,
+            "anchor": 7.844504702510169e-16,
+            "teacher": 0.39878187700576345
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.5071695531539733,
+            "anchor__teacher": null
+          },
+          "total_norm": 2.347922805014059,
+          "teacher_over_ce": 0.1880707696693059,
+          "anchor_over_teacher": 1.9671166506889167e-15,
+          "teacher_alignment_with_total": 0.6278635189549366
+        },
+        {
+          "cache_index": 11352,
+          "loss": {
+            "ce": 0.3776559829711914,
+            "anchor_kl": -5.257010205910874e-17,
+            "teacher_kl": 0.12438901112332854
+          },
+          "norms": {
+            "ce": 5.917202698848271,
+            "anchor": 4.859602037906572e-16,
+            "teacher": 1.021869309694542
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.9796592234927908,
+            "anchor__teacher": null
+          },
+          "total_norm": 6.921324652291798,
+          "teacher_over_ce": 0.1726946602477281,
+          "anchor_over_teacher": 4.755600341260086e-16,
+          "teacher_alignment_with_total": 0.9851743493407847
+        },
+        {
+          "cache_index": 19438,
+          "loss": {
+            "ce": 0.8474822640419006,
+            "anchor_kl": -1.8854643907382208e-16,
+            "teacher_kl": 0.16144483223850517
+          },
+          "norms": {
+            "ce": 2.4631754710404286,
+            "anchor": 7.712372802667951e-16,
+            "teacher": 0.43829221928833983
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.15973241931639057,
+            "anchor__teacher": null
+          },
+          "total_norm": 2.4319626271480046,
+          "teacher_over_ce": 0.17793787914882417,
+          "anchor_over_teacher": 1.7596417329038193e-15,
+          "teacher_alignment_with_total": 0.018439116455855973
+        },
+        {
+          "cache_index": 21572,
+          "loss": {
+            "ce": 0.8499687314033508,
+            "anchor_kl": -3.6548378489867415e-17,
+            "teacher_kl": 0.2291059049671335
+          },
+          "norms": {
+            "ce": 3.3363068170370327,
+            "anchor": 1.5821865511563466e-15,
+            "teacher": 0.7497752985726646
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.21651111634133777,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.574395448301645,
+          "teacher_over_ce": 0.2247321183842853,
+          "anchor_over_teacher": 2.1102142924264514e-15,
+          "teacher_alignment_with_total": 0.41185225117890417
+        },
+        {
+          "cache_index": 8190,
+          "loss": {
+            "ce": 0.8796420693397522,
+            "anchor_kl": 0.0,
+            "teacher_kl": 0.37057617522947844
+          },
+          "norms": {
+            "ce": 3.8124873116632916,
+            "anchor": 6.383012973249401e-16,
+            "teacher": 1.3307015816892238
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.1122481797852148,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.176692440470494,
+          "teacher_over_ce": 0.3490376420711739,
+          "anchor_over_teacher": 4.796727576701798e-16,
+          "teacher_alignment_with_total": 0.42106196899660836
+        },
+        {
+          "cache_index": 17864,
+          "loss": {
+            "ce": 0.03669298067688942,
+            "anchor_kl": 2.3903879291161442e-17,
+            "teacher_kl": 0.0810535762931593
+          },
+          "norms": {
+            "ce": 1.3199759010439551,
+            "anchor": 2.419300415101738e-15,
+            "teacher": 0.3645572939710838
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.844565198806274,
+            "anchor__teacher": null
+          },
+          "total_norm": 1.0307362875946349,
+          "teacher_over_ce": 0.2761848104065833,
+          "anchor_over_teacher": 6.6362694015762405e-15,
+          "teacher_alignment_with_total": -0.7278762030046172
+        },
+        {
+          "cache_index": 9424,
+          "loss": {
+            "ce": 0.28307241201400757,
+            "anchor_kl": -1.3591702332849554e-16,
+            "teacher_kl": 0.11422843529959117
+          },
+          "norms": {
+            "ce": 1.975106685439939,
+            "anchor": 9.164828523453124e-16,
+            "teacher": 0.179451497233012
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.06687116068759709,
+            "anchor__teacher": null
+          },
+          "total_norm": 1.9712549771952725,
+          "teacher_over_ce": 0.09085660969905564,
+          "anchor_over_teacher": 5.107134052803633e-15,
+          "teacher_alignment_with_total": 0.024032315070285276
+        },
+        {
+          "cache_index": 21222,
+          "loss": {
+            "ce": 0.09394362568855286,
+            "anchor_kl": 9.459856798831259e-17,
+            "teacher_kl": 0.18747233406262576
+          },
+          "norms": {
+            "ce": 1.5230719531863985,
+            "anchor": 7.164392970080599e-16,
+            "teacher": 0.4225877575009246
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.7054846645457475,
+            "anchor__teacher": null
+          },
+          "total_norm": 1.8456632898431398,
+          "teacher_over_ce": 0.2774575138205614,
+          "anchor_over_teacher": 1.6953621686650314e-15,
+          "teacher_alignment_with_total": 0.8111401855974442
+        },
+        {
+          "cache_index": 21238,
+          "loss": {
+            "ce": 0.5241585969924927,
+            "anchor_kl": -1.1101020465704222e-16,
+            "teacher_kl": 0.3775305653493391
+          },
+          "norms": {
+            "ce": 2.249548625765133,
+            "anchor": 1.0074301314377931e-15,
+            "teacher": 1.0295872667439117
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.8295018994356834,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.15641388958492,
+          "teacher_over_ce": 0.4576861575480374,
+          "anchor_over_teacher": 9.784795946669088e-16,
+          "teacher_alignment_with_total": 0.9173676919379239
+        },
+        {
+          "cache_index": 11607,
+          "loss": {
+            "ce": 0.46744704246520996,
+            "anchor_kl": 4.142634949616738e-17,
+            "teacher_kl": 0.3355356365288504
+          },
+          "norms": {
+            "ce": 5.021483460861932,
+            "anchor": 4.97200071585929e-16,
+            "teacher": 0.7807754365510543
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": -0.13057223530972548,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.980065272210206,
+          "teacher_over_ce": 0.1554870075021685,
+          "anchor_over_teacher": 6.368029119643257e-16,
+          "teacher_alignment_with_total": 0.02512198327883414
+        },
+        {
+          "cache_index": 16680,
+          "loss": {
+            "ce": 0.9141380786895752,
+            "anchor_kl": -8.753301636178152e-18,
+            "teacher_kl": 0.12488054203566747
+          },
+          "norms": {
+            "ce": 4.844950076146492,
+            "anchor": 5.090325447685593e-16,
+            "teacher": 0.30427150025329486
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.24639646339271135,
+            "anchor__teacher": null
+          },
+          "total_norm": 4.928751157801304,
+          "teacher_over_ce": 0.0628017823653824,
+          "anchor_over_teacher": 1.6729550560759335e-15,
+          "teacher_alignment_with_total": 0.30394110320602613
+        },
+        {
+          "cache_index": 1447,
+          "loss": {
+            "ce": 0.8538720011711121,
+            "anchor_kl": 6.385621094391855e-17,
+            "teacher_kl": 0.50829296256298
+          },
+          "norms": {
+            "ce": 2.191844322955981,
+            "anchor": 1.0459117003112801e-15,
+            "teacher": 1.3997025430967054
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.008053533263496199,
+            "anchor__teacher": null
+          },
+          "total_norm": 2.6101272189319826,
+          "teacher_over_ce": 0.6385957836681705,
+          "anchor_over_teacher": 7.47238551126229e-16,
+          "teacher_alignment_with_total": 0.5430212841657158
+        },
+        {
+          "cache_index": 16501,
+          "loss": {
+            "ce": 0.5977427363395691,
+            "anchor_kl": -7.58371623606235e-17,
+            "teacher_kl": 0.15526561551908227
+          },
+          "norms": {
+            "ce": 2.975814834843012,
+            "anchor": 5.335314513843537e-16,
+            "teacher": 0.36803146220303834
+          },
+          "cosines": {
+            "ce__anchor": null,
+            "ce__teacher": 0.009678228129255641,
+            "anchor__teacher": null
+          },
+          "total_norm": 3.002019345911524,
+          "teacher_over_ce": 0.12367418089790312,
+          "anchor_over_teacher": 1.4496897851901888e-15,
+          "teacher_alignment_with_total": 0.13218838099280839
+        }
+      ],
+      "seconds": 77.36171181127429
+    },
+    "true_teacher": {
+      "mean_gradient": {
+        "norms": {
+          "ce": 0.7422633555328632,
+          "anchor": 0.025459192978824114,
+          "teacher": 0.176929560276565
+        },
+        "cosines": {
+          "ce__anchor": -0.34045537547854515,
+          "ce__teacher": 0.26068956753778616,
+          "anchor__teacher": 0.09008103244502938
+        },
+        "total_norm": 0.7995767980522634,
+        "teacher_over_ce": 0.2383649400953508,
+        "anchor_over_teacher": 0.14389451338164141,
+        "teacher_alignment_with_total": 0.4661506746147057
+      },
+      "samples": [
+        {
+          "cache_index": 17274,
+          "loss": {
+            "ce": 0.42267367243766785,
+            "anchor_kl": 1.5766597359101865e-05,
+            "teacher_kl": 0.2205284289670336
+          },
+          "norms": {
+            "ce": 4.019660929719032,
+            "anchor": 0.041288238940144995,
+            "teacher": 0.5038820090651701
+          },
+          "cosines": {
+            "ce__anchor": -0.5932956844928811,
+            "ce__teacher": 0.8380695605024688,
+            "anchor__teacher": -0.4743961969217105
+          },
+          "total_norm": 4.426230334300318,
+          "teacher_over_ce": 0.12535435646816873,
+          "anchor_over_teacher": 0.08194029196784626,
+          "teacher_alignment_with_total": 0.8705038380886944
+        },
+        {
+          "cache_index": 15807,
+          "loss": {
+            "ce": 0.33045515418052673,
+            "anchor_kl": 2.0136890134323562e-05,
+            "teacher_kl": 0.44186706920283636
+          },
+          "norms": {
+            "ce": 3.4824139361358606,
+            "anchor": 0.04376279711233885,
+            "teacher": 1.6987790172312383
+          },
+          "cosines": {
+            "ce__anchor": -0.6418981776205042,
+            "ce__teacher": 0.8420001076118127,
+            "anchor__teacher": -0.660898262420697
+          },
+          "total_norm": 4.968234112668602,
+          "teacher_over_ce": 0.48781651130084475,
+          "anchor_over_teacher": 0.02576132426197836,
+          "teacher_alignment_with_total": 0.9262947488528187
+        },
+        {
+          "cache_index": 4442,
+          "loss": {
+            "ce": 0.5242156386375427,
+            "anchor_kl": 2.3397678766738494e-06,
+            "teacher_kl": 0.045387587144504374
+          },
+          "norms": {
+            "ce": 6.481158364747822,
+            "anchor": 0.013417245484926088,
+            "teacher": 0.5381513410245333
+          },
+          "cosines": {
+            "ce__anchor": 0.7666160798178702,
+            "ce__teacher": -0.7608482574328072,
+            "anchor__teacher": -0.952804949211759
+          },
+          "total_norm": 6.091578595907302,
+          "teacher_over_ce": 0.08303320343962502,
+          "anchor_over_teacher": 0.024932104525433898,
+          "teacher_alignment_with_total": -0.7232625591998175
+        },
+        {
+          "cache_index": 10220,
+          "loss": {
+            "ce": 0.7548148036003113,
+            "anchor_kl": 2.6737490477367568e-05,
+            "teacher_kl": 0.3869234613943959
+          },
+          "norms": {
+            "ce": 3.497322240063143,
+            "anchor": 0.07215272761459315,
+            "teacher": 1.187675873173587
+          },
+          "cosines": {
+            "ce__anchor": -0.09359741085360185,
+            "ce__teacher": 0.514139720941179,
+            "anchor__teacher": 0.05373326709269113
+          },
+          "total_norm": 4.2284943234416845,
+          "teacher_over_ce": 0.3395957797563841,
+          "anchor_over_teacher": 0.0607511941972804,
+          "teacher_alignment_with_total": 0.7070283005778377
+        },
+        {
+          "cache_index": 4269,
+          "loss": {
+            "ce": 0.274340957403183,
+            "anchor_kl": 1.2497374016075719e-05,
+            "teacher_kl": 0.2802164294488349
+          },
+          "norms": {
+            "ce": 1.983816919050293,
+            "anchor": 0.035321517357093705,
+            "teacher": 0.9737928696507837
+          },
+          "cosines": {
+            "ce__anchor": 0.1202008978205232,
+            "ce__teacher": 0.8511749695486641,
+            "anchor__teacher": 0.24501413590568977
+          },
+          "total_norm": 2.8648551703189016,
+          "teacher_over_ce": 0.49086831566945444,
+          "anchor_over_teacher": 0.0362721051446603,
+          "teacher_alignment_with_total": 0.9323411787237637
+        },
+        {
+          "cache_index": 17087,
+          "loss": {
+            "ce": 0.9558103084564209,
+            "anchor_kl": 2.9507088606570053e-05,
+            "teacher_kl": 0.1093890862524926
+          },
+          "norms": {
+            "ce": 3.9893474851891995,
+            "anchor": 0.07372984045085697,
+            "teacher": 0.25478955079969157
+          },
+          "cosines": {
+            "ce__anchor": -0.34077698361594305,
+            "ce__teacher": 0.5872853814122628,
+            "anchor__teacher": -0.32855189315710853
+          },
+          "total_norm": 4.11901934718838,
+          "teacher_over_ce": 0.06386747500577977,
+          "anchor_over_teacher": 0.2893754481667159,
+          "teacher_alignment_with_total": 0.6247727224975173
+        },
+        {
+          "cache_index": 805,
+          "loss": {
+            "ce": 0.6876246333122253,
+            "anchor_kl": 8.732461349056245e-06,
+            "teacher_kl": 0.19378250353857582
+          },
+          "norms": {
+            "ce": 2.9996087012421464,
+            "anchor": 0.026812690470743222,
+            "teacher": 0.6490707808253458
+          },
+          "cosines": {
+            "ce__anchor": 0.06666532951442787,
+            "ce__teacher": 0.724850114608764,
+            "anchor__teacher": 0.06954269718735763
+          },
+          "total_norm": 3.5007590826450983,
+          "teacher_over_ce": 0.21638515068867606,
+          "anchor_over_teacher": 0.041309347551662594,
+          "teacher_alignment_with_total": 0.8070255769733582
+        },
+        {
+          "cache_index": 7107,
+          "loss": {
+            "ce": 0.5412325263023376,
+            "anchor_kl": 3.175232539702301e-05,
+            "teacher_kl": 0.5418302630014963
+          },
+          "norms": {
+            "ce": 2.262807481024973,
+            "anchor": 0.05937909337802286,
+            "teacher": 1.3864625820707335
+          },
+          "cosines": {
+            "ce__anchor": -0.13451979060266472,
+            "ce__teacher": 0.797031059578418,
+            "anchor__teacher": 0.151373446508043
+          },
+          "total_norm": 3.4692830570952276,
+          "teacher_over_ce": 0.6127178709179069,
+          "anchor_over_teacher": 0.04282776480656115,
+          "teacher_alignment_with_total": 0.9220864344772717
+        },
+        {
+          "cache_index": 14317,
+          "loss": {
+            "ce": 0.886991024017334,
+            "anchor_kl": 8.692105127441397e-05,
+            "teacher_kl": 0.189486329725579
+          },
+          "norms": {
+            "ce": 3.2794993247464115,
+            "anchor": 0.19446021473511446,
+            "teacher": 0.837102935766667
+          },
+          "cosines": {
+            "ce__anchor": 0.3413395855015622,
+            "ce__teacher": 0.7976324943577489,
+            "anchor__teacher": 0.798365194237659
+          },
+          "total_norm": 4.070430686794715,
+          "teacher_over_ce": 0.2552532727938269,
+          "anchor_over_teacher": 0.2323014368083856,
+          "teacher_alignment_with_total": 0.8864389808240464
+        },
+        {
+          "cache_index": 12944,
+          "loss": {
+            "ce": 0.08763270825147629,
+            "anchor_kl": 7.995670710565003e-06,
+            "teacher_kl": 0.16929034077224694
+          },
+          "norms": {
+            "ce": 0.7362261621408593,
+            "anchor": 0.029347983885429207,
+            "teacher": 0.8536339206907155
+          },
+          "cosines": {
+            "ce__anchor": 0.17680332226546738,
+            "ce__teacher": -0.15596362453287915,
+            "anchor__teacher": -0.9842104972691883
+          },
+          "total_norm": 1.0167947248754083,
+          "teacher_over_ce": 1.1594724075119094,
+          "anchor_over_teacher": 0.034380058212403704,
+          "teacher_alignment_with_total": 0.6981987699047081
+        },
+        {
+          "cache_index": 10147,
+          "loss": {
+            "ce": 0.3078312575817108,
+            "anchor_kl": 1.0408656335813443e-05,
+            "teacher_kl": 0.07973925873083873
+          },
+          "norms": {
+            "ce": 3.2119014054461426,
+            "anchor": 0.024235439695085778,
+            "teacher": 0.20427684425209974
+          },
+          "cosines": {
+            "ce__anchor": -0.5781554759783959,
+            "ce__teacher": -0.3823217713993689,
+            "anchor__teacher": 0.3829149933439108
+          },
+          "total_norm": 3.12581403511207,
+          "teacher_over_ce": 0.06359997349411947,
+          "anchor_over_teacher": 0.11864017081239331,
+          "teacher_alignment_with_total": -0.3245307833459319
+        },
+        {
+          "cache_index": 4131,
+          "loss": {
+            "ce": 0.890892744064331,
+            "anchor_kl": 4.377722164085297e-05,
+            "teacher_kl": 0.1248596233362161
+          },
+          "norms": {
+            "ce": 2.2370101033696304,
+            "anchor": 0.10494602149890934,
+            "teacher": 0.6674058545418381
+          },
+          "cosines": {
+            "ce__anchor": 0.2753005863163677,
+            "ce__teacher": -0.19838001058496987,
+            "anchor__teacher": -0.8612678350583136
+          },
+          "total_norm": 2.208372970330525,
+          "teacher_over_ce": 0.298347268765804,
+          "anchor_over_teacher": 0.1572446822045828,
+          "teacher_alignment_with_total": 0.06033452483463214
+        },
+        {
+          "cache_index": 18756,
+          "loss": {
+            "ce": 0.6601499915122986,
+            "anchor_kl": 1.2278196105577205e-05,
+            "teacher_kl": 0.22508696410691742
+          },
+          "norms": {
+            "ce": 3.39764114134912,
+            "anchor": 0.03288383126589543,
+            "teacher": 0.936320160676611
+          },
+          "cosines": {
+            "ce__anchor": -0.07876212517826893,
+            "ce__teacher": -0.19981921662560156,
+            "anchor__teacher": 0.540104024954348
+          },
+          "total_norm": 3.341562508732575,
+          "teacher_over_ce": 0.27557947461891785,
+          "anchor_over_teacher": 0.03512028539696578,
+          "teacher_alignment_with_total": 0.08234676392885114
+        },
+        {
+          "cache_index": 3672,
+          "loss": {
+            "ce": 0.8454049229621887,
+            "anchor_kl": 4.0622058330202246e-05,
+            "teacher_kl": 0.44094904368482246
+          },
+          "norms": {
+            "ce": 3.2258911345475116,
+            "anchor": 0.08675098676679187,
+            "teacher": 1.4649398295361489
+          },
+          "cosines": {
+            "ce__anchor": -0.11565119590482041,
+            "ce__teacher": 0.08522443992013086,
+            "anchor__teacher": 0.63940700541779
+          },
+          "total_norm": 3.6692278174472834,
+          "teacher_over_ce": 0.45411942574485936,
+          "anchor_over_teacher": 0.05921812283188468,
+          "teacher_alignment_with_total": 0.48929471613890024
+        },
+        {
+          "cache_index": 7829,
+          "loss": {
+            "ce": 0.8209319114685059,
+            "anchor_kl": 3.409076850994041e-05,
+            "teacher_kl": 0.1340545160313495
+          },
+          "norms": {
+            "ce": 3.638471981285189,
+            "anchor": 0.08580151737445053,
+            "teacher": 0.8334955294507236
+          },
+          "cosines": {
+            "ce__anchor": 0.25249962507232504,
+            "ce__teacher": -0.18601099309009375,
+            "anchor__teacher": 0.012224964465783621
+          },
+          "total_norm": 3.601630877703181,
+          "teacher_over_ce": 0.22907845209139538,
+          "anchor_over_teacher": 0.10294178473997818,
+          "teacher_alignment_with_total": 0.043799231164792715
+        },
+        {
+          "cache_index": 19927,
+          "loss": {
+            "ce": 0.8749691843986511,
+            "anchor_kl": 2.185919607077563e-05,
+            "teacher_kl": 0.6223392929524116
+          },
+          "norms": {
+            "ce": 4.482562882367756,
+            "anchor": 0.08472610133175103,
+            "teacher": 2.953989646403933
+          },
+          "cosines": {
+            "ce__anchor": 0.34589939221826227,
+            "ce__teacher": -0.22872448652310887,
+            "anchor__teacher": -0.15335353103756347
+          },
+          "total_norm": 4.791168321301105,
+          "teacher_over_ce": 0.6589956959719417,
+          "anchor_over_teacher": 0.028681922238587784,
+          "teacher_alignment_with_total": 0.39984500179210414
+        },
+        {
+          "cache_index": 19862,
+          "loss": {
+            "ce": 0.7480085492134094,
+            "anchor_kl": 1.544422821566911e-05,
+            "teacher_kl": 0.2683426601225945
+          },
+          "norms": {
+            "ce": 3.2814300915748054,
+            "anchor": 0.035516905068685614,
+            "teacher": 0.9635323805045972
+          },
+          "cosines": {
+            "ce__anchor": -0.33529243535882153,
+            "ce__teacher": 0.5470006120914037,
+            "anchor__teacher": 0.20035979085454805
+          },
+          "total_norm": 3.8848388058335996,
+          "teacher_over_ce": 0.2936318475833152,
+          "anchor_over_teacher": 0.036861143213563395,
+          "teacher_alignment_with_total": 0.7118938383362664
+        },
+        {
+          "cache_index": 13072,
+          "loss": {
+            "ce": 0.8354179859161377,
+            "anchor_kl": 2.1740050228034966e-05,
+            "teacher_kl": 0.14869460814499624
+          },
+          "norms": {
+            "ce": 3.2144590474710606,
+            "anchor": 0.046463461985996365,
+            "teacher": 0.7875754900728942
+          },
+          "cosines": {
+            "ce__anchor": -0.21461990595195005,
+            "ce__teacher": 0.12399717620603247,
+            "anchor__teacher": -0.631723651198074
+          },
+          "total_norm": 3.3871326667125645,
+          "teacher_over_ce": 0.24501027340588155,
+          "anchor_over_teacher": 0.05899556623035073,
+          "teacher_alignment_with_total": 0.3415299549689311
+        },
+        {
+          "cache_index": 5796,
+          "loss": {
+            "ce": 0.7810166478157043,
+            "anchor_kl": 5.162658586022848e-05,
+            "teacher_kl": 0.4082099959956502
+          },
+          "norms": {
+            "ce": 4.9087725435121,
+            "anchor": 0.07450950143688168,
+            "teacher": 1.030163462337167
+          },
+          "cosines": {
+            "ce__anchor": -0.23601779885227528,
+            "ce__teacher": 0.30834559262591577,
+            "anchor__teacher": -0.07987355059290174
+          },
+          "total_norm": 5.300607039536795,
+          "teacher_over_ce": 0.20986172270270065,
+          "anchor_over_teacher": 0.07232784326075731,
+          "teacher_alignment_with_total": 0.4787773332318925
+        },
+        {
+          "cache_index": 3683,
+          "loss": {
+            "ce": 0.41880497336387634,
+            "anchor_kl": 3.191848842306428e-05,
+            "teacher_kl": 0.10464900929621351
+          },
+          "norms": {
+            "ce": 2.118790260721393,
+            "anchor": 0.07571389300780598,
+            "teacher": 0.39698150747281113
+          },
+          "cosines": {
+            "ce__anchor": -0.42141960942688783,
+            "ce__teacher": 0.4960084247795433,
+            "anchor__teacher": -0.14189280071866286
+          },
+          "total_norm": 2.311550401139778,
+          "teacher_over_ce": 0.18736234295208118,
+          "anchor_over_teacher": 0.19072397978888614,
+          "teacher_alignment_with_total": 0.6217368524998286
+        },
+        {
+          "cache_index": 11352,
+          "loss": {
+            "ce": 0.3774987757205963,
+            "anchor_kl": 9.54238216502239e-06,
+            "teacher_kl": 0.124677647220628
+          },
+          "norms": {
+            "ce": 5.926770139206833,
+            "anchor": 0.015315743044188479,
+            "teacher": 1.0222193061191835
+          },
+          "cosines": {
+            "ce__anchor": 0.4038548941054708,
+            "ce__teacher": 0.9797690099756279,
+            "anchor__teacher": 0.48051859419078163
+          },
+          "total_norm": 6.937716903770168,
+          "teacher_over_ce": 0.17247493695714425,
+          "anchor_over_teacher": 0.01498283485012048,
+          "teacher_alignment_with_total": 0.9854026348876546
+        },
+        {
+          "cache_index": 19438,
+          "loss": {
+            "ce": 0.8473873734474182,
+            "anchor_kl": 1.9255124010961416e-05,
+            "teacher_kl": 0.1613136528222665
+          },
+          "norms": {
+            "ce": 2.4655543425186917,
+            "anchor": 0.03767089625476185,
+            "teacher": 0.4381971763421707
+          },
+          "cosines": {
+            "ce__anchor": 0.048308218288892896,
+            "ce__teacher": -0.16155330931961423,
+            "anchor__teacher": -0.03411550827327907
+          },
+          "total_norm": 2.4353967679527075,
+          "teacher_over_ce": 0.17772764882339992,
+          "anchor_over_teacher": 0.08596791190946916,
+          "teacher_alignment_with_total": 0.015846925534255166
+        },
+        {
+          "cache_index": 21572,
+          "loss": {
+            "ce": 0.8484688401222229,
+            "anchor_kl": 2.1029779140095477e-05,
+            "teacher_kl": 0.22790320306186374
+          },
+          "norms": {
+            "ce": 3.3438772490740063,
+            "anchor": 0.03950651371393445,
+            "teacher": 0.7469776388682049
+          },
+          "cosines": {
+            "ce__anchor": -0.0468943822793736,
+            "ce__teacher": 0.21738421779388598,
+            "anchor__teacher": -0.5262612669195685
+          },
+          "total_norm": 3.575411343185087,
+          "teacher_over_ce": 0.22338668055923988,
+          "anchor_over_teacher": 0.052888482409986705,
+          "teacher_alignment_with_total": 0.4064128268396386
+        },
+        {
+          "cache_index": 8190,
+          "loss": {
+            "ce": 0.8799328207969666,
+            "anchor_kl": 7.618095962391822e-06,
+            "teacher_kl": 0.37233239706887356
+          },
+          "norms": {
+            "ce": 3.7796233593825592,
+            "anchor": 0.0231437035656486,
+            "teacher": 1.3302890136866634
+          },
+          "cosines": {
+            "ce__anchor": 0.023779793673167997,
+            "ce__teacher": 0.10519671238456993,
+            "anchor__teacher": 0.9104705426631234
+          },
+          "total_norm": 4.144132793890659,
+          "teacher_over_ce": 0.3519633802623074,
+          "anchor_over_teacher": 0.01739750033829857,
+          "teacher_alignment_with_total": 0.4220339242190087
+        },
+        {
+          "cache_index": 17864,
+          "loss": {
+            "ce": 0.03633789345622063,
+            "anchor_kl": 2.5438297193074535e-06,
+            "teacher_kl": 0.08040053645452477
+          },
+          "norms": {
+            "ce": 1.309008596248607,
+            "anchor": 0.008626318755449959,
+            "teacher": 0.3658109535600791
+          },
+          "cosines": {
+            "ce__anchor": 0.8015141200605113,
+            "ce__teacher": -0.845350885086983,
+            "anchor__teacher": -0.9750449897408012
+          },
+          "total_norm": 1.0245736349724255,
+          "teacher_over_ce": 0.2794564944863083,
+          "anchor_over_teacher": 0.023581357177794873,
+          "teacher_alignment_with_total": -0.7312033466170409
+        },
+        {
+          "cache_index": 9424,
+          "loss": {
+            "ce": 0.2826855480670929,
+            "anchor_kl": 1.1328617191486514e-05,
+            "teacher_kl": 0.11360266533834076
+          },
+          "norms": {
+            "ce": 1.9738791503431778,
+            "anchor": 0.016841151496131853,
+            "teacher": 0.17952325019782228
+          },
+          "cosines": {
+            "ce__anchor": 0.28502802058605103,
+            "ce__teacher": -0.06458696443277798,
+            "anchor__teacher": 0.06680546187948302
+          },
+          "total_norm": 1.9754218273926094,
+          "teacher_over_ce": 0.09094946373318268,
+          "anchor_over_teacher": 0.09381041997387002,
+          "teacher_alignment_with_total": 0.02691145146172024
+        },
+        {
+          "cache_index": 21222,
+          "loss": {
+            "ce": 0.09345532208681107,
+            "anchor_kl": 1.4045248966788583e-06,
+            "teacher_kl": 0.18725047232787378
+          },
+          "norms": {
+            "ce": 1.5178516086013443,
+            "anchor": 0.0029759790135687448,
+            "teacher": 0.4222448885152015
+          },
+          "cosines": {
+            "ce__anchor": -0.43227793713707746,
+            "ce__teacher": 0.7051663346289134,
+            "anchor__teacher": -0.27275488810400483
+          },
+          "total_norm": 1.8388778428916925,
+          "teacher_over_ce": 0.27818588202063294,
+          "anchor_over_teacher": 0.007047992988224427,
+          "teacher_alignment_with_total": 0.8112398748002713
+        },
+        {
+          "cache_index": 21238,
+          "loss": {
+            "ce": 0.526035487651825,
+            "anchor_kl": 4.828372084420796e-05,
+            "teacher_kl": 0.38188772629495493
+          },
+          "norms": {
+            "ce": 2.257354020496049,
+            "anchor": 0.08203128204896508,
+            "teacher": 1.043920966814397
+          },
+          "cosines": {
+            "ce__anchor": 0.7421214653429535,
+            "ce__teacher": 0.8333078021004007,
+            "anchor__teacher": 0.8191901603477104
+          },
+          "total_norm": 3.2457155811933385,
+          "teacher_over_ce": 0.462453366789582,
+          "anchor_over_teacher": 0.07857997363468011,
+          "teacher_alignment_with_total": 0.9218894349922779
+        },
+        {
+          "cache_index": 11607,
+          "loss": {
+            "ce": 0.46562716364860535,
+            "anchor_kl": 1.295301382789278e-05,
+            "teacher_kl": 0.3350590451445285
+          },
+          "norms": {
+            "ce": 5.000373681491614,
+            "anchor": 0.039438708979006615,
+            "teacher": 0.7830937214726025
+          },
+          "cosines": {
+            "ce__anchor": -0.616877900891065,
+            "ce__teacher": -0.13196604251672328,
+            "anchor__teacher": 0.5252786469403253
+          },
+          "total_norm": 4.937020546880741,
+          "teacher_over_ce": 0.15660704006405482,
+          "anchor_over_teacher": 0.05036269337575889,
+          "teacher_alignment_with_total": 0.0291533134093167
+        },
+        {
+          "cache_index": 16680,
+          "loss": {
+            "ce": 0.9132081866264343,
+            "anchor_kl": 1.236115082708586e-05,
+            "teacher_kl": 0.12513656237441073
+          },
+          "norms": {
+            "ce": 4.844375385896319,
+            "anchor": 0.024571618565193465,
+            "teacher": 0.30340482800015217
+          },
+          "cosines": {
+            "ce__anchor": -0.15089049780837901,
+            "ce__teacher": 0.245650653194845,
+            "anchor__teacher": -0.12820246044478098
+          },
+          "total_norm": 4.923912610424962,
+          "teacher_over_ce": 0.06263032978069172,
+          "anchor_over_teacher": 0.08098624773756448,
+          "teacher_alignment_with_total": 0.30266147712578484
+        },
+        {
+          "cache_index": 1447,
+          "loss": {
+            "ce": 0.8549149036407471,
+            "anchor_kl": 1.461669804838656e-05,
+            "teacher_kl": 0.5046806193861665
+          },
+          "norms": {
+            "ce": 2.196115640424267,
+            "anchor": 0.03698205193517267,
+            "teacher": 1.394376224940186
+          },
+          "cosines": {
+            "ce__anchor": 0.004312001630571568,
+            "ce__teacher": 0.009790210303844988,
+            "anchor__teacher": -0.846049644046669
+          },
+          "total_norm": 2.596532328469325,
+          "teacher_over_ce": 0.6349284160058196,
+          "anchor_over_teacher": 0.026522290952543364,
+          "teacher_alignment_with_total": 0.5332450483496076
+        },
+        {
+          "cache_index": 16501,
+          "loss": {
+            "ce": 0.597084105014801,
+            "anchor_kl": 1.5102942951134674e-05,
+            "teacher_kl": 0.15461532060526192
+          },
+          "norms": {
+            "ce": 2.976244034888492,
+            "anchor": 0.030543628080238142,
+            "teacher": 0.36742245827260855
+          },
+          "cosines": {
+            "ce__anchor": -0.4202704388265386,
+            "ce__teacher": 0.004801971165755938,
+            "anchor__teacher": -0.3628060077101297
+          },
+          "total_norm": 2.986621884959068,
+          "teacher_over_ce": 0.12345172437661833,
+          "anchor_over_teacher": 0.08312945328338188,
+          "teacher_alignment_with_total": 0.12409769258446335
+        }
+      ],
+      "seconds": 82.37723924964666
+    }
+  },
+  "elapsed_seconds": 645.8649706281722,
+  "compute_seconds": 644.8129276931286,
+  "peak_allocated_mib": 930.4599609375,
+  "peak_reserved_mib": 964.0,
+  "all_model_parameters_unchanged_during_diagnosis": true,
+  "new_optimizer_steps": 0,
+  "test_read": false,
+  "verification_status": "ANALYZED",
+  "next_training_started": false
+}

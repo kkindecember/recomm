@@ -1,0 +1,3130 @@
+{
+  "state": "COMPLETED",
+  "completed_at": "2026-09-20T15:15:35+0800",
+  "elapsed_seconds": 290.84147987142205,
+  "optimizer_steps": 540,
+  "expected_optimizer_steps": 540,
+  "new_upstream_updates": 0,
+  "continue_recipe": false,
+  "input_sha256": {
+    "artifacts/phase20/source_competition_20260920_preflight_v2/checks.json": "897c1464511b6c02291569dee20cf4a1d0e5392d125fa1e22b00f1afad00b65c",
+    "experiment/phase20/source_competition_data.py": "2049e5a4f2caf2936ff6f41ba6a7e1cec6ce6e0c5eabb75f01a4c542b0733a27",
+    "experiment/phase20/test_source_competition.py": "6835600713bb5bade7887643670e8d8d750e58337352ae965f6fec1c9f186fb9",
+    "experiment/phase20/source_competition_tie_audit.py": "73cbab1d585b4b2d4e9a9afe8c514919ac81eab9f5c82512bf37fa4ec323298a",
+    "experiment/phase20/source_competition_20260920_v1.json": "03a34d6ccdad452e3f1e6888156f5d71efdffb43efe362985b50a1fc323a1fc3",
+    "experiment/phase20/source_competition_20260920_v2.json": "f122853ce6bd6dc71e2b5c38e2aa6cf50318f71d711ffea56f3b7c9792413603",
+    "experiment/phase20/source_competition_preflight.py": "27a1a0c3586e36f60961afa6378bab0b361a37ed31865feecb090d411ef9774b",
+    "experiment/phase20/run_source_competition.sh": "56e49d7b0d1b2b4f25d435259f5ffdf09d12bb4290e247d9fa23e9007e602f8d",
+    "experiment/phase20/source_competition_core.py": "8cedc5f42fb482161468e5634be86feb88b486e87f742abcb7c0a8b459b4dfa3",
+    "experiment/phase20/source_competition_screen.py": "3d167f58282e72eaefb81815ebd006e3ae017e331783a371c7e59bec0331b8b8",
+    "third_party/LIME-Rec/lime_rec/__init__.py": "048a35aaba543ce6fe2e32d5cb9639bae4f21a2ccb8b85839eaaa3027c8012e8",
+    "third_party/LIME-Rec/lime_rec/data.py": "352a2526189ea7112188d9442b8ebbbb8922e7bdf21de7aabb8d958bdad20820",
+    "third_party/LIME-Rec/lime_rec/evaluation.py": "99266d8d00508646e7a4f5f3be994ec03a344374358cb22331f44824276596c5",
+    "third_party/LIME-Rec/lime_rec/experts.py": "5c653c6f89eca324668f7fd4379fae21fee7bd84bd49d0a1017be30c16f1f84d",
+    "third_party/LIME-Rec/lime_rec/itemcf.py": "b5d3bd057a81b4ee99065c8e95230c9225a77f103c9f7eb09c314734729e9e12",
+    "third_party/LIME-Rec/lime_rec/models/__init__.py": "1b51119ff94714f64907fc2d2b819193af634b708e9697cc6cc06170fa36076b",
+    "third_party/LIME-Rec/lime_rec/models/sasrec.py": "ae0b687111cf64af0b51803231cdcddb3a829babeef82de7f5ed68d914c0d45c",
+    "third_party/LIME-Rec/scripts/evaluation/run_repeat_aware_gate.py": "6f67ac672af5cacf5a4e6523ddab40e87c504d937479bd7fd3c89abcd9455914",
+    "experiment/phase20/catalog_scope_core.py": "82aa932cdaee06ff9e5fd2f81437368eda913a43082325e6ca4775e0eed8a53a",
+    "experiment/phase20/lime_comparison_core.py": "2268ee80069fa80bf39fb67a9a3279947f3817ac75746956c5cf6d65ac39ab1d",
+    "experiment/phase20/guided_decoding_job.py": "c347523ed4ca04d2ad5ac0ff5108b0a9c12043aadecce6518c124cb67d9c56ba",
+    "plan/第二十阶段/候选补漏与排序保持_首轮匹配训练协议_20260920.md": "13c5569ed7b42e9df4105d6c88b4b7baa767021f1611d97d1e17d231e6eb8347",
+    "artifacts/phase20/catalog_scope_20260919_v1/Toys/queries.npz": "6fab77cb7d219eac1686d5b952a7cf33a84c04662d33d1f02349b6a8a9ebf45c",
+    "artifacts/phase20/nearest_comparison_20260918/Toys.train_sequences.npz": "7d45ba0b375ccada61c47923688b5d3bf5df59a575cd7605b958c7bd1e4b0676",
+    "artifacts/phase20/nearest_comparison_20260918/Toys.train.npz": "86c6bb1e2feb47e82ebe8e79a3801f196b11540111c17ddbbcf1120d99d3596e",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/embeddings.npz": "87fd710e6aa2b64db0a21749151426b9f2be79a15305d403a44420da84e1d7fb",
+    "artifacts/phase20/nearest_comparison_20260918/Toys.items.jsonl": "82c1771c7ee9db05eee8de131ec4ec3e59920efe4692849041ae2042e29aacb4",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/itemcf.json": "bf89e892af445ca2b82593e606cd893ad731a52f721ef06226e944bcb30139c3",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/sasrec_seed0.pt": "498fd0857705755d39e6b9b7d0c8f376629c15a61c257831f23ad3896dc12725",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/gate_seed0_cal2048.pt": "272943a3e8c59433536aaf5dd42365960fe69faf648f225b625a0a4caf32d342",
+    "artifacts/phase20/gacr_fusion_train_v1/Toys/training_cache.npz": "6c5121daeb24af73320f43c78f8c67ea49ced193e3ce1bcf673b0c65c53d728e",
+    "artifacts/phase20/gacr_fusion_train_v1/Toys/train_candidates.jsonl": "30a0adc709f2e93514e35c4b762b07bf5201f9481e7e6b3e204652e42ec84033",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/evaluation_seed0_cal2048.npz": "ed28e87031a46f5b78bdea3018ef017ef2de46456f88735f115bd23871a80c1c",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/evaluation_seed0_crossfit.npz": "61240d507d231c381b90d0578d28c76e4fe04c01e9a3f1c2d5d64e8106cfa1e4",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/sasrec_scores_seed0.npy": "181be5e2307548f716850a6df35bb728a39e2fdaac836d3ebc09ae43a0afaf0a",
+    "artifacts/phase20/lime_comparison_20260920_v1/Toys/itemcf_scores.npy": "ba45465cfa4b0337009eb008b91c9f8f1f78e381a4d2fdfe2dadeb1b7fce5b34",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Toys/semantic_scores.npy": "c98f282cc22eb6812a78b8fcbb109264ab242dbfcf539d0c0e580d3c5625c75d",
+    "artifacts/phase20/catalog_scope_20260919_v1/Beauty/queries.npz": "9291df0225acf428d5ad408ec9e3a0867a73915ea751dccea8101adb0459b9f4",
+    "artifacts/phase20/nearest_comparison_20260918/Beauty.train_sequences.npz": "ae141ca2120e99bedc0cb763d42bbc23aeca1dde8cc0d3209147bded218a1f57",
+    "artifacts/phase20/nearest_comparison_20260918/Beauty.train.npz": "25c67a5fdbf5329fce90c2762beea9b13781152ea53b1a8fc9a4620c04a37943",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/embeddings.npz": "9728a74f6ac6f27373fd9a930bb05436b891dcfee3bdb82d1914523ca5cf5c76",
+    "artifacts/phase20/nearest_comparison_20260918/Beauty.items.jsonl": "349212b0f49d578d4d65032e1b84681a5c07f49590fdb21411ef42ddc2818eca",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/itemcf.json": "1845dbac5580f3d7e04ba06b3ca90e915d0b8bbfcfa796ca60d2ec7655f9b631",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/sasrec_seed0.pt": "f2aa84516a3852294821d8dd8f0c50bd040ee93a6e5a8f9d152a33557589b92e",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/gate_seed0_cal2048.pt": "a88c314070f1cc72cc500f4bf980ac38fe52199e17a7f680d103d01c8c6522a5",
+    "artifacts/phase20/gacr_fusion_train_v1/Beauty/training_cache.npz": "991aaf916cf68cad861a77f01499474be789b669c39a3f67ca44fdef4bbcea75",
+    "artifacts/phase20/gacr_fusion_train_v1/Beauty/train_candidates.jsonl": "558c7e11900a6c465cf63e73c1eaf5149e7f6b5f5310d36788e61d9d0f2ba46d",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/evaluation_seed0_cal2048.npz": "4cf4aab78a5770040ca8dd3475eba8fed4512e1c1765d87ae735a4ae42bcca95",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/evaluation_seed0_crossfit.npz": "98874e0a626d53a70820758719aea36253768479492f17e9caa697a19aeb032f",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/sasrec_scores_seed0.npy": "9cd0f08d7e62d77a94f14b7ce04c90d08801ea3df53aa51a99c0db9d379a8726",
+    "artifacts/phase20/lime_comparison_20260920_v1/Beauty/itemcf_scores.npy": "3b3ad27e65f6d7e68aaf57b604f36c8a2cbe359a712ce384cd7ba45151b590f0",
+    "artifacts/phase20/lime_comparison_20260920_v1/recovery_v2/Beauty/semantic_scores.npy": "af7af89e0bc1ed799571ab5ddf1b46e1d1940177405af93a7e2ef9abcf2dc574"
+  },
+  "output_sha256": {
+    "artifacts/phase20/source_competition_20260920_v2/config.json": "6ccaa273d1e4c1de735e4139c0789beedc29911931cac49168db2a1df98993af",
+    "artifacts/phase20/source_competition_20260920_v2/verification.json": "da42c0ee511f54847aad18265ade15b0dc525b917bee7c45437a8133266f581d",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260921.cross_source.predictions.npz": "6b0ee12f65d0136c6cd0fb3f999a8ef6cb0c8fa5f9f9769803cb2b8fb3312bfc",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260920.cross_source.pt": "41d2d0fee2011a099baadda873f30e19b6bb90e017d170c09c30b043b4d41700",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260922.ordinary_ce.predictions.npz": "c6226e8421014cd8c6f26c7639f642983c5950f11aaae52654d6a20c9a3b49ef",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260921.ordinary_ce.pt": "482dd2478fb1b177c1592961acae7fda5f6dbaa312e23038d853dc7f9ed1110e",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/training.json": "4aedfe0f547773d226a830454f0cc803b25710b082f0902a7ab43e4496d2ad92",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/train.npz": "c6cac8bb356b64725b5090089e4b9fb94f2099310af88cc13dc4aacba8e8bbee",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260921.hard_negative.pt": "ecf9991fceff1fe444e147cd97f77a54bc48c82b62d474926b9e3a79e7d92ce8",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/development.npz": "3c7939d9c473ea7e1aa05aff46e3a01b6a9593af822ebc5bf5956f157bd14087",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260921.hard_negative.predictions.npz": "ab17193c1397514000c8da53c5d105432059956cbc5b1670fbd7c8e215c139c3",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260922.hard_negative.pt": "20d7a7363b05f6dc4c1e6a2cd0bc423db5d8c6885d8e295510e49dc9d8645d66",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260922.ordinary_ce.pt": "256acef2d798f436885419118124800187285ef34ea093254d40a11d9a571b01",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260920.ordinary_ce.pt": "b8ec69de42f1999f6c712886ba877a9ece509ec5998b314117eae1ff83546609",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260922.hard_negative.predictions.npz": "c6b10ae993363fbc92386c62a5a66c2c25d42b60e69ab02a13eef5829d575ffe",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260920.hard_negative.predictions.npz": "f921d6607c43c8465b06b46a785039e22b530ed893b7f77867c16916a1fedeab",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260922.cross_source.pt": "fc3d0fa78795a529b74e3c37ea6af3da2cdca3096d4c318d01a00d88b7fb2917",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/ranks.npz": "7818dfaac86a0d8e5703489291592de70ba90fc971be356ecd7eb947fd2b3238",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260920.ordinary_ce.predictions.npz": "2b0af0b85b0646938921a6bbb446119eb4460b8938fc18b935b693420f59ab93",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260921.cross_source.pt": "993b1d5b1cf9b24a85df7a2ebbbe890cec770508b1003d0f7f97d5f64b47449d",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/summary.json": "019f79113c85ddac58bef7fca86fed5cf983d35b4cef9868f8858b11b01a09eb",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260920.cross_source.predictions.npz": "67afb89bd266e99820ebea126e201c47c19c3d8bfe3844b2668b1fb278620229",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260922.cross_source.predictions.npz": "86e909287c0a2dc068d5fbb535ce24455ac6dbb4498fc21db4770c1517ef4957",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260921.ordinary_ce.predictions.npz": "072015a3a687a341f697884fa85f96883b02d2c910ee654cb2d7213bea0cf9f4",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/preparation.json": "ad16e5a2d1484a914f52a3809c357f99d20d96a768fcb083bd616a754e2b52f9",
+    "artifacts/phase20/source_competition_20260920_v2/Beauty/20260920.hard_negative.pt": "22667f1b6f07510935a2407712da5534fa9be4687fd7b7e83ca839bed8fc6e80",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260921.cross_source.predictions.npz": "370a542a39747e0150d38ae7834d4cb76638468e2717040934ef015505f2a98c",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260920.cross_source.pt": "f33327c58a8ae29c21cdf025dc45b9ced3c6298518cc4bf07e46b9703c8a0064",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260922.ordinary_ce.predictions.npz": "1515b4fd67a20726424d7699f84c8c190b76b71be305c3463aa73d94fc30f92c",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260921.ordinary_ce.pt": "899ef58348622a13331c13bb2a0f85d812dfc165c66493180f4266aa72f5387c",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/training.json": "fdfc42b73567796364cb9985f86d83f17dd5142a37902997f6a3c2a584199f0f",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/train.npz": "d80cba5b59f825d68af145006c3a1a80f8b2da70da6940a39227c5aefa66b04f",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260921.hard_negative.pt": "7d0d029a37317785553e89d2ad71ee2458130da9f8ca8df77b4cbeca446986ee",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/development.npz": "f0c32073803729c2f9f14568bcb4fbb34527f05c22457f2961609167e5a36b18",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260921.hard_negative.predictions.npz": "4ca522d57fe250920e9577b82e0ce77fb96076a13c28d0a6953a6717cacda513",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260922.hard_negative.pt": "4a6132ce53dc6867553794d05a0c3339dd4ec0fc3aae4e3f67f8dc352fb5f5b5",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260922.ordinary_ce.pt": "4bd892c6d5fe5505019d2607bb479f46d74789a87b0ba44e8561a7abe9da5478",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260920.ordinary_ce.pt": "0e6e29aa518dc30dc52880121fa70f41ab30398cfcdb0dce125f8045fdc9b98c",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260922.hard_negative.predictions.npz": "801ee95287123a346d8233df778d5967088146712dd7adb75c6b68efdc6a065a",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260920.hard_negative.predictions.npz": "c62d96c0bc128ab1cab70d38ba73158f4f714357ba0f16ab559bf5bcc5d33b00",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260922.cross_source.pt": "c580d8add037118ae31f24545e9fb3f8588fb9abec31fc8d63361b974a589f3e",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/ranks.npz": "a7606e4f9513a77e3af0d9b96c89370b776b82588ba13415dba9bea5c2479ed3",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260920.ordinary_ce.predictions.npz": "5d7b85578fe3704b1f2fee03a1bf406e7450c934b240a84866ee54b8d09c35dc",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260921.cross_source.pt": "1611038ec8fc523d29d559c2cc0480163eae255c9d5ba37101aad1576acc6e44",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/summary.json": "ddab3275b84dc422989911767172efe5f36d5da639c8d7f873ecad58b897f255",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260920.cross_source.predictions.npz": "c01258dc29a1c7a27d05e7b4b1c8178a93eca2acc513c739db1ddebb1934935e",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260922.cross_source.predictions.npz": "997e9c9600c37eee1d267f304c8abe4ed8e290151ee5a6a6951ac3033c41411d",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260921.ordinary_ce.predictions.npz": "f65bc7d40f0048d7a7002e093c944dbd78b9e917b10812b4a09cd41f69903ef8",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/preparation.json": "ba433534a8c278e729015469a31b652e2c900f8724d26e803865f6ff2b2204f0",
+    "artifacts/phase20/source_competition_20260920_v2/Toys/20260920.hard_negative.pt": "6d8b07fd54a85135e0d9fc573c7ef11895f97225f60127c120893a80250d5d7e",
+    "artifacts/phase20/source_competition_20260920_v2/sources/experiment/phase20/source_competition_20260920_v1.json": "03a34d6ccdad452e3f1e6888156f5d71efdffb43efe362985b50a1fc323a1fc3",
+    "artifacts/phase20/source_competition_20260920_v2/sources/experiment/phase20/source_competition_20260920_v2.json": "f122853ce6bd6dc71e2b5c38e2aa6cf50318f71d711ffea56f3b7c9792413603"
+  },
+  "verification": {
+    "state": "VERIFIED",
+    "all_checkpoints_replayed": true,
+    "independent_rankings": 339111,
+    "input_hashes_unchanged": true,
+    "frozen_input_count": 52,
+    "gpu_used": true,
+    "gpu_purpose": "frozen_LIME_gate_only",
+    "new_gpu_optimizer_steps": 0,
+    "test_read": false
+  },
+  "preparation": {
+    "Toys": {
+      "training": {
+        "original_fit_prefixes": 21839,
+        "prefixes": 19566,
+        "excluded_calibration_prefixes": 2273,
+        "users": 3494,
+        "gram_covered": 11123,
+        "union_covered": 16458,
+        "external_only": 5335,
+        "uncovered": 3108,
+        "all_train_boundaries_checked": true,
+        "mean_candidate_count": 87.5392517632628,
+        "seconds": 19.531350878998637
+      },
+      "development": {
+        "users": 17364,
+        "original_rank_parity": true,
+        "original_top50_parity": true,
+        "evaluation_labels_used_for_fit": false,
+        "gate": "frozen_cal2048",
+        "mean_candidate_count": 88.56668970283344
+      },
+      "fit": {
+        "fit_examples": 16458,
+        "fit_users": 3456,
+        "features": [
+          "sasrec",
+          "itemcf",
+          "semantic",
+          "lime",
+          "in_gram",
+          "in_lime",
+          "gram_reciprocal_rank",
+          "lime_minus_gram_top10",
+          "log_frequency",
+          "log_history_length"
+        ],
+        "feature_mean": [
+          0.7506007552146912,
+          0.11247068643569946,
+          0.5867557525634766,
+          0.6043732166290283,
+          0.5505997538566589,
+          0.5713730454444885,
+          0.04810071364045143,
+          -0.02475861646234989,
+          3.0826141834259033,
+          1.772063136100769
+        ],
+        "feature_std": [
+          0.13928191363811493,
+          0.2043166309595108,
+          0.18073514103889465,
+          0.11423920840024948,
+          0.497433066368103,
+          0.49487966299057007,
+          0.12110789120197296,
+          0.09820585697889328,
+          0.9422950744628906,
+          0.8986976742744446
+        ],
+        "pair_counts_equal": true,
+        "max_pairs": 5,
+        "pair_masks_differ_fraction": 0.9097703244622676,
+        "zero_pair_rows": 0
+      }
+    },
+    "Beauty": {
+      "training": {
+        "original_fit_prefixes": 26486,
+        "prefixes": 24269,
+        "excluded_calibration_prefixes": 2217,
+        "users": 4085,
+        "gram_covered": 12976,
+        "union_covered": 18201,
+        "external_only": 5225,
+        "uncovered": 6068,
+        "all_train_boundaries_checked": true,
+        "mean_candidate_count": 83.69887510816268,
+        "seconds": 24.46858180500567
+      },
+      "development": {
+        "users": 20315,
+        "original_rank_parity": true,
+        "original_top50_parity": true,
+        "evaluation_labels_used_for_fit": false,
+        "gate": "frozen_cal2048",
+        "mean_candidate_count": 86.2641890228895
+      },
+      "fit": {
+        "fit_examples": 18201,
+        "fit_users": 3966,
+        "features": [
+          "sasrec",
+          "itemcf",
+          "semantic",
+          "lime",
+          "in_gram",
+          "in_lime",
+          "gram_reciprocal_rank",
+          "lime_minus_gram_top10",
+          "log_frequency",
+          "log_history_length"
+        ],
+        "feature_mean": [
+          0.7772735357284546,
+          0.1462402194738388,
+          0.6065228581428528,
+          0.6358669400215149,
+          0.5747846961021423,
+          0.6034294366836548,
+          0.05068640410900116,
+          -0.03350326046347618,
+          3.515428304672241,
+          1.8206031322479248
+        ],
+        "feature_std": [
+          0.13173013925552368,
+          0.23401090502738953,
+          0.18582716584205627,
+          0.11516112089157104,
+          0.494375616312027,
+          0.4891853928565979,
+          0.1251634657382965,
+          0.098209910094738,
+          1.0927003622055054,
+          0.9296691417694092
+        ],
+        "pair_counts_equal": true,
+        "max_pairs": 5,
+        "pair_masks_differ_fraction": 0.9149497280369211,
+        "zero_pair_rows": 0
+      }
+    }
+  },
+  "domains": {
+    "Toys": {
+      "metrics": {
+        "full_lime": {
+          "all": {
+            "H5": 0.10084082008753743,
+            "N5": 0.07409612279432484,
+            "H10": 0.13522229900944482,
+            "N10": 0.08520140597669183,
+            "H20": 0.17697535130154343,
+            "N20": 0.09574013310608874,
+            "H50": 0.23934577286339553,
+            "N50": 0.10808146389848476
+          },
+          "low_frequency": {
+            "H5": 0.07943722943722943,
+            "N5": 0.058397336670492205,
+            "H10": 0.10367965367965368,
+            "N10": 0.06619256843486324,
+            "H20": 0.13463203463203463,
+            "N20": 0.07401718037393352,
+            "H50": 0.1800865800865801,
+            "N50": 0.08297079594484631
+          },
+          "other": {
+            "H5": 0.10860012554927809,
+            "N5": 0.07978730232132633,
+            "H10": 0.1466572504708098,
+            "N10": 0.09209255706294796,
+            "H20": 0.19232580037664784,
+            "N20": 0.10361521484043879,
+            "H50": 0.2608286252354049,
+            "N50": 0.11718467214909757
+          },
+          "gram_covered": {
+            "H5": 0.40082530949105916,
+            "N5": 0.30365854969131184,
+            "H10": 0.5006877579092159,
+            "N10": 0.33596647242482,
+            "H20": 0.6074277854195324,
+            "N20": 0.363123125409093,
+            "H50": 0.712242090784044,
+            "N50": 0.3841628196227832
+          },
+          "lime_only": {
+            "H5": 0.1876196553924697,
+            "N5": 0.11666001791495748,
+            "H10": 0.3369495851946394,
+            "N10": 0.16477286925019552,
+            "H20": 0.5520102105934908,
+            "N20": 0.21855718595537454,
+            "H50": 1.0,
+            "N50": 0.3065058645848579
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "gram_lime": {
+          "all": {
+            "H5": 0.10740612762036397,
+            "N5": 0.07901188227157928,
+            "H10": 0.13833218152499424,
+            "N10": 0.08893790176014511,
+            "H20": 0.17184980419258236,
+            "N20": 0.09742000563091353,
+            "H50": 0.20934116563003916,
+            "N50": 0.10492580442852671
+          },
+          "low_frequency": {
+            "H5": 0.06515151515151515,
+            "N5": 0.05010158319271455,
+            "H10": 0.07943722943722943,
+            "N10": 0.0546595406894615,
+            "H20": 0.09480519480519481,
+            "N20": 0.058548462626383586,
+            "H50": 0.12878787878787878,
+            "N50": 0.06514058034067696
+          },
+          "other": {
+            "H5": 0.12272441933458883,
+            "N5": 0.08949254625026376,
+            "H10": 0.15968298807281858,
+            "N10": 0.10136461457767164,
+            "H20": 0.19978028876333961,
+            "N20": 0.1115118550252111,
+            "H50": 0.23854362837413684,
+            "N50": 0.11934888472402781
+          },
+          "gram_covered": {
+            "H5": 0.5130674002751031,
+            "N5": 0.37743117572591545,
+            "H10": 0.6607977991746905,
+            "N10": 0.42484669220444554,
+            "H20": 0.8209078404401651,
+            "N20": 0.4653647806809305,
+            "H50": 1.0,
+            "N50": 0.5012191659138756
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "union_lime": {
+          "all": {
+            "H5": 0.10084082008753743,
+            "N5": 0.07409612279432484,
+            "H10": 0.13522229900944482,
+            "N10": 0.08520140597669183,
+            "H20": 0.17697535130154343,
+            "N20": 0.09574013310608874,
+            "H50": 0.23934577286339553,
+            "N50": 0.10808146389848476
+          },
+          "low_frequency": {
+            "H5": 0.07943722943722943,
+            "N5": 0.058397336670492205,
+            "H10": 0.10367965367965368,
+            "N10": 0.06619256843486324,
+            "H20": 0.13463203463203463,
+            "N20": 0.07401718037393352,
+            "H50": 0.1800865800865801,
+            "N50": 0.08297079594484631
+          },
+          "other": {
+            "H5": 0.10860012554927809,
+            "N5": 0.07978730232132633,
+            "H10": 0.1466572504708098,
+            "N10": 0.09209255706294796,
+            "H20": 0.19232580037664784,
+            "N20": 0.10361521484043879,
+            "H50": 0.2608286252354049,
+            "N50": 0.11718467214909757
+          },
+          "gram_covered": {
+            "H5": 0.40082530949105916,
+            "N5": 0.30365854969131184,
+            "H10": 0.5006877579092159,
+            "N10": 0.33596647242482,
+            "H20": 0.6074277854195324,
+            "N20": 0.363123125409093,
+            "H50": 0.712242090784044,
+            "N50": 0.3841628196227832
+          },
+          "lime_only": {
+            "H5": 0.1876196553924697,
+            "N5": 0.11666001791495748,
+            "H10": 0.3369495851946394,
+            "N10": 0.16477286925019552,
+            "H20": 0.5520102105934908,
+            "N20": 0.21855718595537454,
+            "H50": 1.0,
+            "N50": 0.3065058645848579
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "crossfit_gram_lime": {
+          "all": {
+            "H5": 0.10786685095600092,
+            "N5": 0.07944245186188378,
+            "H10": 0.13896567611149505,
+            "N10": 0.08945969286259257,
+            "H20": 0.17144667127390004,
+            "N20": 0.09768169748191252,
+            "H50": 0.20934116563003916,
+            "N50": 0.1052826763091874
+          },
+          "low_frequency": {
+            "H5": 0.0658008658008658,
+            "N5": 0.05064464732867528,
+            "H10": 0.07922077922077922,
+            "N10": 0.05500693675250939,
+            "H20": 0.09393939393939393,
+            "N20": 0.05873410158653656,
+            "H50": 0.12878787878787878,
+            "N50": 0.0655292932816588
+          },
+          "other": {
+            "H5": 0.12311676082862523,
+            "N5": 0.08988233391959118,
+            "H10": 0.16062460765850597,
+            "N10": 0.10194962798724608,
+            "H20": 0.19954488386691777,
+            "N20": 0.11180111783946407,
+            "H50": 0.23854362837413684,
+            "N50": 0.1196942134707679
+          },
+          "gram_covered": {
+            "H5": 0.5152682255845942,
+            "N5": 0.37948795987063266,
+            "H10": 0.6638239339752408,
+            "N10": 0.4273392316000158,
+            "H20": 0.8189821182943604,
+            "N20": 0.46661485421621157,
+            "H50": 1.0,
+            "N50": 0.5029239041080412
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_head0": {
+          "all": {
+            "H5": 0.10544805344390694,
+            "N5": 0.07803909560614833,
+            "H10": 0.13579820317899102,
+            "N10": 0.08778844823148552,
+            "H20": 0.1692006450126699,
+            "N20": 0.09623333691368288,
+            "H50": 0.20934116563003916,
+            "N50": 0.10427984641328963
+          },
+          "low_frequency": {
+            "H5": 0.07575757575757576,
+            "N5": 0.05577957219974856,
+            "H10": 0.09393939393939393,
+            "N10": 0.06162125786921952,
+            "H20": 0.11168831168831168,
+            "N20": 0.06615061968439077,
+            "H50": 0.12878787878787878,
+            "N50": 0.06957101957360812
+          },
+          "other": {
+            "H5": 0.11621155053358444,
+            "N5": 0.08610869684104844,
+            "H10": 0.1509730069052103,
+            "N10": 0.09727467072628064,
+            "H20": 0.19005021971123667,
+            "N20": 0.10713903007119462,
+            "H50": 0.23854362837413684,
+            "N50": 0.11686261320545291
+          },
+          "gram_covered": {
+            "H5": 0.5037138927097662,
+            "N5": 0.372784279533744,
+            "H10": 0.6486932599724897,
+            "N10": 0.4193558776042681,
+            "H20": 0.8082530949105915,
+            "N20": 0.4596961931689655,
+            "H50": 1.0,
+            "N50": 0.4981334946686
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_head1": {
+          "all": {
+            "H5": 0.10544805344390694,
+            "N5": 0.07804161943423164,
+            "H10": 0.13568302234508178,
+            "N10": 0.08775988146672795,
+            "H20": 0.1692582354296245,
+            "N20": 0.0962509487505294,
+            "H50": 0.20934116563003916,
+            "N50": 0.10428543622759172
+          },
+          "low_frequency": {
+            "H5": 0.07554112554112555,
+            "N5": 0.05569583782588827,
+            "H10": 0.09372294372294372,
+            "N10": 0.061552056473885224,
+            "H20": 0.11168831168831168,
+            "N20": 0.06613777534085594,
+            "H50": 0.12878787878787878,
+            "N50": 0.0695587989570779
+          },
+          "other": {
+            "H5": 0.11629001883239172,
+            "N5": 0.08614249129789663,
+            "H10": 0.150894538606403,
+            "N10": 0.09726083497166624,
+            "H20": 0.19012868801004396,
+            "N20": 0.10716768299038279,
+            "H50": 0.23854362837413684,
+            "N50": 0.11687465972019796
+          },
+          "gram_covered": {
+            "H5": 0.5037138927097662,
+            "N5": 0.3727963355862444,
+            "H10": 0.6481430536451169,
+            "N10": 0.41921941727325013,
+            "H20": 0.8085281980742779,
+            "N20": 0.4597803229997779,
+            "H50": 1.0,
+            "N50": 0.4981601966040998
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_head2": {
+          "all": {
+            "H5": 0.1056784151117254,
+            "N5": 0.07812889388628333,
+            "H10": 0.13579820317899102,
+            "N10": 0.0877981317809188,
+            "H20": 0.16902787376180603,
+            "N20": 0.09619830574710884,
+            "H50": 0.20934116563003916,
+            "N50": 0.10427980803274087
+          },
+          "low_frequency": {
+            "H5": 0.07575757575757576,
+            "N5": 0.05573059073101893,
+            "H10": 0.09372294372294372,
+            "N10": 0.06150216734216983,
+            "H20": 0.11147186147186147,
+            "N20": 0.06603617014177217,
+            "H50": 0.12878787878787878,
+            "N50": 0.0695012714850616
+          },
+          "other": {
+            "H5": 0.11652542372881355,
+            "N5": 0.08624880604709012,
+            "H10": 0.15105147520401757,
+            "N10": 0.09733103790984382,
+            "H20": 0.1898932831136221,
+            "N20": 0.10713278993548418,
+            "H50": 0.23854362837413684,
+            "N50": 0.11688784623505397
+          },
+          "gram_covered": {
+            "H5": 0.5048143053645117,
+            "N5": 0.37321323615995156,
+            "H10": 0.6486932599724897,
+            "N10": 0.41940213486764083,
+            "H20": 0.8074277854195323,
+            "N20": 0.45952885309292923,
+            "H50": 1.0,
+            "N50": 0.49813331132888927
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260920.ordinary_ce": {
+          "all": {
+            "H5": 0.09819166090762498,
+            "N5": 0.07150019450512582,
+            "H10": 0.13199723565998617,
+            "N10": 0.08241547179540462,
+            "H20": 0.17847270214236352,
+            "N20": 0.09409969571444642,
+            "H50": 0.2475236120709514,
+            "N50": 0.10776736267460973
+          },
+          "low_frequency": {
+            "H5": 0.06536796536796537,
+            "N5": 0.048945854106582545,
+            "H10": 0.09069264069264069,
+            "N10": 0.0570850333819109,
+            "H20": 0.12554112554112554,
+            "N20": 0.06580404167904011,
+            "H50": 0.17575757575757575,
+            "N50": 0.07565205716146933
+          },
+          "other": {
+            "H5": 0.11009102322661644,
+            "N5": 0.07967667383981432,
+            "H10": 0.14697112366603893,
+            "N10": 0.09159835201121919,
+            "H20": 0.197661644695543,
+            "N20": 0.10435753639583197,
+            "H50": 0.2735404896421846,
+            "N50": 0.11940991693313992
+          },
+          "gram_covered": {
+            "H5": 0.4250343878954608,
+            "N5": 0.31512261767732724,
+            "H10": 0.5400275103163686,
+            "N10": 0.35247099936248355,
+            "H20": 0.669050894085282,
+            "N20": 0.3849842519366249,
+            "H50": 0.7986244841815681,
+            "N50": 0.4108625610089511
+          },
+          "lime_only": {
+            "H5": 0.1021059349074665,
+            "N5": 0.06130099689209979,
+            "H10": 0.209955328653478,
+            "N10": 0.09561593463482969,
+            "H20": 0.42565411614550097,
+            "N20": 0.1496677476681661,
+            "H50": 0.8902361199744735,
+            "N50": 0.24108939133017634
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260920.hard_negative": {
+          "all": {
+            "H5": 0.09744298548721493,
+            "N5": 0.0708955649873512,
+            "H10": 0.13165169315825848,
+            "N10": 0.08190798453267631,
+            "H20": 0.17674498963372495,
+            "N20": 0.09323598085954411,
+            "H50": 0.24769638332181526,
+            "N50": 0.10729089791308054
+          },
+          "low_frequency": {
+            "H5": 0.06536796536796537,
+            "N5": 0.048315865860473255,
+            "H10": 0.08917748917748917,
+            "N10": 0.05592453906856458,
+            "H20": 0.12316017316017316,
+            "N20": 0.06447067289820685,
+            "H50": 0.1748917748917749,
+            "N50": 0.07463285986818059
+          },
+          "other": {
+            "H5": 0.10907093534212178,
+            "N5": 0.07908123745801789,
+            "H10": 0.1470495919648462,
+            "N10": 0.09132759517644562,
+            "H20": 0.19617074701820464,
+            "N20": 0.10366408214496299,
+            "H50": 0.27408976773383553,
+            "N50": 0.11913020549056308
+          },
+          "gram_covered": {
+            "H5": 0.4220082530949106,
+            "N5": 0.31264015684134894,
+            "H10": 0.5416781292984869,
+            "N10": 0.3513006620638608,
+            "H20": 0.6627235213204952,
+            "N20": 0.3817332614350653,
+            "H50": 0.8027510316368638,
+            "N50": 0.4097990926592601
+          },
+          "lime_only": {
+            "H5": 0.10082961072112316,
+            "N5": 0.06035968112448184,
+            "H10": 0.20229738353541799,
+            "N10": 0.0927072985470691,
+            "H20": 0.4211869814932993,
+            "N20": 0.14763826823781845,
+            "H50": 0.8825781748564135,
+            "N50": 0.23827661106976372
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260920.cross_source": {
+          "all": {
+            "H5": 0.09750057590416955,
+            "N5": 0.07108006651313045,
+            "H10": 0.13182446440912232,
+            "N10": 0.08213215974232316,
+            "H20": 0.17697535130154343,
+            "N20": 0.09347028890771256,
+            "H50": 0.24758120248790602,
+            "N50": 0.10745155929200757
+          },
+          "low_frequency": {
+            "H5": 0.06515151515151515,
+            "N5": 0.04870324278124765,
+            "H10": 0.09004329004329005,
+            "N10": 0.05664856572365432,
+            "H20": 0.12380952380952381,
+            "N20": 0.065147248673933,
+            "H50": 0.1748917748917749,
+            "N50": 0.07519009448067998
+          },
+          "other": {
+            "H5": 0.10922787193973635,
+            "N5": 0.07919219187732525,
+            "H10": 0.14697112366603893,
+            "N10": 0.09137056247037167,
+            "H20": 0.19624921531701192,
+            "N20": 0.10373805773069289,
+            "H50": 0.27393283113622097,
+            "N50": 0.11914709973679204
+          },
+          "gram_covered": {
+            "H5": 0.422283356258597,
+            "N5": 0.31335316275021324,
+            "H10": 0.5408528198074278,
+            "N10": 0.35168016909706795,
+            "H20": 0.6616231086657497,
+            "N20": 0.382044456821787,
+            "H50": 0.8002751031636863,
+            "N50": 0.40985058111314027
+          },
+          "lime_only": {
+            "H5": 0.10082961072112316,
+            "N5": 0.06075017762410444,
+            "H10": 0.206126356094448,
+            "N10": 0.09431104473379545,
+            "H20": 0.4262922782386726,
+            "N20": 0.1495127607187779,
+            "H50": 0.8870453095086152,
+            "N50": 0.2399374685387074
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260921.ordinary_ce": {
+          "all": {
+            "H5": 0.09894033632803502,
+            "N5": 0.0718308317889817,
+            "H10": 0.13222759732780465,
+            "N10": 0.08254300392914823,
+            "H20": 0.17847270214236352,
+            "N20": 0.09419839873558127,
+            "H50": 0.2478115641557245,
+            "N50": 0.10790825478380488
+          },
+          "low_frequency": {
+            "H5": 0.06623376623376623,
+            "N5": 0.049459416384618884,
+            "H10": 0.09155844155844156,
+            "N10": 0.05751507107159926,
+            "H20": 0.12445887445887446,
+            "N20": 0.06577489583325095,
+            "H50": 0.17575757575757575,
+            "N50": 0.07585574544726131
+          },
+          "other": {
+            "H5": 0.11079723791588199,
+            "N5": 0.07994099650713582,
+            "H10": 0.14697112366603893,
+            "N10": 0.09161621875980393,
+            "H20": 0.19805398618957942,
+            "N20": 0.10450258764085169,
+            "H50": 0.27393283113622097,
+            "N50": 0.11952804395006598
+          },
+          "gram_covered": {
+            "H5": 0.42833562585969737,
+            "N5": 0.31646814205398227,
+            "H10": 0.5422283356258597,
+            "N10": 0.3532574483444822,
+            "H20": 0.6665749656121045,
+            "N20": 0.3847188093012644,
+            "H50": 0.7980742778541953,
+            "N50": 0.4110343232137204
+          },
+          "lime_only": {
+            "H5": 0.10274409700063816,
+            "N5": 0.06184356529524743,
+            "H10": 0.2074026802807913,
+            "N10": 0.09520478333984513,
+            "H20": 0.43139757498404596,
+            "N20": 0.15137723282357193,
+            "H50": 0.8947032546266752,
+            "N50": 0.24225218327001552
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260921.hard_negative": {
+          "all": {
+            "H5": 0.09732780465330569,
+            "N5": 0.07071668175672845,
+            "H10": 0.13124856023957612,
+            "N10": 0.08166338656948317,
+            "H20": 0.17680258005067956,
+            "N20": 0.09314155516807276,
+            "H50": 0.2475236120709514,
+            "N50": 0.10715828895192711
+          },
+          "low_frequency": {
+            "H5": 0.06515151515151515,
+            "N5": 0.048746587628758054,
+            "H10": 0.08982683982683982,
+            "N10": 0.05662235036250948,
+            "H20": 0.12402597402597403,
+            "N20": 0.06518584116699716,
+            "H50": 0.1748917748917749,
+            "N50": 0.07515061020483951
+          },
+          "other": {
+            "H5": 0.1089924670433145,
+            "N5": 0.07868135806489097,
+            "H10": 0.14626490897677338,
+            "N10": 0.09074135167276459,
+            "H20": 0.1959353421217828,
+            "N20": 0.10327615958465855,
+            "H50": 0.2738543628374137,
+            "N50": 0.11876182597417637
+          },
+          "gram_covered": {
+            "H5": 0.42090784044016505,
+            "N5": 0.3113897954647784,
+            "H10": 0.5394773039889958,
+            "N10": 0.3498291250027666,
+            "H20": 0.6618982118294361,
+            "N20": 0.3808188238964454,
+            "H50": 0.8022008253094911,
+            "N50": 0.40899090917290876
+          },
+          "lime_only": {
+            "H5": 0.1021059349074665,
+            "N5": 0.06127795501554772,
+            "H10": 0.20293554562858968,
+            "N10": 0.09341044990902948,
+            "H20": 0.42373962986598596,
+            "N20": 0.14871317107519877,
+            "H50": 0.8819400127632419,
+            "N50": 0.23868192375095007
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260921.cross_source": {
+          "all": {
+            "H5": 0.09744298548721493,
+            "N5": 0.07086131037962724,
+            "H10": 0.13153651232434924,
+            "N10": 0.08184065047518176,
+            "H20": 0.1766298087998157,
+            "N20": 0.09321962181303217,
+            "H50": 0.24735084082008754,
+            "N50": 0.10723995199011244
+          },
+          "low_frequency": {
+            "H5": 0.06558441558441558,
+            "N5": 0.04906986079922885,
+            "H10": 0.09004329004329005,
+            "N10": 0.05687735537213397,
+            "H20": 0.12359307359307359,
+            "N20": 0.06532606920847919,
+            "H50": 0.17402597402597403,
+            "N50": 0.0752498669979245
+          },
+          "other": {
+            "H5": 0.1089924670433145,
+            "N5": 0.07876122383391479,
+            "H10": 0.14657878217200251,
+            "N10": 0.09089043259822639,
+            "H20": 0.1958568738229755,
+            "N20": 0.10333169126006879,
+            "H50": 0.27393283113622097,
+            "N50": 0.11883711086204497
+          },
+          "gram_covered": {
+            "H5": 0.4220082530949106,
+            "N5": 0.31209549576446965,
+            "H10": 0.5392022008253095,
+            "N10": 0.3499934437342082,
+            "H20": 0.6607977991746905,
+            "N20": 0.380820445477655,
+            "H50": 0.8002751031636863,
+            "N50": 0.40883820837619983
+          },
+          "lime_only": {
+            "H5": 0.10082961072112316,
+            "N5": 0.06124356498276974,
+            "H10": 0.20676451818761965,
+            "N10": 0.0949935461883912,
+            "H20": 0.42437779195915765,
+            "N20": 0.1495744695917134,
+            "H50": 0.8844926611359285,
+            "N50": 0.23994105865272874
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260922.ordinary_ce": {
+          "all": {
+            "H5": 0.09917069799585349,
+            "N5": 0.07182005120646555,
+            "H10": 0.1320548260769408,
+            "N10": 0.08238502540376778,
+            "H20": 0.17835752130845428,
+            "N20": 0.09402450567965082,
+            "H50": 0.24694770790140522,
+            "N50": 0.10762350356999739
+          },
+          "low_frequency": {
+            "H5": 0.06666666666666667,
+            "N5": 0.049537631344823814,
+            "H10": 0.08852813852813853,
+            "N10": 0.05653212006103937,
+            "H20": 0.1251082251082251,
+            "N20": 0.06575915653924122,
+            "H50": 0.17554112554112555,
+            "N50": 0.07567718812665736
+          },
+          "other": {
+            "H5": 0.11095417451349655,
+            "N5": 0.07989795294538463,
+            "H10": 0.147834274952919,
+            "N10": 0.09175731218055728,
+            "H20": 0.197661644695543,
+            "N20": 0.10427136012320795,
+            "H50": 0.272834274952919,
+            "N50": 0.11920479495011596
+          },
+          "gram_covered": {
+            "H5": 0.42833562585969737,
+            "N5": 0.3162129335731267,
+            "H10": 0.5397524071526822,
+            "N10": 0.3521096690000516,
+            "H20": 0.6618982118294361,
+            "N20": 0.38286622961429,
+            "H50": 0.7922971114167813,
+            "N50": 0.4090553734886592
+          },
+          "lime_only": {
+            "H5": 0.10529674537332483,
+            "N5": 0.06231611717342201,
+            "H10": 0.21123165283982132,
+            "N10": 0.09611674173314391,
+            "H20": 0.4409700063816209,
+            "N20": 0.15374778045533657,
+            "H50": 0.8985322271857051,
+            "N50": 0.24368744949467677
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260922.hard_negative": {
+          "all": {
+            "H5": 0.09721262381939645,
+            "N5": 0.07063711248511478,
+            "H10": 0.13073024648698456,
+            "N10": 0.0814174948081041,
+            "H20": 0.17680258005067956,
+            "N20": 0.0930080642835815,
+            "H50": 0.24677493665054134,
+            "N50": 0.106899537278942
+          },
+          "low_frequency": {
+            "H5": 0.06601731601731602,
+            "N5": 0.049109590876597733,
+            "H10": 0.08744588744588745,
+            "N10": 0.05594599818027071,
+            "H20": 0.12380952380952381,
+            "N20": 0.06509379283668579,
+            "H50": 0.1738095238095238,
+            "N50": 0.074936367246143
+          },
+          "other": {
+            "H5": 0.1085216572504708,
+            "N5": 0.07844134583660164,
+            "H10": 0.14642184557438795,
+            "N10": 0.09065151194719624,
+            "H20": 0.19601381042059007,
+            "N20": 0.10312764479869906,
+            "H50": 0.27322661644695545,
+            "N50": 0.11848693884450473
+          },
+          "gram_covered": {
+            "H5": 0.42118294360385145,
+            "N5": 0.3113265468641557,
+            "H10": 0.5337001375515819,
+            "N10": 0.34766038857730464,
+            "H20": 0.6572214580467676,
+            "N20": 0.37884820212745607,
+            "H50": 0.7958734525447043,
+            "N50": 0.4067236530273202
+          },
+          "lime_only": {
+            "H5": 0.1001914486279515,
+            "N5": 0.06054296320378243,
+            "H10": 0.21059349074664965,
+            "N10": 0.0957165713908215,
+            "H20": 0.4345883854499043,
+            "N20": 0.15180524153593253,
+            "H50": 0.8883216336949585,
+            "N50": 0.24107408204035732
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260922.cross_source": {
+          "all": {
+            "H5": 0.09744298548721493,
+            "N5": 0.07070688660420478,
+            "H10": 0.13159410274130384,
+            "N10": 0.08166455559140817,
+            "H20": 0.1769177608845888,
+            "N20": 0.09305185315767137,
+            "H50": 0.24654457498272286,
+            "N50": 0.10687907212572767
+          },
+          "low_frequency": {
+            "H5": 0.0658008658008658,
+            "N5": 0.048943675295833135,
+            "H10": 0.08766233766233766,
+            "N10": 0.055917167770863564,
+            "H20": 0.12380952380952381,
+            "N20": 0.06501014619117837,
+            "H50": 0.17424242424242425,
+            "N50": 0.07493435858784493
+          },
+          "other": {
+            "H5": 0.10891399874450722,
+            "N5": 0.0785965630201399,
+            "H10": 0.1475204017576899,
+            "N10": 0.09099858978247188,
+            "H20": 0.19617074701820464,
+            "N20": 0.10321763204853746,
+            "H50": 0.27275580665411175,
+            "N50": 0.11845978277740833
+          },
+          "gram_covered": {
+            "H5": 0.42145804676753784,
+            "N5": 0.31133143890289183,
+            "H10": 0.536726272352132,
+            "N10": 0.34842834989356164,
+            "H20": 0.6577716643741403,
+            "N20": 0.37890165927391734,
+            "H50": 0.7936726272352133,
+            "N50": 0.40623234386652685
+          },
+          "lime_only": {
+            "H5": 0.1021059349074665,
+            "N5": 0.06130478531167849,
+            "H10": 0.2131461391193363,
+            "N10": 0.0966728088233024,
+            "H20": 0.4345883854499043,
+            "N20": 0.15216646252017613,
+            "H50": 0.8908742820676452,
+            "N50": 0.24198700602189557
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        }
+      },
+      "aggregate": {
+        "ordinary_ce": {
+          "all": {
+            "H5": 0.09876756507717116,
+            "N5": 0.07171702583352435,
+            "H10": 0.13209321968824386,
+            "N10": 0.08244783370944021,
+            "H20": 0.17843430853106046,
+            "N20": 0.09410753337655949,
+            "H50": 0.2474276280426937,
+            "N50": 0.10776637367613734
+          },
+          "low_frequency": {
+            "H5": 0.06608946608946609,
+            "N5": 0.049314300612008415,
+            "H10": 0.09025974025974026,
+            "N10": 0.05704407483818317,
+            "H20": 0.12503607503607503,
+            "N20": 0.06577936468384409,
+            "H50": 0.17568542568542567,
+            "N50": 0.07572833024512933
+          },
+          "other": {
+            "H5": 0.11061414521866499,
+            "N5": 0.07983854109744491,
+            "H10": 0.14725884076166562,
+            "N10": 0.09165729431719345,
+            "H20": 0.19779242519355514,
+            "N20": 0.10437716138663052,
+            "H50": 0.27343586524377483,
+            "N50": 0.11938091861110729
+          },
+          "gram_covered": {
+            "H5": 0.4272352132049518,
+            "N5": 0.3159345644348121,
+            "H10": 0.5406694176983035,
+            "N10": 0.35261270556900576,
+            "H20": 0.6658413571756076,
+            "N20": 0.38418976361739304,
+            "H50": 0.7963319578175149,
+            "N50": 0.41031741923711024
+          },
+          "lime_only": {
+            "H5": 0.10338225909380983,
+            "N5": 0.06182022645358975,
+            "H10": 0.20952988725803023,
+            "N10": 0.09564581990260623,
+            "H20": 0.4326738991703893,
+            "N20": 0.15159758698235817,
+            "H50": 0.8944905339289514,
+            "N50": 0.2423430080316229
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "hard_negative": {
+          "all": {
+            "H5": 0.09732780465330569,
+            "N5": 0.07074978640973147,
+            "H10": 0.13121016662827306,
+            "N10": 0.0816629553034212,
+            "H20": 0.176783383245028,
+            "N20": 0.09312853343706612,
+            "H50": 0.24733164401443597,
+            "N50": 0.10711624138131655
+          },
+          "low_frequency": {
+            "H5": 0.06551226551226552,
+            "N5": 0.04872401478860968,
+            "H10": 0.08881673881673881,
+            "N10": 0.056164295870448265,
+            "H20": 0.12366522366522366,
+            "N20": 0.0649167689672966,
+            "H50": 0.17453102453102454,
+            "N50": 0.07490661243972103
+          },
+          "other": {
+            "H5": 0.10886168654530237,
+            "N5": 0.07873464711983684,
+            "H10": 0.14657878217200251,
+            "N10": 0.09090681959880215,
+            "H20": 0.1960399665201925,
+            "N20": 0.10335596217610687,
+            "H50": 0.2737235823394016,
+            "N50": 0.11879299010308138
+          },
+          "gram_covered": {
+            "H5": 0.4213663457129757,
+            "N5": 0.3117854997234277,
+            "H10": 0.5382851902796881,
+            "N10": 0.34959672521464397,
+            "H20": 0.6606143970655663,
+            "N20": 0.3804667624863223,
+            "H50": 0.8002751031636864,
+            "N50": 0.40850455161982974
+          },
+          "lime_only": {
+            "H5": 0.10104233141884705,
+            "N5": 0.060726866447937324,
+            "H10": 0.20527547330355245,
+            "N10": 0.0939447732823067,
+            "H20": 0.42650499893639654,
+            "N20": 0.14938556028298325,
+            "H50": 0.8842799404382046,
+            "N50": 0.23934420562035705
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "cross_source": {
+          "all": {
+            "H5": 0.09746218229286646,
+            "N5": 0.0708827544989875,
+            "H10": 0.13165169315825848,
+            "N10": 0.08187912193630437,
+            "H20": 0.17684097366198262,
+            "N20": 0.0932472546261387,
+            "H50": 0.24715887276357215,
+            "N50": 0.10719019446928256
+          },
+          "low_frequency": {
+            "H5": 0.06551226551226551,
+            "N5": 0.048905592958769874,
+            "H10": 0.08924963924963925,
+            "N10": 0.05648102962221729,
+            "H20": 0.12373737373737374,
+            "N20": 0.06516115469119685,
+            "H50": 0.1743867243867244,
+            "N50": 0.07512477335548313
+          },
+          "other": {
+            "H5": 0.10904477924251936,
+            "N5": 0.07884999291045998,
+            "H10": 0.14702343586524377,
+            "N10": 0.09108652828368997,
+            "H20": 0.19609227871939736,
+            "N20": 0.10342912701309971,
+            "H50": 0.2735404896421845,
+            "N50": 0.11881466445874844
+          },
+          "gram_covered": {
+            "H5": 0.4219165520403485,
+            "N5": 0.31226003247252493,
+            "H10": 0.5389270976616231,
+            "N10": 0.3500339875749459,
+            "H20": 0.6600641907381936,
+            "N20": 0.38058885385778646,
+            "H50": 0.7980742778541954,
+            "N50": 0.40830704445195565
+          },
+          "lime_only": {
+            "H5": 0.10125505211657093,
+            "N5": 0.06109950930618422,
+            "H10": 0.20867900446713464,
+            "N10": 0.09532579991516303,
+            "H20": 0.4284194852159115,
+            "N20": 0.15041789761022248,
+            "H50": 0.8874707509040629,
+            "N50": 0.2406218444044439
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_mean": {
+          "all": {
+            "H5": 0.10552484066651309,
+            "N5": 0.0780698696422211,
+            "H10": 0.13575980956768796,
+            "N10": 0.08778215382637743,
+            "H20": 0.16916225140136684,
+            "N20": 0.09622753047044037,
+            "H50": 0.20934116563003916,
+            "N50": 0.1042816968912074
+          },
+          "low_frequency": {
+            "H5": 0.07568542568542569,
+            "N5": 0.05573533358555192,
+            "H10": 0.09379509379509378,
+            "N10": 0.06155849389509153,
+            "H20": 0.11161616161616161,
+            "N20": 0.06610818838900628,
+            "H50": 0.12878787878787878,
+            "N50": 0.06954369667191587
+          },
+          "other": {
+            "H5": 0.11634233103159657,
+            "N5": 0.0861666647286784,
+            "H10": 0.1509730069052103,
+            "N10": 0.09728884786926356,
+            "H20": 0.19002406361163424,
+            "N20": 0.10714650099902052,
+            "H50": 0.2385436283741368,
+            "N50": 0.11687503972023494
+          },
+          "gram_covered": {
+            "H5": 0.5040806969280146,
+            "N5": 0.37293128375998,
+            "H10": 0.6485098578633655,
+            "N10": 0.419325809915053,
+            "H20": 0.8080696928014671,
+            "N20": 0.45966845642055754,
+            "H50": 1.0,
+            "N50": 0.4981423342005297
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        }
+      },
+      "group_sizes": {
+        "all": 17364,
+        "low_frequency": 4620,
+        "other": 12744,
+        "gram_covered": 3635,
+        "lime_only": 1567,
+        "neither": 12162
+      },
+      "cross_source_contrasts": {
+        "ordinary_ce": {
+          "delta_N10": -0.0005687117731358507,
+          "delta_H10": -0.0004415265299854105,
+          "descriptive_N10_interval": [
+            -0.000788456339787207,
+            -0.0003269358678557219
+          ],
+          "descriptive_H10_interval": [
+            -0.0009406434769254396,
+            7.67872226061583e-05
+          ]
+        },
+        "hard_negative": {
+          "delta_N10": 0.000216166632883169,
+          "delta_H10": 0.00044152652998541046,
+          "descriptive_N10_interval": [
+            5.082789737188146e-05,
+            0.0003812879841491272
+          ],
+          "descriptive_H10_interval": [
+            9.598402825769789e-05,
+            0.000787069031713123
+          ]
+        },
+        "gram_lime": {
+          "delta_N10": -0.007058779823840735,
+          "delta_H10": -0.006680488366735777,
+          "descriptive_N10_interval": [
+            -0.009011561697535479,
+            -0.005105551535545611
+          ],
+          "descriptive_H10_interval": [
+            -0.01019398372110881,
+            -0.003224583429317365
+          ]
+        },
+        "crossfit_gram_lime": {
+          "delta_N10": -0.007580570926288213,
+          "delta_H10": -0.007313982953236583,
+          "descriptive_N10_interval": [
+            -0.009674624583666636,
+            -0.005617405429408352
+          ],
+          "descriptive_H10_interval": [
+            -0.01094313906166014,
+            -0.00374337710205022
+          ]
+        },
+        "A_mean": {
+          "delta_N10": -0.005903031890073072,
+          "delta_H10": -0.004108116409429471,
+          "descriptive_N10_interval": [
+            -0.008254699687543431,
+            -0.0037529113299940697
+          ],
+          "descriptive_H10_interval": [
+            -0.007987790831605623,
+            -0.00028795208477309497
+          ]
+        }
+      },
+      "movements_vs_gram_lime": {
+        "full_lime": {
+          "gained": 528,
+          "lost": 582,
+          "covered_N10_contribution": -0.018606288810120882,
+          "outside_N10_contribution": 0.01486979302666761
+        },
+        "gram_lime": {
+          "gained": 0,
+          "lost": 0,
+          "covered_N10_contribution": 0.0,
+          "outside_N10_contribution": 0.0
+        },
+        "union_lime": {
+          "gained": 528,
+          "lost": 582,
+          "covered_N10_contribution": -0.018606288810120882,
+          "outside_N10_contribution": 0.01486979302666761
+        },
+        "crossfit_gram_lime": {
+          "gained": 49,
+          "lost": 38,
+          "covered_N10_contribution": 0.0005217911024474775,
+          "outside_N10_contribution": 0.0
+        },
+        "A_head0": {
+          "gained": 372,
+          "lost": 416,
+          "covered_N10_contribution": -0.001149453528659575,
+          "outside_N10_contribution": 0.0
+        },
+        "A_head1": {
+          "gained": 371,
+          "lost": 417,
+          "covered_N10_contribution": -0.0011780202934171362,
+          "outside_N10_contribution": 0.0
+        },
+        "A_head2": {
+          "gained": 372,
+          "lost": 416,
+          "covered_N10_contribution": -0.0011397699792262787,
+          "outside_N10_contribution": 0.0
+        },
+        "20260920.ordinary_ce": {
+          "gained": 437,
+          "lost": 547,
+          "covered_N10_contribution": -0.015151211902818007,
+          "outside_N10_contribution": 0.008628781938077524
+        },
+        "20260920.hard_negative": {
+          "gained": 443,
+          "lost": 559,
+          "covered_N10_contribution": -0.015396211677091994,
+          "outside_N10_contribution": 0.008366294449623205
+        },
+        "20260920.cross_source": {
+          "gained": 447,
+          "lost": 560,
+          "covered_N10_contribution": -0.015316765232395618,
+          "outside_N10_contribution": 0.008511023214573683
+        },
+        "20260921.ordinary_ce": {
+          "gained": 434,
+          "lost": 540,
+          "covered_N10_contribution": -0.014986575756217849,
+          "outside_N10_contribution": 0.00859167792522099
+        },
+        "20260921.hard_negative": {
+          "gained": 435,
+          "lost": 558,
+          "covered_N10_contribution": -0.015704264960729266,
+          "outside_N10_contribution": 0.008429749770067335
+        },
+        "20260921.cross_source": {
+          "gained": 438,
+          "lost": 556,
+          "covered_N10_contribution": -0.01566986628595442,
+          "outside_N10_contribution": 0.008572615000991076
+        },
+        "20260922.ordinary_ce": {
+          "gained": 448,
+          "lost": 557,
+          "covered_N10_contribution": -0.01522685322206704,
+          "outside_N10_contribution": 0.008673976865689733
+        },
+        "20260922.hard_negative": {
+          "gained": 450,
+          "lost": 582,
+          "covered_N10_contribution": -0.01615827077197979,
+          "outside_N10_contribution": 0.008637863819938798
+        },
+        "20260922.cross_source": {
+          "gained": 453,
+          "lost": 570,
+          "covered_N10_contribution": -0.01599750485487577,
+          "outside_N10_contribution": 0.008724158686138843
+        }
+      },
+      "continuation_checks": {
+        "N10_over_ordinary_ce": false,
+        "N10_over_hard_negative": false,
+        "N10_over_gram_lime": false,
+        "all_seeds_over_ordinary_ce": false,
+        "all_seeds_over_hard_negative": true,
+        "H10_not_below_gram_lime": false,
+        "tail_H10_tolerance": true,
+        "N10_over_A_mean": false,
+        "N10_over_crossfit_gram_lime": false
+      },
+      "continue_recipe": false,
+      "test_read": false,
+      "development_reused": true,
+      "sasrec_seed": 0,
+      "gate": "cal2048"
+    },
+    "Beauty": {
+      "metrics": {
+        "full_lime": {
+          "all": {
+            "H5": 0.08939207482156042,
+            "N5": 0.06345981860199103,
+            "H10": 0.123357125276889,
+            "N10": 0.07437645001781315,
+            "H20": 0.1645582082205267,
+            "N20": 0.08477477316988076,
+            "H50": 0.23578636475510706,
+            "N50": 0.09888387975294878
+          },
+          "low_frequency": {
+            "H5": 0.03884734634324275,
+            "N5": 0.02888096068432417,
+            "H10": 0.05799744665329199,
+            "N10": 0.035054667349959025,
+            "H20": 0.07514134597847894,
+            "N20": 0.0393814300655129,
+            "H50": 0.11362392850629217,
+            "N50": 0.047012409708212605
+          },
+          "other": {
+            "H5": 0.10807713052858683,
+            "N5": 0.07624271220788151,
+            "H10": 0.14751887810140238,
+            "N10": 0.08891267806311008,
+            "H20": 0.19761326860841424,
+            "N20": 0.10155549729617858,
+            "H50": 0.2809466019417476,
+            "N50": 0.11805939689529563
+          },
+          "gram_covered": {
+            "H5": 0.3714897667777249,
+            "N5": 0.26959674222453195,
+            "H10": 0.4721561161351737,
+            "N10": 0.3018921491253362,
+            "H20": 0.5859114707282247,
+            "N20": 0.33071734792406215,
+            "H50": 0.7275107091861018,
+            "N50": 0.3589891163648616
+          },
+          "lime_only": {
+            "H5": 0.14714368147720716,
+            "N5": 0.09021390887014696,
+            "H10": 0.30121177149451817,
+            "N10": 0.13987695988875443,
+            "H20": 0.5083669936526255,
+            "N20": 0.19187837332326527,
+            "H50": 1.0,
+            "N50": 0.2887211484223925
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "gram_lime": {
+          "all": {
+            "H5": 0.09185331036180162,
+            "N5": 0.06542008673826967,
+            "H10": 0.12340634998769383,
+            "N10": 0.07553545919154796,
+            "H20": 0.16288456805316268,
+            "N20": 0.0854736219878144,
+            "H50": 0.20684223480187053,
+            "N50": 0.09432838570878507
+          },
+          "low_frequency": {
+            "H5": 0.03447018055808864,
+            "N5": 0.026783893631969608,
+            "H10": 0.04103592923581981,
+            "N10": 0.028866968437634574,
+            "H20": 0.04741929600583622,
+            "N20": 0.03049587098128039,
+            "H50": 0.05343789896042313,
+            "N50": 0.03169073659804594
+          },
+          "other": {
+            "H5": 0.1130663430420712,
+            "N5": 0.07970287036838315,
+            "H10": 0.15385652642934197,
+            "N10": 0.09278757184012582,
+            "H20": 0.2055690399137001,
+            "N20": 0.10579744943986577,
+            "H50": 0.26355177993527507,
+            "N50": 0.11748387587020515
+          },
+          "gram_covered": {
+            "H5": 0.44407425035697284,
+            "N5": 0.3162801194878506,
+            "H10": 0.5966206568300809,
+            "N10": 0.36518392514904724,
+            "H20": 0.7874821513564969,
+            "N20": 0.4132309925469893,
+            "H50": 1.0,
+            "N50": 0.4560402559909492
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "union_lime": {
+          "all": {
+            "H5": 0.08939207482156042,
+            "N5": 0.06345981860199103,
+            "H10": 0.123357125276889,
+            "N10": 0.07437645001781315,
+            "H20": 0.1645582082205267,
+            "N20": 0.08477477316988076,
+            "H50": 0.23578636475510706,
+            "N50": 0.09888387975294878
+          },
+          "low_frequency": {
+            "H5": 0.03884734634324275,
+            "N5": 0.02888096068432417,
+            "H10": 0.05799744665329199,
+            "N10": 0.035054667349959025,
+            "H20": 0.07514134597847894,
+            "N20": 0.0393814300655129,
+            "H50": 0.11362392850629217,
+            "N50": 0.047012409708212605
+          },
+          "other": {
+            "H5": 0.10807713052858683,
+            "N5": 0.07624271220788151,
+            "H10": 0.14751887810140238,
+            "N10": 0.08891267806311008,
+            "H20": 0.19761326860841424,
+            "N20": 0.10155549729617858,
+            "H50": 0.2809466019417476,
+            "N50": 0.11805939689529563
+          },
+          "gram_covered": {
+            "H5": 0.3714897667777249,
+            "N5": 0.26959674222453195,
+            "H10": 0.4721561161351737,
+            "N10": 0.3018921491253362,
+            "H20": 0.5859114707282247,
+            "N20": 0.33071734792406215,
+            "H50": 0.7275107091861018,
+            "N50": 0.3589891163648616
+          },
+          "lime_only": {
+            "H5": 0.14714368147720716,
+            "N5": 0.09021390887014696,
+            "H10": 0.30121177149451817,
+            "N10": 0.13987695988875443,
+            "H20": 0.5083669936526255,
+            "N20": 0.19187837332326527,
+            "H50": 1.0,
+            "N50": 0.2887211484223925
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "crossfit_gram_lime": {
+          "all": {
+            "H5": 0.09357617523997047,
+            "N5": 0.06664399016729017,
+            "H10": 0.1249815407334482,
+            "N10": 0.07669402537584875,
+            "H20": 0.16386906226925918,
+            "N20": 0.08650432861517753,
+            "H50": 0.20684223480187053,
+            "N50": 0.09516405234947602
+          },
+          "low_frequency": {
+            "H5": 0.03428779865037388,
+            "N5": 0.026836302750742298,
+            "H10": 0.041765456866678825,
+            "N10": 0.02918689255887051,
+            "H20": 0.04760167791355097,
+            "N20": 0.030661415460506297,
+            "H50": 0.05343789896042313,
+            "N50": 0.031820519370508255
+          },
+          "other": {
+            "H5": 0.11549352750809061,
+            "N5": 0.08135984440845333,
+            "H10": 0.15574433656957928,
+            "N10": 0.09425616192085226,
+            "H20": 0.20685005393743258,
+            "N20": 0.10714798374105822,
+            "H50": 0.26355177993527507,
+            "N50": 0.11858048919708124
+          },
+          "gram_covered": {
+            "H5": 0.4524036173250833,
+            "N5": 0.32219720615147546,
+            "H10": 0.6042360780580676,
+            "N10": 0.3707851322014201,
+            "H20": 0.7922417896239886,
+            "N20": 0.41821404945676616,
+            "H50": 1.0,
+            "N50": 0.46008037207986807
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_head0": {
+          "all": {
+            "H5": 0.08978587250799902,
+            "N5": 0.064494587018547,
+            "H10": 0.1205020920502092,
+            "N10": 0.07438068311356812,
+            "H20": 0.15825744523750923,
+            "N20": 0.08390457245519917,
+            "H50": 0.20684223480187053,
+            "N50": 0.09368343093217553
+          },
+          "low_frequency": {
+            "H5": 0.03793543680466898,
+            "N5": 0.030475524846046365,
+            "H10": 0.04395403975925588,
+            "N10": 0.03242074150244716,
+            "H20": 0.04924311508298377,
+            "N20": 0.03373436321540037,
+            "H50": 0.05343789896042313,
+            "N50": 0.034582944150746454
+          },
+          "other": {
+            "H5": 0.10895361380798274,
+            "N5": 0.07707053887209483,
+            "H10": 0.14879989212513484,
+            "N10": 0.08989216907997698,
+            "H20": 0.1985571736785329,
+            "N20": 0.10245117825764097,
+            "H50": 0.26355177993527507,
+            "N50": 0.11553132528375154
+          },
+          "gram_covered": {
+            "H5": 0.43407900999524035,
+            "N5": 0.31180569616415577,
+            "H10": 0.5825797239409805,
+            "N10": 0.3596010417544352,
+            "H20": 0.7651118514992861,
+            "N20": 0.40564526164382947,
+            "H50": 1.0,
+            "N50": 0.45292215597028695
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_head1": {
+          "all": {
+            "H5": 0.08978587250799902,
+            "N5": 0.06450103199780231,
+            "H10": 0.12055131676101404,
+            "N10": 0.07440429432851653,
+            "H20": 0.15830666994831405,
+            "N20": 0.08392700770320097,
+            "H50": 0.20684223480187053,
+            "N50": 0.09369547211230649
+          },
+          "low_frequency": {
+            "H5": 0.03775305489695422,
+            "N5": 0.03040496989305812,
+            "H10": 0.04395403975925588,
+            "N10": 0.03241841117897846,
+            "H20": 0.04924311508298377,
+            "N20": 0.033732032891931656,
+            "H50": 0.05343789896042313,
+            "N50": 0.03458084169768996
+          },
+          "other": {
+            "H5": 0.1090210355987055,
+            "N5": 0.07710544869954938,
+            "H10": 0.1488673139158576,
+            "N10": 0.08992537019885884,
+            "H20": 0.19862459546925568,
+            "N20": 0.10248276868554924,
+            "H50": 0.26355177993527507,
+            "N50": 0.11554859499279076
+          },
+          "gram_covered": {
+            "H5": 0.43407900999524035,
+            "N5": 0.3118368550774284,
+            "H10": 0.5828177058543551,
+            "N10": 0.3597151925949103,
+            "H20": 0.7653498334126606,
+            "N20": 0.40575372715148206,
+            "H50": 1.0,
+            "N50": 0.45298037029069643
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_head2": {
+          "all": {
+            "H5": 0.08978587250799902,
+            "N5": 0.06447091100272928,
+            "H10": 0.12035441791779473,
+            "N10": 0.0743100830622491,
+            "H20": 0.1580113216834851,
+            "N20": 0.08381920929470699,
+            "H50": 0.20684223480187053,
+            "N50": 0.09364255371071031
+          },
+          "low_frequency": {
+            "H5": 0.03775305489695422,
+            "N5": 0.030373098015543925,
+            "H10": 0.04395403975925588,
+            "N10": 0.03238373084901635,
+            "H20": 0.04887835126755426,
+            "N20": 0.03361250339679563,
+            "H50": 0.05343789896042313,
+            "N50": 0.03454045209364794
+          },
+          "other": {
+            "H5": 0.1090210355987055,
+            "N5": 0.07707597495962905,
+            "H10": 0.14859762675296656,
+            "N10": 0.08980915191238092,
+            "H20": 0.19835490830636462,
+            "N20": 0.10237930695100743,
+            "H50": 0.26355177993527507,
+            "N50": 0.11549104502451513
+          },
+          "gram_covered": {
+            "H5": 0.43407900999524035,
+            "N5": 0.3116912320372312,
+            "H10": 0.5818657782008567,
+            "N10": 0.3592597185648716,
+            "H20": 0.7639219419324131,
+            "N20": 0.40523256468871305,
+            "H50": 1.0,
+            "N50": 0.45272453085032843
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260920.ordinary_ce": {
+          "all": {
+            "H5": 0.0817622446468127,
+            "N5": 0.05807723478473704,
+            "H10": 0.11730248584789564,
+            "N10": 0.06954401034796934,
+            "H20": 0.1633275904504061,
+            "N20": 0.08113948954209796,
+            "H50": 0.24297317253261136,
+            "N50": 0.09688021089648333
+          },
+          "low_frequency": {
+            "H5": 0.033740652927229615,
+            "N5": 0.02567295768825075,
+            "H10": 0.04887835126755426,
+            "N10": 0.030589628901625875,
+            "H20": 0.06638701440817071,
+            "N20": 0.035017539489839024,
+            "H50": 0.10559912456684296,
+            "N50": 0.042714412547609534
+          },
+          "other": {
+            "H5": 0.09951456310679611,
+            "N5": 0.07005624309919459,
+            "H10": 0.14259708737864077,
+            "N10": 0.08394441983221294,
+            "H20": 0.19916396979503775,
+            "N20": 0.09818956047902729,
+            "H50": 0.29375674217907227,
+            "N50": 0.11690388082278287
+          },
+          "gram_covered": {
+            "H5": 0.36910994764397903,
+            "N5": 0.26549592870562794,
+            "H10": 0.509757258448358,
+            "N10": 0.3109535145544407,
+            "H20": 0.6542122798667301,
+            "N20": 0.3475562442600421,
+            "H50": 0.8338886244645407,
+            "N50": 0.3834108350236241
+          },
+          "lime_only": {
+            "H5": 0.06347374495095211,
+            "N5": 0.037060087842403014,
+            "H10": 0.13906520484708598,
+            "N10": 0.06125787770411843,
+            "H20": 0.328332371609925,
+            "N20": 0.10843473264109808,
+            "H50": 0.8263127524523947,
+            "N50": 0.20601797783773232
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260920.hard_negative": {
+          "all": {
+            "H5": 0.08126999753876446,
+            "N5": 0.05769309630573893,
+            "H10": 0.1157765198129461,
+            "N10": 0.06879899520407379,
+            "H20": 0.16145705143982278,
+            "N20": 0.08030742878079127,
+            "H50": 0.24189022889490525,
+            "N50": 0.09619698264337169
+          },
+          "low_frequency": {
+            "H5": 0.03355827101951486,
+            "N5": 0.025640987051125927,
+            "H10": 0.04778405982126573,
+            "N10": 0.0302599942549772,
+            "H20": 0.06529272296188218,
+            "N20": 0.03470297557574212,
+            "H50": 0.10249863213569214,
+            "N50": 0.042031103876536705
+          },
+          "other": {
+            "H5": 0.09890776699029126,
+            "N5": 0.06954191743863018,
+            "H10": 0.14091154261057173,
+            "N10": 0.0830458494519093,
+            "H20": 0.1970064724919094,
+            "N20": 0.09716619475458337,
+            "H50": 0.29341963322545844,
+            "N50": 0.11622068229807478
+          },
+          "gram_covered": {
+            "H5": 0.36720609233698237,
+            "N5": 0.26358321018641945,
+            "H10": 0.504045692527368,
+            "N10": 0.30771255039237605,
+            "H20": 0.6489766777724892,
+            "N20": 0.3443884945717175,
+            "H50": 0.8398381722989052,
+            "N50": 0.38233667937232485
+          },
+          "lime_only": {
+            "H5": 0.06231967686093479,
+            "N5": 0.03719480799062435,
+            "H10": 0.1350259665320254,
+            "N10": 0.060382833711479955,
+            "H20": 0.3190998268897865,
+            "N20": 0.1063617781254574,
+            "H50": 0.7991921523369879,
+            "N50": 0.20061337315498382
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260920.cross_source": {
+          "all": {
+            "H5": 0.08210681762244647,
+            "N5": 0.05817971277777327,
+            "H10": 0.11621954221018951,
+            "N10": 0.0691509341359733,
+            "H20": 0.16204774796948068,
+            "N20": 0.08070167739999493,
+            "H50": 0.24208712773812455,
+            "N50": 0.09652274754019204
+          },
+          "low_frequency": {
+            "H5": 0.03319350720408536,
+            "N5": 0.025487332563172146,
+            "H10": 0.047966441728980486,
+            "N10": 0.030303676983424715,
+            "H20": 0.06565748677731169,
+            "N20": 0.034793052291848744,
+            "H50": 0.10304577785883641,
+            "N50": 0.0421587030767389
+          },
+          "other": {
+            "H5": 0.10018878101402373,
+            "N5": 0.07026522523170113,
+            "H10": 0.14145091693635384,
+            "N10": 0.08351174258846951,
+            "H20": 0.197680690399137,
+            "N20": 0.09767288772011126,
+            "H50": 0.2934870550161812,
+            "N50": 0.11661970383692298
+          },
+          "gram_covered": {
+            "H5": 0.3712517848643503,
+            "N5": 0.2660980942333315,
+            "H10": 0.5059495478343646,
+            "N10": 0.3094538296693014,
+            "H20": 0.6511185149928606,
+            "N20": 0.34622874960945943,
+            "H50": 0.838886244645407,
+            "N50": 0.3836309107366285
+          },
+          "lime_only": {
+            "H5": 0.06231967686093479,
+            "N5": 0.03680131166301502,
+            "H10": 0.13560300057703403,
+            "N10": 0.060286344317307075,
+            "H20": 0.3208309290248125,
+            "N20": 0.10652127554642143,
+            "H50": 0.8038084246970572,
+            "N50": 0.20129401578977962
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260921.ordinary_ce": {
+          "all": {
+            "H5": 0.08225449175486094,
+            "N5": 0.05813266329266568,
+            "H10": 0.11730248584789564,
+            "N10": 0.06940851289909075,
+            "H20": 0.1635244892936254,
+            "N20": 0.08107541811152044,
+            "H50": 0.24376076790548856,
+            "N50": 0.09692462067590195
+          },
+          "low_frequency": {
+            "H5": 0.03337588911180011,
+            "N5": 0.025685073982749933,
+            "H10": 0.04906073317526902,
+            "N10": 0.030770636280283804,
+            "H20": 0.06766368776217399,
+            "N20": 0.03547968015548491,
+            "H50": 0.1050519788436987,
+            "N50": 0.04281932492443001
+          },
+          "other": {
+            "H5": 0.10032362459546926,
+            "N5": 0.0701276829923871,
+            "H10": 0.14252966558791802,
+            "N10": 0.08369191887946552,
+            "H20": 0.19896170442286948,
+            "N20": 0.09793096228715037,
+            "H50": 0.29503775620280476,
+            "N50": 0.11692592438445919
+          },
+          "gram_covered": {
+            "H5": 0.37077582103760115,
+            "N5": 0.2651874118588225,
+            "H10": 0.508567348881485,
+            "N10": 0.3095374036951907,
+            "H20": 0.6575440266539743,
+            "N20": 0.3472651895676449,
+            "H50": 0.8419800095192765,
+            "N50": 0.38397270141392603
+          },
+          "lime_only": {
+            "H5": 0.06520484708597807,
+            "N5": 0.03845790545858683,
+            "H10": 0.14195037507212926,
+            "N10": 0.0631031559248917,
+            "H20": 0.32256203115983845,
+            "N20": 0.10838937817212585,
+            "H50": 0.8159261396422389,
+            "N50": 0.2051762133235031
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260921.hard_negative": {
+          "all": {
+            "H5": 0.08092542456313069,
+            "N5": 0.057562582284851345,
+            "H10": 0.1159734186561654,
+            "N10": 0.06882643055294663,
+            "H20": 0.16175239970465174,
+            "N20": 0.0803947992578061,
+            "H50": 0.24297317253261136,
+            "N50": 0.09643864075932809
+          },
+          "low_frequency": {
+            "H5": 0.03337588911180011,
+            "N5": 0.025695985096162832,
+            "H10": 0.04851358745212475,
+            "N10": 0.0305575537356286,
+            "H20": 0.06729892394674448,
+            "N20": 0.03528826619642096,
+            "H50": 0.10341054167426592,
+            "N50": 0.04236390085802348
+          },
+          "other": {
+            "H5": 0.0985032362459547,
+            "N5": 0.06934282448992005,
+            "H10": 0.14091154261057173,
+            "N10": 0.08297342701932707,
+            "H20": 0.1966693635382956,
+            "N20": 0.0970694972604743,
+            "H50": 0.29456580366774543,
+            "N50": 0.11642864877435324
+          },
+          "gram_covered": {
+            "H5": 0.3641123274631128,
+            "N5": 0.2622525122273561,
+            "H10": 0.5038077106139933,
+            "N10": 0.30725187223014194,
+            "H20": 0.6530223702998572,
+            "N20": 0.34514299414623945,
+            "H50": 0.8460257020466444,
+            "N50": 0.3835539984366563
+          },
+          "lime_only": {
+            "H5": 0.06578188113098672,
+            "N5": 0.03889140377230498,
+            "H10": 0.13791113675706868,
+            "N10": 0.06182144810851388,
+            "H20": 0.3127524523946913,
+            "N20": 0.1055565409808614,
+            "H50": 0.7968840161569533,
+            "N50": 0.2004945675677557
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260921.cross_source": {
+          "all": {
+            "H5": 0.08161457051439823,
+            "N5": 0.05779655025821935,
+            "H10": 0.11651489047501846,
+            "N10": 0.06899990386813298,
+            "H20": 0.16239232094511444,
+            "N20": 0.08058981980746893,
+            "H50": 0.2428254984001969,
+            "N50": 0.09647651114512336
+          },
+          "low_frequency": {
+            "H5": 0.03319350720408536,
+            "N5": 0.02556643583006356,
+            "H10": 0.048695969359839504,
+            "N10": 0.030596931943822417,
+            "H20": 0.06766368776217399,
+            "N20": 0.03539663644949338,
+            "H50": 0.10414006930512493,
+            "N50": 0.04254482074635575
+          },
+          "other": {
+            "H5": 0.09951456310679611,
+            "N5": 0.06971117521841205,
+            "H10": 0.14158576051779936,
+            "N10": 0.08319647176598861,
+            "H20": 0.19741100323624594,
+            "N20": 0.09729655014402366,
+            "H50": 0.2940938511326861,
+            "N50": 0.11641363752433338
+          },
+          "gram_covered": {
+            "H5": 0.36744407425035697,
+            "N5": 0.26344161142449146,
+            "H10": 0.50571156592099,
+            "N10": 0.3079115590360425,
+            "H20": 0.6558781532603523,
+            "N20": 0.3459718323640676,
+            "H50": 0.8450737743931461,
+            "N50": 0.38360566790195
+          },
+          "lime_only": {
+            "H5": 0.06578188113098672,
+            "N5": 0.038750875527993486,
+            "H10": 0.13964223889209462,
+            "N10": 0.06225543912964277,
+            "H20": 0.31332948643969993,
+            "N20": 0.10583297737733349,
+            "H50": 0.7974610502019619,
+            "N50": 0.20081321834344334
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260922.ordinary_ce": {
+          "all": {
+            "H5": 0.08136844696037411,
+            "N5": 0.05798689977385114,
+            "H10": 0.11725326113709082,
+            "N10": 0.06958454475562562,
+            "H20": 0.16337681516121091,
+            "N20": 0.08123248464704542,
+            "H50": 0.24277627368939209,
+            "N50": 0.0969304210346238
+          },
+          "low_frequency": {
+            "H5": 0.03337588911180011,
+            "N5": 0.025865295374811546,
+            "H10": 0.048695969359839504,
+            "N10": 0.030873588776179933,
+            "H20": 0.06711654203902973,
+            "N20": 0.03555991839752846,
+            "H50": 0.10468721502826919,
+            "N50": 0.04296784851810549
+          },
+          "other": {
+            "H5": 0.09911003236245955,
+            "N5": 0.06986141143242273,
+            "H10": 0.14259708737864077,
+            "N10": 0.08389496625207253,
+            "H20": 0.19896170442286948,
+            "N20": 0.098116430220542,
+            "H50": 0.29382416396979505,
+            "N50": 0.1168789637199036
+          },
+          "gram_covered": {
+            "H5": 0.36768205616373156,
+            "N5": 0.2653015375379944,
+            "H10": 0.5083293669681104,
+            "N10": 0.31079920832455377,
+            "H20": 0.653736316039981,
+            "N20": 0.34769870856556295,
+            "H50": 0.831984769157544,
+            "N50": 0.383203091980013
+          },
+          "lime_only": {
+            "H5": 0.06231967686093479,
+            "N5": 0.036472480191075206,
+            "H10": 0.14195037507212926,
+            "N10": 0.062107185995822,
+            "H20": 0.33006347374495093,
+            "N20": 0.10917943001282873,
+            "H50": 0.8286208886324293,
+            "N50": 0.2071102774485676
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260922.hard_negative": {
+          "all": {
+            "H5": 0.08107309869554516,
+            "N5": 0.057609119940011916,
+            "H10": 0.11631799163179916,
+            "N10": 0.06894334226191595,
+            "H20": 0.16180162441545656,
+            "N20": 0.08039989087294011,
+            "H50": 0.2415948806300763,
+            "N50": 0.0961712016413421
+          },
+          "low_frequency": {
+            "H5": 0.03428779865037388,
+            "N5": 0.026365012189357318,
+            "H10": 0.04924311508298377,
+            "N10": 0.031174101488913,
+            "H20": 0.0660222505927412,
+            "N20": 0.03539802265932855,
+            "H50": 0.10322815976655116,
+            "N50": 0.0427262476103137
+          },
+          "other": {
+            "H5": 0.09836839266450917,
+            "N5": 0.06915924418467474,
+            "H10": 0.14111380798274,
+            "N10": 0.08290563643386681,
+            "H20": 0.19720873786407767,
+            "N20": 0.09703589703631875,
+            "H50": 0.29274541531823084,
+            "N50": 0.1159283943970142
+          },
+          "gram_covered": {
+            "H5": 0.3657782008567349,
+            "N5": 0.26309460049979777,
+            "H10": 0.5042836744407425,
+            "N10": 0.3077340459460273,
+            "H20": 0.6473108043788672,
+            "N20": 0.34397987266124586,
+            "H50": 0.8355544978581628,
+            "N50": 0.38143377189543753
+          },
+          "lime_only": {
+            "H5": 0.06347374495095211,
+            "N5": 0.03739512999491754,
+            "H10": 0.14079630698211196,
+            "N10": 0.06202281418673744,
+            "H20": 0.3271783035199077,
+            "N20": 0.10843644440924602,
+            "H50": 0.8061165608770917,
+            "N50": 0.2025004338368356
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "20260922.cross_source": {
+          "all": {
+            "H5": 0.08082697514152104,
+            "N5": 0.05756555255358344,
+            "H10": 0.11651489047501846,
+            "N10": 0.0690990858096583,
+            "H20": 0.1622938715235048,
+            "N20": 0.08064133405676784,
+            "H50": 0.24233325129214867,
+            "N50": 0.0964536738225641
+          },
+          "low_frequency": {
+            "H5": 0.03337588911180011,
+            "N5": 0.025980365546901914,
+            "H10": 0.04906073317526902,
+            "N10": 0.0310674380355191,
+            "H20": 0.06656939631588546,
+            "N20": 0.035485979870941195,
+            "H50": 0.10359292358198066,
+            "N50": 0.042774589030716466
+          },
+          "other": {
+            "H5": 0.09836839266450917,
+            "N5": 0.06924176482149301,
+            "H10": 0.14145091693635384,
+            "N10": 0.08315838494299199,
+            "H20": 0.197680690399137,
+            "N20": 0.09733407994409846,
+            "H50": 0.2936218985976268,
+            "N50": 0.11629741855784596
+          },
+          "gram_covered": {
+            "H5": 0.3655402189433603,
+            "N5": 0.2636379617793529,
+            "H10": 0.5069014754878629,
+            "N10": 0.30939137530382926,
+            "H20": 0.650880533079486,
+            "N20": 0.3459018524169356,
+            "H50": 0.837696335078534,
+            "N50": 0.3830944947336353
+          },
+          "lime_only": {
+            "H5": 0.061165608770917486,
+            "N5": 0.03556692713745339,
+            "H10": 0.13675706866705137,
+            "N10": 0.05982998799568258,
+            "H20": 0.3242931332948644,
+            "N20": 0.10660653058700252,
+            "H50": 0.8095787651471437,
+            "N50": 0.20178494912559375
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        }
+      },
+      "aggregate": {
+        "ordinary_ce": {
+          "all": {
+            "H5": 0.08179506112068258,
+            "N5": 0.05806559928375129,
+            "H10": 0.1172860776109607,
+            "N10": 0.06951235600089524,
+            "H20": 0.16340963163508082,
+            "N20": 0.08114913076688794,
+            "H50": 0.2431700713758307,
+            "N50": 0.09691175086900301
+          },
+          "low_frequency": {
+            "H5": 0.033497477050276614,
+            "N5": 0.02574110901527074,
+            "H10": 0.048878351267554264,
+            "N10": 0.03074461798602987,
+            "H20": 0.06705574806979148,
+            "N20": 0.03535237934761746,
+            "H50": 0.10511277281293696,
+            "N50": 0.04283386199671502
+          },
+          "other": {
+            "H5": 0.09964940668824163,
+            "N5": 0.07001511250800148,
+            "H10": 0.14257461344839983,
+            "N10": 0.08384376832125033,
+            "H20": 0.19902912621359223,
+            "N20": 0.09807898432890655,
+            "H50": 0.2942062207838907,
+            "N50": 0.11690292297571521
+          },
+          "gram_covered": {
+            "H5": 0.3691892749484373,
+            "N5": 0.2653282927008149,
+            "H10": 0.5088846580993178,
+            "N10": 0.3104300421913951,
+            "H20": 0.6551642075202284,
+            "N20": 0.3475067141310833,
+            "H50": 0.8359511343804539,
+            "N50": 0.3835288761391877
+          },
+          "lime_only": {
+            "H5": 0.06366608963262164,
+            "N5": 0.037330157830688354,
+            "H10": 0.1409886516637815,
+            "N10": 0.062156073208277374,
+            "H20": 0.3269859588382381,
+            "N20": 0.10866784694201755,
+            "H50": 0.823619926909021,
+            "N50": 0.206101489536601
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "hard_negative": {
+          "all": {
+            "H5": 0.0810895069324801,
+            "N5": 0.05762159951020073,
+            "H10": 0.11602264336697021,
+            "N10": 0.06885625600631212,
+            "H20": 0.16167035851997702,
+            "N20": 0.08036737297051248,
+            "H50": 0.2421527606858643,
+            "N50": 0.0962689416813473
+          },
+          "low_frequency": {
+            "H5": 0.033740652927229615,
+            "N5": 0.02590066144554869,
+            "H10": 0.04851358745212475,
+            "N10": 0.030663883159839603,
+            "H20": 0.06620463250045595,
+            "N20": 0.03512975481049721,
+            "H50": 0.1030457778588364,
+            "N50": 0.04237375078162462
+          },
+          "other": {
+            "H5": 0.09859313196691837,
+            "N5": 0.06934799537107499,
+            "H10": 0.1409789644012945,
+            "N10": 0.08297497096836773,
+            "H20": 0.19696152463142755,
+            "N20": 0.09709052968379213,
+            "H50": 0.2935769507371449,
+            "N50": 0.11619257515648074
+          },
+          "gram_covered": {
+            "H5": 0.36569887355227665,
+            "N5": 0.26297677430452443,
+            "H10": 0.504045692527368,
+            "N10": 0.3075661561895151,
+            "H20": 0.6497699508170712,
+            "N20": 0.34450378712640095,
+            "H50": 0.8404727907345708,
+            "N50": 0.3824414832348062
+          },
+          "lime_only": {
+            "H5": 0.06385843431429121,
+            "N5": 0.03782711391928229,
+            "H10": 0.13791113675706868,
+            "N10": 0.061409032002243756,
+            "H20": 0.31967686093479514,
+            "N20": 0.10678492117185494,
+            "H50": 0.8007309097903442,
+            "N50": 0.20120279151985834
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "cross_source": {
+          "all": {
+            "H5": 0.08151612109278858,
+            "N5": 0.057847271863192024,
+            "H10": 0.11641644105340881,
+            "N10": 0.06908330793792151,
+            "H20": 0.16224464681269998,
+            "N20": 0.08064427708807724,
+            "H50": 0.24241529247682336,
+            "N50": 0.09648431083595983
+          },
+          "low_frequency": {
+            "H5": 0.03325430117332361,
+            "N5": 0.02567804464671254,
+            "H10": 0.048574381421363,
+            "N10": 0.030656015654255412,
+            "H20": 0.06663019028512371,
+            "N20": 0.03522522287076111,
+            "H50": 0.10359292358198065,
+            "N50": 0.0424927042846037
+          },
+          "other": {
+            "H5": 0.09935724559510968,
+            "N5": 0.06973938842386873,
+            "H10": 0.14149586479683565,
+            "N10": 0.08328886643248337,
+            "H20": 0.1975907946781733,
+            "N20": 0.09743450593607779,
+            "H50": 0.29373426824883136,
+            "N50": 0.11644358663970078
+          },
+          "gram_covered": {
+            "H5": 0.3680786926860225,
+            "N5": 0.2643925558123919,
+            "H10": 0.5061875297477392,
+            "N10": 0.30891892133639104,
+            "H20": 0.6526257337775663,
+            "N20": 0.3460341447968209,
+            "H50": 0.840552118039029,
+            "N50": 0.3834436911240713
+          },
+          "lime_only": {
+            "H5": 0.063089055587613,
+            "N5": 0.03703970477615396,
+            "H10": 0.13733410271206,
+            "N10": 0.06079059048087748,
+            "H20": 0.3194845162531256,
+            "N20": 0.10632026117025249,
+            "H50": 0.8036160800153875,
+            "N50": 0.20129739441960556
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        },
+        "A_mean": {
+          "all": {
+            "H5": 0.08978587250799902,
+            "N5": 0.06448884333969286,
+            "H10": 0.12046927557633931,
+            "N10": 0.07436502016811124,
+            "H20": 0.15819181228976945,
+            "N20": 0.08388359648436905,
+            "H50": 0.2068422348018705,
+            "N50": 0.09367381891839743
+          },
+          "low_frequency": {
+            "H5": 0.03781384886619247,
+            "N5": 0.030417864251549468,
+            "H10": 0.04395403975925588,
+            "N10": 0.03240762784348066,
+            "H20": 0.049121527144507265,
+            "N20": 0.03369296650137588,
+            "H50": 0.053437898960423134,
+            "N50": 0.03456807931402812
+          },
+          "other": {
+            "H5": 0.1089985616684646,
+            "N5": 0.07708398751042443,
+            "H10": 0.148754944264653,
+            "N10": 0.08987556373040557,
+            "H20": 0.19851222581805106,
+            "N20": 0.10243775129806588,
+            "H50": 0.26355177993527507,
+            "N50": 0.11552365510035247
+          },
+          "gram_covered": {
+            "H5": 0.43407900999524035,
+            "N5": 0.3117779277596051,
+            "H10": 0.5824210693320641,
+            "N10": 0.3595253176380724,
+            "H20": 0.7647945422814533,
+            "N20": 0.40554385116134145,
+            "H50": 1.0,
+            "N50": 0.4528756857037706
+          },
+          "lime_only": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          },
+          "neither": {
+            "H5": 0.0,
+            "N5": 0.0,
+            "H10": 0.0,
+            "N10": 0.0,
+            "H20": 0.0,
+            "N20": 0.0,
+            "H50": 0.0,
+            "N50": 0.0
+          }
+        }
+      },
+      "group_sizes": {
+        "all": 20315,
+        "low_frequency": 5483,
+        "other": 14832,
+        "gram_covered": 4202,
+        "lime_only": 1733,
+        "neither": 14380
+      },
+      "cross_source_contrasts": {
+        "ordinary_ce": {
+          "delta_N10": -0.0004290480629737137,
+          "delta_H10": -0.0008696365575518911,
+          "descriptive_N10_interval": [
+            -0.0006333862011014682,
+            -0.0002102623786664041
+          ],
+          "descriptive_H10_interval": [
+            -0.0014275166133398967,
+            -0.0002789400278940028
+          ]
+        },
+        "hard_negative": {
+          "delta_N10": 0.0002270519316094023,
+          "delta_H10": 0.00039379768643859215,
+          "descriptive_N10_interval": [
+            -2.5063391989565214e-05,
+            0.0004993774034818161
+          ],
+          "descriptive_H10_interval": [
+            -0.00011485765854458933,
+            0.0009024530314217738
+          ]
+        },
+        "gram_lime": {
+          "delta_N10": -0.006452151253626427,
+          "delta_H10": -0.006989908934285013,
+          "descriptive_N10_interval": [
+            -0.00834466974004168,
+            -0.004746486210718567
+          ],
+          "descriptive_H10_interval": [
+            -0.010107473951923867,
+            -0.003757076052178196
+          ]
+        },
+        "crossfit_gram_lime": {
+          "delta_N10": -0.0076107174379272296,
+          "delta_H10": -0.00856509968003938,
+          "descriptive_N10_interval": [
+            -0.009433884344948337,
+            -0.005910420953283452
+          ],
+          "descriptive_H10_interval": [
+            -0.011765116088276318,
+            -0.005398309951595702
+          ]
+        },
+        "A_mean": {
+          "delta_N10": -0.005281712230189724,
+          "delta_H10": -0.004052834522930511,
+          "descriptive_N10_interval": [
+            -0.007282586997483326,
+            -0.003185955120603713
+          ],
+          "descriptive_H10_interval": [
+            -0.007483386660103373,
+            -0.0006066945606694588
+          ]
+        }
+      },
+      "movements_vs_gram_lime": {
+        "full_lime": {
+          "gained": 522,
+          "lost": 523,
+          "covered_N10_contribution": -0.013091412397323848,
+          "outside_N10_contribution": 0.011932403223589044
+        },
+        "gram_lime": {
+          "gained": 0,
+          "lost": 0,
+          "covered_N10_contribution": 0.0,
+          "outside_N10_contribution": 0.0
+        },
+        "union_lime": {
+          "gained": 522,
+          "lost": 523,
+          "covered_N10_contribution": -0.013091412397323848,
+          "outside_N10_contribution": 0.011932403223589044
+        },
+        "crossfit_gram_lime": {
+          "gained": 82,
+          "lost": 50,
+          "covered_N10_contribution": 0.0011585661843008038,
+          "outside_N10_contribution": 0.0
+        },
+        "A_head0": {
+          "gained": 473,
+          "lost": 532,
+          "covered_N10_contribution": -0.0011547760779798254,
+          "outside_N10_contribution": 0.0
+        },
+        "A_head1": {
+          "gained": 473,
+          "lost": 531,
+          "covered_N10_contribution": -0.0011311648630314257,
+          "outside_N10_contribution": 0.0
+        },
+        "A_head2": {
+          "gained": 471,
+          "lost": 533,
+          "covered_N10_contribution": -0.0012253761292988542,
+          "outside_N10_contribution": 0.0
+        },
+        "20260920.ordinary_ce": {
+          "gained": 486,
+          "lost": 610,
+          "covered_N10_contribution": -0.011217139321611457,
+          "outside_N10_contribution": 0.005225690478032845
+        },
+        "20260920.hard_negative": {
+          "gained": 499,
+          "lost": 654,
+          "covered_N10_contribution": -0.011887507591805685,
+          "outside_N10_contribution": 0.005151043604331517
+        },
+        "20260920.cross_source": {
+          "gained": 492,
+          "lost": 638,
+          "covered_N10_contribution": -0.01152733749475226,
+          "outside_N10_contribution": 0.005142812439177611
+        },
+        "20260921.ordinary_ce": {
+          "gained": 489,
+          "lost": 613,
+          "covered_N10_contribution": -0.01151005085646592,
+          "outside_N10_contribution": 0.005383104564008728
+        },
+        "20260921.hard_negative": {
+          "gained": 506,
+          "lost": 657,
+          "covered_N10_contribution": -0.011982795292406612,
+          "outside_N10_contribution": 0.005273766653805294
+        },
+        "20260921.cross_source": {
+          "gained": 499,
+          "lost": 639,
+          "covered_N10_contribution": -0.011846344199204828,
+          "outside_N10_contribution": 0.005310788875789856
+        },
+        "20260922.ordinary_ce": {
+          "gained": 503,
+          "lost": 628,
+          "covered_N10_contribution": -0.011249056367045124,
+          "outside_N10_contribution": 0.005298141931122792
+        },
+        "20260922.hard_negative": {
+          "gained": 528,
+          "lost": 672,
+          "covered_N10_contribution": -0.011883061403450162,
+          "outside_N10_contribution": 0.005290944473818162
+        },
+        "20260922.cross_source": {
+          "gained": 513,
+          "lost": 653,
+          "covered_N10_contribution": -0.011540255695279661,
+          "outside_N10_contribution": 0.005103882313390003
+        }
+      },
+      "continuation_checks": {
+        "N10_over_ordinary_ce": false,
+        "N10_over_hard_negative": false,
+        "N10_over_gram_lime": false,
+        "all_seeds_over_ordinary_ce": false,
+        "all_seeds_over_hard_negative": true,
+        "H10_not_below_gram_lime": false,
+        "tail_H10_tolerance": true,
+        "N10_over_A_mean": false,
+        "N10_over_crossfit_gram_lime": false
+      },
+      "continue_recipe": false,
+      "test_read": false,
+      "development_reused": true,
+      "sasrec_seed": 0,
+      "gate": "cal2048"
+    }
+  },
+  "test_read": false,
+  "gpu_used": true,
+  "gpu_purpose": "frozen_LIME_gate_only",
+  "new_gpu_optimizer_steps": 0
+}

@@ -1,0 +1,44 @@
+{
+  "state": "VERIFIED",
+  "completed_at": "2026-09-20T15:39:36+0800",
+  "input_hashes": 14,
+  "output_hashes": 35,
+  "independent_new_arm_ranks": 75358,
+  "independent_metric_fields": 1008,
+  "checked_models": 20,
+  "checked_optimizer_steps": 600,
+  "cohort_isolation": true,
+  "conclusions": {
+    "Toys": {
+      "N10_relative_gain": 0.05386287641118126,
+      "H10_net_users": 156,
+      "positive_folds": 5,
+      "low_frequency_H10_net_users": 83,
+      "matched_cohort_N10": {
+        "C_next_interaction": 0.09425892808984479,
+        "gram_lime": 0.09043235323308631
+      },
+      "other_users_N10": {
+        "C_next_interaction": 0.09359469547521013,
+        "gram_lime": 0.08856143359529602
+      }
+    },
+    "Beauty": {
+      "N10_relative_gain": 0.07558259344103568,
+      "H10_net_users": 177,
+      "positive_folds": 5,
+      "low_frequency_H10_net_users": 46,
+      "matched_cohort_N10": {
+        "C_next_interaction": 0.08127854544489295,
+        "gram_lime": 0.0765587555957389
+      },
+      "other_users_N10": {
+        "C_next_interaction": 0.08123608753187414,
+        "gram_lime": 0.07527790122413452
+      }
+    }
+  },
+  "new_training": false,
+  "test_read": false,
+  "source_sha256": "53a2e5f5818cf461b25b8c23c23c596238eed4aa6a9242eb0479b4d6f95b6ca7"
+}

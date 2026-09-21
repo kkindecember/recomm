@@ -1,0 +1,86 @@
+{
+  "state": "VERIFIED",
+  "input_hashes": 65,
+  "new_checkpoint_count": 12,
+  "prediction_arrays_replayed": 36,
+  "metrics_checked": 2160,
+  "comparison_values_checked": 1080,
+  "aggregate_distributions_checked": 440,
+  "checkpoint_max_errors": {
+    "Toys.20260918.next_only": 4.440892098500626e-15,
+    "Toys.20260918.global_local": 4.440892098500626e-15,
+    "Toys.20260918.soft_future": 5.218048215738236e-15,
+    "Toys.20260919.next_only": 4.496403249731884e-15,
+    "Toys.20260919.global_local": 5.329070518200751e-15,
+    "Toys.20260919.soft_future": 4.718447854656915e-15,
+    "Beauty.20260918.next_only": 4.440892098500626e-15,
+    "Beauty.20260918.global_local": 5.10702591327572e-15,
+    "Beauty.20260918.soft_future": 4.496403249731884e-15,
+    "Beauty.20260919.next_only": 4.440892098500626e-15,
+    "Beauty.20260919.global_local": 4.440892098500626e-15,
+    "Beauty.20260919.soft_future": 4.440892098500626e-15
+  },
+  "domains": {
+    "Toys": {
+      "validation_users": 19412,
+      "train_prefixes": 6884,
+      "train_users": 1395,
+      "initial_losses": {
+        "next_only": 0.09299740164075837,
+        "global_local": 0.1210175094387643,
+        "soft_future": 0.11963137316733558
+      }
+    },
+    "Beauty": {
+      "validation_users": 22363,
+      "train_prefixes": 8309,
+      "train_users": 1645,
+      "initial_losses": {
+        "next_only": 0.08415209068898699,
+        "global_local": 0.11099628442174703,
+        "soft_future": 0.10977813810163609
+      }
+    }
+  },
+  "decisions": {
+    "current": {
+      "basic_stability": false,
+      "residual_margin": false
+    },
+    "mean": {
+      "basic_stability": true,
+      "residual_margin": true
+    }
+  },
+  "output_sha256": {
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260917.predictions.npz": "ca75040d8d6bb43d23c54d267c8ee4bfefa0953266e6c02f786cf5e2c93846ff",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260917.training.json": "a5086f31904179ba62ca1e3abdc4abf973c9868ffd4d1e3e969db117792ebb02",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260918.predictions.npz": "930ad492c0ceb45a3b94128c9dd4379d4a13333ade241d3d82d5b1f85848374b",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260918.training.json": "48d3bf944ffd38a0d3bb799286bad98439ec334bf9bf5d532a1c8fbf3bca29b9",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260918.next_only.pt": "2807cb7d1d1f3fe4ef72740a59e91f659d2c278cf08f150b456f95458ca32d6d",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260918.global_local.pt": "dc7e12f60fbd37d5be94012fe58927929308996cdb2ccd379f651227c07e911b",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260918.soft_future.pt": "f36436e7190e0913dc6405de6d9cdf8f9de4e3d7d4410b4913a13a9771777d80",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260919.predictions.npz": "9a6ab1b0cf776989134adfd0ef51707b30bc59b160800b5ac31940207bd57cf5",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260919.training.json": "71c023f86bd03366c9c9860fa8f03276a091e863cd10ad79f9709905d2436bfe",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260919.next_only.pt": "d0e4984874785457c542ada9f12c5075ef2eff2e6d58e21b1e246080e9730d78",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260919.global_local.pt": "15d4b4b8faa0659b268fcc0a14f683f6312e9fc24f5fd493e8838891e201f95a",
+    "artifacts/phase20/future_label_multiseed_20260917/Toys.20260919.soft_future.pt": "9b00691e776305495310aef9af8cd771ab21b7347faed3fca344f62b148f8981",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260917.predictions.npz": "53473711dbd133149a0ed89df225538981ad04d35372527b4f7d1782df1a17f9",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260917.training.json": "bfcdadb2f89ec1e41a8b79e18494311972e4e5e69876528af8017d15d61cafa5",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260918.predictions.npz": "4204c27d1db96f9a042448ea15531966a0c8de1328f0890de99ca3d970d91c2d",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260918.training.json": "8e7bda814fad8faf75d88d56e4251d2fc1b0ba313e15b1fcd65ed7520d40dca0",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260918.next_only.pt": "135edb24a467e96c1bfd2fe665bade57c00c5bfddf1815d63a86d0c69f053681",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260918.global_local.pt": "4920ee27eaade5db5a8cb508704314303e42e244ed42d65e42197c04ddcce268",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260918.soft_future.pt": "eafcf2bd38382a2e9a0996717de5711f75442fc8b239c4fa3e875769d63dc302",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260919.predictions.npz": "9b23a4c577b2a30058b7358875d27bde45cd4523954034df0b9c54c07e1218f1",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260919.training.json": "6bcba684fe139e6118b06d19d6e22f797ab1905d6628ee3b97d6de79f45a7cb7",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260919.next_only.pt": "76efd3334edd8a81827ac348fd2ba6e2160cadbb840f7f8baaab15372f69c71f",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260919.global_local.pt": "6c0434267b4ae1c2f3150a2d2bcbae2b7014e9cb38c826a60f4dc1cde01a84c3",
+    "artifacts/phase20/future_label_multiseed_20260917/Beauty.20260919.soft_future.pt": "c0748de36bff6ec9cfee4eea0fd5352b757fcb8d3a8e7fe6fd5e0c60886db0f7",
+    "artifacts/phase20/future_label_multiseed_20260917/summary.json": "8dbc386d8795aa837e0eb4d427f04103bb31bf79bca77bf51ed84715a042c87a",
+    "artifacts/phase20/future_label_multiseed_20260917/protocol.json": "deab0b40dead0331abde5adfc07263a2f591b270a8f5fea07a9b09de36ae24ce"
+  },
+  "source_sha256": "8e39f1ea91c6989178f8f98d9ba6ad48631a9b6151538057238650c77992aadb",
+  "replay_source_sha256": "f58044f882b8f05b07e2bfb6dced13392a2bad15c0d078d7a81394cb0797c995",
+  "test_read": false
+}

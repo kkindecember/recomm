@@ -1,0 +1,31 @@
+{
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "Toys": "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059",
+    "Beauty": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09"
+  },
+  "alphas": [
+    0.1,
+    0.3
+  ],
+  "tuning_users": 128,
+  "evaluation_users": 512,
+  "smoke_users": 3,
+  "score_scale": 20.0,
+  "seed": 20260921,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "worker_timeout_seconds": null,
+  "resource_wait_seconds": null,
+  "minimum_free_mib": 12288,
+  "allocation_limit_gib": 11,
+  "no_model_training": true,
+  "test_read": false,
+  "cross_cache_reorder_reuse": true,
+  "cost_gate_enabled": false,
+  "user_authorization": "GPU contention and longer Beauty runtime accepted; run properly to completion.",
+  "takeover_policy": "Keep active Toys pilot; cancel only obsolete Beauty queue and status coordinator."
+}
