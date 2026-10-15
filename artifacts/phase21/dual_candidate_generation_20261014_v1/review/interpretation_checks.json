@@ -1,0 +1,17 @@
+{
+  "coverage": "11/11",
+  "checks": {
+    "Simpson_paradox": "Separate domains; candidate-vs-baseline N10 signs differ, candidate-vs-user signs agree.",
+    "ecological_fallacy": "Paired user ranks; average effects do not imply every user benefits.",
+    "Berkson_selection": "Repeated exploratory cohort of 512 per domain; not an independent confirmation set.",
+    "collider_bias": "All fixed users retained; hit decomposition is explicitly outcome-defined and descriptive.",
+    "base_rate_neglect": "Absolute N10 and counts reported with relative differences; H50 gain vs baseline is 2 users per domain.",
+    "regression_to_mean": "No best seed selected; prior exploratory selection and noise still limit conclusions.",
+    "survivorship_bias": "All 1024 expected records complete across all arms; no outcome filtering.",
+    "look_elsewhere": "All planned arms retained; unadjusted intervals; H50 does not replace primary N10.",
+    "forking_paths": "Fixed seed0 and protocol before decoding; stage diagnostic is post hoc, not a preregistered hypothesis test.",
+    "causal_language": "Transfer failure is observed before beam changes; does not identify GRAM defect or isolate score calibration as cause.",
+    "reverse_causality": "Targets used for outcome calculations only; saved protocol excluded target-based candidate insertion."
+  },
+  "decision": "Current candidate-weight branch is not supported as the preferred mechanism; retain dual anchor as provisional baseline."
+}

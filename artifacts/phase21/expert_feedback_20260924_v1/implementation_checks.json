@@ -1,0 +1,17 @@
+{
+  "state": "PASSED",
+  "unit_tests": 4,
+  "command": "/home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -m unittest experiment.phase21.test_expert_feedback -v",
+  "checks": [
+    "candidate selection independent of labels",
+    "repeat builds do not mutate token cache",
+    "older related evidence may outrank latest history",
+    "candidate identity uses complete GRAM path",
+    "placebo preserves prefix and exact lengths within role/expert",
+    "single-user strata explicitly stay unchanged"
+  ],
+  "sha256": {
+    "experiment/phase21/expert_feedback_core.py": "cec09bcdb587b1b4a7220d1dd9f232ba4fa1df8e1d3cb80469e7570eb1a82cf1",
+    "experiment/phase21/test_expert_feedback.py": "185d246f4bfe7df7ea9d93e9f194811216bf170659f1b748564cd560763029c0"
+  }
+}

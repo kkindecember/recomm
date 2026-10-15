@@ -1,0 +1,88 @@
+{
+  "created_at": "2026-09-21T23:23:59+0800",
+  "type": "posthoc_readonly_candidate_filter_diagnostic",
+  "evaluation_users_per_domain": 512,
+  "interpretation": "Counts show filtered history items consume returned candidate slots. They do not establish the cause of ranking losses or the benefit/novelty of any proposed correction.",
+  "domains": {
+    "Toys": {
+      "source_sha256": "d1dd8b15b03ee599f7a5d8fb2af6668505efaa764bd394fef6866737a3931abe",
+      "arms": {
+        "GRAM": {
+          "affected_users": 471,
+          "filtered_candidate_count": 1171,
+          "mean_filtered_per_user": 2.287109375,
+          "mean_remaining_candidates": 47.712890625,
+          "max_filtered": 10
+        },
+        "fixed_cal": {
+          "affected_users": 511,
+          "filtered_candidate_count": 1626,
+          "mean_filtered_per_user": 3.17578125,
+          "mean_remaining_candidates": 46.82421875,
+          "max_filtered": 12
+        },
+        "fixed_no_cal": {
+          "affected_users": 512,
+          "filtered_candidate_count": 1960,
+          "mean_filtered_per_user": 3.828125,
+          "mean_remaining_candidates": 46.171875,
+          "max_filtered": 13
+        },
+        "dynamic_cal": {
+          "affected_users": 511,
+          "filtered_candidate_count": 1694,
+          "mean_filtered_per_user": 3.30859375,
+          "mean_remaining_candidates": 46.69140625,
+          "max_filtered": 12
+        },
+        "dynamic_no_cal": {
+          "affected_users": 512,
+          "filtered_candidate_count": 2038,
+          "mean_filtered_per_user": 3.98046875,
+          "mean_remaining_candidates": 46.01953125,
+          "max_filtered": 13
+        }
+      }
+    },
+    "Beauty": {
+      "source_sha256": "b77b7f363a67e718aa533aefd03729702c3a0a059715d85ab084c679464811ff",
+      "arms": {
+        "GRAM": {
+          "affected_users": 471,
+          "filtered_candidate_count": 1231,
+          "mean_filtered_per_user": 2.404296875,
+          "mean_remaining_candidates": 47.595703125,
+          "max_filtered": 15
+        },
+        "fixed_cal": {
+          "affected_users": 511,
+          "filtered_candidate_count": 1651,
+          "mean_filtered_per_user": 3.224609375,
+          "mean_remaining_candidates": 46.775390625,
+          "max_filtered": 16
+        },
+        "fixed_no_cal": {
+          "affected_users": 512,
+          "filtered_candidate_count": 1992,
+          "mean_filtered_per_user": 3.890625,
+          "mean_remaining_candidates": 46.109375,
+          "max_filtered": 18
+        },
+        "dynamic_cal": {
+          "affected_users": 511,
+          "filtered_candidate_count": 1701,
+          "mean_filtered_per_user": 3.322265625,
+          "mean_remaining_candidates": 46.677734375,
+          "max_filtered": 16
+        },
+        "dynamic_no_cal": {
+          "affected_users": 512,
+          "filtered_candidate_count": 2058,
+          "mean_filtered_per_user": 4.01953125,
+          "mean_remaining_candidates": 45.98046875,
+          "max_filtered": 18
+        }
+      }
+    }
+  }
+}

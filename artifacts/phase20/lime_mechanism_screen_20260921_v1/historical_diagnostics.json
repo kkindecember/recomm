@@ -1,0 +1,65 @@
+{
+  "Toys": {
+    "users": 512,
+    "coverage_groups": {
+      "neither": 383,
+      "both": 106,
+      "lost": 7,
+      "gained": 16
+    },
+    "shared_target_rank_changes": {
+      "equal": 77,
+      "worse": 28,
+      "better": 1
+    },
+    "shared_order_changed_users": 0,
+    "N10_contributions": {
+      "neither": 0.0,
+      "both": -0.0013261700665409912,
+      "lost": 0.0,
+      "gained": 0.0005879492102812133
+    },
+    "LIME_rerank_guided_candidates": {
+      "N5": 0.06519720430223758,
+      "H5": 0.095703125,
+      "N10": 0.07455997701762782,
+      "H10": 0.125,
+      "N20": 0.08801794771831095,
+      "H20": 0.177734375,
+      "N50": 0.10034844734678706,
+      "H50": 0.23828125
+    },
+    "caveat": "Post-hoc development diagnosis; does not select follow-up evaluation users."
+  },
+  "Beauty": {
+    "users": 512,
+    "coverage_groups": {
+      "both": 99,
+      "neither": 387,
+      "gained": 21,
+      "lost": 5
+    },
+    "shared_target_rank_changes": {
+      "worse": 21,
+      "equal": 78
+    },
+    "shared_order_changed_users": 0,
+    "N10_contributions": {
+      "both": -0.0011807220763742513,
+      "neither": 0.0,
+      "gained": 0.0021806540477533397,
+      "lost": 0.0
+    },
+    "LIME_rerank_guided_candidates": {
+      "N5": 0.06180587653650485,
+      "H5": 0.095703125,
+      "N10": 0.07415087849701485,
+      "H10": 0.134765625,
+      "N20": 0.08256408030444345,
+      "H20": 0.16796875,
+      "N50": 0.09603896467316438,
+      "H50": 0.234375
+    },
+    "caveat": "Post-hoc development diagnosis; does not select follow-up evaluation users."
+  }
+}

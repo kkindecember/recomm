@@ -1,0 +1,28 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 64,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "eta": 0.1,
+  "kl": 0.2,
+  "threads": 4,
+  "timeout_seconds": 1800,
+  "bootstrap_repeats": 2000,
+  "bootstrap_seed": 20261010,
+  "train_labels": "ranker_fit_only",
+  "test_read": false,
+  "upstream_optimizer_steps": 0,
+  "control": "direct_residual"
+}

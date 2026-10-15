@@ -1,0 +1,48 @@
+{
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "arms": [
+    "control",
+    "numeric",
+    "semantic",
+    "shuffled"
+  ],
+  "seed": 2023,
+  "epochs": 2,
+  "learning_rate": 3e-05,
+  "weight_decay": 0.01,
+  "batch_size": 32,
+  "microbatch": 4,
+  "warmup_fraction": 0.05,
+  "per_expert": 3,
+  "card_width": 128,
+  "beam_size": 50,
+  "development_users": 512,
+  "expected_workload_peak_mib": 16384,
+  "total_lease_mib": 30720,
+  "allocation_limit_gib": 15,
+  "minimum_free_mib": 32768,
+  "max_parallel": 2,
+  "worker_timeout_seconds": 43200,
+  "supervisor_timeout_seconds": 86400,
+  "gpus": {
+    "Toys": "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160",
+    "Beauty": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640"
+  },
+  "fallback_gpus": [
+    "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09",
+    "GPU-07374397-b213-09c1-2988-718acb6ed231",
+    "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2",
+    "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253"
+  ],
+  "bootstrap_repeats": 2000,
+  "bootstrap_seed": 20260924,
+  "test_read": false,
+  "output_score_correction": false,
+  "development_labels_used_for_fit": false,
+  "encoder_frozen": true,
+  "shared_embedding_frozen": true,
+  "lm_head_frozen": true
+}

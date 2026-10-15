@@ -1,0 +1,78 @@
+{
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 64,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "eta": 1.0,
+  "kl": 0.2,
+  "score_scale": 20.0,
+  "threads_per_worker": 2,
+  "timeout_seconds": 14400,
+  "bootstrap_repeats": 2000,
+  "bootstrap_seed": 20261014,
+  "experts": [
+    "SASRec",
+    "BGE"
+  ],
+  "arms": [
+    "user",
+    "candidate",
+    "scalar"
+  ],
+  "candidate_topk": 50,
+  "candidate_maximum": 150,
+  "width": 27,
+  "hidden_width": 32,
+  "user_names": [
+    "log_history_length",
+    "confidence_sas",
+    "confidence_text",
+    "margin_sas",
+    "margin_text",
+    "std_sas",
+    "std_text",
+    "contamination_sas",
+    "contamination_text",
+    "history_ratio",
+    "w_sas",
+    "w_text",
+    "penalty"
+  ],
+  "candidate_names": [
+    "score_sas",
+    "score_text",
+    "margin_to_reference_sas",
+    "margin_to_reference_text",
+    "reciprocal_rank_sas",
+    "reciprocal_rank_text",
+    "top10_sas",
+    "top10_text",
+    "fused",
+    "fused_margin",
+    "fused_rr",
+    "gap10_11",
+    "gap1_10",
+    "log_frequency"
+  ],
+  "anchor": "frozen previously fitted without_itemcf gate",
+  "head_training": "ranker_fit only; internal hash 80/20 selection then all ranker_fit refit",
+  "candidate_scope": "same retained-expert + frozen-dual top50 union for all arms",
+  "user_scope": "one weight vector per user inside common candidate union; frozen anchor outside",
+  "test_read": false,
+  "true_generation": false,
+  "upstream_optimizer_steps": 0,
+  "validation": "reused exploratory validation; not independent confirmation",
+  "scalar": "eta*tanh((z_sas-z_text)/2); same network/parameter count as gates"
+}

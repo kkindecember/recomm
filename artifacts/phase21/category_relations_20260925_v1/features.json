@@ -1,0 +1,57 @@
+{
+  "category": [
+    "coarse_a_known",
+    "coarse_a_log_distinct_support",
+    "coarse_a_history_share",
+    "coarse_a_log_catalog_frequency",
+    "coarse_b_known",
+    "coarse_b_log_distinct_support",
+    "coarse_b_history_share",
+    "coarse_b_log_catalog_frequency",
+    "coarse_difference_known",
+    "coarse_difference_log_distinct_support",
+    "coarse_difference_history_share",
+    "coarse_difference_log_catalog_frequency",
+    "coarse_pair_same_category",
+    "fine_a_known",
+    "fine_a_log_distinct_support",
+    "fine_a_history_share",
+    "fine_a_log_catalog_frequency",
+    "fine_b_known",
+    "fine_b_log_distinct_support",
+    "fine_b_history_share",
+    "fine_b_log_catalog_frequency",
+    "fine_difference_known",
+    "fine_difference_log_distinct_support",
+    "fine_difference_history_share",
+    "fine_difference_log_catalog_frequency",
+    "fine_pair_same_category"
+  ],
+  "arms": [
+    "score",
+    "coarse",
+    "category",
+    "shuffled_category",
+    "prior_full",
+    "prior_full_category"
+  ],
+  "contrasts": [
+    [
+      "category",
+      "score"
+    ],
+    [
+      "category",
+      "coarse"
+    ],
+    [
+      "category",
+      "shuffled_category"
+    ],
+    [
+      "prior_full_category",
+      "prior_full"
+    ]
+  ],
+  "L2": 1
+}

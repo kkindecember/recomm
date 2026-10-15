@@ -1,0 +1,3286 @@
+{
+  "text_score_edges_from_ranker_fit": [
+    0.7486961007118225,
+    0.8091049671173096,
+    0.8616712808609008,
+    0.9155211210250854
+  ],
+  "ranker_fit": {
+    "users": 2773,
+    "dissent_candidates": 22697,
+    "dissent_targets": 65,
+    "users_with_dissent": 2772,
+    "changed_history_users": 2760,
+    "older_exact_item_repeat_candidates": 8,
+    "rules": {
+      "original": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 19,
+          "lost10": 14,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0005212131740315324,
+          "delta_N10_ci95": [
+            -0.0007296984436441455,
+            0.0016678821569009038
+          ]
+        },
+        "actions": 0
+      },
+      "text_first": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 14,
+          "lost10": 19,
+          "new_N10": 0.08130976880140535,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": -0.0005212131740315324,
+          "delta_N10_ci95": [
+            -0.0016678821569009038,
+            0.0007296984436441455
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.08130976880140535,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "actions": 2772
+      },
+      "brand_repeat": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 19,
+          "lost10": 14,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0005212131740315324,
+          "delta_N10_ci95": [
+            -0.0007296984436441455,
+            0.0016678821569009038
+          ]
+        },
+        "actions": 0
+      },
+      "shuffled_brand_repeat": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 19,
+          "lost10": 14,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0005212131740315324,
+          "delta_N10_ci95": [
+            -0.0007296984436441455,
+            0.0016678821569009038
+          ]
+        },
+        "actions": 0
+      },
+      "word_repeat": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.0005212131740315324,
+            0.0005212131740315324
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 16,
+          "lost10": 11,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0005212131740315324,
+          "delta_N10_ci95": [
+            -0.0005212131740315324,
+            0.0015636395220945973
+          ]
+        },
+        "actions": 572
+      },
+      "shuffled_word_repeat": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 0,
+          "lost10": 2,
+          "new_N10": 0.08162249670582426,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": -0.00020848526961261298,
+          "delta_N10_ci95": [
+            -0.0005212131740315324,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 17,
+          "lost10": 14,
+          "new_N10": 0.08162249670582426,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0003127279044189194,
+          "delta_N10_ci95": [
+            -0.0008339410784504519,
+            0.0014593968872882905
+          ]
+        },
+        "actions": 64
+      },
+      "phrase_repeat": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 3,
+          "lost10": 5,
+          "new_N10": 0.08162249670582426,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": -0.00020848526961261298,
+          "delta_N10_ci95": [
+            -0.0008339410784504519,
+            0.00041697053922522595
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 14,
+          "lost10": 11,
+          "new_N10": 0.08162249670582426,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0003127279044189194,
+          "delta_N10_ci95": [
+            -0.0007296984436441455,
+            0.0013551542524819844
+          ]
+        },
+        "actions": 422
+      },
+      "shuffled_phrase_repeat": {
+        "versus_original": {
+          "users": 2773,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 2773,
+          "gained10": 19,
+          "lost10": 14,
+          "new_N10": 0.08183098197543687,
+          "old_N10": 0.08130976880140535,
+          "delta_N10": 0.0005212131740315324,
+          "delta_N10_ci95": [
+            -0.0007296984436441455,
+            0.0016678821569009038
+          ]
+        },
+        "actions": 31
+      }
+    },
+    "associations": {
+      "real": {
+        "brand_any": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 22697,
+            "targets": 65,
+            "target_rate": 0.002863814601048597
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 219,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 336,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 497,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 812,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 429,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 782,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 917,
+              "without_targets": 9,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 920,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1197,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4042,
+              "without_targets": 10,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3538,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3286,
+              "without_targets": 13,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3122,
+              "without_targets": 7,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2531,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "brand_repeat": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 22697,
+            "targets": 65,
+            "target_rate": 0.002863814601048597
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 219,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 336,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 497,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 812,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 429,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 782,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 917,
+              "without_targets": 9,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 920,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1197,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4042,
+              "without_targets": 10,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3538,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3286,
+              "without_targets": 13,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3122,
+              "without_targets": 7,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2531,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "word_repeat": {
+          "with_evidence": {
+            "candidates": 3963,
+            "targets": 30,
+            "target_rate": 0.00757002271006813
+          },
+          "without_evidence": {
+            "candidates": 18734,
+            "targets": 35,
+            "target_rate": 0.0018682609159816376
+          },
+          "score_matched_rate_difference": 0.0058109229997709184,
+          "matched_candidate_coverage": 1.0,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            0.0030409159018181513,
+            0.008917359060452794
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 65,
+              "without_targets": 1,
+              "with_candidates": 4,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 208,
+              "without_targets": 0,
+              "with_candidates": 11,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 296,
+              "without_targets": 1,
+              "with_candidates": 40,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 413,
+              "without_targets": 3,
+              "with_candidates": 84,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 576,
+              "without_targets": 0,
+              "with_candidates": 236,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 417,
+              "without_targets": 2,
+              "with_candidates": 12,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 719,
+              "without_targets": 2,
+              "with_candidates": 63,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 769,
+              "without_targets": 5,
+              "with_candidates": 148,
+              "with_targets": 4
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 709,
+              "without_targets": 1,
+              "with_candidates": 211,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 836,
+              "without_targets": 1,
+              "with_candidates": 361,
+              "with_targets": 3
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 3763,
+              "without_targets": 7,
+              "with_candidates": 279,
+              "with_targets": 3
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3069,
+              "without_targets": 5,
+              "with_candidates": 469,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 2635,
+              "without_targets": 4,
+              "with_candidates": 651,
+              "with_targets": 9
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 2338,
+              "without_targets": 2,
+              "with_candidates": 784,
+              "with_targets": 5
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 1921,
+              "without_targets": 1,
+              "with_candidates": 610,
+              "with_targets": 3
+            }
+          ]
+        },
+        "phrase_any": {
+          "with_evidence": {
+            "candidates": 9032,
+            "targets": 44,
+            "target_rate": 0.00487156775907883
+          },
+          "without_evidence": {
+            "candidates": 13665,
+            "targets": 21,
+            "target_rate": 0.0015367727771679472
+          },
+          "score_matched_rate_difference": 0.003188116904783918,
+          "matched_candidate_coverage": 1.0,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            0.0016217430069619596,
+            0.004829705422046343
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 53,
+              "without_targets": 0,
+              "with_candidates": 16,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 128,
+              "without_targets": 0,
+              "with_candidates": 91,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 145,
+              "without_targets": 0,
+              "with_candidates": 191,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 202,
+              "without_targets": 0,
+              "with_candidates": 295,
+              "with_targets": 4
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 380,
+              "without_targets": 1,
+              "with_candidates": 432,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 312,
+              "without_targets": 0,
+              "with_candidates": 117,
+              "with_targets": 2
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 445,
+              "without_targets": 0,
+              "with_candidates": 337,
+              "with_targets": 2
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 461,
+              "without_targets": 3,
+              "with_candidates": 456,
+              "with_targets": 6
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 448,
+              "without_targets": 0,
+              "with_candidates": 472,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 625,
+              "without_targets": 1,
+              "with_candidates": 572,
+              "with_targets": 3
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 3045,
+              "without_targets": 8,
+              "with_candidates": 997,
+              "with_targets": 2
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 2227,
+              "without_targets": 3,
+              "with_candidates": 1311,
+              "with_targets": 3
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 1877,
+              "without_targets": 2,
+              "with_candidates": 1409,
+              "with_targets": 11
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 1707,
+              "without_targets": 3,
+              "with_candidates": 1415,
+              "with_targets": 4
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 1610,
+              "without_targets": 0,
+              "with_candidates": 921,
+              "with_targets": 4
+            }
+          ]
+        },
+        "phrase_repeat": {
+          "with_evidence": {
+            "candidates": 2620,
+            "targets": 19,
+            "target_rate": 0.007251908396946565
+          },
+          "without_evidence": {
+            "candidates": 20077,
+            "targets": 46,
+            "target_rate": 0.0022911789610001493
+          },
+          "score_matched_rate_difference": 0.003826386626616189,
+          "matched_candidate_coverage": 0.9969599506542715,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            0.0011283915639443876,
+            0.006871401078887282
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 215,
+              "without_targets": 0,
+              "with_candidates": 4,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 314,
+              "without_targets": 1,
+              "with_candidates": 22,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 442,
+              "without_targets": 2,
+              "with_candidates": 55,
+              "with_targets": 2
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 642,
+              "without_targets": 1,
+              "with_candidates": 170,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 424,
+              "without_targets": 2,
+              "with_candidates": 5,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 744,
+              "without_targets": 2,
+              "with_candidates": 38,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 834,
+              "without_targets": 6,
+              "with_candidates": 83,
+              "with_targets": 3
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 766,
+              "without_targets": 1,
+              "with_candidates": 154,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 936,
+              "without_targets": 2,
+              "with_candidates": 261,
+              "with_targets": 2
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 3921,
+              "without_targets": 10,
+              "with_candidates": 121,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3310,
+              "without_targets": 6,
+              "with_candidates": 228,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 2807,
+              "without_targets": 6,
+              "with_candidates": 479,
+              "with_targets": 7
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 2514,
+              "without_targets": 4,
+              "with_candidates": 608,
+              "with_targets": 3
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2139,
+              "without_targets": 2,
+              "with_candidates": 392,
+              "with_targets": 2
+            }
+          ]
+        }
+      },
+      "shuffled": {
+        "brand_any": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 22697,
+            "targets": 65,
+            "target_rate": 0.002863814601048597
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 219,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 336,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 497,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 812,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 429,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 782,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 917,
+              "without_targets": 9,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 920,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1197,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4042,
+              "without_targets": 10,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3538,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3286,
+              "without_targets": 13,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3122,
+              "without_targets": 7,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2531,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "brand_repeat": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 22697,
+            "targets": 65,
+            "target_rate": 0.002863814601048597
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 219,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 336,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 497,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 812,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 429,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 782,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 917,
+              "without_targets": 9,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 920,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1197,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4042,
+              "without_targets": 10,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3538,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3286,
+              "without_targets": 13,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3122,
+              "without_targets": 7,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2531,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "word_repeat": {
+          "with_evidence": {
+            "candidates": 205,
+            "targets": 0,
+            "target_rate": 0.0
+          },
+          "without_evidence": {
+            "candidates": 22492,
+            "targets": 65,
+            "target_rate": 0.0028899164147252357
+          },
+          "score_matched_rate_difference": -0.0028410495224231976,
+          "matched_candidate_coverage": 0.9536062034630127,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0035277837730562874,
+            -0.002031739478592348
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 219,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 336,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 496,
+              "without_targets": 4,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 790,
+              "without_targets": 1,
+              "with_candidates": 22,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 429,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 780,
+              "without_targets": 2,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 915,
+              "without_targets": 9,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 913,
+              "without_targets": 1,
+              "with_candidates": 7,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1167,
+              "without_targets": 4,
+              "with_candidates": 30,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4037,
+              "without_targets": 10,
+              "with_candidates": 5,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3536,
+              "without_targets": 6,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3258,
+              "without_targets": 13,
+              "with_candidates": 28,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3090,
+              "without_targets": 7,
+              "with_candidates": 32,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2457,
+              "without_targets": 4,
+              "with_candidates": 74,
+              "with_targets": 0
+            }
+          ]
+        },
+        "phrase_any": {
+          "with_evidence": {
+            "candidates": 392,
+            "targets": 1,
+            "target_rate": 0.002551020408163265
+          },
+          "without_evidence": {
+            "candidates": 22305,
+            "targets": 64,
+            "target_rate": 0.0028693118134947323
+          },
+          "score_matched_rate_difference": 0.00398553429419613,
+          "matched_candidate_coverage": 1.0,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0033754957148210054,
+            0.018864386511140706
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 68,
+              "without_targets": 1,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 218,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 331,
+              "without_targets": 1,
+              "with_candidates": 5,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 493,
+              "without_targets": 4,
+              "with_candidates": 4,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 784,
+              "without_targets": 1,
+              "with_candidates": 28,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 428,
+              "without_targets": 2,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 774,
+              "without_targets": 2,
+              "with_candidates": 8,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 910,
+              "without_targets": 9,
+              "with_candidates": 7,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 903,
+              "without_targets": 1,
+              "with_candidates": 17,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1152,
+              "without_targets": 4,
+              "with_candidates": 45,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4016,
+              "without_targets": 9,
+              "with_candidates": 26,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3518,
+              "without_targets": 6,
+              "with_candidates": 20,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3234,
+              "without_targets": 13,
+              "with_candidates": 52,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3059,
+              "without_targets": 7,
+              "with_candidates": 63,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2417,
+              "without_targets": 4,
+              "with_candidates": 114,
+              "with_targets": 0
+            }
+          ]
+        },
+        "phrase_repeat": {
+          "with_evidence": {
+            "candidates": 126,
+            "targets": 0,
+            "target_rate": 0.0
+          },
+          "without_evidence": {
+            "candidates": 22571,
+            "targets": 65,
+            "target_rate": 0.0028798015152186433
+          },
+          "score_matched_rate_difference": -0.002370896038435527,
+          "matched_candidate_coverage": 0.9157597920430013,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0030995671623986125,
+            -0.0016628326643899558
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 69,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 218,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 335,
+              "without_targets": 1,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 497,
+              "without_targets": 4,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 797,
+              "without_targets": 1,
+              "with_candidates": 15,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 429,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 780,
+              "without_targets": 2,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 917,
+              "without_targets": 9,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 915,
+              "without_targets": 1,
+              "with_candidates": 5,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 1179,
+              "without_targets": 4,
+              "with_candidates": 18,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 4039,
+              "without_targets": 10,
+              "with_candidates": 3,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 3535,
+              "without_targets": 6,
+              "with_candidates": 3,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 3270,
+              "without_targets": 13,
+              "with_candidates": 16,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 3107,
+              "without_targets": 7,
+              "with_candidates": 15,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 2484,
+              "without_targets": 4,
+              "with_candidates": 47,
+              "with_targets": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "development": {
+    "users": 512,
+    "dissent_candidates": 4215,
+    "dissent_targets": 13,
+    "users_with_dissent": 512,
+    "changed_history_users": 500,
+    "older_exact_item_repeat_candidates": 3,
+    "rules": {
+      "original": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.002822898694510624,
+            0.002258318955608499
+          ]
+        },
+        "actions": 0
+      },
+      "text_first": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.002258318955608499,
+            0.002822898694510624
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "actions": 512
+      },
+      "brand_repeat": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.002822898694510624,
+            0.002258318955608499
+          ]
+        },
+        "actions": 0
+      },
+      "shuffled_brand_repeat": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.002822898694510624,
+            0.002258318955608499
+          ]
+        },
+        "actions": 0
+      },
+      "word_repeat": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 1,
+          "new_N10": 0.06215157636869028,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": -0.0005645797389021248,
+          "delta_N10_ci95": [
+            -0.0016937392167063743,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 2,
+          "lost10": 3,
+          "new_N10": 0.06215157636869028,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": -0.0005645797389021248,
+          "delta_N10_ci95": [
+            -0.002837013187983176,
+            0.0016937392167063743
+          ]
+        },
+        "actions": 131
+      },
+      "shuffled_word_repeat": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.002822898694510624,
+            0.002258318955608499
+          ]
+        },
+        "actions": 7
+      },
+      "phrase_repeat": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 1,
+          "new_N10": 0.06215157636869028,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": -0.0005645797389021248,
+          "delta_N10_ci95": [
+            -0.0016937392167063743,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 2,
+          "lost10": 3,
+          "new_N10": 0.06215157636869028,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": -0.0005645797389021248,
+          "delta_N10_ci95": [
+            -0.002837013187983176,
+            0.0016937392167063743
+          ]
+        },
+        "actions": 100
+      },
+      "shuffled_phrase_repeat": {
+        "versus_original": {
+          "users": 512,
+          "gained10": 0,
+          "lost10": 0,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "versus_text_first": {
+          "users": 512,
+          "gained10": 3,
+          "lost10": 3,
+          "new_N10": 0.0627161561075924,
+          "old_N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_N10_ci95": [
+            -0.002822898694510624,
+            0.002258318955608499
+          ]
+        },
+        "actions": 8
+      }
+    },
+    "associations": {
+      "real": {
+        "brand_any": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 4215,
+            "targets": 13,
+            "target_rate": 0.0030842230130486356
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 50,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 196,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 14,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 188,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 221,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 289,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 214,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 696,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 829,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 793,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 518,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "brand_repeat": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 4215,
+            "targets": 13,
+            "target_rate": 0.0030842230130486356
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 50,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 196,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 14,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 188,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 221,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 289,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 214,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 696,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 829,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 793,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 518,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "word_repeat": {
+          "with_evidence": {
+            "candidates": 842,
+            "targets": 7,
+            "target_rate": 0.00831353919239905
+          },
+          "without_evidence": {
+            "candidates": 3373,
+            "targets": 6,
+            "target_rate": 0.0017788319003854136
+          },
+          "score_matched_rate_difference": 0.008607144901491875,
+          "matched_candidate_coverage": 1.0,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            0.0015635022935541864,
+            0.017255630646216626
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 3,
+              "without_targets": 0,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 15,
+              "without_targets": 0,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 41,
+              "without_targets": 0,
+              "with_candidates": 9,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 80,
+              "without_targets": 0,
+              "with_candidates": 18,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 139,
+              "without_targets": 0,
+              "with_candidates": 57,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 13,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 83,
+              "without_targets": 0,
+              "with_candidates": 4,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 161,
+              "without_targets": 0,
+              "with_candidates": 27,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 170,
+              "without_targets": 0,
+              "with_candidates": 51,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 211,
+              "without_targets": 0,
+              "with_candidates": 78,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 179,
+              "without_targets": 0,
+              "with_candidates": 35,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 599,
+              "without_targets": 1,
+              "with_candidates": 97,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 700,
+              "without_targets": 2,
+              "with_candidates": 129,
+              "with_targets": 4
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 591,
+              "without_targets": 2,
+              "with_candidates": 202,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 388,
+              "without_targets": 1,
+              "with_candidates": 130,
+              "with_targets": 1
+            }
+          ]
+        },
+        "phrase_any": {
+          "with_evidence": {
+            "candidates": 1623,
+            "targets": 7,
+            "target_rate": 0.004313000616142945
+          },
+          "without_evidence": {
+            "candidates": 2592,
+            "targets": 6,
+            "target_rate": 0.0023148148148148147
+          },
+          "score_matched_rate_difference": 0.002487173530244324,
+          "matched_candidate_coverage": 1.0,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0011228837083802862,
+            0.0066237119423499455
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 3,
+              "without_targets": 0,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 12,
+              "without_targets": 0,
+              "with_candidates": 5,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 34,
+              "without_targets": 0,
+              "with_candidates": 16,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 47,
+              "without_targets": 0,
+              "with_candidates": 51,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 89,
+              "without_targets": 0,
+              "with_candidates": 107,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 12,
+              "without_targets": 0,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 67,
+              "without_targets": 0,
+              "with_candidates": 20,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 115,
+              "without_targets": 1,
+              "with_candidates": 73,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 110,
+              "without_targets": 0,
+              "with_candidates": 111,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 147,
+              "without_targets": 0,
+              "with_candidates": 142,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 155,
+              "without_targets": 0,
+              "with_candidates": 59,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 511,
+              "without_targets": 1,
+              "with_candidates": 185,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 540,
+              "without_targets": 2,
+              "with_candidates": 289,
+              "with_targets": 4
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 433,
+              "without_targets": 1,
+              "with_candidates": 360,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 317,
+              "without_targets": 1,
+              "with_candidates": 201,
+              "with_targets": 1
+            }
+          ]
+        },
+        "phrase_repeat": {
+          "with_evidence": {
+            "candidates": 609,
+            "targets": 4,
+            "target_rate": 0.006568144499178982
+          },
+          "without_evidence": {
+            "candidates": 3606,
+            "targets": 9,
+            "target_rate": 0.0024958402662229617
+          },
+          "score_matched_rate_difference": 0.004676262614568085,
+          "matched_candidate_coverage": 1.0,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0014408323881188554,
+            0.013231554645190984
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 4,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 16,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 46,
+              "without_targets": 0,
+              "with_candidates": 4,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 88,
+              "without_targets": 0,
+              "with_candidates": 10,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 155,
+              "without_targets": 0,
+              "with_candidates": 41,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 13,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 85,
+              "without_targets": 0,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 172,
+              "without_targets": 1,
+              "with_candidates": 16,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 179,
+              "without_targets": 0,
+              "with_candidates": 42,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 224,
+              "without_targets": 0,
+              "with_candidates": 65,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 194,
+              "without_targets": 0,
+              "with_candidates": 20,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 641,
+              "without_targets": 2,
+              "with_candidates": 55,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 746,
+              "without_targets": 4,
+              "with_candidates": 83,
+              "with_targets": 2
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 623,
+              "without_targets": 1,
+              "with_candidates": 170,
+              "with_targets": 1
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 420,
+              "without_targets": 1,
+              "with_candidates": 98,
+              "with_targets": 1
+            }
+          ]
+        }
+      },
+      "shuffled": {
+        "brand_any": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 4215,
+            "targets": 13,
+            "target_rate": 0.0030842230130486356
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 50,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 196,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 14,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 188,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 221,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 289,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 214,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 696,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 829,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 793,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 518,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "brand_repeat": {
+          "with_evidence": {
+            "candidates": 0,
+            "targets": 0,
+            "target_rate": null
+          },
+          "without_evidence": {
+            "candidates": 4215,
+            "targets": 13,
+            "target_rate": 0.0030842230130486356
+          },
+          "score_matched_rate_difference": null,
+          "matched_candidate_coverage": 0.0,
+          "bootstrap_valid_replicates": 0,
+          "score_matched_ci95": null,
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 50,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 196,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 14,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 188,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 221,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 289,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 214,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 696,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 829,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 793,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 518,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            }
+          ]
+        },
+        "word_repeat": {
+          "with_evidence": {
+            "candidates": 53,
+            "targets": 0,
+            "target_rate": 0.0
+          },
+          "without_evidence": {
+            "candidates": 4162,
+            "targets": 13,
+            "target_rate": 0.0031234983181162904
+          },
+          "score_matched_rate_difference": -0.0022913673804542396,
+          "matched_candidate_coverage": 0.42609727164887307,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0050680806532075705,
+            -0.0005492080938297399
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 50,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 189,
+              "without_targets": 0,
+              "with_candidates": 7,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 14,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 188,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 221,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 280,
+              "without_targets": 0,
+              "with_candidates": 9,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 214,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 696,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 829,
+              "without_targets": 6,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 770,
+              "without_targets": 2,
+              "with_candidates": 23,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 504,
+              "without_targets": 2,
+              "with_candidates": 14,
+              "with_targets": 0
+            }
+          ]
+        },
+        "phrase_any": {
+          "with_evidence": {
+            "candidates": 99,
+            "targets": 1,
+            "target_rate": 0.010101010101010102
+          },
+          "without_evidence": {
+            "candidates": 4116,
+            "targets": 12,
+            "target_rate": 0.0029154518950437317
+          },
+          "score_matched_rate_difference": 0.00310052686679443,
+          "matched_candidate_coverage": 0.9508896797153025,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.004597870934395624,
+            0.02291883997716126
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 49,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 189,
+              "without_targets": 0,
+              "with_candidates": 7,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 13,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 185,
+              "without_targets": 1,
+              "with_candidates": 3,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 220,
+              "without_targets": 0,
+              "with_candidates": 1,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 278,
+              "without_targets": 0,
+              "with_candidates": 11,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 212,
+              "without_targets": 0,
+              "with_candidates": 2,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 689,
+              "without_targets": 2,
+              "with_candidates": 7,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 820,
+              "without_targets": 6,
+              "with_candidates": 9,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 757,
+              "without_targets": 2,
+              "with_candidates": 36,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 497,
+              "without_targets": 1,
+              "with_candidates": 21,
+              "with_targets": 1
+            }
+          ]
+        },
+        "phrase_repeat": {
+          "with_evidence": {
+            "candidates": 46,
+            "targets": 1,
+            "target_rate": 0.021739130434782608
+          },
+          "without_evidence": {
+            "candidates": 4169,
+            "targets": 12,
+            "target_rate": 0.002878388102662509
+          },
+          "score_matched_rate_difference": 0.01297679647321858,
+          "matched_candidate_coverage": 0.6227758007117438,
+          "bootstrap_valid_replicates": 1000,
+          "score_matched_ci95": [
+            -0.0032042713683697378,
+            0.0700774254965229
+          ],
+          "strata": [
+            {
+              "rank_group": 0,
+              "score_bin": 0,
+              "without_candidates": 5,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 1,
+              "without_candidates": 17,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 2,
+              "without_candidates": 50,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 3,
+              "without_candidates": 98,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 0,
+              "score_bin": 4,
+              "without_candidates": 192,
+              "without_targets": 0,
+              "with_candidates": 4,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 0,
+              "without_candidates": 14,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 1,
+              "without_candidates": 87,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 2,
+              "without_candidates": 188,
+              "without_targets": 1,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 3,
+              "without_candidates": 221,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 1,
+              "score_bin": 4,
+              "without_candidates": 284,
+              "without_targets": 0,
+              "with_candidates": 5,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 0,
+              "without_candidates": 214,
+              "without_targets": 0,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 1,
+              "without_candidates": 696,
+              "without_targets": 2,
+              "with_candidates": 0,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 2,
+              "without_candidates": 826,
+              "without_targets": 6,
+              "with_candidates": 3,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 3,
+              "without_candidates": 771,
+              "without_targets": 2,
+              "with_candidates": 22,
+              "with_targets": 0
+            },
+            {
+              "rank_group": 2,
+              "score_bin": 4,
+              "without_candidates": 506,
+              "without_targets": 1,
+              "with_candidates": 12,
+              "with_targets": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "metadata": {
+    "catalog_items": 11924,
+    "missing_brand_items": 11924,
+    "missing_title_items": 59,
+    "rarity_min_document_frequency": 2,
+    "rarity_max_document_frequency": 119.24000000000001
+  },
+  "verification": {
+    "all_users_retained": true,
+    "all_lists_exactly_10": true,
+    "no_recent_history_recommended": true,
+    "first9_unchanged": true,
+    "original_ranks_match": true,
+    "text_first_matches_previous_when_dissent": true,
+    "donor_role_and_history_length_match": true,
+    "sources_unmodified": true,
+    "target_free_evidence_and_selection": true
+  }
+}

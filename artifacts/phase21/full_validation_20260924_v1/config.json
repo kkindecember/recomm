@@ -1,0 +1,34 @@
+{
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "validation_users": {
+    "Toys": 19412,
+    "Beauty": 22363
+  },
+  "alpha": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "max_parallel": 2,
+  "upstream_seed": 2023,
+  "gate_seed": 0,
+  "upstream_optimizer_steps": 0,
+  "fusion_optimizer_steps": 0,
+  "allocation_limit_gib": 11,
+  "expected_workload_peak_mib": 12288,
+  "total_lease_mib": 30720,
+  "minimum_free_mib": 32768,
+  "worker_timeout_seconds": 172800,
+  "supervisor_timeout_seconds": 259200,
+  "save_batch_users": 64,
+  "bootstrap_repeats": 2000,
+  "bootstrap_seed": 20260924,
+  "gpus": {
+    "Toys": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "Beauty": "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059"
+  },
+  "test_read": false,
+  "validation_labels_used_for_fit": false,
+  "auto_start_after_reboot": false
+}

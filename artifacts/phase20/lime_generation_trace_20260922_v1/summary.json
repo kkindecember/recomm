@@ -1,0 +1,752 @@
+{
+  "domains": {
+    "Toys": {
+      "state": "COMPLETED",
+      "domain": "Toys",
+      "users": 170,
+      "groups": {
+        "representative": {
+          "users": 128,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 99,
+                "returned_below_top10": 6,
+                "returned_top10": 22,
+                "eos_not_admitted": 1
+              },
+              "first_prune_depth": {
+                "3": 43,
+                "2": 43,
+                "5": 3,
+                "4": 10
+              },
+              "pruned_users": 99,
+              "forced_at_prune": 1,
+              "native_local_top1_at_prune": 2,
+              "branching_pruned_users": 98,
+              "branching_expert_raises_target_probability": 77,
+              "branching_expert_target_child_top1": 5,
+              "pruned_despite_lime_item_top50": 15,
+              "pruned_despite_lime_item_top10": 4,
+              "branching_raised_and_lime_item_top50": 13,
+              "missed_item_and_lime_item_below50": 84
+            },
+            "fixed": {
+              "outcomes": {
+                "prefix_pruned": 98,
+                "returned_top10": 25,
+                "returned_below_top10": 5
+              },
+              "first_prune_depth": {
+                "3": 40,
+                "2": 46,
+                "4": 9,
+                "5": 3
+              },
+              "pruned_users": 98,
+              "forced_at_prune": 2,
+              "native_local_top1_at_prune": 4,
+              "branching_pruned_users": 96,
+              "branching_expert_raises_target_probability": 72,
+              "branching_expert_target_child_top1": 5,
+              "pruned_despite_lime_item_top50": 10,
+              "pruned_despite_lime_item_top10": 1,
+              "branching_raised_and_lime_item_top50": 8,
+              "missed_item_and_lime_item_below50": 88
+            }
+          }
+        },
+        "all_selected_cases": {
+          "users": 170,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 115,
+                "returned_below_top10": 12,
+                "returned_top10": 42,
+                "eos_not_admitted": 1
+              },
+              "first_prune_depth": {
+                "3": 52,
+                "2": 44,
+                "5": 4,
+                "4": 15
+              },
+              "pruned_users": 115,
+              "forced_at_prune": 1,
+              "native_local_top1_at_prune": 4,
+              "branching_pruned_users": 114,
+              "branching_expert_raises_target_probability": 90,
+              "branching_expert_target_child_top1": 10,
+              "pruned_despite_lime_item_top50": 29,
+              "pruned_despite_lime_item_top10": 14,
+              "branching_raised_and_lime_item_top50": 25,
+              "missed_item_and_lime_item_below50": 86
+            },
+            "fixed": {
+              "outcomes": {
+                "prefix_pruned": 102,
+                "returned_top10": 44,
+                "returned_below_top10": 24
+              },
+              "first_prune_depth": {
+                "3": 42,
+                "2": 47,
+                "4": 10,
+                "5": 3
+              },
+              "pruned_users": 102,
+              "forced_at_prune": 2,
+              "native_local_top1_at_prune": 6,
+              "branching_pruned_users": 100,
+              "branching_expert_raises_target_probability": 72,
+              "branching_expert_target_child_top1": 5,
+              "pruned_despite_lime_item_top50": 10,
+              "pruned_despite_lime_item_top10": 1,
+              "branching_raised_and_lime_item_top50": 8,
+              "missed_item_and_lime_item_below50": 92
+            }
+          }
+        },
+        "coverage_changed": {
+          "users": 30,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 21,
+                "returned_below_top10": 7,
+                "eos_not_admitted": 1,
+                "returned_top10": 1
+              },
+              "first_prune_depth": {
+                "3": 12,
+                "5": 2,
+                "4": 6,
+                "2": 1
+              },
+              "pruned_users": 21,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 2,
+              "branching_pruned_users": 21,
+              "branching_expert_raises_target_probability": 17,
+              "branching_expert_target_child_top1": 6,
+              "pruned_despite_lime_item_top50": 19,
+              "pruned_despite_lime_item_top10": 13,
+              "branching_raised_and_lime_item_top50": 16,
+              "missed_item_and_lime_item_below50": 2
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 4,
+                "returned_below_top10": 18,
+                "prefix_pruned": 8
+              },
+              "first_prune_depth": {
+                "3": 3,
+                "2": 4,
+                "4": 1
+              },
+              "pruned_users": 8,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 3,
+              "branching_pruned_users": 8,
+              "branching_expert_raises_target_probability": 1,
+              "branching_expert_target_child_top1": 1,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 8
+            }
+          }
+        },
+        "guided_helped_vs_GRAM": {
+          "users": 23,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 4,
+                "returned_below_top10": 4,
+                "returned_top10": 15
+              },
+              "first_prune_depth": {
+                "3": 1,
+                "4": 3
+              },
+              "pruned_users": 4,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 4,
+              "branching_expert_raises_target_probability": 2,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 4,
+              "pruned_despite_lime_item_top10": 3,
+              "branching_raised_and_lime_item_top50": 2,
+              "missed_item_and_lime_item_below50": 0
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 23
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            }
+          }
+        },
+        "guided_helped_vs_same_rule_late": {
+          "users": 4,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 4
+              },
+              "first_prune_depth": {
+                "3": 1,
+                "4": 3
+              },
+              "pruned_users": 4,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 4,
+              "branching_expert_raises_target_probability": 2,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 4,
+              "pruned_despite_lime_item_top10": 3,
+              "branching_raised_and_lime_item_top50": 2,
+              "missed_item_and_lime_item_below50": 0
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 4
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            }
+          }
+        },
+        "guided_hurt_vs_GRAM": {
+          "users": 13,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "returned_top10": 13
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_below_top10": 5,
+                "returned_top10": 7,
+                "prefix_pruned": 1
+              },
+              "first_prune_depth": {
+                "2": 1
+              },
+              "pruned_users": 1,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 1,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 1
+            }
+          }
+        },
+        "guided_hurt_vs_same_rule_late": {
+          "users": 8,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "returned_top10": 8
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_below_top10": 2,
+                "returned_top10": 5,
+                "prefix_pruned": 1
+              },
+              "first_prune_depth": {
+                "2": 1
+              },
+              "pruned_users": 1,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 1,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 1
+            }
+          }
+        }
+      },
+      "model_unchanged": true,
+      "test_read": false,
+      "optimizer_steps": 0,
+      "observer_identity_checks": [
+        {
+          "sample": 0,
+          "arm": "GRAM",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 0,
+          "arm": "fixed",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 1,
+          "arm": "GRAM",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 1,
+          "arm": "fixed",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 2,
+          "arm": "GRAM",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 2,
+          "arm": "fixed",
+          "observer_identity_exact": true
+        }
+      ],
+      "maximum_cache_score_difference": 0.0,
+      "elapsed_seconds": 183.40763792954385,
+      "completed_decodes": 346
+    },
+    "Beauty": {
+      "state": "COMPLETED",
+      "domain": "Beauty",
+      "users": 178,
+      "groups": {
+        "representative": {
+          "users": 128,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 101,
+                "returned_top10": 16,
+                "returned_below_top10": 9,
+                "eos_not_admitted": 2
+              },
+              "first_prune_depth": {
+                "2": 71,
+                "1": 13,
+                "3": 14,
+                "6": 1,
+                "4": 2
+              },
+              "pruned_users": 101,
+              "forced_at_prune": 2,
+              "native_local_top1_at_prune": 6,
+              "branching_pruned_users": 99,
+              "branching_expert_raises_target_probability": 71,
+              "branching_expert_target_child_top1": 9,
+              "pruned_despite_lime_item_top50": 14,
+              "pruned_despite_lime_item_top10": 4,
+              "branching_raised_and_lime_item_top50": 12,
+              "missed_item_and_lime_item_below50": 88
+            },
+            "fixed": {
+              "outcomes": {
+                "prefix_pruned": 95,
+                "returned_top10": 14,
+                "returned_below_top10": 18,
+                "eos_not_admitted": 1
+              },
+              "first_prune_depth": {
+                "2": 72,
+                "1": 11,
+                "3": 7,
+                "6": 1,
+                "4": 3,
+                "5": 1
+              },
+              "pruned_users": 95,
+              "forced_at_prune": 2,
+              "native_local_top1_at_prune": 4,
+              "branching_pruned_users": 93,
+              "branching_expert_raises_target_probability": 64,
+              "branching_expert_target_child_top1": 5,
+              "pruned_despite_lime_item_top50": 8,
+              "pruned_despite_lime_item_top10": 1,
+              "branching_raised_and_lime_item_top50": 6,
+              "missed_item_and_lime_item_below50": 88
+            }
+          }
+        },
+        "all_selected_cases": {
+          "users": 178,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 114,
+                "returned_top10": 45,
+                "returned_below_top10": 16,
+                "eos_not_admitted": 3
+              },
+              "first_prune_depth": {
+                "2": 76,
+                "1": 13,
+                "4": 4,
+                "3": 19,
+                "6": 1,
+                "5": 1
+              },
+              "pruned_users": 114,
+              "forced_at_prune": 3,
+              "native_local_top1_at_prune": 8,
+              "branching_pruned_users": 111,
+              "branching_expert_raises_target_probability": 82,
+              "branching_expert_target_child_top1": 15,
+              "pruned_despite_lime_item_top50": 26,
+              "pruned_despite_lime_item_top10": 13,
+              "branching_raised_and_lime_item_top50": 22,
+              "missed_item_and_lime_item_below50": 89
+            },
+            "fixed": {
+              "outcomes": {
+                "prefix_pruned": 99,
+                "returned_top10": 49,
+                "returned_below_top10": 29,
+                "eos_not_admitted": 1
+              },
+              "first_prune_depth": {
+                "2": 74,
+                "4": 4,
+                "1": 11,
+                "3": 8,
+                "6": 1,
+                "5": 1
+              },
+              "pruned_users": 99,
+              "forced_at_prune": 2,
+              "native_local_top1_at_prune": 6,
+              "branching_pruned_users": 97,
+              "branching_expert_raises_target_probability": 64,
+              "branching_expert_target_child_top1": 6,
+              "pruned_despite_lime_item_top50": 8,
+              "pruned_despite_lime_item_top10": 1,
+              "branching_raised_and_lime_item_top50": 6,
+              "missed_item_and_lime_item_below50": 92
+            }
+          }
+        },
+        "coverage_changed": {
+          "users": 27,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "returned_below_top10": 5,
+                "prefix_pruned": 20,
+                "eos_not_admitted": 2
+              },
+              "first_prune_depth": {
+                "4": 2,
+                "3": 9,
+                "2": 8,
+                "5": 1
+              },
+              "pruned_users": 20,
+              "forced_at_prune": 2,
+              "native_local_top1_at_prune": 4,
+              "branching_pruned_users": 18,
+              "branching_expert_raises_target_probability": 16,
+              "branching_expert_target_child_top1": 9,
+              "pruned_despite_lime_item_top50": 18,
+              "pruned_despite_lime_item_top10": 12,
+              "branching_raised_and_lime_item_top50": 15,
+              "missed_item_and_lime_item_below50": 2
+            },
+            "fixed": {
+              "outcomes": {
+                "prefix_pruned": 5,
+                "returned_top10": 6,
+                "returned_below_top10": 16
+              },
+              "first_prune_depth": {
+                "2": 2,
+                "4": 2,
+                "3": 1
+              },
+              "pruned_users": 5,
+              "forced_at_prune": 1,
+              "native_local_top1_at_prune": 3,
+              "branching_pruned_users": 4,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 1,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 5
+            }
+          }
+        },
+        "guided_helped_vs_GRAM": {
+          "users": 28,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 6,
+                "returned_top10": 19,
+                "returned_below_top10": 3
+              },
+              "first_prune_depth": {
+                "4": 1,
+                "3": 2,
+                "2": 2,
+                "5": 1
+              },
+              "pruned_users": 6,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 6,
+              "branching_expert_raises_target_probability": 6,
+              "branching_expert_target_child_top1": 2,
+              "pruned_despite_lime_item_top50": 5,
+              "pruned_despite_lime_item_top10": 5,
+              "branching_raised_and_lime_item_top50": 5,
+              "missed_item_and_lime_item_below50": 1
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 28
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            }
+          }
+        },
+        "guided_helped_vs_same_rule_late": {
+          "users": 6,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "prefix_pruned": 6
+              },
+              "first_prune_depth": {
+                "4": 1,
+                "3": 2,
+                "2": 2,
+                "5": 1
+              },
+              "pruned_users": 6,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 6,
+              "branching_expert_raises_target_probability": 6,
+              "branching_expert_target_child_top1": 2,
+              "pruned_despite_lime_item_top50": 5,
+              "pruned_despite_lime_item_top10": 5,
+              "branching_raised_and_lime_item_top50": 5,
+              "missed_item_and_lime_item_below50": 1
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 6
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            }
+          }
+        },
+        "guided_hurt_vs_GRAM": {
+          "users": 18,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "returned_top10": 18
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 13,
+                "returned_below_top10": 5
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            }
+          }
+        },
+        "guided_hurt_vs_same_rule_late": {
+          "users": 3,
+          "arms": {
+            "GRAM": {
+              "outcomes": {
+                "returned_top10": 3
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            },
+            "fixed": {
+              "outcomes": {
+                "returned_top10": 2,
+                "returned_below_top10": 1
+              },
+              "first_prune_depth": {},
+              "pruned_users": 0,
+              "forced_at_prune": 0,
+              "native_local_top1_at_prune": 0,
+              "branching_pruned_users": 0,
+              "branching_expert_raises_target_probability": 0,
+              "branching_expert_target_child_top1": 0,
+              "pruned_despite_lime_item_top50": 0,
+              "pruned_despite_lime_item_top10": 0,
+              "branching_raised_and_lime_item_top50": 0,
+              "missed_item_and_lime_item_below50": 0
+            }
+          }
+        }
+      },
+      "model_unchanged": true,
+      "test_read": false,
+      "optimizer_steps": 0,
+      "observer_identity_checks": [
+        {
+          "sample": 0,
+          "arm": "GRAM",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 0,
+          "arm": "fixed",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 1,
+          "arm": "GRAM",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 1,
+          "arm": "fixed",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 2,
+          "arm": "GRAM",
+          "observer_identity_exact": true
+        },
+        {
+          "sample": 2,
+          "arm": "fixed",
+          "observer_identity_exact": true
+        }
+      ],
+      "maximum_cache_score_difference": 0.0,
+      "elapsed_seconds": 164.3379058521241,
+      "completed_decodes": 362
+    }
+  },
+  "verification": {
+    "Toys": {
+      "users": 170,
+      "beam_steps_checked": 2380,
+      "cache_paths_and_ranks_exact": true
+    },
+    "Beauty": {
+      "users": 178,
+      "beam_steps_checked": 3204,
+      "cache_paths_and_ranks_exact": true
+    }
+  },
+  "test_read": false,
+  "caveat": "Retrospective development diagnosis; enriched cases are not population rates; local support is not causal proof."
+}

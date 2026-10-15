@@ -1,0 +1,30 @@
+{
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "Toys": "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160",
+    "Beauty": "GPU-07374397-b213-09c1-2988-718acb6ed231"
+  },
+  "evaluation_users": 512,
+  "smoke_users": 3,
+  "alpha": 0.3,
+  "rhos": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "minimum_free_mib": 12288,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": null,
+  "filtering": "Exactly existing final-filter input history; no lifetime-history expansion",
+  "selection": "All arms frozen before evaluation; no outcome-based parameter selection",
+  "no_model_training": true,
+  "test_read": false,
+  "development_diagnostic": true,
+  "authorization": "User explicitly authorized autonomous background launch and status-file observation."
+}

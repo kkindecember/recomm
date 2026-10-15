@@ -1,0 +1,180 @@
+{
+  "domains": {
+    "Toys": {
+      "all": {
+        "n": 512,
+        "history_longer_than20": 12,
+        "max_shared_prefix_histogram": {
+          "0": 233,
+          "1": 143,
+          "2": 73,
+          "3": 11,
+          "4": 2,
+          "5": 40,
+          "6": 10
+        },
+        "target_in_native50": 92
+      },
+      "native_miss10": {
+        "n": 462,
+        "history_longer_than20": 10,
+        "max_shared_prefix_histogram": {
+          "0": 233,
+          "1": 143,
+          "2": 73,
+          "3": 11,
+          "4": 2
+        },
+        "target_in_native50": 42
+      },
+      "text_hit10_native_miss10": {
+        "n": 16,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "0": 3,
+          "1": 4,
+          "2": 6,
+          "3": 2,
+          "4": 1
+        },
+        "target_in_native50": 6
+      },
+      "sasrec_hit10_native_miss10": {
+        "n": 15,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "0": 3,
+          "1": 5,
+          "2": 7
+        },
+        "target_in_native50": 9
+      },
+      "user_guided_rescue10": {
+        "n": 8,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "0": 1,
+          "2": 5,
+          "3": 1,
+          "4": 1
+        },
+        "target_in_native50": 8
+      },
+      "user_guided_harm10": {
+        "n": 1,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "5": 1
+        },
+        "target_in_native50": 1
+      },
+      "history_at_most20": {
+        "n": 500,
+        "metrics": {
+          "native": {
+            "N10": 0.06250252207524266,
+            "H10": 0.096
+          },
+          "user_late": {
+            "N10": 0.068391937666877,
+            "H10": 0.112
+          },
+          "user_guided": {
+            "N10": 0.06705173718269196,
+            "H10": 0.11
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "all": {
+        "n": 512,
+        "history_longer_than20": 22,
+        "max_shared_prefix_histogram": {
+          "0": 295,
+          "1": 133,
+          "2": 21,
+          "3": 1,
+          "4": 2,
+          "7": 56,
+          "8": 4
+        },
+        "target_in_native50": 115
+      },
+      "native_miss10": {
+        "n": 452,
+        "history_longer_than20": 17,
+        "max_shared_prefix_histogram": {
+          "0": 295,
+          "1": 133,
+          "2": 21,
+          "3": 1,
+          "4": 2
+        },
+        "target_in_native50": 55
+      },
+      "text_hit10_native_miss10": {
+        "n": 16,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "0": 5,
+          "1": 8,
+          "2": 3
+        },
+        "target_in_native50": 5
+      },
+      "sasrec_hit10_native_miss10": {
+        "n": 17,
+        "history_longer_than20": 3,
+        "max_shared_prefix_histogram": {
+          "0": 6,
+          "1": 11
+        },
+        "target_in_native50": 8
+      },
+      "user_guided_rescue10": {
+        "n": 15,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "0": 7,
+          "1": 6,
+          "2": 2
+        },
+        "target_in_native50": 9
+      },
+      "user_guided_harm10": {
+        "n": 7,
+        "history_longer_than20": 0,
+        "max_shared_prefix_histogram": {
+          "7": 6,
+          "8": 1
+        },
+        "target_in_native50": 7
+      },
+      "history_at_most20": {
+        "n": 490,
+        "metrics": {
+          "native": {
+            "N10": 0.06728371153353518,
+            "H10": 0.11224489795918367
+          },
+          "user_late": {
+            "N10": 0.07297268907771015,
+            "H10": 0.11836734693877551
+          },
+          "user_guided": {
+            "N10": 0.07864029335878041,
+            "H10": 0.12857142857142856
+          }
+        }
+      }
+    }
+  },
+  "scope": "post-hoc reused development512; descriptive only",
+  "limitations": [
+    "Lexical prefix sharing is not an audited attribute or semantic-error label.",
+    "Expert hit opportunity is not a realizable selection policy.",
+    "Short-history subgroup controls visible event count only, not model training or text budget.",
+    "No new recommendation method, causal attribution, or significance claim."
+  ]
+}

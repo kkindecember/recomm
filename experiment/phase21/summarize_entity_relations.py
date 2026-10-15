@@ -1,0 +1,162 @@
+"""Persist all results and a readable Chinese interpretation without launching followups."""
+import json
+from pathlib import Path
+from analyze_selective_evidence import sha, write
+from extract_entity_relations import ROOT, OUT
+
+REPORT=ROOT/'report/第二十一阶段/实体归一化与未知状态检查_20260925.md'
+LABELS={'old':'旧系列规则','old_known':'旧系列＋未知不改','normalized':'名称归一化','normalized_known':'名称归一化＋未知不改（主）',
+        'score_matched':'同用户分数对照','shuffled_known':'错配历史＋未知不改'}
+
+
+def table(summary,cohort):
+    lines=['|域／政策|修改人数|救回|误伤|净增|NDCG@10|','|---|---:|---:|---:|---:|---:|']
+    for domain in ('Toys','Beauty'):
+        for p,r in summary['domains'][domain][cohort]['policies'].items():
+            lines.append(f"|{domain}／{LABELS[p]}|{r['actions']}|{r['gained10']}|{r['lost10']}|{r['net_hits']:+d}|{r['N10']:.9f}|")
+    return '\n'.join(lines)
+
+
+def main():
+    summary=json.loads((OUT/'summary.json').read_text());quality=json.loads((OUT/'quality_gate.json').read_text())
+    verification=json.loads((OUT/'verification.json').read_text());assert verification['state']=='VERIFIED'
+    extraction=json.loads((OUT/'extraction_summary.json').read_text())
+    tables=[]
+    for cohort in ('primary','train_holdout','previous512','seen_fit_user_later_event','all'):
+        tables.extend(['## '+cohort,'',table(summary,cohort),''])
+        lines=['|域／主政策对照|净命中差|ΔN10|95%用户配对区间|','|---|---:|---:|---|']
+        for domain in ('Toys','Beauty'):
+            for name,r in summary['domains'][domain][cohort]['contrasts'].items():
+                ci=r.get('ci95');interval='未计算' if ci is None else f'[{ci[0]:+.9f}, {ci[1]:+.9f}]'
+                lines.append(f"|{domain}／{name}|{r['net_hit_difference']:+d}|{r['delta_N10']:+.9f}|{interval}|")
+        tables.extend(['\n'.join(lines),''])
+    (OUT/'all_tables.md').write_text('\n'.join(tables))
+    prefix='../../artifacts/phase21/entity_relations_20260925_v1/'
+    text=f'''# 实体归一化与未知状态检查
+
+## Material Passport
+
+- 日期2026-09-25；Origin Skill：academic-research-suite，内联执行。状态COMPLETED；来源与数值VERIFIED，语义审查为同一助手，非独立标注。
+- [执行前固定协议](../../plan/第二十一阶段/21.15_实体归一化与未知状态固定检查_20260925.md)。用户授权继续修复上一轮的简称、层级和未知状态问题。
+- 本轮先冻结提取及来源审查，再做六个固定政策的缓存比较。提取{extraction['seconds']:.2f}秒、评价{summary['seconds']:.2f}秒；新拟合／GRAM训练／专家训练／GPU推理均为0，无test读取。
+- 仍使用已经反复探索的validation；不是独立确认。21.6语义训练保持USER_PAUSED。
+
+## 本轮回答
+
+**这次修正仍未形成可用的新机制。保守规则减少了误伤，但大部分救回也随之消失；名称更统一没有带来额外净收益。**
+
+主要组共有Toys15406／Beauty17766人。名称归一化＋未知不改只分别修改16／9人，救回1／0、误伤0／0。旧规则原有5次救回、5次误伤；主政策避开5次误伤，但放弃4次救回，没有新增救回。
+
+同一批16／9名用户上，直接采用融合分数最高的专家候选，也净增1／0。两种政策在Toys救回的是不同用户，不能称为逐用户结果完全一样。主政策没有显示出超越该对照的净收益。
+
+当前“零误伤”来自极少数修改以及大量不修改，**没有证明已经学会识别哪些原判断正确**。它也不是相对原GRAM的新成绩：所有政策只替换旧融合列表第10名，前9名原样保留，没有运行新生成。
+
+## 1. 名称修复改善了什么
+
+以原85个明示series／collection组为种子；去掉固定前缀和格式差异，保留命名家族／主题；数字批次和TV／comic／movie另存。尺寸不再误作批次。排除4个上轮来源不确定组，另有4组在去前缀后不满足至少2个非通用词，均按冻结规则处理。
+
+|目录覆盖|Toys|Beauty|
+|---|---:|---:|
+|原系列覆盖商品|142|124|
+|归一化后覆盖商品|154（1.29%）|143（1.18%）|
+|新识别商品|31|24|
+|原标签被排除商品|19|5|
+|归一化后的家族／主题组|24|42|
+|新增商品来源审核支持|31/31|23/24|
+
+新增商品少于32，依协议全部审核。支持口径仅是“同命名家族或主题”，不能解读为同功能、同批次、同生产方或可替换。Toys可同时包含Walking Dead人物模型、毛绒和桌游；这只是共同主题。Beauty的Essie Summer 2012／2013只支持共同夏季发布主题，不能称为同年度套系，当前batch没有记录collection年份。
+
+明确错误也保留了下来：Beauty9993是MelodySusie烘干灯，标题列出可适配OPI GelColor，提取器却将它当成该指甲油家族成员。这说明**标题提到了某实体，与商品本身属于该实体，是两种关系**。23/24达到事先90%的工程初筛门槛，按协议进入固定比较，但不能当作高质量实体识别已解决的证明；没有看到效果后人工删错项。
+
+回归检查修复了原来两个Toys候选的漏识别：11649“Walking Dead Rick Grimes Series 4”和11356“Walking Dead TV Daryl Dixon”现在都能识别父主题。Beauty12005／12006的“Series 1 inch”也不再把1当批次。
+
+## 2. 六组固定比较
+
+A为原三专家前10并集中、原融合前10之外的建议；B为原融合第10名。历史支持为同家族不同商品的去重数量，不算候选自身重复。支持至少1且大于B才可改；候选按支持数、融合分数、ID选择。主政策另要求A与B都有唯一已知标签。错配历史沿用既有角色／折／历史长度匹配，不能换人的单例单独计数。
+
+{table(summary,'primary')}
+
+这张表的救回／误伤均**相对原融合列表**，不是相对上一行。主要组原融合N10为0.081115060／0.071651869。
+
+- **只加未知保护**：Toys避开3次误伤、放弃1次救回，保留2次救回；Beauty避开2次误伤，同时放弃全部2次救回。
+- **只做名称归一化**：Toys避开2次误伤，也放弃2次救回，净增仍0；Beauty救回2、误伤2，净增仍0。
+- **两者一起用**：两域总共修改25人，保留1次救回，无误伤。同用户分数对照同样净增1，没有证实新增关系能改善候选选择。
+
+主政策相对原融合的ΔN10为Toys +0.000018763（约+0.023%相对变化）、Beauty 0。主政策相对同用户分数对照的ΔN10均0，Toys 95%用户配对区间[−0.000056289,+0.000056289]。相对旧系列规则的区间为Toys[−0.000056289,+0.000112579]、Beauty[−0.000065083,+0.000065083]。主政策在Toys比“旧系列＋未知不改”少救回1人。
+
+每个主要／训练留出比较使用2000次用户配对bootstrap；事件极稀疏，区间包含或触及0，未计入多重探索和上游随机性。Beauty全零变化的[0,0]来自样本内没有变化，不表示总体不确定性为0。
+
+## 3. 为什么名称修好仍然不够
+
+**统一父主题可以补上遗漏，也可能抹平有用的细分差异。**
+
+- 旧误伤用户A2UP81NU4PQJAO：原候选11649也是Walking Dead商品，但旧标签遗漏。归一化后B有4件同主题历史支持，专家建议不再超过B，误伤消失。
+- 旧救回用户A2KNSFX7T24ET7：目标10778属于TV Series 4，原候选10096属于TV Series 3。旧规则可以利用细分标签救回；只比较父主题后，两边都得到3件同主题历史支持，规则不再替换，救回也消失。
+
+这两个例子解释同一种归并如何同时改善和损害局部判断；全部主要非中性案例共11个均保存，未只选择成功案例。源字段scope／batch保留，但本轮事先规定不用于选择，不能看到案例后补一条批次规则再宣称有效。
+
+**未知保护的代价来自覆盖过少。** 主要组B有已知家族标签的用户仅Toys162/15406、Beauty143/17766。A得到同家族历史支持的候选对虽从379／333增至661／431，但大量B仍未知。明确不知道B的归属，可以避免拿“没提取到”当负面证据，却没有自动补出足以比较A和B的信息。
+
+因此这轮更准确的结论是：旧提取遗漏确实能造成不公平比较；但“补父主题＋未知时不改”还不足以决定何时采纳专家，不能据此写成已完成的推荐创新。
+
+## 4. 适配简称：查到字符串，不等于查到正确对象
+
+|查找状态（按源文触发记录）|Toys|Beauty|
+|---|---:|---:|
+|唯一目录匹配|82|12|
+|多个目录匹配|282|39|
+|没有匹配|119|43|
+|范围过宽|5|0|
+|否定过滤|50|3|
+
+这些是查找记录数量，不是经过验证的关系边，重复表述也分别计数。每域16条分层来源样本均审核；全部适配结果没有用于推荐。
+
+有用的修复例子：Beauty3034写“for use with ped egg”，现在能查到4882“pedegg original foot file”；5662的“duralash”查到2件睫毛商品，保留两者，没有假装唯一。CND Shellac匹配到6件UV Color Coat商品，也保留集合。
+
+失败同样明确：Toys一款游戏写适配Leapster Explorer，唯一字符串命中却是也写着适配该主机的电源适配器；Beauty“works with all types of hair”被连到脱发补充剂。“适合所有肤质”也会被连到若干标题含skin types的商品。标题中的兼容对象、比较对象、普通性质词，都会造成伪实体匹配。另发现旧否定窗口会把“耳机未随附”中的not错误用于否定“兼容耳机”。
+
+所以需要识别提及词在句中的角色，以及它指向的是产品、产品线还是普通属性；简单扩充别名词典不能保证这点。本轮既没有验证这些配套关系能提升推荐，也没有运行语言模型关系抽取或语义引导训练。
+
+## 5. 其余固定分组与决定
+
+全validation为19412／22363人。主政策修改19／10人，救回1／0、误伤0／0；“只归一化”在Beauty全量为救回2、误伤3，其中多出的1次误伤位于已参与旧拟合用户的后续事件组，不能藏在主要组之外。
+
+训练留出2773／3310人中，主政策只修改0／1人，救回和误伤均0；旧系列规则在Toys还有1次救回，主政策未保留。没有新拟合，不能称为模型折外预测。原512、拟合用户后续事件、全部validation和训练留出均见[全部表格]({prefix}all_tables.md)。
+
+错配政策在主要组只修改Toys1人、Beauty0人，均无命中变化。两域主要组无法更换的单例分别18／17人，本轮错配动作没有来自单例。错配动作数量与主政策差异很大，不能将差值解释为真实历史内容的纯因果效应。
+
+**保留现有方案，不把本轮规则升级为生成机制。** 下一项需要解决的不是再改一个融合阈值，而是建立能区分“商品本身是谁／提及了谁”和“父主题／具体版本”的可核验关系表示；同一份依据应能分别核对A、B，缺失保留未知。在来源核验和覆盖足够之前，继续追加语义训练还不能回答这些问题。本轮未自动启动后续实验。
+
+## 6. 核验与统计解释
+
+- 37个来源哈希通过；24025件目录商品及297件家族成员结构检查；635条适配查找重新查表核验。
+- 1063607条候选支持计数、287148次用户—政策选择、60行分组指标独立重算一致；旧规则逐用户完全复现21.14。
+- 尺寸／批次、媒体标记、竞争家族歧义回归通过；不确定性审查标签和质量门槛另行复算。语义标签没有独立审稿人验证，查表验证不等于语义验证。
+- 60个政策结果、50个对照全部公开；不做多重比较校正，不选择单域阈值、不读取test。协议与质量标签在效果评价前保存并哈希，但整个方向来自旧验证集的事后发现。
+
+统计解释11/11：两域及固定分组分开（Simpson）；用户重采样而非候选独立样本（生态谬误）；报告种子范围和仅约1%覆盖（选择偏差）；固定候选及已知标签条件不推广总体因果（碰撞偏差）；同时报告动作／救回／误伤及基率（基率）；全部主要非中性案例公开（均值回归）；保留失效对照、提取错误和非主要组额外误伤（幸存者偏差）；六政策全部报告（多重探索）；冻结规则、不在本轮改批次政策（分叉路径）；共同主题不等于购买原因（相关因果）；提取与选择不接受目标，目标只计算后验指标（反向因果／未来信息）。
+
+## 文件
+
+- [完整数值]({prefix}summary.json)、[来源审查]({prefix}source_review.json)、[来源回归样例]({prefix}source_regression_cases.json)、[质量门槛]({prefix}quality_gate.json)
+- [Toys关系]({prefix}Toys_relations.json)、[Beauty关系]({prefix}Beauty_relations.json)、[全部主要非中性案例]({prefix}all_primary_non_neutral_cases.json)
+- [数值核验]({prefix}verification.json)、[状态]({prefix}status.json)
+- [提取代码](../../experiment/phase21/entity_relation_core.py)、[固定评价](../../experiment/phase21/evaluate_entity_relations.py)、[核验代码](../../experiment/phase21/verify_entity_relations.py)
+'''
+    REPORT.write_text(text)
+    dashboard=ROOT/'report/第二十一阶段/在跑实验总览_20260923.md'
+    marker='<!-- entity_relations_20260925 -->'
+    if marker not in dashboard.read_text():
+        intro=marker+'\n**9月25日实体归一化／未知状态检查完成：主要组Toys15406／Beauty17766人中，主政策只修改16／9人，救回1／0、误伤0／0；同用户分数对照同样净增1／0。相对旧规则避开全部5次误伤，同时放弃4/5次救回，未形成双域有效机制。家族覆盖154／143件商品，适配简称查找存在实体角色误连，未接入推荐。见[完整结果](实体归一化与未知状态检查_20260925.md)。六政策和所有固定分组均报告，来源与106万候选计数复核通过；无新拟合／训练／GPU推理，21.6仍暂停，本轮CPU分析已结束。**\n\n'
+        dashboard.write_text(intro+dashboard.read_text())
+    for name in ('audit_entity_relations.py','evaluate_entity_relations.py','verify_entity_relations.py','summarize_entity_relations.py'):
+        p=Path(__file__).with_name(name);(OUT/name).write_text(p.read_text())
+    status=json.loads((OUT/'status.json').read_text());status.update(verification='VERIFIED',report=str(REPORT.relative_to(ROOT)),semantic_training_state='USER_PAUSED')
+    write(OUT/'status.json',status)
+    hashes={str(p.relative_to(ROOT)):sha(p) for p in sorted(OUT.rglob('*')) if p.is_file() and p.name!='verification_manifest.json'}
+    hashes[str(REPORT.relative_to(ROOT))]=sha(REPORT)
+    write(OUT/'verification_manifest.json',hashes)
+    print(str(REPORT),flush=True)
+
+
+if __name__=='__main__':main()

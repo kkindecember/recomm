@@ -1,0 +1,21 @@
+{
+  "state": "PASSED",
+  "date": "2026-09-23",
+  "tests": 5,
+  "test_duration_seconds": 11.999,
+  "python_compile": "PASSED",
+  "shell_syntax": "PASSED",
+  "checks": [
+    "Only unsaved generation users are decoded on continuation",
+    "Complete prediction rows survive a torn final record; fragment is archived",
+    "Valid final record without newline is retained",
+    "Wrong user ordering and corrupt complete records fail without silent skipping",
+    "Boot ID and process start identity prevent false adoption after PID reuse"
+  ],
+  "observed_handover": {
+    "original_worker_pids_preserved": [159043, 159061],
+    "supervisor_pid": 308839,
+    "active_worker_count_at_1849": 6,
+    "auto_start_after_reboot": false
+  }
+}

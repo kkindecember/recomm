@@ -1,0 +1,62 @@
+{
+  "reviewed_at": "2026-09-21T17:41:31+0800",
+  "domains": {
+    "Toys": {
+      "without_history_penalty_metric_differences": {
+        "catalog": {},
+        "GRAM50": {},
+        "guided50": {}
+      },
+      "ranking_changes": {
+        "catalog": {
+          "order_changed_users": 2,
+          "target_rank_changed_users": 0
+        },
+        "GRAM50": {
+          "order_changed_users": 1,
+          "target_rank_changed_users": 0
+        },
+        "guided50": {
+          "order_changed_users": 1,
+          "target_rank_changed_users": 0
+        }
+      },
+      "users_with_history_outside_recent20": 19,
+      "users": 512,
+      "without_itemcf_GRAM50_relative_N10": -0.013798293432256054
+    },
+    "Beauty": {
+      "without_history_penalty_metric_differences": {
+        "catalog": {
+          "N50": -1.6177672180942015e-05
+        },
+        "GRAM50": {
+          "N50": -5.782104437440649e-06
+        },
+        "guided50": {
+          "N20": -7.872461341540404e-06,
+          "N50": -1.2630538873223407e-05
+        }
+      },
+      "ranking_changes": {
+        "catalog": {
+          "order_changed_users": 7,
+          "target_rank_changed_users": 2
+        },
+        "GRAM50": {
+          "order_changed_users": 5,
+          "target_rank_changed_users": 1
+        },
+        "guided50": {
+          "order_changed_users": 5,
+          "target_rank_changed_users": 2
+        }
+      },
+      "users_with_history_outside_recent20": 20,
+      "users": 512,
+      "without_itemcf_GRAM50_relative_N10": -0.021306518844244657
+    }
+  },
+  "correction": "NDCG@10, Hit@10 and Hit@50 unchanged after removing history calibration; not every TopK metric or ranking is unchanged.",
+  "interpretation": "Original screen tests performance improvement, not simplification/noninferiority; no change to frozen decision threshold or results."
+}

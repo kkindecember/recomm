@@ -1,0 +1,60 @@
+{
+  "coverage": "11/11",
+  "checks": [
+    {
+      "name": "simpson",
+      "status": "CAUTION",
+      "note": "Report domains and cohorts separately. Beauty candidate-minus-scalar N10 changes sign between primary and all; retain predeclared primary pool, do not choose the favorable denominator."
+    },
+    {
+      "name": "ecological",
+      "status": "CHECKED",
+      "note": "Mean benefit does not mean every user benefits; retain per-seed top10 gains/losses."
+    },
+    {
+      "name": "berkson",
+      "status": "CAUTION",
+      "note": "Primary excludes previous512 and fit-role users by fixed membership; generalization beyond this selected, repeatedly used validation cohort is unproven."
+    },
+    {
+      "name": "collider",
+      "status": "CHECKED",
+      "note": "No restriction to target-in-candidates or outcome-selected responders; all planned rows retained."
+    },
+    {
+      "name": "base_rate",
+      "status": "CHECKED",
+      "note": "Report cohort sizes, absolute N10/H10/H50, absolute differences and relative differences."
+    },
+    {
+      "name": "regression_to_mean",
+      "status": "CAUTION",
+      "note": "Same-user matched controls; configuration informed by past exploration, so gains are not fresh confirmation."
+    },
+    {
+      "name": "survivorship",
+      "status": "CHECKED",
+      "note": "Both domains and all three seeds of all three arms completed; no dropped evaluation rows."
+    },
+    {
+      "name": "look_elsewhere",
+      "status": "CAUTION",
+      "note": "Multiple exploratory comparisons without multiplicity correction; no confirmatory significance claim. H50 is a predeclared secondary metric, not a replacement for the weak primary N10 contrast."
+    },
+    {
+      "name": "forking_paths",
+      "status": "CAUTION",
+      "note": "Protocol and code hashes match the launch; past three-expert experiments and failed compact heads informed this design and remain part of the record."
+    },
+    {
+      "name": "causation",
+      "status": "CHECKED",
+      "note": "Matched computational contrast supports this configuration only; H50 ranking coverage is not proof of improved generation or causal user behavior."
+    },
+    {
+      "name": "reverse_causality",
+      "status": "CHECKED",
+      "note": "Features are score/history based; targets are used for fit losses/evaluation, not candidate construction. No behavioral causal direction inferred."
+    }
+  ]
+}

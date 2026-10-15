@@ -1,0 +1,212 @@
+{
+  "Toys": {
+    "relative_N10": {
+      "user": {
+        "native": 0.07161325344780423,
+        "baseline": 0.0016057461306622223,
+        "three": -0.03357008032168518,
+        "mean_guided": 0.01195883825973687
+      },
+      "candidate": {
+        "native": 0.054832110642463405,
+        "baseline": -0.0140791000639795,
+        "three": -0.04870408360252998,
+        "mean_guided": -0.0038881342588710233,
+        "user_guided": -0.015659700690850098
+      }
+    },
+    "model_checks": {
+      "user": {
+        "checked_full_catalog_users": [
+          0,
+          127,
+          255,
+          383,
+          511
+        ],
+        "selected_epochs": 4,
+        "fit_users": 2773
+      },
+      "candidate": {
+        "checked_full_catalog_users": [
+          0,
+          127,
+          255,
+          383,
+          511
+        ],
+        "selected_epochs": 12,
+        "fit_users": 2773
+      }
+    },
+    "hits": {
+      "native": {
+        "10": 50,
+        "50": 92
+      },
+      "baseline": {
+        "10": 59,
+        "50": 95
+      },
+      "three": {
+        "10": 62,
+        "50": 96
+      },
+      "residual_candidate": {
+        "10": 57,
+        "50": 97
+      },
+      "mean_late": {
+        "10": 59,
+        "50": 92
+      },
+      "mean_guided": {
+        "10": 57,
+        "50": 94
+      },
+      "user_late": {
+        "10": 58,
+        "50": 92
+      },
+      "user_guided": {
+        "10": 57,
+        "50": 95
+      },
+      "candidate_late": {
+        "10": 56,
+        "50": 92
+      },
+      "candidate_guided": {
+        "10": 56,
+        "50": 97
+      }
+    },
+    "candidate_minus_user_by_stage": {
+      "pure": 0.001036473457797643,
+      "late": -0.0015999310378501524,
+      "guided": -0.0010468811567634767
+    },
+    "coverage": {
+      "mean": {
+        "new_top10_outside_native50": 0,
+        "top50_gained": 8,
+        "top50_lost": 6
+      },
+      "user": {
+        "new_top10_outside_native50": 0,
+        "top50_gained": 9,
+        "top50_lost": 6
+      },
+      "candidate": {
+        "new_top10_outside_native50": 0,
+        "top50_gained": 11,
+        "top50_lost": 6
+      }
+    }
+  },
+  "Beauty": {
+    "relative_N10": {
+      "user": {
+        "native": 0.15162439061521082,
+        "baseline": 0.02349353781068464,
+        "three": 0.016658489752296335,
+        "mean_guided": 0.03839914840818204
+      },
+      "candidate": {
+        "native": 0.18453492182546727,
+        "baseline": 0.0527424112229784,
+        "three": 0.045712034666616,
+        "mean_guided": 0.06807398671560505,
+        "user_guided": 0.02857748713769004
+      }
+    },
+    "model_checks": {
+      "user": {
+        "checked_full_catalog_users": [
+          0,
+          127,
+          255,
+          383,
+          511
+        ],
+        "selected_epochs": 12,
+        "fit_users": 3310
+      },
+      "candidate": {
+        "checked_full_catalog_users": [
+          0,
+          127,
+          255,
+          383,
+          511
+        ],
+        "selected_epochs": 20,
+        "fit_users": 3310
+      }
+    },
+    "hits": {
+      "native": {
+        "10": 60,
+        "50": 115
+      },
+      "baseline": {
+        "10": 65,
+        "50": 127
+      },
+      "three": {
+        "10": 64,
+        "50": 125
+      },
+      "residual_candidate": {
+        "10": 66,
+        "50": 129
+      },
+      "mean_late": {
+        "10": 61,
+        "50": 115
+      },
+      "mean_guided": {
+        "10": 65,
+        "50": 127
+      },
+      "user_late": {
+        "10": 63,
+        "50": 115
+      },
+      "user_guided": {
+        "10": 68,
+        "50": 125
+      },
+      "candidate_late": {
+        "10": 65,
+        "50": 115
+      },
+      "candidate_guided": {
+        "10": 69,
+        "50": 127
+      }
+    },
+    "candidate_minus_user_by_stage": {
+      "pure": 0.0044987188915645016,
+      "late": 0.0028137096593666144,
+      "guided": 0.002359063207624565
+    },
+    "coverage": {
+      "mean": {
+        "new_top10_outside_native50": 5,
+        "top50_gained": 18,
+        "top50_lost": 6
+      },
+      "user": {
+        "new_top10_outside_native50": 6,
+        "top50_gained": 18,
+        "top50_lost": 8
+      },
+      "candidate": {
+        "new_top10_outside_native50": 5,
+        "top50_gained": 17,
+        "top50_lost": 5
+      }
+    }
+  }
+}

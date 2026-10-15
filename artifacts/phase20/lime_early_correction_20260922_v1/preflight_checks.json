@@ -1,0 +1,13 @@
+{
+  "state": "PASSED",
+  "tests": 4,
+  "ran_before_formal_fit": true,
+  "command": "python -m unittest experiment.phase20.test_lime_early_correction -v",
+  "initial_synthetic_failure": {
+    "check": "bitwise equality across GEMM batch shapes",
+    "mismatched": 17,
+    "total": 600,
+    "max_absolute_error": 2.384185791015625e-07
+  },
+  "resolution": "Numerical invariance atol=1e-6, rtol=1e-6; full previous-head reproduction remains exact; recorded before formal fit."
+}

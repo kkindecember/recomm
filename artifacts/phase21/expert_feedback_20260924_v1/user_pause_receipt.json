@@ -1,0 +1,58 @@
+{
+  "state": "USER_PAUSED",
+  "updated_at": "2026-09-24T15:30:24+0800",
+  "controller": {
+    "pid": 368021,
+    "boot": "4f484aa0-6100-4eca-b50f-b97ca0ab756b",
+    "start": "626275"
+  },
+  "workers": {
+    "Toys": {
+      "domain": "Toys",
+      "gpu": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+      "identity": {
+        "pid": 368337,
+        "boot": "4f484aa0-6100-4eca-b50f-b97ca0ab756b",
+        "start": "626735"
+      },
+      "started_wall": 1790234557.0113134,
+      "log": "artifacts/phase21/expert_feedback_20260924_v1/Toys/worker_1790234557.log"
+    },
+    "Beauty": {
+      "domain": "Beauty",
+      "gpu": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640",
+      "identity": {
+        "pid": 373390,
+        "boot": "4f484aa0-6100-4eca-b50f-b97ca0ab756b",
+        "start": "634292"
+      },
+      "started_wall": 1790234632.5831223,
+      "log": "artifacts/phase21/expert_feedback_20260924_v1/Beauty/worker_1790234632.log"
+    }
+  },
+  "leases": {
+    "Toys": {
+      "identity": {
+        "pid": 368516,
+        "boot": "4f484aa0-6100-4eca-b50f-b97ca0ab756b",
+        "start": "627176"
+      },
+      "status_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase21/expert_feedback_20260924_v1/Toys/gpu_lease_368337.json",
+      "gpu": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253"
+    },
+    "Beauty": {
+      "identity": {
+        "pid": 373689,
+        "boot": "4f484aa0-6100-4eca-b50f-b97ca0ab756b",
+        "start": "634739"
+      },
+      "status_path": "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase21/expert_feedback_20260924_v1/Beauty/gpu_lease_373390.json",
+      "gpu": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640"
+    }
+  },
+  "forced_stop_domains": [],
+  "all_registered_processes_stopped": true,
+  "checkpoints_preserved": true,
+  "full_validation_untouched": true,
+  "requires_explicit_user_authorization_to_restart": true
+}

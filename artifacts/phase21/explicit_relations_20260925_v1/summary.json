@@ -1,0 +1,898 @@
+{
+  "state": "COMPLETED",
+  "domains": {
+    "Toys": {
+      "series": {
+        "train_holdout": {
+          "users": 2773,
+          "users_with_A_relation": 30,
+          "users_with_B_relation": 7,
+          "users_with_qualifying_proposal": 23,
+          "candidates": 60647,
+          "relation_candidates": 62,
+          "policies": {
+            "relation": {
+              "users": 2773,
+              "actions": 23,
+              "gained10": 1,
+              "lost10": 0,
+              "neutral_actions": 22,
+              "net_hits": 1,
+              "N10": 0.08193522461024318,
+              "H10": 0.13018391633609808,
+              "delta_N10": 0.00010424263480630649,
+              "ci95": [
+                0.0,
+                0.0003127279044189195
+              ]
+            },
+            "score_matched": {
+              "users": 2773,
+              "actions": 23,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 23,
+              "net_hits": 0,
+              "N10": 0.08183098197543687,
+              "H10": 0.1298232960692391,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "shuffled": {
+              "users": 2773,
+              "actions": 1,
+              "gained10": 1,
+              "lost10": 0,
+              "neutral_actions": 0,
+              "net_hits": 1,
+              "N10": 0.08193522461024318,
+              "H10": 0.13018391633609808,
+              "delta_N10": 0.00010424263480630649,
+              "ci95": [
+                0.0,
+                0.0003127279044189195
+              ]
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 1,
+              "delta_N10": 0.00010424263480630649,
+              "ci95": [
+                0.0,
+                0.0003127279044189195
+              ]
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 126,
+              "linked_pairs": 2,
+              "qualifying_pairs": 1,
+              "users": 126,
+              "linked_users": 2,
+              "qualifying_users": 1
+            },
+            "harmful": {
+              "pairs": 362,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 19,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "neutral": {
+              "pairs": 60159,
+              "linked_pairs": 60,
+              "qualifying_pairs": 42,
+              "users": 2754,
+              "linked_users": 30,
+              "qualifying_users": 23
+            }
+          }
+        },
+        "primary": {
+          "users": 15406,
+          "users_with_A_relation": 172,
+          "users_with_B_relation": 31,
+          "users_with_qualifying_proposal": 148,
+          "candidates": 342874,
+          "relation_candidates": 379,
+          "policies": {
+            "relation": {
+              "users": 15406,
+              "actions": 148,
+              "gained10": 3,
+              "lost10": 3,
+              "neutral_actions": 142,
+              "net_hits": 0,
+              "N10": 0.08111505972552517,
+              "H10": 0.1265740620537453,
+              "delta_N10": 0.0,
+              "ci95": [
+                -9.381566477927038e-05,
+                9.381566477927038e-05
+              ]
+            },
+            "score_matched": {
+              "users": 15406,
+              "actions": 148,
+              "gained10": 1,
+              "lost10": 3,
+              "neutral_actions": 144,
+              "net_hits": -2,
+              "N10": 0.08107753345961347,
+              "H10": 0.12644424250292094,
+              "delta_N10": -3.752626591170815e-05,
+              "ci95": [
+                -0.00011257879773512444,
+                3.752626591170815e-05
+              ]
+            },
+            "shuffled": {
+              "users": 15406,
+              "actions": 3,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 3,
+              "net_hits": 0,
+              "N10": 0.08111505972552517,
+              "H10": 0.1265740620537453,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 2,
+              "delta_N10": 3.752626591170815e-05,
+              "ci95": [
+                -3.7526265911708146e-05,
+                0.00011257879773512446
+              ]
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0,
+              "ci95": [
+                -9.381566477927038e-05,
+                9.381566477927038e-05
+              ]
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 735,
+              "linked_pairs": 6,
+              "qualifying_pairs": 4,
+              "users": 735,
+              "linked_users": 6,
+              "qualifying_users": 4
+            },
+            "harmful": {
+              "pairs": 1722,
+              "linked_pairs": 6,
+              "qualifying_pairs": 6,
+              "users": 87,
+              "linked_users": 3,
+              "qualifying_users": 3
+            },
+            "neutral": {
+              "pairs": 340417,
+              "linked_pairs": 367,
+              "qualifying_pairs": 275,
+              "users": 15319,
+              "linked_users": 166,
+              "qualifying_users": 142
+            }
+          }
+        },
+        "previous512": {
+          "users": 512,
+          "users_with_A_relation": 6,
+          "users_with_B_relation": 1,
+          "users_with_qualifying_proposal": 5,
+          "candidates": 11357,
+          "relation_candidates": 11,
+          "policies": {
+            "relation": {
+              "users": 512,
+              "actions": 5,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 5,
+              "net_hits": 0,
+              "N10": 0.0627161561075924,
+              "H10": 0.109375,
+              "delta_N10": 0.0
+            },
+            "score_matched": {
+              "users": 512,
+              "actions": 5,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 5,
+              "net_hits": 0,
+              "N10": 0.0627161561075924,
+              "H10": 0.109375,
+              "delta_N10": 0.0
+            },
+            "shuffled": {
+              "users": 512,
+              "actions": 2,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 2,
+              "net_hits": 0,
+              "N10": 0.0627161561075924,
+              "H10": 0.109375,
+              "delta_N10": 0.0
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 26,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 26,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "harmful": {
+              "pairs": 56,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 3,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "neutral": {
+              "pairs": 11275,
+              "linked_pairs": 11,
+              "qualifying_pairs": 10,
+              "users": 509,
+              "linked_users": 6,
+              "qualifying_users": 5
+            }
+          }
+        },
+        "seen_fit_user_later_event": {
+          "users": 3494,
+          "users_with_A_relation": 41,
+          "users_with_B_relation": 5,
+          "users_with_qualifying_proposal": 38,
+          "candidates": 78157,
+          "relation_candidates": 90,
+          "policies": {
+            "relation": {
+              "users": 3494,
+              "actions": 38,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 38,
+              "net_hits": 0,
+              "N10": 0.07847714394280242,
+              "H10": 0.12507155123068117,
+              "delta_N10": 0.0
+            },
+            "score_matched": {
+              "users": 3494,
+              "actions": 38,
+              "gained10": 1,
+              "lost10": 0,
+              "neutral_actions": 37,
+              "net_hits": 1,
+              "N10": 0.07855987571908116,
+              "H10": 0.12535775615340583,
+              "delta_N10": 8.27317762787315e-05
+            },
+            "shuffled": {
+              "users": 3494,
+              "actions": 2,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 2,
+              "net_hits": 0,
+              "N10": 0.07847714394280242,
+              "H10": 0.12507155123068117,
+              "delta_N10": 0.0
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": -1,
+              "delta_N10": -8.27317762787315e-05
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 158,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 158,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "harmful": {
+              "pairs": 398,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 20,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "neutral": {
+              "pairs": 77601,
+              "linked_pairs": 90,
+              "qualifying_pairs": 80,
+              "users": 3474,
+              "linked_users": 41,
+              "qualifying_users": 38
+            }
+          }
+        },
+        "all": {
+          "users": 19412,
+          "users_with_A_relation": 219,
+          "users_with_B_relation": 37,
+          "users_with_qualifying_proposal": 191,
+          "candidates": 432388,
+          "relation_candidates": 480,
+          "policies": {
+            "relation": {
+              "users": 19412,
+              "actions": 191,
+              "gained10": 3,
+              "lost10": 3,
+              "neutral_actions": 185,
+              "net_hits": 0,
+              "N10": 0.08015497748787759,
+              "H10": 0.12584998969709457,
+              "delta_N10": 0.0
+            },
+            "score_matched": {
+              "users": 19412,
+              "actions": 191,
+              "gained10": 2,
+              "lost10": 3,
+              "neutral_actions": 186,
+              "net_hits": -1,
+              "N10": 0.08014008645004955,
+              "H10": 0.12579847516999793,
+              "delta_N10": -1.4891037828038733e-05
+            },
+            "shuffled": {
+              "users": 19412,
+              "actions": 7,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 7,
+              "net_hits": 0,
+              "N10": 0.08015497748787759,
+              "H10": 0.12584998969709457,
+              "delta_N10": 0.0
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 1,
+              "delta_N10": 1.4891037828038733e-05
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 919,
+              "linked_pairs": 6,
+              "qualifying_pairs": 4,
+              "users": 919,
+              "linked_users": 6,
+              "qualifying_users": 4
+            },
+            "harmful": {
+              "pairs": 2176,
+              "linked_pairs": 6,
+              "qualifying_pairs": 6,
+              "users": 110,
+              "linked_users": 3,
+              "qualifying_users": 3
+            },
+            "neutral": {
+              "pairs": 429293,
+              "linked_pairs": 468,
+              "qualifying_pairs": 365,
+              "users": 19302,
+              "linked_users": 213,
+              "qualifying_users": 185
+            }
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "series": {
+        "train_holdout": {
+          "users": 3310,
+          "users_with_A_relation": 47,
+          "users_with_B_relation": 2,
+          "users_with_qualifying_proposal": 46,
+          "candidates": 72348,
+          "relation_candidates": 73,
+          "policies": {
+            "relation": {
+              "users": 3310,
+              "actions": 46,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 46,
+              "net_hits": 0,
+              "N10": 0.06939618440834729,
+              "H10": 0.11722054380664652,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "score_matched": {
+              "users": 3310,
+              "actions": 46,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 46,
+              "net_hits": 0,
+              "N10": 0.06939618440834729,
+              "H10": 0.11722054380664652,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "shuffled": {
+              "users": 3310,
+              "actions": 3,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 3,
+              "net_hits": 0,
+              "N10": 0.06939618440834729,
+              "H10": 0.11722054380664652,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0,
+              "ci95": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 168,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 168,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "harmful": {
+              "pairs": 190,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 11,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "neutral": {
+              "pairs": 71990,
+              "linked_pairs": 73,
+              "qualifying_pairs": 72,
+              "users": 3299,
+              "linked_users": 47,
+              "qualifying_users": 46
+            }
+          }
+        },
+        "primary": {
+          "users": 17766,
+          "users_with_A_relation": 216,
+          "users_with_B_relation": 5,
+          "users_with_qualifying_proposal": 216,
+          "candidates": 395644,
+          "relation_candidates": 333,
+          "policies": {
+            "relation": {
+              "users": 17766,
+              "actions": 216,
+              "gained10": 2,
+              "lost10": 2,
+              "neutral_actions": 212,
+              "net_hits": 0,
+              "N10": 0.07165186886547835,
+              "H10": 0.11589553078914781,
+              "delta_N10": 0.0,
+              "ci95": [
+                -6.508270321240299e-05,
+                6.508270321240299e-05
+              ]
+            },
+            "score_matched": {
+              "users": 17766,
+              "actions": 216,
+              "gained10": 0,
+              "lost10": 2,
+              "neutral_actions": 214,
+              "net_hits": -2,
+              "N10": 0.07161932751387215,
+              "H10": 0.11578295620848812,
+              "delta_N10": -3.2541351606201496e-05,
+              "ci95": [
+                -8.135337901550375e-05,
+                0.0
+              ]
+            },
+            "shuffled": {
+              "users": 17766,
+              "actions": 10,
+              "gained10": 0,
+              "lost10": 1,
+              "neutral_actions": 9,
+              "net_hits": -1,
+              "N10": 0.07163559818967524,
+              "H10": 0.11583924349881797,
+              "delta_N10": -1.6270675803100748e-05,
+              "ci95": [
+                -4.8812027409302244e-05,
+                0.0
+              ]
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 2,
+              "delta_N10": 3.2541351606201496e-05,
+              "ci95": [
+                0.0,
+                8.135337901550373e-05
+              ]
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 1,
+              "delta_N10": 1.6270675803100748e-05,
+              "ci95": [
+                -3.2541351606201496e-05,
+                8.135337901550373e-05
+              ]
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 862,
+              "linked_pairs": 3,
+              "qualifying_pairs": 3,
+              "users": 862,
+              "linked_users": 3,
+              "qualifying_users": 3
+            },
+            "harmful": {
+              "pairs": 1736,
+              "linked_pairs": 5,
+              "qualifying_pairs": 5,
+              "users": 90,
+              "linked_users": 2,
+              "qualifying_users": 2
+            },
+            "neutral": {
+              "pairs": 393046,
+              "linked_pairs": 325,
+              "qualifying_pairs": 325,
+              "users": 17676,
+              "linked_users": 212,
+              "qualifying_users": 212
+            }
+          }
+        },
+        "previous512": {
+          "users": 512,
+          "users_with_A_relation": 10,
+          "users_with_B_relation": 0,
+          "users_with_qualifying_proposal": 10,
+          "candidates": 11370,
+          "relation_candidates": 13,
+          "policies": {
+            "relation": {
+              "users": 512,
+              "actions": 10,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 10,
+              "net_hits": 0,
+              "N10": 0.0719400038660376,
+              "H10": 0.11328125,
+              "delta_N10": 0.0
+            },
+            "score_matched": {
+              "users": 512,
+              "actions": 10,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 10,
+              "net_hits": 0,
+              "N10": 0.0719400038660376,
+              "H10": 0.11328125,
+              "delta_N10": 0.0
+            },
+            "shuffled": {
+              "users": 512,
+              "actions": 1,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 1,
+              "net_hits": 0,
+              "N10": 0.0719400038660376,
+              "H10": 0.11328125,
+              "delta_N10": 0.0
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 26,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 26,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "harmful": {
+              "pairs": 21,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 1,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "neutral": {
+              "pairs": 11323,
+              "linked_pairs": 13,
+              "qualifying_pairs": 13,
+              "users": 511,
+              "linked_users": 10,
+              "qualifying_users": 10
+            }
+          }
+        },
+        "seen_fit_user_later_event": {
+          "users": 4085,
+          "users_with_A_relation": 57,
+          "users_with_B_relation": 2,
+          "users_with_qualifying_proposal": 57,
+          "candidates": 91210,
+          "relation_candidates": 94,
+          "policies": {
+            "relation": {
+              "users": 4085,
+              "actions": 57,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 57,
+              "net_hits": 0,
+              "N10": 0.07051430849062809,
+              "H10": 0.11578947368421053,
+              "delta_N10": 0.0
+            },
+            "score_matched": {
+              "users": 4085,
+              "actions": 57,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 57,
+              "net_hits": 0,
+              "N10": 0.07051430849062809,
+              "H10": 0.11578947368421053,
+              "delta_N10": 0.0
+            },
+            "shuffled": {
+              "users": 4085,
+              "actions": 4,
+              "gained10": 0,
+              "lost10": 0,
+              "neutral_actions": 4,
+              "net_hits": 0,
+              "N10": 0.07051430849062809,
+              "H10": 0.11578947368421053,
+              "delta_N10": 0.0
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 0,
+              "delta_N10": 0.0
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 198,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 198,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "harmful": {
+              "pairs": 447,
+              "linked_pairs": 0,
+              "qualifying_pairs": 0,
+              "users": 22,
+              "linked_users": 0,
+              "qualifying_users": 0
+            },
+            "neutral": {
+              "pairs": 90565,
+              "linked_pairs": 94,
+              "qualifying_pairs": 94,
+              "users": 4063,
+              "linked_users": 57,
+              "qualifying_users": 57
+            }
+          }
+        },
+        "all": {
+          "users": 22363,
+          "users_with_A_relation": 283,
+          "users_with_B_relation": 7,
+          "users_with_qualifying_proposal": 283,
+          "candidates": 498224,
+          "relation_candidates": 440,
+          "policies": {
+            "relation": {
+              "users": 22363,
+              "actions": 283,
+              "gained10": 2,
+              "lost10": 2,
+              "neutral_actions": 279,
+              "net_hits": 0,
+              "N10": 0.07145067005445224,
+              "H10": 0.1158163037159594,
+              "delta_N10": 0.0
+            },
+            "score_matched": {
+              "users": 22363,
+              "actions": 283,
+              "gained10": 0,
+              "lost10": 2,
+              "neutral_actions": 281,
+              "net_hits": -2,
+              "N10": 0.0714248179928936,
+              "H10": 0.1157268702767965,
+              "delta_N10": -2.5852061558635948e-05
+            },
+            "shuffled": {
+              "users": 22363,
+              "actions": 15,
+              "gained10": 0,
+              "lost10": 1,
+              "neutral_actions": 14,
+              "net_hits": -1,
+              "N10": 0.07143774402367292,
+              "H10": 0.11577158699637795,
+              "delta_N10": -1.2926030779317974e-05
+            }
+          },
+          "contrasts": {
+            "relation_vs_score_matched": {
+              "net_hit_difference": 2,
+              "delta_N10": 2.5852061558635948e-05
+            },
+            "relation_vs_shuffled": {
+              "net_hit_difference": 1,
+              "delta_N10": 1.2926030779317974e-05
+            }
+          },
+          "label_groups": {
+            "helpful": {
+              "pairs": 1086,
+              "linked_pairs": 3,
+              "qualifying_pairs": 3,
+              "users": 1086,
+              "linked_users": 3,
+              "qualifying_users": 3
+            },
+            "harmful": {
+              "pairs": 2204,
+              "linked_pairs": 5,
+              "qualifying_pairs": 5,
+              "users": 113,
+              "linked_users": 2,
+              "qualifying_users": 2
+            },
+            "neutral": {
+              "pairs": 494934,
+              "linked_pairs": 432,
+              "qualifying_pairs": 432,
+              "users": 22250,
+              "linked_users": 279,
+              "qualifying_users": 279
+            }
+          }
+        }
+      }
+    }
+  },
+  "eligible_relations": [
+    "series"
+  ],
+  "seconds": 14.91483288499876,
+  "statistical_fits": 0,
+  "GRAM_optimizer_steps": 0,
+  "expert_optimizer_steps": 0,
+  "gpu_inferences": 0,
+  "test_read": false,
+  "exploratory": true,
+  "independent_confirmation": false,
+  "automatic_gpu_launch": false,
+  "excluded_relations": [
+    "explicit"
+  ]
+}

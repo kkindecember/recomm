@@ -1,0 +1,698 @@
+{
+  "state": "COMPLETED",
+  "domains": {
+    "Toys": {
+      "ranker_fit": {
+        "users": 2773,
+        "ineligible_targets": 0,
+        "metrics": {
+          "GRAM": {
+            "H5": 0.08366390191128742,
+            "N5": 0.060782962659217545,
+            "H10": 0.11648034619545619,
+            "N10": 0.07142236980455186,
+            "H20": 0.15254237288135594,
+            "N20": 0.08044352603737032,
+            "H50": 0.2026685899747566,
+            "N50": 0.09035593330995137
+          },
+          "fixed_late": {
+            "H5": 0.09267940858276236,
+            "N5": 0.06862555464238797,
+            "H10": 0.1265777136675081,
+            "N10": 0.07968959097765313,
+            "H20": 0.16300036062026685,
+            "N20": 0.08879539934364897,
+            "H50": 0.2026685899747566,
+            "N50": 0.09675631956276784
+          },
+          "SASRec": {
+            "H5": 0.06851785070320952,
+            "N5": 0.05014634929864328,
+            "H10": 0.09051568698160836,
+            "N10": 0.057268332677804186,
+            "H20": 0.12152902993148215,
+            "N20": 0.06509423256050195,
+            "H50": 0.16119725928597187,
+            "N50": 0.07306053576552318
+          },
+          "ItemCF": {
+            "H5": 0.06022358456545258,
+            "N5": 0.04171192462914024,
+            "H10": 0.08330328164442842,
+            "N10": 0.049157904161097936,
+            "H20": 0.10602235845654526,
+            "N20": 0.05487732352505133,
+            "H50": 0.14785430941218897,
+            "N50": 0.0632241874123065
+          },
+          "semantic": {
+            "H5": 0.04940497655968266,
+            "N5": 0.03221972552290656,
+            "H10": 0.07284529390551749,
+            "N10": 0.03970019021656368,
+            "H20": 0.10349801658853228,
+            "N20": 0.047479703146039075,
+            "H50": 0.15218175261449693,
+            "N50": 0.05704735889916589
+          },
+          "LIME": {
+            "H5": 0.09556437071763434,
+            "N5": 0.07079633114350875,
+            "H10": 0.1298232960692391,
+            "N10": 0.08183098197543687,
+            "H20": 0.16552470248827983,
+            "N20": 0.09084684941552529,
+            "H50": 0.22646952758745043,
+            "N50": 0.10287348018443891
+          }
+        },
+        "opportunity": {
+          "10": {
+            "SASRec": {
+              "both_hit": 167,
+              "GRAM_only": 156,
+              "source_only": 84,
+              "neither": 2366,
+              "unique_vs_GRAM_and_other_experts": 53
+            },
+            "ItemCF": {
+              "both_hit": 153,
+              "GRAM_only": 170,
+              "source_only": 78,
+              "neither": 2372,
+              "unique_vs_GRAM_and_other_experts": 38
+            },
+            "semantic": {
+              "both_hit": 99,
+              "GRAM_only": 224,
+              "source_only": 103,
+              "neither": 2347,
+              "unique_vs_GRAM_and_other_experts": 80
+            },
+            "LIME": {
+              "both_hit": 228,
+              "GRAM_only": 95,
+              "source_only": 132,
+              "neither": 2318
+            },
+            "any_expert": {
+              "GRAM_missed": 2450,
+              "expert_opportunities": 215,
+              "GRAM_and_all_experts_miss": 2235
+            }
+          },
+          "50": {
+            "SASRec": {
+              "both_hit": 329,
+              "GRAM_only": 233,
+              "source_only": 118,
+              "neither": 2093,
+              "unique_vs_GRAM_and_other_experts": 79
+            },
+            "ItemCF": {
+              "both_hit": 305,
+              "GRAM_only": 257,
+              "source_only": 105,
+              "neither": 2106,
+              "unique_vs_GRAM_and_other_experts": 42
+            },
+            "semantic": {
+              "both_hit": 245,
+              "GRAM_only": 317,
+              "source_only": 177,
+              "neither": 2034,
+              "unique_vs_GRAM_and_other_experts": 127
+            },
+            "LIME": {
+              "both_hit": 404,
+              "GRAM_only": 158,
+              "source_only": 224,
+              "neither": 1987
+            },
+            "any_expert": {
+              "GRAM_missed": 2211,
+              "expert_opportunities": 319,
+              "GRAM_and_all_experts_miss": 1892
+            }
+          }
+        },
+        "realized": {
+          "fixed_late_minus_GRAM": {
+            "delta_N10": 0.008267221173101255,
+            "gained10": 40,
+            "lost10": 12,
+            "n10_improved": 129,
+            "n10_worsened": 71
+          }
+        }
+      },
+      "development": {
+        "users": 512,
+        "ineligible_targets": 0,
+        "metrics": {
+          "GRAM": {
+            "H5": 0.08203125,
+            "N5": 0.05723317813814494,
+            "H10": 0.09765625,
+            "N10": 0.06238437804309118,
+            "H20": 0.134765625,
+            "N20": 0.07149155402157509,
+            "H50": 0.1796875,
+            "N50": 0.08031260904434033
+          },
+          "fixed_late": {
+            "H5": 0.0859375,
+            "N5": 0.059100709874787806,
+            "H10": 0.119140625,
+            "N10": 0.0693468495896086,
+            "H20": 0.146484375,
+            "N20": 0.07619654360423594,
+            "H50": 0.1796875,
+            "N50": 0.0829103589586693
+          },
+          "SASRec": {
+            "H5": 0.05078125,
+            "N5": 0.03414500696033099,
+            "H10": 0.072265625,
+            "N10": 0.04079571620217992,
+            "H20": 0.0859375,
+            "N20": 0.044417876564442876,
+            "H50": 0.119140625,
+            "N50": 0.050996314805645385
+          },
+          "ItemCF": {
+            "H5": 0.0625,
+            "N5": 0.035784539974312135,
+            "H10": 0.080078125,
+            "N10": 0.0413313417559277,
+            "H20": 0.099609375,
+            "N20": 0.046182848380691546,
+            "H50": 0.140625,
+            "N50": 0.05452314479769975
+          },
+          "semantic": {
+            "H5": 0.0546875,
+            "N5": 0.03443298808706367,
+            "H10": 0.07421875,
+            "N10": 0.040867854364611475,
+            "H20": 0.109375,
+            "N20": 0.049914159436895394,
+            "H50": 0.134765625,
+            "N50": 0.05487793782583548
+          },
+          "LIME": {
+            "H5": 0.076171875,
+            "N5": 0.05229002453341352,
+            "H10": 0.109375,
+            "N10": 0.0627161561075924,
+            "H20": 0.1328125,
+            "N20": 0.0686759967525349,
+            "H50": 0.18359375,
+            "N50": 0.07857858656247121
+          },
+          "fixed_decode": {
+            "H5": 0.0859375,
+            "N5": 0.05837986954973206,
+            "H10": 0.12109375,
+            "N10": 0.06917410663499221,
+            "H20": 0.1484375,
+            "N20": 0.0759571613174839,
+            "H50": 0.1875,
+            "N50": 0.08377210541139599
+          }
+        },
+        "opportunity": {
+          "10": {
+            "SASRec": {
+              "both_hit": 22,
+              "GRAM_only": 28,
+              "source_only": 15,
+              "neither": 447,
+              "unique_vs_GRAM_and_other_experts": 13
+            },
+            "ItemCF": {
+              "both_hit": 28,
+              "GRAM_only": 22,
+              "source_only": 13,
+              "neither": 449,
+              "unique_vs_GRAM_and_other_experts": 9
+            },
+            "semantic": {
+              "both_hit": 22,
+              "GRAM_only": 28,
+              "source_only": 16,
+              "neither": 446,
+              "unique_vs_GRAM_and_other_experts": 13
+            },
+            "LIME": {
+              "both_hit": 36,
+              "GRAM_only": 14,
+              "source_only": 20,
+              "neither": 442
+            },
+            "any_expert": {
+              "GRAM_missed": 462,
+              "expert_opportunities": 39,
+              "GRAM_and_all_experts_miss": 423,
+              "realized_by_fixed_decode": 10,
+              "unrealized_by_fixed_decode": 29
+            },
+            "guided_misses": {
+              "total": 450,
+              "all_experts_outside_k": 421,
+              "at_least_one_expert_inside_k": 29
+            }
+          },
+          "50": {
+            "SASRec": {
+              "both_hit": 47,
+              "GRAM_only": 45,
+              "source_only": 14,
+              "neither": 406,
+              "unique_vs_GRAM_and_other_experts": 10
+            },
+            "ItemCF": {
+              "both_hit": 52,
+              "GRAM_only": 40,
+              "source_only": 20,
+              "neither": 400,
+              "unique_vs_GRAM_and_other_experts": 12
+            },
+            "semantic": {
+              "both_hit": 39,
+              "GRAM_only": 53,
+              "source_only": 30,
+              "neither": 390,
+              "unique_vs_GRAM_and_other_experts": 22
+            },
+            "LIME": {
+              "both_hit": 68,
+              "GRAM_only": 24,
+              "source_only": 26,
+              "neither": 394
+            },
+            "any_expert": {
+              "GRAM_missed": 420,
+              "expert_opportunities": 53,
+              "GRAM_and_all_experts_miss": 367,
+              "realized_by_fixed_decode": 8,
+              "unrealized_by_fixed_decode": 45
+            },
+            "guided_misses": {
+              "total": 416,
+              "all_experts_outside_k": 370,
+              "at_least_one_expert_inside_k": 46
+            }
+          }
+        },
+        "realized": {
+          "fixed_late_minus_GRAM": {
+            "delta_N10": 0.00696247154651743,
+            "gained10": 11,
+            "lost10": 0,
+            "n10_improved": 22,
+            "n10_worsened": 11
+          },
+          "fixed_decode_minus_GRAM": {
+            "delta_N10": 0.006789728591901032,
+            "gained10": 12,
+            "lost10": 0,
+            "n10_improved": 22,
+            "n10_worsened": 12
+          },
+          "fixed_decode_minus_fixed_late": {
+            "delta_N10": -0.00017274295461639823,
+            "gained10": 1,
+            "lost10": 0,
+            "n10_improved": 1,
+            "n10_worsened": 3
+          }
+        },
+        "generation_diagnosis": {
+          "target_outside_original50_then_guided_top10": 1,
+          "target_outside_original50_then_guided_top50": 10,
+          "target_original50_lost_from_guided50": 6,
+          "n10_improved_vs_late_target_originally_outside50": 1,
+          "n10_improved_vs_late_target_originally_inside50": 0,
+          "outside50_contribution_to_delta_N10": 0.0006510416666666666,
+          "inside50_contribution_to_delta_N10": -0.0008237846212830649
+        }
+      }
+    },
+    "Beauty": {
+      "ranker_fit": {
+        "users": 3310,
+        "ineligible_targets": 0,
+        "metrics": {
+          "GRAM": {
+            "H5": 0.08791540785498489,
+            "N5": 0.06120261411371456,
+            "H10": 0.12356495468277946,
+            "N10": 0.07272986142413809,
+            "H20": 0.16495468277945619,
+            "N20": 0.08312055182401554,
+            "H50": 0.23172205438066465,
+            "N50": 0.09645104945823768
+          },
+          "fixed_late": {
+            "H5": 0.09184290030211481,
+            "N5": 0.06396603756917545,
+            "H10": 0.12870090634441086,
+            "N10": 0.07585347242853722,
+            "H20": 0.1782477341389728,
+            "N20": 0.08831382951166813,
+            "H50": 0.23172205438066465,
+            "N50": 0.0990550722549187
+          },
+          "SASRec": {
+            "H5": 0.07371601208459215,
+            "N5": 0.0540519064097001,
+            "H10": 0.10211480362537764,
+            "N10": 0.06328567497150278,
+            "H20": 0.1338368580060423,
+            "N20": 0.071341162008114,
+            "H50": 0.1906344410876133,
+            "N50": 0.08255736788496644
+          },
+          "ItemCF": {
+            "H5": 0.054380664652567974,
+            "N5": 0.03624541029622493,
+            "H10": 0.07885196374622357,
+            "N10": 0.04421721929220072,
+            "H20": 0.10332326283987915,
+            "N20": 0.05032236555855108,
+            "H50": 0.14712990936555892,
+            "N50": 0.059028471680708024
+          },
+          "semantic": {
+            "H5": 0.031117824773413898,
+            "N5": 0.01984725717220547,
+            "H10": 0.04954682779456193,
+            "N10": 0.025725731685740865,
+            "H20": 0.07009063444108761,
+            "N20": 0.03084990079074296,
+            "H50": 0.11299093655589124,
+            "N50": 0.03938893959854758
+          },
+          "LIME": {
+            "H5": 0.08882175226586103,
+            "N5": 0.06013941006736985,
+            "H10": 0.11722054380664652,
+            "N10": 0.06939618440834729,
+            "H20": 0.1555891238670695,
+            "N20": 0.07911887135398715,
+            "H50": 0.2199395770392749,
+            "N50": 0.09197440450001766
+          }
+        },
+        "opportunity": {
+          "10": {
+            "SASRec": {
+              "both_hit": 236,
+              "GRAM_only": 173,
+              "source_only": 102,
+              "neither": 2799,
+              "unique_vs_GRAM_and_other_experts": 71
+            },
+            "ItemCF": {
+              "both_hit": 193,
+              "GRAM_only": 216,
+              "source_only": 68,
+              "neither": 2833,
+              "unique_vs_GRAM_and_other_experts": 30
+            },
+            "semantic": {
+              "both_hit": 73,
+              "GRAM_only": 336,
+              "source_only": 91,
+              "neither": 2810,
+              "unique_vs_GRAM_and_other_experts": 69
+            },
+            "LIME": {
+              "both_hit": 264,
+              "GRAM_only": 145,
+              "source_only": 124,
+              "neither": 2777
+            },
+            "any_expert": {
+              "GRAM_missed": 2901,
+              "expert_opportunities": 214,
+              "GRAM_and_all_experts_miss": 2687
+            }
+          },
+          "50": {
+            "SASRec": {
+              "both_hit": 492,
+              "GRAM_only": 275,
+              "source_only": 139,
+              "neither": 2404,
+              "unique_vs_GRAM_and_other_experts": 91
+            },
+            "ItemCF": {
+              "both_hit": 384,
+              "GRAM_only": 383,
+              "source_only": 103,
+              "neither": 2440,
+              "unique_vs_GRAM_and_other_experts": 40
+            },
+            "semantic": {
+              "both_hit": 216,
+              "GRAM_only": 551,
+              "source_only": 158,
+              "neither": 2385,
+              "unique_vs_GRAM_and_other_experts": 112
+            },
+            "LIME": {
+              "both_hit": 527,
+              "GRAM_only": 240,
+              "source_only": 201,
+              "neither": 2342
+            },
+            "any_expert": {
+              "GRAM_missed": 2543,
+              "expert_opportunities": 315,
+              "GRAM_and_all_experts_miss": 2228
+            }
+          }
+        },
+        "realized": {
+          "fixed_late_minus_GRAM": {
+            "delta_N10": 0.0031236110043991357,
+            "gained10": 41,
+            "lost10": 24,
+            "n10_improved": 132,
+            "n10_worsened": 120
+          }
+        }
+      },
+      "development": {
+        "users": 512,
+        "ineligible_targets": 0,
+        "metrics": {
+          "GRAM": {
+            "H5": 0.08984375,
+            "N5": 0.0631051530459407,
+            "H10": 0.1171875,
+            "N10": 0.07168110391634691,
+            "H20": 0.15625,
+            "N20": 0.08141903151681118,
+            "H50": 0.224609375,
+            "N50": 0.09530384064143099
+          },
+          "fixed_late": {
+            "H5": 0.08984375,
+            "N5": 0.06816510256931951,
+            "H10": 0.12109375,
+            "N10": 0.07810223119007104,
+            "H20": 0.1796875,
+            "N20": 0.09246454106931014,
+            "H50": 0.224609375,
+            "N50": 0.10146479685338751
+          },
+          "SASRec": {
+            "H5": 0.076171875,
+            "N5": 0.05265795478446508,
+            "H10": 0.09765625,
+            "N10": 0.05952143972168496,
+            "H20": 0.123046875,
+            "N20": 0.06558776565566449,
+            "H50": 0.169921875,
+            "N50": 0.074901884465281
+          },
+          "ItemCF": {
+            "H5": 0.0546875,
+            "N5": 0.03699822322039086,
+            "H10": 0.076171875,
+            "N10": 0.04396947610964988,
+            "H20": 0.099609375,
+            "N20": 0.049952748093926816,
+            "H50": 0.146484375,
+            "N50": 0.059299375937443395
+          },
+          "semantic": {
+            "H5": 0.03515625,
+            "N5": 0.020131816522029604,
+            "H10": 0.048828125,
+            "N10": 0.024371582459664518,
+            "H20": 0.076171875,
+            "N20": 0.03134656567625692,
+            "H50": 0.13671875,
+            "N50": 0.0433663813787675
+          },
+          "LIME": {
+            "H5": 0.0859375,
+            "N5": 0.06305534896178494,
+            "H10": 0.11328125,
+            "N10": 0.07194000386603759,
+            "H20": 0.146484375,
+            "N20": 0.08039139175084899,
+            "H50": 0.205078125,
+            "N50": 0.09200361654356826
+          },
+          "fixed_decode": {
+            "H5": 0.09375,
+            "N5": 0.07118038333267665,
+            "H10": 0.125,
+            "N10": 0.08119708677827639,
+            "H20": 0.1875,
+            "N20": 0.0966118393191945,
+            "H50": 0.244140625,
+            "N50": 0.10799487494726502
+          }
+        },
+        "opportunity": {
+          "10": {
+            "SASRec": {
+              "both_hit": 33,
+              "GRAM_only": 27,
+              "source_only": 17,
+              "neither": 435,
+              "unique_vs_GRAM_and_other_experts": 11
+            },
+            "ItemCF": {
+              "both_hit": 27,
+              "GRAM_only": 33,
+              "source_only": 12,
+              "neither": 440,
+              "unique_vs_GRAM_and_other_experts": 3
+            },
+            "semantic": {
+              "both_hit": 9,
+              "GRAM_only": 51,
+              "source_only": 16,
+              "neither": 436,
+              "unique_vs_GRAM_and_other_experts": 12
+            },
+            "LIME": {
+              "both_hit": 40,
+              "GRAM_only": 20,
+              "source_only": 18,
+              "neither": 434
+            },
+            "any_expert": {
+              "GRAM_missed": 452,
+              "expert_opportunities": 35,
+              "GRAM_and_all_experts_miss": 417,
+              "realized_by_fixed_decode": 8,
+              "unrealized_by_fixed_decode": 27
+            },
+            "guided_misses": {
+              "total": 448,
+              "all_experts_outside_k": 421,
+              "at_least_one_expert_inside_k": 27
+            }
+          },
+          "50": {
+            "SASRec": {
+              "both_hit": 64,
+              "GRAM_only": 51,
+              "source_only": 23,
+              "neither": 374,
+              "unique_vs_GRAM_and_other_experts": 16
+            },
+            "ItemCF": {
+              "both_hit": 59,
+              "GRAM_only": 56,
+              "source_only": 16,
+              "neither": 381,
+              "unique_vs_GRAM_and_other_experts": 8
+            },
+            "semantic": {
+              "both_hit": 38,
+              "GRAM_only": 77,
+              "source_only": 32,
+              "neither": 365,
+              "unique_vs_GRAM_and_other_experts": 24
+            },
+            "LIME": {
+              "both_hit": 77,
+              "GRAM_only": 38,
+              "source_only": 28,
+              "neither": 369
+            },
+            "any_expert": {
+              "GRAM_missed": 397,
+              "expert_opportunities": 58,
+              "GRAM_and_all_experts_miss": 339,
+              "realized_by_fixed_decode": 13,
+              "unrealized_by_fixed_decode": 45
+            },
+            "guided_misses": {
+              "total": 387,
+              "all_experts_outside_k": 341,
+              "at_least_one_expert_inside_k": 46
+            }
+          }
+        },
+        "realized": {
+          "fixed_late_minus_GRAM": {
+            "delta_N10": 0.006421127273724121,
+            "gained10": 6,
+            "lost10": 4,
+            "n10_improved": 21,
+            "n10_worsened": 14
+          },
+          "fixed_decode_minus_GRAM": {
+            "delta_N10": 0.00951598286192948,
+            "gained10": 9,
+            "lost10": 5,
+            "n10_improved": 21,
+            "n10_worsened": 14
+          },
+          "fixed_decode_minus_fixed_late": {
+            "delta_N10": 0.003094855588205361,
+            "gained10": 4,
+            "lost10": 2,
+            "n10_improved": 4,
+            "n10_worsened": 6
+          }
+        },
+        "generation_diagnosis": {
+          "target_outside_original50_then_guided_top10": 4,
+          "target_outside_original50_then_guided_top50": 16,
+          "target_original50_lost_from_guided50": 6,
+          "n10_improved_vs_late_target_originally_outside50": 4,
+          "n10_improved_vs_late_target_originally_inside50": 0,
+          "outside50_contribution_to_delta_N10": 0.005443132314807452,
+          "inside50_contribution_to_delta_N10": -0.002348276726602091
+        }
+      }
+    }
+  },
+  "users": 7107,
+  "seconds": 29.174469439312816,
+  "test_read": false,
+  "optimizer_steps": 0,
+  "evaluation": "exploratory_cache_diagnostic",
+  "verification": {
+    "all_existing_GRAM_late_and_guided_ranks_exact": true,
+    "all_existing_metrics_exact_within_1e_12": true,
+    "full_catalog_count_ranks_checked_by_sort_on_three_fixed_rows_per_domain": true
+  },
+  "limitations": [
+    "Expert-only hits are opportunities, not implementable gains.",
+    "Different candidate scopes; raw expert/GRAM scores are not compared.",
+    "No new mechanism, independent test, or causal attribution validated."
+  ]
+}

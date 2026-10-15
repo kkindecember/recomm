@@ -1,0 +1,46 @@
+{
+  "domains": {
+    "Toys": {
+      "series": {
+        "audited": 32,
+        "supported": 30,
+        "uncertain": 2,
+        "supported_fraction": 0.9375,
+        "gate_pass": true
+      },
+      "explicit": {
+        "audited": 32,
+        "supported": 30,
+        "uncertain": 2,
+        "supported_fraction": 0.9375,
+        "gate_pass": true
+      }
+    },
+    "Beauty": {
+      "series": {
+        "audited": 32,
+        "supported": 29,
+        "uncertain": 3,
+        "supported_fraction": 0.90625,
+        "gate_pass": true
+      },
+      "explicit": {
+        "audited": 0,
+        "supported": 0,
+        "uncertain": 0,
+        "supported_fraction": null,
+        "gate_pass": false
+      }
+    }
+  },
+  "eligible_relation_types": [
+    "series"
+  ],
+  "thresholds": {
+    "min_audited": 10,
+    "min_supported_fraction": 0.9
+  },
+  "threshold_is_engineering_not_statistical": true,
+  "manually_uncertain_relations_not_removed": true,
+  "full_catalog_semantic_accuracy_not_estimated": true
+}

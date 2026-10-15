@@ -1,0 +1,32 @@
+{
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "Toys": "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059",
+    "Beauty": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09"
+  },
+  "tuning_users": 128,
+  "evaluation_users": 512,
+  "alpha_grid": [
+    0.0,
+    0.1,
+    0.3
+  ],
+  "new_policies": [
+    "delayed_branch",
+    "agreement"
+  ],
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "allocation_limit_gib": 11,
+  "minimum_free_mib": 12288,
+  "worker_timeout_seconds": null,
+  "no_model_training": true,
+  "test_read": false,
+  "selection": "Reuse original 128 tuning users; evaluate on 512 disjoint decode-followup users.",
+  "outcome_peeking": "No new evaluation metrics are read until selection.json is frozen.",
+  "authorization": "User: ok研究吧; background execution, shared GPUs and status files authorized."
+}

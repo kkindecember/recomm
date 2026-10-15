@@ -1,0 +1,38 @@
+{
+  "arms": [
+    "sas_only",
+    "text_only"
+  ],
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "sas_only": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "text_only": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253"
+  },
+  "seed": 0,
+  "epochs": 4,
+  "batch_size": 256,
+  "learning_rate": 0.02,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha": 0.3,
+  "beam_size": 50,
+  "development_users": 512,
+  "minimum_free_mib": 32768,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "supervisor_timeout_seconds": 86400,
+  "test_read": false,
+  "total_lease_mib": 30720,
+  "expected_workload_peak_mib": 12288,
+  "max_parallel": 2,
+  "candidate_weight_experiment": false,
+  "forecast_policy": "advisory_only",
+  "gpu_pool": [
+    "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253"
+  ]
+}

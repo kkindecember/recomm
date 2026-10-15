@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "full": {
+      "experts": [
+        0,
+        1,
+        2
+      ],
+      "history_penalty": true,
+      "equal_weights": false
+    },
+    "without_itemcf": {
+      "experts": [
+        0,
+        2
+      ],
+      "history_penalty": true,
+      "equal_weights": false
+    },
+    "without_text": {
+      "experts": [
+        0,
+        1
+      ],
+      "history_penalty": true,
+      "equal_weights": false
+    },
+    "without_sasrec": {
+      "experts": [
+        1,
+        2
+      ],
+      "history_penalty": true,
+      "equal_weights": false
+    },
+    "without_history_penalty": {
+      "experts": [
+        0,
+        1,
+        2
+      ],
+      "history_penalty": false,
+      "equal_weights": false
+    },
+    "equal_weights": {
+      "experts": [
+        0,
+        1,
+        2
+      ],
+      "history_penalty": true,
+      "equal_weights": true
+    },
+    "sasrec_only": {
+      "experts": [
+        0
+      ],
+      "history_penalty": false,
+      "equal_weights": false
+    }
+  },
+  "scopes": [
+    "catalog",
+    "GRAM50",
+    "guided50"
+  ],
+  "evaluation_users": 512,
+  "score_scale": 20.0,
+  "fit_steps": 0,
+  "test_read": false,
+  "scope": "Post-hoc analysis on completed 512-user decode evaluations; no current running outcomes read."
+}

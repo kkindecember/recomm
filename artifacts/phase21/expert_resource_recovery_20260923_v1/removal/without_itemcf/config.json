@@ -1,0 +1,31 @@
+{
+  "arms": [
+    "without_sasrec",
+    "without_itemcf"
+  ],
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "without_sasrec": "GPU-7952ad6e-2db7-fb2e-581b-34be56287640",
+    "without_itemcf": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09"
+  },
+  "seed": 0,
+  "epochs": 4,
+  "batch_size": 256,
+  "learning_rate": 0.02,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha": 0.3,
+  "beam_size": 50,
+  "development_users": 512,
+  "minimum_free_mib": 16384,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 14400,
+  "resource_wait_seconds": 600,
+  "supervisor_timeout_seconds": 10800,
+  "test_read": false,
+  "forecast_policy": "warning_only",
+  "recovered_from": "artifacts/phase21/other_expert_contribution_20260923_v1"
+}

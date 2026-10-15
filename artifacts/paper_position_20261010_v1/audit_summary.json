@@ -1,0 +1,101 @@
+{
+  "state": "COMPLETED",
+  "date": "2026-10-10",
+  "indexed": {
+    "indexed_files": 1775,
+    "markdown_by_root": {
+      "plan": 169,
+      "report": 254,
+      "experiment": 5,
+      "third_party": 1
+    }
+  },
+  "training_support": {
+    "Toys": {
+      "events": 2773,
+      "target_in_support": 818,
+      "target_in_fused_top50": 628,
+      "target_in_history_filter": 0,
+      "target_in_sasrec_top50": 447,
+      "target_in_itemcf_top50": 410,
+      "target_in_text_top50": 422,
+      "support_mean": 154.57410746483953,
+      "support_min": 84,
+      "support_max": 182,
+      "coverage": 0.2949873782906599,
+      "support_definition": "Union of each expert top50 and original fused top50; recent history filtered",
+      "sources": [
+        {
+          "path": "artifacts/phase20/lime_clean_benefit_20260922_v1/Toys/samples.json",
+          "bytes": 1317139,
+          "mtime_ns": 1790054600843375898
+        },
+        {
+          "path": "artifacts/phase20/lime_clean_benefit_20260922_v1/Toys/experts.npy",
+          "bytes": 573210656,
+          "mtime_ns": 1790054967674567669
+        },
+        {
+          "path": "artifacts/phase20/lime_clean_benefit_20260922_v1/Toys/lime.npy",
+          "bytes": 191070304,
+          "mtime_ns": 1790054981954568350
+        }
+      ]
+    },
+    "Beauty": {
+      "events": 3310,
+      "target_in_support": 976,
+      "target_in_fused_top50": 728,
+      "target_in_history_filter": 0,
+      "target_in_sasrec_top50": 631,
+      "target_in_itemcf_top50": 487,
+      "target_in_text_top50": 374,
+      "support_mean": 152.98429003021147,
+      "support_min": 89,
+      "support_max": 185,
+      "coverage": 0.2948640483383686,
+      "support_definition": "Union of each expert top50 and original fused top50; recent history filtered",
+      "sources": [
+        {
+          "path": "artifacts/phase20/lime_clean_benefit_20260922_v1/Beauty/samples.json",
+          "bytes": 1552069,
+          "mtime_ns": 1790054614207311068
+        },
+        {
+          "path": "artifacts/phase20/lime_clean_benefit_20260922_v1/Beauty/experts.npy",
+          "bytes": 667539692,
+          "mtime_ns": 1790054969126567653
+        },
+        {
+          "path": "artifacts/phase20/lime_clean_benefit_20260922_v1/Beauty/lime.npy",
+          "bytes": 222513316,
+          "mtime_ns": 1790054984050568607
+        }
+      ]
+    }
+  },
+  "existing_validation_margins": {
+    "Toys": {
+      "gram_N10": 0.07220060664614109,
+      "late_N10": 0.08032185951032154,
+      "guided_N10": 0.08247533832074477,
+      "relative_gain_over_gram": 0.1423081072567809,
+      "relative_gain_over_late": 0.026810619469616492,
+      "relative_loss_from_guided_at_late_parity": 0.02611057868048261
+    },
+    "Beauty": {
+      "gram_N10": 0.07188760733543519,
+      "late_N10": 0.07754537239051841,
+      "guided_N10": 0.07870506281119503,
+      "relative_gain_over_gram": 0.09483491979290504,
+      "relative_gain_over_late": 0.014954991960531405,
+      "relative_loss_from_guided_at_late_parity": 0.014734635603539159
+    }
+  },
+  "summary_source_sha256": "7c87b4a2845d619dcce5460b8dc9c4f0bfdf5910c26d2d67859df3d358fb96c9",
+  "scope": "Inventory and cached training coverage only; no new method evaluated",
+  "fitting_steps": 0,
+  "generation_calls": 0,
+  "test_read": false,
+  "elapsed_seconds": 38.90429524501087
+}

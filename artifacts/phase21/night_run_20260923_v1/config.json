@@ -1,0 +1,21 @@
+{
+  "max_parallel": 6,
+  "minimum_free_mib": 16384,
+  "gpu_pool": [
+    "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+    "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2",
+    "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059",
+    "GPU-7952ad6e-2db7-fb2e-581b-34be56287640",
+    "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09",
+    "GPU-07374397-b213-09c1-2988-718acb6ed231"
+  ],
+  "worker_timeout_seconds": 14400,
+  "supervisor_timeout_seconds": 172800,
+  "auto_start_after_reboot": false,
+  "source_roots": [
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase21/expert_resource_recovery_20260923_v1",
+    "/mnt/18T/jiangtangyunzhi/projects/recomm/artifacts/phase21/text_adaptation_20260923_v1"
+  ],
+  "test_read": false
+}

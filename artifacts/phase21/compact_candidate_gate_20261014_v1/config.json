@@ -1,0 +1,24 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 64,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "kl": 0.0,
+  "temperature": 20.0,
+  "threads": 2,
+  "timeout_seconds": 21600,
+  "user_selection": "ranker_fit",
+  "evaluation": "exploratory_validation",
+  "test_read": false,
+  "old_gate_used": false,
+  "history_penalty": false,
+  "selection_criterion": "guided NDCG@10 above original GRAM in both domains"
+}

@@ -1,0 +1,1312 @@
+{
+  "train_data": {
+    "users": 2773,
+    "pairs": 60647,
+    "capacity": 83190,
+    "positive_pairs": 126,
+    "negative_pairs": 362,
+    "neutral_pairs": 60159,
+    "users_with_positive_proposal": 126,
+    "boundary_target_users": 19,
+    "donor_changed_users": 2723,
+    "unique_users": 2773,
+    "source_hash_checks_passed": true,
+    "original_ranks_exact": true,
+    "cohorts": {
+      "train": 2773
+    }
+  },
+  "validation_data": {
+    "users": 19412,
+    "pairs": 432388,
+    "capacity": 582360,
+    "positive_pairs": 919,
+    "negative_pairs": 2176,
+    "neutral_pairs": 429293,
+    "users_with_positive_proposal": 919,
+    "boundary_target_users": 110,
+    "donor_changed_users": 19355,
+    "unique_users": 19412,
+    "source_hash_checks_passed": true,
+    "original_ranks_exact": true,
+    "cohorts": {
+      "previous512": 512,
+      "primary": 15406,
+      "seen_fit_user_later_event": 3494
+    }
+  },
+  "cohorts": {
+    "train_oof": {
+      "users": 2773,
+      "eligible_users": 2773,
+      "old_H10": 0.1298232960692391,
+      "old_N10": 0.08183098197543687,
+      "policies": {
+        "score_positive": {
+          "actions": 1060,
+          "gained10": 4,
+          "lost10": 5,
+          "neutral_actions": 1051,
+          "net_hits": -1,
+          "H10": 0.1294626758023801,
+          "N10": 0.08172673934063057,
+          "delta_N10": -0.00010424263480630649,
+          "delta_H10": -0.0003606202668589975,
+          "delta_N10_ci95": [
+            -0.00072969844364415,
+            0.0005212131740315318
+          ]
+        },
+        "score_budget05": {
+          "actions": 138,
+          "gained10": 1,
+          "lost10": 1,
+          "neutral_actions": 136,
+          "net_hits": 0,
+          "H10": 0.1298232960692391,
+          "N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            -0.0003127279044189135,
+            0.0003127279044189135
+          ]
+        },
+        "score_budget10": {
+          "actions": 277,
+          "gained10": 1,
+          "lost10": 1,
+          "neutral_actions": 275,
+          "net_hits": 0,
+          "H10": 0.1298232960692391,
+          "N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            -0.0003127279044189135,
+            0.0003127279044189135
+          ]
+        },
+        "score_budget20": {
+          "actions": 554,
+          "gained10": 2,
+          "lost10": 2,
+          "neutral_actions": 550,
+          "net_hits": 0,
+          "H10": 0.1298232960692391,
+          "N10": 0.08183098197543687,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            -0.00041697053922522265,
+            0.00041697053922522265
+          ]
+        },
+        "evidence_positive": {
+          "actions": 1714,
+          "gained10": 7,
+          "lost10": 6,
+          "neutral_actions": 1701,
+          "net_hits": 1,
+          "H10": 0.13018391633609808,
+          "N10": 0.08193522461024318,
+          "delta_N10": 0.00010424263480630649,
+          "delta_H10": 0.0003606202668589975,
+          "delta_N10_ci95": [
+            -0.0006280618747079978,
+            0.0008339410784504592
+          ]
+        },
+        "evidence_budget05": {
+          "actions": 138,
+          "gained10": 1,
+          "lost10": 0,
+          "neutral_actions": 137,
+          "net_hits": 1,
+          "H10": 0.13018391633609808,
+          "N10": 0.08193522461024319,
+          "delta_N10": 0.00010424263480630649,
+          "delta_H10": 0.0003606202668589975,
+          "delta_N10_ci95": [
+            0.0,
+            0.0003127279044189274
+          ]
+        },
+        "evidence_budget10": {
+          "actions": 277,
+          "gained10": 2,
+          "lost10": 0,
+          "neutral_actions": 275,
+          "net_hits": 2,
+          "H10": 0.1305445366029571,
+          "N10": 0.0820394672450495,
+          "delta_N10": 0.00020848526961261298,
+          "delta_H10": 0.000721240533717995,
+          "delta_N10_ci95": [
+            0.0,
+            0.0005212131740315318
+          ]
+        },
+        "evidence_budget20": {
+          "actions": 554,
+          "gained10": 4,
+          "lost10": 3,
+          "neutral_actions": 547,
+          "net_hits": 1,
+          "H10": 0.13018391633609808,
+          "N10": 0.08193522461024319,
+          "delta_N10": 0.00010424263480630649,
+          "delta_H10": 0.0003606202668589975,
+          "delta_N10_ci95": [
+            -0.0004169705392252365,
+            0.0006254558088378409
+          ]
+        },
+        "shuffled_positive": {
+          "actions": 1233,
+          "gained10": 5,
+          "lost10": 4,
+          "neutral_actions": 1224,
+          "net_hits": 1,
+          "H10": 0.13018391633609808,
+          "N10": 0.08193522461024319,
+          "delta_N10": 0.00010424263480630649,
+          "delta_H10": 0.0003606202668589975,
+          "delta_N10_ci95": [
+            -0.0005212131740315318,
+            0.0007296984436441362
+          ]
+        },
+        "shuffled_budget05": {
+          "actions": 138,
+          "gained10": 0,
+          "lost10": 1,
+          "neutral_actions": 137,
+          "net_hits": -1,
+          "H10": 0.1294626758023801,
+          "N10": 0.08172673934063057,
+          "delta_N10": -0.00010424263480630649,
+          "delta_H10": -0.0003606202668589975,
+          "delta_N10_ci95": [
+            -0.0003127279044189274,
+            0.0
+          ]
+        },
+        "shuffled_budget10": {
+          "actions": 277,
+          "gained10": 1,
+          "lost10": 2,
+          "neutral_actions": 274,
+          "net_hits": -1,
+          "H10": 0.1294626758023801,
+          "N10": 0.08172673934063057,
+          "delta_N10": -0.00010424263480630649,
+          "delta_H10": -0.0003606202668589975,
+          "delta_N10_ci95": [
+            -0.0005212131740315179,
+            0.00020848526961261826
+          ]
+        },
+        "shuffled_budget20": {
+          "actions": 554,
+          "gained10": 2,
+          "lost10": 2,
+          "neutral_actions": 550,
+          "net_hits": 0,
+          "H10": 0.1298232960692391,
+          "N10": 0.08183098197543688,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            -0.00041697053922522265,
+            0.00041697053922522265
+          ]
+        }
+      },
+      "comparisons": {
+        "evidence_positive_vs_score_positive": {
+          "delta_N10": 0.00020848526961261298,
+          "ci95": [
+            -0.0003127279044189274,
+            0.0008339410784504453
+          ],
+          "net_hit_difference": 2
+        },
+        "evidence_positive_vs_shuffled_positive": {
+          "delta_N10": 0.0,
+          "ci95": [
+            -0.0005212131740315457,
+            0.000625455808837827
+          ],
+          "net_hit_difference": 0
+        },
+        "evidence_budget05_vs_score_budget05": {
+          "delta_N10": 0.00010424263480630649,
+          "ci95": [
+            0.0,
+            0.0003127279044189274
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget05_vs_shuffled_budget05": {
+          "delta_N10": 0.00020848526961261298,
+          "ci95": [
+            0.0,
+            0.0005212131740315318
+          ],
+          "net_hit_difference": 2
+        },
+        "evidence_budget10_vs_score_budget10": {
+          "delta_N10": 0.00020848526961261298,
+          "ci95": [
+            0.0,
+            0.0005212131740315318
+          ],
+          "net_hit_difference": 2
+        },
+        "evidence_budget10_vs_shuffled_budget10": {
+          "delta_N10": 0.0003127279044189194,
+          "ci95": [
+            -0.00010424263480630913,
+            0.00072969844364415
+          ],
+          "net_hit_difference": 3
+        },
+        "evidence_budget20_vs_score_budget20": {
+          "delta_N10": 0.00010424263480630649,
+          "ci95": [
+            -0.0003127279044189274,
+            0.000625455808837827
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget20_vs_shuffled_budget20": {
+          "delta_N10": 0.00010424263480630649,
+          "ci95": [
+            -0.00041697053922522265,
+            0.0006254558088378409
+          ],
+          "net_hit_difference": 1
+        }
+      }
+    },
+    "primary": {
+      "users": 15406,
+      "eligible_users": 15406,
+      "old_H10": 0.1265740620537453,
+      "old_N10": 0.08111505972552517,
+      "policies": {
+        "score_positive": {
+          "actions": 4715,
+          "gained10": 20,
+          "lost10": 8,
+          "neutral_actions": 4687,
+          "net_hits": 12,
+          "H10": 0.12735297935869141,
+          "N10": 0.08134021732099542,
+          "delta_N10": 0.0002251575954702489,
+          "delta_H10": 0.0007789173049461248,
+          "delta_N10_ci95": [
+            3.752626591171926e-05,
+            0.00041278892502885704
+          ]
+        },
+        "score_budget05": {
+          "actions": 770,
+          "gained10": 7,
+          "lost10": 0,
+          "neutral_actions": 763,
+          "net_hits": 7,
+          "H10": 0.12702843048163054,
+          "N10": 0.08124640165621613,
+          "delta_N10": 0.00013134193069097854,
+          "delta_H10": 0.0004543684278852395,
+          "delta_N10_ci95": [
+            3.752626591171926e-05,
+            0.0002439207284260784
+          ]
+        },
+        "score_budget10": {
+          "actions": 1540,
+          "gained10": 12,
+          "lost10": 1,
+          "neutral_actions": 1527,
+          "net_hits": 11,
+          "H10": 0.12728806958327923,
+          "N10": 0.08132145418803957,
+          "delta_N10": 0.00020639446251439483,
+          "delta_H10": 0.0007140075295339478,
+          "delta_N10_ci95": [
+            7.505253182342464e-05,
+            0.00033773639320540394
+          ]
+        },
+        "score_budget20": {
+          "actions": 3081,
+          "gained10": 15,
+          "lost10": 3,
+          "neutral_actions": 3063,
+          "net_hits": 12,
+          "H10": 0.12735297935869141,
+          "N10": 0.08134021732099542,
+          "delta_N10": 0.0002251575954702489,
+          "delta_H10": 0.0007789173049461248,
+          "delta_N10_ci95": [
+            7.505253182343817e-05,
+            0.00039402579207295507
+          ]
+        },
+        "evidence_positive": {
+          "actions": 9394,
+          "gained10": 84,
+          "lost10": 21,
+          "neutral_actions": 9289,
+          "net_hits": 63,
+          "H10": 0.13066337790471244,
+          "N10": 0.08229713710174398,
+          "delta_N10": 0.0011820773762188067,
+          "delta_H10": 0.004089315850967156,
+          "delta_N10_ci95": [
+            0.000788051584145924,
+            0.0015573400353360027
+          ]
+        },
+        "evidence_budget05": {
+          "actions": 770,
+          "gained10": 10,
+          "lost10": 1,
+          "neutral_actions": 759,
+          "net_hits": 9,
+          "H10": 0.1271582500324549,
+          "N10": 0.08128392792212785,
+          "delta_N10": 0.00016886819660268666,
+          "delta_H10": 0.0005841879787095936,
+          "delta_N10_ci95": [
+            5.628939886756501e-05,
+            0.0003002101272936569
+          ]
+        },
+        "evidence_budget10": {
+          "actions": 1540,
+          "gained10": 17,
+          "lost10": 1,
+          "neutral_actions": 1522,
+          "net_hits": 16,
+          "H10": 0.12761261846034014,
+          "N10": 0.08141526985281883,
+          "delta_N10": 0.0003002101272936652,
+          "delta_H10": 0.0010385564065948333,
+          "delta_N10_ci95": [
+            0.00015010506364684928,
+            0.0004690783238963381
+          ]
+        },
+        "evidence_budget20": {
+          "actions": 3081,
+          "gained10": 35,
+          "lost10": 3,
+          "neutral_actions": 3043,
+          "net_hits": 32,
+          "H10": 0.12865117486693495,
+          "N10": 0.08171547998011251,
+          "delta_N10": 0.0006004202545873304,
+          "delta_H10": 0.0020771128131896665,
+          "delta_N10_ci95": [
+            0.00037526265911713675,
+            0.0008255778500576572
+          ]
+        },
+        "shuffled_positive": {
+          "actions": 5725,
+          "gained10": 32,
+          "lost10": 15,
+          "neutral_actions": 5678,
+          "net_hits": 17,
+          "H10": 0.1276775282357523,
+          "N10": 0.0814340329857747,
+          "delta_N10": 0.0003189732602495193,
+          "delta_H10": 0.0011034661820070102,
+          "delta_N10_ci95": [
+            7.505253182342464e-05,
+            0.000562893988675664
+          ]
+        },
+        "shuffled_budget05": {
+          "actions": 770,
+          "gained10": 2,
+          "lost10": 3,
+          "neutral_actions": 765,
+          "net_hits": -1,
+          "H10": 0.12650915227833312,
+          "N10": 0.08109629659256931,
+          "delta_N10": -1.8763132955854076e-05,
+          "delta_H10": -6.490977541217708e-05,
+          "delta_N10_ci95": [
+            -9.381566477928462e-05,
+            5.628939886757889e-05
+          ]
+        },
+        "shuffled_budget10": {
+          "actions": 1540,
+          "gained10": 5,
+          "lost10": 4,
+          "neutral_actions": 1531,
+          "net_hits": 1,
+          "H10": 0.12663897182915748,
+          "N10": 0.081133822858481,
+          "delta_N10": 1.8763132955854076e-05,
+          "delta_H10": 6.490977541217708e-05,
+          "delta_N10_ci95": [
+            -9.381566477925651e-05,
+            0.00013134193069097577
+          ]
+        },
+        "shuffled_budget20": {
+          "actions": 3081,
+          "gained10": 20,
+          "lost10": 8,
+          "neutral_actions": 3053,
+          "net_hits": 12,
+          "H10": 0.12735297935869141,
+          "N10": 0.08134021732099542,
+          "delta_N10": 0.0002251575954702489,
+          "delta_H10": 0.0007789173049461248,
+          "delta_N10_ci95": [
+            3.752626591174632e-05,
+            0.0004315520579846466
+          ]
+        }
+      },
+      "comparisons": {
+        "evidence_positive_vs_score_positive": {
+          "delta_N10": 0.0009569197807485578,
+          "ci95": [
+            0.0006004202545873832,
+            0.0013321824398656867
+          ],
+          "net_hit_difference": 51
+        },
+        "evidence_positive_vs_shuffled_positive": {
+          "delta_N10": 0.0008631041159692875,
+          "ci95": [
+            0.00048784145685216995,
+            0.0012383667750863754
+          ],
+          "net_hit_difference": 46
+        },
+        "evidence_budget05_vs_score_budget05": {
+          "delta_N10": 3.752626591170815e-05,
+          "ci95": [
+            -0.00011257879773513037,
+            0.00018763132955854113
+          ],
+          "net_hit_difference": 2
+        },
+        "evidence_budget05_vs_shuffled_budget05": {
+          "delta_N10": 0.00018763132955854078,
+          "ci95": [
+            5.628939886755113e-05,
+            0.0003377363932053762
+          ],
+          "net_hit_difference": 10
+        },
+        "evidence_budget10_vs_score_budget10": {
+          "delta_N10": 9.381566477927038e-05,
+          "ci95": [
+            -9.381566477928427e-05,
+            0.00026268386138200706
+          ],
+          "net_hit_difference": 5
+        },
+        "evidence_budget10_vs_shuffled_budget10": {
+          "delta_N10": 0.0002814469943378111,
+          "ci95": [
+            0.00011257879773511614,
+            0.0004690783238963381
+          ],
+          "net_hit_difference": 15
+        },
+        "evidence_budget20_vs_score_budget20": {
+          "delta_N10": 0.00037526265911708157,
+          "ci95": [
+            0.00013134193069098965,
+            0.0006191833875431874
+          ],
+          "net_hit_difference": 20
+        },
+        "evidence_budget20_vs_shuffled_budget20": {
+          "delta_N10": 0.00037526265911708146,
+          "ci95": [
+            0.0001308728523670533,
+            0.0006379465204990612
+          ],
+          "net_hit_difference": 20
+        }
+      }
+    },
+    "previous512": {
+      "users": 512,
+      "eligible_users": 512,
+      "old_H10": 0.109375,
+      "old_N10": 0.0627161561075924,
+      "policies": {
+        "score_positive": {
+          "actions": 170,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 170,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "score_budget05": {
+          "actions": 25,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 25,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "score_budget10": {
+          "actions": 51,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 51,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "score_budget20": {
+          "actions": 102,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 102,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "evidence_positive": {
+          "actions": 337,
+          "gained10": 3,
+          "lost10": 0,
+          "neutral_actions": 334,
+          "net_hits": 3,
+          "H10": 0.115234375,
+          "N10": 0.06440989532429878,
+          "delta_N10": 0.0016937392167063743,
+          "delta_H10": 0.005859375,
+          "delta_N10_ci95": [
+            0.0,
+            0.003952058172314865
+          ]
+        },
+        "evidence_budget05": {
+          "actions": 25,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 25,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "evidence_budget10": {
+          "actions": 51,
+          "gained10": 1,
+          "lost10": 0,
+          "neutral_actions": 50,
+          "net_hits": 1,
+          "H10": 0.111328125,
+          "N10": 0.06328073584649452,
+          "delta_N10": 0.0005645797389021248,
+          "delta_H10": 0.001953125,
+          "delta_N10_ci95": [
+            0.0,
+            0.0016937392167063747
+          ]
+        },
+        "evidence_budget20": {
+          "actions": 102,
+          "gained10": 1,
+          "lost10": 0,
+          "neutral_actions": 101,
+          "net_hits": 1,
+          "H10": 0.111328125,
+          "N10": 0.06328073584649452,
+          "delta_N10": 0.0005645797389021248,
+          "delta_H10": 0.001953125,
+          "delta_N10_ci95": [
+            0.0,
+            0.0016937392167063747
+          ]
+        },
+        "shuffled_positive": {
+          "actions": 213,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 213,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "shuffled_budget05": {
+          "actions": 25,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 25,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "shuffled_budget10": {
+          "actions": 51,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 51,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "shuffled_budget20": {
+          "actions": 102,
+          "gained10": 0,
+          "lost10": 0,
+          "neutral_actions": 102,
+          "net_hits": 0,
+          "H10": 0.109375,
+          "N10": 0.0627161561075924,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "comparisons": {
+        "evidence_positive_vs_score_positive": {
+          "delta_N10": 0.0016937392167063743,
+          "ci95": [
+            0.0,
+            0.003952058172314865
+          ],
+          "net_hit_difference": 3
+        },
+        "evidence_positive_vs_shuffled_positive": {
+          "delta_N10": 0.0016937392167063743,
+          "ci95": [
+            0.0,
+            0.003952058172314865
+          ],
+          "net_hit_difference": 3
+        },
+        "evidence_budget05_vs_score_budget05": {
+          "delta_N10": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "net_hit_difference": 0
+        },
+        "evidence_budget05_vs_shuffled_budget05": {
+          "delta_N10": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "net_hit_difference": 0
+        },
+        "evidence_budget10_vs_score_budget10": {
+          "delta_N10": 0.0005645797389021248,
+          "ci95": [
+            0.0,
+            0.0016937392167063747
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget10_vs_shuffled_budget10": {
+          "delta_N10": 0.0005645797389021248,
+          "ci95": [
+            0.0,
+            0.0016937392167063747
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget20_vs_score_budget20": {
+          "delta_N10": 0.0005645797389021248,
+          "ci95": [
+            0.0,
+            0.0016937392167063747
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget20_vs_shuffled_budget20": {
+          "delta_N10": 0.0005645797389021248,
+          "ci95": [
+            0.0,
+            0.0016937392167063747
+          ],
+          "net_hit_difference": 1
+        }
+      }
+    },
+    "seen_fit_user_later_event": {
+      "users": 3494,
+      "eligible_users": 3494,
+      "old_H10": 0.12507155123068117,
+      "old_N10": 0.07847714394280242,
+      "policies": {
+        "score_positive": {
+          "actions": 891,
+          "gained10": 6,
+          "lost10": 1,
+          "neutral_actions": 884,
+          "net_hits": 5,
+          "H10": 0.12650257584430452,
+          "N10": 0.07889080282419607,
+          "delta_N10": 0.0004136588813936575,
+          "delta_H10": 0.0014310246136233543,
+          "delta_N10_ci95": [
+            0.0,
+            0.0009100495390660379
+          ]
+        },
+        "score_budget05": {
+          "actions": 174,
+          "gained10": 2,
+          "lost10": 0,
+          "neutral_actions": 172,
+          "net_hits": 2,
+          "H10": 0.12564396107613052,
+          "N10": 0.07864260749535988,
+          "delta_N10": 0.000165463552557463,
+          "delta_H10": 0.0005724098454493417,
+          "delta_N10_ci95": [
+            0.0,
+            0.0004136588813936637
+          ]
+        },
+        "score_budget10": {
+          "actions": 349,
+          "gained10": 2,
+          "lost10": 0,
+          "neutral_actions": 347,
+          "net_hits": 2,
+          "H10": 0.12564396107613052,
+          "N10": 0.07864260749535988,
+          "delta_N10": 0.000165463552557463,
+          "delta_H10": 0.0005724098454493417,
+          "delta_N10_ci95": [
+            0.0,
+            0.0004136588813936637
+          ]
+        },
+        "score_budget20": {
+          "actions": 698,
+          "gained10": 5,
+          "lost10": 1,
+          "neutral_actions": 692,
+          "net_hits": 4,
+          "H10": 0.12621637092157986,
+          "N10": 0.07880807104791734,
+          "delta_N10": 0.000330927105114926,
+          "delta_H10": 0.0011448196908986834,
+          "delta_N10_ci95": [
+            -8.273177627871089e-05,
+            0.0007445859865085894
+          ]
+        },
+        "evidence_positive": {
+          "actions": 1953,
+          "gained10": 17,
+          "lost10": 5,
+          "neutral_actions": 1931,
+          "net_hits": 12,
+          "H10": 0.12850601030337722,
+          "N10": 0.0794699252581472,
+          "delta_N10": 0.0009927813153447782,
+          "delta_H10": 0.0034344590726960505,
+          "delta_N10_ci95": [
+            0.00024819532883621487,
+            0.0018200990781320348
+          ]
+        },
+        "evidence_budget05": {
+          "actions": 174,
+          "gained10": 4,
+          "lost10": 1,
+          "neutral_actions": 169,
+          "net_hits": 3,
+          "H10": 0.12593016599885518,
+          "N10": 0.0787253392716386,
+          "delta_N10": 0.00024819532883619454,
+          "delta_H10": 0.0008586147681740126,
+          "delta_N10_ci95": [
+            -8.273177627873829e-05,
+            0.0005791224339511403
+          ]
+        },
+        "evidence_budget10": {
+          "actions": 349,
+          "gained10": 7,
+          "lost10": 1,
+          "neutral_actions": 341,
+          "net_hits": 6,
+          "H10": 0.12678878076702918,
+          "N10": 0.07897353460047482,
+          "delta_N10": 0.0004963906576723891,
+          "delta_H10": 0.0017172295363480253,
+          "delta_N10_ci95": [
+            8.273177627871053e-05,
+            0.0009927813153447623
+          ]
+        },
+        "evidence_budget20": {
+          "actions": 698,
+          "gained10": 8,
+          "lost10": 2,
+          "neutral_actions": 688,
+          "net_hits": 6,
+          "H10": 0.12678878076702918,
+          "N10": 0.07897353460047482,
+          "delta_N10": 0.0004963906576723891,
+          "delta_H10": 0.0017172295363480253,
+          "delta_N10_ci95": [
+            0.0,
+            0.00099278131534479
+          ]
+        },
+        "shuffled_positive": {
+          "actions": 1183,
+          "gained10": 8,
+          "lost10": 5,
+          "neutral_actions": 1170,
+          "net_hits": 3,
+          "H10": 0.12593016599885518,
+          "N10": 0.0787253392716386,
+          "delta_N10": 0.00024819532883619454,
+          "delta_H10": 0.0008586147681740126,
+          "delta_N10_ci95": [
+            -0.0003309271051149115,
+            0.0008273177627873138
+          ]
+        },
+        "shuffled_budget05": {
+          "actions": 174,
+          "gained10": 1,
+          "lost10": 2,
+          "neutral_actions": 171,
+          "net_hits": -1,
+          "H10": 0.1247853463079565,
+          "N10": 0.0783944121665237,
+          "delta_N10": -8.27317762787315e-05,
+          "delta_H10": -0.00028620492272467084,
+          "delta_N10_ci95": [
+            -0.0003309271051149393,
+            0.00016546355255747658
+          ]
+        },
+        "shuffled_budget10": {
+          "actions": 349,
+          "gained10": 1,
+          "lost10": 2,
+          "neutral_actions": 346,
+          "net_hits": -1,
+          "H10": 0.1247853463079565,
+          "N10": 0.0783944121665237,
+          "delta_N10": -8.27317762787315e-05,
+          "delta_H10": -0.00028620492272467084,
+          "delta_N10_ci95": [
+            -0.0003309271051149393,
+            0.00016546355255747658
+          ]
+        },
+        "shuffled_budget20": {
+          "actions": 698,
+          "gained10": 4,
+          "lost10": 3,
+          "neutral_actions": 691,
+          "net_hits": 1,
+          "H10": 0.12535775615340583,
+          "N10": 0.07855987571908114,
+          "delta_N10": 8.27317762787315e-05,
+          "delta_H10": 0.00028620492272467084,
+          "delta_N10_ci95": [
+            -0.0003309271051149254,
+            0.000496390657672402
+          ]
+        }
+      },
+      "comparisons": {
+        "evidence_positive_vs_score_positive": {
+          "delta_N10": 0.0005791224339511206,
+          "ci95": [
+            -0.00016546355255747658,
+            0.0013237084204597155
+          ],
+          "net_hit_difference": 7
+        },
+        "evidence_positive_vs_shuffled_positive": {
+          "delta_N10": 0.0007445859865085836,
+          "ci95": [
+            0.0,
+            0.0014891719730171643
+          ],
+          "net_hit_difference": 9
+        },
+        "evidence_budget05_vs_score_budget05": {
+          "delta_N10": 8.27317762787315e-05,
+          "ci95": [
+            -0.00024819532883621487,
+            0.00041365888139369145
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget05_vs_shuffled_budget05": {
+          "delta_N10": 0.000330927105114926,
+          "ci95": [
+            -8.273177627873864e-05,
+            0.0008273177627872996
+          ],
+          "net_hit_difference": 4
+        },
+        "evidence_budget10_vs_score_budget10": {
+          "delta_N10": 0.000330927105114926,
+          "ci95": [
+            -8.480007068571912e-05,
+            0.0008273177627872996
+          ],
+          "net_hit_difference": 4
+        },
+        "evidence_budget10_vs_shuffled_budget10": {
+          "delta_N10": 0.0005791224339511206,
+          "ci95": [
+            8.273177627872441e-05,
+            0.0011582448679022112
+          ],
+          "net_hit_difference": 7
+        },
+        "evidence_budget20_vs_score_budget20": {
+          "delta_N10": 0.000165463552557463,
+          "ci95": [
+            -0.0004136588813936498,
+            0.0007445859865085613
+          ],
+          "net_hit_difference": 2
+        },
+        "evidence_budget20_vs_shuffled_budget20": {
+          "delta_N10": 0.00041365888139365757,
+          "ci95": [
+            -0.0001654635525574627,
+            0.0009927813153447762
+          ],
+          "net_hit_difference": 5
+        }
+      }
+    },
+    "all": {
+      "users": 19412,
+      "eligible_users": 19412,
+      "old_H10": 0.12584998969709457,
+      "old_N10": 0.08015497748787759,
+      "policies": {
+        "score_positive": {
+          "actions": 5776,
+          "gained10": 26,
+          "lost10": 9,
+          "neutral_actions": 5741,
+          "net_hits": 17,
+          "H10": 0.12672573665773748,
+          "N10": 0.08040812513095424,
+          "delta_N10": 0.00025314764307665845,
+          "delta_H10": 0.0008757469606429013,
+          "delta_N10_ci95": [
+            8.934622696821215e-05,
+            0.00041694905918511493
+          ]
+        },
+        "score_budget05": {
+          "actions": 970,
+          "gained10": 8,
+          "lost10": 0,
+          "neutral_actions": 962,
+          "net_hits": 8,
+          "H10": 0.12626210591386772,
+          "N10": 0.0802741057905019,
+          "delta_N10": 0.00011912830262430986,
+          "delta_H10": 0.00041211621677313,
+          "delta_N10_ci95": [
+            4.4673113484106075e-05,
+            0.00020847452959255053
+          ]
+        },
+        "score_budget10": {
+          "actions": 1941,
+          "gained10": 14,
+          "lost10": 1,
+          "neutral_actions": 1926,
+          "net_hits": 13,
+          "H10": 0.12651967854935092,
+          "N10": 0.08034856097964209,
+          "delta_N10": 0.00019358349176450351,
+          "delta_H10": 0.0006696888522563362,
+          "delta_N10_ci95": [
+            7.445518914021807e-05,
+            0.00031271179438879836
+          ]
+        },
+        "score_budget20": {
+          "actions": 3882,
+          "gained10": 19,
+          "lost10": 4,
+          "neutral_actions": 3859,
+          "net_hits": 15,
+          "H10": 0.1266227076035442,
+          "N10": 0.08037834305529816,
+          "delta_N10": 0.000223365567420581,
+          "delta_H10": 0.0007727179064496188,
+          "delta_N10_ci95": [
+            8.93462269682399e-05,
+            0.00035738490787294645
+          ]
+        },
+        "evidence_positive": {
+          "actions": 11684,
+          "gained10": 104,
+          "lost10": 26,
+          "neutral_actions": 11554,
+          "net_hits": 78,
+          "H10": 0.1298681228106326,
+          "N10": 0.0813164784384646,
+          "delta_N10": 0.001161500950587021,
+          "delta_H10": 0.004018133113538018,
+          "delta_N10_ci95": [
+            0.0008338981183701463,
+            0.0014894760587496347
+          ]
+        },
+        "evidence_budget05": {
+          "actions": 970,
+          "gained10": 10,
+          "lost10": 1,
+          "neutral_actions": 959,
+          "net_hits": 9,
+          "H10": 0.12631362044096436,
+          "N10": 0.08028899682832993,
+          "delta_N10": 0.0001340193404523486,
+          "delta_H10": 0.00046363074386977126,
+          "delta_N10_ci95": [
+            4.467311348411961e-05,
+            0.00023825660524862124
+          ]
+        },
+        "evidence_budget10": {
+          "actions": 1941,
+          "gained10": 26,
+          "lost10": 2,
+          "neutral_actions": 1913,
+          "net_hits": 24,
+          "H10": 0.12708633834741398,
+          "N10": 0.0805123623957505,
+          "delta_N10": 0.0003573849078729296,
+          "delta_H10": 0.00123634865031939,
+          "delta_N10_ci95": [
+            0.00020847452959255053,
+            0.0005211863239813489
+          ]
+        },
+        "evidence_budget20": {
+          "actions": 3882,
+          "gained10": 46,
+          "lost10": 7,
+          "neutral_actions": 3829,
+          "net_hits": 39,
+          "H10": 0.1278590562538636,
+          "N10": 0.0807357279631711,
+          "delta_N10": 0.0005807504752935105,
+          "delta_H10": 0.002009066556769009,
+          "delta_N10_ci95": [
+            0.0003722759457009811,
+            0.000804116042714104
+          ]
+        },
+        "shuffled_positive": {
+          "actions": 7121,
+          "gained10": 40,
+          "lost10": 20,
+          "neutral_actions": 7061,
+          "net_hits": 20,
+          "H10": 0.1268802802390274,
+          "N10": 0.08045279824443836,
+          "delta_N10": 0.00029782075656077466,
+          "delta_H10": 0.0010302905419328251,
+          "delta_N10_ci95": [
+            7.445518914024549e-05,
+            0.000521558599927115
+          ]
+        },
+        "shuffled_budget05": {
+          "actions": 970,
+          "gained10": 3,
+          "lost10": 5,
+          "neutral_actions": 962,
+          "net_hits": -2,
+          "H10": 0.1257469606429013,
+          "N10": 0.0801251954122215,
+          "delta_N10": -2.9782075656077466e-05,
+          "delta_H10": -0.0001030290541932825,
+          "delta_N10_ci95": [
+            -0.00011912830262429674,
+            5.956415131215531e-05
+          ]
+        },
+        "shuffled_budget10": {
+          "actions": 1941,
+          "gained10": 6,
+          "lost10": 6,
+          "neutral_actions": 1929,
+          "net_hits": 0,
+          "H10": 0.12584998969709457,
+          "N10": 0.08015497748787759,
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "delta_N10_ci95": [
+            -0.00010423726479626139,
+            0.00010423726479627526
+          ]
+        },
+        "shuffled_budget20": {
+          "actions": 3882,
+          "gained10": 24,
+          "lost10": 11,
+          "neutral_actions": 3847,
+          "net_hits": 13,
+          "H10": 0.12651967854935092,
+          "N10": 0.08034856097964209,
+          "delta_N10": 0.00019358349176450351,
+          "delta_H10": 0.0006696888522563362,
+          "delta_N10_ci95": [
+            2.9782075656070717e-05,
+            0.0003722759457009672
+          ]
+        }
+      },
+      "comparisons": {
+        "evidence_positive_vs_score_positive": {
+          "delta_N10": 0.0009083533075103626,
+          "ci95": [
+            0.000595641513121525,
+            0.0012214373778449562
+          ],
+          "net_hit_difference": 61
+        },
+        "evidence_positive_vs_shuffled_positive": {
+          "delta_N10": 0.0008636801940262467,
+          "ci95": [
+            0.0005509683996374193,
+            0.0011763919884150715
+          ],
+          "net_hit_difference": 58
+        },
+        "evidence_budget05_vs_score_budget05": {
+          "delta_N10": 1.4891037828038733e-05,
+          "ci95": [
+            -0.00011912830262429674,
+            0.00014891037828038134
+          ],
+          "net_hit_difference": 1
+        },
+        "evidence_budget05_vs_shuffled_budget05": {
+          "delta_N10": 0.00016380141610842605,
+          "ci95": [
+            2.9782075656084595e-05,
+            0.00029782075656077656
+          ],
+          "net_hit_difference": 11
+        },
+        "evidence_budget10_vs_score_budget10": {
+          "delta_N10": 0.00016380141610842608,
+          "ci95": [
+            0.0,
+            0.00034249387004486875
+          ],
+          "net_hit_difference": 11
+        },
+        "evidence_budget10_vs_shuffled_budget10": {
+          "delta_N10": 0.00035738490787292954,
+          "ci95": [
+            0.00019358349176448706,
+            0.0005360773618093978
+          ],
+          "net_hit_difference": 24
+        },
+        "evidence_budget20_vs_score_budget20": {
+          "delta_N10": 0.0003573849078729296,
+          "ci95": [
+            0.00013401934045238726,
+            0.0005811227512392829
+          ],
+          "net_hit_difference": 24
+        },
+        "evidence_budget20_vs_shuffled_budget20": {
+          "delta_N10": 0.00038716698352900703,
+          "ci95": [
+            0.0001638014161084167,
+            0.0006254235887776103
+          ],
+          "net_hit_difference": 26
+        }
+      }
+    }
+  },
+  "fitted_labels": "ranker_fit_only",
+  "primary_users_disjoint": true
+}

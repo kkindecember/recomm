@@ -1,0 +1,4 @@
+{
+  "error": "TimeoutError('Domain time budget')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase21/candidate_gate_generation.py\", line 184, in worker\n    Worker(domain,lease).run()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase21/candidate_gate_generation.py\", line 152, in run\n    guided=self.decode(ctx,q,.3)\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/lime_decode_screen.py\", line 220, in decode\n    if time.monotonic()-self.started>self.config['worker_timeout_seconds']: raise TimeoutError('Domain time budget')\nTimeoutError: Domain time budget\n"
+}

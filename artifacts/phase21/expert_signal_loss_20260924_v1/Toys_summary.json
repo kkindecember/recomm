@@ -1,0 +1,2764 @@
+{
+  "ranker_fit": {
+    "users": 2773,
+    "metrics": {
+      "GRAM": {
+        "H10": 0.11648034619545619,
+        "N10": 0.07142236980455186
+      },
+      "fixed_late": {
+        "H10": 0.1265777136675081,
+        "N10": 0.07968959097765313
+      },
+      "SASRec": {
+        "H10": 0.09051568698160836,
+        "N10": 0.057268332677804186
+      },
+      "ItemCF": {
+        "H10": 0.08330328164442842,
+        "N10": 0.049157904161097936
+      },
+      "semantic": {
+        "H10": 0.07284529390551749,
+        "N10": 0.03970019021656368
+      },
+      "LIME": {
+        "H10": 0.1298232960692391,
+        "N10": 0.08183098197543687
+      },
+      "reserve_SASRec": {
+        "H10": 0.12549585286693113,
+        "N10": 0.0805800703577612
+      },
+      "reserve_ItemCF": {
+        "H10": 0.12621709340064913,
+        "N10": 0.08078855562737382
+      },
+      "reserve_semantic": {
+        "H10": 0.1280201947349441,
+        "N10": 0.08130976880140535
+      }
+    },
+    "experts_versus_fusion": {
+      "SASRec": {
+        "users": 2773,
+        "new_H10": 0.09051568698160836,
+        "old_H10": 0.1298232960692391,
+        "new_N10": 0.057268332677804186,
+        "old_N10": 0.08183098197543687,
+        "delta_N10": -0.024562649297632695,
+        "delta_N10_ci95": [
+          -0.0299489308547553,
+          -0.01931703751509715
+        ],
+        "gained10": 30,
+        "lost10": 139,
+        "n10_improved": 72,
+        "n10_worsened": 228
+      },
+      "ItemCF": {
+        "users": 2773,
+        "new_H10": 0.08330328164442842,
+        "old_H10": 0.1298232960692391,
+        "new_N10": 0.049157904161097936,
+        "old_N10": 0.08183098197543687,
+        "delta_N10": -0.03267307781433894,
+        "delta_N10_ci95": [
+          -0.03891085326835002,
+          -0.02649393619525502
+        ],
+        "gained10": 36,
+        "lost10": 165,
+        "n10_improved": 75,
+        "n10_worsened": 260
+      },
+      "semantic": {
+        "users": 2773,
+        "new_H10": 0.07284529390551749,
+        "old_H10": 0.1298232960692391,
+        "new_N10": 0.03970019021656368,
+        "old_N10": 0.08183098197543687,
+        "delta_N10": -0.042130791758873194,
+        "delta_N10_ci95": [
+          -0.049803633242021556,
+          -0.0338938409561463
+        ],
+        "gained10": 65,
+        "lost10": 223,
+        "n10_improved": 100,
+        "n10_worsened": 295
+      }
+    },
+    "reserve_versus_fusion": {
+      "SASRec": {
+        "users": 2773,
+        "new_H10": 0.12549585286693113,
+        "old_H10": 0.1298232960692391,
+        "new_N10": 0.0805800703577612,
+        "old_N10": 0.08183098197543687,
+        "delta_N10": -0.0012509116176756777,
+        "delta_N10_ci95": [
+          -0.0022933379657387428,
+          -0.00020848526961261298
+        ],
+        "gained10": 7,
+        "lost10": 19,
+        "n10_improved": 7,
+        "n10_worsened": 19
+      },
+      "ItemCF": {
+        "users": 2773,
+        "new_H10": 0.12621709340064913,
+        "old_H10": 0.1298232960692391,
+        "new_N10": 0.08078855562737382,
+        "old_N10": 0.08183098197543687,
+        "delta_N10": -0.0010424263480630649,
+        "delta_N10_ci95": [
+          -0.0021890953309324362,
+          0.0
+        ],
+        "gained10": 9,
+        "lost10": 19,
+        "n10_improved": 9,
+        "n10_worsened": 19
+      },
+      "semantic": {
+        "users": 2773,
+        "new_H10": 0.1280201947349441,
+        "old_H10": 0.1298232960692391,
+        "new_N10": 0.08130976880140535,
+        "old_N10": 0.08183098197543687,
+        "delta_N10": -0.0005212131740315324,
+        "delta_N10_ci95": [
+          -0.0016678821569009038,
+          0.0007296984436441455
+        ],
+        "gained10": 14,
+        "lost10": 19,
+        "n10_improved": 14,
+        "n10_worsened": 19
+      }
+    },
+    "suppression": {
+      "expert_any_hit": 438,
+      "expert_hit_fusion_miss": 126,
+      "no_expert_top10_fusion_hit": 48,
+      "GRAM_miss_expert_hit": 215,
+      "SASRec": {
+        "expert_hit": 251,
+        "fusion_rejected": 30,
+        "GRAM_miss_expert_hit": 84
+      },
+      "ItemCF": {
+        "expert_hit": 231,
+        "fusion_rejected": 36,
+        "GRAM_miss_expert_hit": 78
+      },
+      "semantic": {
+        "expert_hit": 202,
+        "fusion_rejected": 65,
+        "GRAM_miss_expert_hit": 103
+      }
+    },
+    "history_strata": {
+      "1-4": {
+        "users": 1837,
+        "opportunities": 138,
+        "fusion_rejected_opportunities": 68
+      },
+      "5-9": {
+        "users": 596,
+        "opportunities": 44,
+        "fusion_rejected_opportunities": 20
+      },
+      "10-19": {
+        "users": 240,
+        "opportunities": 19,
+        "fusion_rejected_opportunities": 13
+      },
+      "20+": {
+        "users": 100,
+        "opportunities": 14,
+        "fusion_rejected_opportunities": 5
+      }
+    }
+  },
+  "development": {
+    "users": 512,
+    "metrics": {
+      "GRAM": {
+        "H10": 0.09765625,
+        "N10": 0.06238437804309118
+      },
+      "fixed_late": {
+        "H10": 0.119140625,
+        "N10": 0.0693468495896086
+      },
+      "SASRec": {
+        "H10": 0.072265625,
+        "N10": 0.04079571620217992
+      },
+      "ItemCF": {
+        "H10": 0.080078125,
+        "N10": 0.0413313417559277
+      },
+      "semantic": {
+        "H10": 0.07421875,
+        "N10": 0.040867854364611475
+      },
+      "LIME": {
+        "H10": 0.109375,
+        "N10": 0.0627161561075924
+      },
+      "reserve_SASRec": {
+        "H10": 0.103515625,
+        "N10": 0.06102241689088602
+      },
+      "reserve_ItemCF": {
+        "H10": 0.103515625,
+        "N10": 0.06102241689088602
+      },
+      "reserve_semantic": {
+        "H10": 0.109375,
+        "N10": 0.0627161561075924
+      },
+      "fixed_decode": {
+        "H10": 0.12109375,
+        "N10": 0.06917410663499221
+      }
+    },
+    "experts_versus_fusion": {
+      "SASRec": {
+        "users": 512,
+        "new_H10": 0.072265625,
+        "old_H10": 0.109375,
+        "new_N10": 0.04079571620217992,
+        "old_N10": 0.0627161561075924,
+        "delta_N10": -0.02192043990541248,
+        "delta_N10_ci95": [
+          -0.03319484897164257,
+          -0.012154472543371925
+        ],
+        "gained10": 4,
+        "lost10": 23,
+        "n10_improved": 15,
+        "n10_worsened": 38
+      },
+      "ItemCF": {
+        "users": 512,
+        "new_H10": 0.080078125,
+        "old_H10": 0.109375,
+        "new_N10": 0.0413313417559277,
+        "old_N10": 0.0627161561075924,
+        "delta_N10": -0.021384814351664696,
+        "delta_N10_ci95": [
+          -0.033638203770947686,
+          -0.008981845709682428
+        ],
+        "gained10": 9,
+        "lost10": 24,
+        "n10_improved": 15,
+        "n10_worsened": 42
+      },
+      "semantic": {
+        "users": 512,
+        "new_H10": 0.07421875,
+        "old_H10": 0.109375,
+        "new_N10": 0.040867854364611475,
+        "old_N10": 0.0627161561075924,
+        "delta_N10": -0.021848301742980917,
+        "delta_N10_ci95": [
+          -0.036995252729903595,
+          -0.007145798546636353
+        ],
+        "gained10": 13,
+        "lost10": 31,
+        "n10_improved": 24,
+        "n10_worsened": 43
+      }
+    },
+    "reserve_versus_fusion": {
+      "SASRec": {
+        "users": 512,
+        "new_H10": 0.103515625,
+        "old_H10": 0.109375,
+        "new_N10": 0.06102241689088602,
+        "old_N10": 0.0627161561075924,
+        "delta_N10": -0.0016937392167063743,
+        "delta_N10_ci95": [
+          -0.003952058172314874,
+          0.0
+        ],
+        "gained10": 0,
+        "lost10": 3,
+        "n10_improved": 0,
+        "n10_worsened": 3
+      },
+      "ItemCF": {
+        "users": 512,
+        "new_H10": 0.103515625,
+        "old_H10": 0.109375,
+        "new_N10": 0.06102241689088602,
+        "old_N10": 0.0627161561075924,
+        "delta_N10": -0.0016937392167063743,
+        "delta_N10_ci95": [
+          -0.003952058172314874,
+          0.0
+        ],
+        "gained10": 0,
+        "lost10": 3,
+        "n10_improved": 0,
+        "n10_worsened": 3
+      },
+      "semantic": {
+        "users": 512,
+        "new_H10": 0.109375,
+        "old_H10": 0.109375,
+        "new_N10": 0.0627161561075924,
+        "old_N10": 0.0627161561075924,
+        "delta_N10": 0.0,
+        "delta_N10_ci95": [
+          -0.002822898694510624,
+          0.002822898694510624
+        ],
+        "gained10": 3,
+        "lost10": 3,
+        "n10_improved": 3,
+        "n10_worsened": 3
+      }
+    },
+    "suppression": {
+      "expert_any_hit": 75,
+      "expert_hit_fusion_miss": 26,
+      "no_expert_top10_fusion_hit": 7,
+      "GRAM_miss_expert_hit": 39,
+      "SASRec": {
+        "expert_hit": 37,
+        "fusion_rejected": 4,
+        "GRAM_miss_expert_hit": 15
+      },
+      "ItemCF": {
+        "expert_hit": 41,
+        "fusion_rejected": 9,
+        "GRAM_miss_expert_hit": 13
+      },
+      "semantic": {
+        "expert_hit": 38,
+        "fusion_rejected": 13,
+        "GRAM_miss_expert_hit": 16
+      }
+    },
+    "opportunity_outcomes": {
+      "total": 39,
+      "realized": 10,
+      "unrealized": 29,
+      "fused_hit_guided_hit": 9,
+      "fused_hit_guided_miss": 7,
+      "fused_miss_guided_hit": 1,
+      "fused_miss_guided_miss": 22,
+      "unresolved_fusion_outside10": 22,
+      "unresolved_fusion_inside10_guided_outside50": 1,
+      "unresolved_fusion_inside10_guided_rank11_50": 6
+    },
+    "guided_minus_GRAM": {
+      "users": 512,
+      "new_H10": 0.12109375,
+      "old_H10": 0.09765625,
+      "new_N10": 0.06917410663499221,
+      "old_N10": 0.06238437804309118,
+      "delta_N10": 0.006789728591901032,
+      "delta_N10_ci95": [
+        0.0014220236331233956,
+        0.012507941947390784
+      ],
+      "gained10": 12,
+      "lost10": 0,
+      "n10_improved": 22,
+      "n10_worsened": 12
+    },
+    "guided_minus_late": {
+      "users": 512,
+      "new_H10": 0.12109375,
+      "old_H10": 0.119140625,
+      "new_N10": 0.06917410663499221,
+      "old_N10": 0.0693468495896086,
+      "delta_N10": -0.00017274295461639823,
+      "delta_N10_ci95": [
+        -0.0022420958000154705,
+        0.0018268112323935935
+      ],
+      "gained10": 1,
+      "lost10": 0,
+      "n10_improved": 1,
+      "n10_worsened": 3
+    },
+    "fusion_guided_cross_10": {
+      "both_hit": 45,
+      "fusion_only": 11,
+      "guided_only": 17,
+      "neither": 439
+    },
+    "fusion_guided_cross_50": {
+      "both_hit": 76,
+      "fusion_only": 18,
+      "guided_only": 20,
+      "neither": 398
+    },
+    "coverage_vs_ranking": {
+      "new_target_in_50": 10,
+      "new_target_in_10": 1,
+      "target_dropped_from_50": 6,
+      "delta_N10_originally_outside50": 0.0006510416666666666,
+      "delta_N10_originally_inside50": -0.0008237846212830649
+    },
+    "history_strata": {
+      "1-4": {
+        "users": 284,
+        "opportunities": 22,
+        "fusion_rejected_opportunities": 15,
+        "unrealized": 18
+      },
+      "5-9": {
+        "users": 161,
+        "opportunities": 10,
+        "fusion_rejected_opportunities": 6,
+        "unrealized": 8
+      },
+      "10-19": {
+        "users": 54,
+        "opportunities": 6,
+        "fusion_rejected_opportunities": 2,
+        "unrealized": 3
+      },
+      "20+": {
+        "users": 13,
+        "opportunities": 1,
+        "fusion_rejected_opportunities": 0,
+        "unrealized": 0
+      }
+    }
+  },
+  "candidate_groups": [
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "ItemCF",
+        "1",
+        "False"
+      ],
+      "candidates": 314,
+      "users": 314,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "ItemCF",
+        "1",
+        "True"
+      ],
+      "candidates": 69,
+      "users": 69,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 14.492753623188406
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "ItemCF",
+        "2-3",
+        "False"
+      ],
+      "candidates": 756,
+      "users": 453,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 1.3227513227513228
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "ItemCF",
+        "2-3",
+        "True"
+      ],
+      "candidates": 78,
+      "users": 76,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 25.641025641025642
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "ItemCF",
+        "4-10",
+        "False"
+      ],
+      "candidates": 3004,
+      "users": 511,
+      "target_hits": 8,
+      "target_hits_per_1000_candidates": 2.663115845539281
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "ItemCF",
+        "4-10",
+        "True"
+      ],
+      "candidates": 170,
+      "users": 144,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 11.764705882352942
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "SASRec",
+        "1",
+        "False"
+      ],
+      "candidates": 119,
+      "users": 119,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "SASRec",
+        "1",
+        "True"
+      ],
+      "candidates": 236,
+      "users": 236,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 4.237288135593221
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "SASRec",
+        "2-3",
+        "False"
+      ],
+      "candidates": 445,
+      "users": 346,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "SASRec",
+        "2-3",
+        "True"
+      ],
+      "candidates": 418,
+      "users": 330,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 7.177033492822966
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "SASRec",
+        "4-10",
+        "False"
+      ],
+      "candidates": 2442,
+      "users": 511,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 1.638001638001638
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "SASRec",
+        "4-10",
+        "True"
+      ],
+      "candidates": 896,
+      "users": 436,
+      "target_hits": 7,
+      "target_hits_per_1000_candidates": 7.8125
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "semantic",
+        "1",
+        "False"
+      ],
+      "candidates": 356,
+      "users": 356,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "semantic",
+        "1",
+        "True"
+      ],
+      "candidates": 92,
+      "users": 92,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 32.608695652173914
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "semantic",
+        "2-3",
+        "False"
+      ],
+      "candidates": 783,
+      "users": 465,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 1.277139208173691
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "semantic",
+        "2-3",
+        "True"
+      ],
+      "candidates": 138,
+      "users": 125,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "semantic",
+        "4-10",
+        "False"
+      ],
+      "candidates": 2993,
+      "users": 512,
+      "target_hits": 12,
+      "target_hits_per_1000_candidates": 4.009355162044771
+    },
+    {
+      "group": [
+        "development",
+        "exclusive_rank",
+        "semantic",
+        "4-10",
+        "True"
+      ],
+      "candidates": 349,
+      "users": 260,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 5.730659025787966
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 2214,
+      "users": 283,
+      "target_hits": 5,
+      "target_hits_per_1000_candidates": 2.2583559168925023
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 195,
+      "users": 134,
+      "target_hits": 5,
+      "target_hits_per_1000_candidates": 25.641025641025642
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 40,
+      "users": 35,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 98,
+      "users": 62,
+      "target_hits": 5,
+      "target_hits_per_1000_candidates": 51.02040816326531
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 1678,
+      "users": 284,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 0.5959475566150179
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 813,
+      "users": 268,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 4.920049200492005
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 34,
+      "users": 34,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 201,
+      "users": 139,
+      "target_hits": 6,
+      "target_hits_per_1000_candidates": 29.850746268656717
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 58,
+      "users": 45,
+      "target_hits": 9,
+      "target_hits_per_1000_candidates": 155.17241379310346
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 56,
+      "users": 43,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "none",
+        "True"
+      ],
+      "candidates": 1067,
+      "users": 268,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 3.7488284910965324
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "semantic",
+        "False"
+      ],
+      "candidates": 2236,
+      "users": 284,
+      "target_hits": 10,
+      "target_hits_per_1000_candidates": 4.47227191413238
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "1-4",
+        "semantic",
+        "True"
+      ],
+      "candidates": 352,
+      "users": 200,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 8.522727272727273
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 459,
+      "users": 54,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 2.178649237472767
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 24,
+      "users": 20,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 6,
+      "users": 6,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 12,
+      "users": 8,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 307,
+      "users": 54,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 3.257328990228013
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 187,
+      "users": 54,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 21.390374331550802
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 6,
+      "users": 6,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 24,
+      "users": 17,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 9,
+      "users": 4,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 222.22222222222223
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 7,
+      "users": 6,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 142.85714285714286
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "none",
+        "True"
+      ],
+      "candidates": 232,
+      "users": 54,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "semantic",
+        "False"
+      ],
+      "candidates": 461,
+      "users": 54,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "10-19",
+        "semantic",
+        "True"
+      ],
+      "candidates": 45,
+      "users": 34,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 102,
+      "users": 13,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 5,
+      "users": 5,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 4,
+      "users": 2,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 7,
+      "users": 3,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 74,
+      "users": 13,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 41,
+      "users": 13,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 24.390243902439025
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 3,
+      "users": 2,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 7,
+      "users": 4,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 2,
+      "users": 2,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 3,
+      "users": 2,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "none",
+        "True"
+      ],
+      "candidates": 52,
+      "users": 12,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "semantic",
+        "False"
+      ],
+      "candidates": 101,
+      "users": 13,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 9.900990099009901
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "20+",
+        "semantic",
+        "True"
+      ],
+      "candidates": 13,
+      "users": 7,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 1299,
+      "users": 161,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 2.3094688221709005
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 93,
+      "users": 69,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 33,
+      "users": 27,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 41,
+      "users": 32,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 24.390243902439025
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 947,
+      "users": 160,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 2.1119324181626187
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 509,
+      "users": 157,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 3.9292730844793713
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 19,
+      "users": 17,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 102,
+      "users": 67,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 19.607843137254903
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 23,
+      "users": 14,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 86.95652173913044
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 10,
+      "users": 9,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "none",
+        "True"
+      ],
+      "candidates": 663,
+      "users": 151,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 4.524886877828054
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "semantic",
+        "False"
+      ],
+      "candidates": 1334,
+      "users": 161,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 1.4992503748125936
+    },
+    {
+      "group": [
+        "development",
+        "history",
+        "5-9",
+        "semantic",
+        "True"
+      ],
+      "candidates": 169,
+      "users": 106,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 11.834319526627219
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 4074,
+      "users": 511,
+      "target_hits": 9,
+      "target_hits_per_1000_candidates": 2.2091310751104567
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 317,
+      "users": 228,
+      "target_hits": 5,
+      "target_hits_per_1000_candidates": 15.772870662460567
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 83,
+      "users": 70,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 158,
+      "users": 105,
+      "target_hits": 6,
+      "target_hits_per_1000_candidates": 37.9746835443038
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 3006,
+      "users": 511,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 1.3306719893546242
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 1550,
+      "users": 492,
+      "target_hits": 11,
+      "target_hits_per_1000_candidates": 7.096774193548387
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 62,
+      "users": 59,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 334,
+      "users": 227,
+      "target_hits": 8,
+      "target_hits_per_1000_candidates": 23.952095808383234
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 92,
+      "users": 65,
+      "target_hits": 13,
+      "target_hits_per_1000_candidates": 141.30434782608697
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 76,
+      "users": 60,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 13.157894736842104
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "none",
+        "True"
+      ],
+      "candidates": 2014,
+      "users": 485,
+      "target_hits": 7,
+      "target_hits_per_1000_candidates": 3.4756703078450846
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "semantic",
+        "False"
+      ],
+      "candidates": 4132,
+      "users": 512,
+      "target_hits": 13,
+      "target_hits_per_1000_candidates": 3.1461761858664086
+    },
+    {
+      "group": [
+        "development",
+        "pattern",
+        "semantic",
+        "True"
+      ],
+      "candidates": 579,
+      "users": 347,
+      "target_hits": 5,
+      "target_hits_per_1000_candidates": 8.635578583765112
+    },
+    {
+      "group": [
+        "development",
+        "support_count",
+        "0",
+        "True"
+      ],
+      "candidates": 2014,
+      "users": 485,
+      "target_hits": 7,
+      "target_hits_per_1000_candidates": 3.4756703078450846
+    },
+    {
+      "group": [
+        "development",
+        "support_count",
+        "1",
+        "False"
+      ],
+      "candidates": 11212,
+      "users": 512,
+      "target_hits": 26,
+      "target_hits_per_1000_candidates": 2.3189439885836602
+    },
+    {
+      "group": [
+        "development",
+        "support_count",
+        "1",
+        "True"
+      ],
+      "candidates": 2446,
+      "users": 511,
+      "target_hits": 21,
+      "target_hits_per_1000_candidates": 8.585445625511039
+    },
+    {
+      "group": [
+        "development",
+        "support_count",
+        "2",
+        "False"
+      ],
+      "candidates": 145,
+      "users": 114,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "development",
+        "support_count",
+        "2",
+        "True"
+      ],
+      "candidates": 568,
+      "users": 295,
+      "target_hits": 15,
+      "target_hits_per_1000_candidates": 26.408450704225352
+    },
+    {
+      "group": [
+        "development",
+        "support_count",
+        "3",
+        "True"
+      ],
+      "candidates": 92,
+      "users": 65,
+      "target_hits": 13,
+      "target_hits_per_1000_candidates": 141.30434782608697
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "ItemCF",
+        "1",
+        "False"
+      ],
+      "candidates": 1706,
+      "users": 1706,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 1.7584994138335288
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "ItemCF",
+        "1",
+        "True"
+      ],
+      "candidates": 320,
+      "users": 320,
+      "target_hits": 10,
+      "target_hits_per_1000_candidates": 31.25
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "ItemCF",
+        "2-3",
+        "False"
+      ],
+      "candidates": 4004,
+      "users": 2417,
+      "target_hits": 8,
+      "target_hits_per_1000_candidates": 1.998001998001998
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "ItemCF",
+        "2-3",
+        "True"
+      ],
+      "candidates": 459,
+      "users": 435,
+      "target_hits": 7,
+      "target_hits_per_1000_candidates": 15.250544662309368
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "ItemCF",
+        "4-10",
+        "False"
+      ],
+      "candidates": 16098,
+      "users": 2766,
+      "target_hits": 20,
+      "target_hits_per_1000_candidates": 1.2423903590508139
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "ItemCF",
+        "4-10",
+        "True"
+      ],
+      "candidates": 997,
+      "users": 829,
+      "target_hits": 14,
+      "target_hits_per_1000_candidates": 14.042126379137413
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "SASRec",
+        "1",
+        "False"
+      ],
+      "candidates": 559,
+      "users": 559,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "SASRec",
+        "1",
+        "True"
+      ],
+      "candidates": 1371,
+      "users": 1371,
+      "target_hits": 14,
+      "target_hits_per_1000_candidates": 10.211524434719182
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "SASRec",
+        "2-3",
+        "False"
+      ],
+      "candidates": 2237,
+      "users": 1713,
+      "target_hits": 6,
+      "target_hits_per_1000_candidates": 2.682163611980331
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "SASRec",
+        "2-3",
+        "True"
+      ],
+      "candidates": 2348,
+      "users": 1797,
+      "target_hits": 19,
+      "target_hits_per_1000_candidates": 8.09199318568995
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "SASRec",
+        "4-10",
+        "False"
+      ],
+      "candidates": 13074,
+      "users": 2767,
+      "target_hits": 23,
+      "target_hits_per_1000_candidates": 1.7592167661006577
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "SASRec",
+        "4-10",
+        "True"
+      ],
+      "candidates": 4724,
+      "users": 2327,
+      "target_hits": 36,
+      "target_hits_per_1000_candidates": 7.6206604572396275
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "semantic",
+        "1",
+        "False"
+      ],
+      "candidates": 1887,
+      "users": 1887,
+      "target_hits": 6,
+      "target_hits_per_1000_candidates": 3.179650238473768
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "semantic",
+        "1",
+        "True"
+      ],
+      "candidates": 502,
+      "users": 502,
+      "target_hits": 7,
+      "target_hits_per_1000_candidates": 13.944223107569721
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "semantic",
+        "2-3",
+        "False"
+      ],
+      "candidates": 4172,
+      "users": 2512,
+      "target_hits": 17,
+      "target_hits_per_1000_candidates": 4.074784276126558
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "semantic",
+        "2-3",
+        "True"
+      ],
+      "candidates": 805,
+      "users": 733,
+      "target_hits": 12,
+      "target_hits_per_1000_candidates": 14.906832298136646
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "semantic",
+        "4-10",
+        "False"
+      ],
+      "candidates": 16259,
+      "users": 2771,
+      "target_hits": 38,
+      "target_hits_per_1000_candidates": 2.3371671074481823
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "exclusive_rank",
+        "semantic",
+        "4-10",
+        "True"
+      ],
+      "candidates": 1792,
+      "users": 1300,
+      "target_hits": 17,
+      "target_hits_per_1000_candidates": 9.486607142857142
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 14232,
+      "users": 1832,
+      "target_hits": 15,
+      "target_hits_per_1000_candidates": 1.0539629005059021
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 1254,
+      "users": 893,
+      "target_hits": 20,
+      "target_hits_per_1000_candidates": 15.94896331738437
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 214,
+      "users": 191,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 14.018691588785046
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 620,
+      "users": 436,
+      "target_hits": 19,
+      "target_hits_per_1000_candidates": 30.64516129032258
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 10509,
+      "users": 1833,
+      "target_hits": 16,
+      "target_hits_per_1000_candidates": 1.5225045199352936
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 5450,
+      "users": 1746,
+      "target_hits": 40,
+      "target_hits_per_1000_candidates": 7.339449541284404
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 175,
+      "users": 166,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 1432,
+      "users": 920,
+      "target_hits": 47,
+      "target_hits_per_1000_candidates": 32.82122905027933
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 443,
+      "users": 303,
+      "target_hits": 53,
+      "target_hits_per_1000_candidates": 119.63882618510158
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec+semantic",
+        "False"
+      ],
+      "candidates": 5,
+      "users": 5,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 356,
+      "users": 298,
+      "target_hits": 9,
+      "target_hits_per_1000_candidates": 25.280898876404493
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "none",
+        "True"
+      ],
+      "candidates": 6536,
+      "users": 1734,
+      "target_hits": 24,
+      "target_hits_per_1000_candidates": 3.6719706242350063
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "semantic",
+        "False"
+      ],
+      "candidates": 14453,
+      "users": 1836,
+      "target_hits": 45,
+      "target_hits_per_1000_candidates": 3.1135404414308447
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "1-4",
+        "semantic",
+        "True"
+      ],
+      "candidates": 2279,
+      "users": 1309,
+      "target_hits": 31,
+      "target_hits_per_1000_candidates": 13.602457218078104
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 1962,
+      "users": 240,
+      "target_hits": 6,
+      "target_hits_per_1000_candidates": 3.058103975535168
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 137,
+      "users": 98,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 7.299270072992701
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 38,
+      "users": 28,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 26.31578947368421
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 46,
+      "users": 35,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 1361,
+      "users": 240,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 2.9390154298310067
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 797,
+      "users": 233,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 2.5094102885821834
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 26,
+      "users": 23,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 38.46153846153846
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 175,
+      "users": 110,
+      "target_hits": 8,
+      "target_hits_per_1000_candidates": 45.714285714285715
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 16,
+      "users": 12,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 25,
+      "users": 21,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 40.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "none",
+        "True"
+      ],
+      "candidates": 1030,
+      "users": 232,
+      "target_hits": 7,
+      "target_hits_per_1000_candidates": 6.796116504854369
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "semantic",
+        "False"
+      ],
+      "candidates": 2101,
+      "users": 240,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 1.9038553069966682
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "10-19",
+        "semantic",
+        "True"
+      ],
+      "candidates": 174,
+      "users": 121,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 5.747126436781609
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 856,
+      "users": 100,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 2.336448598130841
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 49,
+      "users": 32,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 20.408163265306122
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 12,
+      "users": 10,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 16,
+      "users": 13,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 62.5
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 519,
+      "users": 100,
+      "target_hits": 6,
+      "target_hits_per_1000_candidates": 11.560693641618498
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 408,
+      "users": 100,
+      "target_hits": 10,
+      "target_hits_per_1000_candidates": 24.50980392156863
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 10,
+      "users": 8,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 52,
+      "users": 37,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 19.23076923076923
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 5,
+      "users": 5,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 6,
+      "users": 6,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "none",
+        "True"
+      ],
+      "candidates": 424,
+      "users": 98,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 9.433962264150944
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "semantic",
+        "False"
+      ],
+      "candidates": 921,
+      "users": 100,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "20+",
+        "semantic",
+        "True"
+      ],
+      "candidates": 40,
+      "users": 30,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 25.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 4758,
+      "users": 595,
+      "target_hits": 8,
+      "target_hits_per_1000_candidates": 1.6813787305590584
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 336,
+      "users": 247,
+      "target_hits": 9,
+      "target_hits_per_1000_candidates": 26.785714285714285
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 109,
+      "users": 92,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 189,
+      "users": 136,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 21.164021164021165
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 3481,
+      "users": 596,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 0.8618213157138753
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 1788,
+      "users": 574,
+      "target_hits": 17,
+      "target_hits_per_1000_candidates": 9.507829977628635
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 61,
+      "users": 56,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 417,
+      "users": 275,
+      "target_hits": 19,
+      "target_hits_per_1000_candidates": 45.563549160671464
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 90,
+      "users": 64,
+      "target_hits": 12,
+      "target_hits_per_1000_candidates": 133.33333333333334
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec+semantic",
+        "False"
+      ],
+      "candidates": 1,
+      "users": 1,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 122,
+      "users": 97,
+      "target_hits": 2,
+      "target_hits_per_1000_candidates": 16.39344262295082
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "none",
+        "True"
+      ],
+      "candidates": 2412,
+      "users": 564,
+      "target_hits": 13,
+      "target_hits_per_1000_candidates": 5.389718076285241
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "semantic",
+        "False"
+      ],
+      "candidates": 4843,
+      "users": 596,
+      "target_hits": 12,
+      "target_hits_per_1000_candidates": 2.4778030146603345
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "history",
+        "5-9",
+        "semantic",
+        "True"
+      ],
+      "candidates": 606,
+      "users": 359,
+      "target_hits": 3,
+      "target_hits_per_1000_candidates": 4.9504950495049505
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "ItemCF",
+        "False"
+      ],
+      "candidates": 21808,
+      "users": 2767,
+      "target_hits": 31,
+      "target_hits_per_1000_candidates": 1.421496698459281
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "ItemCF",
+        "True"
+      ],
+      "candidates": 1776,
+      "users": 1270,
+      "target_hits": 31,
+      "target_hits_per_1000_candidates": 17.454954954954953
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "ItemCF+semantic",
+        "False"
+      ],
+      "candidates": 373,
+      "users": 321,
+      "target_hits": 4,
+      "target_hits_per_1000_candidates": 10.723860589812332
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 871,
+      "users": 620,
+      "target_hits": 24,
+      "target_hits_per_1000_candidates": 27.554535017221585
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec",
+        "False"
+      ],
+      "candidates": 15870,
+      "users": 2769,
+      "target_hits": 29,
+      "target_hits_per_1000_candidates": 1.8273471959672338
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec",
+        "True"
+      ],
+      "candidates": 8443,
+      "users": 2653,
+      "target_hits": 69,
+      "target_hits_per_1000_candidates": 8.172450550752103
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec+ItemCF",
+        "False"
+      ],
+      "candidates": 272,
+      "users": 253,
+      "target_hits": 1,
+      "target_hits_per_1000_candidates": 3.676470588235294
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec+ItemCF",
+        "True"
+      ],
+      "candidates": 2076,
+      "users": 1342,
+      "target_hits": 75,
+      "target_hits_per_1000_candidates": 36.127167630057805
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec+ItemCF+semantic",
+        "True"
+      ],
+      "candidates": 554,
+      "users": 384,
+      "target_hits": 65,
+      "target_hits_per_1000_candidates": 117.32851985559567
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec+semantic",
+        "False"
+      ],
+      "candidates": 6,
+      "users": 6,
+      "target_hits": 0,
+      "target_hits_per_1000_candidates": 0.0
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "SASRec+semantic",
+        "True"
+      ],
+      "candidates": 509,
+      "users": 422,
+      "target_hits": 12,
+      "target_hits_per_1000_candidates": 23.575638506876228
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "none",
+        "True"
+      ],
+      "candidates": 10402,
+      "users": 2628,
+      "target_hits": 48,
+      "target_hits_per_1000_candidates": 4.614497212074601
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "semantic",
+        "False"
+      ],
+      "candidates": 22318,
+      "users": 2772,
+      "target_hits": 61,
+      "target_hits_per_1000_candidates": 2.733219822564746
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "pattern",
+        "semantic",
+        "True"
+      ],
+      "candidates": 3099,
+      "users": 1819,
+      "target_hits": 36,
+      "target_hits_per_1000_candidates": 11.616650532429816
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "support_count",
+        "0",
+        "True"
+      ],
+      "candidates": 10402,
+      "users": 2628,
+      "target_hits": 48,
+      "target_hits_per_1000_candidates": 4.614497212074601
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "support_count",
+        "1",
+        "False"
+      ],
+      "candidates": 59996,
+      "users": 2773,
+      "target_hits": 121,
+      "target_hits_per_1000_candidates": 2.0168011200746716
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "support_count",
+        "1",
+        "True"
+      ],
+      "candidates": 13318,
+      "users": 2764,
+      "target_hits": 136,
+      "target_hits_per_1000_candidates": 10.211743505030785
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "support_count",
+        "2",
+        "False"
+      ],
+      "candidates": 651,
+      "users": 545,
+      "target_hits": 5,
+      "target_hits_per_1000_candidates": 7.680491551459293
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "support_count",
+        "2",
+        "True"
+      ],
+      "candidates": 3456,
+      "users": 1781,
+      "target_hits": 111,
+      "target_hits_per_1000_candidates": 32.11805555555556
+    },
+    {
+      "group": [
+        "ranker_fit",
+        "support_count",
+        "3",
+        "True"
+      ],
+      "candidates": 554,
+      "users": 384,
+      "target_hits": 65,
+      "target_hits_per_1000_candidates": 117.32851985559567
+    }
+  ],
+  "verification": {
+    "all_reference_ranks_exact": true,
+    "baseline_metrics_exact": true,
+    "max_fusion_reconstruction_error": 0.0,
+    "sources_unmodified": true,
+    "users": 3285
+  }
+}

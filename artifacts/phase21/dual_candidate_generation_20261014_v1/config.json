@@ -1,0 +1,28 @@
+{
+  "evaluation_users": 512,
+  "head_seed": 0,
+  "alpha": 0.3,
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "optimizer_steps": 0,
+  "test_read": false,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "total_lease_mib": 30720,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 32768,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "gpu_pool": "all visible GPUs; free-memory admission",
+  "arms": [
+    "baseline",
+    "user",
+    "candidate",
+    "scalar"
+  ],
+  "replay_original_dual": true,
+  "scientific_auto_retry": false,
+  "seed_selection": "fixed seed0, not best validation seed",
+  "cohort": "same historical512 development users per domain; exploratory"
+}

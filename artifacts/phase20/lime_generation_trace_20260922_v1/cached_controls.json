@@ -1,0 +1,112 @@
+{
+  "protocol": {
+    "created_at": "2026-09-22T13:03:13+0800",
+    "post_hoc": true,
+    "trigger": "Trace audit found most harmful cases retain their target; inspect score/order versus membership.",
+    "predeclared_before_this_control": "On the fixed generated candidates, compare existing fused score, native GRAM path score, and direct frozen LIME item score; no tuning.",
+    "test_read": false,
+    "new_decodes": 0,
+    "model_updates": 0,
+    "limitation": "128-user target-independent subsamples are still reused development; enriched cases are not aggregate performance evidence."
+  },
+  "domains": {
+    "Toys": {
+      "full_512_harm_counts": {
+        "hurt_users": 13,
+        "target_retained": 12,
+        "score_only": 8,
+        "both": 5,
+        "target_lost": 1
+      },
+      "full_512_harmed_subset_N10_components": {
+        "score": -0.003215932412699906,
+        "membership": -0.0018847313669342136,
+        "total": -0.005100663779634118
+      },
+      "full_512_overall_N10_components": {
+        "score": 0.004757056057839115,
+        "membership": 0.0008955826498284766
+      },
+      "representative_users": 128,
+      "representative_metrics": {
+        "GRAM": {
+          "N10": 0.11269714809853587,
+          "H10": 0.171875,
+          "H50": 0.21875
+        },
+        "fixed": {
+          "N10": 0.11775409021887753,
+          "H10": 0.1953125,
+          "H50": 0.234375
+        },
+        "fixed_late": {
+          "N10": 0.11578652215099669,
+          "H10": 0.1875,
+          "H50": 0.21875
+        },
+        "guided_candidates_native_score": {
+          "N10": 0.10967486054201603,
+          "H10": 0.1640625,
+          "H50": 0.234375
+        },
+        "guided_candidates_LIME_score": {
+          "N10": 0.1320433524109772,
+          "H10": 0.1953125,
+          "H50": 0.234375
+        }
+      },
+      "maximum_native_score_error_on_shared_paths": 1.958413480274146e-07,
+      "hurt_users_recovered_by_native_score": 12,
+      "hurt_users_recovered_by_LIME_score": 2
+    },
+    "Beauty": {
+      "full_512_harm_counts": {
+        "hurt_users": 18,
+        "target_retained": 18,
+        "score_only": 15,
+        "membership_only": 2,
+        "both": 1
+      },
+      "full_512_harmed_subset_N10_components": {
+        "score": -0.005595255909427431,
+        "membership": -0.0013931880159970143,
+        "total": -0.006988443925424446
+      },
+      "full_512_overall_N10_components": {
+        "score": 0.002446554200483478,
+        "membership": 0.0028174918587458614
+      },
+      "representative_users": 128,
+      "representative_metrics": {
+        "GRAM": {
+          "N10": 0.0752389019146824,
+          "H10": 0.125,
+          "H50": 0.1953125
+        },
+        "fixed": {
+          "N10": 0.0686534610152418,
+          "H10": 0.109375,
+          "H50": 0.25
+        },
+        "fixed_late": {
+          "N10": 0.07379514127107328,
+          "H10": 0.1171875,
+          "H50": 0.1953125
+        },
+        "guided_candidates_native_score": {
+          "N10": 0.0752389019146824,
+          "H10": 0.125,
+          "H50": 0.25
+        },
+        "guided_candidates_LIME_score": {
+          "N10": 0.07244298006451544,
+          "H10": 0.140625,
+          "H50": 0.25
+        }
+      },
+      "maximum_native_score_error_on_shared_paths": 1.4886620292031694e-07,
+      "hurt_users_recovered_by_native_score": 18,
+      "hurt_users_recovered_by_LIME_score": 0
+    }
+  }
+}

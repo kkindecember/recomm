@@ -1,0 +1,316 @@
+{
+  "all": {
+    "users": 22363,
+    "old": {
+      "H10": 0.1158163037159594,
+      "N10": 0.07145067005445224,
+      "H50": 0.21598175557841076,
+      "N50": 0.09327144103596431
+    },
+    "new": {
+      "H10": 0.10347448911147879,
+      "N10": 0.06308133120538222,
+      "H50": 0.20270088986271967,
+      "N50": 0.08453587536021084
+    },
+    "delta_N10": -0.008369338849070035,
+    "relative_N10": -0.11713450472461348,
+    "delta_N10_ci95": [
+      -0.010075357794097193,
+      -0.006702367509673357
+    ],
+    "delta_H10": -0.012341814604480616,
+    "delta_H10_ci95": [
+      -0.015338952734427404,
+      -0.00947994455126772
+    ],
+    "gained10": 439,
+    "lost10": 715,
+    "ndcg_improved_users": 895,
+    "ndcg_worsened_users": 1450,
+    "opportunities": {
+      "expert_correct_fusion_miss": 1086,
+      "recovered": 439,
+      "still_missed": 647,
+      "gained_without_expert_top10": 0,
+      "by_expert": {
+        "SASRec": {
+          "available": 407,
+          "recovered": 258
+        },
+        "ItemCF": {
+          "available": 321,
+          "recovered": 60
+        },
+        "semantic": {
+          "available": 429,
+          "recovered": 163
+        }
+      }
+    },
+    "target_support_groups": {
+      "0": {
+        "users": 19061,
+        "gained10": 0,
+        "lost10": 366,
+        "contribution_to_whole_cohort_delta_N10": -0.00661271276836088,
+        "within_group_delta_N10": -0.0077582548470098295
+      },
+      "1": {
+        "users": 1992,
+        "gained10": 397,
+        "lost10": 292,
+        "contribution_to_whole_cohort_delta_N10": 0.001287760761721303,
+        "within_group_delta_N10": 0.014456924655809989
+      },
+      "2": {
+        "users": 972,
+        "gained10": 42,
+        "lost10": 56,
+        "contribution_to_whole_cohort_delta_N10": -0.0016001349757468258,
+        "within_group_delta_N10": -0.0368146280479694
+      },
+      "3": {
+        "users": 338,
+        "gained10": 0,
+        "lost10": 1,
+        "contribution_to_whole_cohort_delta_N10": -0.0014442518666836312,
+        "within_group_delta_N10": -0.09555563459954453
+      }
+    },
+    "new_top10_dominant_contribution": {
+      "SASRec": {
+        "fraction": 0.6410812502794795,
+        "mean_gate_weight": 0.5283257399796001,
+        "mean_expert_peak_probability": 0.10293995028946659
+      },
+      "ItemCF": {
+        "fraction": 0.10497249921745741,
+        "mean_gate_weight": 0.08519038561371259,
+        "mean_expert_peak_probability": 0.7622367933013231
+      },
+      "semantic": {
+        "fraction": 0.2539462505030631,
+        "mean_gate_weight": 0.3864838744549964,
+        "mean_expert_peak_probability": 0.16013941393170525
+      }
+    },
+    "numerical_control": {
+      "target_rank_changed": 19,
+      "delta_N10": 0.0,
+      "delta_H10": 0.0
+    }
+  },
+  "previous512": {
+    "users": 512,
+    "old": {
+      "H10": 0.11328125,
+      "N10": 0.0719400038660376,
+      "H50": 0.205078125,
+      "N50": 0.09200361654356826
+    },
+    "new": {
+      "H10": 0.109375,
+      "N10": 0.0644454705805475,
+      "H50": 0.197265625,
+      "N50": 0.08382072200203489
+    },
+    "delta_N10": -0.007494533285490093,
+    "relative_N10": -0.10417754910669684,
+    "delta_N10_ci95": [
+      -0.018833892885016176,
+      0.0036459005610650456
+    ],
+    "delta_H10": -0.00390625,
+    "delta_H10_ci95": [
+      -0.0234375,
+      0.015625
+    ],
+    "gained10": 12,
+    "lost10": 14,
+    "ndcg_improved_users": 19,
+    "ndcg_worsened_users": 38,
+    "opportunities": {
+      "expert_correct_fusion_miss": 26,
+      "recovered": 12,
+      "still_missed": 14,
+      "gained_without_expert_top10": 0,
+      "by_expert": {
+        "SASRec": {
+          "available": 9,
+          "recovered": 5
+        },
+        "ItemCF": {
+          "available": 7,
+          "recovered": 2
+        },
+        "semantic": {
+          "available": 13,
+          "recovered": 6
+        }
+      }
+    },
+    "target_support_groups": {
+      "0": {
+        "users": 435,
+        "gained10": 0,
+        "lost10": 7,
+        "contribution_to_whole_cohort_delta_N10": -0.0047802121242923245,
+        "within_group_delta_N10": -0.005626364615259012
+      },
+      "1": {
+        "users": 43,
+        "gained10": 11,
+        "lost10": 6,
+        "contribution_to_whole_cohort_delta_N10": 0.00301147123669159,
+        "within_group_delta_N10": 0.035857517981071965
+      },
+      "2": {
+        "users": 31,
+        "gained10": 1,
+        "lost10": 1,
+        "contribution_to_whole_cohort_delta_N10": -0.005334672875432201,
+        "within_group_delta_N10": -0.08810814555552539
+      },
+      "3": {
+        "users": 3,
+        "gained10": 0,
+        "lost10": 0,
+        "contribution_to_whole_cohort_delta_N10": -0.0003911195224571572,
+        "within_group_delta_N10": -0.06675106516602149
+      }
+    },
+    "new_top10_dominant_contribution": {
+      "SASRec": {
+        "fraction": 0.6388671875,
+        "mean_gate_weight": 0.5294642393710092,
+        "mean_expert_peak_probability": 0.11025570724555206
+      },
+      "ItemCF": {
+        "fraction": 0.0947265625,
+        "mean_gate_weight": 0.0843439899981604,
+        "mean_expert_peak_probability": 0.7703479478499943
+      },
+      "semantic": {
+        "fraction": 0.26640625,
+        "mean_gate_weight": 0.3861917676986195,
+        "mean_expert_peak_probability": 0.16143953532560396
+      }
+    },
+    "numerical_control": {
+      "target_rank_changed": 1,
+      "delta_N10": 0.0,
+      "delta_H10": 0.0
+    }
+  },
+  "remaining_validation_events": {
+    "users": 21851,
+    "old": {
+      "H10": 0.11587570362912453,
+      "N10": 0.07143920426746163,
+      "H50": 0.21623724314676673,
+      "N50": 0.09330114796654444
+    },
+    "new": {
+      "H10": 0.10333623175140726,
+      "N10": 0.06304936748014837,
+      "H50": 0.202828245846872,
+      "N50": 0.08455263242027151
+    },
+    "delta_N10": -0.00838983678731327,
+    "relative_N10": -0.11744023289932673,
+    "delta_N10_ci95": [
+      -0.010120237273941521,
+      -0.00671501174244454
+    ],
+    "delta_H10": -0.012539471877717267,
+    "delta_H10_ci95": [
+      -0.015469543727975836,
+      -0.009426342043842392
+    ],
+    "gained10": 427,
+    "lost10": 701,
+    "ndcg_improved_users": 876,
+    "ndcg_worsened_users": 1412,
+    "opportunities": {
+      "expert_correct_fusion_miss": 1060,
+      "recovered": 427,
+      "still_missed": 633,
+      "gained_without_expert_top10": 0,
+      "by_expert": {
+        "SASRec": {
+          "available": 398,
+          "recovered": 253
+        },
+        "ItemCF": {
+          "available": 314,
+          "recovered": 58
+        },
+        "semantic": {
+          "available": 416,
+          "recovered": 157
+        }
+      }
+    },
+    "target_support_groups": {
+      "0": {
+        "users": 18626,
+        "gained10": 0,
+        "lost10": 359,
+        "contribution_to_whole_cohort_delta_N10": -0.006655650864089364,
+        "within_group_delta_N10": -0.007808043972469488
+      },
+      "1": {
+        "users": 1949,
+        "gained10": 386,
+        "lost10": 286,
+        "contribution_to_whole_cohort_delta_N10": 0.0012473717743438472,
+        "within_group_delta_N10": 0.013984772006766243
+      },
+      "2": {
+        "users": 941,
+        "gained10": 41,
+        "lost10": 55,
+        "contribution_to_whole_cohort_delta_N10": -0.0015126294426069736,
+        "within_group_delta_N10": -0.03512483097811369
+      },
+      "3": {
+        "users": 335,
+        "gained10": 0,
+        "lost10": 1,
+        "contribution_to_whole_cohort_delta_N10": -0.0014689282549607793,
+        "within_group_delta_N10": -0.09581358596760596
+      }
+    },
+    "new_top10_dominant_contribution": {
+      "SASRec": {
+        "fraction": 0.641133128918585,
+        "mean_gate_weight": 0.5282990633200237,
+        "mean_expert_peak_probability": 0.10276853170168955
+      },
+      "ItemCF": {
+        "fraction": 0.10521257608347444,
+        "mean_gate_weight": 0.08521021786647734,
+        "mean_expert_peak_probability": 0.7620467374169737
+      },
+      "semantic": {
+        "fraction": 0.2536542949979406,
+        "mean_gate_weight": 0.3864907189316457,
+        "mean_expert_peak_probability": 0.16010895023879984
+      }
+    },
+    "numerical_control": {
+      "target_rank_changed": 18,
+      "delta_N10": 0.0,
+      "delta_H10": 0.0
+    }
+  },
+  "verification": {
+    "source_score_hashes_match": true,
+    "all_original_ranks_match": true,
+    "max_fp32_reconstruction_error": 1.1920928955078125e-07,
+    "max_weight_sum_error": 1.043081283569336e-07,
+    "full_sort_rank_and_top10_checks": true,
+    "recent_history_excluded": true
+  }
+}

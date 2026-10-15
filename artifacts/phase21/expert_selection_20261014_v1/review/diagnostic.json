@@ -1,0 +1,96 @@
+{
+  "Toys": {
+    "users": 512,
+    "hit_overlap": {
+      "sas_hits": 58,
+      "text_hits": 56,
+      "dual_hits": 59,
+      "joint_hits": 47,
+      "sas_exclusive": 11,
+      "text_exclusive": 9,
+      "dual_retained_sas_exclusive": 7,
+      "dual_retained_text_exclusive": 4,
+      "dual_new_beyond_single_hits": 1,
+      "dual_lost_joint_hits": 0
+    },
+    "comparisons": {
+      "GRAM": {
+        "dual_relative_improvement": 0.06989527325256506,
+        "removing_expert_relative_change": null,
+        "per_user_N10_decomposition": {
+          "both_hit_rank_change": -0.001421329501092947,
+          "new_hits": 0.006397844988578252,
+          "lost_hits": -0.0006161423374721265
+        },
+        "paired_interval_includes_zero": true
+      },
+      "sas_only": {
+        "dual_relative_improvement": 0.003983045691046572,
+        "removing_expert_relative_change": -0.003967243977018642,
+        "per_user_N10_decomposition": {
+          "both_hit_rank_change": -0.0003979676219785875,
+          "new_hits": 0.003560712044690018,
+          "lost_hits": -0.002897951710542983
+        },
+        "paired_interval_includes_zero": true
+      },
+      "text_only": {
+        "dual_relative_improvement": 0.006622665206388989,
+        "removing_expert_relative_change": -0.006579094069008584,
+        "per_user_N10_decomposition": {
+          "both_hit_rank_change": -0.0012456891701992765,
+          "new_hits": 0.004886701210318324,
+          "lost_hits": -0.0032018920434070284
+        },
+        "paired_interval_includes_zero": true
+      }
+    }
+  },
+  "Beauty": {
+    "users": 512,
+    "hit_overlap": {
+      "sas_hits": 61,
+      "text_hits": 68,
+      "dual_hits": 65,
+      "joint_hits": 52,
+      "sas_exclusive": 9,
+      "text_exclusive": 16,
+      "dual_retained_sas_exclusive": 6,
+      "dual_retained_text_exclusive": 6,
+      "dual_new_beyond_single_hits": 2,
+      "dual_lost_joint_hits": 1
+    },
+    "comparisons": {
+      "GRAM": {
+        "dual_relative_improvement": 0.12518970376560068,
+        "removing_expert_relative_change": null,
+        "per_user_N10_decomposition": {
+          "both_hit_rank_change": 0.0018614877274884273,
+          "new_hits": 0.010314857742625883,
+          "lost_hits": -0.003202609305235598
+        },
+        "paired_interval_includes_zero": false
+      },
+      "sas_only": {
+        "dual_relative_improvement": 0.04609726354103327,
+        "removing_expert_relative_change": -0.04406594410255349,
+        "per_user_N10_decomposition": {
+          "both_hit_rank_change": 0.0010345312537334036,
+          "new_hits": 0.005063563694710339,
+          "lost_hits": -0.0025439632738240496
+        },
+        "paired_interval_includes_zero": true
+      },
+      "text_only": {
+        "dual_relative_improvement": 0.03851932761633314,
+        "removing_expert_relative_change": -0.03709062180358724,
+        "per_user_N10_decomposition": {
+          "both_hit_rank_change": 0.002704063843138785,
+          "new_hits": 0.008785398891650628,
+          "lost_hits": -0.008497924564707875
+        },
+        "paired_interval_includes_zero": true
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "state": "PASSED",
+  "updated_at": "2026-09-24T14:32:20.055442+08:00",
+  "tests": {
+    "full_validation_boundary": 3,
+    "existing_durable_resume": 5
+  },
+  "total_tests_passed": 8,
+  "python_compilation": true,
+  "shell_syntax": true,
+  "full_history_reconstruction": {
+    "Toys": {
+      "users": 19412,
+      "mismatches": 0
+    },
+    "Beauty": {
+      "users": 22363,
+      "mismatches": 0
+    }
+  },
+  "gpu_runtime_smoke": {
+    "Toys": {
+      "state": "PASSED",
+      "checks": [
+        {
+          "user_id": "A1BP92HYW0HQST",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": true
+        },
+        {
+          "user_id": "ACA79U5ZG8M5",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": true
+        },
+        {
+          "user_id": "A9KAY47NCPQS",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": true
+        },
+        {
+          "user_id": "A1LG1DKUZXGJ6J",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": false
+        }
+      ],
+      "longest_history_checked": true,
+      "projected_generation_seconds_advisory": 7942.642142401928,
+      "projections_do_not_stop_run": true
+    },
+    "Beauty": {
+      "state": "PASSED",
+      "checks": [
+        {
+          "user_id": "AY1EF0GOH80EK",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": true
+        },
+        {
+          "user_id": "A2TQBXLYE20LEH",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": true
+        },
+        {
+          "user_id": "A3B2DXX6QGD465",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": true
+        },
+        {
+          "user_id": "A3LMILRM9OC3SA",
+          "native_and_zero_exact": true,
+          "prior_prediction_checked": false
+        }
+      ],
+      "longest_history_checked": true,
+      "projected_generation_seconds_advisory": 9102.23263189265,
+      "projections_do_not_stop_run": true
+    }
+  },
+  "test_read": false,
+  "expert_score_parity": {
+    "Toys": {
+      "state": "PASSED",
+      "users": 19412,
+      "frozen_gate": true,
+      "optimizer_steps": 0,
+      "existing512_raw_max_abs_delta": 2.980232238769531e-07,
+      "existing512_fused_max_abs_delta": 1.1920928955078125e-07,
+      "existing512_exact_cache_reused": true,
+      "author_semantic_scorer_parity": true,
+      "validation_labels_used_for_fit": false
+    },
+    "Beauty": {
+      "state": "PASSED",
+      "users": 22363,
+      "frozen_gate": true,
+      "optimizer_steps": 0,
+      "existing512_raw_max_abs_delta": 3.427267074584961e-07,
+      "existing512_fused_max_abs_delta": 1.1920928955078125e-07,
+      "existing512_exact_cache_reused": true,
+      "author_semantic_scorer_parity": true,
+      "validation_labels_used_for_fit": false
+    }
+  },
+  "runtime_verified_at": "2026-09-24T14:34:43.350941+08:00"
+}

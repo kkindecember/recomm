@@ -1,0 +1,1542 @@
+{
+  "state": "COMPLETED",
+  "domains": {
+    "Toys": {
+      "train_holdout": {
+        "users": 2773,
+        "self_donors": 50,
+        "old_b_known": 28,
+        "new_b_known": 28,
+        "candidates": 60647,
+        "old_a_supported": 62,
+        "new_a_supported": 88,
+        "policies": {
+          "old": {
+            "users": 2773,
+            "actions": 23,
+            "gained10": 1,
+            "lost10": 0,
+            "neutral_actions": 22,
+            "net_hits": 1,
+            "N10": 0.08193522461024318,
+            "H10": 0.13018391633609808,
+            "delta_N10": 0.00010424263480630649,
+            "ci95": [
+              0.0,
+              0.0003127279044189195
+            ]
+          },
+          "old_known": {
+            "users": 2773,
+            "actions": 3,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 3,
+            "net_hits": 0,
+            "N10": 0.08183098197543687,
+            "H10": 0.1298232960692391,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized": {
+            "users": 2773,
+            "actions": 16,
+            "gained10": 1,
+            "lost10": 0,
+            "neutral_actions": 15,
+            "net_hits": 1,
+            "N10": 0.08193522461024318,
+            "H10": 0.13018391633609808,
+            "delta_N10": 0.00010424263480630649,
+            "ci95": [
+              0.0,
+              0.0003127279044189195
+            ]
+          },
+          "normalized_known": {
+            "users": 2773,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.08183098197543687,
+            "H10": 0.1298232960692391,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "score_matched": {
+            "users": 2773,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.08183098197543687,
+            "H10": 0.1298232960692391,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "shuffled_known": {
+            "users": 2773,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.08183098197543687,
+            "H10": 0.1298232960692391,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": -1,
+            "delta_N10": -0.00010424263480630649,
+            "ci95": [
+              -0.0003127279044189195,
+              0.0
+            ]
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": -1,
+            "delta_N10": -0.00010424263480630649,
+            "ci95": [
+              -0.0003127279044189195,
+              0.0
+            ]
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 1,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 1,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 1,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 1,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "primary": {
+        "users": 15406,
+        "self_donors": 18,
+        "old_b_known": 157,
+        "new_b_known": 162,
+        "candidates": 342874,
+        "old_a_supported": 379,
+        "new_a_supported": 661,
+        "policies": {
+          "old": {
+            "users": 15406,
+            "actions": 148,
+            "gained10": 3,
+            "lost10": 3,
+            "neutral_actions": 142,
+            "net_hits": 0,
+            "N10": 0.08111505972552517,
+            "H10": 0.1265740620537453,
+            "delta_N10": 0.0,
+            "ci95": [
+              -9.381566477927038e-05,
+              9.381566477927038e-05
+            ]
+          },
+          "old_known": {
+            "users": 15406,
+            "actions": 16,
+            "gained10": 2,
+            "lost10": 0,
+            "neutral_actions": 14,
+            "net_hits": 2,
+            "N10": 0.08115258599143688,
+            "H10": 0.12670388160456966,
+            "delta_N10": 3.752626591170815e-05,
+            "ci95": [
+              0.0,
+              9.381566477927038e-05
+            ]
+          },
+          "normalized": {
+            "users": 15406,
+            "actions": 144,
+            "gained10": 1,
+            "lost10": 1,
+            "neutral_actions": 142,
+            "net_hits": 0,
+            "N10": 0.08111505972552517,
+            "H10": 0.1265740620537453,
+            "delta_N10": 0.0,
+            "ci95": [
+              -5.628939886756222e-05,
+              5.628939886756222e-05
+            ]
+          },
+          "normalized_known": {
+            "users": 15406,
+            "actions": 16,
+            "gained10": 1,
+            "lost10": 0,
+            "neutral_actions": 15,
+            "net_hits": 1,
+            "N10": 0.08113382285848103,
+            "H10": 0.12663897182915748,
+            "delta_N10": 1.8763132955854076e-05,
+            "ci95": [
+              0.0,
+              5.628939886756222e-05
+            ]
+          },
+          "score_matched": {
+            "users": 15406,
+            "actions": 16,
+            "gained10": 1,
+            "lost10": 0,
+            "neutral_actions": 15,
+            "net_hits": 1,
+            "N10": 0.08113382285848103,
+            "H10": 0.12663897182915748,
+            "delta_N10": 1.8763132955854076e-05,
+            "ci95": [
+              0.0,
+              5.628939886756222e-05
+            ]
+          },
+          "shuffled_known": {
+            "users": 15406,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.08111505972552517,
+            "H10": 0.1265740620537453,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.8763132955854076e-05,
+            "ci95": [
+              -5.628939886756223e-05,
+              0.00011257879773512444
+            ]
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": -1,
+            "delta_N10": -1.8763132955854076e-05,
+            "ci95": [
+              -5.628939886756223e-05,
+              0.0
+            ]
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.8763132955854076e-05,
+            "ci95": [
+              0.0,
+              5.628939886756223e-05
+            ]
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              -5.628939886756222e-05,
+              5.628939886756222e-05
+            ]
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.8763132955854076e-05,
+            "ci95": [
+              0.0,
+              5.628939886756222e-05
+            ]
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 2,
+            "foregone_gains": 1,
+            "avoided_losses": 3,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 1,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 1,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 1,
+            "foregone_gains": 2,
+            "avoided_losses": 3,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 1,
+            "foregone_gains": 0,
+            "avoided_losses": 1,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "previous512": {
+        "users": 512,
+        "self_donors": 12,
+        "old_b_known": 5,
+        "new_b_known": 3,
+        "candidates": 11357,
+        "old_a_supported": 11,
+        "new_a_supported": 20,
+        "policies": {
+          "old": {
+            "users": 512,
+            "actions": 5,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 5,
+            "net_hits": 0,
+            "N10": 0.0627161561075924,
+            "H10": 0.109375,
+            "delta_N10": 0.0
+          },
+          "old_known": {
+            "users": 512,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.0627161561075924,
+            "H10": 0.109375,
+            "delta_N10": 0.0
+          },
+          "normalized": {
+            "users": 512,
+            "actions": 5,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 5,
+            "net_hits": 0,
+            "N10": 0.0627161561075924,
+            "H10": 0.109375,
+            "delta_N10": 0.0
+          },
+          "normalized_known": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0627161561075924,
+            "H10": 0.109375,
+            "delta_N10": 0.0
+          },
+          "score_matched": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0627161561075924,
+            "H10": 0.109375,
+            "delta_N10": 0.0
+          },
+          "shuffled_known": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0627161561075924,
+            "H10": 0.109375,
+            "delta_N10": 0.0
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "seen_fit_user_later_event": {
+        "users": 3494,
+        "self_donors": 27,
+        "old_b_known": 39,
+        "new_b_known": 36,
+        "candidates": 78157,
+        "old_a_supported": 90,
+        "new_a_supported": 128,
+        "policies": {
+          "old": {
+            "users": 3494,
+            "actions": 38,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 38,
+            "net_hits": 0,
+            "N10": 0.07847714394280242,
+            "H10": 0.12507155123068117,
+            "delta_N10": 0.0
+          },
+          "old_known": {
+            "users": 3494,
+            "actions": 6,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 6,
+            "net_hits": 0,
+            "N10": 0.07847714394280242,
+            "H10": 0.12507155123068117,
+            "delta_N10": 0.0
+          },
+          "normalized": {
+            "users": 3494,
+            "actions": 35,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 35,
+            "net_hits": 0,
+            "N10": 0.07847714394280242,
+            "H10": 0.12507155123068117,
+            "delta_N10": 0.0
+          },
+          "normalized_known": {
+            "users": 3494,
+            "actions": 3,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 3,
+            "net_hits": 0,
+            "N10": 0.07847714394280242,
+            "H10": 0.12507155123068117,
+            "delta_N10": 0.0
+          },
+          "score_matched": {
+            "users": 3494,
+            "actions": 3,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 3,
+            "net_hits": 0,
+            "N10": 0.07847714394280242,
+            "H10": 0.12507155123068117,
+            "delta_N10": 0.0
+          },
+          "shuffled_known": {
+            "users": 3494,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.07847714394280242,
+            "H10": 0.12507155123068117,
+            "delta_N10": 0.0
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "all": {
+        "users": 19412,
+        "self_donors": 57,
+        "old_b_known": 201,
+        "new_b_known": 201,
+        "candidates": 432388,
+        "old_a_supported": 480,
+        "new_a_supported": 809,
+        "policies": {
+          "old": {
+            "users": 19412,
+            "actions": 191,
+            "gained10": 3,
+            "lost10": 3,
+            "neutral_actions": 185,
+            "net_hits": 0,
+            "N10": 0.08015497748787759,
+            "H10": 0.12584998969709457,
+            "delta_N10": 0.0
+          },
+          "old_known": {
+            "users": 19412,
+            "actions": 23,
+            "gained10": 2,
+            "lost10": 0,
+            "neutral_actions": 21,
+            "net_hits": 2,
+            "N10": 0.08018475956353366,
+            "H10": 0.12595301875128787,
+            "delta_N10": 2.9782075656077466e-05
+          },
+          "normalized": {
+            "users": 19412,
+            "actions": 184,
+            "gained10": 1,
+            "lost10": 1,
+            "neutral_actions": 182,
+            "net_hits": 0,
+            "N10": 0.08015497748787759,
+            "H10": 0.12584998969709457,
+            "delta_N10": 0.0
+          },
+          "normalized_known": {
+            "users": 19412,
+            "actions": 19,
+            "gained10": 1,
+            "lost10": 0,
+            "neutral_actions": 18,
+            "net_hits": 1,
+            "N10": 0.08016986852570562,
+            "H10": 0.12590150422419122,
+            "delta_N10": 1.4891037828038733e-05
+          },
+          "score_matched": {
+            "users": 19412,
+            "actions": 19,
+            "gained10": 1,
+            "lost10": 0,
+            "neutral_actions": 18,
+            "net_hits": 1,
+            "N10": 0.08016986852570562,
+            "H10": 0.12590150422419122,
+            "delta_N10": 1.4891037828038733e-05
+          },
+          "shuffled_known": {
+            "users": 19412,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.08015497748787759,
+            "H10": 0.12584998969709457,
+            "delta_N10": 0.0
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.4891037828038733e-05
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": -1,
+            "delta_N10": -1.4891037828038733e-05
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.4891037828038733e-05
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.4891037828038733e-05
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 2,
+            "foregone_gains": 1,
+            "avoided_losses": 3,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 1,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 1,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 1,
+            "foregone_gains": 2,
+            "avoided_losses": 3,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 1,
+            "foregone_gains": 0,
+            "avoided_losses": 1,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      }
+    },
+    "Beauty": {
+      "train_holdout": {
+        "users": 3310,
+        "self_donors": 70,
+        "old_b_known": 30,
+        "new_b_known": 32,
+        "candidates": 72348,
+        "old_a_supported": 73,
+        "new_a_supported": 84,
+        "policies": {
+          "old": {
+            "users": 3310,
+            "actions": 46,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 46,
+            "net_hits": 0,
+            "N10": 0.06939618440834729,
+            "H10": 0.11722054380664652,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "old_known": {
+            "users": 3310,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.06939618440834729,
+            "H10": 0.11722054380664652,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized": {
+            "users": 3310,
+            "actions": 48,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 48,
+            "net_hits": 0,
+            "N10": 0.06939618440834729,
+            "H10": 0.11722054380664652,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known": {
+            "users": 3310,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.06939618440834729,
+            "H10": 0.11722054380664652,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "score_matched": {
+            "users": 3310,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.06939618440834729,
+            "H10": 0.11722054380664652,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "shuffled_known": {
+            "users": 3310,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.06939618440834729,
+            "H10": 0.11722054380664652,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "primary": {
+        "users": 17766,
+        "self_donors": 17,
+        "old_b_known": 126,
+        "new_b_known": 143,
+        "candidates": 395644,
+        "old_a_supported": 333,
+        "new_a_supported": 431,
+        "policies": {
+          "old": {
+            "users": 17766,
+            "actions": 216,
+            "gained10": 2,
+            "lost10": 2,
+            "neutral_actions": 212,
+            "net_hits": 0,
+            "N10": 0.07165186886547835,
+            "H10": 0.11589553078914781,
+            "delta_N10": 0.0,
+            "ci95": [
+              -6.508270321240299e-05,
+              6.508270321240299e-05
+            ]
+          },
+          "old_known": {
+            "users": 17766,
+            "actions": 8,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 8,
+            "net_hits": 0,
+            "N10": 0.07165186886547835,
+            "H10": 0.11589553078914781,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized": {
+            "users": 17766,
+            "actions": 256,
+            "gained10": 2,
+            "lost10": 2,
+            "neutral_actions": 252,
+            "net_hits": 0,
+            "N10": 0.07165186886547835,
+            "H10": 0.11589553078914781,
+            "delta_N10": 0.0,
+            "ci95": [
+              -6.508270321240299e-05,
+              6.508270321240299e-05
+            ]
+          },
+          "normalized_known": {
+            "users": 17766,
+            "actions": 9,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 9,
+            "net_hits": 0,
+            "N10": 0.07165186886547835,
+            "H10": 0.11589553078914781,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "score_matched": {
+            "users": 17766,
+            "actions": 9,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 9,
+            "net_hits": 0,
+            "N10": 0.07165186886547835,
+            "H10": 0.11589553078914781,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "shuffled_known": {
+            "users": 17766,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.07165186886547835,
+            "H10": 0.11589553078914781,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              -6.508270321240299e-05,
+              6.508270321240299e-05
+            ]
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              -6.508270321240299e-05,
+              6.508270321240299e-05
+            ]
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 2,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 2,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "previous512": {
+        "users": 512,
+        "self_donors": 9,
+        "old_b_known": 0,
+        "new_b_known": 0,
+        "candidates": 11370,
+        "old_a_supported": 13,
+        "new_a_supported": 20,
+        "policies": {
+          "old": {
+            "users": 512,
+            "actions": 10,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 10,
+            "net_hits": 0,
+            "N10": 0.0719400038660376,
+            "H10": 0.11328125,
+            "delta_N10": 0.0
+          },
+          "old_known": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0719400038660376,
+            "H10": 0.11328125,
+            "delta_N10": 0.0
+          },
+          "normalized": {
+            "users": 512,
+            "actions": 13,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 13,
+            "net_hits": 0,
+            "N10": 0.0719400038660376,
+            "H10": 0.11328125,
+            "delta_N10": 0.0
+          },
+          "normalized_known": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0719400038660376,
+            "H10": 0.11328125,
+            "delta_N10": 0.0
+          },
+          "score_matched": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0719400038660376,
+            "H10": 0.11328125,
+            "delta_N10": 0.0
+          },
+          "shuffled_known": {
+            "users": 512,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.0719400038660376,
+            "H10": 0.11328125,
+            "delta_N10": 0.0
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "seen_fit_user_later_event": {
+        "users": 4085,
+        "self_donors": 35,
+        "old_b_known": 26,
+        "new_b_known": 32,
+        "candidates": 91210,
+        "old_a_supported": 94,
+        "new_a_supported": 118,
+        "policies": {
+          "old": {
+            "users": 4085,
+            "actions": 57,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 57,
+            "net_hits": 0,
+            "N10": 0.07051430849062809,
+            "H10": 0.11578947368421053,
+            "delta_N10": 0.0
+          },
+          "old_known": {
+            "users": 4085,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.07051430849062809,
+            "H10": 0.11578947368421053,
+            "delta_N10": 0.0
+          },
+          "normalized": {
+            "users": 4085,
+            "actions": 66,
+            "gained10": 0,
+            "lost10": 1,
+            "neutral_actions": 65,
+            "net_hits": -1,
+            "N10": 0.0704435459872455,
+            "H10": 0.11554467564259485,
+            "delta_N10": -7.07625033825919e-05
+          },
+          "normalized_known": {
+            "users": 4085,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.07051430849062809,
+            "H10": 0.11578947368421053,
+            "delta_N10": 0.0
+          },
+          "score_matched": {
+            "users": 4085,
+            "actions": 1,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 1,
+            "net_hits": 0,
+            "N10": 0.07051430849062809,
+            "H10": 0.11578947368421053,
+            "delta_N10": 0.0
+          },
+          "shuffled_known": {
+            "users": 4085,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.07051430849062809,
+            "H10": 0.11578947368421053,
+            "delta_N10": 0.0
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 1,
+            "delta_N10": 7.07625033825919e-05
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 1
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 0,
+            "avoided_losses": 1,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      },
+      "all": {
+        "users": 22363,
+        "self_donors": 61,
+        "old_b_known": 152,
+        "new_b_known": 175,
+        "candidates": 498224,
+        "old_a_supported": 440,
+        "new_a_supported": 569,
+        "policies": {
+          "old": {
+            "users": 22363,
+            "actions": 283,
+            "gained10": 2,
+            "lost10": 2,
+            "neutral_actions": 279,
+            "net_hits": 0,
+            "N10": 0.07145067005445224,
+            "H10": 0.1158163037159594,
+            "delta_N10": 0.0
+          },
+          "old_known": {
+            "users": 22363,
+            "actions": 9,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 9,
+            "net_hits": 0,
+            "N10": 0.07145067005445224,
+            "H10": 0.1158163037159594,
+            "delta_N10": 0.0
+          },
+          "normalized": {
+            "users": 22363,
+            "actions": 335,
+            "gained10": 2,
+            "lost10": 3,
+            "neutral_actions": 330,
+            "net_hits": -1,
+            "N10": 0.07143774402367292,
+            "H10": 0.11577158699637795,
+            "delta_N10": -1.2926030779317974e-05
+          },
+          "normalized_known": {
+            "users": 22363,
+            "actions": 10,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 10,
+            "net_hits": 0,
+            "N10": 0.07145067005445224,
+            "H10": 0.1158163037159594,
+            "delta_N10": 0.0
+          },
+          "score_matched": {
+            "users": 22363,
+            "actions": 10,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 10,
+            "net_hits": 0,
+            "N10": 0.07145067005445224,
+            "H10": 0.1158163037159594,
+            "delta_N10": 0.0
+          },
+          "shuffled_known": {
+            "users": 22363,
+            "actions": 0,
+            "gained10": 0,
+            "lost10": 0,
+            "neutral_actions": 0,
+            "net_hits": 0,
+            "N10": 0.07145067005445224,
+            "H10": 0.1158163037159594,
+            "delta_N10": 0.0
+          }
+        },
+        "contrasts": {
+          "normalized_known_vs_old": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_old_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_normalized": {
+            "net_hit_difference": 1,
+            "delta_N10": 1.2926030779317974e-05
+          },
+          "normalized_known_vs_score_matched": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          },
+          "normalized_known_vs_shuffled_known": {
+            "net_hit_difference": 0,
+            "delta_N10": 0.0
+          }
+        },
+        "transitions": {
+          "old_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_vs_old": {
+            "retained_gains": 2,
+            "foregone_gains": 0,
+            "avoided_losses": 0,
+            "retained_losses": 2,
+            "new_gains": 0,
+            "new_losses": 1
+          },
+          "normalized_known_vs_old": {
+            "retained_gains": 0,
+            "foregone_gains": 2,
+            "avoided_losses": 2,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          },
+          "normalized_known_vs_normalized": {
+            "retained_gains": 0,
+            "foregone_gains": 2,
+            "avoided_losses": 3,
+            "retained_losses": 0,
+            "new_gains": 0,
+            "new_losses": 0
+          }
+        },
+        "shuffled_self_donor_actions": 0
+      }
+    }
+  },
+  "policies": [
+    "old",
+    "old_known",
+    "normalized",
+    "normalized_known",
+    "score_matched",
+    "shuffled_known"
+  ],
+  "seconds": 11.799433089996455,
+  "statistical_fits": 0,
+  "GRAM_optimizer_steps": 0,
+  "expert_optimizer_steps": 0,
+  "gpu_inferences": 0,
+  "test_read": false,
+  "exploratory": true,
+  "independent_confirmation": false,
+  "automatic_gpu_launch": false
+}

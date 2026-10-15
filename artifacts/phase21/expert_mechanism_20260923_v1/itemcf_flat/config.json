@@ -1,0 +1,33 @@
+{
+  "arms": [
+    "sasrec_misassigned",
+    "itemcf_misassigned",
+    "sasrec_order",
+    "itemcf_flat"
+  ],
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "sasrec_misassigned": "GPU-4e97077a-5bab-99a7-2fdc-598df6be74cc",
+    "itemcf_misassigned": "GPU-cfd866c2-ccc1-8a3c-00b8-594d7a8cd059",
+    "sasrec_order": "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2",
+    "itemcf_flat": "GPU-07374397-b213-09c1-2988-718acb6ed231"
+  },
+  "seed": 0,
+  "epochs": 4,
+  "batch_size": 256,
+  "learning_rate": 0.02,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha": 0.3,
+  "beam_size": 50,
+  "development_users": 512,
+  "minimum_free_mib": 16384,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 5400,
+  "resource_wait_seconds": 600,
+  "supervisor_timeout_seconds": 10800,
+  "test_read": false
+}

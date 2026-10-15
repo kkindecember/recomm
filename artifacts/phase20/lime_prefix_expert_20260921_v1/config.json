@@ -1,0 +1,32 @@
+{
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "gpus": {
+    "Toys": "GPU-2afcc1df-7df8-1f3f-8970-a252a06c6160",
+    "Beauty": "GPU-e2e37406-aaaa-da68-cf74-1a487b1c93e2"
+  },
+  "reserved_old_tuning_users": 128,
+  "new_tuning_users": 0,
+  "evaluation_users": 512,
+  "alpha": 0.3,
+  "coefficient": 1.0,
+  "arms": [
+    "fixed_cal",
+    "fixed_no_cal",
+    "dynamic_cal",
+    "dynamic_no_cal"
+  ],
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "allocation_limit_gib": 11,
+  "minimum_free_mib": 12288,
+  "worker_timeout_seconds": null,
+  "no_model_training": true,
+  "test_read": false,
+  "selection": "Freeze alpha=.3 from original LIME tuning; no new parameter selection; 512 users disjoint from both previous decode cohorts.",
+  "outcome_peeking": "No new evaluation metrics are read until selection.json is frozen.",
+  "authorization": "User: 那做吧, authorizing four-cell prefix weighting screen; background and shared GPUs authorized."
+}

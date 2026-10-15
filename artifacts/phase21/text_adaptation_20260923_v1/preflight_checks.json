@@ -1,0 +1,22 @@
+{
+  "state": "PASSED",
+  "date": "2026-09-23",
+  "unit_and_integration_tests": 8,
+  "test_duration_seconds": 12.566,
+  "test_command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /home/jiangtangyunzhi/miniconda3/envs/gram-repro/bin/python -m unittest experiment.phase21.test_text_adaptation -v",
+  "python_compile": "PASSED",
+  "shell_syntax": "PASSED",
+  "checks": [
+    "Independent loop formula parity for A/B/C/D, including repeated history and raw vector norms",
+    "Candidate-dependent weights and candidate-block invariance",
+    "Single-history controls and identity donor mapping",
+    "Scoring API has no target input and leaves inputs unchanged",
+    "Two-domain admission requires net hit preservation and C versus B support",
+    "Shared queue blocks while prior scheduler has pending work",
+    "Completed prior queue releases slots",
+    "Original fusion trainer wiring, unchanged other score channels, development label isolation"
+  ],
+  "real_data_score_parity": "PENDING_CACHE_WORKERS",
+  "actual_generation": "NOT_YET_STARTED",
+  "new_effect_result_available": false
+}

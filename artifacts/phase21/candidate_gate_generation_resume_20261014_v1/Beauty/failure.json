@@ -1,0 +1,4 @@
+{
+  "error": "InterruptedError('Worker interrupted')",
+  "traceback": "Traceback (most recent call last):\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase21/candidate_gate_generation.py\", line 184, in worker\n    Worker(domain,lease).run()\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase21/resume_candidate_gate_generation.py\", line 97, in run\n    q = self.index.conditional_logs(self.signals[arm][j])\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase20/lime_decode_screen_core.py\", line 28, in conditional_logs\n    logs[self.nodes[node]] = values\n  File \"/mnt/18T/jiangtangyunzhi/projects/recomm/experiment/phase21/candidate_gate_generation.py\", line 172, in interrupt\n    def interrupt(signum,frame):raise InterruptedError('Worker interrupted')\nInterruptedError: Worker interrupted\n"
+}

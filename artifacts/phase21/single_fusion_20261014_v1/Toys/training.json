@@ -1,0 +1,123 @@
+{
+  "fits": {
+    "user": {
+      "arm": "user",
+      "seed": 0,
+      "selected_epochs": 4,
+      "selection_curve": [
+        {
+          "epoch": 0,
+          "loss": 8.747427754841567
+        },
+        {
+          "epoch": 4,
+          "loss": 8.642966267191916
+        },
+        {
+          "epoch": 8,
+          "loss": 8.64390009011018
+        },
+        {
+          "epoch": 12,
+          "loss": 8.646808002589099
+        },
+        {
+          "epoch": 20,
+          "loss": 8.65291455499955
+        }
+      ],
+      "selection_fit_users": 2187,
+      "selection_heldout_users": 586,
+      "refit_users": 2773,
+      "parameters": 610,
+      "old_fusion_used": false
+    },
+    "candidate": {
+      "arm": "candidate",
+      "seed": 0,
+      "selected_epochs": 12,
+      "selection_curve": [
+        {
+          "epoch": 0,
+          "loss": 8.747427754841567
+        },
+        {
+          "epoch": 4,
+          "loss": 8.411484487227613
+        },
+        {
+          "epoch": 8,
+          "loss": 8.407552468491902
+        },
+        {
+          "epoch": 12,
+          "loss": 8.399861430145368
+        },
+        {
+          "epoch": 20,
+          "loss": 8.409221056785192
+        }
+      ],
+      "selection_fit_users": 2187,
+      "selection_heldout_users": 586,
+      "refit_users": 2773,
+      "parameters": 610,
+      "old_fusion_used": false
+    }
+  },
+  "checks": {
+    "user": {
+      "independent_numpy_full_catalog_users": [
+        0,
+        256,
+        511
+      ],
+      "mean_item_weight_std": 0.0,
+      "candidate_shortlist": false
+    },
+    "candidate": {
+      "independent_numpy_full_catalog_users": [
+        0,
+        256,
+        511
+      ],
+      "mean_item_weight_std": 0.16711472870520083,
+      "candidate_shortlist": false
+    }
+  },
+  "pure_metrics": {
+    "mean": {
+      "H5": 0.076171875,
+      "N5": 0.05407196300669925,
+      "H10": 0.09765625,
+      "N10": 0.0609091894089972,
+      "H20": 0.12890625,
+      "N20": 0.06889395234786794,
+      "H50": 0.181640625,
+      "N50": 0.07924039182658035
+    },
+    "user": {
+      "H5": 0.076171875,
+      "N5": 0.054207360354212156,
+      "H10": 0.099609375,
+      "N10": 0.061745437330390465,
+      "H20": 0.12109375,
+      "N20": 0.06711788132167845,
+      "H50": 0.17578125,
+      "N50": 0.07803336879509323
+    },
+    "candidate": {
+      "H5": 0.076171875,
+      "N5": 0.05521406789437527,
+      "H10": 0.099609375,
+      "N10": 0.06278191078818811,
+      "H20": 0.138671875,
+      "N20": 0.07266609150025816,
+      "H50": 0.18359375,
+      "N50": 0.08157091853306156
+    }
+  },
+  "test_read": false,
+  "old_fusion_used_by_new_model": false,
+  "full_catalog": true
+}

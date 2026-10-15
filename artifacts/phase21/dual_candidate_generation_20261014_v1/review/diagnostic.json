@@ -1,0 +1,282 @@
+{
+  "Toys": {
+    "users": 512,
+    "head_seed": 0,
+    "baseline_identical_lists": 512,
+    "transfer": {
+      "baseline": {
+        "pure_expert_N10": 0.061186089167223415,
+        "fixed_native50_late_N10": 0.06755687710173647,
+        "guided_N10": 0.06674475119310436
+      },
+      "user": {
+        "pure_expert_N10": 0.06222923914901286,
+        "fixed_native50_late_N10": 0.06764971911321498,
+        "guided_N10": 0.06681440463411646
+      },
+      "candidate": {
+        "pure_expert_N10": 0.06396727103056846,
+        "fixed_native50_late_N10": 0.06598915020962275,
+        "guided_N10": 0.06575826730926823
+      },
+      "scalar": {
+        "pure_expert_N10": 0.06060136827456706,
+        "fixed_native50_late_N10": 0.06748746904256742,
+        "guided_N10": 0.06736435409425204
+      }
+    },
+    "candidate_minus_user_by_stage": {
+      "pure_expert_N10": 0.0017380318815555934,
+      "fixed_native50_late_N10": -0.00166056890359223,
+      "guided_N10": -0.0010561373248482303
+    },
+    "candidate_vs_controls": {
+      "native": {
+        "delta_N10": 0.003373889266177047,
+        "relative_N10": 0.05408227783959929,
+        "top10_gained": 8,
+        "top10_lost": 1,
+        "top50_net_hits": 5,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": -0.001418874910449557,
+          "new_hits": 0.00540890651409873,
+          "lost_hits": -0.0006161423374721265
+        }
+      },
+      "baseline_guided": {
+        "delta_N10": -0.0009864838838361308,
+        "relative_N10": -0.014779946980131076,
+        "top10_gained": 1,
+        "top10_lost": 3,
+        "top50_net_hits": 2,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": 0.0001426755939681187,
+          "new_hits": 0.0005879492102812133,
+          "lost_hits": -0.001717108688085463
+        }
+      },
+      "user_guided": {
+        "delta_N10": -0.0010561373248482294,
+        "relative_N10": -0.015807030394594745,
+        "top10_gained": 1,
+        "top10_lost": 2,
+        "top50_net_hits": 4,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": -0.00046336445875519135,
+          "new_hits": 0.0005879492102812133,
+          "lost_hits": -0.0011807220763742513
+        }
+      },
+      "scalar_guided": {
+        "delta_N10": -0.0016060867849838087,
+        "relative_N10": -0.02384179001756137,
+        "top10_gained": 1,
+        "top10_lost": 3,
+        "top50_net_hits": 3,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": -0.00047692730717955906,
+          "new_hits": 0.0005645797389021248,
+          "lost_hits": -0.0016937392167063743
+        }
+      },
+      "three": {
+        "delta_N10": -0.0034158393257239846,
+        "relative_N10": -0.04938031717197566,
+        "top10_gained": 1,
+        "top10_lost": 6,
+        "top50_net_hits": 1,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": -0.0005298481748279077,
+          "new_hits": 0.0005879492102812133,
+          "lost_hits": -0.0034739403611772903
+        }
+      }
+    },
+    "hits": {
+      "native": {
+        "10": 50,
+        "50": 92
+      },
+      "legacy_dual": {
+        "10": 59,
+        "50": 95
+      },
+      "three": {
+        "10": 62,
+        "50": 96
+      },
+      "baseline_late": {
+        "10": 59,
+        "50": 92
+      },
+      "baseline_guided": {
+        "10": 59,
+        "50": 95
+      },
+      "user_late": {
+        "10": 58,
+        "50": 92
+      },
+      "user_guided": {
+        "10": 58,
+        "50": 93
+      },
+      "candidate_late": {
+        "10": 56,
+        "50": 92
+      },
+      "candidate_guided": {
+        "10": 57,
+        "50": 97
+      },
+      "scalar_late": {
+        "10": 58,
+        "50": 92
+      },
+      "scalar_guided": {
+        "10": 59,
+        "50": 94
+      }
+    }
+  },
+  "Beauty": {
+    "users": 512,
+    "head_seed": 0,
+    "baseline_identical_lists": 512,
+    "transfer": {
+      "baseline": {
+        "pure_expert_N10": 0.06807403205142729,
+        "fixed_native50_late_N10": 0.0766625540322346,
+        "guided_N10": 0.08065484008122561
+      },
+      "user": {
+        "pure_expert_N10": 0.0710250497842035,
+        "fixed_native50_late_N10": 0.07699141448316021,
+        "guided_N10": 0.08252690621815785
+      },
+      "candidate": {
+        "pure_expert_N10": 0.07133060538501707,
+        "fixed_native50_late_N10": 0.07691247229003523,
+        "guided_N10": 0.08176171327342346
+      },
+      "scalar": {
+        "pure_expert_N10": 0.0764725181838562,
+        "fixed_native50_late_N10": 0.07785606523005174,
+        "guided_N10": 0.08160929237347397
+      }
+    },
+    "candidate_minus_user_by_stage": {
+      "pure_expert_N10": 0.0003055556008135646,
+      "fixed_native50_late_N10": -7.894219312498674e-05,
+      "guided_N10": -0.0007651929447343858
+    },
+    "candidate_vs_controls": {
+      "native": {
+        "delta_N10": 0.010080609357076553,
+        "relative_N10": 0.14063133526571803,
+        "top10_gained": 13,
+        "top10_lost": 7,
+        "top50_net_hits": 14,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": 0.002092296438004633,
+          "new_hits": 0.012366820644869943,
+          "lost_hits": -0.004378507725798024
+        }
+      },
+      "baseline_guided": {
+        "delta_N10": 0.0011068731921978418,
+        "relative_N10": 0.013723580520191181,
+        "top10_gained": 3,
+        "top10_lost": 2,
+        "top50_net_hits": 2,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": 0.00020261558332529232,
+          "new_hits": 0.002080156029434976,
+          "lost_hits": -0.0011758984205624266
+        }
+      },
+      "user_guided": {
+        "delta_N10": -0.0007651929447343869,
+        "relative_N10": -0.009272042050281315,
+        "top10_gained": 0,
+        "top10_lost": 2,
+        "top50_net_hits": 3,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": 0.0004504284608344047,
+          "new_hits": 0.0,
+          "lost_hits": -0.0012156214055687913
+        }
+      },
+      "scalar_guided": {
+        "delta_N10": 0.0001524208999494907,
+        "relative_N10": 0.0018676904984293863,
+        "top10_gained": 1,
+        "top10_lost": 1,
+        "top50_net_hits": 6,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": 0.0001524208999494906,
+          "new_hits": 0.0005879492102812133,
+          "lost_hits": -0.0005879492102812133
+        }
+      },
+      "three": {
+        "delta_N10": 0.0005646264951470718,
+        "relative_N10": 0.006953777746840695,
+        "top10_gained": 5,
+        "top10_lost": 3,
+        "top50_net_hits": 4,
+        "outcome_defined_descriptive_decomposition": {
+          "both_hit_rank_changes": -0.001035348276045833,
+          "new_hits": 0.0033404529306574563,
+          "lost_hits": -0.0017404781594645515
+        }
+      }
+    },
+    "hits": {
+      "native": {
+        "10": 60,
+        "50": 115
+      },
+      "legacy_dual": {
+        "10": 65,
+        "50": 127
+      },
+      "three": {
+        "10": 64,
+        "50": 125
+      },
+      "baseline_late": {
+        "10": 61,
+        "50": 115
+      },
+      "baseline_guided": {
+        "10": 65,
+        "50": 127
+      },
+      "user_late": {
+        "10": 63,
+        "50": 115
+      },
+      "user_guided": {
+        "10": 68,
+        "50": 126
+      },
+      "candidate_late": {
+        "10": 62,
+        "50": 115
+      },
+      "candidate_guided": {
+        "10": 66,
+        "50": 129
+      },
+      "scalar_late": {
+        "10": 63,
+        "50": 115
+      },
+      "scalar_guided": {
+        "10": 66,
+        "50": 123
+      }
+    }
+  }
+}

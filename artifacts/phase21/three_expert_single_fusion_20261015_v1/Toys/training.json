@@ -1,0 +1,101 @@
+{
+  "fits": {
+    "two": {
+      "reused": true,
+      "selected_epochs": 4,
+      "parameters": 610,
+      "refit_users": 2773
+    },
+    "three": {
+      "arm": "user",
+      "seed": 0,
+      "selected_epochs": 8,
+      "selection_curve": [
+        {
+          "epoch": 0,
+          "loss": 9.302004726266698
+        },
+        {
+          "epoch": 4,
+          "loss": 8.53068953894918
+        },
+        {
+          "epoch": 8,
+          "loss": 8.528818791229977
+        },
+        {
+          "epoch": 12,
+          "loss": 8.528862826246451
+        },
+        {
+          "epoch": 20,
+          "loss": 8.53916180581363
+        }
+      ],
+      "selection_fit_users": 2187,
+      "selection_heldout_users": 586,
+      "refit_users": 2773,
+      "parameters": 835,
+      "old_fusion_used": false
+    }
+  },
+  "checks": {
+    "two_scores_replayed_users": 512,
+    "three_numpy_forward_users": [
+      0,
+      127,
+      255,
+      383,
+      511
+    ],
+    "shared_features_exact": true,
+    "shared_full_training_norm_matched": true,
+    "user_shared_weights": true
+  },
+  "pure_metrics": {
+    "two": {
+      "H5": 0.076171875,
+      "N5": 0.054207360354212156,
+      "H10": 0.099609375,
+      "N10": 0.061745437330390465,
+      "H20": 0.12109375,
+      "N20": 0.06711788132167845,
+      "H50": 0.17578125,
+      "N50": 0.07803336879509323
+    },
+    "three": {
+      "H5": 0.072265625,
+      "N5": 0.05221950379013794,
+      "H10": 0.10546875,
+      "N10": 0.06280478501401329,
+      "H20": 0.12890625,
+      "N20": 0.06877960976976219,
+      "H50": 0.17578125,
+      "N50": 0.07810118435644214
+    }
+  },
+  "three_weight_statistics": {
+    "order": [
+      "sas",
+      "itemcf",
+      "text"
+    ],
+    "mean": [
+      0.54421466588974,
+      0.10155537724494934,
+      0.3542296886444092
+    ],
+    "p10": [
+      0.4322571963071823,
+      0.03130895346403122,
+      0.2670366555452347
+    ],
+    "p90": [
+      0.6863253116607666,
+      0.17446597814559936,
+      0.4329558163881302
+    ]
+  },
+  "note": "Weights are not proof of expert utility; the matched two-vs-three contrast tests ItemCF.",
+  "test_read": false
+}
