@@ -1,0 +1,118 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "arms": {
+    "SASRec__BGE": [
+      "SASRec",
+      "BGE"
+    ],
+    "SASRec__Qwen4": [
+      "SASRec",
+      "Qwen4"
+    ],
+    "TiSASRec__BGE": [
+      "TiSASRec",
+      "BGE"
+    ],
+    "TiSASRec__Qwen4": [
+      "TiSASRec",
+      "Qwen4"
+    ],
+    "ItemCF__BGE": [
+      "ItemCF",
+      "BGE"
+    ],
+    "ItemCF__Qwen4": [
+      "ItemCF",
+      "Qwen4"
+    ],
+    "SASRec__only": [
+      "SASRec",
+      "SASRec"
+    ],
+    "TiSASRec__only": [
+      "TiSASRec",
+      "TiSASRec"
+    ],
+    "ItemCF__only": [
+      "ItemCF",
+      "ItemCF"
+    ],
+    "BGE__only": [
+      "BGE",
+      "BGE"
+    ],
+    "Qwen4__only": [
+      "Qwen4",
+      "Qwen4"
+    ]
+  },
+  "experts": [
+    "SASRec",
+    "TiSASRec",
+    "ItemCF",
+    "BGE",
+    "Qwen4"
+  ],
+  "user_dimension": 10,
+  "hidden_width": 32,
+  "parameters": 451,
+  "feature_names": [
+    "log_history_length",
+    "confidence_slot0",
+    "confidence_slot1",
+    "margin_slot0",
+    "margin_slot1",
+    "std_slot0",
+    "std_slot1",
+    "history_in_top5_slot0",
+    "history_in_top5_slot1",
+    "history_ratio"
+  ],
+  "old10_definitions_unchanged": true,
+  "alpha_mode": "user",
+  "evaluation_users": 4608,
+  "cohorts": {
+    "old512": 512,
+    "wide4096": 4096
+  },
+  "primary_development_cohort": "wide4096",
+  "loss": "original full-catalog CE parent, then frozen-GRAM length-normalized target-path NLL",
+  "single_expert": "duplicate the same expert in both slots; invariant to beta; degenerate CE parent epoch0",
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "expert_training": false,
+  "gram_optimizer_steps": 0,
+  "test_read": false,
+  "reused_heads": {
+    "SASRec__BGE": "bge",
+    "SASRec__Qwen4": "qwen4",
+    "TiSASRec__BGE": "tisas"
+  },
+  "reused_prediction_rows": "old512 for matching frozen reused heads only; smoke-replayed",
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "worker_timeout_seconds": 43200,
+  "resource_wait_seconds": 86400,
+  "gpu_pool": "all GPUs, lowest utilization then most free memory",
+  "scientific_auto_retry": false,
+  "stop_after": "expert comparison only; no feature redesign or automatic next run"
+}

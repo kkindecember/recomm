@@ -1,0 +1,40 @@
+{
+  "seed": 20261016,
+  "wide_users": 4096,
+  "score_scale": 20.0,
+  "topk_diagnostic": 10,
+  "features": [
+    "log_history_length",
+    "history_mass_behavior",
+    "history_mass_text",
+    "novel_entropy_behavior",
+    "novel_entropy_text",
+    "novel_expert_js"
+  ],
+  "feature_dimension": 6,
+  "future_fuser_parameters": 323,
+  "experts": [
+    "SASRec",
+    "TiSASRec",
+    "ItemCF",
+    "BGE",
+    "Qwen4",
+    "BGE_loo",
+    "BGE_uniform",
+    "Qwen4_loo",
+    "Qwen4_uniform"
+  ],
+  "max_parallel": 2,
+  "threads_per_worker": 2,
+  "worker_timeout_seconds": 7200,
+  "final_history_filter": false,
+  "history_scope": "full visible history; recent20 separately diagnosed",
+  "experts_frozen": true,
+  "new_expert_inference": true,
+  "new_expert_training": false,
+  "gram_generation": false,
+  "fusion_training": false,
+  "test_read": false,
+  "scientific_auto_retry": false,
+  "stop_after": "expert diagnostics and six-input caches only; no auto-selected final method"
+}

@@ -1,0 +1,830 @@
+{
+  "domains": {
+    "Toys": {
+      "fit": {
+        "users": 2773,
+        "comparisons": {
+          "SASRec_vs_TiSASRec": {
+            "delta_N10": 0.006657534808311258,
+            "relative_N10_percent": 14.248655871472838,
+            "descriptive_95pct_N10": [
+              0.0023404212580584766,
+              0.010885475172004453
+            ],
+            "top10_gained": 77,
+            "top10_lost": 56
+          },
+          "SASRec_vs_ItemCF": {
+            "delta_N10": 0.012969200915041527,
+            "relative_N10_percent": 32.09222480981428,
+            "descriptive_95pct_N10": [
+              0.006910677820175679,
+              0.019378511125043022
+            ],
+            "top10_gained": 119,
+            "top10_lost": 72
+          },
+          "BGE_loo_vs_BGE": {
+            "delta_N10": 0.014324570932221076,
+            "relative_N10_percent": 60.83972765558479,
+            "descriptive_95pct_N10": [
+              0.011862318092056075,
+              0.017011416815926703
+            ],
+            "top10_gained": 27,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4": {
+            "delta_N10": 0.010014413353992262,
+            "relative_N10_percent": 45.58489203266747,
+            "descriptive_95pct_N10": [
+              0.00802358937739358,
+              0.012126959267694153
+            ],
+            "top10_gained": 19,
+            "top10_lost": 0
+          },
+          "BGE_loo_vs_Qwen4_loo": {
+            "delta_N10": 0.005886211266963958,
+            "relative_N10_percent": 18.404115669671462,
+            "descriptive_95pct_N10": [
+              0.0017484066909284957,
+              0.010171338650523382
+            ],
+            "top10_gained": 73,
+            "top10_lost": 50
+          },
+          "BGE_loo_vs_BGE_uniform": {
+            "delta_N10": 9.016764140227242e-05,
+            "relative_N10_percent": 0.23867026556574356,
+            "descriptive_95pct_N10": [
+              -2.6445531000499662e-05,
+              0.00023662618790443215
+            ],
+            "top10_gained": 0,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4_uniform": {
+            "delta_N10": 5.130777809266408e-05,
+            "relative_N10_percent": 0.16067916898427903,
+            "descriptive_95pct_N10": [
+              -0.00017321772961962907,
+              0.00032175292720022504
+            ],
+            "top10_gained": 1,
+            "top10_lost": 0
+          }
+        },
+        "oracle_hit_coverage_not_model_performance": {
+          "SASRec__BGE_loo__10": {
+            "base_hits": 244,
+            "other_hits": 195,
+            "unique_other_hits": 122,
+            "oracle_union_hits": 366,
+            "users": 2773
+          },
+          "SASRec__Qwen4_loo__10": {
+            "base_hits": 244,
+            "other_hits": 172,
+            "unique_other_hits": 105,
+            "oracle_union_hits": 349,
+            "users": 2773
+          },
+          "SASRec__ItemCF__10": {
+            "base_hits": 244,
+            "other_hits": 197,
+            "unique_other_hits": 72,
+            "oracle_union_hits": 316,
+            "users": 2773
+          },
+          "SASRec__TiSASRec__10": {
+            "base_hits": 244,
+            "other_hits": 223,
+            "unique_other_hits": 56,
+            "oracle_union_hits": 300,
+            "users": 2773
+          },
+          "SASRec__BGE_loo__50": {
+            "base_hits": 445,
+            "other_hits": 420,
+            "unique_other_hits": 242,
+            "oracle_union_hits": 687,
+            "users": 2773
+          },
+          "SASRec__Qwen4_loo__50": {
+            "base_hits": 445,
+            "other_hits": 398,
+            "unique_other_hits": 230,
+            "oracle_union_hits": 675,
+            "users": 2773
+          },
+          "SASRec__ItemCF__50": {
+            "base_hits": 445,
+            "other_hits": 395,
+            "unique_other_hits": 143,
+            "oracle_union_hits": 588,
+            "users": 2773
+          },
+          "SASRec__TiSASRec__50": {
+            "base_hits": 445,
+            "other_hits": 410,
+            "unique_other_hits": 119,
+            "oracle_union_hits": 564,
+            "users": 2773
+          }
+        }
+      },
+      "old512": {
+        "users": 512,
+        "comparisons": {
+          "SASRec_vs_TiSASRec": {
+            "delta_N10": -0.008632191907411043,
+            "relative_N10_percent": -19.74424551521199,
+            "descriptive_95pct_N10": [
+              -0.019254454963314245,
+              0.002983940396176
+            ],
+            "top10_gained": 9,
+            "top10_lost": 20
+          },
+          "SASRec_vs_ItemCF": {
+            "delta_N10": 0.0016121665404660599,
+            "relative_N10_percent": 4.8159335293956,
+            "descriptive_95pct_N10": [
+              -0.011715537857645297,
+              0.01337972325777141
+            ],
+            "top10_gained": 11,
+            "top10_lost": 17
+          },
+          "BGE_loo_vs_BGE": {
+            "delta_N10": 0.014839885027335211,
+            "relative_N10_percent": 59.66497284362517,
+            "descriptive_95pct_N10": [
+              0.008827314803938828,
+              0.02147102852518127
+            ],
+            "top10_gained": 3,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4": {
+            "delta_N10": 0.0071032620790626114,
+            "relative_N10_percent": 41.3252196472816,
+            "descriptive_95pct_N10": [
+              0.0036231320380728494,
+              0.011369277001553083
+            ],
+            "top10_gained": 2,
+            "top10_lost": 0
+          },
+          "BGE_loo_vs_Qwen4_loo": {
+            "delta_N10": 0.015419959104952745,
+            "relative_N10_percent": 63.47765649790445,
+            "descriptive_95pct_N10": [
+              0.0049887976762485195,
+              0.027614384011596976
+            ],
+            "top10_gained": 19,
+            "top10_lost": 8
+          },
+          "BGE_loo_vs_BGE_uniform": {
+            "delta_N10": -0.0005645797389021248,
+            "relative_N10_percent": -1.4017601524599854,
+            "descriptive_95pct_N10": [
+              -0.0016937392167063743,
+              0.0
+            ],
+            "top10_gained": 0,
+            "top10_lost": 1
+          },
+          "Qwen4_loo_vs_Qwen4_uniform": {
+            "delta_N10": -0.00011202787613381567,
+            "relative_N10_percent": -0.45905584471755967,
+            "descriptive_95pct_N10": [
+              -0.00040619204253871256,
+              7.010841413726554e-05
+            ],
+            "top10_gained": 0,
+            "top10_lost": 0
+          }
+        },
+        "oracle_hit_coverage_not_model_performance": {
+          "SASRec__BGE_loo__10": {
+            "base_hits": 29,
+            "other_hits": 37,
+            "unique_other_hits": 24,
+            "oracle_union_hits": 53,
+            "users": 512
+          },
+          "SASRec__Qwen4_loo__10": {
+            "base_hits": 29,
+            "other_hits": 26,
+            "unique_other_hits": 16,
+            "oracle_union_hits": 45,
+            "users": 512
+          },
+          "SASRec__ItemCF__10": {
+            "base_hits": 29,
+            "other_hits": 35,
+            "unique_other_hits": 17,
+            "oracle_union_hits": 46,
+            "users": 512
+          },
+          "SASRec__TiSASRec__10": {
+            "base_hits": 29,
+            "other_hits": 40,
+            "unique_other_hits": 20,
+            "oracle_union_hits": 49,
+            "users": 512
+          },
+          "SASRec__BGE_loo__50": {
+            "base_hits": 60,
+            "other_hits": 68,
+            "unique_other_hits": 44,
+            "oracle_union_hits": 104,
+            "users": 512
+          },
+          "SASRec__Qwen4_loo__50": {
+            "base_hits": 60,
+            "other_hits": 63,
+            "unique_other_hits": 40,
+            "oracle_union_hits": 100,
+            "users": 512
+          },
+          "SASRec__ItemCF__50": {
+            "base_hits": 60,
+            "other_hits": 70,
+            "unique_other_hits": 35,
+            "oracle_union_hits": 95,
+            "users": 512
+          },
+          "SASRec__TiSASRec__50": {
+            "base_hits": 60,
+            "other_hits": 72,
+            "unique_other_hits": 29,
+            "oracle_union_hits": 89,
+            "users": 512
+          }
+        }
+      },
+      "wide4096": {
+        "users": 4096,
+        "comparisons": {
+          "SASRec_vs_TiSASRec": {
+            "delta_N10": 0.004073382497175226,
+            "relative_N10_percent": 7.9852814075983325,
+            "descriptive_95pct_N10": [
+              7.486788358312712e-05,
+              0.008216863129434556
+            ],
+            "top10_gained": 109,
+            "top10_lost": 111
+          },
+          "SASRec_vs_ItemCF": {
+            "delta_N10": 0.018384415613167747,
+            "relative_N10_percent": 50.093639553515686,
+            "descriptive_95pct_N10": [
+              0.013556139487218163,
+              0.023180841606409923
+            ],
+            "top10_gained": 183,
+            "top10_lost": 92
+          },
+          "BGE_loo_vs_BGE": {
+            "delta_N10": 0.01439589180170151,
+            "relative_N10_percent": 63.73566001165951,
+            "descriptive_95pct_N10": [
+              0.012378427753316962,
+              0.01667405941528712
+            ],
+            "top10_gained": 44,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4": {
+            "delta_N10": 0.0119655686572901,
+            "relative_N10_percent": 54.98512352005098,
+            "descriptive_95pct_N10": [
+              0.00998830166325735,
+              0.014011132722086024
+            ],
+            "top10_gained": 30,
+            "top10_lost": 0
+          },
+          "BGE_loo_vs_Qwen4_loo": {
+            "delta_N10": 0.003255729469584007,
+            "relative_N10_percent": 9.65317454021064,
+            "descriptive_95pct_N10": [
+              -0.00016581868835884532,
+              0.00692234689148734
+            ],
+            "top10_gained": 104,
+            "top10_lost": 69
+          },
+          "BGE_loo_vs_BGE_uniform": {
+            "delta_N10": 5.417161858793731e-05,
+            "relative_N10_percent": 0.14669288948134795,
+            "descriptive_95pct_N10": [
+              -0.0002319657877746848,
+              0.00033479880004336633
+            ],
+            "top10_gained": 2,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4_uniform": {
+            "delta_N10": -0.00019384376199025976,
+            "relative_N10_percent": -0.5714585652499715,
+            "descriptive_95pct_N10": [
+              -0.0005292155113179553,
+              0.00011028811628208677
+            ],
+            "top10_gained": 1,
+            "top10_lost": 1
+          }
+        },
+        "oracle_hit_coverage_not_model_performance": {
+          "SASRec__BGE_loo__10": {
+            "base_hits": 363,
+            "other_hits": 283,
+            "unique_other_hits": 151,
+            "oracle_union_hits": 514,
+            "users": 4096
+          },
+          "SASRec__Qwen4_loo__10": {
+            "base_hits": 363,
+            "other_hits": 248,
+            "unique_other_hits": 139,
+            "oracle_union_hits": 502,
+            "users": 4096
+          },
+          "SASRec__ItemCF__10": {
+            "base_hits": 363,
+            "other_hits": 272,
+            "unique_other_hits": 92,
+            "oracle_union_hits": 455,
+            "users": 4096
+          },
+          "SASRec__TiSASRec__10": {
+            "base_hits": 363,
+            "other_hits": 365,
+            "unique_other_hits": 111,
+            "oracle_union_hits": 474,
+            "users": 4096
+          },
+          "SASRec__BGE_loo__50": {
+            "base_hits": 657,
+            "other_hits": 600,
+            "unique_other_hits": 324,
+            "oracle_union_hits": 981,
+            "users": 4096
+          },
+          "SASRec__Qwen4_loo__50": {
+            "base_hits": 657,
+            "other_hits": 543,
+            "unique_other_hits": 290,
+            "oracle_union_hits": 947,
+            "users": 4096
+          },
+          "SASRec__ItemCF__50": {
+            "base_hits": 657,
+            "other_hits": 589,
+            "unique_other_hits": 200,
+            "oracle_union_hits": 857,
+            "users": 4096
+          },
+          "SASRec__TiSASRec__50": {
+            "base_hits": 657,
+            "other_hits": 621,
+            "unique_other_hits": 166,
+            "oracle_union_hits": 823,
+            "users": 4096
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "fit": {
+        "users": 3310,
+        "comparisons": {
+          "SASRec_vs_TiSASRec": {
+            "delta_N10": 0.003853641717015622,
+            "relative_N10_percent": 7.172418572602379,
+            "descriptive_95pct_N10": [
+              -0.0005798382407532397,
+              0.008041865507085083
+            ],
+            "top10_gained": 98,
+            "top10_lost": 86
+          },
+          "SASRec_vs_ItemCF": {
+            "delta_N10": 0.019640689930897508,
+            "relative_N10_percent": 51.76561639934825,
+            "descriptive_95pct_N10": [
+              0.014497469192570441,
+              0.02477462353839119
+            ],
+            "top10_gained": 157,
+            "top10_lost": 65
+          },
+          "BGE_loo_vs_BGE": {
+            "delta_N10": 0.008674104383576806,
+            "relative_N10_percent": 52.62433632461669,
+            "descriptive_95pct_N10": [
+              0.006845353096527349,
+              0.010571714051809001
+            ],
+            "top10_gained": 23,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4": {
+            "delta_N10": 0.006394387707562189,
+            "relative_N10_percent": 38.482738770923945,
+            "descriptive_95pct_N10": [
+              0.004946821243175596,
+              0.00790759498186475
+            ],
+            "top10_gained": 12,
+            "top10_lost": 0
+          },
+          "BGE_loo_vs_Qwen4_loo": {
+            "delta_N10": 0.0021465342073003456,
+            "relative_N10_percent": 9.328443327427527,
+            "descriptive_95pct_N10": [
+              -0.0011222744426639167,
+              0.005629930249184393
+            ],
+            "top10_gained": 73,
+            "top10_lost": 56
+          },
+          "BGE_loo_vs_BGE_uniform": {
+            "delta_N10": 1.0051799830690663e-05,
+            "relative_N10_percent": 0.03997197362013427,
+            "descriptive_95pct_N10": [
+              -4.350850409642676e-05,
+              7.208940963937772e-05
+            ],
+            "top10_gained": 0,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4_uniform": {
+            "delta_N10": 6.762731789676129e-05,
+            "relative_N10_percent": 0.2947621938391931,
+            "descriptive_95pct_N10": [
+              -4.45219615972077e-05,
+              0.00026259681923779563
+            ],
+            "top10_gained": 1,
+            "top10_lost": 0
+          }
+        },
+        "oracle_hit_coverage_not_model_performance": {
+          "SASRec__BGE_loo__10": {
+            "base_hits": 319,
+            "other_hits": 160,
+            "unique_other_hits": 118,
+            "oracle_union_hits": 437,
+            "users": 3310
+          },
+          "SASRec__Qwen4_loo__10": {
+            "base_hits": 319,
+            "other_hits": 143,
+            "unique_other_hits": 96,
+            "oracle_union_hits": 415,
+            "users": 3310
+          },
+          "SASRec__ItemCF__10": {
+            "base_hits": 319,
+            "other_hits": 227,
+            "unique_other_hits": 65,
+            "oracle_union_hits": 384,
+            "users": 3310
+          },
+          "SASRec__TiSASRec__10": {
+            "base_hits": 319,
+            "other_hits": 307,
+            "unique_other_hits": 86,
+            "oracle_union_hits": 405,
+            "users": 3310
+          },
+          "SASRec__BGE_loo__50": {
+            "base_hits": 626,
+            "other_hits": 371,
+            "unique_other_hits": 208,
+            "oracle_union_hits": 834,
+            "users": 3310
+          },
+          "SASRec__Qwen4_loo__50": {
+            "base_hits": 626,
+            "other_hits": 363,
+            "unique_other_hits": 209,
+            "oracle_union_hits": 835,
+            "users": 3310
+          },
+          "SASRec__ItemCF__50": {
+            "base_hits": 626,
+            "other_hits": 474,
+            "unique_other_hits": 114,
+            "oracle_union_hits": 740,
+            "users": 3310
+          },
+          "SASRec__TiSASRec__50": {
+            "base_hits": 626,
+            "other_hits": 625,
+            "unique_other_hits": 139,
+            "oracle_union_hits": 765,
+            "users": 3310
+          }
+        }
+      },
+      "old512": {
+        "users": 512,
+        "comparisons": {
+          "SASRec_vs_TiSASRec": {
+            "delta_N10": 0.006108591259296991,
+            "relative_N10_percent": 12.75631742118495,
+            "descriptive_95pct_N10": [
+              -0.0051445555065712835,
+              0.017233361385174492
+            ],
+            "top10_gained": 19,
+            "top10_lost": 13
+          },
+          "SASRec_vs_ItemCF": {
+            "delta_N10": 0.019532319495082648,
+            "relative_N10_percent": 56.67609624714041,
+            "descriptive_95pct_N10": [
+              0.006714460294674795,
+              0.03254577977047319
+            ],
+            "top10_gained": 23,
+            "top10_lost": 9
+          },
+          "BGE_loo_vs_BGE": {
+            "delta_N10": 0.0060445333992651135,
+            "relative_N10_percent": 36.73666606997757,
+            "descriptive_95pct_N10": [
+              0.003364606034298003,
+              0.009034691086085882
+            ],
+            "top10_gained": 3,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4": {
+            "delta_N10": 0.005926985494133331,
+            "relative_N10_percent": 31.66509321689972,
+            "descriptive_95pct_N10": [
+              0.0025660674567434673,
+              0.01020109994079467
+            ],
+            "top10_gained": 1,
+            "top10_lost": 0
+          },
+          "BGE_loo_vs_Qwen4_loo": {
+            "delta_N10": -0.0021464986502494495,
+            "relative_N10_percent": -8.709773782553398,
+            "descriptive_95pct_N10": [
+              -0.011779060997055913,
+              0.007460511688028266
+            ],
+            "top10_gained": 13,
+            "top10_lost": 15
+          },
+          "BGE_loo_vs_BGE_uniform": {
+            "delta_N10": -0.0005645797389021248,
+            "relative_N10_percent": -2.448011135314776,
+            "descriptive_95pct_N10": [
+              -0.0016937392167063743,
+              0.0
+            ],
+            "top10_gained": 0,
+            "top10_lost": 1
+          },
+          "Qwen4_loo_vs_Qwen4_uniform": {
+            "delta_N10": -0.0011291594778042495,
+            "relative_N10_percent": -4.381023960547703,
+            "descriptive_95pct_N10": [
+              -0.002822898694510624,
+              0.0
+            ],
+            "top10_gained": 0,
+            "top10_lost": 2
+          }
+        },
+        "oracle_hit_coverage_not_model_performance": {
+          "SASRec__BGE_loo__10": {
+            "base_hits": 47,
+            "other_hits": 23,
+            "unique_other_hits": 19,
+            "oracle_union_hits": 66,
+            "users": 512
+          },
+          "SASRec__Qwen4_loo__10": {
+            "base_hits": 47,
+            "other_hits": 25,
+            "unique_other_hits": 19,
+            "oracle_union_hits": 66,
+            "users": 512
+          },
+          "SASRec__ItemCF__10": {
+            "base_hits": 47,
+            "other_hits": 33,
+            "unique_other_hits": 9,
+            "oracle_union_hits": 56,
+            "users": 512
+          },
+          "SASRec__TiSASRec__10": {
+            "base_hits": 47,
+            "other_hits": 41,
+            "unique_other_hits": 13,
+            "oracle_union_hits": 60,
+            "users": 512
+          },
+          "SASRec__BGE_loo__50": {
+            "base_hits": 86,
+            "other_hits": 69,
+            "unique_other_hits": 40,
+            "oracle_union_hits": 126,
+            "users": 512
+          },
+          "SASRec__Qwen4_loo__50": {
+            "base_hits": 86,
+            "other_hits": 55,
+            "unique_other_hits": 32,
+            "oracle_union_hits": 118,
+            "users": 512
+          },
+          "SASRec__ItemCF__50": {
+            "base_hits": 86,
+            "other_hits": 71,
+            "unique_other_hits": 24,
+            "oracle_union_hits": 110,
+            "users": 512
+          },
+          "SASRec__TiSASRec__50": {
+            "base_hits": 86,
+            "other_hits": 98,
+            "unique_other_hits": 27,
+            "oracle_union_hits": 113,
+            "users": 512
+          }
+        }
+      },
+      "wide4096": {
+        "users": 4096,
+        "comparisons": {
+          "SASRec_vs_TiSASRec": {
+            "delta_N10": 0.005871909064611487,
+            "relative_N10_percent": 11.485113610698484,
+            "descriptive_95pct_N10": [
+              0.0020831403053842854,
+              0.00946128864782554
+            ],
+            "top10_gained": 106,
+            "top10_lost": 94
+          },
+          "SASRec_vs_ItemCF": {
+            "delta_N10": 0.018697946649266356,
+            "relative_N10_percent": 48.81942033381848,
+            "descriptive_95pct_N10": [
+              0.013578027352494868,
+              0.0235903638811499
+            ],
+            "top10_gained": 190,
+            "top10_lost": 83
+          },
+          "BGE_loo_vs_BGE": {
+            "delta_N10": 0.011916786009673119,
+            "relative_N10_percent": 63.880364468934324,
+            "descriptive_95pct_N10": [
+              0.009980916067000422,
+              0.013733487755002908
+            ],
+            "top10_gained": 40,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4": {
+            "delta_N10": 0.009572365702188345,
+            "relative_N10_percent": 52.655809411523435,
+            "descriptive_95pct_N10": [
+              0.007892477314974788,
+              0.011339989067164226
+            ],
+            "top10_gained": 35,
+            "top10_lost": 0
+          },
+          "BGE_loo_vs_Qwen4_loo": {
+            "delta_N10": 0.0028201445049234716,
+            "relative_N10_percent": 10.162136799479637,
+            "descriptive_95pct_N10": [
+              -0.0006875718991501787,
+              0.006289460505734055
+            ],
+            "top10_gained": 93,
+            "top10_lost": 71
+          },
+          "BGE_loo_vs_BGE_uniform": {
+            "delta_N10": 4.9655789446979845e-05,
+            "relative_N10_percent": 0.16268862472192946,
+            "descriptive_95pct_N10": [
+              -9.423820929738444e-05,
+              0.000253775790537331
+            ],
+            "top10_gained": 1,
+            "top10_lost": 0
+          },
+          "Qwen4_loo_vs_Qwen4_uniform": {
+            "delta_N10": -0.00014242565704745952,
+            "relative_N10_percent": -0.5105975525483974,
+            "descriptive_95pct_N10": [
+              -0.0003712464190043745,
+              3.2309462524848796e-05
+            ],
+            "top10_gained": 0,
+            "top10_lost": 0
+          }
+        },
+        "oracle_hit_coverage_not_model_performance": {
+          "SASRec__BGE_loo__10": {
+            "base_hits": 378,
+            "other_hits": 227,
+            "unique_other_hits": 138,
+            "oracle_union_hits": 516,
+            "users": 4096
+          },
+          "SASRec__Qwen4_loo__10": {
+            "base_hits": 378,
+            "other_hits": 205,
+            "unique_other_hits": 125,
+            "oracle_union_hits": 503,
+            "users": 4096
+          },
+          "SASRec__ItemCF__10": {
+            "base_hits": 378,
+            "other_hits": 271,
+            "unique_other_hits": 83,
+            "oracle_union_hits": 461,
+            "users": 4096
+          },
+          "SASRec__TiSASRec__10": {
+            "base_hits": 378,
+            "other_hits": 366,
+            "unique_other_hits": 94,
+            "oracle_union_hits": 472,
+            "users": 4096
+          },
+          "SASRec__BGE_loo__50": {
+            "base_hits": 738,
+            "other_hits": 546,
+            "unique_other_hits": 294,
+            "oracle_union_hits": 1032,
+            "users": 4096
+          },
+          "SASRec__Qwen4_loo__50": {
+            "base_hits": 738,
+            "other_hits": 483,
+            "unique_other_hits": 255,
+            "oracle_union_hits": 993,
+            "users": 4096
+          },
+          "SASRec__ItemCF__50": {
+            "base_hits": 738,
+            "other_hits": 560,
+            "unique_other_hits": 162,
+            "oracle_union_hits": 900,
+            "users": 4096
+          },
+          "SASRec__TiSASRec__50": {
+            "base_hits": 738,
+            "other_hits": 719,
+            "unique_other_hits": 170,
+            "oracle_union_hits": 908,
+            "users": 4096
+          }
+        }
+      }
+    }
+  },
+  "checks": {
+    "manifest_files": 180,
+    "rank_arrays": 54,
+    "feature_arrays": 72,
+    "independent_sorted_rows": 648
+  },
+  "statistical_review": {
+    "coverage": "11/11",
+    "confidence": "Exploratory validation; not independent test",
+    "simpson": "Both domains and each cohort are reported separately; Toys SAS/TiSA direction reverses between old512 and wide4096.",
+    "ecological": "No claim of universal per-user improvement; paired gain/loss counts retained.",
+    "berkson": "4096 are hash-selected without targets from an explicitly restricted validation population.",
+    "collider": "No hit-, score-, or target-dependent sample selection.",
+    "base_rate": "All prescribed users included; processed targets have zero repeats in visible history.",
+    "regression_to_mean": "Frozen models; no promise that old512 rankings generalize.",
+    "survivorship": "Both successful domains, all three cohorts and all nine channels retained; V1 failure preserved.",
+    "look_elsewhere": "Seven paired comparisons per cohort/domain, 42 total; bootstrap intervals descriptive and unadjusted.",
+    "forking_paths": "Exploration with prior validation exposure; not preregistered confirmation.",
+    "causation": "LOO and uniform both suppress history support; direct rank gains do not prove superior expert evidence or GRAM generation.",
+    "reverse_causality": "Features use visible history and expert scores; target used only to measure rank."
+  },
+  "test_read": false,
+  "fusion_training": false,
+  "new_generation": false
+}
