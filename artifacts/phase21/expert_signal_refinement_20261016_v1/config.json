@@ -1,0 +1,120 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "evaluation_users": 512,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "minimum_free_mib": 18432,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "gpu_pool": "all GPUs, lowest utilization first",
+  "resource_authorization": "User preference: reduce previous 30 GiB reserve; retain 16 GiB per domain",
+  "experts": [
+    "TiSASRec",
+    "BGE"
+  ],
+  "arms": [
+    "base7",
+    "mass7",
+    "no_gap5",
+    "mass_no_gap5"
+  ],
+  "hidden_width": 32,
+  "features": {
+    "base7": [
+      "log_history_length",
+      "confidence_sas",
+      "confidence_text",
+      "margin_sas",
+      "margin_text",
+      "history_in_top5_sas",
+      "history_in_top5_text"
+    ],
+    "mass7": [
+      "log_history_length",
+      "confidence_sas",
+      "confidence_text",
+      "margin_sas",
+      "margin_text",
+      "filtered_mass_sas",
+      "filtered_mass_text"
+    ],
+    "no_gap5": [
+      "log_history_length",
+      "confidence_sas",
+      "confidence_text",
+      "history_in_top5_sas",
+      "history_in_top5_text"
+    ],
+    "mass_no_gap5": [
+      "log_history_length",
+      "confidence_sas",
+      "confidence_text",
+      "filtered_mass_sas",
+      "filtered_mass_text"
+    ]
+  },
+  "parameters": {
+    "base7": 355,
+    "mass7": 355,
+    "no_gap5": 291,
+    "mass_no_gap5": 291
+  },
+  "feature_space": "expert/history inputs only; no GRAM-state input",
+  "gate_scope": "one beta/alpha per current user context shared by all items and generation prefixes",
+  "guide_scope": "existing conditional expert mass at EVERY generation prefix",
+  "loss": "full catalog expert CE parent, then mean length-normalized target-path NLL",
+  "epoch_selection": "same user-hash80/20; CE and NLL checkpoints0/4/8/12/20; refit all ranker_fit",
+  "parent_initialization": "same retained input columns; replaced mass columns use old Top5 initialization",
+  "old_parent": "reuse verified 21.40 pruned7 full and fit-only CE parents; refit NLL",
+  "test_read": false,
+  "experts_frozen": true,
+  "gram_optimizer_steps": 0,
+  "scientific_auto_retry": false,
+  "stop_after": "four arms x two development512 pools, seed0; no automatic follow-up",
+  "old_top5": "top5 overlap with full history",
+  "mass_history": "unique actual sample.history; verified full_history[-20:]",
+  "filtered_mass": "sum softmax(20 * expert score) on filtered history, separately per expert",
+  "mass_is_final_beta_mixed_mass": false,
+  "mass_scale": 20.0,
+  "original_columns": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    8
+  ],
+  "retained_without_gap": [
+    0,
+    1,
+    2,
+    5,
+    6
+  ],
+  "architecture": "all active inputs through shared32 ReLU; beta32to2 and alpha32to1",
+  "gram_state_used_in_features": false,
+  "same_hidden_width": true,
+  "equal_parameter_count_all_arms": false,
+  "factorial_axes": [
+    "old_top5 vs filtered_mass",
+    "retain vs delete two top1-top2 gaps"
+  ]
+}

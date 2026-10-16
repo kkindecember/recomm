@@ -1,0 +1,78 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "evaluation_users": 512,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "minimum_free_mib": 18432,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "gpu_pool": "all GPUs, lowest utilization first",
+  "resource_authorization": "User preference: reduce previous 30 GiB reserve; retain 16 GiB per domain",
+  "experts": [
+    "TiSASRec",
+    "BGE"
+  ],
+  "arms": [
+    "old10",
+    "decision7"
+  ],
+  "hidden_width": 32,
+  "features": {
+    "old10": [
+      "log_history_length",
+      "confidence_sas",
+      "confidence_text",
+      "margin_sas",
+      "margin_text",
+      "std_sas",
+      "std_text",
+      "history_in_top5_sas",
+      "history_in_top5_text",
+      "history_ratio"
+    ],
+    "decision7": [
+      "log_history_length",
+      "entropy_gram",
+      "entropy_behavior",
+      "entropy_text",
+      "js_behavior_text",
+      "js_behavior_gram",
+      "js_text_gram"
+    ]
+  },
+  "parameters": {
+    "old10": 451,
+    "decision7": 355
+  },
+  "feature_space": "same legal first-token branches; no target prefix",
+  "entropy": "natural-log entropy / log(branch count)",
+  "js": "JS / log(2), not sqrt(JS)",
+  "gate_scope": "one beta/alpha per current user context shared by all items and generation prefixes",
+  "guide_scope": "existing conditional expert mass at EVERY generation prefix",
+  "loss": "full catalog expert CE parent, then mean length-normalized target-path NLL",
+  "epoch_selection": "same user-hash80/20; CE and NLL checkpoints0/4/8/12/20; refit all ranker_fit",
+  "parent_initialization": "existing C.Fusion prototype first d columns; identical scale and common random prefix",
+  "old_parent": "reuse verified full and fit-only CE parents with original CE selection",
+  "test_read": false,
+  "experts_frozen": true,
+  "gram_optimizer_steps": 0,
+  "scientific_auto_retry": false,
+  "stop_after": "two arms x two reused development512 pools, seed0"
+}

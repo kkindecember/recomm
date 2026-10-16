@@ -1,0 +1,82 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "evaluation_users": 512,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "minimum_free_mib": 18432,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "gpu_pool": "all GPUs, lowest utilization first",
+  "resource_authorization": "User preference: reduce previous 30 GiB reserve; retain 16 GiB per domain",
+  "experts": [
+    "TiSASRec",
+    "BGE"
+  ],
+  "arms": [
+    "root7",
+    "item7"
+  ],
+  "hidden_width": 32,
+  "features": {
+    "root7": [
+      "log_history_length",
+      "entropy_gram",
+      "entropy_behavior",
+      "entropy_text",
+      "js_behavior_text",
+      "js_behavior_gram",
+      "js_text_gram"
+    ],
+    "item7": [
+      "log_history_length",
+      "entropy_gram_root",
+      "entropy_behavior_item",
+      "entropy_text_item",
+      "js_behavior_text_item",
+      "js_behavior_gram_root",
+      "js_text_gram_root"
+    ]
+  },
+  "parameters": {
+    "root7": 355,
+    "item7": 355
+  },
+  "feature_space": "expert confidence and expert-expert JS at item level; GRAM comparisons at legal root level",
+  "entropy": "natural-log entropy / log(branch count)",
+  "js": "JS / log(2), not sqrt(JS)",
+  "gate_scope": "one beta/alpha per current user context shared by all items and generation prefixes",
+  "guide_scope": "existing conditional expert mass at EVERY generation prefix",
+  "loss": "full catalog expert CE parent, then mean length-normalized target-path NLL",
+  "epoch_selection": "same user-hash80/20; CE and NLL checkpoints0/4/8/12/20; refit all ranker_fit",
+  "parent_initialization": "existing C.Fusion prototype first d columns; identical scale and common random prefix",
+  "test_read": false,
+  "experts_frozen": true,
+  "gram_optimizer_steps": 0,
+  "scientific_auto_retry": false,
+  "stop_after": "one item-granularity variant and matched root7, two development512 pools, seed0",
+  "replaced_coordinates": [
+    2,
+    3,
+    4
+  ],
+  "same_hidden_width_and_parameter_count": true,
+  "parent_training": "both arms fresh CE selection/refit; root7 must reproduce previous decision7",
+  "root_cache": "reuse verified frozen initial distributions; no new GRAM feature inference"
+}

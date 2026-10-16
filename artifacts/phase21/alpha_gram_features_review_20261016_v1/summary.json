@@ -1,0 +1,953 @@
+{
+  "state": "VERIFIED_SAVED_OUTPUTS",
+  "hashes_checked": 353,
+  "domains": {
+    "Toys": {
+      "users": 512,
+      "seed": 0,
+      "metrics": {
+        "native": {
+          "H5": 0.08203125,
+          "N5": 0.05723317813814494,
+          "H10": 0.09765625,
+          "N10": 0.06238437804309118,
+          "H20": 0.134765625,
+          "N20": 0.07149155402157509,
+          "H50": 0.1796875,
+          "N50": 0.08031260904434033
+        },
+        "historical_guided": {
+          "H5": 0.09375,
+          "N5": 0.06389445122705192,
+          "H10": 0.119140625,
+          "N10": 0.07210469499325882,
+          "H20": 0.15234375,
+          "N20": 0.08041517841120102,
+          "H50": 0.208984375,
+          "N50": 0.09165664526732997
+        },
+        "historical_late": {
+          "H5": 0.08984375,
+          "N5": 0.062247910101279086,
+          "H10": 0.119140625,
+          "N10": 0.07192916301697493,
+          "H20": 0.146484375,
+          "N20": 0.07877033528550642,
+          "H50": 0.1796875,
+          "N50": 0.08552109461926088
+        },
+        "old10_reference_guided": {
+          "H5": 0.09375,
+          "N5": 0.06447989420459477,
+          "H10": 0.119140625,
+          "N10": 0.0726485324396035,
+          "H20": 0.15625,
+          "N20": 0.08180104796355592,
+          "H50": 0.19921875,
+          "N50": 0.09035019410268635
+        },
+        "base9_guided": {
+          "H5": 0.09375,
+          "N5": 0.06389445122705192,
+          "H10": 0.119140625,
+          "N10": 0.07210469499325882,
+          "H20": 0.15234375,
+          "N20": 0.08041517841120102,
+          "H50": 0.208984375,
+          "N50": 0.09165664526732997
+        },
+        "base9_late": {
+          "H5": 0.08984375,
+          "N5": 0.062247910101279086,
+          "H10": 0.119140625,
+          "N10": 0.07192916301697493,
+          "H20": 0.146484375,
+          "N20": 0.07877033528550642,
+          "H50": 0.1796875,
+          "N50": 0.08552109461926088
+        },
+        "alpha12_guided": {
+          "H5": 0.09375,
+          "N5": 0.06305328607456481,
+          "H10": 0.12109375,
+          "N10": 0.07197077686090753,
+          "H20": 0.158203125,
+          "N20": 0.08113769694484092,
+          "H50": 0.205078125,
+          "N50": 0.09028299654449684
+        },
+        "alpha12_late": {
+          "H5": 0.091796875,
+          "N5": 0.06216231683792196,
+          "H10": 0.119140625,
+          "N10": 0.07112448311991834,
+          "H20": 0.146484375,
+          "N20": 0.07800374306732429,
+          "H50": 0.1796875,
+          "N50": 0.08474803302977241
+        }
+      },
+      "comparisons": {
+        "alpha12_guided_vs_base9_guided": {
+          "delta_N10": -0.00013391813235128847,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.0022842525087726035,
+            0.001904283069978342
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.005859375
+          ],
+          "top10_gained": 1,
+          "top10_lost": 0
+        },
+        "alpha12_guided_vs_native": {
+          "delta_N10": 0.009586398817816349,
+          "delta_H10": 0.0234375,
+          "descriptive_95pct_N10": [
+            0.00207289678612376,
+            0.018661697594876483
+          ],
+          "descriptive_95pct_H10": [
+            0.0078125,
+            0.041015625
+          ],
+          "top10_gained": 15,
+          "top10_lost": 3
+        },
+        "base9_guided_vs_native": {
+          "delta_N10": 0.009720316950167637,
+          "delta_H10": 0.021484375,
+          "descriptive_95pct_N10": [
+            0.0018957593128286919,
+            0.01860532312589681
+          ],
+          "descriptive_95pct_H10": [
+            0.005859375,
+            0.0390625
+          ],
+          "top10_gained": 15,
+          "top10_lost": 4
+        },
+        "alpha12_guided_vs_alpha12_late": {
+          "delta_N10": 0.0008462937409891791,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.002007408896992515,
+            0.004477344923447917
+          ],
+          "descriptive_95pct_H10": [
+            -0.00390625,
+            0.009765625
+          ],
+          "top10_gained": 2,
+          "top10_lost": 1
+        },
+        "base9_guided_vs_base9_late": {
+          "delta_N10": 0.00017553197628389155,
+          "delta_H10": 0.0,
+          "descriptive_95pct_N10": [
+            -0.0029670681928563583,
+            0.003987111745705066
+          ],
+          "descriptive_95pct_H10": [
+            -0.0078125,
+            0.0078125
+          ],
+          "top10_gained": 2,
+          "top10_lost": 2
+        },
+        "base9_guided_vs_historical_guided": {
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "descriptive_95pct_N10": [
+            0.0,
+            0.0
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.0
+          ],
+          "top10_gained": 0,
+          "top10_lost": 0
+        },
+        "alpha12_guided_vs_old10_reference_guided": {
+          "delta_N10": -0.0006777555786959641,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.003196448466459254,
+            0.001636119283523165
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.005859375
+          ],
+          "top10_gained": 1,
+          "top10_lost": 0
+        }
+      },
+      "training": {
+        "fits": {
+          "base9": {
+            "dimension": 9,
+            "parameters": 419,
+            "parent_epochs": 12,
+            "selected_epochs": 4,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 1.4533943535931688
+              },
+              {
+                "epoch": 4,
+                "loss": 1.4430095160780507
+              },
+              {
+                "epoch": 8,
+                "loss": 1.4438790461309128
+              },
+              {
+                "epoch": 12,
+                "loss": 1.4446778537470326
+              },
+              {
+                "epoch": 20,
+                "loss": 1.4462338580206393
+              }
+            ],
+            "parent_selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 9.005497190325741
+              },
+              {
+                "epoch": 4,
+                "loss": 8.899319609684342
+              },
+              {
+                "epoch": 8,
+                "loss": 8.899286139947156
+              },
+              {
+                "epoch": 12,
+                "loss": 8.896148479839233
+              },
+              {
+                "epoch": 20,
+                "loss": 8.90274188136078
+              }
+            ],
+            "selection_fit_users": 2187,
+            "heldout_users": 586,
+            "refit_users": 2773,
+            "alpha_mean": 0.4881433878908865,
+            "alpha_quantiles": [
+              0.37622305750846863,
+              0.42554228007793427,
+              0.48142604529857635,
+              0.5524973630905151,
+              0.7068970799446106
+            ],
+            "behavior_weight_mean": 0.5057933330535889,
+            "numpy_verified_users": 512,
+            "historical_parity": {
+              "max_score_error": 0.0,
+              "max_alpha_error": 0.0
+            },
+            "extra_logit_coefficients": null,
+            "zero_extra_beta_invariant": null,
+            "mean_abs_alpha_effect_of_extra": null
+          },
+          "alpha12": {
+            "dimension": 12,
+            "parameters": 422,
+            "parent_epochs": 12,
+            "selected_epochs": 4,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 1.4533943535931688
+              },
+              {
+                "epoch": 4,
+                "loss": 1.4423384760020128
+              },
+              {
+                "epoch": 8,
+                "loss": 1.44309677239571
+              },
+              {
+                "epoch": 12,
+                "loss": 1.443748130326385
+              },
+              {
+                "epoch": 20,
+                "loss": 1.4449340703137499
+              }
+            ],
+            "parent_selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 9.005497190325741
+              },
+              {
+                "epoch": 4,
+                "loss": 8.899319609684342
+              },
+              {
+                "epoch": 8,
+                "loss": 8.899286139947156
+              },
+              {
+                "epoch": 12,
+                "loss": 8.896148479839233
+              },
+              {
+                "epoch": 20,
+                "loss": 8.90274188136078
+              }
+            ],
+            "selection_fit_users": 2187,
+            "heldout_users": 586,
+            "refit_users": 2773,
+            "alpha_mean": 0.4901872701011598,
+            "alpha_quantiles": [
+              0.3433505594730377,
+              0.4049644827842712,
+              0.47822876274585724,
+              0.5930955111980438,
+              0.7356454133987427
+            ],
+            "behavior_weight_mean": 0.5019479990005493,
+            "numpy_verified_users": 512,
+            "historical_parity": null,
+            "extra_logit_coefficients": [
+              -0.13763082027435303,
+              0.10683970153331757,
+              -0.022864218801259995
+            ],
+            "zero_extra_beta_invariant": true,
+            "mean_abs_alpha_effect_of_extra": 0.0424068309366703
+          }
+        },
+        "test_read": false,
+        "dev_used_for_selection": false,
+        "fit_dev_disjoint": true,
+        "internal_parent_weights_exclude_heldout_labels": true
+      },
+      "test_read": false,
+      "derived_relative_N10_pct": {
+        "native": 15.366665691841419,
+        "base9_guided": -0.18572734045101402,
+        "old10_reference_guided": -0.9329239778648302,
+        "alpha12_late": 1.1898768242186053
+      },
+      "head_checks": {
+        "base9": {
+          "parameters": 419,
+          "all512_heads_verified": true,
+          "extra_effect": null,
+          "alpha": {
+            "mean": 0.4881433878908865,
+            "std": 0.0528766469898141,
+            "quantiles": [
+              0.37622305750846863,
+              0.42554228007793427,
+              0.48142604529857635,
+              0.5524973630905151,
+              0.7068970799446106
+            ]
+          },
+          "behavior_weight": {
+            "mean": 0.5057933330535889,
+            "std": 0.12392418086528778,
+            "quantiles": [
+              0.13831984996795654,
+              0.3434605449438095,
+              0.5114755928516388,
+              0.6567986249923706,
+              0.8805158138275146
+            ]
+          }
+        },
+        "alpha12": {
+          "parameters": 422,
+          "all512_heads_verified": true,
+          "extra_effect": {
+            "standardized_coefficients": [
+              -0.13763082027435303,
+              0.10683970153331757,
+              -0.022864218801259995
+            ],
+            "alpha_mean_absolute_effect_at_fixed_head": 0.0424068309366703,
+            "added_logit": {
+              "mean": 0.016090938821434975,
+              "std": 0.21732857823371887,
+              "quantiles": [
+                -0.28848758339881897,
+                -0.20190854072570802,
+                -0.05468546599149704,
+                0.3637368351221086,
+                0.7269982099533081
+              ]
+            },
+            "alpha_without_extra": {
+              "mean": 0.48622459173202515,
+              "std": 0.04953767731785774,
+              "quantiles": [
+                0.37940362095832825,
+                0.4272786438465118,
+                0.48113347589969635,
+                0.548552793264389,
+                0.6953164935112
+              ]
+            }
+          },
+          "alpha": {
+            "mean": 0.4901872701011598,
+            "std": 0.07156842101304979,
+            "quantiles": [
+              0.3433505594730377,
+              0.4049644827842712,
+              0.47822876274585724,
+              0.5930955111980438,
+              0.7356454133987427
+            ]
+          },
+          "behavior_weight": {
+            "mean": 0.5019479990005493,
+            "std": 0.12281127274036407,
+            "quantiles": [
+              0.13510683178901672,
+              0.34093879759311674,
+              0.5083808600902557,
+              0.652398282289505,
+              0.8795204758644104
+            ]
+          }
+        }
+      },
+      "feature_checks": {
+        "train": {
+          "users": 2773,
+          "first_nine_exact": true,
+          "extra_formulas_recomputed": true,
+          "max_extra_error": 2.9781884625101895e-08
+        },
+        "validation": {
+          "users": 512,
+          "first_nine_exact": true,
+          "extra_formulas_recomputed": true,
+          "max_extra_error": 2.979789670565225e-08
+        }
+      },
+      "top10_change_decomposition": {
+        "gained": {
+          "users": 1,
+          "delta_N10_contribution": 0.0005645797389021248
+        },
+        "lost": {
+          "users": 0,
+          "delta_N10_contribution": 0.0
+        },
+        "retained": {
+          "users": 61,
+          "delta_N10_contribution": -0.0006984978712534131
+        },
+        "neither": {
+          "users": 450,
+          "delta_N10_contribution": 0.0
+        }
+      },
+      "retained_target_rank_changes": {
+        "improved": 8,
+        "worsened": 7,
+        "unchanged": 46
+      }
+    },
+    "Beauty": {
+      "users": 512,
+      "seed": 0,
+      "metrics": {
+        "native": {
+          "H5": 0.08984375,
+          "N5": 0.0631051530459407,
+          "H10": 0.1171875,
+          "N10": 0.07168110391634691,
+          "H20": 0.15625,
+          "N20": 0.08141903151681118,
+          "H50": 0.224609375,
+          "N50": 0.09530384064143099
+        },
+        "historical_guided": {
+          "H5": 0.095703125,
+          "N5": 0.0698056931984278,
+          "H10": 0.12890625,
+          "N10": 0.08079591655037328,
+          "H20": 0.177734375,
+          "N20": 0.09284421203831945,
+          "H50": 0.244140625,
+          "N50": 0.10643500368128087
+        },
+        "historical_late": {
+          "H5": 0.09765625,
+          "N5": 0.06936371197668773,
+          "H10": 0.123046875,
+          "N10": 0.07786424281600932,
+          "H20": 0.173828125,
+          "N20": 0.09048395292915196,
+          "H50": 0.224609375,
+          "N50": 0.10086171331796165
+        },
+        "old10_reference_guided": {
+          "H5": 0.09765625,
+          "N5": 0.0707822556984278,
+          "H10": 0.12890625,
+          "N10": 0.08110013135943203,
+          "H20": 0.1796875,
+          "N20": 0.09361863461554522,
+          "H50": 0.244140625,
+          "N50": 0.10679235391896288
+        },
+        "base9_guided": {
+          "H5": 0.095703125,
+          "N5": 0.0698056931984278,
+          "H10": 0.12890625,
+          "N10": 0.08079591655037328,
+          "H20": 0.177734375,
+          "N20": 0.09284421203831945,
+          "H50": 0.244140625,
+          "N50": 0.10643500368128087
+        },
+        "base9_late": {
+          "H5": 0.09765625,
+          "N5": 0.06936371197668773,
+          "H10": 0.123046875,
+          "N10": 0.07786424281600932,
+          "H20": 0.173828125,
+          "N20": 0.09048395292915196,
+          "H50": 0.224609375,
+          "N50": 0.10086171331796165
+        },
+        "alpha12_guided": {
+          "H5": 0.09765625,
+          "N5": 0.06949910932420064,
+          "H10": 0.125,
+          "N10": 0.07859447647671974,
+          "H20": 0.1796875,
+          "N20": 0.09226608314893439,
+          "H50": 0.240234375,
+          "N50": 0.10464746563145155
+        },
+        "alpha12_late": {
+          "H5": 0.09765625,
+          "N5": 0.06908485287337206,
+          "H10": 0.123046875,
+          "N10": 0.07737467146442717,
+          "H20": 0.173828125,
+          "N20": 0.08998901679941748,
+          "H50": 0.224609375,
+          "N50": 0.10036488998553014
+        }
+      },
+      "comparisons": {
+        "alpha12_guided_vs_base9_guided": {
+          "delta_N10": -0.002201440073653539,
+          "delta_H10": -0.00390625,
+          "descriptive_95pct_N10": [
+            -0.004996288801373767,
+            -8.337065787873503e-05
+          ],
+          "descriptive_95pct_H10": [
+            -0.009765625,
+            0.0
+          ],
+          "top10_gained": 0,
+          "top10_lost": 2
+        },
+        "alpha12_guided_vs_native": {
+          "delta_N10": 0.006913372560372843,
+          "delta_H10": 0.0078125,
+          "descriptive_95pct_N10": [
+            -0.0011853937291102414,
+            0.015271404146986833
+          ],
+          "descriptive_95pct_H10": [
+            -0.0078125,
+            0.0234375
+          ],
+          "top10_gained": 11,
+          "top10_lost": 7
+        },
+        "base9_guided_vs_native": {
+          "delta_N10": 0.009114812634026382,
+          "delta_H10": 0.01171875,
+          "descriptive_95pct_N10": [
+            0.0010805749093351317,
+            0.016925437115745498
+          ],
+          "descriptive_95pct_H10": [
+            -0.00390625,
+            0.02734375
+          ],
+          "top10_gained": 12,
+          "top10_lost": 6
+        },
+        "alpha12_guided_vs_alpha12_late": {
+          "delta_N10": 0.0012198050122925654,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.0028335010335881054,
+            0.006433272019223414
+          ],
+          "descriptive_95pct_H10": [
+            -0.005859375,
+            0.009765625
+          ],
+          "top10_gained": 3,
+          "top10_lost": 2
+        },
+        "base9_guided_vs_base9_late": {
+          "delta_N10": 0.002931673734363969,
+          "delta_H10": 0.005859375,
+          "descriptive_95pct_N10": [
+            -0.0010889183608201317,
+            0.00822847876670891
+          ],
+          "descriptive_95pct_H10": [
+            -0.001953125,
+            0.013671875
+          ],
+          "top10_gained": 4,
+          "top10_lost": 1
+        },
+        "base9_guided_vs_historical_guided": {
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "descriptive_95pct_N10": [
+            0.0,
+            0.0
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.0
+          ],
+          "top10_gained": 0,
+          "top10_lost": 0
+        },
+        "alpha12_guided_vs_old10_reference_guided": {
+          "delta_N10": -0.0025056548827122717,
+          "delta_H10": -0.00390625,
+          "descriptive_95pct_N10": [
+            -0.005410561837170409,
+            -0.00033540451056407163
+          ],
+          "descriptive_95pct_H10": [
+            -0.009765625,
+            0.0
+          ],
+          "top10_gained": 0,
+          "top10_lost": 2
+        }
+      },
+      "training": {
+        "fits": {
+          "base9": {
+            "dimension": 9,
+            "parameters": 419,
+            "parent_epochs": 12,
+            "selected_epochs": 4,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 1.1055847006588946
+              },
+              {
+                "epoch": 4,
+                "loss": 1.0997233569713318
+              },
+              {
+                "epoch": 8,
+                "loss": 1.1003059307612468
+              },
+              {
+                "epoch": 12,
+                "loss": 1.1001207379433133
+              },
+              {
+                "epoch": 20,
+                "loss": 1.1004806831821365
+              }
+            ],
+            "parent_selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 8.844613339597927
+              },
+              {
+                "epoch": 4,
+                "loss": 8.661778464616715
+              },
+              {
+                "epoch": 8,
+                "loss": 8.659019189808307
+              },
+              {
+                "epoch": 12,
+                "loss": 8.653513452725608
+              },
+              {
+                "epoch": 20,
+                "loss": 8.654945255238648
+              }
+            ],
+            "selection_fit_users": 2657,
+            "heldout_users": 653,
+            "refit_users": 3310,
+            "alpha_mean": 0.4581313328817487,
+            "alpha_quantiles": [
+              0.352565735578537,
+              0.39854577779769895,
+              0.45305638015270233,
+              0.52461559176445,
+              0.6387192606925964
+            ],
+            "behavior_weight_mean": 0.5294268131256104,
+            "numpy_verified_users": 512,
+            "historical_parity": {
+              "max_score_error": 0.0,
+              "max_alpha_error": 0.0
+            },
+            "extra_logit_coefficients": null,
+            "zero_extra_beta_invariant": null,
+            "mean_abs_alpha_effect_of_extra": null
+          },
+          "alpha12": {
+            "dimension": 12,
+            "parameters": 422,
+            "parent_epochs": 12,
+            "selected_epochs": 4,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 1.1055847006588946
+              },
+              {
+                "epoch": 4,
+                "loss": 1.0990695378316673
+              },
+              {
+                "epoch": 8,
+                "loss": 1.0997183967330373
+              },
+              {
+                "epoch": 12,
+                "loss": 1.0995620045508578
+              },
+              {
+                "epoch": 20,
+                "loss": 1.0998870672894838
+              }
+            ],
+            "parent_selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 8.844613339597927
+              },
+              {
+                "epoch": 4,
+                "loss": 8.661778464616715
+              },
+              {
+                "epoch": 8,
+                "loss": 8.659019189808307
+              },
+              {
+                "epoch": 12,
+                "loss": 8.653513452725608
+              },
+              {
+                "epoch": 20,
+                "loss": 8.654945255238648
+              }
+            ],
+            "selection_fit_users": 2657,
+            "heldout_users": 653,
+            "refit_users": 3310,
+            "alpha_mean": 0.45916466612834483,
+            "alpha_quantiles": [
+              0.3040751814842224,
+              0.37428322434425354,
+              0.45455512404441833,
+              0.5485065281391145,
+              0.7202973365783691
+            ],
+            "behavior_weight_mean": 0.5301424264907837,
+            "numpy_verified_users": 512,
+            "historical_parity": null,
+            "extra_logit_coefficients": [
+              -0.10175304859876633,
+              0.15793757140636444,
+              -0.06548856198787689
+            ],
+            "zero_extra_beta_invariant": true,
+            "mean_abs_alpha_effect_of_extra": 0.03631776198744774
+          }
+        },
+        "test_read": false,
+        "dev_used_for_selection": false,
+        "fit_dev_disjoint": true,
+        "internal_parent_weights_exclude_heldout_labels": true
+      },
+      "test_read": false,
+      "derived_relative_N10_pct": {
+        "native": 9.644623453959156,
+        "base9_guided": -2.7246922463971646,
+        "old10_reference_guided": -3.089581780832562,
+        "alpha12_late": 1.576491362361887
+      },
+      "head_checks": {
+        "base9": {
+          "parameters": 419,
+          "all512_heads_verified": true,
+          "extra_effect": null,
+          "alpha": {
+            "mean": 0.4581313328817487,
+            "std": 0.051040380517629436,
+            "quantiles": [
+              0.352565735578537,
+              0.39854577779769895,
+              0.45305638015270233,
+              0.52461559176445,
+              0.6387192606925964
+            ]
+          },
+          "behavior_weight": {
+            "mean": 0.5294268131256104,
+            "std": 0.19088014960289001,
+            "quantiles": [
+              0.13976386189460754,
+              0.30919933319091797,
+              0.49163973331451416,
+              0.829774123430252,
+              0.9864727258682251
+            ]
+          }
+        },
+        "alpha12": {
+          "parameters": 422,
+          "all512_heads_verified": true,
+          "extra_effect": {
+            "standardized_coefficients": [
+              -0.10175304859876633,
+              0.15793757140636444,
+              -0.06548856198787689
+            ],
+            "alpha_mean_absolute_effect_at_fixed_head": 0.03631776198744774,
+            "added_logit": {
+              "mean": 0.02701796591281891,
+              "std": 0.2025344967842102,
+              "quantiles": [
+                -0.3678436875343323,
+                -0.1786099538207054,
+                -0.017862726002931595,
+                0.2862129956483841,
+                0.9623906016349792
+              ]
+            },
+            "alpha_without_extra": {
+              "mean": 0.4522804617881775,
+              "std": 0.048716139048337936,
+              "quantiles": [
+                0.3481994867324829,
+                0.39413403570652006,
+                0.4471311867237091,
+                0.5156105339527131,
+                0.6293589472770691
+              ]
+            }
+          },
+          "alpha": {
+            "mean": 0.45916466612834483,
+            "std": 0.06883053116848872,
+            "quantiles": [
+              0.3040751814842224,
+              0.37428322434425354,
+              0.45455512404441833,
+              0.5485065281391145,
+              0.7202973365783691
+            ]
+          },
+          "behavior_weight": {
+            "mean": 0.5301424264907837,
+            "std": 0.19019779562950134,
+            "quantiles": [
+              0.14036092162132263,
+              0.3108936160802841,
+              0.49091796576976776,
+              0.8273319959640504,
+              0.9869632124900818
+            ]
+          }
+        }
+      },
+      "feature_checks": {
+        "train": {
+          "users": 3310,
+          "first_nine_exact": true,
+          "extra_formulas_recomputed": true,
+          "max_extra_error": 2.979494184707221e-08
+        },
+        "validation": {
+          "users": 512,
+          "first_nine_exact": true,
+          "extra_formulas_recomputed": true,
+          "max_extra_error": 2.961830236625218e-08
+        }
+      },
+      "top10_change_decomposition": {
+        "gained": {
+          "users": 0,
+          "delta_N10_contribution": 0.0
+        },
+        "lost": {
+          "users": 2,
+          "delta_N10_contribution": -0.0011525289491833382
+        },
+        "retained": {
+          "users": 64,
+          "delta_N10_contribution": -0.0010489111244702007
+        },
+        "neither": {
+          "users": 446,
+          "delta_N10_contribution": 0.0
+        }
+      },
+      "retained_target_rank_changes": {
+        "improved": 4,
+        "worsened": 7,
+        "unchanged": 53
+      }
+    }
+  },
+  "elapsed_experiment_seconds": 997.8000988770509,
+  "test_read": false,
+  "new_training": false,
+  "new_generation": false,
+  "statistical_review": {
+    "coverage": "11/11",
+    "confidence": "CAUTION: exploratory",
+    "simpson": "Both datasets separately reported; no pooled benefit claim.",
+    "ecological": "Similar mean alpha does not mean no per-user changes.",
+    "berkson": "Repeated development512 pools; no population extrapolation.",
+    "collider": "Hit/rank decomposition is descriptive, not causal subgroup evidence.",
+    "base_rate": "All512 users retained in all metric denominators.",
+    "regression_to_mean": "Base9 weights and predictions exactly reproduced; single training seed.",
+    "survivorship": "Both arms completed for every planned evaluation user.",
+    "look_elsewhere": "14 uncorrected descriptive paired comparisons; Beauty negative interval disclosed.",
+    "forking_paths": "Follow-up chosen after earlier exploration, not confirmatory.",
+    "causation": "Three features and weights introduced together; joint shared-trunk training also changes beta.",
+    "reverse_causality": "Root statistics use start token only; target labels used in training/evaluation."
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "evaluation_users": 512,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "minimum_free_mib": 32768,
+  "total_lease_mib": 30720,
+  "expected_workload_peak_mib": 16384,
+  "allocation_limit_gib": 15,
+  "max_parallel": 2,
+  "gpu_pool": "all visible GPUs",
+  "experts": [
+    "SASRec",
+    "text encoder"
+  ],
+  "arms": [
+    "full",
+    "qwen06",
+    "qwen4"
+  ],
+  "user_features": [
+    "log_history_length",
+    "confidence_sas",
+    "confidence_text",
+    "margin_sas",
+    "margin_text",
+    "std_sas",
+    "std_text",
+    "history_in_top5_sas",
+    "history_in_top5_text",
+    "history_ratio"
+  ],
+  "item_features": [
+    "score_sas",
+    "score_text",
+    "reciprocal_rank_sas",
+    "reciprocal_rank_text",
+    "log_training_frequency",
+    "in_history"
+  ],
+  "hidden_width": 32,
+  "head_seed_selection": "fixed seed0",
+  "old_fusion_used_by_new_model": false,
+  "residual": false,
+  "candidate_shortlist": false,
+  "history_penalty": false,
+  "kl": 0.0,
+  "loss": "exact full-catalog CE(20*f, target)",
+  "fit_role": "ranker_fit",
+  "epoch_selection": "internal user hash 80/20 CE; refit all ranker_fit",
+  "test_read": false,
+  "upstream_optimizer_steps": 0,
+  "scientific_auto_retry": false,
+  "evaluation": "same reused historical512 per domain; exploratory",
+  "qwen_models": {
+    "qwen06": {
+      "repo": "Qwen/Qwen3-Embedding-0.6B",
+      "revision": "97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+      "dimension": 1024,
+      "batch_size": 16
+    },
+    "qwen4": {
+      "repo": "Qwen/Qwen3-Embedding-4B",
+      "revision": "5cf2132abc99cad020ac570b19d031efec650f2b",
+      "dimension": 2560,
+      "batch_size": 8
+    }
+  },
+  "qwen_max_length": 2048,
+  "qwen_truncation": false,
+  "text_policy": "Exact BGE-visible document prefix; original BGE input IDs checked for every item",
+  "qwen_instruction": null,
+  "history_policy": "Unchanged exp(-0.1*position_distance) mean and cosine",
+  "question": "Text encoder substitution and Qwen capacity under the current user fuser",
+  "primary_comparisons": [
+    "qwen06_guided vs full_guided",
+    "qwen4_guided vs full_guided",
+    "qwen4_guided vs qwen06_guided"
+  ],
+  "full_baseline": "Existing stage21.24 user head; all512 score and generation replay",
+  "alpha_learned": false,
+  "model_size_equal": false,
+  "all_arms_generate": true,
+  "bge_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+  "stop_after": "Two domains, 512 users each, seed0; no automatic 8B or additional methods"
+}

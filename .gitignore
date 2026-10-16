@@ -1,6 +1,19 @@
 .cache/
 .runtime/
 
+# Machine-local agent settings, credentials and temporary files.
+/.agents/
+/.aws/
+/.claude/
+/.codex/
+.DS_Store
+.ipynb_checkpoints/
+*.swp
+*.swo
+*~
+*.tmp
+*.incomplete
+
 check.sh
 
 # GRAM is vendored in recomm. Keep any upstream Git metadata backup local only.
@@ -15,6 +28,7 @@ GRAM/preds/
 *.pt
 *.pth
 *.ckpt
+*.safetensors
 
 # Python/editor caches.
 **/__pycache__/

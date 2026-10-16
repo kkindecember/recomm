@@ -1,0 +1,183 @@
+{
+  "domains": {
+    "Toys": {
+      "corpus_repeat_counts": {
+        "train_users": 19412,
+        "train_transition_rows": 109361,
+        "train_interactions": 128773,
+        "train_users_with_repeated_items": 0,
+        "train_repeated_events_full_history": 0,
+        "train_targets_in_recent20": 0,
+        "validation_users": 19412,
+        "validation_targets_in_full_history": 0,
+        "validation_targets_in_recent20": 0
+      },
+      "saved512_ranking_explanation": {
+        "native": {
+          "unfiltered_N10": 0.05693683852372895,
+          "filtered_N10": 0.06238437804309118,
+          "relative_drop_without_filter_pct": -8.732217408017462,
+          "target_present_in_beam": 92,
+          "target_rank_improved_by_filter": 58,
+          "new_top10_hits_from_filter": 2,
+          "existing_top10_reranking_N10_gain": 0.004231918113793434,
+          "new_top10_N10_gain": 0.0012156214055687913,
+          "historical_items_in_top10_total": 596,
+          "mean_historical_items_in_top10": 1.1640625,
+          "historical_items_in_beam_total": 1181,
+          "rank_example": {
+            "unfiltered_rank": 9,
+            "filtered_rank": 8,
+            "historical_items_above_target": 1
+          }
+        },
+        "base7_guided": {
+          "unfiltered_N10": 0.05649058424210185,
+          "filtered_N10": 0.0713706741062643,
+          "relative_drop_without_filter_pct": -20.84902524811154,
+          "target_present_in_beam": 104,
+          "target_rank_improved_by_filter": 90,
+          "new_top10_hits_from_filter": 6,
+          "existing_top10_reranking_N10_gain": 0.011312671617468805,
+          "new_top10_N10_gain": 0.0035674182466936444,
+          "historical_items_in_top10_total": 1307,
+          "mean_historical_items_in_top10": 2.552734375,
+          "historical_items_in_beam_total": 1929,
+          "rank_example": {
+            "unfiltered_rank": 5,
+            "filtered_rank": 3,
+            "historical_items_above_target": 2
+          }
+        },
+        "mass7_guided": {
+          "unfiltered_N10": 0.05863853543765083,
+          "filtered_N10": 0.07293506178476793,
+          "relative_drop_without_filter_pct": -19.60171966304256,
+          "target_present_in_beam": 107,
+          "target_rank_improved_by_filter": 93,
+          "new_top10_hits_from_filter": 5,
+          "existing_top10_reranking_N10_gain": 0.01128886418351376,
+          "new_top10_N10_gain": 0.0030076621636033448,
+          "historical_items_in_top10_total": 1304,
+          "mean_historical_items_in_top10": 2.546875,
+          "historical_items_in_beam_total": 1906,
+          "rank_example": {
+            "unfiltered_rank": 5,
+            "filtered_rank": 3,
+            "historical_items_above_target": 2
+          }
+        },
+        "mass_no_gap5_guided": {
+          "unfiltered_N10": 0.05788801794718463,
+          "filtered_N10": 0.07146143027951529,
+          "relative_drop_without_filter_pct": -18.994039552860077,
+          "target_present_in_beam": 105,
+          "target_rank_improved_by_filter": 91,
+          "new_top10_hits_from_filter": 4,
+          "existing_top10_reranking_N10_gain": 0.011181892506199437,
+          "new_top10_N10_gain": 0.002391519826131218,
+          "historical_items_in_top10_total": 1318,
+          "mean_historical_items_in_top10": 2.57421875,
+          "historical_items_in_beam_total": 1936,
+          "rank_example": {
+            "unfiltered_rank": 6,
+            "filtered_rank": 4,
+            "historical_items_above_target": 2
+          }
+        }
+      }
+    },
+    "Beauty": {
+      "corpus_repeat_counts": {
+        "train_users": 22363,
+        "train_transition_rows": 131413,
+        "train_interactions": 153776,
+        "train_users_with_repeated_items": 0,
+        "train_repeated_events_full_history": 0,
+        "train_targets_in_recent20": 0,
+        "validation_users": 22363,
+        "validation_targets_in_full_history": 0,
+        "validation_targets_in_recent20": 0
+      },
+      "saved512_ranking_explanation": {
+        "native": {
+          "unfiltered_N10": 0.0680256664719926,
+          "filtered_N10": 0.07168110391634691,
+          "relative_drop_without_filter_pct": -5.099583076483127,
+          "target_present_in_beam": 115,
+          "target_rank_improved_by_filter": 63,
+          "new_top10_hits_from_filter": 3,
+          "existing_top10_reranking_N10_gain": 0.0019383287562688613,
+          "new_top10_N10_gain": 0.001717108688085463,
+          "historical_items_in_top10_total": 546,
+          "mean_historical_items_in_top10": 1.06640625,
+          "historical_items_in_beam_total": 1225,
+          "rank_example": {
+            "unfiltered_rank": 3,
+            "filtered_rank": 2,
+            "historical_items_above_target": 1
+          }
+        },
+        "base7_guided": {
+          "unfiltered_N10": 0.06664998598603336,
+          "filtered_N10": 0.0803270536514836,
+          "relative_drop_without_filter_pct": -17.026726418712144,
+          "target_present_in_beam": 127,
+          "target_rank_improved_by_filter": 106,
+          "new_top10_hits_from_filter": 4,
+          "existing_top10_reranking_N10_gain": 0.01134381663989265,
+          "new_top10_N10_gain": 0.0023332510255575896,
+          "historical_items_in_top10_total": 1209,
+          "mean_historical_items_in_top10": 2.361328125,
+          "historical_items_in_beam_total": 1946,
+          "rank_example": {
+            "unfiltered_rank": 2,
+            "filtered_rank": 1,
+            "historical_items_above_target": 1
+          }
+        },
+        "mass7_guided": {
+          "unfiltered_N10": 0.0688037578123182,
+          "filtered_N10": 0.07990564821301752,
+          "relative_drop_without_filter_pct": -13.8937492517465,
+          "target_present_in_beam": 127,
+          "target_rank_improved_by_filter": 104,
+          "new_top10_hits_from_filter": 2,
+          "existing_top10_reranking_N10_gain": 0.009897798852945967,
+          "new_top10_N10_gain": 0.0012040915477533397,
+          "historical_items_in_top10_total": 1211,
+          "mean_historical_items_in_top10": 2.365234375,
+          "historical_items_in_beam_total": 1954,
+          "rank_example": {
+            "unfiltered_rank": 2,
+            "filtered_rank": 1,
+            "historical_items_above_target": 1
+          }
+        },
+        "mass_no_gap5_guided": {
+          "unfiltered_N10": 0.06781428977089299,
+          "filtered_N10": 0.08113906343709038,
+          "relative_drop_without_filter_pct": -16.422143788396692,
+          "target_present_in_beam": 127,
+          "target_rank_improved_by_filter": 106,
+          "new_top10_hits_from_filter": 4,
+          "existing_top10_reranking_N10_gain": 0.010991522640639791,
+          "new_top10_N10_gain": 0.0023332510255575896,
+          "historical_items_in_top10_total": 1208,
+          "mean_historical_items_in_top10": 2.359375,
+          "historical_items_in_beam_total": 1951,
+          "rank_example": {
+            "unfiltered_rank": 2,
+            "filtered_rank": 1,
+            "historical_items_above_target": 1
+          }
+        }
+      }
+    }
+  },
+  "test_read": false,
+  "new_training": false,
+  "new_generation": false,
+  "scope": "All processed train/validation records; not raw purchase transactions or held-out test.",
+  "inference_limit": "Zero observed repeated targets does not establish why repeats are absent or rule out real repurchases."
+}
