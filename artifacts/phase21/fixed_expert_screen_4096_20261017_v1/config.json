@@ -1,0 +1,89 @@
+{
+  "alpha": 0.3,
+  "beta_pair": [
+    0.5,
+    0.5
+  ],
+  "beta_single": [
+    1.0
+  ],
+  "arms": {
+    "SASRec__only": [
+      "SASRec"
+    ],
+    "TiSASRec__only": [
+      "TiSASRec"
+    ],
+    "ItemCF__only": [
+      "ItemCF"
+    ],
+    "BGE__only": [
+      "BGE"
+    ],
+    "Qwen4__only": [
+      "Qwen4"
+    ],
+    "SASRec__BGE": [
+      "SASRec",
+      "BGE"
+    ],
+    "SASRec__Qwen4": [
+      "SASRec",
+      "Qwen4"
+    ],
+    "TiSASRec__BGE": [
+      "TiSASRec",
+      "BGE"
+    ],
+    "TiSASRec__Qwen4": [
+      "TiSASRec",
+      "Qwen4"
+    ],
+    "ItemCF__BGE": [
+      "ItemCF",
+      "BGE"
+    ],
+    "ItemCF__Qwen4": [
+      "ItemCF",
+      "Qwen4"
+    ]
+  },
+  "experts": [
+    "SASRec",
+    "TiSASRec",
+    "ItemCF",
+    "BGE",
+    "Qwen4"
+  ],
+  "users_per_domain": 4096,
+  "evaluation_blocks": 5,
+  "block_seed": "fixed-expert-screen-20261017",
+  "block_policy": "user hash order, round robin 5",
+  "shards_per_domain": 2,
+  "max_parallel": 4,
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "fusion_network": false,
+  "fusion_training_steps": 0,
+  "expert_training_steps": 0,
+  "gram_optimizer_steps": 0,
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 43200,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "test_read": false,
+  "evaluation_only": true,
+  "cached_expert_offset": 512,
+  "cached_expert_source": "artifacts/phase21/old10_expert_selection_20261016_v1",
+  "evaluation": "existing wide4096 validation cohort; includes previous 1024; not independent test",
+  "baseline": "same-user native predictions with fresh zero/native checks in every shard",
+  "standalone_ranking": "full catalog fixed expert score rankings, separate from GRAM-guided generation",
+  "stop_after": "all 11 arms for all 4096 users in both domains; no pruning or next experiment"
+}

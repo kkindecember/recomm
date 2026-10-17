@@ -1,0 +1,25 @@
+{
+  "calibration": {
+    "state": "PASSED",
+    "zero_exact": true,
+    "tie_order_by_item_id": true,
+    "absent_targets_retained": true,
+    "calibration_ties_prefer_zero": true,
+    "independent_ranks": true
+  },
+  "adapter": {
+    "state": "PASSED",
+    "zero_adapter_exact": true,
+    "residual_CE_independent": true,
+    "first_step_gradient": true,
+    "numpy_direct_projection_matches": true,
+    "bounded_correction": true,
+    "batch_invariance": true,
+    "deterministic_target_free_top50": true,
+    "supervised_training_pool_deduplicated": true,
+    "targets_absent_from_forward": true
+  },
+  "three_seeds_three_objectives_fixture": "PASSED",
+  "same_seed_optimizer_order_matched": true,
+  "all_cached_policies_and_controls_fixture": "PASSED"
+}

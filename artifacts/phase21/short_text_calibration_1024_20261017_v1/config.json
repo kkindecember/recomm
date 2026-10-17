@@ -1,0 +1,91 @@
+{
+  "users_per_domain": 1024,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 1,
+  "rank": 32,
+  "bound": 2.0,
+  "batch_size": 128,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "regularization": 0.01,
+  "strengths": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "train_arms": {
+    "residual_s0": {
+      "seed": 0,
+      "objective": "residual_hard"
+    },
+    "text_s0": {
+      "seed": 0,
+      "objective": "text_hard"
+    },
+    "random_s0": {
+      "seed": 0,
+      "objective": "residual_random"
+    },
+    "residual_s1": {
+      "seed": 1,
+      "objective": "residual_hard"
+    },
+    "text_s1": {
+      "seed": 1,
+      "objective": "text_hard"
+    },
+    "random_s1": {
+      "seed": 1,
+      "objective": "residual_random"
+    },
+    "residual_s2": {
+      "seed": 2,
+      "objective": "residual_hard"
+    },
+    "text_s2": {
+      "seed": 2,
+      "objective": "text_hard"
+    },
+    "random_s2": {
+      "seed": 2,
+      "objective": "residual_random"
+    }
+  },
+  "source_indices": [
+    1024,
+    2048
+  ],
+  "alpha": 0.3,
+  "score_scale": 20.0,
+  "beta_single": 1.0,
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "test_read": false,
+  "cpu_threads": 2,
+  "max_parallel": 1,
+  "global_project_gpu_cap": 4,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 3600,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "calibration_policies": [
+    "catalog_cal",
+    "native_cal",
+    "guided_cal",
+    "fixed1"
+  ],
+  "primary": "guided_cal residual rank32 epoch1; report all seeds without selecting one",
+  "automatic_next_experiment": false,
+  "bootstrap_repeats": 2000
+}

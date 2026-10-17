@@ -1,0 +1,90 @@
+{
+  "state": "EXPLORATORY_FEASIBILITY_SCREEN_COMPLETE",
+  "updated_at": "2026-10-17T16:28:59+08:00",
+  "findings": {
+    "Toys": {
+      "users": 1024,
+      "base_N10": 0.08017704362620862,
+      "bge_N10": 0.08016582963656997,
+      "attribute_N10": 0.08050616648785039,
+      "relative_attribute_vs_behavior_pct": 0.4104951327167594,
+      "attribute_strength": 1.0,
+      "attribute_vs_behavior": {
+        "delta_N10": 0.0003291228616417797,
+        "delta_H10": 0.0009765625,
+        "descriptive_95pct_N10": [
+          -0.00016249883438013003,
+          0.0010601805374803853
+        ],
+        "descriptive_95pct_H10": [
+          0.0,
+          0.0029296875
+        ],
+        "top10_gained": 1,
+        "top10_lost": 0
+      },
+      "attribute_vs_bge": {
+        "delta_N10": 0.0003403368512804242,
+        "delta_H10": -0.0009765625,
+        "descriptive_95pct_N10": [
+          -0.0010954936533931429,
+          0.0017526416407463218
+        ],
+        "descriptive_95pct_H10": [
+          -0.00390625,
+          0.001953125
+        ],
+        "top10_gained": 1,
+        "top10_lost": 2
+      },
+      "selected_zero_is_no_intervention": false
+    },
+    "Beauty": {
+      "users": 1024,
+      "base_N10": 0.06950253870303547,
+      "bge_N10": 0.06950253870303547,
+      "attribute_N10": 0.06950253870303547,
+      "relative_attribute_vs_behavior_pct": 0.0,
+      "attribute_strength": 0.0,
+      "attribute_vs_behavior": {
+        "delta_N10": 0.0,
+        "delta_H10": 0.0,
+        "descriptive_95pct_N10": [
+          0.0,
+          0.0
+        ],
+        "descriptive_95pct_H10": [
+          0.0,
+          0.0
+        ],
+        "top10_gained": 0,
+        "top10_lost": 0
+      },
+      "attribute_vs_bge": {
+        "delta_N10": 0.0,
+        "delta_H10": 0.0,
+        "descriptive_95pct_N10": [
+          0.0,
+          0.0
+        ],
+        "descriptive_95pct_H10": [
+          0.0,
+          0.0
+        ],
+        "top10_gained": 0,
+        "top10_lost": 0
+      },
+      "selected_zero_is_no_intervention": true
+    }
+  },
+  "verdict": "This implementation has not demonstrated a stable two-domain conditional increment beyond SASRec guidance.",
+  "important_qualification": "Beauty calibrated strength is zero, so the identical output is a backoff policy, not an active nonzero-constraint trial or evidence of equivalence.",
+  "confidence_weight": "No demonstrated improvement beyond the no-confidence control.",
+  "semantic_necessity": "Toys real-versus-history-shuffled and real-versus-item-shuffled descriptive N10 intervals both include zero.",
+  "scope": "Coarse/fine categories and limited supported brands; fixed50 postreranking; original-GRAM-pool calibration transferred to SAS-guided pool; not generation-time constraints.",
+  "next_generation_phase_started": false,
+  "next_phase_gate": "Not met by this head and calibration protocol; retain negative evidence, do not declare all proposal-constraint methods invalid.",
+  "source_generated_report_sha256": "57ff800991d4fb3a1f7deb01da6570304a1e179b8fefed12987960943ed97a75",
+  "independent_verification": "independent_verification.json",
+  "test_read": false
+}

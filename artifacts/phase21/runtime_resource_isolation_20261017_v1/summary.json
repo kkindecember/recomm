@@ -1,0 +1,325 @@
+{
+  "cases": {
+    "gpu7": {
+      "checks": [
+        {
+          "row": 0,
+          "same_native_and_guided_predictions": true
+        },
+        {
+          "row": 1,
+          "same_native_and_guided_predictions": true
+        },
+        {
+          "row": 2,
+          "same_native_and_guided_predictions": true
+        }
+      ],
+      "timings": [
+        {
+          "row": 0,
+          "repetition": 0,
+          "encoder_seconds": 0.01259472593665123,
+          "expert_cpu_seconds": 0.18812809698283672,
+          "native_seconds": 0.23383840103633702,
+          "guided_seconds": 0.23902778991032392
+        },
+        {
+          "row": 0,
+          "repetition": 1,
+          "encoder_seconds": 0.013258539023809135,
+          "expert_cpu_seconds": 0.19965326495002955,
+          "native_seconds": 0.22869718889705837,
+          "guided_seconds": 0.24536470498424023
+        },
+        {
+          "row": 0,
+          "repetition": 2,
+          "encoder_seconds": 0.013116913032718003,
+          "expert_cpu_seconds": 0.1946138549828902,
+          "native_seconds": 0.2360027440590784,
+          "guided_seconds": 0.2394685229519382
+        },
+        {
+          "row": 0,
+          "repetition": 3,
+          "encoder_seconds": 0.012488264008425176,
+          "expert_cpu_seconds": 0.20569305203389376,
+          "native_seconds": 0.23905726906377822,
+          "guided_seconds": 0.23454657301772386
+        },
+        {
+          "row": 0,
+          "repetition": 4,
+          "encoder_seconds": 0.014341106987558305,
+          "expert_cpu_seconds": 0.20301540498621762,
+          "native_seconds": 0.234287673025392,
+          "guided_seconds": 0.2469183469656855
+        },
+        {
+          "row": 1,
+          "repetition": 0,
+          "encoder_seconds": 0.010409308015368879,
+          "expert_cpu_seconds": 0.18682306399568915,
+          "native_seconds": 0.1946666348958388,
+          "guided_seconds": 0.20465707208495587
+        },
+        {
+          "row": 1,
+          "repetition": 1,
+          "encoder_seconds": 0.00910668505821377,
+          "expert_cpu_seconds": 0.19424366601742804,
+          "native_seconds": 0.1956267129862681,
+          "guided_seconds": 0.20463848300278187
+        },
+        {
+          "row": 1,
+          "repetition": 2,
+          "encoder_seconds": 0.010632687946781516,
+          "expert_cpu_seconds": 0.1889365379465744,
+          "native_seconds": 0.19417357305064797,
+          "guided_seconds": 0.209307117969729
+        },
+        {
+          "row": 1,
+          "repetition": 3,
+          "encoder_seconds": 0.009083219920285046,
+          "expert_cpu_seconds": 0.191971127060242,
+          "native_seconds": 0.2013774139340967,
+          "guided_seconds": 0.20245709002483636
+        },
+        {
+          "row": 1,
+          "repetition": 4,
+          "encoder_seconds": 0.008556989952921867,
+          "expert_cpu_seconds": 0.18924401607364416,
+          "native_seconds": 0.20188813796266913,
+          "guided_seconds": 0.19983161694835871
+        },
+        {
+          "row": 2,
+          "repetition": 0,
+          "encoder_seconds": 0.00964424794074148,
+          "expert_cpu_seconds": 0.1863262508995831,
+          "native_seconds": 0.20427285402547568,
+          "guided_seconds": 0.19935600901953876
+        },
+        {
+          "row": 2,
+          "repetition": 1,
+          "encoder_seconds": 0.011565491906367242,
+          "expert_cpu_seconds": 0.19500375096686184,
+          "native_seconds": 0.20354937098454684,
+          "guided_seconds": 0.20868170401081443
+        },
+        {
+          "row": 2,
+          "repetition": 2,
+          "encoder_seconds": 0.010710399015806615,
+          "expert_cpu_seconds": 0.19301815796643496,
+          "native_seconds": 0.20131335605401546,
+          "guided_seconds": 0.21286768990103155
+        },
+        {
+          "row": 2,
+          "repetition": 3,
+          "encoder_seconds": 0.01073337101843208,
+          "expert_cpu_seconds": 0.19184423296246678,
+          "native_seconds": 0.20165543304756284,
+          "guided_seconds": 0.21102583198808134
+        },
+        {
+          "row": 2,
+          "repetition": 4,
+          "encoder_seconds": 0.010113417054526508,
+          "expert_cpu_seconds": 0.18870890606194735,
+          "native_seconds": 0.20537331700325012,
+          "guided_seconds": 0.20762166508939117
+        }
+      ],
+      "model_digest": "e5f8c7af043f1241a35c1fb22cc2d2d7ca424eaf30f082d2578521241e01e940",
+      "medians": {
+        "encoder_seconds": 0.010710399015806615,
+        "expert_cpu_seconds": 0.191971127060242,
+        "native_seconds": 0.20354937098454684,
+        "guided_seconds": 0.209307117969729
+      },
+      "cpu_affinity": [
+        33,
+        68
+      ],
+      "test_read": false,
+      "training_steps": 0,
+      "gpu_index": 7,
+      "gpu_uuid": "GPU-7876ca7a-7bb3-eb10-f22b-2ec3b17b9253",
+      "pause": {
+        "state": "RESUMED",
+        "generator_pid": 261818,
+        "paused_seconds": 12.774439572007395,
+        "watchdog_pid": 463402
+      }
+    },
+    "gpu4": {
+      "checks": [
+        {
+          "row": 0,
+          "same_native_and_guided_predictions": true
+        },
+        {
+          "row": 1,
+          "same_native_and_guided_predictions": true
+        },
+        {
+          "row": 2,
+          "same_native_and_guided_predictions": true
+        }
+      ],
+      "timings": [
+        {
+          "row": 0,
+          "repetition": 0,
+          "encoder_seconds": 0.012567652040161192,
+          "expert_cpu_seconds": 0.1879559550434351,
+          "native_seconds": 0.2255020459415391,
+          "guided_seconds": 0.23920820793136954
+        },
+        {
+          "row": 0,
+          "repetition": 1,
+          "encoder_seconds": 0.01309199002571404,
+          "expert_cpu_seconds": 0.1996093048946932,
+          "native_seconds": 0.2256408459506929,
+          "guided_seconds": 0.2305454360321164
+        },
+        {
+          "row": 0,
+          "repetition": 2,
+          "encoder_seconds": 0.012173580937087536,
+          "expert_cpu_seconds": 0.1951479259878397,
+          "native_seconds": 0.2276209999108687,
+          "guided_seconds": 0.22957857698202133
+        },
+        {
+          "row": 0,
+          "repetition": 3,
+          "encoder_seconds": 0.014175046002492309,
+          "expert_cpu_seconds": 0.19367878907360137,
+          "native_seconds": 0.2264468870125711,
+          "guided_seconds": 0.22792390501126647
+        },
+        {
+          "row": 0,
+          "repetition": 4,
+          "encoder_seconds": 0.012181710917502642,
+          "expert_cpu_seconds": 0.20132304402068257,
+          "native_seconds": 0.2262416440062225,
+          "guided_seconds": 0.23241258400958031
+        },
+        {
+          "row": 1,
+          "repetition": 0,
+          "encoder_seconds": 0.00850268907379359,
+          "expert_cpu_seconds": 0.18542565300595015,
+          "native_seconds": 0.19309415598399937,
+          "guided_seconds": 0.19623615103773773
+        },
+        {
+          "row": 1,
+          "repetition": 1,
+          "encoder_seconds": 0.008653727942146361,
+          "expert_cpu_seconds": 0.19467686396092176,
+          "native_seconds": 0.1910116330254823,
+          "guided_seconds": 0.19753180001862347
+        },
+        {
+          "row": 1,
+          "repetition": 2,
+          "encoder_seconds": 0.008938999031670392,
+          "expert_cpu_seconds": 0.19497854402288795,
+          "native_seconds": 0.19168702594470233,
+          "guided_seconds": 0.18944957992061973
+        },
+        {
+          "row": 1,
+          "repetition": 3,
+          "encoder_seconds": 0.008514921995811164,
+          "expert_cpu_seconds": 0.1958755380474031,
+          "native_seconds": 0.19171369704417884,
+          "guided_seconds": 0.1949666130822152
+        },
+        {
+          "row": 1,
+          "repetition": 4,
+          "encoder_seconds": 0.008486576029099524,
+          "expert_cpu_seconds": 0.19276408199220896,
+          "native_seconds": 0.19210423401091248,
+          "guided_seconds": 0.19266320602037013
+        },
+        {
+          "row": 2,
+          "repetition": 0,
+          "encoder_seconds": 0.01004856696818024,
+          "expert_cpu_seconds": 0.19073974096681923,
+          "native_seconds": 0.19805024890229106,
+          "guided_seconds": 0.20981692802160978
+        },
+        {
+          "row": 2,
+          "repetition": 1,
+          "encoder_seconds": 0.010054045007564127,
+          "expert_cpu_seconds": 0.19028529501520097,
+          "native_seconds": 0.20289559196680784,
+          "guided_seconds": 0.20223082101438195
+        },
+        {
+          "row": 2,
+          "repetition": 2,
+          "encoder_seconds": 0.009658321039751172,
+          "expert_cpu_seconds": 0.19727345404680818,
+          "native_seconds": 0.1971019780030474,
+          "guided_seconds": 0.20379395806230605
+        },
+        {
+          "row": 2,
+          "repetition": 3,
+          "encoder_seconds": 0.011533429031260312,
+          "expert_cpu_seconds": 0.20299527002498507,
+          "native_seconds": 0.20299743791110814,
+          "guided_seconds": 0.20925754902418703
+        },
+        {
+          "row": 2,
+          "repetition": 4,
+          "encoder_seconds": 0.009993784013204277,
+          "expert_cpu_seconds": 0.1954628840321675,
+          "native_seconds": 0.19611663301475346,
+          "guided_seconds": 0.20953620900399983
+        }
+      ],
+      "model_digest": "e5f8c7af043f1241a35c1fb22cc2d2d7ca424eaf30f082d2578521241e01e940",
+      "medians": {
+        "encoder_seconds": 0.01004856696818024,
+        "expert_cpu_seconds": 0.19497854402288795,
+        "native_seconds": 0.19805024890229106,
+        "guided_seconds": 0.20925754902418703
+      },
+      "cpu_affinity": [
+        33,
+        68
+      ],
+      "test_read": false,
+      "training_steps": 0,
+      "gpu_index": 4,
+      "gpu_uuid": "GPU-4cc17bbe-a85f-bdab-44ef-bbe29d1afc09",
+      "pause": {
+        "state": "RESUMED",
+        "generator_pid": 263566,
+        "paused_seconds": 12.496868423069827,
+        "watchdog_pid": 464970
+      }
+    }
+  },
+  "test_read": false,
+  "training_steps": 0,
+  "caveat": "Other users continue running. Only our own generator is briefly suspended; this is not exclusive hardware or a healthy historical baseline."
+}

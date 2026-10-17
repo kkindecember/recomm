@@ -1,0 +1,486 @@
+{
+  "domains": {
+    "Toys": {
+      "metrics": {
+        "native": {
+          "H5": 0.087890625,
+          "N5": 0.06075737829607061,
+          "H10": 0.11328125,
+          "N10": 0.0692065274377349,
+          "H20": 0.13671875,
+          "N20": 0.075029100751857,
+          "H50": 0.189453125,
+          "N50": 0.08572742203597974
+        },
+        "fixed": {
+          "H5": 0.091796875,
+          "N5": 0.06112430327502922,
+          "H10": 0.12109375,
+          "N10": 0.07097177384425052,
+          "H20": 0.162109375,
+          "N20": 0.08116920237523093,
+          "H50": 0.21875,
+          "N50": 0.09242443351470789
+        },
+        "user_nll": {
+          "H5": 0.08984375,
+          "N5": 0.05788561163155043,
+          "H10": 0.119140625,
+          "N10": 0.06733773533824805,
+          "H20": 0.162109375,
+          "N20": 0.07815049692623292,
+          "H50": 0.234375,
+          "N50": 0.0923782990177589
+        },
+        "user_rank": {
+          "H5": 0.068359375,
+          "N5": 0.04261699958993337,
+          "H10": 0.103515625,
+          "N10": 0.05366680532002635,
+          "H20": 0.146484375,
+          "N20": 0.06438413796418532,
+          "H50": 0.21484375,
+          "N50": 0.0777578500174143
+        },
+        "joint_user_reference": {
+          "H5": 0.0859375,
+          "N5": 0.05710932308330066,
+          "H10": 0.12109375,
+          "N10": 0.06818438083096454,
+          "H20": 0.15234375,
+          "N20": 0.07621769335033524,
+          "H50": 0.236328125,
+          "N50": 0.09286542334419415
+        },
+        "sas_only_reference": {
+          "H5": 0.087890625,
+          "N5": 0.06152807504831631,
+          "H10": 0.119140625,
+          "N10": 0.0716381275245969,
+          "H20": 0.154296875,
+          "N20": 0.08038922102010332,
+          "H50": 0.22265625,
+          "N50": 0.09391888550949498
+        }
+      },
+      "comparisons": {
+        "fixed_vs_native": {
+          "delta_N10": 0.001765246406515617,
+          "delta_H10": 0.0078125,
+          "descriptive_95pct_N10": [
+            -0.00565514532927512,
+            0.009170594775913195
+          ],
+          "descriptive_95pct_H10": [
+            -0.0078125,
+            0.0234375
+          ],
+          "top10_gained": 10,
+          "top10_lost": 6
+        },
+        "user_nll_vs_native": {
+          "delta_N10": -0.0018687920994868504,
+          "delta_H10": 0.005859375,
+          "descriptive_95pct_N10": [
+            -0.01212901380318384,
+            0.008333706102409662
+          ],
+          "descriptive_95pct_H10": [
+            -0.01171875,
+            0.0234375
+          ],
+          "top10_gained": 12,
+          "top10_lost": 9
+        },
+        "user_rank_vs_native": {
+          "delta_N10": -0.015539722117708543,
+          "delta_H10": -0.009765625,
+          "descriptive_95pct_N10": [
+            -0.033402770080665035,
+            -7.829960728061377e-05
+          ],
+          "descriptive_95pct_H10": [
+            -0.037109375,
+            0.015625
+          ],
+          "top10_gained": 22,
+          "top10_lost": 27
+        },
+        "user_nll_vs_fixed": {
+          "delta_N10": -0.0036340385060024674,
+          "delta_H10": -0.001953125,
+          "descriptive_95pct_N10": [
+            -0.009664440887079054,
+            0.002198686882312506
+          ],
+          "descriptive_95pct_H10": [
+            -0.01171875,
+            0.0078125
+          ],
+          "top10_gained": 3,
+          "top10_lost": 4
+        },
+        "user_rank_vs_fixed": {
+          "delta_N10": -0.017304968524224158,
+          "delta_H10": -0.017578125,
+          "descriptive_95pct_N10": [
+            -0.031325626777981466,
+            -0.004782873368791984
+          ],
+          "descriptive_95pct_H10": [
+            -0.041015625,
+            0.005859375
+          ],
+          "top10_gained": 13,
+          "top10_lost": 22
+        },
+        "user_rank_vs_user_nll": {
+          "delta_N10": -0.01367093001822169,
+          "delta_H10": -0.015625,
+          "descriptive_95pct_N10": [
+            -0.025303754949990404,
+            -0.003022948387159454
+          ],
+          "descriptive_95pct_H10": [
+            -0.037109375,
+            0.0039550781249997335
+          ],
+          "top10_gained": 10,
+          "top10_lost": 18
+        }
+      },
+      "training": {
+        "fits": {
+          "user_nll": {
+            "selected_epochs": 20,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 1.4287481299846245
+              },
+              {
+                "epoch": 4,
+                "loss": 1.405066344111446
+              },
+              {
+                "epoch": 8,
+                "loss": 1.404717524303918
+              },
+              {
+                "epoch": 12,
+                "loss": 1.404558225703321
+              },
+              {
+                "epoch": 20,
+                "loss": 1.4043703400641172
+              }
+            ],
+            "alpha_mean": 0.5983529814984649,
+            "alpha_quantiles": [
+              0.46146196126937866,
+              0.5268875062465668,
+              0.5855355560779572,
+              0.6856389880180359,
+              0.9122458696365356
+            ],
+            "beta_exactly_unchanged": true,
+            "total_parameters": 451,
+            "adapted_parameters": 33
+          },
+          "user_rank": {
+            "selected_epochs": 20,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 0.9721106443388877
+              },
+              {
+                "epoch": 4,
+                "loss": 0.9583819622472691
+              },
+              {
+                "epoch": 8,
+                "loss": 0.9543684126980883
+              },
+              {
+                "epoch": 12,
+                "loss": 0.9527644329917309
+              },
+              {
+                "epoch": 20,
+                "loss": 0.9515725620370676
+              }
+            ],
+            "alpha_mean": 0.9736987716751173,
+            "alpha_quantiles": [
+              0.8134308457374573,
+              0.9288751542568207,
+              0.9873079359531403,
+              0.9987848162651062,
+              0.9999989867210388
+            ],
+            "beta_exactly_unchanged": true,
+            "total_parameters": 451,
+            "adapted_parameters": 33
+          }
+        },
+        "test_read": false,
+        "evaluation_used_for_epoch_selection": false,
+        "internal_fit_users": 2187,
+        "internal_heldout_users": 586,
+        "full_fit_users": 2773,
+        "internal_parent_excludes_heldout_labels": true,
+        "alpha_features_exclude_target": true
+      }
+    },
+    "Beauty": {
+      "metrics": {
+        "native": {
+          "H5": 0.10546875,
+          "N5": 0.07526941317646474,
+          "H10": 0.13671875,
+          "N10": 0.08521536349240155,
+          "H20": 0.16796875,
+          "N20": 0.09307390553430334,
+          "H50": 0.2421875,
+          "N50": 0.10795124128560103
+        },
+        "fixed": {
+          "H5": 0.119140625,
+          "N5": 0.08348568494975184,
+          "H10": 0.138671875,
+          "N10": 0.08988258193364958,
+          "H20": 0.18359375,
+          "N20": 0.10120560414590174,
+          "H50": 0.248046875,
+          "N50": 0.1138093182723223
+        },
+        "user_nll": {
+          "H5": 0.119140625,
+          "N5": 0.08502344354076194,
+          "H10": 0.14453125,
+          "N10": 0.09322873479632153,
+          "H20": 0.189453125,
+          "N20": 0.10453735306857458,
+          "H50": 0.25390625,
+          "N50": 0.11706881257864055
+        },
+        "user_rank": {
+          "H5": 0.119140625,
+          "N5": 0.08348568494975184,
+          "H10": 0.138671875,
+          "N10": 0.08988258193364958,
+          "H20": 0.18359375,
+          "N20": 0.10120560414590174,
+          "H50": 0.248046875,
+          "N50": 0.1138093182723223
+        },
+        "joint_user_reference": {
+          "H5": 0.11328125,
+          "N5": 0.07972637458993337,
+          "H10": 0.142578125,
+          "N10": 0.08910949885832437,
+          "H20": 0.1875,
+          "N20": 0.10046554181025288,
+          "H50": 0.2578125,
+          "N50": 0.11418685094715811
+        },
+        "sas_only_reference": {
+          "H5": 0.1171875,
+          "N5": 0.08555913477718319,
+          "H10": 0.146484375,
+          "N10": 0.09507852988055242,
+          "H20": 0.17578125,
+          "N20": 0.10238166028083433,
+          "H50": 0.25,
+          "N50": 0.1168635538148704
+        }
+      },
+      "comparisons": {
+        "fixed_vs_native": {
+          "delta_N10": 0.004667218441248028,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.0020330661198714596,
+            0.011242885140543305
+          ],
+          "descriptive_95pct_H10": [
+            -0.009765625,
+            0.013671875
+          ],
+          "top10_gained": 5,
+          "top10_lost": 4
+        },
+        "user_nll_vs_native": {
+          "delta_N10": 0.008013371303919967,
+          "delta_H10": 0.0078125,
+          "descriptive_95pct_N10": [
+            -0.0021681056719768145,
+            0.01818724352367325
+          ],
+          "descriptive_95pct_H10": [
+            -0.0078125,
+            0.0234375
+          ],
+          "top10_gained": 10,
+          "top10_lost": 6
+        },
+        "user_rank_vs_native": {
+          "delta_N10": 0.004667218441248028,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.0020330661198714596,
+            0.011242885140543305
+          ],
+          "descriptive_95pct_H10": [
+            -0.009765625,
+            0.013671875
+          ],
+          "top10_gained": 5,
+          "top10_lost": 4
+        },
+        "user_nll_vs_fixed": {
+          "delta_N10": 0.0033461528626719406,
+          "delta_H10": 0.005859375,
+          "descriptive_95pct_N10": [
+            -0.0024012691772933165,
+            0.009570991341578572
+          ],
+          "descriptive_95pct_H10": [
+            -0.00390625,
+            0.017578125
+          ],
+          "top10_gained": 5,
+          "top10_lost": 2
+        },
+        "user_rank_vs_fixed": {
+          "delta_N10": 0.0,
+          "delta_H10": 0.0,
+          "descriptive_95pct_N10": [
+            0.0,
+            0.0
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.0
+          ],
+          "top10_gained": 0,
+          "top10_lost": 0
+        },
+        "user_rank_vs_user_nll": {
+          "delta_N10": -0.0033461528626719406,
+          "delta_H10": -0.005859375,
+          "descriptive_95pct_N10": [
+            -0.009570991341578572,
+            0.002401269177293314
+          ],
+          "descriptive_95pct_H10": [
+            -0.017578125,
+            0.00390625
+          ],
+          "top10_gained": 2,
+          "top10_lost": 5
+        }
+      },
+      "training": {
+        "fits": {
+          "user_nll": {
+            "selected_epochs": 20,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 1.0989644441633823
+              },
+              {
+                "epoch": 4,
+                "loss": 1.0921148019764362
+              },
+              {
+                "epoch": 8,
+                "loss": 1.09172454252725
+              },
+              {
+                "epoch": 12,
+                "loss": 1.0915990596890996
+              },
+              {
+                "epoch": 20,
+                "loss": 1.0913711244077815
+              }
+            ],
+            "alpha_mean": 0.5352967041544616,
+            "alpha_quantiles": [
+              0.3957580626010895,
+              0.47048597037792206,
+              0.5252234041690826,
+              0.619252371788025,
+              0.7389542460441589
+            ],
+            "beta_exactly_unchanged": true,
+            "total_parameters": 451,
+            "adapted_parameters": 33
+          },
+          "user_rank": {
+            "selected_epochs": 0,
+            "selection_curve": [
+              {
+                "epoch": 0,
+                "loss": 0.9066896142857364
+              },
+              {
+                "epoch": 4,
+                "loss": 0.907056296401148
+              },
+              {
+                "epoch": 8,
+                "loss": 0.9072526385736684
+              },
+              {
+                "epoch": 12,
+                "loss": 0.9073972361558794
+              },
+              {
+                "epoch": 20,
+                "loss": 0.9075589454739966
+              }
+            ],
+            "alpha_mean": 0.30000001192092896,
+            "alpha_quantiles": [
+              0.30000001192092896,
+              0.30000001192092896,
+              0.30000001192092896,
+              0.30000001192092896,
+              0.30000001192092896
+            ],
+            "beta_exactly_unchanged": true,
+            "total_parameters": 451,
+            "adapted_parameters": 33
+          }
+        },
+        "test_read": false,
+        "evaluation_used_for_epoch_selection": false,
+        "internal_fit_users": 2657,
+        "internal_heldout_users": 653,
+        "full_fit_users": 3310,
+        "internal_parent_excludes_heldout_labels": true,
+        "alpha_features_exclude_target": true
+      }
+    }
+  },
+  "test_read": false,
+  "statistical_review": {
+    "coverage": "11/11",
+    "simpson": "Separate domains; no pooled winner.",
+    "ecological": "Paired user gains/losses saved; no every-user claim.",
+    "berkson": "Fixed eligible validation hash sample, not general population.",
+    "collider": "No outcome or hit based user selection.",
+    "base_rate": "All512 prescribed users retained per domain.",
+    "regression_to_mean": "Old512 excluded, but new512 is still reused development.",
+    "survivorship": "All prescribed arms, failures and full user denominator retained.",
+    "look_elsewhere": "All six paired comparisons/domain saved; unadjusted descriptive bootstrap.",
+    "forking_paths": "Explicit exploratory loss screen after prior failures, not preregistered confirmation.",
+    "causation": "Compare exact training interventions only; user necessity and text necessity untested.",
+    "reverse_causality": "Targets only for supervised losses and metrics, never inference features."
+  },
+  "automatic_final_selection": false
+}

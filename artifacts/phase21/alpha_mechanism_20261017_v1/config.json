@@ -1,0 +1,96 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "expert_pair": [
+    "SASRec",
+    "BGE"
+  ],
+  "beta": [
+    0.5,
+    0.5
+  ],
+  "beta_training": false,
+  "arms": [
+    "fixed03",
+    "global_nll",
+    "user_nll",
+    "user_kl001",
+    "user_kl01",
+    "user_kl1",
+    "mass_raw",
+    "mass_mean",
+    "mass_matched",
+    "evidence_kl01"
+  ],
+  "learned": {
+    "global_nll": [
+      true,
+      false,
+      0.0
+    ],
+    "user_nll": [
+      false,
+      false,
+      0.0
+    ],
+    "user_kl001": [
+      false,
+      false,
+      0.001
+    ],
+    "user_kl01": [
+      false,
+      false,
+      0.01
+    ],
+    "user_kl1": [
+      false,
+      false,
+      0.1
+    ],
+    "evidence_kl01": [
+      false,
+      true,
+      0.01
+    ]
+  },
+  "lambda_grid": [
+    0.001,
+    0.01,
+    0.1
+  ],
+  "evaluation_users": 512,
+  "input_validation_slice": [
+    512,
+    1024
+  ],
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "test_read": false,
+  "expert_training": false,
+  "gram_optimizer_steps": 0,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "worker_timeout_seconds": 14400,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "stop_after": "ten arms x fixed512 per domain; no automatic next experiment"
+}

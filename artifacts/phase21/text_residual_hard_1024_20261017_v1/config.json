@@ -1,0 +1,69 @@
+{
+  "users_per_domain": 1024,
+  "source_indices": [
+    1024,
+    2048
+  ],
+  "train_arms": [
+    "residual_hard",
+    "text_hard",
+    "residual_random"
+  ],
+  "proposals": [
+    "sas_catalog",
+    "gram_sas",
+    "gram_native"
+  ],
+  "methods": [
+    "off",
+    "bge_cal",
+    "bge_fixed1",
+    "residual_hard_cal",
+    "residual_hard_fixed1",
+    "text_hard_cal",
+    "text_hard_fixed1",
+    "residual_random_cal",
+    "residual_random_fixed1",
+    "residual_hard_shuffled_cal",
+    "residual_hard_shuffled_fixed1"
+  ],
+  "rank": 32,
+  "bound": 2.0,
+  "seed": 0,
+  "epochs": 40,
+  "checkpoints": [
+    0,
+    5,
+    10,
+    20,
+    40
+  ],
+  "batch_size": 128,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "regularization": 0.01,
+  "strengths": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "fixed_diagnostic_strength": 1.0,
+  "cpu_threads": 2,
+  "worker_timeout_seconds": 3600,
+  "max_parallel": 1,
+  "gpu_used": false,
+  "test_read": false,
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "gram_training_steps": 0,
+  "bge_backbone_training_steps": 0,
+  "scientific_auto_retry": false,
+  "bootstrap_repeats": 2000,
+  "calibration": "training-side fold0 SASRec full-catalog Top50, no target injection",
+  "evaluation": "fixed50 postrerank; transfer to GRAM+SASRec and native GRAM",
+  "automatic_next_experiment": false
+}

@@ -1,0 +1,94 @@
+{
+  "state": "ANALYZED",
+  "report": "report/第二十一阶段/Qwen4干预强度对照复核与结论_20261017.md",
+  "checks": {
+    "Toys": {
+      "users": 512,
+      "all_arm_ranks_independently_recomputed": true,
+      "output_training_hashes_match": true,
+      "gram_and_runtime_checks_passed": true,
+      "lease_released": true,
+      "N10": {
+        "native": 0.0692065274377349,
+        "fixed": 0.07097177384425052,
+        "user_nll": 0.06733773533824805,
+        "user_rank": 0.05366680532002635
+      },
+      "relative_to_gram_pct": {
+        "fixed": 2.5506935138507325,
+        "user_nll": -2.7003119050702185,
+        "user_rank": -22.45412780129682
+      },
+      "relative_to_fixed_pct": {
+        "user_nll": -5.120399715494594,
+        "user_rank": -24.382888558203987
+      },
+      "alpha_means": {
+        "fixed": 0.29999999999999993,
+        "user_nll": 0.5983529814984649,
+        "user_rank": 0.9736987716751173
+      },
+      "selected_epochs": {
+        "user_nll": 20,
+        "user_rank": 20
+      }
+    },
+    "Beauty": {
+      "users": 512,
+      "all_arm_ranks_independently_recomputed": true,
+      "output_training_hashes_match": true,
+      "gram_and_runtime_checks_passed": true,
+      "lease_released": true,
+      "N10": {
+        "native": 0.08521536349240155,
+        "fixed": 0.08988258193364958,
+        "user_nll": 0.09322873479632153,
+        "user_rank": 0.08988258193364958
+      },
+      "relative_to_gram_pct": {
+        "fixed": 5.476968295352269,
+        "user_nll": 9.40366968526105,
+        "user_rank": 5.476968295352269
+      },
+      "relative_to_fixed_pct": {
+        "user_nll": 3.7228045642280883,
+        "user_rank": 0.0
+      },
+      "alpha_means": {
+        "fixed": 0.29999999999999993,
+        "user_nll": 0.5352967041544616,
+        "user_rank": 0.30000001192092896
+      },
+      "selected_epochs": {
+        "user_nll": 20,
+        "user_rank": 0
+      },
+      "rank_arm_epoch_zero_all_alphas_same": true
+    },
+    "recovery": {
+      "fallback_rows": [
+        883
+      ],
+      "original_tolerance_retained": true,
+      "completed_toys_predictions_preserved": true,
+      "scientific_config_preserved": true
+    }
+  },
+  "statistical_review": {
+    "coverage": "11/11",
+    "simpson": "Separate domains; no pooled winner.",
+    "ecological": "Paired user gains/losses saved; no every-user claim.",
+    "berkson": "Fixed eligible validation hash sample, not general population.",
+    "collider": "No outcome or hit based user selection.",
+    "base_rate": "All512 prescribed users retained per domain.",
+    "regression_to_mean": "Old512 excluded, but new512 is still reused development.",
+    "survivorship": "All prescribed arms, failures and full user denominator retained.",
+    "look_elsewhere": "All six paired comparisons/domain saved; unadjusted descriptive bootstrap.",
+    "forking_paths": "Explicit exploratory loss screen after prior failures, not preregistered confirmation.",
+    "causation": "Compare exact training interventions only; user necessity and text necessity untested.",
+    "reverse_causality": "Targets only for supervised losses and metrics, never inference features."
+  },
+  "test_read": false,
+  "automatic_next_experiment": false,
+  "frozen_scientific_code_and_configuration_hashes_verified": true
+}

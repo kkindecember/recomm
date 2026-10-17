@@ -1,0 +1,69 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "arms": [
+    "fixed",
+    "user_nll",
+    "user_rank"
+  ],
+  "expert_pair": [
+    "SASRec",
+    "Qwen3-Embedding-4B"
+  ],
+  "user_dimension": 10,
+  "total_parameters": 451,
+  "adapted_parameters": 33,
+  "frozen_beta": true,
+  "frozen_shared_trunk": true,
+  "negative_top_k": 10,
+  "negative_sources": [
+    "native_beam",
+    "SASRec",
+    "Qwen4"
+  ],
+  "max_paths": 31,
+  "evaluation_users": 1024,
+  "input_validation_slice": [
+    512,
+    1536
+  ],
+  "history_filter": false,
+  "history_penalty": false,
+  "test_read": false,
+  "expert_training": false,
+  "gram_optimizer_steps": 0,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "worker_timeout_seconds": 14400,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "stop_after": "append second512 for each domain, report both batches and all1024; no retraining",
+  "evaluation_only": true,
+  "reused_prediction_users": 512,
+  "new_generation_users": 512,
+  "model_selection": false,
+  "training_steps": 0,
+  "groups": [
+    "batch1_512",
+    "batch2_512",
+    "all1024"
+  ],
+  "previous_run": "artifacts/phase21/qwen4_alpha_rank_20261017_v1"
+}

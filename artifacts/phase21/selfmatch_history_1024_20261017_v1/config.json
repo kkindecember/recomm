@@ -1,0 +1,52 @@
+{
+  "users_per_domain": 1024,
+  "source_validation_slice": [
+    1024,
+    2048
+  ],
+  "alpha": 0.3,
+  "beta_pair": [
+    0.5,
+    0.5
+  ],
+  "history_penalty_lambda": 0.05,
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "arms": [
+    "pair_raw",
+    "pair_loo",
+    "pair_raw_penalty",
+    "pair_loo_penalty",
+    "uniform",
+    "uniform_penalty"
+  ],
+  "fresh_arms": [
+    "pair_loo",
+    "pair_raw_penalty",
+    "pair_loo_penalty",
+    "uniform",
+    "uniform_penalty"
+  ],
+  "history_filter": false,
+  "penalty_scope": "full_history",
+  "penalty_location": "fused expert scores before softmax",
+  "self_exclusion": "candidate leave-all-own-occurrences-out, original minmax, clip [0,1], no extra old-score cap",
+  "generic_control": "uniform vs uniform_penalty; both alpha=.3; separate native reference",
+  "fusion_network": false,
+  "training_steps": 0,
+  "test_read": false,
+  "source": "artifacts/phase21/fixed_expert_screen_4096_20261017_v1",
+  "shards_per_domain": 2,
+  "max_parallel": 2,
+  "avoid_active_source_gpus": true,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 43200,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "bootstrap_repeats": 2000,
+  "stop_after": "all four main arms and uniform controls on all1024/domain; no automatic next experiment"
+}

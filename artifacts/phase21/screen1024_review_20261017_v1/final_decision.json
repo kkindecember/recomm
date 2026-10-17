@@ -1,0 +1,226 @@
+{
+  "state": "CURRENT_SCREEN_COMPLETE",
+  "date": "2026-10-17T02:46:25.830386+08:00",
+  "test_read": false,
+  "scope": "All11 expert pipelines and four Qwen alpha controls on fixed same1024 users/domain; original4096 extension remains incomplete and not resumed.",
+  "final_method_selected": false,
+  "formal_statistical_equivalence_claim": false,
+  "findings": [
+    "SASRec+Qwen4B learned-global-alpha pipeline and user-alpha/NLL pipeline both have positive mean improvements over GRAM on1024 in each domain.",
+    "User-alpha vs learned-global-alpha N10 differences are +.000311(Toys) and -.001078(Beauty), with both descriptive intervals crossing0. No demonstrated incremental benefit from user-specific alpha.",
+    "Learned-global alpha is estimated from fitting data (.600622/.502508), not a manually fixed7:3 constant. Beta remains user-specific in every matched Qwen control.",
+    "Fixedalpha.3 has higher Toys mean; learned-global-alpha has higher Beauty mean. No alpha option is proved best in both domains.",
+    "SASRec-only remains a strong baseline; learned-global Qwen is lower on Toys and higher onBeauty, so content expert necessity is not established.",
+    "Sorting-alpha proxy is not a priority: both Toys batches negative; Beauty retained epoch0. TiSASRec andItemCF records retained; current replacement comparisons do not establish redundancy as a third expert."
+  ],
+  "practical_candidate": "SASRec+Qwen4B with CE-trained user beta frozen during alpha calibration, one learnable global alpha, path-dependent branch guidance. Provisional candidate, not finalized paper method.",
+  "retained_controls": [
+    "SASRec-only",
+    "SASRec+BGE original jointfuser",
+    "same-Qwen fixedalpha.3",
+    "same-Qwen useralpha/NLL"
+  ],
+  "remaining_evidence": [
+    "BGE vsQwen under identical frozen-beta/alpha training",
+    "Content expert conditional contribution vs strong SASRec-only control",
+    "If claiming user-specific alpha necessary, need actual incremental benefit beyond learned-global alpha; currently unsupported"
+  ],
+  "next_experiment_started": false,
+  "restore4096": false,
+  "checks": {
+    "Toys": {
+      "users": 1024,
+      "all_global_ranks_independently_verified": true,
+      "same_users_and_baseline": true,
+      "frozen_scientific_input_hashes_match": true,
+      "output_hashes_match": true,
+      "three_selected_paired_intervals_reproduced": true,
+      "original_cached_alpha_replayed_exactly": true,
+      "gram_and_runtime_checks_passed": true,
+      "lease_released": true,
+      "learned_global_alpha": 0.6006217002868652
+    },
+    "Beauty": {
+      "users": 1024,
+      "all_global_ranks_independently_verified": true,
+      "same_users_and_baseline": true,
+      "frozen_scientific_input_hashes_match": true,
+      "output_hashes_match": true,
+      "three_selected_paired_intervals_reproduced": true,
+      "original_cached_alpha_replayed_exactly": true,
+      "gram_and_runtime_checks_passed": true,
+      "lease_released": true,
+      "learned_global_alpha": 0.502507746219635
+    }
+  },
+  "comparisons": {
+    "Toys": {
+      "prior_comparisons_reproduced": {
+        "qwen_user_nll_vs_qwen_global": {
+          "delta_N10": 0.00031098282002971895,
+          "delta_H10": 0.001953125,
+          "descriptive_95pct_N10": [
+            -0.0016952288683329982,
+            0.002295454497866114
+          ],
+          "descriptive_95pct_H10": [
+            -0.0029296875,
+            0.0068359375
+          ],
+          "top10_gained": 4,
+          "top10_lost": 2
+        },
+        "qwen_global_vs_qwen_fixed": {
+          "delta_N10": -0.0015208962944371672,
+          "delta_H10": -0.001953125,
+          "descriptive_95pct_N10": [
+            -0.006094210414741522,
+            0.0032264931669481805
+          ],
+          "descriptive_95pct_H10": [
+            -0.009765625,
+            0.005859375
+          ],
+          "top10_gained": 8,
+          "top10_lost": 10
+        },
+        "qwen_global_vs_native": {
+          "delta_N10": 0.0029529815422491053,
+          "delta_H10": 0.01171875,
+          "descriptive_95pct_N10": [
+            -0.0041115229210835,
+            0.010671042264213799
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.0244140625
+          ],
+          "top10_gained": 28,
+          "top10_lost": 16
+        }
+      },
+      "additional_exploratory_whole_pipeline_comparisons": {
+        "qwen_global_vs_SASRec__only": {
+          "delta_N10": -0.0025595597547979454,
+          "delta_H10": 0.0,
+          "descriptive_95pct_N10": [
+            -0.008200729918833301,
+            0.0028590563510796627
+          ],
+          "descriptive_95pct_H10": [
+            -0.0107421875,
+            0.0107421875
+          ],
+          "top10_gained": 16,
+          "top10_lost": 16
+        },
+        "qwen_global_vs_SASRec__BGE": {
+          "delta_N10": -0.003334491257742979,
+          "delta_H10": -0.01171875,
+          "descriptive_95pct_N10": [
+            -0.007455738536677867,
+            0.0007618360222142137
+          ],
+          "descriptive_95pct_H10": [
+            -0.0205078125,
+            -0.00390625
+          ],
+          "top10_gained": 4,
+          "top10_lost": 16
+        }
+      }
+    },
+    "Beauty": {
+      "prior_comparisons_reproduced": {
+        "qwen_user_nll_vs_qwen_global": {
+          "delta_N10": -0.0010780871854255251,
+          "delta_H10": -0.0029296875,
+          "descriptive_95pct_N10": [
+            -0.0027989292634490867,
+            0.0005186056350920021
+          ],
+          "descriptive_95pct_H10": [
+            -0.0068359375,
+            0.0
+          ],
+          "top10_gained": 0,
+          "top10_lost": 3
+        },
+        "qwen_global_vs_qwen_fixed": {
+          "delta_N10": 0.0033014038830494405,
+          "delta_H10": 0.0078125,
+          "descriptive_95pct_N10": [
+            -0.00016559208936652028,
+            0.0068264012091834095
+          ],
+          "descriptive_95pct_H10": [
+            0.0,
+            0.015625
+          ],
+          "top10_gained": 12,
+          "top10_lost": 4
+        },
+        "qwen_global_vs_native": {
+          "delta_N10": 0.008753267583281592,
+          "delta_H10": 0.015625,
+          "descriptive_95pct_N10": [
+            0.0028791817904540284,
+            0.014844185665777896
+          ],
+          "descriptive_95pct_H10": [
+            0.0048828125,
+            0.0263671875
+          ],
+          "top10_gained": 24,
+          "top10_lost": 8
+        }
+      },
+      "additional_exploratory_whole_pipeline_comparisons": {
+        "qwen_global_vs_SASRec__only": {
+          "delta_N10": 0.0018888911365949085,
+          "delta_H10": 0.005859375,
+          "descriptive_95pct_N10": [
+            -0.0022105860371642518,
+            0.006177495642963733
+          ],
+          "descriptive_95pct_H10": [
+            -0.001953125,
+            0.0146484375
+          ],
+          "top10_gained": 13,
+          "top10_lost": 7
+        },
+        "qwen_global_vs_SASRec__BGE": {
+          "delta_N10": 0.00485858419332936,
+          "delta_H10": 0.005859375,
+          "descriptive_95pct_N10": [
+            0.0011206702955181716,
+            0.0084309571382509
+          ],
+          "descriptive_95pct_H10": [
+            -0.001953125,
+            0.013671875
+          ],
+          "top10_gained": 11,
+          "top10_lost": 5
+        }
+      }
+    }
+  },
+  "statistical_review": {
+    "coverage": "11/11",
+    "confidence": "CAUTION; development screening",
+    "simpson": "Domains and batches separately reported; no pooled winner.",
+    "ecological": "No per-user universal improvement claim.",
+    "berkson": "Fixed eligible validation users only.",
+    "collider": "No outcome-conditioned inclusion.",
+    "base_rate": "All1024 users per method retained.",
+    "regression_to_mean": "Repeated development exploration; first512 inspected before extension.",
+    "survivorship": "All negative arms and failures retained.",
+    "look_elsewhere": "240 descriptive intervals in combined review plus4 explicitly additional whole-pipeline intervals; no correction or confirmatory claim.",
+    "forking_paths": "Provisional prioritization after exploration, not independent selection proof.",
+    "causation": "Matched alpha comparison conditions on same beta; cross-fuser comparisons cannot isolate text contribution.",
+    "reverse_causality": "Targets used for metrics; no refitting or new target-derived inference features."
+  },
+  "human_readable_report": "report/第二十一阶段/1024用户筛选最终决策记录_20261017.md"
+}

@@ -1,0 +1,22 @@
+{
+  "sha256": {
+    "plan/第二十二阶段/22.3_Beauty显存故障接续记录_20261017.md": "6ed580503506d05344d3a5c9186f16fa69d6f1a1e26b7a6f97dd01c89cd59cc9",
+    "experiment/phase22/repeat_split_resource_recovery.py": "77002eb8c9378e7b536f07050cc8d44afcee1d0b3f9425b891a2db1190f99533",
+    "experiment/phase22/run_repeat_split_resource_recovery.sh": "93d4ad02b09b7e4f3527a4dd8742046628f5d1581fb16f8c8224734d068de571",
+    "artifacts/phase22/repeat_split_minimal_20261017_parallel_v2/jobs/Beauty_s2/status.json": "2fd2ad0538a25abc1e1f178565dac9c503a29c5ac50c17eb797cbe1411f7a39c",
+    "artifacts/phase22/repeat_split_minimal_20261017_parallel_v2/jobs/Beauty_s2/gpu_lease_status.json": "d73ce71d9e143a4cc417fb80667eeeb714cd46a1357014a1400c9894725f22d1",
+    "artifacts/phase22/repeat_split_minimal_20261017_parallel_v2/jobs/Beauty_s2/worker_1792233328018831334.log": "21d46f69e61baa743dad8083581416db80bca95ac4c5c39e2569c1f0e113960f"
+  },
+  "source_manifest_sha256": "e2b3b075e2bcef1c41bb210c2294cb8d707d67fddc896b5f0fd0725246fe6bc6",
+  "target": "Beauty_s2",
+  "reason": "documented shared-GPU OOM before formal predictions",
+  "one_compute_retry_only": true,
+  "tests": {
+    "state": "PASSED",
+    "failed_gpu_excluded": true,
+    "double_slot_headroom": true,
+    "max_two_tasks_per_gpu": true,
+    "ordinary_admission_preserved": true
+  },
+  "created_at": "2026-10-17T20:11:59+0800"
+}

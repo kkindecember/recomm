@@ -6,6 +6,10 @@
 /.aws/
 /.claude/
 /.codex/
+# Local comparison checkout and saved browser-page assets; never archive these copies.
+/plan/第二十二阶段/claude/recomm-main/
+/plan/第二十二阶段/claude/专家引导生成诊断.html
+/plan/第二十二阶段/claude/专家引导生成诊断_files/
 .DS_Store
 .ipynb_checkpoints/
 *.swp
@@ -746,6 +750,11 @@ artifacts/**/current_dataset.txt
 /report/第二十一阶段/在跑实验总览_20260923.md
 # Live report for the active old10 expert-selection run; archive terminal results later.
 /report/第二十一阶段/固定原十维的专家组合真实生成对照_20261016.md
+# Active experiment report templates and live generation updates stay local.
+/report/第二十一阶段/Qwen4开关补齐与最终文本专家匹配筛选_20261017.md
+/report/第二十一阶段/SASRec_BGE冻结KL干预强度4096用户验证_20261017.md
+/report/第二十二阶段/探索重复拆分最小全量验证_20261017.md
+/report/第二十二阶段/探索重复拆分最小全量验证_多卡_20261017.md
 
 # Stage21 uses its own explicit artifact allowlist.
 # See artifacts/phase21/.gitignore and artifacts/phase21/README.md.

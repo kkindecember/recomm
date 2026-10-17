@@ -1,0 +1,52 @@
+{
+  "alpha": 0.3,
+  "tau": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "domains": [
+    "Toys",
+    "Beauty"
+  ],
+  "counts": {
+    "Toys": 19412,
+    "Beauty": 22363
+  },
+  "new_arms": [
+    "raw",
+    "split_zero",
+    "split_learned",
+    "native_norepeat"
+  ],
+  "arms": [
+    "native",
+    "bounded",
+    "raw",
+    "split_zero",
+    "split_learned",
+    "native_norepeat"
+  ],
+  "seed": 0,
+  "fit_steps": 200,
+  "fit_lr": 0.1,
+  "initial_rho": 0.1,
+  "rho_parameters_per_domain": 1,
+  "trainable_beta": false,
+  "trainable_alpha": false,
+  "history_filter": false,
+  "test_read": false,
+  "max_parallel": 8,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 172800,
+  "resource_wait_seconds": 172800,
+  "bootstrap_repeats": 2000,
+  "randomization_repeats": 10000,
+  "statistics_seed": 20261017,
+  "scientific_auto_retry": false,
+  "next_experiment": false,
+  "shards_per_domain": 4,
+  "shared_rho_fit": true,
+  "gpu_policy": "one project task per GPU, all eligible visible GPUs"
+}

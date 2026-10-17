@@ -1,0 +1,31 @@
+{
+  "updated_at": "2026-10-17T17:20:30+08:00",
+  "reason": "Real-cache CPU preflight found torch.where scalar-zero promotion failure with float32; replace scalar with zeros_like.",
+  "formula_change": false,
+  "core_sha_before": "5448cbcc32c4043a464dfea30d7cdde989cd11ae1a62bf246af2c3636914446b",
+  "core_sha_after": "5de02aaf00b1faf614307d3c8e746daa2c9db970a2cda7bc93275290f079d77c",
+  "original_manifest": "manifest.initial.json",
+  "original_source": "sources_before_dtype_fix/experiment/phase21/alpha_mechanism_core.py",
+  "fit_had_not_started": true,
+  "worker_stages": {
+    "Toys": "cache_competitor_paths",
+    "Beauty": "cache_competitor_paths"
+  },
+  "cache_restarted": false,
+  "scientific_auto_retry": false,
+  "checks": {
+    "constant_matches_original": true,
+    "zero_exact": true,
+    "parent_legal_mass_preserved": true,
+    "finite_kl_gradient": true,
+    "bge_signed_decomposition_exact": true,
+    "prefix_evidence_is_conditional_mean": true,
+    "variable_path_strength_gradient_checked": true,
+    "float32_and_float64_losses_verified": true,
+    "head_parameters": [
+      1,
+      33,
+      36
+    ]
+  }
+}

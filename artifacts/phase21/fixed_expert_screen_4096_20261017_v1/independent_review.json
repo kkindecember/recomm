@@ -1,0 +1,593 @@
+{
+  "state": "PASSED",
+  "domains": {
+    "Toys": {
+      "state": "PASSED",
+      "domain": "Toys",
+      "users": 4096,
+      "methods": 12,
+      "guided_generations": 45056,
+      "output_and_expert_cache_hashes_verified": true,
+      "all_prediction_ranks_verified": true,
+      "all_11_full_catalog_rankings_verified": true,
+      "native_references_exact": true,
+      "shards_complete_and_identical_to_summary": true,
+      "leases_released": true,
+      "training_users_disjoint": true,
+      "evaluation_block_assignment_verified": true,
+      "generation_and_standalone_metrics_recomputed": 1472,
+      "descriptive_intervals_recomputed": 21,
+      "history_fraction_top10": {
+        "native": 0.11044921875,
+        "SASRec__only": 0.139453125,
+        "TiSASRec__only": 0.16108398437500004,
+        "ItemCF__only": 0.20786132812500002,
+        "BGE__only": 0.24184570312499998,
+        "Qwen4__only": 0.18395996093750003,
+        "SASRec__BGE": 0.20637207031250002,
+        "SASRec__Qwen4": 0.17634277343750004,
+        "TiSASRec__BGE": 0.21555175781250002,
+        "TiSASRec__Qwen4": 0.18872070312500003,
+        "ItemCF__BGE": 0.26259765625,
+        "ItemCF__Qwen4": 0.24289550781250002
+      },
+      "decision_comparisons": {
+        "all4096": {
+          "SASRec__only_vs_TiSASRec__only": {
+            "delta_N10": 0.003121652394212653,
+            "delta_H10": 0.005615234375,
+            "descriptive_95pct_N10": [
+              0.0007569150871198956,
+              0.005475593654287731
+            ],
+            "descriptive_95pct_H10": [
+              0.0009765625,
+              0.010498046875
+            ]
+          },
+          "SASRec__only_vs_ItemCF__only": {
+            "delta_N10": 0.009573321804000522,
+            "delta_H10": 0.016357421875,
+            "descriptive_95pct_N10": [
+              0.006273579981286257,
+              0.013078868870593525
+            ],
+            "descriptive_95pct_H10": [
+              0.01025390625,
+              0.02294921875
+            ]
+          },
+          "Qwen4__only_vs_BGE__only": {
+            "delta_N10": 0.002746144315672718,
+            "delta_H10": 0.00244140625,
+            "descriptive_95pct_N10": [
+              0.0009572071975489416,
+              0.004547102816286707
+            ],
+            "descriptive_95pct_H10": [
+              -0.00146484375,
+              0.006591796875
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__BGE": {
+            "delta_N10": 0.0004347671617929167,
+            "delta_H10": -0.00048828125,
+            "descriptive_95pct_N10": [
+              -0.0010416331623119167,
+              0.0019162379422403572
+            ],
+            "descriptive_95pct_H10": [
+              -0.003662109375,
+              0.00244140625
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__only": {
+            "delta_N10": -0.000827271892575264,
+            "delta_H10": 0.00244140625,
+            "descriptive_95pct_N10": [
+              -0.002652611496681625,
+              0.0010958911484766443
+            ],
+            "descriptive_95pct_H10": [
+              -0.001708984375,
+              0.00634765625
+            ]
+          },
+          "SASRec__BGE_vs_SASRec__only": {
+            "delta_N10": -0.001262039054368181,
+            "delta_H10": 0.0029296875,
+            "descriptive_95pct_N10": [
+              -0.0034661280293614184,
+              0.0009400909110536257
+            ],
+            "descriptive_95pct_H10": [
+              -0.001708984375,
+              0.007568359375
+            ]
+          },
+          "TiSASRec__Qwen4_vs_SASRec__Qwen4": {
+            "delta_N10": -0.0013594477541954393,
+            "delta_H10": -0.0029296875,
+            "descriptive_95pct_N10": [
+              -0.0030347355628889227,
+              0.0002230010665241689
+            ],
+            "descriptive_95pct_H10": [
+              -0.0068359375,
+              0.000732421875
+            ]
+          }
+        },
+        "previous1024": {
+          "SASRec__only_vs_TiSASRec__only": {
+            "delta_N10": 4.5246825191355006e-05,
+            "delta_H10": 0.0,
+            "descriptive_95pct_N10": [
+              -0.004771488892308156,
+              0.004628777982712075
+            ],
+            "descriptive_95pct_H10": [
+              -0.008813476562499999,
+              0.0087890625
+            ]
+          },
+          "SASRec__only_vs_ItemCF__only": {
+            "delta_N10": 0.0058906467206019855,
+            "delta_H10": 0.0126953125,
+            "descriptive_95pct_N10": [
+              -0.0002922270644303445,
+              0.012072417226632931
+            ],
+            "descriptive_95pct_H10": [
+              0.0009765625,
+              0.025390625
+            ]
+          },
+          "Qwen4__only_vs_BGE__only": {
+            "delta_N10": 0.0019208990407457252,
+            "delta_H10": 0.0029296875,
+            "descriptive_95pct_N10": [
+              -0.002559428722781058,
+              0.006141629732268016
+            ],
+            "descriptive_95pct_H10": [
+              -0.0048828125,
+              0.01171875
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__BGE": {
+            "delta_N10": -0.002168256315902132,
+            "delta_H10": -0.005859375,
+            "descriptive_95pct_N10": [
+              -0.006101221248425284,
+              0.0016782710538638162
+            ],
+            "descriptive_95pct_H10": [
+              -0.013671875,
+              0.0010009765624998668
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__only": {
+            "delta_N10": -0.0008111517802247509,
+            "delta_H10": 0.0009765625,
+            "descriptive_95pct_N10": [
+              -0.0044578047617162666,
+              0.0030222505687181535
+            ],
+            "descriptive_95pct_H10": [
+              -0.0068359375,
+              0.0087890625
+            ]
+          },
+          "SASRec__BGE_vs_SASRec__only": {
+            "delta_N10": 0.001357104535677381,
+            "delta_H10": 0.0068359375,
+            "descriptive_95pct_N10": [
+              -0.002798182070480852,
+              0.005825526270656609
+            ],
+            "descriptive_95pct_H10": [
+              -0.0029296875,
+              0.0166015625
+            ]
+          },
+          "TiSASRec__Qwen4_vs_SASRec__Qwen4": {
+            "delta_N10": 0.001257563058240581,
+            "delta_H10": 0.0009765625,
+            "descriptive_95pct_N10": [
+              -0.0018026871507393686,
+              0.004214160201878712
+            ],
+            "descriptive_95pct_H10": [
+              -0.005883789062499999,
+              0.0078125
+            ]
+          }
+        },
+        "remaining3072": {
+          "SASRec__only_vs_TiSASRec__only": {
+            "delta_N10": 0.004147120917219752,
+            "delta_H10": 0.007486979166666667,
+            "descriptive_95pct_N10": [
+              0.0014559436372005383,
+              0.006822101102427223
+            ],
+            "descriptive_95pct_H10": [
+              0.001953125,
+              0.013346354166666666
+            ]
+          },
+          "SASRec__only_vs_ItemCF__only": {
+            "delta_N10": 0.010800880165133366,
+            "delta_H10": 0.017578125,
+            "descriptive_95pct_N10": [
+              0.00675964838391056,
+              0.014757172773748254
+            ],
+            "descriptive_95pct_H10": [
+              0.010091145833333334,
+              0.025065104166666668
+            ]
+          },
+          "Qwen4__only_vs_BGE__only": {
+            "delta_N10": 0.003021226073981715,
+            "delta_H10": 0.0022786458333333335,
+            "descriptive_95pct_N10": [
+              0.0010630594849480731,
+              0.00499563754756091
+            ],
+            "descriptive_95pct_H10": [
+              -0.0022786458333333335,
+              0.007161458333333333
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__BGE": {
+            "delta_N10": 0.001302441654357933,
+            "delta_H10": 0.0013020833333333333,
+            "descriptive_95pct_N10": [
+              -0.00021893827266336038,
+              0.0027545147051398016
+            ],
+            "descriptive_95pct_H10": [
+              -0.001953125,
+              0.004557291666666667
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__only": {
+            "delta_N10": -0.0008326452633587683,
+            "delta_H10": 0.0029296875,
+            "descriptive_95pct_N10": [
+              -0.002914258716245206,
+              0.0012411465354085264
+            ],
+            "descriptive_95pct_H10": [
+              -0.0016276041666666667,
+              0.007486979166666667
+            ]
+          },
+          "SASRec__BGE_vs_SASRec__only": {
+            "delta_N10": -0.0021350869177167013,
+            "delta_H10": 0.0016276041666666667,
+            "descriptive_95pct_N10": [
+              -0.004699363091101468,
+              0.00022408255763462447
+            ],
+            "descriptive_95pct_H10": [
+              -0.0035807291666666665,
+              0.0068359375
+            ]
+          },
+          "TiSASRec__Qwen4_vs_SASRec__Qwen4": {
+            "delta_N10": -0.0022317846916741126,
+            "delta_H10": -0.004231770833333333,
+            "descriptive_95pct_N10": [
+              -0.0040994337792162475,
+              -0.0003076489043281697
+            ],
+            "descriptive_95pct_H10": [
+              -0.0087890625,
+              0.0003255208333333333
+            ]
+          }
+        }
+      },
+      "training_or_generation_rerun": false,
+      "test_read": false
+    },
+    "Beauty": {
+      "state": "PASSED",
+      "domain": "Beauty",
+      "users": 4096,
+      "methods": 12,
+      "guided_generations": 45056,
+      "output_and_expert_cache_hashes_verified": true,
+      "all_prediction_ranks_verified": true,
+      "all_11_full_catalog_rankings_verified": true,
+      "native_references_exact": true,
+      "shards_complete_and_identical_to_summary": true,
+      "leases_released": true,
+      "training_users_disjoint": true,
+      "evaluation_block_assignment_verified": true,
+      "generation_and_standalone_metrics_recomputed": 1472,
+      "descriptive_intervals_recomputed": 21,
+      "history_fraction_top10": {
+        "native": 0.1089111328125,
+        "SASRec__only": 0.14248046875,
+        "TiSASRec__only": 0.16206054687500004,
+        "ItemCF__only": 0.19509277343750003,
+        "BGE__only": 0.23225097656250002,
+        "Qwen4__only": 0.1749267578125,
+        "SASRec__BGE": 0.20402832031250004,
+        "SASRec__Qwen4": 0.17519531250000003,
+        "TiSASRec__BGE": 0.21479492187500002,
+        "TiSASRec__Qwen4": 0.1881591796875,
+        "ItemCF__BGE": 0.2469482421875,
+        "ItemCF__Qwen4": 0.231787109375
+      },
+      "decision_comparisons": {
+        "all4096": {
+          "SASRec__only_vs_TiSASRec__only": {
+            "delta_N10": 0.0006395402878464232,
+            "delta_H10": -0.001953125,
+            "descriptive_95pct_N10": [
+              -0.001321597799254416,
+              0.0025352821963047644
+            ],
+            "descriptive_95pct_H10": [
+              -0.00634765625,
+              0.002197265625
+            ]
+          },
+          "SASRec__only_vs_ItemCF__only": {
+            "delta_N10": 0.006413552602689273,
+            "delta_H10": 0.0087890625,
+            "descriptive_95pct_N10": [
+              0.0032605802897639957,
+              0.009394715443114869
+            ],
+            "descriptive_95pct_H10": [
+              0.002685546875,
+              0.014404296875
+            ]
+          },
+          "Qwen4__only_vs_BGE__only": {
+            "delta_N10": 0.00334652331038363,
+            "delta_H10": 0.000732421875,
+            "descriptive_95pct_N10": [
+              0.0015704952739236404,
+              0.005121258597867936
+            ],
+            "descriptive_95pct_H10": [
+              -0.003173828125,
+              0.004638671875
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__BGE": {
+            "delta_N10": 0.0016270538996926284,
+            "delta_H10": -0.001220703125,
+            "descriptive_95pct_N10": [
+              0.0002162367065086488,
+              0.0030986388600491113
+            ],
+            "descriptive_95pct_H10": [
+              -0.004150390625,
+              0.001708984375
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__only": {
+            "delta_N10": -7.264626910366383e-06,
+            "delta_H10": 0.000732421875,
+            "descriptive_95pct_N10": [
+              -0.001975751261120179,
+              0.0018396983706137943
+            ],
+            "descriptive_95pct_H10": [
+              -0.003662109375,
+              0.0048828125
+            ]
+          },
+          "SASRec__BGE_vs_SASRec__only": {
+            "delta_N10": -0.0016343185266029948,
+            "delta_H10": 0.001953125,
+            "descriptive_95pct_N10": [
+              -0.003720792179971224,
+              0.0002762992125668661
+            ],
+            "descriptive_95pct_H10": [
+              -0.002685546875,
+              0.006591796875
+            ]
+          },
+          "TiSASRec__Qwen4_vs_SASRec__Qwen4": {
+            "delta_N10": -0.000500923858654855,
+            "delta_H10": 0.00244140625,
+            "descriptive_95pct_N10": [
+              -0.0019605844336977422,
+              0.0009321504026031858
+            ],
+            "descriptive_95pct_H10": [
+              -0.000732421875,
+              0.005615234375
+            ]
+          }
+        },
+        "previous1024": {
+          "SASRec__only_vs_TiSASRec__only": {
+            "delta_N10": 0.0017134324377139655,
+            "delta_H10": -0.001953125,
+            "descriptive_95pct_N10": [
+              -0.002723351570585828,
+              0.006077828198860515
+            ],
+            "descriptive_95pct_H10": [
+              -0.0107421875,
+              0.0068359375
+            ]
+          },
+          "SASRec__only_vs_ItemCF__only": {
+            "delta_N10": 0.006224269446792744,
+            "delta_H10": 0.0009765625,
+            "descriptive_95pct_N10": [
+              -0.0009445438817776014,
+              0.013176629629521758
+            ],
+            "descriptive_95pct_H10": [
+              -0.01171875,
+              0.0126953125
+            ]
+          },
+          "Qwen4__only_vs_BGE__only": {
+            "delta_N10": 0.0037008391160237176,
+            "delta_H10": -0.001953125,
+            "descriptive_95pct_N10": [
+              0.00011508204211068523,
+              0.0074605911639508225
+            ],
+            "descriptive_95pct_H10": [
+              -0.0087890625,
+              0.0048828125
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__BGE": {
+            "delta_N10": 0.0019124819806506806,
+            "delta_H10": -0.0009765625,
+            "descriptive_95pct_N10": [
+              -0.0005118112843193872,
+              0.004493915150222871
+            ],
+            "descriptive_95pct_H10": [
+              -0.0068359375,
+              0.0048828125
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__only": {
+            "delta_N10": -0.0009295106579849994,
+            "delta_H10": 0.001953125,
+            "descriptive_95pct_N10": [
+              -0.005453680623643139,
+              0.003650877344564113
+            ],
+            "descriptive_95pct_H10": [
+              -0.0068359375,
+              0.01171875
+            ]
+          },
+          "SASRec__BGE_vs_SASRec__only": {
+            "delta_N10": -0.00284199263863568,
+            "delta_H10": 0.0029296875,
+            "descriptive_95pct_N10": [
+              -0.007400776354810781,
+              0.00189403169799996
+            ],
+            "descriptive_95pct_H10": [
+              -0.005859375,
+              0.01171875
+            ]
+          },
+          "TiSASRec__Qwen4_vs_SASRec__Qwen4": {
+            "delta_N10": -0.0011880325803094428,
+            "delta_H10": 0.001953125,
+            "descriptive_95pct_N10": [
+              -0.004566760038431544,
+              0.002442674445296937
+            ],
+            "descriptive_95pct_H10": [
+              -0.0048828125,
+              0.0087890625
+            ]
+          }
+        },
+        "remaining3072": {
+          "SASRec__only_vs_TiSASRec__only": {
+            "delta_N10": 0.00028157623789057547,
+            "delta_H10": -0.001953125,
+            "descriptive_95pct_N10": [
+              -0.0018201104168808148,
+              0.0023907809755831784
+            ],
+            "descriptive_95pct_H10": [
+              -0.0068359375,
+              0.0032552083333333335
+            ]
+          },
+          "SASRec__only_vs_ItemCF__only": {
+            "delta_N10": 0.006476646987988115,
+            "delta_H10": 0.011393229166666666,
+            "descriptive_95pct_N10": [
+              0.0029756260523654534,
+              0.009998106099541512
+            ],
+            "descriptive_95pct_H10": [
+              0.004557291666666667,
+              0.017903645833333332
+            ]
+          },
+          "Qwen4__only_vs_BGE__only": {
+            "delta_N10": 0.0032284180418369335,
+            "delta_H10": 0.0016276041666666667,
+            "descriptive_95pct_N10": [
+              0.0010690211567798583,
+              0.005322668067503649
+            ],
+            "descriptive_95pct_H10": [
+              -0.0029296875,
+              0.006184895833333333
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__BGE": {
+            "delta_N10": 0.001531911206039944,
+            "delta_H10": -0.0013020833333333333,
+            "descriptive_95pct_N10": [
+              -0.00018552665817987658,
+              0.003289668604192245
+            ],
+            "descriptive_95pct_H10": [
+              -0.004557291666666667,
+              0.001953125
+            ]
+          },
+          "SASRec__Qwen4_vs_SASRec__only": {
+            "delta_N10": 0.00030015071678117793,
+            "delta_H10": 0.0003255208333333333,
+            "descriptive_95pct_N10": [
+              -0.001786781200383199,
+              0.002302872912846658
+            ],
+            "descriptive_95pct_H10": [
+              -0.004557291666666667,
+              0.0048828125
+            ]
+          },
+          "SASRec__BGE_vs_SASRec__only": {
+            "delta_N10": -0.001231760489258766,
+            "delta_H10": 0.0016276041666666667,
+            "descriptive_95pct_N10": [
+              -0.0034386461415402826,
+              0.0009512013089107242
+            ],
+            "descriptive_95pct_H10": [
+              -0.0035807291666666665,
+              0.0068359375
+            ]
+          },
+          "TiSASRec__Qwen4_vs_SASRec__Qwen4": {
+            "delta_N10": -0.0002718876181033258,
+            "delta_H10": 0.0026041666666666665,
+            "descriptive_95pct_N10": [
+              -0.0018917749525503248,
+              0.0012596653728255247
+            ],
+            "descriptive_95pct_H10": [
+              -0.0009765625,
+              0.006184895833333333
+            ]
+          }
+        }
+      },
+      "training_or_generation_rerun": false,
+      "test_read": false
+    }
+  },
+  "test_read": false,
+  "limitation": "Saved numerical consistency; not a training or generation rerun."
+}

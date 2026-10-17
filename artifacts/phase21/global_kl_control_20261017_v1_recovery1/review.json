@@ -1,0 +1,177 @@
+{
+  "state": "VERIFIED_SAVED_OUTPUTS",
+  "updated_at": "2026-10-17T20:24:58.727818+08:00",
+  "independent_rank_method": "Sort all 50 saved candidates by descending score, then ascending item ID; missing target rank=2**30.",
+  "independent_metrics_checked": 96,
+  "output_and_training_hashes_verified": {
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/predictions.jsonl": "883936d810679fe623fb24e7f2452ca56a782ffd7ac36ece361353bab3fe01df",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/ranks.npz": "090b0149349392503c820a0554c55f0caa674fef675160eacaa16dee639ac913",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/summary.json": "324179dfa75ec56e384c4126df42c3de9923bd3447992f815a2abb206c4fbe82",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/smoke.json": "f2a47cc24ec93f80e10b797e7cbd45f6c50a78cc23eed6dcd9ff328e9ecb9dbd",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/runtime_checks.json": "3249b24ff2cfbb05f4e3e19530d1ccfa557dcaeaed243c107bc14a6ae54548fa",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/global_kl1.pt": "b90adc87a84a4917a586f487c07327eb676ac8be53734f59ca4bcfd7d5e826eb",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/alpha.npy": "2888f5e2d149a4efa1fbdec63538481ead50cdb2d60e6fb1a5afad1792212ec5",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/training.json": "15b714820ade33607aa409ee8c5077b8c7c5b467141caa9ba9dbec30849f15f9",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Toys/replay_checks.json": "36782735100cfae07b2354de10c2b701d25f6f4185969b9e49eb10a66dc90e87",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/predictions.jsonl": "d8e5c4d3d170e17666ea6adb1f724aa8992449401019103a8c3609d2ca805567",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/ranks.npz": "b3141e72567fb460ca9dc74d7db282a280ac8d09f21ec83cae687b20510bd218",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/summary.json": "9b922c7a2f0561b148eff8d6347047d3446a21b3efc853363a26f2211078ba6e",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/smoke.json": "f2a47cc24ec93f80e10b797e7cbd45f6c50a78cc23eed6dcd9ff328e9ecb9dbd",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/runtime_checks.json": "3249b24ff2cfbb05f4e3e19530d1ccfa557dcaeaed243c107bc14a6ae54548fa",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/global_kl1.pt": "8f19fafd2dae9eafadef36c2c3162d115e27428514d9c479384472f0bbf3b5d0",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/alpha.npy": "beb326948f014a0d4e710ca9b4bdcfcb0bc43b343859b7bed0bf2e4b35d6c25b",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/training.json": "4a5032c4d3362f6f5cbccd79d4aaa7cb22f9738e7fc73dfd3b97606b0ba51ee8",
+    "artifacts/phase21/global_kl_control_20261017_v1_recovery1/Beauty/replay_checks.json": "2b8ce09a429f114b0c510e26c8d6bfcd3a7a638d329ff7edbbdebb4c4e9b54ec"
+  },
+  "domains": {
+    "Toys": {
+      "users": 512,
+      "metrics": {
+        "native": {
+          "N5": 0.06075737829607061,
+          "H5": 0.087890625,
+          "N10": 0.0692065274377349,
+          "H10": 0.11328125,
+          "N20": 0.07502910075185698,
+          "H20": 0.13671875,
+          "N50": 0.08572742203597972,
+          "H50": 0.189453125
+        },
+        "fixed03": {
+          "N5": 0.06000886554313756,
+          "H5": 0.09375,
+          "N10": 0.07165301962529254,
+          "H10": 0.12890625,
+          "N20": 0.0794492143026435,
+          "H20": 0.16015625,
+          "N50": 0.09191709886097478,
+          "H50": 0.22265625
+        },
+        "global_nll": {
+          "N5": 0.052616215108599186,
+          "H5": 0.083984375,
+          "N10": 0.06652093249437985,
+          "H10": 0.126953125,
+          "N20": 0.0744517592333807,
+          "H20": 0.158203125,
+          "N50": 0.08954201359209207,
+          "H50": 0.234375
+        },
+        "user_nll": {
+          "N5": 0.05290666884761766,
+          "H5": 0.0859375,
+          "N10": 0.06561418178856128,
+          "H10": 0.125,
+          "N20": 0.07367708709420441,
+          "H20": 0.15625,
+          "N50": 0.08811560533641097,
+          "H50": 0.228515625
+        },
+        "user_kl1": {
+          "N5": 0.060059727242420466,
+          "H5": 0.08984375,
+          "N10": 0.07092170223449058,
+          "H10": 0.123046875,
+          "N20": 0.07932014417115245,
+          "H20": 0.15625,
+          "N50": 0.09184957511500977,
+          "H50": 0.21875
+        },
+        "global_kl1": {
+          "N5": 0.05985380915163199,
+          "H5": 0.087890625,
+          "N10": 0.0715825426153597,
+          "H10": 0.123046875,
+          "N20": 0.07952860673800721,
+          "H20": 0.154296875,
+          "N50": 0.09140566603151648,
+          "H50": 0.212890625
+        }
+      },
+      "alpha": 0.16738562285900116,
+      "fit_development_disjoint": true,
+      "teacher_and_pool_target_indices_match": true,
+      "reference_predictions_identical": true,
+      "trained_inputs_identical_to_original": true,
+      "global_vs_user_N10_relative_pct": 0.9317886627765448,
+      "global_vs_fixed03_N10_relative_pct": -0.09835874370875963
+    },
+    "Beauty": {
+      "users": 512,
+      "metrics": {
+        "native": {
+          "N5": 0.07526941317646474,
+          "H5": 0.10546875,
+          "N10": 0.08521536349240154,
+          "H10": 0.13671875,
+          "N20": 0.09307390553430332,
+          "H20": 0.16796875,
+          "N50": 0.10795124128560103,
+          "H50": 0.2421875
+        },
+        "fixed03": {
+          "N5": 0.0752357392275177,
+          "H5": 0.109375,
+          "N10": 0.08714152074545811,
+          "H10": 0.146484375,
+          "N20": 0.09385025327767778,
+          "H20": 0.173828125,
+          "N50": 0.1086775791632796,
+          "H50": 0.248046875
+        },
+        "global_nll": {
+          "N5": 0.07304655109656609,
+          "H5": 0.109375,
+          "N10": 0.0831487619986565,
+          "H10": 0.140625,
+          "N20": 0.09151629562370911,
+          "H20": 0.173828125,
+          "N50": 0.10988899508885538,
+          "H50": 0.265625
+        },
+        "user_nll": {
+          "N5": 0.07277575640154028,
+          "H5": 0.109375,
+          "N10": 0.08299068776631718,
+          "H10": 0.140625,
+          "N20": 0.09185353664758177,
+          "H20": 0.17578125,
+          "N50": 0.1079848483969086,
+          "H50": 0.255859375
+        },
+        "user_kl1": {
+          "N5": 0.07802090735658776,
+          "H5": 0.109375,
+          "N10": 0.08884014144527316,
+          "H10": 0.142578125,
+          "N20": 0.09609107400555417,
+          "H20": 0.171875,
+          "N50": 0.11091412105177127,
+          "H50": 0.24609375
+        },
+        "global_kl1": {
+          "N5": 0.07792024157314907,
+          "H5": 0.109375,
+          "N10": 0.08813310949082147,
+          "H10": 0.140625,
+          "N20": 0.09597564354207885,
+          "H20": 0.171875,
+          "N50": 0.1119745896118699,
+          "H50": 0.251953125
+        }
+      },
+      "alpha": 0.1439407765865326,
+      "fit_development_disjoint": true,
+      "teacher_and_pool_target_indices_match": true,
+      "reference_predictions_identical": true,
+      "trained_inputs_identical_to_original": true,
+      "global_vs_user_N10_relative_pct": -0.7958473984276959,
+      "global_vs_fixed03_N10_relative_pct": 1.1379061747841313
+    }
+  },
+  "leases_released": true,
+  "test_read": false,
+  "new_gpu_jobs_started": false,
+  "limitations": "Same reused development cohort, one training seed, post-hoc control. Bootstrap intervals are unadjusted descriptive intervals, not independent confirmation.",
+  "interpretation": "Same-KL user alpha has no consistent two-domain gain over global alpha; absence of a detectable gain is not proof of equivalence."
+}

@@ -1,0 +1,14 @@
+{
+  "updated_at": "2026-10-17T18:13:46+08:00",
+  "reason": "Standalone diagnostic incorrectly decremented teacher targets, which were already zero-based.",
+  "affected_outputs": [
+    "gold_path_mass_preflight.json",
+    "target_path_preflight.json",
+    "mechanism preflight report"
+  ],
+  "main_training_affected": false,
+  "main_generation_affected": false,
+  "main_inputs_changed": false,
+  "verification": "Targets equal sample target-1 and pool IDs-1; expert logs and NLL agree with main training audit.",
+  "old_outputs_preserved": "corrections_before_target_index_fix"
+}

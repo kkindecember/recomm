@@ -1,0 +1,63 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "arms": [
+    "fixed",
+    "user_nll",
+    "user_kl",
+    "user_kl_fwd"
+  ],
+  "expert_pair": [
+    "SASRec",
+    "BGE"
+  ],
+  "user_dimension": 10,
+  "hidden_width": 32,
+  "total_parameters": 451,
+  "adapted_parameters": 33,
+  "frozen_beta": true,
+  "frozen_shared_trunk": true,
+  "loss": "target-path NLL; anchored arms add lambda * pool KL (reverse or forward)",
+  "lambda_value": 0.01,
+  "lambda_rule": "ceiling of NLL/KL exchange rate at grid argmin NLL",
+  "lambda_sensitivity_grid": [
+    0.001,
+    0.01,
+    0.1
+  ],
+  "lambda_sensitivity_is_selection": false,
+  "pool": "target + native beam top10 + SASRec top10 + BGE top10, max 31",
+  "evaluation_users": 512,
+  "input_validation_slice": [
+    512,
+    1024
+  ],
+  "history_filter": false,
+  "history_penalty": false,
+  "test_read": false,
+  "expert_training": false,
+  "gram_optimizer_steps": 0,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "worker_timeout_seconds": 14400,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "stop_after": "four arms x fixed new512 per domain; no automatic next run"
+}

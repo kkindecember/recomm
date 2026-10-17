@@ -1,0 +1,221 @@
+{
+  "conclusion": "All six selected heads use epoch0 and exact-zero residuals. No gain was observed; active trained heads were not evaluated on development users.",
+  "domains": {
+    "Toys": {
+      "learning": {
+        "residual_hard": {
+          "selected_epochs": 0,
+          "selection_curve": [
+            {
+              "epoch": 0,
+              "loss": 8.708882783769488
+            },
+            {
+              "epoch": 5,
+              "loss": 9.017729283238316
+            },
+            {
+              "epoch": 10,
+              "loss": 9.159422958648957
+            },
+            {
+              "epoch": 20,
+              "loss": 9.29353738561407
+            },
+            {
+              "epoch": 40,
+              "loss": 9.510180559244242
+            }
+          ],
+          "training_loss_first": 8.809311565660895,
+          "training_loss_last": 5.752048808585967,
+          "train_users": 1647,
+          "stop_users": 555,
+          "parameters": 73760
+        },
+        "text_hard": {
+          "selected_epochs": 0,
+          "selection_curve": [
+            {
+              "epoch": 0,
+              "loss": 3.9287209175728464
+            },
+            {
+              "epoch": 5,
+              "loss": 4.2198781030672095
+            },
+            {
+              "epoch": 10,
+              "loss": 4.389871987351426
+            },
+            {
+              "epoch": 20,
+              "loss": 4.580365986866994
+            },
+            {
+              "epoch": 40,
+              "loss": 4.859447554854659
+            }
+          ],
+          "training_loss_first": 3.927623173650569,
+          "training_loss_last": 1.3208296883084518,
+          "train_users": 1647,
+          "stop_users": 555,
+          "parameters": 73760
+        },
+        "residual_random": {
+          "selected_epochs": 0,
+          "selection_curve": [
+            {
+              "epoch": 0,
+              "loss": 3.9203467927537523
+            },
+            {
+              "epoch": 5,
+              "loss": 4.026506809715752
+            },
+            {
+              "epoch": 10,
+              "loss": 4.146864540512498
+            },
+            {
+              "epoch": 20,
+              "loss": 4.296675440212628
+            },
+            {
+              "epoch": 40,
+              "loss": 4.433651798695057
+            }
+          ],
+          "training_loss_first": 4.025292194171898,
+          "training_loss_last": 1.7445919554958795,
+          "train_users": 1647,
+          "stop_users": 555,
+          "parameters": 73760
+        }
+      },
+      "gram_sas_N10": {
+        "off": 0.08017704362620862,
+        "bge_cal": 0.08046656407141083,
+        "bge_fixed1": 0.07816680833518061,
+        "residual_hard_cal": 0.08017704362620862,
+        "residual_hard_fixed1": 0.08017704362620862
+      },
+      "raw_BGE_calibrated_strength": 0.5,
+      "raw_BGE_calibrated_vs_off_delta_N10": 0.0002895204452022074,
+      "raw_BGE_calibrated_vs_off_descriptive_CI": [
+        -0.0014887281436899527,
+        0.002026612408507462
+      ]
+    },
+    "Beauty": {
+      "learning": {
+        "residual_hard": {
+          "selected_epochs": 0,
+          "selection_curve": [
+            {
+              "epoch": 0,
+              "loss": 8.918169131757278
+            },
+            {
+              "epoch": 5,
+              "loss": 9.255000743460148
+            },
+            {
+              "epoch": 10,
+              "loss": 9.401412105850174
+            },
+            {
+              "epoch": 20,
+              "loss": 9.507482340270625
+            },
+            {
+              "epoch": 40,
+              "loss": 9.610411330921671
+            }
+          ],
+          "training_loss_first": 8.795192064516325,
+          "training_loss_last": 5.904792415872178,
+          "train_users": 1973,
+          "stop_users": 658,
+          "parameters": 73760
+        },
+        "text_hard": {
+          "selected_epochs": 0,
+          "selection_curve": [
+            {
+              "epoch": 0,
+              "loss": 3.928394215447562
+            },
+            {
+              "epoch": 5,
+              "loss": 4.286599825943132
+            },
+            {
+              "epoch": 10,
+              "loss": 4.4727187127690184
+            },
+            {
+              "epoch": 20,
+              "loss": 4.636728875180508
+            },
+            {
+              "epoch": 40,
+              "loss": 4.8012311132483205
+            }
+          ],
+          "training_loss_first": 3.940695417030052,
+          "training_loss_last": 1.4373265798479786,
+          "train_users": 1973,
+          "stop_users": 658,
+          "parameters": 73760
+        },
+        "residual_random": {
+          "selected_epochs": 0,
+          "selection_curve": [
+            {
+              "epoch": 0,
+              "loss": 4.04025894747679
+            },
+            {
+              "epoch": 5,
+              "loss": 4.224251276091602
+            },
+            {
+              "epoch": 10,
+              "loss": 4.393118567017436
+            },
+            {
+              "epoch": 20,
+              "loss": 4.560269167358028
+            },
+            {
+              "epoch": 40,
+              "loss": 4.743237608471902
+            }
+          ],
+          "training_loss_first": 4.000374771529989,
+          "training_loss_last": 1.8157086354249392,
+          "train_users": 1973,
+          "stop_users": 658,
+          "parameters": 73760
+        }
+      },
+      "gram_sas_N10": {
+        "off": 0.06950253870303547,
+        "bge_cal": 0.06950253870303547,
+        "bge_fixed1": 0.06800523541216386,
+        "residual_hard_cal": 0.06950253870303547,
+        "residual_hard_fixed1": 0.06950253870303547
+      },
+      "raw_BGE_calibrated_strength": 0.0,
+      "raw_BGE_calibrated_vs_off_delta_N10": -0.0,
+      "raw_BGE_calibrated_vs_off_descriptive_CI": [
+        -0.0,
+        -0.0
+      ]
+    }
+  },
+  "next_experiment_started": false,
+  "test_read": false
+}

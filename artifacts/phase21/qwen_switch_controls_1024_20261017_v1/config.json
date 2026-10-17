@@ -1,0 +1,63 @@
+{
+  "users_per_domain": 1024,
+  "source_validation_slice": [
+    1024,
+    2048
+  ],
+  "alpha": 0.3,
+  "beta_pair": [
+    0.5,
+    0.5
+  ],
+  "history_penalty_lambda": 0.05,
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "arms": [
+    "pair_qwen_raw",
+    "pair_qwen_loo",
+    "pair_qwen_raw_penalty",
+    "pair_qwen_loo_penalty",
+    "qwen_raw",
+    "qwen_loo",
+    "qwen_raw_penalty",
+    "qwen_loo_penalty"
+  ],
+  "fresh_arms": [
+    "pair_qwen_loo",
+    "pair_qwen_raw_penalty",
+    "pair_qwen_loo_penalty",
+    "qwen_loo",
+    "qwen_raw_penalty",
+    "qwen_loo_penalty"
+  ],
+  "history_filter": false,
+  "penalty_scope": "full_history",
+  "penalty_location": "fused expert scores before softmax",
+  "self_exclusion": "candidate leave-all-own-occurrences-out, original minmax, clip [0,1], no extra old-score cap",
+  "generic_control": "uniform vs uniform_penalty; both alpha=.3; separate native reference",
+  "fusion_network": false,
+  "training_steps": 0,
+  "test_read": false,
+  "source": "artifacts/phase21/selfmatch_history_1024_20261017_v1",
+  "shards_per_domain": 4,
+  "max_parallel": null,
+  "avoid_active_source_gpus": false,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "worker_timeout_seconds": 43200,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "bootstrap_repeats": 2000,
+  "stop_after": "complete all prescribed Qwen switches and matched development text selection; no automatic next run",
+  "users_per_job": 256,
+  "content_model": "Qwen3-Embedding-4B",
+  "beta_single": 1.0,
+  "project_gpu_task_cap": null,
+  "gpu_admission": "free memory only; same GPU sharing allowed; no old queue gate",
+  "fresh_generations_total": 12288,
+  "primary_setting": "loo_penalty",
+  "selection_rule": "worst-domain relative N10 vs common SASRec+penalty, then mean relative N10, mean relative H10, BGE"
+}

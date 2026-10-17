@@ -1,0 +1,86 @@
+{
+  "domains": {
+    "Toys": {
+      "metrics": {
+        "native": {
+          "H5": 0.0859375,
+          "N5": 0.05904964331297206,
+          "H10": 0.109375,
+          "N10": 0.0667938668119501,
+          "H20": 0.1455078125,
+          "N20": 0.0758516529729332,
+          "H50": 0.1982421875,
+          "N50": 0.08649903148638768
+        },
+        "frozen_global": {
+          "H5": 0.087890625,
+          "N5": 0.05888478291167276,
+          "H10": 0.12109375,
+          "N10": 0.0697468483541992,
+          "H20": 0.162109375,
+          "N20": 0.08020523362906505,
+          "H50": 0.2373046875,
+          "N50": 0.09495729104634774
+        }
+      },
+      "checkpoint": {
+        "state": "PASSED",
+        "frozen_beta_and_trunk_exact": true,
+        "matching_feature_normalization": true,
+        "fit_users_same": true,
+        "export_users": 1024,
+        "learned_global_alpha": 0.6006217002868652,
+        "selected_epochs": 20,
+        "cpu_sigmoid_vs_cached_max_abs": 0.0,
+        "cached_alpha_replayed_exactly": true,
+        "trained_parameters": 1,
+        "training_steps_this_run": 0,
+        "source": "artifacts/phase21/joint_fusion_20261015_v2/Toys/qwen4_calibrate.pt",
+        "comparison": "same CE beta, same target-path NLL and internal-fold budget; only alpha parameterization differs",
+        "reference_user_alpha_checkpoint": "artifacts/phase21/qwen4_alpha_rank_1024_20261017_v1/Toys/user_nll.pt"
+      }
+    },
+    "Beauty": {
+      "metrics": {
+        "native": {
+          "H5": 0.1005859375,
+          "N5": 0.0691543160015205,
+          "H10": 0.1240234375,
+          "N10": 0.0767130408654238,
+          "H20": 0.15625,
+          "N20": 0.08485122567325062,
+          "H50": 0.2275390625,
+          "N50": 0.09901279062108018
+        },
+        "frozen_global": {
+          "H5": 0.109375,
+          "N5": 0.0758664246181933,
+          "H10": 0.1396484375,
+          "N10": 0.0854663084487054,
+          "H20": 0.17578125,
+          "N20": 0.09437983793692269,
+          "H50": 0.2490234375,
+          "N50": 0.10885974070379852
+        }
+      },
+      "checkpoint": {
+        "state": "PASSED",
+        "frozen_beta_and_trunk_exact": true,
+        "matching_feature_normalization": true,
+        "fit_users_same": true,
+        "export_users": 1024,
+        "learned_global_alpha": 0.502507746219635,
+        "selected_epochs": 8,
+        "cpu_sigmoid_vs_cached_max_abs": 5.960464477539063e-08,
+        "cached_alpha_replayed_exactly": true,
+        "trained_parameters": 1,
+        "training_steps_this_run": 0,
+        "source": "artifacts/phase21/joint_fusion_20261015_v2/Beauty/qwen4_calibrate.pt",
+        "comparison": "same CE beta, same target-path NLL and internal-fold budget; only alpha parameterization differs",
+        "reference_user_alpha_checkpoint": "artifacts/phase21/qwen4_alpha_rank_1024_20261017_v1/Beauty/user_nll.pt"
+      }
+    }
+  },
+  "test_read": false,
+  "training_steps": 0
+}

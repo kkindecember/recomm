@@ -1,0 +1,38 @@
+{
+  "prefix": {
+    "state": "PASSED",
+    "prefix_no_future_features": true,
+    "calibration_users_not_augmented": true,
+    "equal_users_and_steps_per_epoch": true,
+    "identical_first_epoch": true,
+    "deterministic_complete_prefix_cycle": true
+  },
+  "adapter": {
+    "state": "PASSED",
+    "zero_adapter_exact": true,
+    "residual_CE_independent": true,
+    "first_step_gradient": true,
+    "numpy_direct_projection_matches": true,
+    "bounded_correction": true,
+    "batch_invariance": true,
+    "deterministic_target_free_top50": true,
+    "supervised_training_pool_deduplicated": true,
+    "targets_absent_from_forward": true
+  },
+  "end_to_end_training": "PASSED",
+  "first_epoch_factorial_parity": {
+    "state": "PASSED",
+    "first_epoch_weights_exact": [
+      [
+        "terminal_rank32",
+        "prefix_rank32"
+      ],
+      [
+        "terminal_rank4",
+        "residual_hard"
+      ]
+    ],
+    "same_users_and_optimizer_steps": true
+  },
+  "all_methods_1024_user_evaluation_fixture": "PASSED"
+}

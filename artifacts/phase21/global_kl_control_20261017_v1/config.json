@@ -1,0 +1,63 @@
+{
+  "seed": 0,
+  "epochs": 20,
+  "checkpoints": [
+    0,
+    4,
+    8,
+    12,
+    20
+  ],
+  "batch_size": 32,
+  "lr": 0.002,
+  "weight_decay": 0.001,
+  "score_scale": 20.0,
+  "alpha_initial": 0.3,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "expert_pair": [
+    "SASRec",
+    "BGE"
+  ],
+  "beta": [
+    0.5,
+    0.5
+  ],
+  "beta_training": false,
+  "arms": [
+    "global_kl1"
+  ],
+  "learned": {
+    "global_kl1": [
+      true,
+      false,
+      0.1
+    ]
+  },
+  "lambda_grid": [
+    0.1
+  ],
+  "evaluation_users": 512,
+  "input_validation_slice": [
+    512,
+    1024
+  ],
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "test_read": false,
+  "expert_training": false,
+  "gram_optimizer_steps": 0,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "max_parallel": 2,
+  "worker_timeout_seconds": 1800,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "stop_after": "one additional arm x same512 in each domain; no automatic expansion",
+  "trainable_parameters": 1,
+  "training_backend": "CPU float32; historical global_nll replay guard",
+  "baseline_replay_tolerance": 2e-05
+}

@@ -1,0 +1,74 @@
+{
+  "users_per_domain": 1024,
+  "source_indices": [
+    1024,
+    2048
+  ],
+  "proposals": [
+    "native",
+    "sas"
+  ],
+  "candidate_count": 50,
+  "rerank_arms": [
+    "off",
+    "bge",
+    "attribute",
+    "attribute_no_confidence",
+    "attribute_prior",
+    "attribute_history_shuffled",
+    "attribute_item_shuffled"
+  ],
+  "hidden": 64,
+  "seed": 0,
+  "epochs": 60,
+  "checkpoints": [
+    0,
+    5,
+    10,
+    20,
+    40,
+    60
+  ],
+  "batch_size": 128,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "minimum_attribute_support": 3,
+  "temperatures": [
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
+  "strengths": [
+    0.0,
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "attributes": [
+    "coarse_category",
+    "fine_category",
+    "brand"
+  ],
+  "fitting": "hash folds2/3/4; stop fold1; refit folds1/2/3/4; calibrate fold0",
+  "calibration_proposal": "cached native GRAM50, shared by every arm; transfer to SAS-guided proposal",
+  "input": "BGE full-history recency mean plus last-item text vector",
+  "confidence": "temperature-scaled posterior normalized entropy, not guaranteed reliability",
+  "score": "per-user std-normalized generated score minus strength times bounded penalty",
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "gram_training_steps": 0,
+  "expert_training_steps": 0,
+  "gpu_used": false,
+  "cpu_threads": 2,
+  "max_parallel": 1,
+  "worker_timeout_seconds": 3600,
+  "scientific_auto_retry": false,
+  "bootstrap_repeats": 2000,
+  "test_read": false,
+  "automatic_next_experiment": false
+}

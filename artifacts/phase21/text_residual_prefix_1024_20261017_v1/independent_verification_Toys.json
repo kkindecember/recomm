@@ -1,0 +1,74 @@
+{
+  "state": "PASSED",
+  "domain": "Toys",
+  "users": 1024,
+  "training_outputs_hashes_verified": true,
+  "every_prefix_and_user_fold_verified": true,
+  "active_nonzero_models": 6,
+  "saved_selection_rank_metrics_verified": true,
+  "selected_checkpoint_forward_ranks_verified": true,
+  "all_user_model_corrections_verified": true,
+  "max_forward_error": 1.6093254089355469e-06,
+  "all_user_predictions_scores_and_ranks_verified": true,
+  "candidate_sets_and_H50_unchanged": true,
+  "groups_recomputed": 8,
+  "metrics_recomputed": 3328,
+  "training": {
+    "terminal_rank32": {
+      "selected_epochs": 1,
+      "parameters": 73760,
+      "selected_stopping_N10": 0.048716222807879996,
+      "epoch0_stopping_N10": 0.0487183098804857,
+      "refit_unique_examples": 2202,
+      "refit_unique_nonterminal_examples": 0,
+      "calibrated_strength": 2.0
+    },
+    "prefix_rank32": {
+      "selected_epochs": 1,
+      "parameters": 73760,
+      "selected_stopping_N10": 0.048716222807879996,
+      "epoch0_stopping_N10": 0.0487183098804857,
+      "refit_unique_examples": 2202,
+      "refit_unique_nonterminal_examples": 0,
+      "calibrated_strength": 2.0
+    },
+    "terminal_rank4": {
+      "selected_epochs": 1,
+      "parameters": 9220,
+      "selected_stopping_N10": 0.04931199372670917,
+      "epoch0_stopping_N10": 0.0487183098804857,
+      "refit_unique_examples": 2202,
+      "refit_unique_nonterminal_examples": 0,
+      "calibrated_strength": 1.0
+    },
+    "residual_hard": {
+      "selected_epochs": 1,
+      "parameters": 9220,
+      "selected_stopping_N10": 0.04931199372670917,
+      "epoch0_stopping_N10": 0.0487183098804857,
+      "refit_unique_examples": 2202,
+      "refit_unique_nonterminal_examples": 0,
+      "calibrated_strength": 1.0
+    },
+    "text_hard": {
+      "selected_epochs": 2,
+      "parameters": 9220,
+      "selected_stopping_N10": 0.05008354526259705,
+      "epoch0_stopping_N10": 0.0487183098804857,
+      "refit_unique_examples": 4404,
+      "refit_unique_nonterminal_examples": 2202,
+      "calibrated_strength": 2.0
+    },
+    "residual_random": {
+      "selected_epochs": 20,
+      "parameters": 9220,
+      "selected_stopping_N10": 0.05023020634094983,
+      "epoch0_stopping_N10": 0.0487183098804857,
+      "refit_unique_examples": 8997,
+      "refit_unique_nonterminal_examples": 6795,
+      "calibrated_strength": 1.0
+    }
+  },
+  "test_read": false,
+  "training_rerun": false
+}

@@ -1,0 +1,31 @@
+{
+  "state": "PASSED",
+  "cases_verified": 6,
+  "all_saved_routing_rank_metrics_and_budget_counts_verified": true,
+  "saved_pool_coverage_and_uniqueness_verified": true,
+  "interpretation": {
+    "corrected_BGE": {
+      "Toys": {
+        "rescued": 15,
+        "lost": 11,
+        "rescued_already_in_sas50": 12,
+        "pool_inside_but_missed10": 89
+      },
+      "Beauty": {
+        "rescued": 8,
+        "lost": 14,
+        "rescued_already_in_sas50": 8,
+        "pool_inside_but_missed10": 92
+      }
+    },
+    "no_prespecified_low_gap_route_positive_in_both_domains": true,
+    "equal_budget50_simple_mix": "Corrected BGE: only +4 users Toys and +3 Beauty in coverage; not ranking improvement.",
+    "future_priority": "Candidate-level benefit/risk and local reranking on actual SAS-guided candidates; richer intervention evidence required; current simple gap routes do not establish a solution.",
+    "training_limitation": "Existing residual training used catalog SASTop50, while final deployment uses GRAM+SAS candidates; matched calibration did not change that training-pool mismatch. This is a hypothesis to investigate, not proven cause.",
+    "no_gpu": true,
+    "no_training": true,
+    "no_active_qwen_outcomes_used": true
+  },
+  "updated_at": "2026-10-17T18:46:40.327408+08:00",
+  "test_read": false
+}

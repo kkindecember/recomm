@@ -1,0 +1,58 @@
+{
+  "users_per_domain": 4096,
+  "reused_learned_users_per_domain": 512,
+  "new_learned_users_per_domain": 3584,
+  "arms": [
+    "native",
+    "fixed03",
+    "global_kl1",
+    "user_kl1"
+  ],
+  "beta": [
+    0.5,
+    0.5
+  ],
+  "expert_pair": [
+    "SASRec",
+    "BGE"
+  ],
+  "lambda_value": 0.1,
+  "score_scale": 20.0,
+  "beam_size": 50,
+  "length_penalty": 1.0,
+  "frozen_models": true,
+  "training_steps": 0,
+  "gram_optimizer_steps": 0,
+  "expert_training_steps": 0,
+  "history_filter": false,
+  "history_penalty": false,
+  "text_self_exclusion": false,
+  "test_read": false,
+  "evaluation_blocks": 5,
+  "block_seed": "fixed-expert-screen-20261017",
+  "shards_per_domain": 2,
+  "total_lease_mib": 16384,
+  "expected_workload_peak_mib": 12288,
+  "minimum_free_mib": 18432,
+  "allocation_limit_gib": 11,
+  "workload_preallocation_mib": 10240,
+  "stable_snapshots": 3,
+  "poll_seconds": 5,
+  "worker_timeout_seconds": 21600,
+  "resource_wait_seconds": 86400,
+  "scientific_auto_retry": false,
+  "per_gpu_active_jobs": 1,
+  "cohort": "existing wide4096 development users; includes previously inspected512",
+  "groups": [
+    "all4096",
+    "previous512",
+    "additional3584",
+    "block0",
+    "block1",
+    "block2",
+    "block3",
+    "block4"
+  ],
+  "primary_contrast": "user_kl1 vs global_kl1 on additional3584, domains separately",
+  "stop_after": "all four arms for both domains; no automatic next experiment"
+}

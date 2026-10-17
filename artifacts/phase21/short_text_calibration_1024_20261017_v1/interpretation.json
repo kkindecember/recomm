@@ -1,0 +1,114 @@
+{
+  "updated_at": "2026-10-17T18:07:56.730040+08:00",
+  "domains": {
+    "Toys": {
+      "baseline_N10": 0.08017704362620862,
+      "policies": {
+        "fixed1": {
+          "N10_mean": 0.08033669016273991,
+          "N10_min": 0.07930512672009789,
+          "N10_max": 0.08100100044113866,
+          "relative_percent": 0.1991175145788393
+        },
+        "catalog_cal": {
+          "N10_mean": 0.07988831503419748,
+          "N10_min": 0.07901148169993077,
+          "N10_max": 0.08100100044113866,
+          "relative_percent": -0.36011379186942083
+        },
+        "native_cal": {
+          "N10_mean": 0.07987482269070972,
+          "N10_min": 0.0794592367202975,
+          "N10_max": 0.08051276839030863,
+          "relative_percent": -0.37694197968669574
+        },
+        "guided_cal": {
+          "N10_mean": 0.07986855396109727,
+          "N10_min": 0.07930512672009789,
+          "N10_max": 0.0801917917584575,
+          "relative_percent": -0.3847605887659755
+        }
+      },
+      "independent_numerical_review": {
+        "state": "PASSED",
+        "users": 1024,
+        "models": 9,
+        "calibration_users": 571,
+        "all_saved_hashes_orders_ranks_metrics_verified": true,
+        "all_user_numpy_scores_verified": true,
+        "all_calibration_grids_recomputed": true,
+        "training_order_and_seed0_parity_verified": true,
+        "candidate_sets_and_H50_unchanged": true,
+        "max_score_error": 1.1026859283447266e-06,
+        "metrics_recomputed": 10432,
+        "training_rerun": false,
+        "test_read": false
+      },
+      "conclusion": "No stable improvement across the three prescribed seeds; no successful dual-expert conclusion."
+    },
+    "Beauty": {
+      "baseline_N10": 0.06950253870303547,
+      "policies": {
+        "fixed1": {
+          "N10_mean": 0.06890254051943483,
+          "N10_min": 0.0682138565381404,
+          "N10_max": 0.070086560394637,
+          "relative_percent": -0.8632752051896397
+        },
+        "catalog_cal": {
+          "N10_mean": 0.06916315844056885,
+          "N10_min": 0.0682138565381404,
+          "N10_max": 0.070086560394637,
+          "relative_percent": -0.4882990877738913
+        },
+        "native_cal": {
+          "N10_mean": 0.069137427343866,
+          "N10_min": 0.06840720462552706,
+          "N10_max": 0.06950253870303547,
+          "relative_percent": -0.5253208961610412
+        },
+        "guided_cal": {
+          "N10_mean": 0.06951682802774883,
+          "N10_min": 0.06914229999102856,
+          "N10_max": 0.070086560394637,
+          "relative_percent": 0.020559428446809136
+        }
+      },
+      "independent_numerical_review": {
+        "state": "PASSED",
+        "users": 1024,
+        "models": 9,
+        "calibration_users": 679,
+        "all_saved_hashes_orders_ranks_metrics_verified": true,
+        "all_user_numpy_scores_verified": true,
+        "all_calibration_grids_recomputed": true,
+        "training_order_and_seed0_parity_verified": true,
+        "candidate_sets_and_H50_unchanged": true,
+        "max_score_error": 4.5821070671081543e-07,
+        "metrics_recomputed": 10432,
+        "training_rerun": false,
+        "test_read": false
+      },
+      "conclusion": "No stable improvement across the three prescribed seeds; no successful dual-expert conclusion."
+    }
+  },
+  "training_rerun": false,
+  "test_read": false,
+  "seed_mean_is_not_ensemble": true,
+  "statistical_review": {
+    "coverage": "11/11",
+    "simpson": "Domains/groups separated.",
+    "ecological": "No universal user benefit.",
+    "berkson": "Fixed development users.",
+    "collider": "Evaluation pools target-free; all absent targets retained.",
+    "base_rate": "All1024 users per domain.",
+    "regression_to_mean": "Reused development data, exploratory.",
+    "survivorship": "All heads and calibrated/nonzero controls retained.",
+    "look_elsewhere": "All planned descriptive intervals, unadjusted.",
+    "forking_paths": "Model/negative pools/splits/budgets frozen.",
+    "causation": "Postrerank only; identical-budget controls; transfer limitation.",
+    "reverse_causality": "Training targets supervised only; no target in inference."
+  },
+  "wrong_history_control": "All three guided-cal real-vs-shuffled 95% intervals cover zero in both domains.",
+  "next_experiment_started": false
+}
