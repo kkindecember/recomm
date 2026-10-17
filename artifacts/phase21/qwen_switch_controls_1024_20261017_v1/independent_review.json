@@ -1,0 +1,87 @@
+{
+  "state": "PASSED",
+  "input_hashes_verified": 126,
+  "recovery_original_12_and_new_244_byte_exact": true,
+  "seven_old_shards_hashes_unchanged": true,
+  "selected_text_expert": "qwen",
+  "selection_rule_independently_verified": true,
+  "domains": {
+    "Toys": {
+      "state": "PASSED",
+      "domain": "Toys",
+      "users": 1024,
+      "methods": 19,
+      "all_prediction_ranks_verified": 19456,
+      "all_pure_qwen_ranks_verified": 8192,
+      "all_8_group_metrics_recomputed": true,
+      "output_hashes_verified": true,
+      "shard_metadata_and_cached_comparisons_exact": true,
+      "all_eight_smoke_and_runtime_passed": true,
+      "all_leases_released": true,
+      "descriptive_intervals_recomputed": 28,
+      "primary_pair_vs_sas": {
+        "delta_N10": 0.003066590421801449,
+        "delta_H10": 0.0048828125,
+        "descriptive_95pct_N10": [
+          -0.0009704575883432505,
+          0.007127443484783146
+        ],
+        "descriptive_95pct_H10": [
+          -0.00390625,
+          0.013696289062499867
+        ],
+        "top10_gained": 14,
+        "top10_lost": 9
+      },
+      "relative_N10_vs_sas": 0.03806284211237232,
+      "first_second512_relative_N10_vs_sas": {
+        "first512": 0.05355614962039601,
+        "second512": 0.022612136428679985
+      },
+      "blocks_above_sas": 4,
+      "cpu_only": true,
+      "training_or_generation_rerun": false,
+      "test_read": false
+    },
+    "Beauty": {
+      "state": "PASSED",
+      "domain": "Beauty",
+      "users": 1024,
+      "methods": 19,
+      "all_prediction_ranks_verified": 19456,
+      "all_pure_qwen_ranks_verified": 8192,
+      "all_8_group_metrics_recomputed": true,
+      "output_hashes_verified": true,
+      "shard_metadata_and_cached_comparisons_exact": true,
+      "all_eight_smoke_and_runtime_passed": true,
+      "all_leases_released": true,
+      "descriptive_intervals_recomputed": 28,
+      "primary_pair_vs_sas": {
+        "delta_N10": 0.0014185867034834476,
+        "delta_H10": 0.0009765625,
+        "descriptive_95pct_N10": [
+          -0.002304986787390533,
+          0.0051660739434964565
+        ],
+        "descriptive_95pct_H10": [
+          -0.0078125,
+          0.0107421875
+        ],
+        "top10_gained": 12,
+        "top10_lost": 11
+      },
+      "relative_N10_vs_sas": 0.020035946863917298,
+      "first_second512_relative_N10_vs_sas": {
+        "first512": 0.05143989488585721,
+        "second512": -0.001259074384145742
+      },
+      "blocks_above_sas": 4,
+      "cpu_only": true,
+      "training_or_generation_rerun": false,
+      "test_read": false
+    }
+  },
+  "cpu_only": true,
+  "test_read": false,
+  "limitation": "Saved numerical verification on reused development users; no independent training-seed or held-out confirmation."
+}

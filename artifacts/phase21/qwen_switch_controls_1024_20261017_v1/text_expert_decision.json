@@ -1,0 +1,67 @@
+{
+  "selected_development_text_expert": "qwen",
+  "candidates": {
+    "bge": {
+      "relative_N10_vs_common_sas": {
+        "Toys": 0.04631534831717632,
+        "Beauty": -0.01642459836875987
+      },
+      "worst_domain_relative_N10": -0.01642459836875987,
+      "mean_relative_N10": 0.014945374974208225,
+      "mean_relative_H10": -0.0101565532410402,
+      "pair_above_both_matching_singles_by_mean": {
+        "Toys": true,
+        "Beauty": false
+      },
+      "both_domains_above_both_singles_by_mean": false
+    },
+    "qwen": {
+      "relative_N10_vs_common_sas": {
+        "Toys": 0.03806284211237232,
+        "Beauty": 0.020035946863917298
+      },
+      "worst_domain_relative_N10": 0.020035946863917298,
+      "mean_relative_N10": 0.02904939448814481,
+      "mean_relative_H10": 0.02332125760124204,
+      "pair_above_both_matching_singles_by_mean": {
+        "Toys": true,
+        "Beauty": true
+      },
+      "both_domains_above_both_singles_by_mean": true
+    }
+  },
+  "rule": "maximize worst-domain relative N10 vs common SASRec+penalty; ties: mean relative N10, mean relative H10, BGE",
+  "primary_setting": "leave-self-out + history penalty .05",
+  "independent_confirmation": false,
+  "statistical_superiority_claim": false,
+  "corrected_qwen_minus_bge": {
+    "Toys": {
+      "delta_N10": -0.0006648756393123408,
+      "delta_H10": 0.0009765625,
+      "descriptive_95pct_N10": [
+        -0.003584534505357918,
+        0.002038002447065921
+      ],
+      "descriptive_95pct_H10": [
+        -0.0048828125,
+        0.0078125
+      ],
+      "top10_gained": 6,
+      "top10_lost": 5
+    },
+    "Beauty": {
+      "delta_N10": 0.0025814824235723937,
+      "delta_H10": 0.0068359375,
+      "descriptive_95pct_N10": [
+        -0.00011757410627379298,
+        0.005160232132184499
+      ],
+      "descriptive_95pct_H10": [
+        0.001953125,
+        0.0126953125
+      ],
+      "top10_gained": 8,
+      "top10_lost": 1
+    }
+  }
+}
